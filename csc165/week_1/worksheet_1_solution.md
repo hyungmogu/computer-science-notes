@@ -22,3 +22,9 @@ Question 1.c
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76165272-3b973d00-611b-11ea-85a9-c5a6693d92e5.png">
 </div>
+
+Question 2.a
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76171349-c003b300-614f-11ea-82d2-06ccdeb2a059.png">
+</div>

@@ -12,6 +12,8 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/tools/enumerate.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/tools/enumerate.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_1/worksheet_1_solution.aux
 INPUT /Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_1/worksheet_1_solution.aux
 OUTPUT /Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_1/worksheet_1_solution.aux
