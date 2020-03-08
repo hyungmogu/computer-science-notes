@@ -12,3 +12,13 @@ Question 1.b
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76164785-464fd300-6117-11ea-993a-d2e61c1084bf.png">
 </div>
+
+Question 1.c
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76165174-7a78c300-611a-11ea-946b-49ba4140c381.png">
+</div>
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76165272-3b973d00-611b-11ea-85a9-c5a6693d92e5.png">
+</div>
