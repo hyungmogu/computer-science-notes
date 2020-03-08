@@ -26,5 +26,9 @@ Question 1.c
 Question 2.a
 
 <div style="text-align: center;">
-    <img src="https://user-images.githubusercontent.com/6856382/76171349-c003b300-614f-11ea-82d2-06ccdeb2a059.png">
+    <img src="https://user-images.githubusercontent.com/6856382/76171636-10c8db00-6153-11ea-9a05-091669a2f3b0.png">
 </div>
+
+
+Question 2.b
+
