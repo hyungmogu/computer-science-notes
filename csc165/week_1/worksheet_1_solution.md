@@ -73,3 +73,10 @@ Question 4.c
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76233655-20e1c880-61ee-11ea-8c72-68db72965953.png">
 </div>
+
+
+Question 5.a
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76262349-b0ed3580-6221-11ea-87c6-896a8d3f3494.png">
+</div>
