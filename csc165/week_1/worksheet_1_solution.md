@@ -80,3 +80,10 @@ Question 5.a
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76262349-b0ed3580-6221-11ea-87c6-896a8d3f3494.png">
 </div>
+
+Question 5.b
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76264554-c5343100-6227-11ea-8396-aa2d5603c225.png">
+</div>
+
