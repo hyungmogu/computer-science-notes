@@ -32,3 +32,6 @@ Question 2.a
 
 Question 2.b
 
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76171709-ef1c2380-6153-11ea-92af-eb72f07f2beb.png">
+</div>
