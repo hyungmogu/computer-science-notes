@@ -54,3 +54,9 @@ Question 3.c
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76176134-1e8f5800-6175-11ea-8bf4-c9ba36bcf665.png">
 </div>
+
+Question 4.a
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76228194-03106580-61e6-11ea-8761-84a7ac180d5b.png">
+</div>
