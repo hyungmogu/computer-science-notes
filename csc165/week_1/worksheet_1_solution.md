@@ -66,3 +66,10 @@ Question 4.b
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76231681-30abdd80-61eb-11ea-9888-f3ca5fa1842e.png">
 </div>
+
+
+Question 4.c
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76233655-20e1c880-61ee-11ea-8c72-68db72965953.png">
+</div>
