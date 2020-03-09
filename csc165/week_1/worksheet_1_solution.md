@@ -60,3 +60,9 @@ Question 4.a
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76228194-03106580-61e6-11ea-8761-84a7ac180d5b.png">
 </div>
+
+Question 4.b
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76231681-30abdd80-61eb-11ea-9888-f3ca5fa1842e.png">
+</div>
