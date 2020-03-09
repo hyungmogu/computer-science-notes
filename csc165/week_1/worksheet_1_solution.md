@@ -48,3 +48,9 @@ Question 3.b
 <div style="text-align: center;">
     <img src="https://user-images.githubusercontent.com/6856382/76175745-9197cf00-6173-11ea-9081-5b99c0403853.png">
 </div>
+
+Question 3.c
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76176134-1e8f5800-6175-11ea-8bf4-c9ba36bcf665.png">
+</div>
