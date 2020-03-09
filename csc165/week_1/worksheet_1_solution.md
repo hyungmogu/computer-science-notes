@@ -46,7 +46,7 @@ Question 3.a
 Question 3.b
 
 <div style="text-align: center;">
-    <img src="https://user-images.githubusercontent.com/6856382/76175745-9197cf00-6173-11ea-9081-5b99c0403853.png">
+    <img src="https://user-images.githubusercontent.com/6856382/76177298-5bf5e480-6179-11ea-8d6e-cad47facbe76.png">
 </div>
 
 Question 3.c
