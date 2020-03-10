@@ -87,3 +87,10 @@ Question 5.b
     <img src="https://user-images.githubusercontent.com/6856382/76264554-c5343100-6227-11ea-8396-aa2d5603c225.png">
 </div>
 
+Question 6
+
+<div style="text-align: center;">
+    <img src="https://user-images.githubusercontent.com/6856382/76271303-b193c500-623d-11ea-80eb-cfdeb31ae586.png">
+</div>
+
+
