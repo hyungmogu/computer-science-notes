@@ -56,17 +56,20 @@
 \section*{Question 5}
     \begin{enumerate}[i)]
         \item
+            \begin{align*}
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= 5n + \frac{2n \cdot (n - 1)}{2} \\
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= 5n + \frac{2n^2 - 2n}{2} \\
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= n^2 + 5n - n \\
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= n^2 + 4n  \\
+            \end{align*}
 
         \item
 
-        We know $\sum\limits_{i=0}^{n-1} (2i + 5) = 5n + \frac{2n \cdot (n - 1)}{2}$ and
-        we want find smallest positive integer $n$ satisfying
-        $5n + \frac{2n \cdot (n - 1)}{2} \geq 165165$. So,
+        Since we know $\sum\limits_{i=0}^{n-1} (2i + 5) = n^2 + 4n$ and
+        want to find smallest positive integer $n$ satisfying
+        $\sum\limits_{i=0}^{n-1} (2i + 5) \geq 165165$,
 
         \begin{align*}
-            5n + \frac{2n \cdot (n - 1)}{2} &\geq 165165 \\
-            5n + \frac{2n^2 - 2n}{2} &\geq 165165 \\
-            n^2 + 5n - n &\geq 165165 \\
             n^2 + 4n &\geq 165165 \\
             n^2 + 4n + 4 &\geq 165169 \\
             (n + 2)^2 &\geq 165169 \\
