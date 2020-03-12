@@ -88,6 +88,7 @@ Part 1
         \item
         Using rule \#6 and \#7:
 
+        \setcounter{equation}{0}
         \begin{equation}
             \exists x,y \in S,\: \forall z \in S,\:\neg (P(x,y) \land Q(x,z))
         \end{equation}
@@ -96,6 +97,20 @@ Part 1
 
         \begin{equation}
             \exists x,y \in S,\: \forall z \in S,\:\neg P(x,y) \lor \neg Q(x,z)
+        \end{equation}
+
+        \item
+        Using rule \#4:
+
+        \setcounter{equation}{0}
+        \begin{equation}
+            ((\exists x \in S,\:P(x)) \land \neg (\exists y \in S,\:Q(y)))
+        \end{equation}
+
+        Using rule \#6:
+
+        \begin{equation}
+            ((\exists x \in S,\:P(x)) \land (\forall y \in S,\:\neg Q(y))
         \end{equation}
 
     \end{enumerate}
