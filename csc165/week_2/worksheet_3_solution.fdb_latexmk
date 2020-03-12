@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1583987937 "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.tex" "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.pdf" "worksheet_3_solution" 1583987954
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.aux" 1583987938 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.tex" 1583987952 2037 a52b8a6c91f46b4807aa40ee365e385a ""
+["pdflatex"] 1584030874 "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.tex" "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.pdf" "worksheet_3_solution" 1584030875
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.aux" 1584030875 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.tex" 1584030871 2267 c14a1ad4cc1af28811ce003924725da5 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -44,11 +44,11 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "worksheet_3_solution.aux" 1583987938 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "worksheet_3_solution.tex" 1583987952 2037 a52b8a6c91f46b4807aa40ee365e385a ""
+  "worksheet_3_solution.aux" 1584030875 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "worksheet_3_solution.tex" 1584030871 2267 c14a1ad4cc1af28811ce003924725da5 ""
   (generated)
-  "worksheet_3_solution.log"
   "worksheet_3_solution.aux"
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.log"
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.pdf"
   "worksheet_3_solution.pdf"
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.pdf"
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_2/worksheet_3_solution.log"
+  "worksheet_3_solution.log"

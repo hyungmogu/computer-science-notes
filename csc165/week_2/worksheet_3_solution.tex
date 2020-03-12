@@ -52,7 +52,7 @@ Part 1
     \item
         $(\forall m \in \mathbb{Z},\:Odd(m))\land(\forall n \in \mathbb{Z},\:Odd(n)) \Rightarrow Odd(mn)$
     \item
-        $(\forall m \in \mathbb{Z},\:Odd(m))\land(\forall n \in \mathbb{Z},\:Odd(n)) \Rightarrow Odd(mn)$
+        $\forall m,n \in \mathbb{Z},\:\exists k,l \in \mathbb{Z},\:((m+1)=2k)\land((n+1)=2l) \Rightarrow \exists o \in \mathbb{Z}, (mn+1)=2o$
     \item
         $\forall m,n \in \mathbb{Z}, \exists k \in \mathbb{Z},\:((mn+1)=2k) \Rightarrow \exists l,o \in \mathbb{Z}, ((m+1)=2l)\land((n+1)=2o)$
 
@@ -60,6 +60,10 @@ Part 1
 
 
 \section*{Question 4}
+    \begin{align}
+        \neg ((a \land b) \Leftrightarrow c) \\
+        \neg (((a\land b) \land c) \lor (\neg (a \land b) \lor \neg c)) &&\text{expanding definition of iff} \\
+    \end{align}
 
 \section*{Question 5}
 
