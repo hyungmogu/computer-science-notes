@@ -3,6 +3,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{mathtools}
 
 \begin{document}
 \title{Worksheet 3 Solution}
@@ -62,7 +63,12 @@ Part 1
 \section*{Question 4}
     \begin{align}
         \neg ((a \land b) \Leftrightarrow c) \\
-        \neg (((a\land b) \land c) \lor (\neg (a \land b) \lor \neg c)) &&\text{expanding definition of iff} \\
+        \shortintertext{Expanding definition of iff:}
+        \neg (((a\land b) \land c) \lor (\neg (a \land b) \lor \neg c)) \\
+        \shortintertext{Using $\neg(p \lor q) \Rightarrow \neg p \land \neg q$:}
+        \neg((a\land b) \land c) \land \neg (\neg (a \land b) \lor \neg c) \\
+        \shortintertext{Using $\neg(p \land q) \Rightarrow \neg p \lor \neg q$ lhs and $\neg(p \lor q) \Rightarrow \neg p \land \neg q$ rhs:}
+        \neg(a\land b) \lor \neg c) \land ((a \land b) \land c)\\
     \end{align}
 
 \section*{Question 5}
