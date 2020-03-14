@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1584205188 "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.tex" "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.pdf" "problem_set_1" 1584205194
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.aux" 1584205189 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.tex" 1584205192 708 f7411f90fd3adf925a9c6e9f7ea9f11c ""
+["pdflatex"] 1584210446 "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.tex" "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.pdf" "problem_set_1" 1584210447
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.aux" 1584210447 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.tex" 1584210444 920 1d9e0cdfb86363fd730980e2318c0f1f ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -25,6 +25,7 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
@@ -44,11 +45,11 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "problem_set_1.aux" 1584205189 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "problem_set_1.tex" 1584205192 708 f7411f90fd3adf925a9c6e9f7ea9f11c ""
+  "problem_set_1.aux" 1584210447 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "problem_set_1.tex" 1584210444 920 1d9e0cdfb86363fd730980e2318c0f1f ""
   (generated)
-  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.log"
+  "problem_set_1.log"
   "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.pdf"
   "problem_set_1.aux"
-  "problem_set_1.log"
+  "/Users/moegu/Public/Programming/hyungmo_workspace/computer-science-notes/csc165/week_3/problem_set_1.log"
   "problem_set_1.pdf"

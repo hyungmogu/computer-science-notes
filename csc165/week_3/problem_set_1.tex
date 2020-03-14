@@ -15,6 +15,7 @@
     \item $\forall t \in T,\:\exists d \in D,\:\neg Canadian(t) \land BelongsTo(t,d)$
     \item $\forall t \in T,\:\exists d \in D,\:Stanley(t) \land BelongsTo(t,d)$
     \item $\forall t \in T, \exists d \in D,\:BelongsTo(t,d) \Rightarrow \forall d' \in D, d' \neq d \land \neg BelongsTo(t,d')$
+    \item $\forall t_1 \in T, \exists d \in D, \exists t_2 \in T, t_1 \neq t_2 \land (BelongsTo(t_1, d) \land BelongsTo(t_2,d)) => \forall t_3 \in T, t_3 \neq t_1 \land t_3 \neq t_2 \land \neg BelongsTo(t_3, d)$
 \end{enumerate}
 
 \section*{Question 2}
