@@ -133,7 +133,7 @@
 
 \section*{Question 4}
 
-    \begin{itemize}
+    \begin{enumerate}[a.]
         \item
 
         Let $x \in \mathbb{R}^{\geq 0}$, $\epsilon = x - \lfloor x \rfloor$, and
@@ -142,26 +142,30 @@
         \bigskip
 
         Then,
-
+        \setcounter{equation}{0}
         \begin{align}
-            (\lfloor x \rfloor)^2 &\geq 4\\
-            (x + \epsilon)^2 &\geq 4
+            (\lfloor x \rfloor)^2 &= (x - \epsilon)^2
         \end{align}
 
         \bigskip
 
-        by the fact that $\epsilon$ can be rewritten as $\lfloor x \rfloor = x + \epsilon$.
+        by the fact that $\epsilon$ can be rewritten as $\lfloor x \rfloor = x - \epsilon$.
 
         \bigskip
 
         Then,
 
         \begin{align}
-            (x + \epsilon)^2 &\geq 4\\
-            x^2 + 2x\epsilon + \epsilon^2 &\geq 4\\
+            (x - \epsilon)^2 &= x^2 - 2x\epsilon + \epsilon^2\\
+            &\geq x^2\\
+            &\geq \frac{1}{2}x^2
         \end{align}
 
+        \bigskip
 
-    \end{itemize}
+        Conclusion can be made from the above fact that $\epsilon$ is sufficiently
+        small and $\epsilon^2 - 2x\epsilon \geq 0$
+
+    \end{enumerate}
 
 \end{document}
