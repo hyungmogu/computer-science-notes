@@ -97,7 +97,7 @@
 
     \item
 
-    \textbf{Case1 ($b \mid a$):}
+    \textbf{Case 1 ($b \mid a$):}
 
     \bigskip
 
@@ -105,45 +105,16 @@
 
     \bigskip
 
-    Then,
-    \setcounter{equation}{0}
-    \begin{align}
-        gcd(a,b) &= pa + qb\\
-        &= p(kb) + qb\\
-        &= b(pk + q)
-    \end{align}
-
-
-    by the property in question 1.d.
+    Since $b$ is a prime number, other than 1, $b$ is the only number that divides $b$.
 
     \bigskip
 
-    Then,
-
-
-    \begin{align}
-        gcd(a,b) &= p(kb) + qb\\
-        &= b(pk + q)
-    \end{align}
-
-    by the fact that $b \mid a$, and by the definition of divisibility $\exists
-    k \in \mathbb{Z},\:a = kb$.
+    Since $b \mid a,\:\exists k \in \mathbb{Z}, a = kb$.
 
     \bigskip
 
-    Then,
-
-    \begin{align}
-        gcd(a,b) &= b(pk + q)\\
-        &\geq b
-    \end{align}
-
-    by the fact that $b$ is prime, and $b$ is the smallest common divisor to both $a$ and $b$.
-
-    \bigskip
-
-    Then, it follows from contraposition of the statement that the statement is true for
-    the case $b \mid a$.
+    Then, it follows that $gcd(a,b) = b$, and contraposition of the statement is true
+    for the case $b \mid a$.
 
 \end{enumerate}
 
