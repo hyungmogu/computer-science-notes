@@ -17,7 +17,10 @@
 
     \item
 
-    Common Divisor Predicate: $\exists x,y,d \in \mathbb{Z},\:d \mid x \land d \mid y$
+    $isCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:d \mid x \land d \mid y$
+
+    $isGCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:isCD(x,y,d)
+    \land (\forall e \in \mathbb{Z},\:e > d \Rightarrow \neg isCD(x,y,e))$
 
 \end{enumerate}
 
