@@ -24,7 +24,17 @@
 
     \item
 
-    Statement: $\forall x \in \mathbb{Z}^{+}, IsGCD(x,0,0)$
+    Statement: $\forall x \in \mathbb{Z}^{+}, IsGCD(x,0,x)$
+
+    \bigskip
+
+    For the value $x$, because we know $x \mid x$, and $\forall n \in \mathbb{Z}^{+}$ and $d \in
+    \mathbb{Z}, d \mid n \Rightarrow d \leq n$, $x$ is the biggest divisor of $x$
+
+    For the value $0$, because we know anything that divides 0 is 0, and
+    $\exists k \in \mathbb{Z},\: 0 = k \times 0$, $k$ can be chosen to be $x$.
+
+    Then, it follows from the definition of GCD that the statement $IsGCD(x,0,x)$ is true.
 
 
 \end{enumerate}
