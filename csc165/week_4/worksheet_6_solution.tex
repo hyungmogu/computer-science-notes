@@ -19,8 +19,12 @@
 
     $isCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:d \mid x \land d \mid y$
 
-    $isGCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:isCD(x,y,d)
-    \land (\forall e \in \mathbb{Z},\:e > d \Rightarrow \neg isCD(x,y,e))$
+    $isGCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:(x = 0 \land y = 0 \land d = 0)
+    \lor ((x \neq 0 \lor y \neq 0) \land isCD(x,y,d) \land \forall e \in \mathbb{Z}, \:e > d \Rightarrow \neg isCD(x,y,e))$
+
+    \item
+
+
 
 \end{enumerate}
 
