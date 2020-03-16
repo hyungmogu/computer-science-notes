@@ -95,6 +95,56 @@
 
     $\forall a,b \in \mathbb{N}, Prime(b) \Rightarrow 1 \geq gcd(a,b) \lor gcd(a,b) \geq b$
 
+    \item
+
+    \textbf{Case1 ($b \mid a$):}
+
+    \bigskip
+
+    Let $a,b \in \mathbb{N}$, and assume $Prime(b)$. Also assume $b \mid a$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        gcd(a,b) &= pa + qb\\
+        &= p(kb) + qb\\
+        &= b(pk + q)
+    \end{align}
+
+
+    by the property in question 1.d.
+
+    \bigskip
+
+    Then,
+
+
+    \begin{align}
+        gcd(a,b) &= p(kb) + qb\\
+        &= b(pk + q)
+    \end{align}
+
+    by the fact that $b \mid a$, and by the definition of divisibility $\exists
+    k \in \mathbb{Z},\:a = kb$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        gcd(a,b) &= b(pk + q)\\
+        &\geq b
+    \end{align}
+
+    by the fact that $b$ is prime, and $b$ is the smallest common divisor to both $a$ and $b$.
+
+    \bigskip
+
+    Then, it follows from contraposition of the statement that the statement is true for
+    the case $b \mid a$.
+
 \end{enumerate}
 
 \end{document}
