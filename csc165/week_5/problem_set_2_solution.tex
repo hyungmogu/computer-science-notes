@@ -45,15 +45,22 @@
 
     \bigskip
 
-    Since $Prime(n)$, by fact 3, $n$ can either be divided by 1 or $p$.
+    Since $Prime(n)$, by fact 3, $n$ can either be divided by 1 or $n$.
 
     \bigskip
 
-    Since $n \mid n$, but $n \nmid m$, $n \nmid (n+m)$.
+    Since $n \mid n$, but $n \nmid m$, $n \nmid (n+m)$, and $n$ can't be chosen
+    as the greatest common divisor of $n$ and $n+m$.
 
     \bigskip
 
-    Since $n \nmid (n+m)$ but $1 \mid n$ and $1 \mid (n+m)$, $gcd(n,n+m)=1$.
+    Since $gcd(n,n+m) \neq n$ but $1 \mid n$ and $1 \mid (n+m)$, $gcd(n,n+m)=1$.
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall m \in \mathbb{Z}$,
+    $\forall n_0 \in \mathbb{N}$, $\exists n \in \mathbb{N}$ $n > n_0 \land
+    gcd(n, n+m) = 1$ is true.
 
 \end{enumerate}
 
