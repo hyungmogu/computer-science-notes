@@ -23,6 +23,59 @@
 
     $\forall k \in \mathbb{N},\:0 \leq 2^0 \land k \leq 2^k \Rightarrow k+1 \leq
     2^{k+1}$
+
+    \item
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        (0) &\leq 2^0\\
+        0 &\leq 1
+    \end{align}
+
+    \bigskip
+
+    Since, $n \leq 2^n$ is true for $n = 0$, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $k \in \mathbb{N}$, and assume that $P(k)$ is true.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        2^{k+1} &= 2^k + 2^k\\
+        &\geq k + k\\
+    \end{align}
+
+    Then,
+
+    \begin{align}
+        2^{k+1} &\geq k + k\\
+        &\geq k + 1
+    \end{align}
+
+    by the fact that $k \in \mathbb{N}$ and $k \geq 1$.
+
+    \bigskip
+
+    Then, it follows from proof by induction that the statement $k \leq 2^k$ is
+    true.
+
 \end{enumerate}
 
 
