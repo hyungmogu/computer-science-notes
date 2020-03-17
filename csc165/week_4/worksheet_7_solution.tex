@@ -123,10 +123,6 @@
 \begin{enumerate}[a.]
     \item
 
-    \textbf{Fact 1:}
-
-    \bigskip
-
     Let $x \in \mathbb{Z}$.
 
     \bigskip
@@ -142,11 +138,7 @@
 
     Then, it follows from the definition of divisibility that x divides x.
 
-    \bigskip
-
-    \textbf{Fact 2:}
-
-    \bigskip
+    \item
 
     Let $x,y \in \mathbb{N}$. Assume $y \geq 1$ and $x \mid y$.
 
@@ -171,11 +163,7 @@
         1 \leq x \leq kx = y
     \end{align}
 
-    \bigskip
-
-    \textbf{Fact 3:}
-
-    \bigskip
+    \item
 
     Let $n,p \in \mathbb{Z}$. Assume $Prime(p)$ and $p \nmid n$.
 
@@ -192,6 +180,45 @@
     \bigskip
 
     Since $p \nmid n$, but $1 \mid p$ and $1 \mid n$, $gcd(p,n) = 1$
+
+    \item
+
+    Let $n,m \in \mathbb{N}$.
+
+    \bigskip
+
+    \textbf{Case 1 ($n \neq 0, m = 0$):}
+
+    \bigskip
+
+    Assume $n \neq 0$ and $m = 0$.
+
+    \bigskip
+
+    Then, $\exists r,s \in \mathbb{Z}$,
+    \setcounter{equation}{0}
+    \begin{align}
+        gcd(n,m) &= rn + sm\\
+        &= rn
+    \end{align}
+
+    by fact 6 (i.e. $\forall n,m \in \mathbb{N}, \exists r,s \in \mathbb{Z},\:
+    rn + sm = gcd(n,m)$)
+
+    \bigskip
+
+    Then, $gcd(n,m)$ is divisible by $n$, by the definition of divisibility.
+
+    \bigskip
+
+    Since, $n \in \mathbb{N}$ and $n \geq 1$, by fact 2 (i.e. $\forall x,y \in
+    \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y$),
+
+    \begin{align}
+        1 &\leq n \leq gcd(n,m)\\
+        1 &\leq gcd(n,m)
+    \end{align}
+
 
 \end{enumerate}
 
