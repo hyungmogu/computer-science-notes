@@ -80,6 +80,51 @@
 
 
 \section*{Question 2}
+\begin{itemize}
+    \item
+
+    \textbf{Base Case:}
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{j=0}^0 T_j &= \frac{(0)(0 + 1)(0 + 2)}{6}\\
+        &= 0
+    \end{align}
+
+    \bigskip
+
+    Since $T_0 = 0$, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $k \in \mathbb{N}$, and assume that $\sum\limits_{j=0}^k T_j =
+    \frac{k(k+1)(k+2)}{6}$ is true.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{j=0}^k T_j + T_{k+1} &= \frac{k(k+1)(k+2)}{6} + \frac{(k+1)(k+2)}{2}\\
+        &= \frac{k(k+1)(k+2)}{6} + \frac{3(k+1)(k+2)}{6}\\
+        &= \frac{(k+1)(k+2)(k+3)}{6}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from proof by induction that the statement $\forall n \in
+    \mathbb{N},\:\sum\limits_{j=0}^k T_j = \frac{k(k+1)(k+2)}{6}$ is true.
+
+\end{itemize}
 
 \section*{Question 3}
 
