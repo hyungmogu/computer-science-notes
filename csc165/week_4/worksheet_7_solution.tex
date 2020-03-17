@@ -195,29 +195,25 @@
 
     \bigskip
 
-    Then, $\exists r,s \in \mathbb{Z}$,
+    Since $n \mid n$ (by fact 1) and $n \mid m$, $n$ is a common divisor, and
+
+    \bigskip
     \setcounter{equation}{0}
     \begin{align}
-        gcd(n,m) &= rn + sm\\
-        &= rn
+        gcd(n,m) &= n
     \end{align}
 
-    by fact 6 (i.e. $\forall n,m \in \mathbb{N}, \exists r,s \in \mathbb{Z},\:
-    rn + sm = gcd(n,m)$)
+    by the definition of greatest common divisor.
 
     \bigskip
 
-    Then, $gcd(n,m)$ is divisible by $n$, by the definition of divisibility.
-
-    \bigskip
-
-    Since, $n \in \mathbb{N}$ and $n \geq 1$, by fact 2 (i.e. $\forall x,y \in
-    \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y$),
+    Since, $n \in \mathbb{N}$ and $n \mid gcd(n,m)$ (by fact 1),
 
     \begin{align}
-        1 &\leq n \leq gcd(n,m)\\
-        1 &\leq gcd(n,m)
+        1 &\leq gcd(n,m) \leq n
     \end{align}
+
+    by fact 2.
 
     \bigskip
 
