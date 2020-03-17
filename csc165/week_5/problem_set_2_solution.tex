@@ -13,60 +13,26 @@
 \begin{enumerate}[a.]
     \item
 
-    \textbf{Fact 1:}
+    \item
+
+    Let $k,n \in \mathbb{Z}^{+}$, and $p \in \mathbb{N}$. Assume $Prime(p)$, and
+    $p^k < n < p^k + p$.
 
     \bigskip
 
-    Let $a,b \in \mathbb{N}$. Assume $2 \nmid a$ and $2 \nmid b$.
+    Then, $p^k$ can either be divided by 1 or $p$ by fact 3.
 
     \bigskip
 
-    Then, $\exists k,l \in \mathbb{Z}$.
-
-    \begin{align}
-        a &= 2k - 1\\
-        b &= 2l - 1
-    \end{align}
+    Since, $p^k < n < p^k + p$, $n$ cannot be written in multiples of $p$.
 
     \bigskip
 
-    Then,
-
-    \begin{align}
-        a - b &= (2k-1)(2l-1)\\
-        &= 2(k-1)-2\\
-        &= 2(k-l-1)
-    \end{align}
+    Then, it follows from the definition of divisibility that $p \nmid n$.
 
     \bigskip
 
-    Then, it follows from the definition of divisibility that $2 \mid a-b$.
-
-    \textbf{Fact 2:}
-
-    \bigskip
-
-    Let $a,b,c \in \mathbb{Z}$. Assume $a \mid b$ and $b \mid c$.
-
-    \bigskip
-
-    Then $\exists k,l \in \mathbb{Z}$,
-    \setcounter{equation}{0}
-    \begin{align}
-        b &= ka\\
-        c &= lb
-    \end{align}
-
-    \bigskip
-
-    Then,
-
-    \begin{align}
-        c &= l(ka)\\
-        c &= (lk)a
-    \end{align}
-
-    Then, it follows from the definition of divisibility that $a \mid c$.
+    Since $p \nmid n$, but $1 \mid p^k$ and $1 \mid n$, $gcd(p^k, n) = 1$.
 
 \end{enumerate}
 
