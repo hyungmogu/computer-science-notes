@@ -133,6 +133,33 @@
     Let $x \in \mathbb{R}^{+}$, and let $n \in \mathbb{N}$. Assume $(1+x)^n \geq
     1 + nx$.
 
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        (1+x)^{n+1} &= (1+x)^n(1+x)\\
+        &\geq (1+nx)(1+x)
+    \end{align}
+
+    by the assumption $(1+x)^n \geq 1 + nx$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        (1+x)^{n+1} &\geq (1+nx)(1+x)\\
+        &\geq 1 + x + nx + nx^2\\
+        &\geq 1 + x(n+1) + nx^2\\
+        &\geq 1 + x(n+1)
+    \end{align}
+
+    Then, it follows from proof by induction that the statement $\forall x \in
+    \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:(1+x)^n \geq 1 + nx$ is true.
+
+
+
 \end{enumerate}
 
 \section*{Question 4}
