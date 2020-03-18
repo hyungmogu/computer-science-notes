@@ -237,6 +237,100 @@
         0 &\leq \epsilon
     \end{align}
 
+    \bigskip
+
+    And for $\epsilon < 1$, let $y \in \mathbb{R}^{\geq 0}$, and $n \in \mathbb{Z}$.
+    Assume $n >y$, and assume $y = (n + \epsilon)^2 - n^2$.
+
+    \bigskip
+
+    \begin{align}
+        y + n &= (\epsilon + n)^2\\
+        \pm \sqrt{y + n^2} - n &= \epsilon\\
+        \sqrt{y + n^2} - n &= \epsilon\\
+    \end{align}
+
+    by assuming $\epsilon$ is in $\mathbb{R}^{\geq 0}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sqrt{y + n^2} - n &= \epsilon\\
+        \frac{(\sqrt{y - n^2})^2 - n^2}{\sqrt{y + n^2} + n} &= \epsilon
+    \end{align}
+
+    by using hint 2 ($x -y = \frac{x^2 - y^2}{x + y}$).
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{(\sqrt{y - n^2})^2 - n^2}{\sqrt{y + n^2} + n} &= \epsilon\\
+        \frac{y}{\sqrt{y + n^2} + n} &= \epsilon\\
+        \frac{y}{\sqrt{y + y^2} + y} &> \epsilon
+    \end{align}
+
+    by using assumption $n > y$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{y}{\sqrt{y + y^2} + y} &> \epsilon\\
+        \frac{y}{\sqrt{y^2} + y} &> \epsilon\\
+        \frac{y}{y + y} &> \epsilon\\
+        \frac{y}{2y} &> \epsilon\\
+        \frac{y}{y} &> \epsilon\\
+        1 &> \epsilon
+    \end{align}
+
+    Then, it follows from above that the statement $\forall y \in \mathbb{R}^{\geq 0},\:
+    \forall n \in \mathbb{Z}^{+},\:n>y \Rightarrow (\exists \epsilon \in \mathbb{R}^{\geq 0},\:
+    0 \leq \epsilon < 1 \land y = (n + \epsilon)^2 - n^2)$ is true given $n>y$ and
+    $y = (n + \epsilon)^2 - n^2$.
+
+    \bigskip
+
+    \textbf{Proof of $y = (n + \epsilon)^2 - n^2$:}
+
+    \bigskip
+
+    Let $y \in \mathbb{R}^{\geq 0}$, and $n \in \mathbb{Z}$. Assume $n >y$, and
+    assume $0 \leq \epsilon < 1$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        (n + \epsilon)^2 &= n^2 + 2n\epsilon + \epsilon^2\\
+        (n + \epsilon)^2 - n^2 &= 2n\epsilon + \epsilon^2\\
+        (n + \epsilon)^2 - n^2 &= 2n(\sqrt{y+n^2}-n) + (\sqrt{y + n^2} - n)^2
+    \end{align}
+
+    by assuming $\epsilon = \sqrt{y+n^2} - n$ (since $0 \leq \sqrt{y+n^2} - n < 1$).
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        (n + \epsilon)^2 - n^2 &= 2n(\sqrt{y+n^2}-n) + (\sqrt{y + n^2} - n)^2\\
+        &= 2(\sqrt{y+n^2} - n)(2n + \sqrt{y+n^2} - n)\\
+        &= (\sqrt{y+n^2} - n)(\sqrt{y+n^2} + n)\\
+        &= (\sqrt{y + n^2})^2 - n^2\\
+        &= y
+    \end{align}
+
+    Then, it follows from above that the statement $\forall y \in \mathbb{R}^{\geq 0},\:
+    \forall n \in \mathbb{Z}^{+},\:n>y \Rightarrow (\exists \epsilon \in \mathbb{R}^{\geq 0},\:
+    0 \leq \epsilon < 1 \land y = (n + \epsilon)^2 - n^2)$ is true given $n>y$ and
+    $0 \leq \epsilon < 1$.
+
     \item
 
     \textbf{Predicate Logic:} $\exists f:\mathbb{R}^{\geq 0} \to \mathbb{R}^{\geq 0}$,
