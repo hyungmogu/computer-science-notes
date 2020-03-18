@@ -147,7 +147,7 @@
     Then,
     \setcounter{equation}{0}
     \begin{align}
-        \lfloor nx \rfloor - n \lfloor x \rfloor &\leq nx - \lfloor x \rfloor\\
+        \lfloor nx \rfloor - n \lfloor x \rfloor &\leq nx - n\lfloor x \rfloor\\
         &\leq n(x - \lfloor x \rfloor)
     \end{align}
 
@@ -159,14 +159,15 @@
 
     \begin{align}
         \lfloor nx \rfloor - n \lfloor x \rfloor &\leq n(x - \lfloor x \rfloor)\\
-        &\leq k
+        &< n\\
+        &< k
     \end{align}
 
-    by choosing $k = n(x - \lfloor x \rfloor)$.
+    by using fact 1 and choosing $k = n$.
 
     \bigskip
 
-    Then, it follows from the above that the statement the statement
+    Then, it follows that the statement the statement
     $\forall n \in \mathbb{N},\:\exists k \in \mathbb{N},\:x \in \mathbb{R},\:\lfloor
     nx \rfloor - n \lfloor x \rfloor \leq k$ is true.
 
