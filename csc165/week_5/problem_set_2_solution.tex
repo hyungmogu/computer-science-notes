@@ -132,6 +132,47 @@
 
 \section*{Question 2}
 
+\begin{enumerate}[a.]
+    \item
+
+    Let $n \in \mathbb{N}$, and $x \in \mathbb{R}$.
+
+    \bigskip
+
+    Because we know $\forall x \in \mathbb{R},\: 0 \leq x - \lfloor x \rfloor < 1$ from
+    fact 1, we can conclude $\lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor nx \rfloor - n \lfloor x \rfloor &\leq nx - \lfloor x \rfloor\\
+        &\leq n(x - \lfloor x \rfloor)
+    \end{align}
+
+    by using the above.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \lfloor nx \rfloor - n \lfloor x \rfloor &\leq n(x - \lfloor x \rfloor)\\
+        &\leq k
+    \end{align}
+
+    by choosing $k = n(x - \lfloor x \rfloor)$.
+
+    \bigskip
+
+    Then, it follows from above that the statement the statement
+    $\forall x \in \mathbb{R},\:\lfloor nx \rfloor - n \lfloor x \rfloor \leq k$ is true.
+
+
+
+\end{enumerate}
+
 \section*{Question 3}
 
 \end{document}
