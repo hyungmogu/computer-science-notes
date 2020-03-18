@@ -171,6 +171,31 @@
     $\forall n \in \mathbb{N},\:\exists k \in \mathbb{N},\:x \in \mathbb{R},\:\lfloor
     nx \rfloor - n \lfloor x \rfloor \leq k$ is true.
 
+    \item
+
+    \textbf{Negation of statement:} $\forall k \in \mathbb{N},\: \exists m \in \mathbb{N},\:
+    \exists x \in \mathbb{R},\: \lfloor nx \rfloor - n \lfloor x \rfloor > k$
+
+    \bigskip
+
+    Let $x = 0.5$ and $n = 2(k+1)$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor nx \rfloor - n \lfloor x \rfloor &> k\\
+        &= \lfloor \frac{2(k+1)}{2} - n\lfloor 0.5 \rfloor\\
+        &= k + 1 - 0\\
+        &= k + 1\\
+        &> k
+    \end{align}
+
+    \bigskip
+
+    Then it follows that the statement $\exists k \in \mathbb{N},\:\forall n \in \mathbb{N},\:
+    \forall x \in \mathbb{R},\: \lfloor nx \rfloor - n \lfloor x \rfloor \leq k$ is false.
 
 
 \end{enumerate}
