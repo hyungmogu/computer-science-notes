@@ -196,6 +196,36 @@
     Then it follows that the statement $\exists k \in \mathbb{N},\:\forall n \in \mathbb{N},\:
     \forall x \in \mathbb{R},\: \lfloor nx \rfloor - n \lfloor x \rfloor \leq k$ is false.
 
+    \item
+
+    \item
+
+    \textbf{Predicate Logic:} $\exists f:\mathbb{R}^{\geq 0} \to \mathbb{R}^{\geq 0}$,
+    $f(x) = x^2 - (\lfloor x \rfloor)^2 \land Onto(f)$
+
+    \textbf{Definition of Onto:} $f:\mathbb{R} \to \mathbb{R}$ is \textbf{onto}
+    when its codomain $\mathbb{R}$ only contains values that could possibly be output
+    by $f$ (and no impossible values).
+
+    \bigskip
+
+    Let $f(x) = x^2 - (\lfloor x \rfloor)^2$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        (x^2 - \lfloor x \rfloor^2) &\geq (x - \lfloor x \rfloor)(x + \lfloor x \rfloor)\\
+        &\geq (x - \lfloor x \rfloor) \cdot 0\\
+        &\geq 0
+    \end{align}
+
+    by fact 1 (i.e. $\forall x \in \mathbb{R},\: 0 \leq x + \lfloor x \rfloor < 1$).
+
+    \bigskip
+
+    Since $f$ has lower bound of 0, and covers all of its codomain, $f$ is onto.
 
 \end{enumerate}
 
