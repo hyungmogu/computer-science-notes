@@ -67,6 +67,67 @@
     $\forall n_0 \in \mathbb{N}$, $\exists n \in \mathbb{N}$ $n > n_0 \land
     gcd(n, n+m) = 1$ is true.
 
+    \item
+
+    \textbf{Definition of Primary Gap:} Let $a \in \mathbb{N}$. We say that $a$
+    is a prime gap when there exists a prime $p$ such that $p+a$ is also prime,
+    and none of the numbers between $p$ and $p + a$ (exclusive) are prime.
+
+    \bigskip
+
+    \textbf{Case 1 ($a > 2$):}
+
+    \bigskip
+
+    Let $a,p \in \mathbb{Z}^{+}$. Assume $PrimaryGap(a)$, $Primary(p)$, and $a > 2$.
+
+    \bigskip
+
+    Then, $2 \nmid p$ and $2 \nmid p + a$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        2 &\mid (p + a) - a\\
+        2 &\mid a
+    \end{align}
+
+    by fact 1.
+
+    \bigskip
+
+    Then it follows from above that in case $a > 2$, primary gap is divisible by
+    2.
+
+    \bigskip
+
+    \textbf{Case 2 ($a \leq 2$):}
+
+    \bigskip
+
+    Let $a,p \in \mathbb{Z}^{+}$. Assume $PrimaryGap(a)$, $Primary(p)$, and
+    $a \leq 2$.
+
+    \bigskip
+
+    Then, only two primary numbers in $\mathbb{Z}^{+}$ exist - 1 and 2.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        a &= 2 - 1\\
+        a &= 1
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that in case $a \leq 2$, the value of primary gap
+    is 1.
+
 \end{enumerate}
 
 \section*{Question 2}
