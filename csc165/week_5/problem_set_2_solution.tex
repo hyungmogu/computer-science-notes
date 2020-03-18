@@ -198,6 +198,45 @@
 
     \item
 
+    \textbf{Proof of $0 \leq \epsilon < 1$:}
+
+    \bigskip
+
+    Let $y \in \mathbb{R}^{\geq 0}$, and $n \in \mathbb{Z}$. Assume $n >y$, and
+    assume $y = (n + \epsilon)^2 - n^2$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        y + n^2 &= (n + \epsilon)^2\\
+        \pm \sqrt{y + n^2} - n &= \epsilon\\
+        \sqrt{y + n^2} - n &= \epsilon\\
+    \end{align}
+
+    by assuming $\epsilon$ is in $\mathbb{R}^{\geq 0}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sqrt{n^2} - n &\leq \epsilon
+    \end{align}
+
+    by using inequality $y \geq 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sqrt{n^2} - n &\leq \epsilon\\
+        n - n &\leq \epsilon\\
+        0 &\leq \epsilon
+    \end{align}
+
     \item
 
     \textbf{Predicate Logic:} $\exists f:\mathbb{R}^{\geq 0} \to \mathbb{R}^{\geq 0}$,
