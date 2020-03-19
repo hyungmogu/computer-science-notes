@@ -183,6 +183,64 @@
 
     $\{\},\{1\},\{2\},\{1,2\}$
 
+    \item
+
+    P(n): For every natural number $n$, every set $S$ of size $n$ satisfies
+    $\vert \mathcal{P}(S) \vert = 2^n$
+
+    \textbf{Base Case ($n = 0$):}
+
+    \bigskip
+
+    Let $n = 0$. Then, $\mathcal{P}(\{\}) = \left\{\{\}\right\}$.
+
+    \bigskip
+
+    Then, $\vert \mathcal{P}(\{\}) \vert = 1$
+
+    \bigskip
+
+    Since $2^0 = 1$, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    Let $n \in \mathbb{N}$. Assume $P(n)$.
+
+    \bigskip
+
+    Since the number of subsets containing last element in $S$ of size $n+1$ is
+    $2^{n}$ by the table below,
+
+    \begin{tabular}{c | c | c}
+        Index & Set & \# of subsets containing last element\\
+        \hline
+        0 & $\{\}$ & 0\\
+        \hline
+        1 & $\{1\}$ & 1\\
+        \hline
+        2 & $\{1,2\}$ & 2\\
+        \hline
+        3 & $\{1,2,3\}$ & 4\\
+        \hline
+        4 & $\{1,2,3,4\}$ & 8
+    \end{tabular}
+
+    \bigskip
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \vert \mathcal{P}(n+1) \vert &= 2^n + 2^n\\
+        &= 2^{n+1}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from the proof of induction that the statement 'for every natural
+    number $n$, every set $S$ of size $n$ satisfies $\vert \mathcal{P}(S) \vert = 2^n$'
+    is true.
+
 \end{enumerate}
 
 
