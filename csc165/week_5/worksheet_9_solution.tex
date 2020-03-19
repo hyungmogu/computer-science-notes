@@ -102,6 +102,72 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    P(n): Every finite set $S$ of size $n$ has exactly $\frac{n(n-1)(n-2)}{6}$
+    subsets of size 3.
+
+    \textbf{Base Case ($n = 0$):}
+
+    \bigskip
+
+    Let the size of $S$ be 0.
+
+    \bigskip
+
+    Then, $S$ only contains empty subsets.
+
+    \bigskip
+
+    Since an empty subset has size 0, $S$ has 0 subsets of size 3.
+
+    \bigskip
+
+    \textbf{Inductive Step:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$.
+
+    \bigskip
+
+    By the table below
+
+    \begin{tabular}{c | c | c}
+        Index & Set & \# of subsets of size 3 containing last element\\
+        \hline
+        0 & $\{\}$ & 0\\
+        \hline
+        1 & $\{s_1\}$ & 0\\
+        \hline
+        2 & $\{s_1,s_2\}$ & 0\\
+        \hline
+        3 & $\{s_1,s_2,s_3\}$ & 1\\
+        \hline
+        4 & $\{s_1,s_2,s_3,s_4\}$ & 3\\
+        \hline
+        5 & $\{s_1,s_2,s_3,s_4,s_5\}$ & 6\\
+    \end{tabular}
+
+    ,we can deduce that the number of subsets of size 3 containing
+    $s_{k+1}$ is $\frac{k(k-1)}{2}$.
+
+    \bigskip
+
+    Since the number of subsets of $S$ of size 3 that doesn't contain $s_{k+1}$ is
+    $\frac{(k)(k-1)(k-2)}{6}$,
+    \setcounter{equation}{0}
+    \begin{align}
+        \frac{k(k-1)(k-2)}{6} + \frac{k(k-1)}{2} &= \frac{k(k-1)(k-2)}{6} + \frac{3k(k-2)}{6}\\
+        &= \frac{k(k-1)}{6}(k-2 + 3)\\
+        &= \frac{(k+1)k(k-1)}{6}
+    \end{align}
+
+    Then, it follows from the proof of induction that the statement every finite
+    set $S$ of size $n$ has exactly $\frac{n(n-1)(n-2)}{6}$ subsets of size 3 is true.
+
+\end{enumerate}
 
 \section*{Question 3}
 
