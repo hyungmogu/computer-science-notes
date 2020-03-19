@@ -118,6 +118,24 @@
         &= 1
     \end{align}
 
+    \item
+
+    The first 1 in $(0.0\overline{0011})_2$ repeats every $4^{th}$ position, and
+    the second 1 repeats every $4^{th} + 1$ position.
+
+    \bigskip
+
+    So,
+    \setcounter{equation}{0}
+    \begin{align}
+        (0.0\overline{0011})_2 &= \sum\limits_{i=1}^{\infty} (\frac{1}{2})^{4i} + \sum\limits_{i=1}^{\infty} (\frac{1}{2})^{4i+1}\\
+        &= \sum\limits_{i=1}^{\infty} (\frac{1}{16})^{i} + \sum\limits_{i=1}^{\infty} \frac{1}{2}(\frac{1}{16})^{i}\\
+        &= \frac{\frac{1}{16}}{1 - \frac{1}{16}} + \frac{1}{2}(\frac{\frac{1}{16}}{1 - \frac{1}{16}})\\
+        &= \frac{1}{15} + \frac{1}{30}\\
+        &= \frac{3}{30}\\
+        &= \frac{1}{10}
+    \end{align}
+
 \end{enumerate}
 
 
