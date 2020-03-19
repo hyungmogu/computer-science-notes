@@ -41,6 +41,32 @@
         F & F & F & T & F & T
     \end{tabular}
 
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $p$ & $q$ & $r$ & $\neg p$ & $\neg p \Leftrightarrow q$ & $(\neg p \Leftrightarrow q) \Rightarrow r$\\
+        \hline
+        T & T & T & F & F & T\\
+        \hline
+        T & T & F & F & F & T\\
+        \hline
+        T & F & T & F & T & T\\
+        \hline
+        *F & *T & *T & *T & *T & *T\\
+        \hline
+        T & F & F & F & T & F\\
+        \hline
+        *F & *T & *F & *T & *T & *F\\
+        \hline
+        F & F & T & T & F & T\\
+        \hline
+        F & F & F & T & F & T
+    \end{tabular}
+
+    $* = \text{Incorrect/missing solution}$
+
     \item
 
     Let $x \in \mathbb{N}$. Assume $P(x)$.
