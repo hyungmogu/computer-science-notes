@@ -124,5 +124,50 @@
 \end{enumerate}
 
 \section*{Question 4}
+\begin{itemize}
+    \item
+
+    Let $x,y \in \mathbb{R}$.
+
+    \bigskip
+
+    Then, there exists $\epsilon_1,\:\epsilon_2 \in \mathbb{R},\:0 \leq
+    \epsilon_1,\:\epsilon_2 < 1 \land x = \lfloor x \rfloor + \epsilon_1 \land y =
+    \lfloor y \rfloor + \epsilon_2$ by fact 1.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor x + y \rfloor &= \Big\lfloor \lfloor x \rfloor + \epsilon_1 = \lfloor y \rfloor + \epsilon_2 \Big\rfloor\\
+        &= \Big\lfloor (\lfloor x \rfloor + \lfloor y \rfloor) + (\epsilon_1 + \epsilon_2) \Big\rfloor
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \Big\lfloor (\lfloor x \rfloor + \lfloor y \rfloor) + (\epsilon_1 + \epsilon_2) \Big\rfloor &= (\lfloor x \rfloor + \lfloor y \rfloor) + \Big\lfloor \epsilon_1 + \epsilon_2 \Big\rfloor
+    \end{align}
+
+    by fact 2.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \Big\lfloor (\lfloor x \rfloor + \lfloor y \rfloor) + (\epsilon_1 + \epsilon_2) \Big\rfloor &\geq \lfloor x \rfloor + \lfloor y \rfloor
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall x,y\in \mathbb{R}, \lfloor x + y
+    \rfloor \geq \lfloor x \rfloor + \lfloor y \rfloor$ is true.
+
+
+\end{itemize}
 
 \end{document}
