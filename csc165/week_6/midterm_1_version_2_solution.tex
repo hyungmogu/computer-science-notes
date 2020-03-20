@@ -166,6 +166,46 @@
     Since $\lfloor nx \rfloor \neq n \lfloor x \rfloor$,the predicate logic is
     false.
 
+    \bigskip
+
+    \textbf{Correction, First Case ($n \leq 1$):}
+
+    \bigskip
+
+    Assume $n \leq 1$. Then, the first case of the negation is true.
+
+    \bigskip
+
+    \textbf{Correction, Second Case ($\exists x \in \mathbb{R}, n \lfloor x \rfloor
+    \neq \lfloor nx \rfloor$):}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$, $x = \frac{1}{n}$. Assume $n > 1$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        n \lfloor x \rfloor &= n \lfloor \frac{1}{n} \rfloor\\
+        &= 0
+    \end{align}
+
+    And,
+
+    \begin{align}
+        \lfloor nx \rfloor &= \lfloor \frac{1}{n} \rfloor\\
+        &= \lfloor 1 \rfloor\\
+        &= 1
+    \end{align}
+
+    Since $n\lfloor x \rfloor \neq \lfloor nx \rfloor$, the second case of negation
+    is also false.
+
+    \bigskip
+
+    Then, it follows from the negation that the statement is false.
 
 \end{enumerate}
 
