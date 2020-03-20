@@ -103,6 +103,13 @@
     $\exists x \in T, Canadian(x) \land Star(x) \Rightarrow \forall y \in T,\:
     \exists z \in T,\: y \neq z \land Canadian(y) \land Defeated(y,z)$
 
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $\exists x \in T, Canadian(x) \land Star(x) \Rightarrow (\forall y \in T,\:
+    Canadian(y) \Rightarrow \exists z \in T, y \neq z \land Defeated(y,z))$
+
     \item
 
     $\exists x \in T,\:Canadian(x) \land Star(x) \land (\forall y \in T,\: x \neq y
