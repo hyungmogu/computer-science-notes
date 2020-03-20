@@ -82,6 +82,8 @@
 
     $\forall x \in T, Canadian(x) \land Star(x)$
 
+    \bigskip
+
     \textbf{Correct Solution:}
 
     $\forall x \in T, Canadian(x) \Rightarrow Star(x)$
@@ -89,6 +91,12 @@
     \item
 
     $\forall x \in T, Canadian(x) \Rightarrow \forall y \in T,\:\neg Canadian(y) \land Defeated(x,y)$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $\forall x \in T, Canadian(x) \Rightarrow (\forall y \in T,\:\neg Canadian(y) \Rightarrow Defeated(x,y))$
 
     \item
 
