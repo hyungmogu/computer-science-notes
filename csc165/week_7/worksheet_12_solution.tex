@@ -15,10 +15,7 @@
 
     $c,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\: n \geq n_0 \Rightarrow
     g(n) \leq c$, where $g: \mathbb{N} \to \mathbb{R}^{\geq 0}$
-\end{enumerate}
 
-\section*{Question 2}
-\begin{itemize}
     \item
 
     Let $c = \frac{277}{2}$, $n_0 = 1$, $n \in \mathbb{N}$, $f,g: \mathbb{N} \to
@@ -40,6 +37,48 @@
 
     The, it follows from the definition of Big-Oh that the statement $100 +
     \frac{77}{n+1} \in \mathcal{O}(1)$ is true.
+\end{enumerate}
+
+\section*{Question 2}
+\begin{itemize}
+    \item
+
+    \textbf{Expanded Statement:} $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $(\exists c,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:n \geq n_0
+    \Rightarrow g(n) \leq cf(n)) \Rightarrow (\exists d,m_0 \in \mathbb{R}^{+},\:
+    \forall m \in \mathbb{N},\: m \geq m_0 \Rightarrow dg(n) \leq f(n))$.
+
+    \bigskip
+
+    Let $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $n_0 = 1$, $c = \frac{1}{d}$,
+    $n \in \mathbb{N}, m_0 = 1$. Assume $n \geq n_0$, $g(n) \leq cf(n)$ and
+    $m \geq m_0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) &\leq cf(n)\\
+        g(n) &\leq \frac{1}{d}f(n)\\
+        dg(n) &\leq f(n)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        dg(m) &\leq f(m)
+    \end{align}
+
+    by changing variable from n to m.
+
+    \bigskip
+
+    Then, it follows from the definition of Omega that the statement
+    $,f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $g \in \mathcal{O}(f) \Rightarrow
+    \Omega (g)$ is true.
 
 \end{itemize}
 
