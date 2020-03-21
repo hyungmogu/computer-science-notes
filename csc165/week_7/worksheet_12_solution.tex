@@ -18,6 +18,30 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{itemize}
+    \item
+
+    Let $c = \frac{277}{2}$, $n_0 = 1$, $n \in \mathbb{N}$, $f,g: \mathbb{N} \to
+    \mathbb{R}^{\geq 0}$, $g(n) = 100 + \frac{77}{n+1}$, $f(n) = 1$. Assume $n \geq n_0$
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        g(n) = 100 + \frac{77}{n+1} &\leq 100 + \frac{77}{n+1}\\
+        &\leq 100 + \frac{77}{2}\\
+        &\leq \frac{277}{2}\\
+        &\leq c \cdot 1\\
+        &\leq c f(x)
+    \end{align}
+
+    \bigskip
+
+    The, it follows from the definition of Big-Oh that the statement $100 +
+    \frac{77}{n+1} \in \mathcal{O}(1)$ is true.
+
+\end{itemize}
 
 \section*{Question 3}
 
