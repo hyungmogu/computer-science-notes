@@ -52,6 +52,28 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    Let $c = \frac{1}{log_b a}$, $n_0 = 1$, $a \in \mathbb{R}^{+}$, $b \in \mathbb{R}^{+}$.
+    Assume $a > 1$ and $b > 1$. We want to show that $\log_a n \leq c \log_b n$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        c \log_b n &= \frac{1}{\log_b a} log_b n\\
+        &= log_a n
+    \end{align}
+
+    by change of base rule for logarithms.
+
+    \bigskip
+
+    Then it follows from the definition of Big-Oh that $\log_a n \in \mathcal{O}(\log_b n)$
+
+\end{enumerate}
 
 \section*{Question 3}
 
