@@ -76,5 +76,43 @@
 \end{enumerate}
 
 \section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    Let $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $n \in \mathbb{N}$, $c = 1$,
+    $n_0 = 1$, $d = 2$, $m_0 = 1$. Assume $n \geq n_0$, $g(n) \leq c f(n)$ and
+    $m \geq m_0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) &\leq c f(n)\\
+        f(n) + g(n) &\leq c f(n) + f(n)\\
+        f(n) + g(n) &\leq f(n) + f(n)\\
+        f(n) + g(n) &\leq 2 f(n)\\
+        f(n) + g(n) &\leq d f(n)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        f(m) + g(m) &\leq d f(m)
+    \end{align}
+
+    by changing variable from n to m.
+
+    \bigskip
+
+    Then, by the definition of Big-Oh, $f +g \in \mathcal{O}(f)$
+
+    \bigskip
+
+    Then, it follows that the statement $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $g \in \mathcal{O}(f) \Rightarrow f + g \in \mathcal{O}(f)$ is true.
+\end{enumerate}
 
 \end{document}
