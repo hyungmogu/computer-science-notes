@@ -19,8 +19,8 @@
     \item
 
 
-    Let $a,b \in \mathbb{R}^{+}$, $n \in \mathbb{N}$, $c = 1$, $n_0 = 1$, and
-    $k = \frac{b}{a}$. Assume $a \leq b$, and $n \geq n_0$.
+    Let $a,b \in \mathbb{R}^{+}$, $n \in \mathbb{N}$, $c = 1$, $n_0 = 1$.
+    Assume $a \leq b$, and $n \geq n_0$.
 
     \bigskip
 
@@ -31,6 +31,19 @@
         &\leq n^{ak}\\
         &\leq n^b
     \end{align}
+
+    by the fact that $k = \frac{b}{a}$, and $k \in \mathbb{R}^{+}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n^a &\leq n^b\\
+        &\leq cn^b
+    \end{align}
+
+    \bigskip
 
     Then, it follows from above that the statement $\forall a,b \in \mathbb{R}^{+},
     \:a \leq b \Rightarrow n^a \in \mathcal{O}(n^b)$ is true.
