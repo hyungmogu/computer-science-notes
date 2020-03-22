@@ -89,14 +89,32 @@
 
     \textbf{Exact number of iterations:} $\lceil \sqrt{n} \rceil$
 
-    \item
+    \bigskip
 
-    $f \in \Theta (n^{\frac{1}{2}})$
+    \underline{\textbf{Correct Solution:}}
+
+    The goal is to find the smallest $k$ where the condition returns false.
+
+    \bigskip
+
+    So,
+
+    \begin{align}
+        i_k &\geq n\\
+        2^k &\geq n\\
+        k &\geq log(n)
+    \end{align}
+
+    Hence, the exact number of iteration that occurs if $\lceil log(n) \rceil$.
 
     \item
 
     With $i = 0$, the $i$ in loop will be forever 0. This will result in the while
     loop running indefinitely.
+
+    \item
+
+    $f \in \Theta (n^{\frac{1}{2}})$
 
 \end{enumerate}
 
