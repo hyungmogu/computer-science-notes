@@ -127,6 +127,10 @@
 
     \bigskip
 
+    \textbf{Note:} Need to ask how $n = n_0 + c^{\frac{1}{a-b}} \in \mathbb{N}$.
+
+    \bigskip
+
     Then, $n \geq n_0$.
 
     \bigskip
@@ -134,16 +138,15 @@
     And
     \setcounter{equation}{0}
     \begin{align}
-        cn^b &< (n_0 + c)n^b\\
-        &< (n_0 + c^{\frac{a-b}{a-b}})n^b\\
-        &< (n_0 + c^{\frac{a-b}{a-b}})(n_0 + c^{\frac{1}{a-b}})^b\\
-        &< (n_0 + c^{\frac{a-b}{a-b}})(n_0 + c^{\frac{1}{a-b}})^b\\
+        cn^b &< (n_0 + c^{\frac{1}{a-b}})^{a-b}n^b\\
         &< (n_0 + c^{\frac{1}{a-b}})^{a-b}(n_0 + c^{\frac{1}{a-b}})^b\\
         &< (n_0 + c^{\frac{1}{a-b}})^{a-b+b}\\
-        &< (n_0 + c^{\frac{1}{a-b}})^a
+        &< (n_0 + c^{\frac{1}{a-b}})^a\\
+        &< n^a
     \end{align}
 
-    Then
+    Then, it follows that the statement $\forall a,b \in
+    \mathbb{R}^{+}, a > b \Rightarrow n^a \notin \mathcal{O}(n^b)$ is true.
 
 \end{enumerate}
 
