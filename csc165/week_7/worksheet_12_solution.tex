@@ -121,6 +121,30 @@
     $g \notin \mathcal{O}(f): \forall c,n_0 \in \mathbb{R}^{+},\:\exists n \in \mathbb{N},\:(
     n \geq n_0) \land (g(n) > cf(n))$
 
+    \item
+
+    Let $c,n_0 \in \mathbb{R}^{+}$, and $n = n_0 + c^{\frac{1}{a-b}}$. Assume $a > b$.
+
+    \bigskip
+
+    Then, $n \geq n_0$.
+
+    \bigskip
+
+    And
+    \setcounter{equation}{0}
+    \begin{align}
+        cn^b &< (n_0 + c)n^b\\
+        &< (n_0 + c^{\frac{a-b}{a-b}})n^b\\
+        &< (n_0 + c^{\frac{a-b}{a-b}})(n_0 + c^{\frac{1}{a-b}})^b\\
+        &< (n_0 + c^{\frac{a-b}{a-b}})(n_0 + c^{\frac{1}{a-b}})^b\\
+        &< (n_0 + c^{\frac{1}{a-b}})^{a-b}(n_0 + c^{\frac{1}{a-b}})^b\\
+        &< (n_0 + c^{\frac{1}{a-b}})^{a-b+b}\\
+        &< (n_0 + c^{\frac{1}{a-b}})^a
+    \end{align}
+
+    Then
+
 \end{enumerate}
 
 \end{document}
