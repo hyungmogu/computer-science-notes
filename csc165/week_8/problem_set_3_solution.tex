@@ -10,6 +10,53 @@
 \maketitle
 
 \section*{Question 1}
+\begin{enumerate}
+    \item
+
+    Let $x \in \mathbb{R}$.
+
+    \bigskip
+
+    \textbf{Base Case (n = 0):}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        a_0 &= 0
+    \end{align}
+
+    \bigskip
+
+    Then it follows from above that the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case ($n > 0$):}
+
+    \bigskip
+
+    Let $k \in \mathbb{N}$, and assume $a_n = x\prod\limits_{i=0}^{n-1} a_i$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        x\prod\limits_{i=0}^{n-1} a_i \cdot a_n &= x\prod\limits_{i=0}^{n} a_i\\
+        &= a_{n+1}
+    \end{align}
+
+    \bigskip
+
+    Then it follows from above that the recursive sequence of numbers is true for
+    all natural numbers.
+\end{enumerate}
 
 \section*{Question 2}
 
