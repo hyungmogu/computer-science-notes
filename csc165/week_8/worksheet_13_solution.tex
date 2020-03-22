@@ -150,6 +150,31 @@
     Then, it follows from above that the smallest value of $i_k$ where $i_k < n$
     returns false is $\sqrt{n}$.
 
+    \bigskip
+
+    \underline{\textbf{Correct Solution:}}
+
+    The value of $i_k = 2^{2^k}$ by the pattern ruled in table below.
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $i_k$ & $i_0$ & $i_1$ & $i_2$ & $i_3$ & $i_4$\\
+        \hline
+        Value & 2 & 4 & 16 & 256 & 65536
+    \end{tabular}
+
+
+    Then,
+
+    \setcounter{equation}{0}
+    \begin{align}
+        2^{2^k} &\geq n\\
+        2^k &\geq \log n\\
+        k &\geq \log \log n\\
+    \end{align}
+
+    Then, it follows from above that the smallest value of $i_k$ where $i_k < n$
+    returns false is $\log \log n$.
+
 \end{itemize}
 
 \end{document}
