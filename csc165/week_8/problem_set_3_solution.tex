@@ -74,6 +74,72 @@
     \bigskip
 
     we see that $E_n = \frac{3^n + 1}{2}$ and $O_n = \frac{3^n - 1}{2}$.
+
+    \bigskip
+
+    As well, we see that the number of new elements in $E_{n+1}$ is $3^n$.
+
+    \bigskip
+
+    Now, we will prove that $E_n$ and $O_n$ are true using the induction hypothesis.
+
+    \bigskip
+
+    \textbf{Base Case (n = 1):}
+
+    \bigskip
+
+    Let $n = 1$.
+
+    \bigskip
+
+    Then, $E_n = \frac{4}{2} = 2$ and $O_n = \frac{2}{2} = 1$.
+
+    \bigskip
+
+    Since the result matches to data in table, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    Let $n \in \mathbb{N}$. Assume $E_n = \frac{3^n + 1}{2}$ and $O_n = \frac{3^n - 1}{2}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        E_{n+1} &= \frac{3^n + 1}{2} + 3^n\\
+        &= \frac{3^n + 1}{2} + \frac{2 \cdot 3^n}{2}\\
+        &= \frac{3 \cdot 3^n + 1}{2}\\
+        &= \frac{3^{n+1} + 1}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that the inductive step for $E_n$ holds.
+
+    \bigskip
+
+    Similarly, for $O_n$,
+
+    \begin{align}
+        O_{n+1} &= \frac{3^n - 1}{2} + 3^n\\
+        &= \frac{3^n - 1}{2} + \frac{2 \cdot 3^n}{2}\\
+        &= \frac{3 \cdot 3^n - 1}{2}\\
+        &= \frac{3^{n+1} - 1}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that the inductive step for $O_n$ holds.
+
+    \bigskip
+
+    Then, it follows from the definition of induction hypothesis that the value of
+    $E_n$ and $O_n$ are true for all $n$.
+
 \end{enumerate}
 
 \section*{Question 2}
