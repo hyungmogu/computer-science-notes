@@ -136,5 +136,51 @@
 \end{enumerate}
 
 \section*{Question 4}
+\begin{itemize}
+    \item
+
+    Let $x \in \mathbb{R}^{\geq 0}$, and $\epsilon = x - \lfloor x \rfloor$.
+    Assume $x \geq 4$.
+
+    \bigskip
+
+    Then,
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (\lfloor x \rfloor)^2 &= (x - \epsilon)^2\\
+        &= x^2 - 2x\epsilon + \epsilon^2
+    \end{align}
+
+    \bigskip
+
+    Since
+
+    \begin{align}
+        x &\geq 4\\
+        x^2 &\geq 4x\\
+        \frac{1}{2}x^2 &\geq 2x\\
+    \end{align}
+
+    ,and
+
+    \begin{align}
+        \frac{1}{2}x^2 &\geq 2x\epsilon
+    \end{align}
+
+    by using the fact $\forall x \in \mathbb{R},\: 0 \leq x - \lfloor x \rfloor < 1$,
+
+    \begin{align}
+        (\lfloor x \rfloor)^2 &= x^2 - 2x\epsilon + \epsilon^2\\
+        &\geq \frac{1}{2}x^2 + \epsilon^2\\
+        &\geq \frac{1}{2}x^2
+    \end{align}
+
+    \bigskip
+
+    Then it follows from above that the statement $\forall x \in \mathbb{R}^{\geq 0}$,
+    $x \geq 4 \Rightarrow (\lfloor x \rfloor)^2 \geq \frac{1}{2}x^2$ is true.
+
+\end{itemize}
 
 \end{document}
