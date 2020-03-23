@@ -192,7 +192,62 @@
 
     \item
 
+    Let $n \in \mathbb{Z}^{+}$, and $x \in \{x \mid x \in \mathbb{R}^{+}, 0
+    \leq x < 1\}$.
 
+    \bigskip
+
+    We will prove that the statement $\forall n \in \mathbb{Z}^{+}$, $\forall x
+    \in S$, $\exists x_1 \in S$, $FB(n, x_1)\land 0 \leq x - x_1 < 1$ is true
+    using induction hypothesis.
+
+    \bigskip
+
+    Let $n = 1$.
+
+    \textbf{Case 1 ($0 \leq x < 0.5$, from ${x \mid x \in \mathbb{R}, 0 \leq x < 1}$):}
+
+    \bigskip
+
+    Let $x_1 = 0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        0 &= (0.0)_2\\
+        &= \sum\limits_{i=1}^1 \frac{b_i}{2}
+    \end{align}
+
+    by the fact that $b_i = 0$.
+
+    \bigskip
+
+    Then, it follows from above that $FB(1,x_1)$ is true.
+
+    \bigskip
+
+    Now we will prove that $0 \leq x - x_1 < \frac{1}{2}$ is true.
+
+    \bigskip
+
+    Let $x_1 = 0$. Assume $0 \leq x < 0.5$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        0 &\leq x < 0.5\\
+        0 - x_1 &\leq x - x_1 < \frac{1}{2} - x_1\\
+        0 &\leq x - x_1 < \frac{1}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that $FB(n,x_1) \land 0 \leq x - x_1 < \frac{1}{2}$
+    hold for the base case with $0 \leq x < 0.5$.
 
 
 \end{enumerate}
