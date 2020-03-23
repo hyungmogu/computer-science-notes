@@ -147,7 +147,31 @@
 \begin{enumerate}[a.]
     \item
 
-    $\forall n \in \mathbb{Z}^{+},\: 4 \mid n \Rightarrow 0.2 - z_n = 3 \left(\frac{1 - \frac{1}{16}^{\frac{n}{4}}}{1 - (\frac{1}{16})} \right)$
+    Since first 1 repeats every $4i - 1$ times and the second 1 repeats every $4i$ times,
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (0.\overline{0011})_2 &= \sum\limits_{i=1}^{\frac{n}{4}} \left( \frac{1}{2} \right)^{4i} + \sum\limits_{i=1}^{\frac{n}{4}} \left( \frac{1}{2} \right)^{4i-1}\\
+        &= \sum\limits_{i=1}^{\frac{n}{4}} \left( \frac{1}{16} \right)^{i} + 2 \cdot \sum\limits_{i=1}^{\frac{n}{4}} \left( \frac{1}{16} \right)^{i}\\
+        &= \frac{1}{2} \cdot \sum\limits_{i=0}^{\frac{n}{4} - 1} \left( \frac{1}{16} \right)^{i} + \sum\limits_{i=0}^{\frac{n}{4}-1} \left( \frac{1}{16} \right)^{i}\\
+        &= \frac{3}{2} \cdot \sum\limits_{i=0}^{\frac{n}{4} - 1} \left( \frac{1}{16} \right)^{i}
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{3}{2} \cdot \sum\limits_{i=0}^{\frac{n}{4} - 1} \left( \frac{1}{16} \right)^{i} &= \frac{3}{2} \cdot \left(\frac{1 - \frac{1}{16}^{\frac{n}{4}}}{1 - (\frac{1}{16})} \right)
+    \end{align}
+
+    by using the formula $\forall n \in \mathbb{Z}^{+} and r \in \mathbb{R},\: r \neq 1 \Rightarrow \sum\limits{i=0}^{n-1} r^i = \frac{1-r^n}{1 - r}$.
+
+    \bigskip
+
+    Then, it follows from above that $\forall n \in \mathbb{Z}^{+},\: 4 \mid n
+    \Rightarrow 0.2 - z_n = \frac{3}{2} \left(\frac{1 - \frac{1}{16}^{\frac{n}{4}}}{1 -
+    (\frac{1}{16})} \right)$
 
 \end{enumerate}
 
