@@ -109,9 +109,29 @@
 
     \item
 
-    \textbf{Negation:} $\forall x \in \mathbb{R},\:\forall n \in \mathbb{N},\:
-    g(n) = n + 1 \land f(n) = n^2 \Rightarrow (\exists m \in \mathbb{N},\:
+    \textbf{Predicate Logic:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $f(n) = n^2 \land g(n) = n + 165 \Rightarrow (\exists m \in \mathbb{N},
     g(m) > f(m))$
+
+    \bigskip
+
+    Let $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$ and $n = 1$. Assume $f(n) = n^2$,
+    and $g(n) = n + 165$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        g(1) = (1) + 165 &= 166\\
+        &> 1\\
+        &>(1)^2\\
+        &> f(1)
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above statement that g is not dominated by f.
 
 \end{enumerate}
 
