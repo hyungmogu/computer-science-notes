@@ -302,12 +302,69 @@
     \bigskip
 
     Then, since $0 \leq x - x_1 < 0.5$ is true and $FB(1,x_1)$ is true, $FB(1,x_1) \land
-    0 \leq x - x_1 < 0.5$ is true.
+    0 \leq x - x_1 < 0.5$ is true for the case $0.5 \leq x < 1$.
 
     \bigskip
 
     Then, by combining results from case 1 and case 2, we can conclude that the
     statement holds for the base case.
+
+    \bigskip
+
+    Now, let $n \in \mathbb{Z}^{+}$, and $x \in S$. Assume $\exists x_1 \in S$,
+    $FB(n, x_1) \land 0 \leq x - x_1 \leq \frac{1}{2^n}$.
+
+
+    Then, we will prove that the statement $\forall n \in \mathbb{Z}^{+}$, $\forall x
+    \in S$, $FB(n,x_1) \land 0 \leq x - x_1 \leq \frac{1}{2^n}$ is true for inductive
+    case by separating $0 \leq x - x_1 \leq \frac{1}{2^n}$ into following cases.
+
+    \bigskip
+
+    \textbf{Case 1} ($0 \leq x - x_1 < \frac{1}{2^{n+1}}$):
+
+    \bigskip
+
+    First, we will prove that $FB(n+1,x_2)$ is true.
+
+    \bigskip
+
+    Let $x_2 = x_1$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x_2 &= \sum\limits_{i=1}^n \frac{b_i}{2}\\
+        &= \sum\limits_{i=1}^n \frac{b_i}{2} + \frac{b_{i+1}}{2}\\
+        &= \sum\limits_{i=1}^{n+1} \frac{b_i}{2}
+    \end{align}
+
+    by setting $b_{i+1} = 0$.
+
+    \bigskip
+
+    Then, it follows from above that $FB(n+1, x_2)$ is true.
+
+    \bigskip
+
+    Now, we will prove that $0 \leq x - x_2 < \frac{1}{2^{n+1}}$ is true.
+
+    \bigskip
+
+    Let $x_2 = x_1$. Assume $0 \leq x - x_1 < \frac{1}{2^{n+1}}$.
+
+    \bigskip
+
+    Then, it follows from assumption that $0 \leq x - x_2 < \frac{1}{2^{n+1}}$ is
+    true.
+
+    \bigskip
+
+    Then, since $FB(n+1, x_2)$ is true and $0 \leq x - x_2 < \frac{1}{2^{n+1}}$ is true,
+    $FB(n+1, x_2) \land 0 \leq x - x_2 < \frac{1}{2^{n+1}}$ is true for the case
+    $0 \leq x - x_1 < \frac{1}{2^{n+1}}$.
 
 \end{enumerate}
 
