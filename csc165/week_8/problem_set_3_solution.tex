@@ -585,10 +585,109 @@
 
     \item
 
+    % For this question, I should validate each statements separately
+    % then combine together using cases
+
     \textbf{Negation:} $\forall f: \mathbb{N} \to \mathbb{R}^{+},\:\exists g:\mathbb{N}
     \to \mathbb{R}^{\geq 0},\:(\forall c,n_0 \in \mathbb{R}^{+},\:\exists n \in \mathbb{N},
     \:n \geq n_0 \land (g(n) > cf(n))) \land (\forall d,m_0 \in \mathbb{R}^{+},\:\exists
     m \in \mathbb{N},\:m \geq m_0 \land (g(n) < cf(n)))$
+
+    \bigskip
+
+    Let
+
+    \begin{align*}
+        g(n) = \left \{
+        \begin{array}{ll}
+            0 & \text{if n even}\\
+            nf(n) & \text{otherwise}\\
+        \end{array} \right.
+    \end{align*}
+
+    \bigskip
+
+    We will prove the statement by separating into cases, and combine them
+    together in the end.
+
+    \bigskip
+
+    \textbf{Case 1} ($g \notin \mathcal{O}(f):\forall c,n_0 \in \mathbb{R}^{+},\:
+    \exists n \in \mathbb{N},\:n \geq n_0 \land g(n) > cf(n)$):
+
+    \bigskip
+
+    Let $c,n_0 \in \mathbb{R}^{+}$, $n = 2 \cdot \lceil max(c,n_0) \rceil$.
+
+    \bigskip
+
+    Because there are two parts in $max(c,n_0)$, we will prove by separating into
+    cases $n_0 > c$, and $c > n_0$ and combine the result together in the end.
+
+    \bigskip
+
+    Consider the case $n_0 > c$.
+
+    \bigskip
+
+    Then, since $n_0 > c$ and $n = 2\lceil n_0 \rceil$, we can conclude that
+    $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) &= nf(n)\\
+        &= 2\lceil n_0 \rceil f(n)\\
+        &> 2cf(n)\\
+        &> cf(n)
+    \end{align}
+
+    \bigskip
+
+    Then, since $g(n) > cf(n)$ is true and $n \geq n_0$ is true, $n \geq n_0 \land
+    g(n) > cf(n)$ is true.
+
+    \bigskip
+
+    Now, consider the case $c > n_0$.
+
+    \bigskip
+
+    Then, since $c > n_0$ and $n = 2\lceil c \rceil$, we can conclude that
+    $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        g(n) &= nf(n)\\
+        &= 2\lceil c \rceil f(n)\\
+        &> 2cf(n)\\
+        &> cf(n)
+    \end{align}
+
+    \bigskip
+
+    Then, since $g(n) > cf(n)$ is true and $n \geq n_0$ is true given $n_0 > c$,
+    and $c > n_0$, $n \geq n_0 \land g(n) > cf(n)$ is true.
+
+    \bigskip
+
+    Then, it follows from above that the statement $g \notin \mathcal{O}(f)$ is
+    true.
+
+    \bigskip
+
+    \textbf{Case 2} ($g \notin \Omega (f):\:\forall c,n_0 \in \mathbb{R}^{+},\:
+    \forall n \in \mathbb{N},\:n \geq n_0 \land g(n) < cf(n)$):
+
+
+
+    Since the defined $g(n)$ is true in all cases, we can conclude that the
 
 \end{enumerate}
 
