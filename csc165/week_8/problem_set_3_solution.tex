@@ -751,6 +751,23 @@
 
     Then, it follows from the definition of little-oh that the statement
     $\forall a,b \in \mathbb{R}^{+}, a < b \Rightarrow n^a \in o(n^b)$ is true.
+
+    \item
+
+    \textbf{Predicate logic in expanded form:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{+},\:
+    (\forall c \in \mathbb{R}^{+},\:\exists n_0 \in \mathbb{R}^{+},\:\forall n \in
+    \mathbb{N},\: n \geq n_0 \Rightarrow g(n) \leq cf(n)) \Rightarrow (\forall d,m_0
+    \in \mathbb{R}^{+}, \exists m \in \mathbb{N},\: m \geq m_0 \land f(m) > dg(m))$
+
+    \bigskip
+
+    Rough idea
+    \setcounter{equation}{0}
+    \begin{align}
+        \frac{1}{2}g(n) < g(n) \leq cf(n)
+    \end{align}
+
+
 \end{enumerate}
 
 \end{document}
