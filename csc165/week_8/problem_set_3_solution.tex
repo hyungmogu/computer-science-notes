@@ -368,7 +368,7 @@
 
     \bigskip
 
-    \textbf{Case 2} ($\frac{1}{2^{n+1}} \leq x - x_1 < \frac{1}{2^{n}}$):
+    \textbf{Case 2} ($\frac{1}{2^{n+1}} \leq x - x_1 \leq \frac{1}{2^{n}}$):
 
     \bigskip
 
@@ -393,6 +393,48 @@
 
     Then, it follows from the definition of finite fractional binary representation that
     $FB{n+1,x_2}$ is true.
+
+    \bigskip
+
+    Now, we will prove that $0 \leq x - x_2 \leq \frac{1}{2^{n+1}}$ is true.
+
+    \bigskip
+
+    Let $n \in \mathbb{Z}^{+}$, $x \in \mathbb{S}$, $x_2 = x_1 - \frac{1}{2^{n+1}}$.
+    Assume $\frac{1}{2^{n+1}} \leq x - x_1 \leq \frac{1}{2^{n}}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{1}{2^{n+1}} &\leq x - x_1 \leq \frac{1}{2^{n}}\\
+        \frac{1}{2^{n+1}} - \frac{1}{2^{n+1}} &\leq x - x_1 - \frac{1}{2^{n+1}} \leq \frac{1}{2^{n}} - \frac{1}{2^{n+1}}\\
+        0 &\leq x - x_2 \leq \frac{1}{2^{n}} - \frac{1}{2^{n+1}}\\
+        0 &\leq x - x_2 \leq \frac{2}{2^{n+1}} - \frac{1}{2^{n+1}}\\
+        0 &\leq x - x_2 \leq \frac{1}{2^{n+1}}
+    \end{align}
+
+    \bigskip
+
+    Then it follows from above that $0 \leq x - x_2 \leq \frac{1}{2^{n+1}}$
+    is true.
+
+    \bigskip
+
+    Then, since $FB(n+1,x_2)$ is true, and $0 \leq x - x_2 \leq \frac{1}{2^{n+1}}$ is true,
+    $FB(n+1,x_2) \land 0 \leq x - x_2 \leq \frac{1}{2^{n+1}}$ is true for the case
+    $\frac{1}{2^{n+1}} \leq x - x_1 \leq \frac{1}{2^{n}}$.
+
+    \bigskip
+
+    Then, because the statement is true in both case 1 and case 2, the statement
+    at inductive step holds.
+
+    \bigskip
+
+    Then, it follows from induction hypothesis that the statement is true for all
+    natural numbers.
 
 \end{enumerate}
 
