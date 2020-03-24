@@ -30,6 +30,17 @@
     $IsGCD(x,y):\:\exists x,y,d \in \mathbb{Z}, d \mid x \land d \mid y \land
     (\forall n \in \mathbb{N}, n > d \Rightarrow n \nmid x \lor n \nmid y)$
 
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $IsGCD(x,y,d):\exists x,y,d \in \mathbb{Z}, (x = 0 \land y = 0 \Rightarrow d = 0) \land (x \neq 0 \lor y \neq 0 \Rightarrow
+    IsCD(x,y,d) \Rightarrow \forall d' \in \mathbb{Z}, IsCD(x,y,d') \Rightarrow d' \leq d)$
+
+    \item
+
+
+
 
 \end{enumerate}
 
