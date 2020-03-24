@@ -761,12 +761,26 @@
 
     \bigskip
 
-    Rough idea
+    Let $f,g:\:\mathbb{N} \to \mathbb{R}^{+},\:d,c=\frac{1}{2d} \in \mathbb{R}^{+},
+    $ some $n_0 \in \mathbb{N}$, $m_0,n \in \mathbb{N}$, and $m = n_0 + m_0 + 1$.
+    Assume $n \geq n_0$ and $g(n) \leq cf(m)$.
+
+    \bigskip
+
+    Then
     \setcounter{equation}{0}
     \begin{align}
-        \frac{1}{2}g(n) < g(n) \leq cf(n)
+        cf(m) = \frac{1}{2d} f(m) &\geq g(m)\\
+        f(m) &\geq 2dg(m)\\
+        f(m) &> dg(m)
     \end{align}
 
+    Then, it follows from the negation of Big-Oh that $f \notin \mathcal{O}(g)$ is true.
+
+    \bigskip
+
+    Then, it follows from above that the statement $f,g:\mathbb{N} \to \mathbb{R}^{+},\:
+    g \in o(f) \Rightarrow f \notin \mathcal{O}(g)$ is true.
 
 \end{enumerate}
 
