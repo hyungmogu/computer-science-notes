@@ -520,6 +520,69 @@
 
     Then, it follows from above that $165n^3 \leq \frac{c}{3}n^4$ holds.
 
+    \bigskip
+
+    \textbf{Validating} $(cn^2 \leq \frac{c}{3}n^4)$:
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$, $n_0 = 2$, and $c = 249$. Assume $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        cn^2 &\leq \frac{c}{3}n^4\\
+        249n^2 &\leq \frac{249}{3}n^4\\
+        249n^2 &\leq 83n^4\\
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        249n^2 &\leq 83n^4\\
+        249(2)^2 &\leq 83(2)^4\\
+    \end{align}
+
+    because of the fact $n_0 = 2$ and the assumption $n \geq n_0$
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        249n^2 &\leq 83n^4\\
+        249 \cdot 4 &\leq 83 \cdot 16\\
+        996 &\leq 1328
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that $cn^2 \leq \frac{c}{3}n^4$ holds.
+
+    \bigskip
+
+    Then, because we know $n^4 \leq \frac{c}{3}n^4$, $165n^3 \leq \frac{c}{3}n^4$,
+    and $cn^2 \leq \frac{c}{3}n^4$ are true, we can conclude that
+    $n^4 + 165n^3 + cn^2 \leq cn^4$ is true.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n^4 + 165n^3 + cn^2 &\leq cn^4\\
+        n^4 + 165n^3 &\leq c(n^4 - n^2)
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from the definition of Big-Oh that the statement $n^4 + 165n^3
+    \in \mathcal{O}(n^4 - n^2)$ is true.
+
 \end{enumerate}
 
 \section*{Question 4}
