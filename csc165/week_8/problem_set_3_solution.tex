@@ -630,7 +630,7 @@
 
     \bigskip
 
-    Then, since $n_0 > c$ and $n = 2\lceil n_0 \rceil$, we can conclude that
+    Since $n_0 > c$ and $n = 2\lceil n_0 \rceil$, we can conclude that
     $n \geq n_0$.
 
     \bigskip
@@ -656,7 +656,7 @@
 
     \bigskip
 
-    Then, since $c > n_0$ and $n = 2\lceil c \rceil$, we can conclude that
+    Since $c > n_0$ and $n = 2\lceil c \rceil$, we can conclude that
     $n \geq n_0$.
 
     \bigskip
@@ -685,9 +685,39 @@
     \textbf{Case 2} ($g \notin \Omega (f):\:\forall c,n_0 \in \mathbb{R}^{+},\:
     \forall n \in \mathbb{N},\:n \geq n_0 \land g(n) < cf(n)$):
 
+    \bigskip
 
+    Let $c,n_0 \in \mathbb{R}^{+}$, $n = \lceil n_0 \rceil + 1$.
 
-    Since the defined $g(n)$ is true in all cases, we can conclude that the
+    \bigskip
+
+    Then, we can conclude that $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        0 = g(n) < cf(n)
+    \end{align}
+
+    by the fact that no values in codomain of $f$ is 0.
+
+    \bigskip
+
+    Then, $n \geq n_0 \land g(n) < cf(n)$ is true by the fact that
+    ($n \geq n_0$) is true and ($g(n) < cf(n)$) is true.
+
+    \bigskip
+
+    Then, it follows from above that the statement $g \notin \Omega(f)$ is true.
+
+    \bigskip
+
+    Since $g \notin \Omega(f)$  is true and $g \notin \mathcal{O}(f)$ is true given
+    $g$ and $n$, it follows from the negation of statement that the statement $\exists
+    f: \mathbb{N} \to \mathbb{R}^{+},\:(\forall g: \mathbb{N} \to \mathbb{R}^{\geq 0},\:
+    g \in \mathcal{O}(f) \lor g \in \Omega(f))$ is false.
 
 \end{enumerate}
 
