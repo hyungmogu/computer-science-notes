@@ -722,5 +722,35 @@
 \end{enumerate}
 
 \section*{Question 4}
+\begin{enumerate}[a.]
+    \item
+
+    Let $n_0 = c^{-\frac{1}{b-a}}$. Assume $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        n &\geq n_0\\
+        n &\geq c^{-\frac{1}{b-a}}\\
+        \left[n\right]^{-(b-a)}&\leq \left[c^{-\frac{1}{b-a}}\right]^{-(b-a)}\\
+        n^{a-b} &\leq c
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        cf(n) &= cn^b\\
+        &\geq n^{a-b}n^b\\
+        &\geq n^{a-b+b}\\
+        &\geq n^a
+    \end{align}
+
+    Then, it follows from the definition of little-oh that the statement
+    $\forall a,b \in \mathbb{R}^{+}, a < b \Rightarrow n^a \in o(n^b)$ is true.
+\end{enumerate}
 
 \end{document}
