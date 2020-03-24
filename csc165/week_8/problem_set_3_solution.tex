@@ -439,6 +439,49 @@
 \end{enumerate}
 
 \section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Definition of Big-Oh:} $g \in \mathcal{O}(f): \exists c,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:
+    n \geq n_0 \Rightarrow g(n) \leq cf(n), where f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \bigskip
+
+    Since $a \leq b \land c \leq d \Rightarrow a + b \leq c + d$, we will prove
+    that $n^4 + 165n^3 \leq c(n^4 - n^2)$ by validating the following
+    inequalities, then combining it together
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n^4 &\leq \frac{c}{3}n^4\\
+        165n^3 &\leq \frac{c}{3}n^4\\
+        cn^2 &\leq \frac{c}{3}n^4
+    \end{align}
+
+    \bigskip
+
+    \textbf{Validating} $(n^4 \leq \frac{c}{3}n^4)$:
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$, $n_0 = 2$, and $c = 249$. Assume $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n^4 &\leq \frac{249}{3}n^4\\
+        n^4 &\leq 83n^4
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that $n^4 \leq \frac{c}{3}n^4$ holds.
+
+
+
+\end{enumerate}
 
 \section*{Question 4}
 
