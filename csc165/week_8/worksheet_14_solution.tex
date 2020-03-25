@@ -28,7 +28,7 @@
 
     \textbf{Inner Loop:} $n$
 
-    \textbf{Outer Loop:} $n \cdot \displaystyle\frac{n}{5}$
+    \textbf{Outer Loop:} $n \cdot \left\lceil \displaystyle\frac{n}{5} \right\rceil$
 
     \textbf{Theta Expressions:} $\Theta (n^2)$
 
@@ -37,6 +37,18 @@
     \textbf{Inner Loop:} $\displaystyle \frac{n}{3} + (n - 2)$
 
     \textbf{Outer Loop:} $n - 4$
+
+    \textbf{Theta Expressions:} $\Theta (n^2)$
+
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop:} $\left\lceil \log_3 n \right\rceil + \left\lceil \displaystyle\frac{n}{2} \right\rceil$
+
+    \textbf{Outer Loop:} $max(0, n-4) \cdot \left[ \left\lceil \log_3 n \right\rceil + \left\lceil \displaystyle\frac{n}{2} \right\rceil \right]$
 
     \textbf{Theta Expressions:} $\Theta (n^2)$
 
