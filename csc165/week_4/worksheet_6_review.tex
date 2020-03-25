@@ -71,6 +71,20 @@
     Then it follows from above that the statement $\forall x \in \mathbb{Z}^{+}$,
     $IsGCD(x,0,x)$ is true.
 
+    \item
+
+    \textbf{Attempt 1:}
+
+    $a,b \in \mathbb{Z},\:a \neq 0 \lor b \neq 0 \Rightarrow (\exists d \in \mathbb{Z},
+    \:d=GCD(a,b) \Rightarrow \forall d' \in \mathbb{Z}^{+}, \exists p,q \in \mathbb{Z})$
+
+    \textbf{Attempt 2:}
+
+    $a,b \in \mathbb{Z},\:\exists d \in \mathbb{Z},\:(a \neq 0 \lor b \neq 0)
+    \land d=GCD(a,b) \Rightarrow \exists p,q \in \mathbb{Z},\:d = ap + bq \land
+    d > 0 \land (\forall d' \in \mathbb{Z}^{+}, d' = ap + bq \Rightarrow d' \geq d))$
+
+
 
 \end{enumerate}
 
