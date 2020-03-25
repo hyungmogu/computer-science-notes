@@ -39,7 +39,37 @@
 
     \item
 
+    Let $a = x$, $b = 0$, $d = x$ and $d' \in \mathbb{Z}$. Assume $IsCD(x,y,d')$.
 
+    \bigskip
+
+    Because we know $x \mid x$ and $x \mid 0$, we can conclude that $d$ is a common
+    divisor to $a$ and $b$.
+
+    \bigskip
+
+    Since $d' \mid a$ and $d' \mid b$, and since $\forall n \in \mathbb{Z}^{+}$,
+    $\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$, we can conclude
+    that
+
+    \begin{align}
+        d' &\leq a
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        d' \leq d
+    \end{align}
+
+    by the fact that $d = a$.
+
+    \bigskip
+
+    Then it follows from above that the statement $\forall x \in \mathbb{Z}^{+}$,
+    $IsGCD(x,0,x)$ is true.
 
 
 \end{enumerate}
