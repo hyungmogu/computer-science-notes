@@ -83,6 +83,20 @@
 
     \textbf{Theta Expressions:} $\Theta (2^n)$
 
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop:} $i$
+
+    \textbf{Outer Loop:} $\sum\limits_{i=0}^{\log n - 1} 2^i = \displaystyle\frac{1 - 2^{\log n - 1 + 1}}{1 - 2} = 2^{\log n} - 1 = n - 1$
+
+    \textbf{Theta Expressions:} $\Theta (n)$
+
+    % the outer loop seems to represent the summation notation
+    % the inner loop seems to represent the term in summation notation (i.e. 2^i)
 
 \end{enumerate}
 
