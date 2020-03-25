@@ -134,11 +134,50 @@
 
     \bigskip
 
-    \textbf{Inner Loop:} $i$
+    \textbf{Inner Loop \# 2:} $j - i + 1$
 
-    \textbf{Outer Loop:} $\sum\limits_{i=0}^{\log n - 1} 2^i = \displaystyle\frac{1 - 2^{\log n - 1 + 1}}{1 - 2} = 2^{\log n} - 1 = n - 1$
+    \textbf{Inner Loop \# 1:} $\sum\limits_{j = i}^{n-1} (j - i + 1)$
 
-    \textbf{Theta Expressions:} $\Theta (n)$
+    \textbf{Outer Loop:} $\sum\limits_{i = 0}^{n-1}\sum\limits_{j = i}^{n-1} (j - i + 1)$
+
+    \textbf{Calculation:}
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{i = 0}^{n-1}\sum\limits_{j = i}^{n-1} (j - i + 1) &= \sum\limits_{i = 0}^{n-1}\sum\limits_{j' = 1}^{n-i} j'
+    \end{align}
+
+    by setting $j' = j - i + 1$, and also by replacing the inner summation notation from
+    $\sum\limits_{i = 0}^{b-a} f(i+a)$ to $\sum\limits_{i = a}^{b} f(i')$
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sum\limits_{i = 0}^{n-1}\sum\limits_{j' = 1}^{n-i} j' &= \sum\limits_{i=0}^{n-1} \frac{(n-i)(1 + n - i)}{2}
+    \end{align}
+
+    by using the arithmetic sum $\sum\limits_{i=1}^n a_i = \left(\frac{n}{2}\right) (a_1 + a_n)$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        &= \frac{1}{2} \left[ n + n^2 - 2in -i + i^2 \right]\\
+        &= \frac{1}{2} \sum\limits_{i=0}^{n-1} \left[ (n + n^2) -i(2n+1) + i^2 \right]\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n + n^2) - \sum\limits_{i=0}^{n-1} i(2n+1) + \sum\limits_{i=0}^{n-1} i^2 \right]\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n + n^2) - \frac{3(2n+1)n(n-1)}{6}  + \frac{n(n-1)(2n-1)}{6} \right]\\
+        &= \frac{1}{2} \left[ n(n + n^2) - \frac{3(2n+1)n(n-1)}{6}  + \frac{n(n-1)(2n-1)}{6} \right]\\
+        &= \frac{1}{2} \left[ (n^2 + n^3) - \frac{4n(n-1)(n+1)}{6} \right]\\
+        &= \frac{1}{2} \left[ (n^2 + n^3) - \frac{4n - 4n^3}{6} \right]\\
+        &= \frac{1}{2} \left[ n^2 + \frac{6n^3}{6} - \frac{4n - 4n^3}{6} \right]\\
+        &= \frac{1}{2} \left[ n^2 + \frac{n^3}{3} + \frac{2n}{3} \right]\\
+        &= \frac{n^2}{2} + \frac{n^3}{6} + \frac{n}{3}
+    \end{align}
+
+    \textbf{Theta Expressions:} $\Theta (n^3)$
 
     \bigskip
 
@@ -154,15 +193,14 @@
             \text{YES:}& \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n^2 + n) + \sum\limits_{i=0}^{n-1} (2n-1)i + \sum\limits_{i=0}^{n-1} i^2 \right]
         \end{align}
 
-     \item replace whole (j - i + 1) in $\sum\limits_{j = i}^{n-1} (j - i + 1)$ by setting $j' = j - i + 1$.
+     \item replace whole (j - i + 1) in $\sum\limits_{j = i}^{n-1} (j - i + 1)$
+     by setting $j' = j - i + 1$, and adding $-i + 1$ to $j = i$
      \item the formula for arithematic sum starting at $i = 1$ is
 
      \begin{align}
         \sum\limits_{i=1}^n a_i = \left(\frac{n}{2}\right) (a_1 + a_n)
      \end{align}
     \end{itemize}
-
-    \item
 
 \end{itemize}
 
