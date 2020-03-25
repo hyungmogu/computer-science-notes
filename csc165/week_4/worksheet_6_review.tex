@@ -137,6 +137,42 @@
 
     $\forall a,b \in \mathbb{N},\:Prime(b) \Rightarrow 1 \geq gcd(a,b) \lor
     gcd(a,b) \geq b$
+
+    \item
+
+    Let $a,b \in \mathbb{N}$. Assume $Prime(b)$.
+
+    \bigskip
+
+    We will prove the statement by considering two cases, when $b \mid a$, and
+    when $b \nmid a$.
+
+    \bigskip
+
+    \textbf{Case 1} ($b \mid a$):
+
+    \bigskip
+
+    Assume $b \mid a$.
+
+    \bigskip
+
+    Since $b$ is a prime number, there are to possible divisors $b$ and 1.
+
+    \bigskip
+
+    Since $b \mid a$ and $b \mid b$, $b = gcd(a,b)$.
+
+    \bigskip
+
+    Since $b \mid gcd(a,b)$, by the fact $\forall n \in \mathbb{Z}^{+},
+    d \in \mathbb{Z},\: d \mid n \Rightarrow d \leq n$, we can conclude that
+
+    \setcounter{equation}{0}
+    \begin{align}
+        b &\leq gcd(a,b)
+    \end{align}
+
 \end{enumerate}
 
 \end{document}
