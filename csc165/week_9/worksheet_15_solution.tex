@@ -5,6 +5,7 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{listings}
+\usepackage{tcolorbox}
 
 \begin{document}
 \title{Worksheet 14 Solution}
@@ -31,6 +32,50 @@
     \bigskip
 
     \textbf{Steps Total:} $n \cdot n = n^2$
+
+    \bigskip
+
+    \begin{tcolorbox}
+        \underline{\textbf{Correct Solution:}}
+
+        Since the inner loop starts at $i+1$ and ends at $n-1$, where $i$ represents
+        the variable in outer loop, the inner loop has $(n-1 - (i+1) + 1) = n - i - 1$
+        iterations.
+
+        \bigskip
+
+        Since each iteration takes 1 step, the total steps taken by inner loop is:
+
+        \begin{align}
+            (n - i - 1) \cdot 1 &= (n - i - 1)
+        \end{align}
+
+        \bigskip
+
+        Now, we will evaluate total steps taken by outer loop.
+
+        \bigskip
+
+        Since the outer loop starts at $i = 0$, and ends at $n-1$, the loop runs
+        at most $n$ iterations.
+
+        \bigskip
+
+        Since each iteration takes $(n -i - 1)$ steps, the total steps of outer
+        loop is:
+
+        \begin{align}
+            \sum\limits_{i=0}^{n-1} (n - i + 1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
+            &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
+            &= n(n-1) - \frac{n(n-1)}{2}\\
+            &= \frac{n^2-n}{2}
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from above that the total number of steps of this
+        algorithm is at most $\frac{n^2-n}{2}$, or $\mathcal{O}(n^2)$.
+    \end{tcolorbox}
 
 \end{enumerate}
 
