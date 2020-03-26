@@ -160,17 +160,7 @@
 
     \item
 
-    Let $n \in \mathbb{N}$, $lst_{upper} = [1,2,3,\dots,n-1,1]$ and
-    $lst_{lower} = [1,2,3,\dots,1,n-1]$.
-
-    \bigskip
-
-    We will prove this statement by finding the upper and lower bound of this
-    input family, and combine them together.
-
-    \bigskip
-
-    \textbf{Part1 (Upper bound):}
+    Let $n \in \mathbb{N}$, and $lst_{upper} = [1,2,3,\dots,n-1,1]$
 
     \bigskip
 
@@ -222,7 +212,32 @@
         n-1+2 &= n+1
     \end{align}
 
-    steps.
+    steps, or $\Theta(n)$.
+
+    \bigskip
+
+    \textbf{Note}
+
+    \begin{itemize}
+        \item
+        What's the lower/upper bound of this input family? How can I find them?
+
+        \item $[1,2,3,...,1,n-1]$ returns total cost of algorithm of $n$. Does it
+        imply $[1,2,3,...,1,n-1]$ is in different input family than $[1,2,3,...,n-1,1]$?
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+    \end{itemize}
 
 \end{enumerate}
 
