@@ -73,9 +73,26 @@
 
         \bigskip
 
-        Then, it follows from above that the total number of steps of this
-        algorithm is at most $\frac{n^2-n}{2}$, or $\mathcal{O}(n^2)$.
+        Then, since the last \textbf{return} statement takes 1 step, it follows
+        from that the total number of steps of this algorithm is at most
+        $\frac{n^2-n}{2} + 1$, or $\mathcal{O}(n^2)$.
     \end{tcolorbox}
+
+    \item
+
+    Consider the input family where none of the values in a list are the same
+    (i.e. $[1,2,3,4,5,6,7,8,9]$).
+
+    \bigskip
+
+    Since all values in the input list are not matching, both the inner and
+    the outer loop will run, giving the loops the total number of steps
+    of $\frac{n^2-n}{2}$.
+
+    \bigskip
+
+    Since the last \textbf{return} statement takes 1 step, the total number of
+    steps of this algorithm is $\frac{n^2-n}{2} + 1$, or $\Omega(n^2)$.
 
 \end{enumerate}
 
