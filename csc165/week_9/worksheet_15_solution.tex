@@ -421,6 +421,57 @@
     \end{itemize}
 
 
+    \item
+
+    Let $n \in \mathbb{N}, k \in \mathbb{Z}^{\geq 0}$, $lst=[1,2,3,4,5,...,n-1]$,
+    and $x = 0$.
+
+    \bigskip
+
+    Because we know $r_{k+1} \geq \frac{1}{2}r_k$, we can conclude that the value
+    of $r$ at $k+1^{th}$ step is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lfloor \frac{n}{2^k} \right\rfloor
+    \end{align}
+
+    \bigskip
+
+    Because we know the loop terminates when $j \leq i$, or when $r \leq 0$, we
+    can also conclude that, in terms of equation 1, the termination occurs when
+
+    \begin{align}
+        2^k &> n\\
+        k &> \log n
+    \end{align}
+
+    \bigskip
+
+    Since $\log n$ represents the lower bound of loop termination, the loop
+    terminates when $k = \log n + 1$.
+
+    \bigskip
+
+    Since each loop iteration takes 1 step, the loop has total cost of
+
+    \begin{align}
+        (\log n + 1) \cdot 1 = \log n + 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since \textbf{return} statement occurs at the end and since it has cost of 1,
+    the total cost of algorithm is $\log n + 2$, or $\Omega(\log n)$.
+
+    \bigskip
+
+    Since $\log n + 2$ is the same for both the upper bound and the lower bound,
+    $\Theta(\log n)$ is true.
+
+
 \end{enumerate}
 
 \end{document}
