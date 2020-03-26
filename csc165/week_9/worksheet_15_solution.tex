@@ -74,7 +74,7 @@
         \bigskip
 
         Then, since the last \textbf{return} statement takes 1 step, it follows
-        from that the total number of steps of this algorithm is at most
+        that the total number of steps of this algorithm is at most
         $\frac{n^2-n}{2} + 1$, or $\mathcal{O}(n^2)$.
     \end{tcolorbox}
 
@@ -93,6 +93,67 @@
 
     Since the last \textbf{return} statement takes 1 step, the total number of
     steps of this algorithm is $\frac{n^2-n}{2} + 1$, or $\Omega(n^2)$.
+
+    \begin{tcolorbox}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$ and $lst = [1,2,3,\dots,n-1,n-1]$.
+
+        \bigskip
+
+        Since the inner loop will run without interruptions until the end, the
+        inner loop has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            n-1-(i+1) + 1 &= n-i-1
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Then, since the inner loop takes 1 step per iteration, the total steps
+        taken by the inner loop is
+
+        \begin{align}
+            (n-i-1) \cdot 1 &= (n-i-1)
+        \end{align}
+
+        \bigskip
+
+        Since the \textbf{if condition} $lst[i] == lst[j]$ and the \textbf{return}
+        statement are activated when $i=n-2$, the outer loop will run until $i=n-2$,
+        where $j$ is the variable of the inner loop and $i$ is the variable of
+        the outer loop.
+
+        \bigskip
+
+        Since the outer loop starts at 0 and ends at $n-2$, it has
+
+        \begin{align}
+            n-2+1 &= n-1
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration in the outer loop takes $(n-i-1)$ steps, the outer
+        loop has total cost of
+
+        \begin{align}
+            \sum\limits_{i=0}^{n-2} (n-i-1) &= \sum\limits_{i=0}^{n-2} (n-1) + \sum\limits_{i=0}^{n-2} i\\
+            &= (n-1)(n-1) - \frac{(n-2)(n-1)}{2}\\
+            &= \frac{(n-1)n}{2}
+        \end{align}
+
+        Since each of the \textbf{if condition} and \textbf{return} statement has cost of 1,
+        the total cost of algorithm is $\frac{n(n-1)}{2} + 2$, or $\Omega(n^2)$
+
+    \end{tcolorbox}
 
 \end{enumerate}
 
