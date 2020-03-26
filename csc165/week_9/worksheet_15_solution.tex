@@ -157,6 +157,73 @@
     the total cost of algorithm is $\frac{n(n-1)}{2} + 2$, or $\Omega(n^2)$
 
     \noindent\rule{\textwidth}{1pt}
+
+    \item
+
+    Let $n \in \mathbb{N}$, $lst_{upper} = [1,2,3,\dots,n-1,1]$ and
+    $lst_{lower} = [1,2,3,\dots,1,n-1]$.
+
+    \bigskip
+
+    We will prove this statement by finding the upper and lower bound of this
+    input family, and combine them together.
+
+    \bigskip
+
+    \textbf{Part1 (Upper bound):}
+
+    \bigskip
+
+    Since the inner loop will run from $j = i + 1$ until the end without interruptions,
+    the loop has
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (n-1)-(i+1)+1 = n-i-1
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the inner loop takes 1 step per iteration, the loop takes total of
+
+    \begin{align}
+        (n-i-1) \cdot 1 = (n-i-1)
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Now, because we know that the \textbf{if condition} and \textbf{return}
+    statement will occur at $i = 0$, the outer loop has at most 1 iteration.
+
+    \bigskip
+
+    Because we know that the outer loop terminates at $i=0$, the total cost of
+    inner loop can be simplified to
+
+    \begin{align}
+        (n-i-1) &= n-1
+    \end{align}
+
+    \bigskip
+
+    Since the outer loop has 1 iteration and takes $n-1$ steps, the loop has
+    total cost of $n-1$.
+
+    \bigskip
+
+    Lastly, since each of the \textbf{if condition} and \textbf{return} statement
+    has cost of 1, the total cost of the algorithm is
+
+    \begin{align}
+        n-1+2 &= n+1
+    \end{align}
+
+    steps.
+
 \end{enumerate}
 
 \section*{Question 2}
