@@ -260,6 +260,79 @@
 
     The loop terminates when $r \leq 0$.
 
+    \item
+
+    Let $k \in \mathbb{N}$, and $j,i \in \mathbb{Z}$. Assume $j > i$.
+
+    \bigskip
+
+    We will prove the statement by separating into two cases, and combining them
+    at the end.
+
+    \bigskip
+
+    \textbf{Case1} ($lst[mid] < x$):
+
+    \bigskip
+
+    Assume $lst[mid] < x$.
+
+    \bigskip
+
+    Then, it follows from the fact $i = \lfloor \frac{i+j}{2} \rfloor + 1$ and
+    $j = j$ that the value of $r$ at $k+1^{th}$ step is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        r_{k+1} &= j - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + 1 \right)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        r_{k+1} &\leq j - \left( \left\lfloor \frac{i + j}{2} \right\rfloor \right)\\
+        &\leq \frac{2j}{2} - \left( \left\lfloor \frac{i + j}{2} \right\rfloor \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + \frac{(-2j)}{2} \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + \frac{(-2j)}{2} \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} + \frac{(-2j)}{2} \right\rfloor \right)
+    \end{align}
+
+    by using the fact $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:
+    \lfloor x+y \rfloor = x + \lfloor y \rfloor$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        - \left( \left\lfloor \frac{i + j}{2} + \frac{(-2j)}{2} \right\rfloor \right) &\leq - \left( \left\lfloor \frac{i - j}{2} \right\rfloor \right)\\
+        &\leq - \left( \frac{i - j}{2} \right)\\
+        &\leq \left( \frac{j - i}{2} \right)\\
+        &\leq \frac{1}{2} r_k
+    \end{align}
+
+    \bigskip
+
+    \textbf{Case2} ($lst[mid]> x$):
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item External properties of ceiling and floor
+
+        \begin{enumerate}[1.]
+            \item $\forall x \in \mathbb{R},\: 0 \leq x - \lfloor x \rfloor < 1$
+            \item $\forall x \in \mathbb{R}^{\geq 0},\:x \geq 4 \Rightarrow (\lfloor x \rfloor)^2 \geq \frac{1}{2}x^2$
+            \item $\forall x \in \mathbb{R}^{\geq 0},\:x \geq 4 \Rightarrow \frac{1}{2}x^2 \geq 2x$
+            \item $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$
+        \end{enumerate}
+    \end{itemize}
+
+
 \end{enumerate}
 
 \end{document}
