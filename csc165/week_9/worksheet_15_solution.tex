@@ -319,6 +319,43 @@
 
     \bigskip
 
+    Assume $lst[mid] \geq x$.
+
+    \bigskip
+
+    Then, it follows from the fact $i = 1$ and $j = \left\lfloor \frac{i+j}{2} \right\rfloor$
+    that the value of $r$ at $k+1^{th}$ step is
+
+    \begin{align}
+        r_{k+1} &= \left\lfloor \frac{i+j}{2} \right\rfloor - i\\
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \left\lfloor \frac{i+j}{2} \right\rfloor - i &\leq \left( \frac{i+j}{2} \right) - i
+    \end{align}
+
+    by the fact $\forall x \in \mathbb{R}, \lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \left( \frac{i+j}{2} \right) &\leq \frac{i + j}{2} - \frac{2i}{2}\\
+        &\leq \frac{j - i}{2}\\
+        &\leq \frac{1}{2} r_k
+    \end{align}
+
+
+    Then, it follows from proof by cases that the statement $r_{k+1} \leq \frac{1}{2} r_k$
+    is true.
+
+    \bigskip
+
     \textbf{Notes:}
 
     \begin{itemize}
