@@ -369,6 +369,57 @@
         \end{enumerate}
     \end{itemize}
 
+    \item
+
+    Let $n \in \mathbb{N}$, $k \in \mathbb{Z}^{\geq 0}$ and $r = j - i$.
+    Assume $j > i$.
+
+    Because we know $r_{k+1} \geq \frac{1}{2}r_k$, we can conclude that the
+    size of $r$ at $k+1^{th}$ step is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lfloor \frac{n}{2^{k+1}} \right\rfloor
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the loop terminates when $0 < \frac{n}{2^k} < 1$, we can
+    also conclude that loop terminates when
+
+    \begin{align}
+        2^{k+1} &> n\\
+        k + 1 &> \log n\\
+        k + 1 &> \lfloor \log n \rfloor
+    \end{align}
+
+    \bigskip
+
+    Since $\lfloor \log n \rfloor$ is the lower bound of loop termination,
+    $\lfloor \log n \rfloor + 1$ is the value of iteration that results in termination.
+
+    \bigskip
+
+    Since each iteration in loop takes 1 step, the loop has total cost of
+
+    \begin{align}
+        (\lfloor \log n \rfloor + 1) \cdot 1 &= \lfloor \log n \rfloor + 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since the \textbf{return} statement occurs at the end and since it has cost of 1,
+    the total cost of algorithm is at most $\lfloor \log n \rfloor + 2$, or $\mathcal{O}(\log n)$.
+
+    \textbf{Note}
+
+    \begin{itemize}
+        \item A through understanding of algorithm is required. Maybe try few examples before proof?
+        \item iteration is in terms of k, but we want in terms of n.
+    \end{itemize}
+
 
 \end{enumerate}
 
