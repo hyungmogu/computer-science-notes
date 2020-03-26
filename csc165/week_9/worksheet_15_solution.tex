@@ -5,7 +5,6 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{listings}
-\usepackage{tcolorbox}
 
 \begin{document}
 \title{Worksheet 14 Solution}
@@ -33,50 +32,51 @@
 
     \textbf{Steps Total:} $n \cdot n = n^2$
 
+    \noindent\rule{\textwidth}{1pt}
+
     \bigskip
 
-    \begin{tcolorbox}
-        \underline{\textbf{Correct Solution:}}
+    \underline{\textbf{Correct Solution:}}
 
-        Since the inner loop starts at $i+1$ and ends at $n-1$, where $i$ represents
-        the variable in outer loop, the inner loop has $(n-1 - (i+1) + 1) = n - i - 1$
-        iterations.
+    Since the inner loop starts at $i+1$ and ends at $n-1$, where $i$ represents
+    the variable in outer loop, the inner loop has $(n-1 - (i+1) + 1) = n - i - 1$
+    iterations.
 
-        \bigskip
+    \bigskip
 
-        Since each iteration takes 1 step, the total steps taken by inner loop is:
+    Since each iteration takes 1 step, the total steps taken by inner loop is:
 
-        \begin{align}
-            (n - i - 1) \cdot 1 &= (n - i - 1)
-        \end{align}
+    \begin{align}
+        (n - i - 1) \cdot 1 &= (n - i - 1)
+    \end{align}
 
-        \bigskip
+    \bigskip
 
-        Now, we will evaluate total steps taken by outer loop.
+    Now, we will evaluate total steps taken by outer loop.
 
-        \bigskip
+    \bigskip
 
-        Since the outer loop starts at $i = 0$, and ends at $n-1$, the loop runs
-        at most $n$ iterations.
+    Since the outer loop starts at $i = 0$, and ends at $n-1$, the loop runs
+    at most $n$ iterations.
 
-        \bigskip
+    \bigskip
 
-        Since each iteration takes $(n -i - 1)$ steps, the total steps of outer
-        loop is:
+    Since each iteration takes $(n -i - 1)$ steps, the total steps of outer
+    loop is:
 
-        \begin{align}
-            \sum\limits_{i=0}^{n-1} (n - i + 1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
-            &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
-            &= n(n-1) - \frac{n(n-1)}{2}\\
-            &= \frac{n^2-n}{2}
-        \end{align}
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} (n - i + 1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
+        &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
+        &= n(n-1) - \frac{n(n-1)}{2}\\
+        &= \frac{n^2-n}{2}
+    \end{align}
 
-        \bigskip
+    \bigskip
 
-        Then, since the last \textbf{return} statement takes 1 step, it follows
-        that the total number of steps of this algorithm is at most
-        $\frac{n^2-n}{2} + 1$, or $\mathcal{O}(n^2)$.
-    \end{tcolorbox}
+    Then, since the last \textbf{return} statement takes 1 step, it follows
+    that the total number of steps of this algorithm is at most
+    $\frac{n^2-n}{2} + 1$, or $\mathcal{O}(n^2)$.
+    \noindent\rule{\textwidth}{1pt}
 
     \item
 
@@ -94,67 +94,69 @@
     Since the last \textbf{return} statement takes 1 step, the total number of
     steps of this algorithm is $\frac{n^2-n}{2} + 1$, or $\Omega(n^2)$.
 
-    \begin{tcolorbox}
-        \underline{\textbf{Correct Solution:}}
+    \noindent\rule{\textwidth}{1pt}
 
-        \bigskip
+    \bigskip
 
-        Let $n \in \mathbb{N}$ and $lst = [1,2,3,\dots,n-1,n-1]$.
+    \underline{\textbf{Correct Solution:}}
 
-        \bigskip
+    \bigskip
 
-        Since the inner loop will run without interruptions until the end, the
-        inner loop has
+    Let $n \in \mathbb{N}$ and $lst = [1,2,3,\dots,n-1,n-1]$.
 
-        \setcounter{equation}{0}
-        \begin{align}
-            n-1-(i+1) + 1 &= n-i-1
-        \end{align}
+    \bigskip
 
-        iterations.
+    Since the inner loop will run without interruptions until the end, the
+    inner loop has
 
-        \bigskip
+    \setcounter{equation}{0}
+    \begin{align}
+        n-1-(i+1) + 1 &= n-i-1
+    \end{align}
 
-        Then, since the inner loop takes 1 step per iteration, the total steps
-        taken by the inner loop is
+    iterations.
 
-        \begin{align}
-            (n-i-1) \cdot 1 &= (n-i-1)
-        \end{align}
+    \bigskip
 
-        \bigskip
+    Then, since the inner loop takes 1 step per iteration, the total steps
+    taken by the inner loop is
 
-        Since the \textbf{if condition} $lst[i] == lst[j]$ and the \textbf{return}
-        statement are activated when $i=n-2$, the outer loop will run until $i=n-2$,
-        where $j$ is the variable of the inner loop and $i$ is the variable of
-        the outer loop.
+    \begin{align}
+        (n-i-1) \cdot 1 &= (n-i-1)
+    \end{align}
 
-        \bigskip
+    \bigskip
 
-        Since the outer loop starts at 0 and ends at $n-2$, it has
+    Since the \textbf{if condition} $lst[i] == lst[j]$ and the \textbf{return}
+    statement are activated when $i=n-2$, the outer loop will run until $i=n-2$,
+    where $j$ is the variable of the inner loop and $i$ is the variable of
+    the outer loop.
 
-        \begin{align}
-            n-2+1 &= n-1
-        \end{align}
+    \bigskip
 
-        iterations.
+    Since the outer loop starts at 0 and ends at $n-2$, it has
 
-        \bigskip
+    \begin{align}
+        n-2+1 &= n-1
+    \end{align}
 
-        Since each iteration in the outer loop takes $(n-i-1)$ steps, the outer
-        loop has total cost of
+    iterations.
 
-        \begin{align}
-            \sum\limits_{i=0}^{n-2} (n-i-1) &= \sum\limits_{i=0}^{n-2} (n-1) + \sum\limits_{i=0}^{n-2} i\\
-            &= (n-1)(n-1) - \frac{(n-2)(n-1)}{2}\\
-            &= \frac{(n-1)n}{2}
-        \end{align}
+    \bigskip
 
-        Since each of the \textbf{if condition} and \textbf{return} statement has cost of 1,
-        the total cost of algorithm is $\frac{n(n-1)}{2} + 2$, or $\Omega(n^2)$
+    Since each iteration in the outer loop takes $(n-i-1)$ steps, the outer
+    loop has total cost of
 
-    \end{tcolorbox}
+    \begin{align}
+        \sum\limits_{i=0}^{n-2} (n-i-1) &= \sum\limits_{i=0}^{n-2} (n-1) + \sum\limits_{i=0}^{n-2} i\\
+        &= (n-1)(n-1) - \frac{(n-2)(n-1)}{2}\\
+        &= \frac{(n-1)n}{2}
+    \end{align}
 
+    Since each of the \textbf{if condition} and \textbf{return} statement has cost of 1,
+    the total cost of algorithm is $\frac{n(n-1)}{2} + 2$, or $\Omega(n^2)$
+
+    \noindent\rule{\textwidth}{1pt}
 \end{enumerate}
 
 \section*{Question 2}
