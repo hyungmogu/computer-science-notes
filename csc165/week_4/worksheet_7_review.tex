@@ -201,6 +201,43 @@
 \begin{enumerate}[a.]
     \item
 
+    Let $n,m \in \mathbb{N}$. Assume $Prime(n)$ and $n \nmid m$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        gcd(n,m) &= 1
+    \end{align}
+
+    because $\mathbb{N}$ is a part of $\mathbb{Z}$, and $\forall n,p \in \mathbb{Z},\:
+    Prime(p) \land p \nmid n \Rightarrow gcd(p,n) = 1$ from fact 3.
+
+    \bigskip
+
+    Then, $\exists r, s \in \mathbb{Z}$,
+
+    \begin{align}
+        rn + sm &= gcd(n,m)\\
+        &= 1
+    \end{align}
+
+    because $\forall n,m \in \mathbb{N},\:\exists r,s \in \mathbb{Z},\:rn + sm = gcd(n,m)$
+    from fact 6.
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall n,m \in \mathbb{N},
+    Prime(n) \land n \nmid m \Rightarrow \exists r,s \in \mathbb{Z},\:rn + sm = 1$ is true.
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item Can the line line 'Then, it follows from above that the statement
+        $\forall n,m \in \mathbb{N},\:Prime(n) \land n \nmid m \Rightarrow \exists
+        r,s \in \mathbb{Z},\:rn + sm = 1$ is true.' be omitted?
+    \end{itemize}
+
 
 \end{enumerate}
 
