@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{mdframed}
 \usepackage{tabularx}
+\usepackage{xcolor}
 
 \begin{document}
 \title{Worksheet 8 Review}
@@ -142,6 +143,7 @@
 \end{enumerate}
 
 \section*{Question 2}
+
 \begin{itemize}
     \item
 
@@ -206,6 +208,98 @@
         &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{3(n+1)(n+2)}{6}\\
         &= \frac{(n+1)(n+2)(n+3)}{6}
     \end{align}
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        We will prove the statement by induction on natural number $n$.
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        \color{red}
+        \textbf{Let $n = 0$.}
+        \color{black}
+
+        \bigskip
+
+        Then,
+        \setcounter{equation}{0}
+        \begin{align}
+            \sum\limits_{j=0}^{1} T_j &= \frac{0 \cdot (0+1)(0+2)}{6}\\
+            &= 0
+        \end{align}
+
+        \bigskip
+
+        \color{red}
+        \textbf{Since}
+
+        \begin{align}
+            \sum\limits_{j=0}^0 T_j &= T_0
+        \end{align}
+
+        \textbf{and,}
+
+        \begin{align}
+            T_0 &= \frac{0 \cdot (0+1)}{2}\\
+            &= 0
+        \end{align}
+
+        \textbf{, the base case holds.}
+
+        \color{black}
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $\sum\limits_{j=0}^n T_j = \frac{n \cdot (n+1)(n+2)}{6}$.
+
+        \bigskip
+
+        We want to show $\sum\limits_{j=0}^{n+1} T_j = \frac{(n+1)(n+2)(n+3)}{6}$.
+
+        \bigskip
+
+        It follows from the following table
+
+        \begin{tabularx}{\textwidth}{|c|X|X|X|X|X|}
+            \hline
+            n & 1 & 2 & 3 & 4 & 5\\
+            \hline
+            $T_i = \frac{n \cdot (n+1)}{2}$ & 1 & 3 & 6 & 10 & 15\\
+            \hline
+            $\sum\limits_{j=1}^n T_j$ & 1 & 4 & 10 & 20 & 35\\
+            \hline
+        \end{tabularx}
+
+        that $n+1^{th}$ value of the summation is $\frac{(n+1)(n+2)}{2}$ more than
+        the $n^{th}$ sum.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            \sum\limits_{j=0}^{n+1} T_j &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{(n+1)(n+2)}{2}\\
+            &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{3(n+1)(n+2)}{6}\\
+            &= \frac{(n+1)(n+2)(n+3)}{6}
+        \end{align}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item I wasn't explicit about where the value 1 in data came from.
+    \end{itemize}
 
 \end{itemize}
 
