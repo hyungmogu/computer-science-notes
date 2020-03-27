@@ -271,8 +271,47 @@
     we know $n > 1$ from the definition of prime number, we can conclude
     $n \nmid m$.
 
+    \begin{mdframed}
 
-    \bigskip
+        \underline{\textbf{Correct Solution:}}
+
+        Let $n,m \in \mathbb{N}$. Assume $Prime(n)$ (i.e. $n > 1 \land (\forall d \in \mathbb{N},\:
+        d \mid n \Rightarrow d = 1 \lor d = n)$) and $\exists r,s \in \mathbb{Z},\:
+        rn + sm = 1$.
+
+        \bigskip
+
+        Then,
+        \setcounter{equation}{0}
+        \begin{align}
+            gcd(n,m) \mid (rn + sm)
+        \end{align}
+
+        by fact 5.
+
+        \bigskip
+
+        Then, since $(rn + sm) = 1$,
+
+        \begin{align}
+            gcd(n,m) &= 1
+        \end{align}
+
+        \bigskip
+
+        Because 1 is the highest possible common divisor to both $n$ and $m$, and
+        we know $n > 1$ from the definition of prime number, we can conclude
+        \textbf{n is not a common divisor to $n$ and $m$}.
+
+        \textbf{Since $n \mid n$ by fact 1, we can conclude $n \nmid m$ }
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item I jumped to conclusion at the end.
+        \item The proof feels like creating two dots, then filling in details with facts
+        until the two dots are connected.
+    \end{itemize}
 
 
 \end{enumerate}
