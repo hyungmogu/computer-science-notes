@@ -400,8 +400,83 @@
     Since $(1+x)^{n+1} \geq 1 + x(n+1)$ is true, it follows from proof by
     induction that the statement $(1+x)^n \geq 1 + xn$ is true for all $n$.
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        Let $n = 0$.
+
+        \bigskip
+        \color{red}
+        \textbf{Since $(1 + x)^0 = 1$ and $1 + (0)x = 1$, we know $(1+x)^0 \geq 1 + (0)x$ is true.}
+        \color{black}
+
+        Because we know the inequality is true, we can conclude that the base case holds.
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $(1+x)^n \geq 1 + nx$.
+
+        \bigskip
+
+        We want to show $(1+x)^{n+1} \geq 1 + (n+1)x$.
+
+        \bigskip
+
+        Because we know $(1 + x)^{n+1} = (1+x)^n(1+x)$ and $(1+x)^n \geq 1 + nx$, we
+        can write
+
+        \begin{align}
+            (1+x)^{n+1} &= (1+x)^n(1+x)\\
+            &\geq (1+nx)(1+x)\\
+            &\geq 1 + x + nx + nx^2
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            1 + x + nx + nx^2 &\geq 1 + x + nx
+        \end{align}
+
+        by the fact that $nx^2 \geq 0$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            1 + x + nx &\geq 1 + x(n+1)
+        \end{align}
+
+        \bigskip
+
+        Since $(1+x)^{n+1} \geq 1 + x(n+1)$ is true, it follows from proof by
+        induction that the statement $(1+x)^n \geq 1 + xn$ is true for all $n$.
+
+    \end{mdframed}
+
     \textbf{Notes:}
     \begin{itemize}
+        \item Realized professor evaluates lhs and rhs before validating the inequality for the base case
+        \item Can values can be compared directly from inequality? i.e
+
+        \begin{align}
+            1 = (1+x)^0 &\geq 1 + (0)x\\
+            &\geq 1
+        \end{align}
+
+        \item 'Assume $P(n)$' is called \textbf{inductive hypothesis}
         \item $\mathbb{N} = \{0,1,2,\dots\}$
         \item $\mathbb{Z}^{+} = \{1,2,3,\dots\}$
     \end{itemize}
