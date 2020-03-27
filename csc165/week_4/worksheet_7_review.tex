@@ -82,9 +82,108 @@
     Then, it follows from the result of part 1, part 2 and part 3 that the second
     part of the OR is true.
 
+    \begin{mdframed}
+
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Assume $\exists d \in \mathbb{N}$, $k \in \mathbb{Z}$, $n = dk \land
+        d \neq 1 \land d \neq n$, and n > 1.
+
+        \bigskip
+
+        Let $a = d$ and $b = k$.
+
+        \bigskip
+
+        We will prove this statement by dividing into cases and combining them
+        together.
+
+        \bigskip
+
+        \textbf{Case 1} ($n \mid ab$):
+
+        \bigskip
+
+        Because we know $n = ab$ and $n \mid n$ by fact 1 , we can conclude
+        $n \mid ab$.
+
+        \bigskip
+
+        \textbf{Case 2} ($n \nmid a$):
+
+        \bigskip
+
+        Because we know $d \geq 1$ from $d \in \mathbb{N}$ and $n > 1$ in
+        assumption, we can conclude $k \geq 1$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            n &= dk\\
+            n &> d
+        \end{align}
+
+        where $'>'$ sign is due to the assumption $d \neq n$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            d < 1 \lor n \nmid d
+        \end{align}
+
+        by contrapositive of fact 2.
+
+        \bigskip
+
+        Since the first part of OR is not true, we can conclude $n \nmid a$.
+
+        \bigskip
+
+        \textbf{Case 3} ($n \nmid b$):
+
+        Because we know $n = dk$, $d \geq 1$ from $d \in \mathbb{N}$ and $n > 1$ in
+        assumption, we can conclude $k \geq 1$.
+
+        \bigskip
+
+        Then because we know $d \neq n \land d \neq 1$ and $n = dk$, we can conclude
+        $k \neq n \land k \neq 1$.
+
+        Then,
+
+        \begin{align}
+            n &= dk\\
+            n &> k
+        \end{align}
+
+        where $'>'$ sign is due to the fact $k \neq n \land k \neq 1$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            b < 1 \lor n \nmid y
+        \end{align}
+
+        by contrapositive of fact 2.
+
+        \bigskip
+
+        Since the first part of OR is not true, and we can conclude $n \nmid b$.
+
+    \end{mdframed}
+
     \textbf{Notes:}
     \begin{itemize}
         \item \textbf{Definition of Divisibility:} Let $a,d \in \mathbb{Z}$. There exists $k \in \mathbb{Z}$, $n = dk$
+        \item \textbf{Contrapositive of Fact 2:} $\forall x,y \in \mathbb{N}, 1 > x \lor x > y \Rightarrow y < 1 \lor x \nmid y$
 
     \end{itemize}
 
