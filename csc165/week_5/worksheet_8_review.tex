@@ -24,6 +24,57 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    We will prove this statement by induction on n.
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        0 &\leq 2^0\\
+        0 &\leq 1
+    \end{align}
+
+    \bigskip
+
+    Since the above inequality is true, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $P(n)$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n &\leq 2^n\\
+        n+1 &\leq 2^n + 1\\
+        n+1 &\leq 2^n + 2^n\\
+        n+1 &\leq 2^{n+1}
+    \end{align}
+
+    by the fact $2^k + 2^k = 2^{k+1}$.
+
+    \bigskip
+
+    Then, it follows from proof by induction that the statement $n \leq 2^n$ is
+    true for all $n$.
+
+\end{enumerate}
 
 \section*{Question 3}
 
