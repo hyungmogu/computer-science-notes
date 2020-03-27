@@ -488,6 +488,77 @@
     \item
 
     $\forall n \in \mathbb{N}, n \geq 8 \Rightarrow 30n \leq 2^n$
+
+    \item
+
+    We will prove the statement $\forall n \in \mathbb{N},\:n \geq 8 \Rightarrow
+    30n \leq 2^n$ by using induction on $n$.
+
+    \bigskip
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n=8$.
+
+    \bigskip
+
+    Since
+    \setcounter{equation}{0}
+    \begin{align}
+        30n &= 30(8)\\
+        &= 240
+    \end{align}
+
+    ,and
+
+    \begin{align}
+        2^n &= 2^8\\
+        &= 256
+    \end{align}
+
+    the inequality $30(8) \leq 2^{(8)}$ is true, and the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $30n \leq 2^n$.
+
+    \bigskip
+
+    We want to show $30(n+1) \leq 2^{(n+1)}$.
+
+    \bigskip
+
+    It follows from inductive hypothesis that
+
+    \begin{align}
+        30(n+1) &= 30n + 30\\
+        &\leq 2^n + 30
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        30(n+1) &< 2^n + 2^n
+    \end{align}
+
+    by the fact $n \geq 8$ and $2^n > 30$.
+
+    \bigskip
+
+    Then, since $2^n + 2^n = 2^{n+1}$
+
+    \begin{align}
+        30(n+1) < 2^{(n+1)}
+    \end{align}
+
 \end{enumerate}
 
 \end{document}
