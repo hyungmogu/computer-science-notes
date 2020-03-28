@@ -55,16 +55,34 @@
 
     iterations.
 
+    \textbf{Part 2.b - Determine formula for an exact lower bound on the value}
+
     \bigskip
 
     Since the largest step increases by 6 per iteration, the total cost of the
     loop at minimum possible change is
 
     \begin{align}
-        (n) \cdot 6 = 6n
+        \left\lceil \frac{n}{6} \right\rceil
     \end{align}
 
     steps.
+
+    \textbf{Part 3.a - Determine formula for an exact upper bound on the value}
+    Is it $n$?
+
+    \textbf{Part 3.a - Determine formula for an exact upper bound on the value}
+    Is it $\left\lceil \frac{n}{6} \right\rceil$?
+
+    \textbf{Part 4 - Determine Big Oh and Big Omega}
+
+    The big Oh bound of running time is $\mathcal{O}(n)$, and the big theta of
+    running time is $\Omega(n)$.
+
+    \bigskip
+
+    Since $n$ in $\mathcal{O}(n)$ and  $\Omega(n)$ are the same, $\Theta(n)$ is
+    also true.
 
 \end{enumerate}
 
