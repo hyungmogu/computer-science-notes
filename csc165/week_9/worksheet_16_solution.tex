@@ -84,6 +84,99 @@
     Since $n$ in $\mathcal{O}(n)$ and  $\Omega(n)$ are the same, $\Theta(n)$ is
     also true.
 
+    \begin{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \textbf{Part 1.a - Finding minimum possible change for a loop in a single iteration}
+
+    The minimum possible change in a loop occurs when $i$ increments by 1.
+
+    \textbf{Part 1.b - Finding maximum possible change for a loop in a single iteration}
+
+    The maximum possible change in a loop occurs when $i$ increments by 6.
+
+    \color{red}
+    \textbf{Part 2.a - Determine formula for an exact upper bound on the value}
+
+    The upper bound of loop termination is when $k\geq n$
+
+
+    \textbf{Part 2.b - Determine formula for an exact lower bound on the value}
+
+    The lower bound of loop termination is when $6k \leq n$
+
+    \textbf{Part 3.a - Use the formula to determine the exact number of loops that will occur for upper bound}
+
+    \bigskip
+
+    Since the loop starts from 0 and ends at $n-1$, the loop has total of
+
+    \begin{align}
+        n-1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since 1 step is taken for each iteration, the upper bound total cost of loop
+    iteration is
+
+    \begin{align}
+        n \cdot 1 &= n
+    \end{align}
+
+    \bigskip
+
+    Since the statement on line 2 has cost of 1, the upper bound total cost of
+    the algorithm is $n + 1$, or $\mathcal{O}(n)$.
+
+    \bigskip
+
+    \textbf{Part 3.b - Use the formula to determine the exact number of loops that will occur for lower bound}
+
+    \bigskip
+
+    Since the loop starts from 0 and ends at $n-1$, the loop has total of
+
+    \begin{align}
+        n-1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since 6 steps are taken for each iteration, the lower bound total cost of loop
+    iteration is
+
+    \begin{align}
+        \left\lceil \frac{n}{6} \right\rceil
+    \end{align}
+
+    \bigskip
+
+    Since the statement on line 2 has cost of 1, the lower bound total cost of
+    the algorithm is $\left\lceil \frac{n}{6} \right\rceil + 1$, or $\Omega(n)$
+    \color{black}
+
+    \textbf{Part 4 - Determine Big Oh and Big Omega}
+
+    The big Oh bound of running time is $\mathcal{O}(n)$, and the big theta of
+    running time is $\Omega(n)$.
+
+    \bigskip
+
+    Since $n$ in $\mathcal{O}(n)$ and  $\Omega(n)$ are the same, $\Theta(n)$ is
+    also true.
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 2}
