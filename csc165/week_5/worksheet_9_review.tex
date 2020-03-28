@@ -463,6 +463,111 @@
 
     $\{ \{\}, \{1\}, \{2\}, \{1,2\} \}$
 
+    \item
+
+    Let $n \in \mathbb{N}$.
+
+    We will prove the statement using induction on $n$.
+
+    \bigskip
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    We will show $\mid \mathcal{P}(\{\}) \mid$ and $2^0$ are equal.
+
+    \bigskip
+
+    Because we know $S$ with size 0 is an empty set and $\mathcal{P}(\{\}) = \{\{\}\}$,
+    we can conclude
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \mid \mathcal{P}(\{\}) \mid &= \mid \{\{\}\} \mid\\
+        &= 1
+    \end{align}
+
+    \bigskip
+
+    Because we know $2^{(0)} = 1$, we can conclude $\mid \mathcal{P}(\{\}) \mid = 2^0$
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $\mid \mathcal{P}(\{s_0,\dots,s_n\}) \mid = 2^n$.
+
+    \bigskip
+
+    We will show $\mid \mathcal{P}(\{s_0,\dots,s_n,s_{n+1}\}) \mid = 2^{n+1}$ by
+    finding the number of subsets containing $s_{n+1}$ and the number of subsets
+    not containing $s_{n+1}$, and then combining the result together.
+
+    \bigskip
+
+    \textbf{Part 1 Determining number of subsets containing $s_{n+1}$}:
+
+    Because we know a subset containing $s_{n+1}$ can be decomposed into two parts
+    $S_n' \cup \{s_{n+1}\}$ where $S_n'$ is a subset with combination of elements in
+    $\{\phi, s_0,\dots,s_n\}$, we can conclude that the number of subsets containing
+    $s_{n+1}$ is exactly $\mid \mathcal{P}(\{s_0,\dots,s_n\}) \mid$, or
+
+    \begin{align}
+        2^n
+    \end{align}
+
+    using induction hypothesis.
+
+    \bigskip
+
+    \textbf{Part 2 Determining number of subsets not containing $s_{n+1}$}:
+
+    Because we know the subsets don't have $s_{n+1}$, we can conclude that
+    the subsets are combination of elements in $\{\phi, s_0,\dots,s_n\}$.
+
+    \bigskip
+
+    Since this is exactly, $\mid \mathcal{P}(\{s_0,\dots,s_n\}) \mid$, using induction
+    hypothesis, we can conclude that the number of subsets not containing $s_{n+1}$
+    is
+
+    \begin{align}
+        2^n
+    \end{align}
+
+    \bigskip
+
+    \textbf{Part 3 Combining together}:
+
+    Since $\mid \mathcal{P}(s_0,\dots,s_n,s_{n+1}) \mid$ is the sum of the
+    number of subsets containing $s_{n+1}$ and the number of subsets not containing
+    $s_{n+1}$, we have
+
+    \begin{align}
+        \mid \mathcal{P}(s_0,\dots,s_n,s_{n+1}) \mid &= 2^n + 2^n
+    \end{align}
+
+    Then, it follows from the fact $2^n + 2^n = 2^{n+1}$ that
+
+    \begin{align}
+        \mid \mathcal{P}(s_0,\dots,s_n,s_{n+1}) \mid &= 2^{n+1}
+    \end{align}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item How can the phrase 'every set $S$ of size n' be described using
+        predicate logic?
+        \item How we know if we are over doing/over thinking it? How do we know
+        if a proof is not enough or has missing detail or jumping to conclusion?
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
