@@ -5,6 +5,7 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{mdframed}
+\usepackage{tabularx}
 
 \begin{document}
 \title{Worksheet 9 Review}
@@ -74,6 +75,63 @@
     \bigskip
 
     We want to show a set of size $k+1$ has $\frac{(k+1)k}{2}$ subsets of size 2.
+
+    \bigskip
+
+    \underline{\textbf{Part 1: counting subsets of $S$ of size 2 that contain $s_{k+1}$}}
+
+    \bigskip
+
+    It follows from the table below,
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        k & Sets & Subsets of Size 2 with $s_{k+1}$\\
+        \hline
+        0 & $\{0,1\}$ & 1\\
+        \hline
+        1 & $\{0,1,2\}$ & 2\\
+        \hline
+        2 & $\{0,1,2,3\}$ & 3\\
+        \hline
+        2 & $\{0,1,2,3,4\}$ & 4\\
+        \hline
+    \end{tabular}
+
+    that the number of subsets of size 2 that contain $s_{k+1}$ is $k+1$.
+
+    \bigskip
+
+    \underline{\textbf{Part 2: counting subsets of $S$ of size 2 that doesn't contain $s_{k+1}$}}
+
+    \bigskip
+
+    Because we know the subset of $S$ that doesn't contain $s_{k+1}$ is a set S
+    of size k, we can conclude using induction hypothesis that there are
+
+    \begin{align}
+        \frac{k(k+1)}{2}
+    \end{align}
+
+    subsets of size 2.
+
+    \bigskip
+
+    \underline{\textbf{Part 3: Putting the counts together}}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{k(k+1)}{2} + (k+1) &= \frac{(k+1)(k+2)}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from proof by induction that the statement '$\forall n \in \mathbb{N}$,
+    every set of size n has $\frac{n(n-1)}{2}$ subsets of size 2' is true for all
+    natural numbers n.
 
 \end{enumerate}
 
