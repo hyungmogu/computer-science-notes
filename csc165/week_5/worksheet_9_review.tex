@@ -248,8 +248,57 @@
 
     the base case holds.
 
+    \bigskip
 
+    \textbf{Inductive Case:}
 
+    \bigskip
+
+    Let $k \in \mathbb{N}$. Assume every finite set $S$ of size $k$ has exactly
+    $\frac{k(k-1)(k-2)}{6}$ subsets of size 3.
+
+    \bigskip
+
+    We want to show finite set $S$ of size $k+1$ contains $\frac{(k+1)k(k-1)}{6}$
+    subsets of size 3.
+
+    \bigskip
+
+    It follows from the table below
+
+    \bigskip
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        k & Sets & \# of Subsets of Size 3 & \# of Subsets of Size 2\\
+        \hline
+        0 & $\{\}$ & 0 & 0\\
+        \hline
+        1 & $\{s_0\}$ & 0 & 0\\
+        \hline
+        2 & $\{s_0,s_1\}$ & 0 & 1\\
+        \hline
+        3 & $\{s_0,s_1,s_2\}$ & 1 & 3\\
+        \hline
+        4 & $\{s_0,s_1,s_2,s_3\}$ & 4 & 6\\
+        \hline
+        5 & $\{s_0,s_1,s_2,s_3,s_4\}$ & 10 & 10\\
+        \hline
+    \end{tabular}
+
+    we can deduce that given a set S size $k+1$, the number of subsets of size 3
+    that contains $s_{k+1}$ is the sum of \# of subsets of size 3 that doesn't
+    contain $s_{k+1})$ and \# of subsets of size 2 that doesn't contain $s_{k+1}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{k(k-1)(k-2)}{6} + \frac{k(k-1)}{2} &= \frac{k(k-1)(k-2)}{6} + \frac{3k(k-1)}{6}\\
+        &= \frac{k(k-1)(k-2+3)}{6}\\
+        &= \frac{k(k-1)(k+1)}{6}
+    \end{align}
 
 \end{enumerate}
 
