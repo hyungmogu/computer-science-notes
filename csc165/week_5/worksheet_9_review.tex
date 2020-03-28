@@ -37,7 +37,9 @@
 
 
     \begin{mdframed}
-        \underline{\textbf{Correct Solution:}}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
 
         \color{red}
         \textbf{We want to show every set S of size 0 has 0 subsets of size 2}.
@@ -135,7 +137,9 @@
 
 
     \begin{mdframed}
-        \underline{\textbf{Correct Solution:}}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
 
         \underline{\textbf{Part 1: counting subsets of $S$ of size 2 that contain $s_{k+1}$}}
 
@@ -305,11 +309,138 @@
 
     \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
+
+        \textbf{Statement:} For every $n \in \mathbb{N}$, every finite set $S$ of size $n$,
+        has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \frac{n(n-1)(n-2)}{6}
+        \end{align}
+
+        subsets of size 3.
+
+        \bigskip
+
+        We will prove this statement by using induction on $n$.
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        Let $n = 0$.
+
+        \bigskip
+
+        Then, only the empty subsets can be included in $S$.
+
+        \bigskip
+
+        Because an empty subset has size 0, there are 0 subsets of size 3 in S.
+
+        \bigskip
+
+        Then, since
+
+        \begin{align}
+            \frac{0 \cdot (0-1)(0-2)}{6} &= 0
+        \end{align}
+
+        the base case holds.
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $k \in \mathbb{N}$. Assume every finite set $S$ of size $k$ has exactly
+        $\frac{k(k-1)(k-2)}{6}$ subsets of size 3.
+
+        \bigskip
+
+        \color{red}
+        We want to show finite set $S$ of size $k+1$ contains $\frac{(k+1)k(k-1)}{6}$
+        subsets of size 3. We will do that by determining the number of subsets of size
+        3 including $s_{k+1}$, and the number of subsets of size 3 not including $s_{k+1}$,
+        and then combining them together.
+
+        \bigskip
+
+        First, we will show the number of subsets of size 3 including $s_{k+1}$
+        is $\frac{n(n-1)}{2}$.
+
+        \bigskip
+
+        Because we know the number of subsets of size 3 (i.e $\{a_1,a_2,s_{k+1}\}$)
+        containing $s_{k+1}$ depends on the unique combination of first two elements $a_1$ and $a_2$,
+        and because we know
+
+        \begin{enumerate}[1.]
+            \item $a_1 \neq a_2$
+            \item $a_1,a_2 \in \{s_0,s_1,\dots,s_k\}$
+        \end{enumerate}
+
+        , we can conclude that the number of subsets of size 3 containing $s_{k+1}$
+        is exactly the number of subsets of size 2 in a set $S$ of size $k$ or
+
+        \begin{align}
+            \frac{n(n-1)}{2}
+        \end{align}
+
+        \bigskip
+
+        Second, we will show the number of subsets of size 3 not including $s_{k+1}$
+        is $\frac{n(n-1)(n-2)}{6}$.
+
+        \bigskip
+
+        Since the number of subsets of size 3 not containing $s_{k+1}$ must contain
+        3 elements from $\{s_0,\dots,s_k\}$, this is exactly number of subsets of size
+        3 in a set S of size $k$, or
+
+        \begin{align}
+            \frac{n(n-1)(n-2)}{6}
+        \end{align}
+
+        by induction hypothesis.
+
+        \bigskip
+
+        \color{black}
+
+        Then,
+
+        \begin{align}
+            \frac{n(n-1)}{2} + \frac{n(n-1)(n-2)}{6} &= \frac{3n(n-1)}{6} + \frac{n(n-1)(n-2)}{6}\\
+            &= \frac{n(n-1)}{6} \cdot (3 + n - 2)\\
+            &= \frac{n(n-1)(n+1)}{6}
+        \end{align}
+    \end{mdframed}
+
+    \bigskip
+
     \textbf{Notes:}
     \begin{itemize}
         \item I wonder if table like above can be used in a proof. If not, why
         can't it be done? If yes, when is the use of table not valid? How should
         it be constructed that it's valid?
+
+        \item Can I put a subheader like 'Part 1: counting subsets of $S$ of size 2
+        that contain $s_{k+1}$' in a proof? If so, are there anything that I should be
+        aware/be careful of?
+
+        \item Is it alright to play with examples when I don't know how to proceed?
+        What's the danger to this approach?
+
+        \item Noticed that professor lays out the big ideas of proof (proof by induction
+        evaluating number of $s_{k+1}$ and $s_k$) and then fills in the missing detail
     \end{itemize}
 
 \end{itemize}
