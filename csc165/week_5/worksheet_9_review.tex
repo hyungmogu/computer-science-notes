@@ -133,6 +133,79 @@
     every set of size n has $\frac{n(n-1)}{2}$ subsets of size 2' is true for all
     natural numbers n.
 
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \underline{\textbf{Part 1: counting subsets of $S$ of size 2 that contain $s_{k+1}$}}
+
+        \bigskip
+
+        It follows from the table below,
+
+        \color{red}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            k & Sets & Subsets of Size 2 with $s_{k+1}$\\
+            \hline
+            2 & $\{0,1\}$ & 1\\
+            \hline
+            3 & $\{0,1,2\}$ & 2\\
+            \hline
+            4 & $\{0,1,2,3\}$ & 3\\
+            \hline
+            5 & $\{0,1,2,3,4\}$ & 4\\
+            \hline
+        \end{tabular}
+        \color{black}
+
+        that the number of subsets of size 2 that contain $s_{k+1}$ is \color{red}\textbf{$k$}\color{black}.
+
+        \bigskip
+
+        \underline{\textbf{Part 2: counting subsets of $S$ of size 2 that doesn't contain $s_{k+1}$}}
+
+        \bigskip
+
+        Because we know the subset of $S$ that doesn't contain $s_{k+1}$ is a set S
+        of size $k$, we can conclude using induction hypothesis that there are
+
+        \color{red}
+        \begin{align}
+            \frac{k(k-1)}{2}
+        \end{align}
+        \color{black}
+
+        subsets of size 2.
+
+        \bigskip
+
+        \underline{\textbf{Part 3: Putting the counts together}}
+
+        \bigskip
+
+        Then,
+
+        \color{red}
+        \begin{align}
+            \frac{k(k-1)}{2} + k &= \frac{(k+1)k}{2}
+        \end{align}
+        \color{black}
+
+        \bigskip
+
+        Then, it follows from proof by induction that the statement '$\forall \color{red}k\color{black} \in \mathbb{N}$,
+        every set of size \color{red}$k$\color{black} has \color{red}$\frac{k(k-1)}{2}$\color{black} subsets of size 2' is true for all
+        natural numbers \color{red}$k$\color{black}.
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item I forgot that k represents number of elements in a set.
+    \end{itemize}
+
+
 \end{enumerate}
 
 \section*{Question 2}
