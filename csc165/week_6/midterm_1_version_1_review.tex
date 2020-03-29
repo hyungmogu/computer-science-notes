@@ -200,6 +200,50 @@
         \lfloor x + y \rfloor &\geq \lfloor x \rfloor + \lfloor y \rfloor
     \end{align}
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Let $x,y \in \mathbb{R}$.
+
+        \bigskip
+
+        We want to show $\lfloor x + y \rfloor \geq \lfloor x \rfloor + \lfloor y \rfloor$.
+
+        \bigskip
+
+        Because we know $x \in \mathbb{R}$, by using fact 1 on $x$, we can conclude there
+        is \color{red}\textbf{some}\color{black}\:$\epsilon \in \mathbb{R}$ and $0
+        \leq \epsilon < 1$, $x = \lfloor x \rfloor + \epsilon$.
+
+        \bigskip
+
+        Then,
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \lfloor x + y \rfloor &\geq \bigl\lfloor \lfloor x \rfloor + \epsilon + y \bigr\rfloor
+        \end{align}
+
+        \bigskip
+
+        Then, because we know $\lfloor x \rfloor \in \mathbb{Z}$ and $y \in \mathbb{R}$,
+        by using fact 2, we can conclude
+
+        \begin{align}
+            \lfloor x + y \rfloor &\geq \lfloor x \rfloor + \lfloor \epsilon + y \rfloor
+        \end{align}
+
+        \bigskip
+
+        Then, since $\lfloor \epsilon + y \rfloor \geq \lfloor y \rfloor$,
+
+        \begin{align}
+            \lfloor x + y \rfloor &\geq \lfloor x \rfloor + \lfloor y \rfloor
+        \end{align}
+    \end{mdframed}
+
 \end{itemize}
 
 \end{document}
