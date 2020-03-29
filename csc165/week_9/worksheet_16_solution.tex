@@ -312,6 +312,22 @@
     Since $i = 0$ and $j = 0$ each have cost of 1, the total cost of the algorithm
     is $\left\lceil \frac{n}{2} \right\rceil \cdot n + 10n^2 + 2$ steps or $\Theta(n^2)$.
 
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+     \item Noticed professor uses the phrase \textbf{each iteration requires
+     $n$ steps for the call to helper 1} to reference helper functions in loop.
+
+     \item Noticed professor did not consider $i = 0$ and $j = 0$ into total costs.
+     Should $i = 0$ and $j = 0$ be counted towards costs? If not, how come the cost of
+     $len(lst)$ and \textbf{return} statement are considered in Question 1.a of
+     worksheet 15? Are there rules such as what to include and what to omit
+     when considering the statements with constant time?
+
+    \end{itemize}
+
 \end{enumerate}
 
 \section*{Question 3}
