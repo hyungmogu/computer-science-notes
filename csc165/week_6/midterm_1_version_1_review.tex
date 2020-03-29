@@ -84,7 +84,22 @@
 \section*{Question 2}
 \begin{enumerate}[a.]
     \item $\exists x \in P,\:Student(x) \land Attends(x)$
-    \item $\forall x \in P,\:\exists y \in P, Student(y) \land Attends(y) \Rightarrow Loves(x,y)$
+    \item
+
+    $\forall x \in P,\:\exists y \in P, Student(y) \land Attends(y) \Rightarrow Loves(x,y)$
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        $\forall x \in P,\:\exists y \in P, Student(y) \land Attends(y) \color{red}\land Loves(x,y)\color{black}$
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item When should $\Rightarrow$ be used, and when should $\land$ be used?
+    \end{itemize}
 \end{enumerate}
 
 \section*{Question 3}
