@@ -483,6 +483,45 @@
 
     \textbf{Predicate Logic:} $\forall x \in \mathbb{Z}^{+},\:(\text{3 loops occur})
     \Rightarrow \exists x_{final} \in \mathbb{Z}^{+}$, and $m \in \mathbb{N},\:x - x_{final} = 2^m$
+
+    \bigskip
+
+    Let $x \in \mathbb{Z}$. Assume 3 loop iterations occur.
+
+    \bigskip
+
+    We will prove the statement by dividing into cases.
+
+    \bigskip
+
+    \textbf{Case 1} ($x = 2^m$, where $m \in \mathbb{N}$):
+
+    \bigskip
+
+    Assume $x = 2^m$, where $m \in \mathbb{N}$.
+
+    \bigskip
+
+    We want to show $m$ in $x - x_{final} = 2^m$ is greater than or equal to 1.
+
+    \bigskip
+
+    Because we know the loop will occur 3 times, we can conclude
+    \setcounter{equation}{0}
+    \begin{align}
+        2^m > 2^3
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \log 2^m &> \log 2^3\\
+        m &> 3\\
+        m &> 1
+    \end{align}
+
 \end{enumerate}
 
 \end{document}
