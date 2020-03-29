@@ -328,6 +328,65 @@
 
     \end{itemize}
 
+    \item
+
+    Assume \textbf{helper1} function has runtime of $\Theta(n)$, and \textbf{helper2}
+    function has runtime of $\Theta(n^2)$.
+
+    \bigskip
+
+    Since loop 1 runs from $i = 0$ to $n-1$, the loop has
+    \setcounter{equation}{0}
+    \begin{align}
+        n - 1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Then, since each iteration of loop 1 requires $n$ steps for the call to
+    \textbf{helper1}, the loop has total cost of
+
+    \begin{align}
+        n \cdot n &= n^2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Because we know the loop 2 runs from $j = 0$ to $j = 9$, we can conclude
+    the loop has
+
+    \begin{align}
+        9 - 0 + 1 = 10
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration of loop 2 requires $n^2$ steps for the call to
+    \textbf{helper2}, the loop has total cost of
+
+    \begin{align}
+        10 \cdot n^2 &= 10n^2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since $i = 0$ and $j = 0$ each have cost of 1, the total cost of algorithm
+    is
+
+    \begin{align}
+        n^2 + 10n^2 + 2 &= 11n^2 + 2
+    \end{align}
+
+    steps, or $\Theta(n^2)$.
+
 \end{enumerate}
 
 \section*{Question 3}
