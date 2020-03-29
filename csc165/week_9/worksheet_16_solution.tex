@@ -271,6 +271,46 @@
 
     \end{itemize}
 
+    \item
+
+    Assume \textbf{helper1} has running time of $\Theta(n)$ steps and \textbf{helper2} has
+    running time of $\Theta(n^2)$.
+
+    \bigskip
+
+    Because the outer loop 1 runs from $i = 0$ to $\left\lceil \frac{n}{2} \right\rceil - 1$,
+    the outer loop 1 has
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{n}{2} \right\rceil - 1 + 1 &= \left\lceil \frac{n}{2} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the outer loop 1 takes $n$ steps per iteration, the outer loop 1 has
+    total cost of $\left\lceil \frac{n}{2} \right\rceil \cdot n$ steps.
+
+    \bigskip
+
+    Because the outer loop 2 runs from $j = 0$ to $j = 9$, it has
+
+    \begin{align}
+        (9 - 0 + 1) &= 10
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the outer loop 2 takes $n^2$ steps per iteration, it has total cost of
+    $10n^2$ steps.
+
+    \bigskip
+
+    Since $i = 0$ and $j = 0$ each have cost of 1, the total cost of the algorithm
+    is $\left\lceil \frac{n}{2} \right\rceil \cdot n + 10n^2 + 2$ steps or $\Theta(n^2)$.
 
 \end{enumerate}
 
