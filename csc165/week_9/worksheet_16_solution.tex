@@ -387,6 +387,82 @@
 
     steps, or $\Theta(n^2)$.
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}\textbf{Let $n \in \mathbb{N}$}\color{black}. Assume \textbf{helper1}
+        function has runtime of $\Theta(n)$, and \textbf{helper2} function has runtime
+        of $\Theta(n^2)$.
+
+        \bigskip
+
+        Since loop 1 runs from $i = 0$ to $n-1$ \color{red}where $i$ represents
+        the variable for loop 1\color{black}, the loop has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            n - 1 - 0 + 1 &= n
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Then, since each iteration of loop 1 requires \color{red}\textbf{$i$}\color{black}
+        \:steps for the call to \textbf{helper1}, the loop has total cost of
+
+        \color{red}
+        \begin{align}
+            \sum\limits_{i=0}^{n-1} i &= \frac{n(n-1)}{2}
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Because we know the loop 2 runs from $j = 0$ to $j = 9$ \color{red}where $j$
+        represents the variable for loop 2\color{black}, we can conclude
+        the loop has
+
+        \begin{align}
+            9 - 0 + 1 = 10
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration of loop 2 requires \color{red}\textbf{$j^2$}\color{black}
+        \:steps for the call to \textbf{helper2}, the loop has total cost of
+
+        \color{red}
+        \begin{align}
+            \sum\limits_{j=0}^{9} j^2 &= \frac{9 \cdot (9 - 1)(2(9) - 1)}{6}\\
+            &= \frac{9 \cdot 8 \cdot 17}{6}\\
+            &= 204
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Since \color{red}\textbf{the statements}\color{black}\:$i = 0$ and $j = 0$
+        each have cost of 1, the total cost of algorithm is
+
+        \color{red}
+        \begin{align}
+            \frac{n(n-1)}{2} + 204 + 2 &= \frac{n(n-1)}{2} + 206
+        \end{align}
+        \color{black}
+
+        steps, or $\Theta(n^2)$.
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 3}
