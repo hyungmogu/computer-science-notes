@@ -505,7 +505,8 @@
 
     \bigskip
 
-    We want to show $x - x_{final} \geq 2^m$.
+    We will show $x - x_{final} \geq 2^m$ by calculating the value of $x_{final}$
+    and subtracting it from $x$.
 
     \bigskip
 
@@ -572,7 +573,8 @@
 
     \bigskip
 
-    We want to show $x - x_{final} \geq 2^m$.
+    We will show $x - x_{final} \geq 2^m$ by calculating the value of $x_{final}$
+    and subtracting it from $x$.
 
     \bigskip
 
@@ -645,8 +647,79 @@
         &\geq 2^m
     \end{align}
 
-    \textbf{Case 3} ($\exists k \in \mathbb{Z}^{+},\:x = Odd(k)$):
+    \bigskip
 
+    \textbf{Case 3} ($\exists k \in \mathbb{Z},\:x = Odd(k)$):
+
+    \bigskip
+
+    Let $m = 1$. Assume $\exists k \in \mathbb{Z}$, $x = 2k + 1$.
+
+    \bigskip
+
+    We will show $x - x_{final} \geq 2^m$ by calculating the value of $x_{final}$
+    and subtracting it from $x$.
+
+    \bigskip
+
+    In first iteration, because we know $x > 1$ and $2 \nmid x$, we can conclude
+    that the line $x = 2 * x - 2$ will run, and the new value of $x$ or $x_2$ is
+
+    \begin{align}
+        x_2 &= 2 \cdot (2k + 1) - 2 \\
+        &= 4k
+    \end{align}
+
+    \bigskip
+
+    For the second iteration, because we know $x_2 > 1$ and $2 \mid x_3$, we can
+    conclude the new value of $x$ or $x_3$ is
+
+    \begin{align}
+        x_3 &= \left\lfloor \frac{x_2}{2} \right\rfloor\\
+        &= \left\lfloor \frac{4k}{2} \right\rfloor\\
+        &= 2k
+    \end{align}
+
+    \bigskip
+
+    Now in final iteration, because $x_3 > 1$ amd $2 \mid x_3$, we can conclude
+    the final value of $x_3$ is
+
+    \begin{align}
+        x_3 &= \left\lfloor \frac{x_3}{2} \right\rfloor\\
+        &= k
+    \end{align}
+
+    \bigskip
+
+    Then, since termination occurs when $x_{final} \leq 1$, we can conclude
+
+    \begin{align}
+        k = x_{final} \leq 1
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $k = 0$ results in $x = 1$, and since 3 loops cannot
+    occur with $x = 1$, we can conclude
+
+    \begin{align}
+        k &= 1
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x - x_{final} &= 2k + 1 - k\\
+        &= k + 1\\
+        &= 2\\
+        &= 2^1\\
+        &= 2^m\\
+        &\geq 2^m
+    \end{align}
 
 \end{enumerate}
 
