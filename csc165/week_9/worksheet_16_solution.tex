@@ -734,7 +734,59 @@
 
     \item
 
+    Because we know the value halves for every 3 iterations, we can conclude that
+    the value of $x$ after $3k$ iterations is
 
+    \setcounter{equation}{0}
+    \begin{align}
+        x_k &\leq \frac{x_0}{2^k}
+    \end{align}
+
+    \bigskip
+
+    Because we know loop terminates when $x_{final} \leq 1$, we can conclude that
+
+    \begin{align}
+        \frac{n}{2^k} &\leq 1\\
+        n &\leq 2^k\\
+        \log n &\leq \log 2^k\\
+        \log n &\leq k
+    \end{align}
+
+    \bigskip
+
+    Since the above means the loop terminates when k is greater than $\log n$,
+    we can conclude the upper bound runtime of the function is $\mathcal{O}(\log n)$
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item
+
+        What does $g$ in $g(n) \leq cf(n)$ represent? How was he able to come to
+        conclusion of $\mathcal{O}(\log n)$ from $k \leq \log n$? Why did we not
+        stop at $x_k \leq (\frac{1}{2})^k$? How do we know when to stop?
+
+        \item
+
+        What does $f$ in $g(n) \leq cf(n)$ represent?
+
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+    \end{itemize}
 
 \end{enumerate}
 
