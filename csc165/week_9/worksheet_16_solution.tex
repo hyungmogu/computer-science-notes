@@ -486,7 +486,7 @@
 
     \bigskip
 
-    Let $x \in \mathbb{Z}$. Assume 3 loop iterations occur.
+    Let $x \in \mathbb{Z}^{+}$. Assume 3 loop iterations occur.
 
     \bigskip
 
@@ -564,9 +564,86 @@
 
     \bigskip
 
-    \textbf{Case 2} ($\exists k \in \mathbb{Z}^{+},\:x = 2 \cdot Odd(k)$):
+    \textbf{Case 2} ($\exists k \in \mathbb{Z},\:x = 2 \cdot Odd(k)$):
 
     \bigskip
+
+    Let $m = 1$. Assume $\exists k \in \mathbb{Z},\:x = 2(2k+1)$.
+
+    \bigskip
+
+    We want to show $x - x_{final} \geq 2^m$.
+
+    \bigskip
+
+    Because we know $x > 1$ and $2 \mid x$ in first iteration, we can conclude
+    that the new value of $x$, or $x_2$ is
+
+    \begin{align}
+        x_2 &= \left\lfloor \frac{2(2k+1)}{2} \right\rfloor\\
+        &= (2k + 1)
+    \end{align}
+
+    \bigskip
+
+    In second iteration, because we know $x_2 > 1$ and $2 \nmid x_2$,
+    we can conclude the statement $x = 2 * x - 2$ will run.
+
+    \bigskip
+
+    Then, the new value of $x$ or $x_3$ is
+
+    \begin{align}
+        x_3 &= 2 \cdot (2k + 1) - 2\\
+        &= 2 \cdot (2k+1-1)\\
+        &= 4k
+    \end{align}
+
+    In final iteration, because we know $x_3 > 1$, and $2 \mid x_3$, the
+    last value of $x$ in last iteration, or $x_{final}$ is
+
+    \begin{align}
+        x_{final} &= \left\lfloor \frac{2 \cdot (2k + 1) - 1}{2}\right\rfloor\\
+        &= 2k
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x - x_{final} &= 2(2k + 1) - 2k\\
+        &= 2\left[(2k + 1) - k \right]\\
+        &= 2(k + 1)
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the termination occurs when $x \leq 1$, we can conclude
+    that
+
+    \begin{align}
+        2(k+1) &\leq 1\\
+        k &\leq 0
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $x \in \mathbb{Z}^{+}$ and $k < 0$ results in $x < 0$,
+    we can conclude that $k = 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x - x_{final} &= 2(k + 1)\\
+        &= 2(0 + 1)\\
+        &= 2\\
+        &= 2^1\\
+        &= 2^m\\
+        &\geq 2^m
+    \end{align}
 
     \textbf{Case 3} ($\exists k \in \mathbb{Z}^{+},\:x = Odd(k)$):
 
