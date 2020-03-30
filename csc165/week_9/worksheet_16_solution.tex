@@ -482,7 +482,7 @@
     \item
 
     \textbf{Predicate Logic:} $\forall x \in \mathbb{Z}^{+},\:(\text{3 loops occur})
-    \Rightarrow \exists x_{final} \in \mathbb{Z}^{+}$, and $m \in \mathbb{N},\:x - x_{final} = 2^m$
+    \Rightarrow \exists x_{final},m \in \mathbb{Z}^{+},\:x - x_{final} \geq 2^m$
 
     \bigskip
 
@@ -490,26 +490,51 @@
 
     \bigskip
 
-    We will prove the statement by dividing into cases.
+    We will prove the statement by dividing into cases. First case is where
+    $x \bmod 2 == 0$ in all three loops. Second case is where $x \bmod 2 ==0$
+    runs once, then $x = 2*x - 2$, and then $x \bmod 2 ==0$. The last case is where
+    $x = 2*x - 2$ is run, and the rest with $x \bmod 2 == 0$.
 
     \bigskip
 
-    \textbf{Case 1} ($x = 2^m$, where $m \in \mathbb{N}$):
+    \textbf{Case 1} ($\exists k \in \mathbb{Z},\:x = 2^k$):
 
     \bigskip
 
-    Assume $x = 2^m$, where $m \in \mathbb{N}$.
+    Let $m = 2$. Assume there is some $k \in \mathbb{Z}$, $x = 2^k$.
 
     \bigskip
 
-    We want to show $m$ in $x - x_{final} = 2^m$ is greater than or equal to 1.
+    We want to show $x - x_{final} \geq 2^m$.
 
     \bigskip
 
-    Because we know the loop will occur 3 times, we can conclude
+    It follows from the the statement $x = x // 2$ being executed three
+    times that the value of $x_{final}$ is
+
     \setcounter{equation}{0}
     \begin{align}
-        2^m > 2^3
+        x_{final} &= x^{k-3}
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the loop terminates when $x \leq 1$, we can conclude that
+
+    \begin{align}
+        x^{k-3} &\leq 1\\
+        \log x^{k-3} &\leq \log 1\\
+        k-3 &\leq 0\\
+        k &\leq 3
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $k < 3$ results in loop count less than 3, we can conclude
+    that
+
+    \begin{align}
+        k = 3
     \end{align}
 
     \bigskip
@@ -517,10 +542,34 @@
     Then,
 
     \begin{align}
-        \log 2^m &> \log 2^3\\
-        m &> 3\\
-        m &> 1
+        x_{final} &= 2^{3-3}\\
+        &= 2^0\\
+        &= 1
     \end{align}
+
+    \bigskip
+
+    Then,
+
+    \bigskip
+
+    \begin{align}
+        x - x_{final} &= 2^3 - 1\\
+        &= 8 - 1\\
+        &= 7\\
+        &\geq 4\\
+        &\geq 2^2\\
+        &\geq 2^m
+    \end{align}
+
+    \bigskip
+
+    \textbf{Case 2} ($\exists k \in \mathbb{Z}^{+},\:x = 2 \cdot Odd(k)$):
+
+    \bigskip
+
+    \textbf{Case 3} ($\exists k \in \mathbb{Z}^{+},\:x = Odd(k)$):
+
 
 \end{enumerate}
 
