@@ -59,6 +59,51 @@
 
     \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
+
+        \bigskip
+
+        Let $a,b \in \mathbb{R}^{+}$, $n \in \mathbb{N}$, $c = 1$, and $n_0 = 1$. Assume
+        $a \leq b$ and $n > n_0$.
+
+        \bigskip
+
+        We will prove the statement by showing $n^a \leq cn^b$.
+
+        \bigskip
+        \color{red}
+        Because we know $n \geq 1$, we can conclude
+
+        \setcounter{equation}{0}
+        \begin{align}
+            n^a &\geq 1^a\\
+            n^a &\geq 1
+        \end{align}
+
+        \bigskip
+
+        Then, because we know $\frac{b}{a} \geq 1$, we can conclude
+
+        \begin{align}
+            n^a &\leq \left[ n^a \right]^{\frac{b}{a}}\\
+            n^a &\leq n^b
+        \end{align}
+
+        \color{black}
+
+        \bigskip
+
+        Then, it follows from the fact $c = 1$ that
+
+        \begin{align}
+            n^a &\leq cn^b
+        \end{align}
+
+    \end{mdframed}
+
+    \bigskip
+
     \textbf{Notes:}
 
     \begin{itemize}
@@ -67,7 +112,7 @@
         \item I don't feel comfortable using the above fact with $a,b \in \mathbb{R}^{+}$.
         \item What facts can be used intuitively?
         \item Given $a \in \mathbb{R}^{+}$, is $1 \leq n \Rightarrow [1]^a \leq n^a$
-        also true? Can this be used as a fact?
+        also true? Can this be used in proof as a fact?
 
     \end{itemize}
 
