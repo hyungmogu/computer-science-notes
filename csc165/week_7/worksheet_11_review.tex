@@ -1,9 +1,10 @@
 \documentclass[12pt]{article}
 \usepackage{enumerate}
 \usepackage{amsfonts}
-\usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{mdframed}
 
 \begin{document}
@@ -29,6 +30,47 @@
     \end{mdframed}
 
     \item
+
+    \begin{proof}
+        Let $a,b \in \mathbb{R}^{+}$, $n \in \mathbb{N}$, $c = 1$, and $n_0 = 1$. Assume
+        $a \leq b$ and $n > n_0$.
+
+        \bigskip
+
+        We will prove the statement by showing $n^a \leq cn^b$.
+
+        \bigskip
+
+        Because we know $n \geq 1$, we can conclude that
+
+        \begin{align}
+            n^a &\leq n^b
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from the fact $c = 1$ that
+
+        \begin{align}
+            n^a &\leq cn^b
+        \end{align}
+
+    \end{proof}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Professor used $\forall a,b \in \mathbb{R}^{+},
+        a \leq b \Rightarrow n^a \leq n^b$ as a fact given $n \geq 1$.
+        \item I don't feel comfortable using the above fact with $a,b \in \mathbb{R}^{+}$.
+        \item What facts can be used intuitively?
+        \item Given $a \in \mathbb{R}^{+}$, is $1 \leq n \Rightarrow [1]^a \leq n^a$
+        also true? Can this be used as a fact?
+
+    \end{itemize}
+
 
 
 \end{enumerate}
