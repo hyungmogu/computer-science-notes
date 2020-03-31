@@ -231,6 +231,116 @@
     \forall c,n_0 \in \mathbb{R}^{+}, \exists n \in \mathbb{N}, (n \geq n_0) \land
     (g(n) > cf(n))$
 
+    \item
+    \textbf{Predicate Logic:} $\forall a,b \in \mathbb{R}^{+}, a > b \Rightarrow
+    n^a \notin \mathcal{O}(n^b)$
+
+    \bigskip
+
+    \textbf{Expanded Predicate Logic:} $\forall a,b \in \mathbb{R}^{+}, a > b \Rightarrow
+    \forall c,n_0 \in \mathbb{R}^{+},\:\exists n \in \mathbb{N},\: (n \geq n_0) \land (n^a > cn^b)$
+
+    \bigskip
+
+    \begin{proof}
+
+    Let $a, \in \mathbb{R}^{+}$. Assume $a > b$. Let $c, n_0 \in \mathbb{R}^{+}$
+    and $n = (n_0 + c)$.
+
+    \bigskip
+
+    We will prove the statement $(n \geq n_0) \land (n^a > cn^b)$ in two parts
+    one for $(n \geq n_0)$ and the other for $(n^a > cn^b)$. Then, we will
+    combine the two parts to finish.
+
+    \bigskip
+
+    \textbf{Part 1} ($n \geq n_0$):
+
+    \bigskip
+
+    Because we know $n_0,c \in \mathbb{R}^{+}$, we can conclude $n_0,c > 0$.
+
+    \bigskip
+
+    Using the fact $n_0,c > 0$, we can calculate
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n_0 + c &\geq n_0
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $n_0 + c = n$, we can conclude
+
+    \begin{align}
+        n &\geq n_0
+    \end{align}
+
+    \bigskip
+
+    \textbf{Part 2} ($n^a > cn^b$):
+
+    \bigskip
+
+    Since $n = (n_0 + c)$, we can calculate that
+
+    \begin{align}
+        cn^b &= c(n_0 + c)^b
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        cn^b < (c + n_0)(n_0 + c)^b
+    \end{align}
+
+    by the fact $c,n_0 \in \mathbb{R}^{+}$ and $c + n_0 > c$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        cn^b &< (c + n_0)^{a-b}(n_0 + c)^b
+    \end{align}
+
+    by the fact $a > b$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        cn^b &< (c + n_0)^{a-b+b}\\
+        cn^b &< (c + n_0)^{a}
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $c + n_0 = n$, we can conclude
+
+    \begin{align}
+        cn^b &< n^a
+    \end{align}
+
+    \bigskip
+
+    Since part 1 and part 2 are both true, we can conclude $(n \geq n_0) \land (n^a > cn^b)$ is true.
+
+    \end{proof}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item
+        $\forall x,y \in \mathbb{R}^{+}, x > y \Leftrightarrow \log x > \log y$
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
