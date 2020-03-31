@@ -152,16 +152,49 @@
 
     \end{proof}
 
-    \textbf{Notes:}
+    \bigskip
 
-    \begin{itemize}
-        \item Change of base rule
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
 
+        \bigskip
+
+        Let $a,b \in \mathbb{R}^{+}$. \color{red} Assume $a > 1$, $b > 1$.
+        Let $c = 2 \log_a b$, and $n_0 = 1$. Assume $n \geq n_0$\color{black}.
+
+        \bigskip
+
+        We will prove that given $n_0$ and $c$, $\log_a n \leq c \cdot \log_b n$.
+
+        \bigskip
+
+        \color{red}
+        Change of base rule fact tells us the following
+        \setcounter{equation}{0}
         \begin{align}
-            \log_b x &= \frac{\log_a x}{\log_a b}
+            \forall a,b \in \mathbb{R}^{+}, \forall n \in \mathbb{N},
+            a \neq 1 \land b \neq 1 \Rightarrow \log_b n = \frac{\log_a n}{\log_a b}
         \end{align}
 
-    \end{itemize}
+        Using this fact, we can write
+        \color{black}
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \log_a n \cdot 1 &= \log_a n \cdot \frac{\log_a b}{\log_a b}\\
+            &= \log_b n \cdot \log_a b\\
+            &\leq 2 \log_a b \cdot \log_b n
+        \end{align}
+
+        \bigskip
+
+        Then, since $c = 2 \cdot \log_a b$,
+
+        \begin{align}
+            \log_a n &\leq c \cdot \log_b n
+        \end{align}
+
+    \end{mdframed}
 
 \end{enumerate}
 
