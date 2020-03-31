@@ -1,9 +1,10 @@
 \documentclass[12pt]{article}
 \usepackage{enumerate}
 \usepackage{amsfonts}
-\usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \begin{document}
 \title{Worksheet 12 Review}
@@ -27,6 +28,47 @@
         \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
 
     \end{itemize}
+
+    \item
+
+    \textbf{Predicate Logic} $\exists c,n_0 \in \mathbb{R}^{+},\:\forall n \in
+    \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq c$, where $g: \mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \bigskip
+
+    \begin{proof}
+        Let $n_0 = 1$, $c = 200$ and $g(n) = 100 + \frac{77}{n+1}$. Assume $n \geq n_0$.
+
+        \bigskip
+
+        We will prove the statement by showing
+
+        \begin{align}
+            100 + \frac{77}{n+1} &\leq c
+        \end{align}
+
+        \bigskip
+
+        It follows from the fact $n_0 \geq 1$ that we can write
+
+        \begin{align}
+            100 + \frac{77}{n+1} &\leq 100 + \frac{77}{1+1}\\
+            &\leq 100 + \frac{77}{2}\\
+            &\leq 100 + 77\\
+            &\leq 100 + 100\\
+            &\leq 200
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            100 + \frac{77}{n+1} &\leq c
+        \end{align}
+
+        by the fact that $c = 200$.
+    \end{proof}
 
 \end{enumerate}
 
