@@ -106,6 +106,8 @@
     Since each iteration takes a constant time, we can conclude that the loop has
     runtime of $\mathcal{O}(n)$.
 
+    \bigskip
+
     \begin{mdframed}
         \underline{\textbf{Correct Solution:}}
 
@@ -129,6 +131,36 @@
 
     \end{mdframed}
 
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor doesn't count $i = 4$ or $i = 0$ in question 1.a
+        to the total cost of algorithm. But in later parts of the question, the two
+        are considered. I wonder if the line with constant runtime
+        should always be accounted for, or if it can be ignored in certain circumstances.
+        If latter, when can the constants be ignored?
+
+    \end{itemize}
+
+    \item
+
+    Since the loop starts at $i = 0$ and ends at $i = n-1$ with $i$ increasing
+    by $\frac{n}{10}$ per iteration, we can conclude that the loop has at most
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{(n-1-0+1)}{\frac{n}{10}} \right\rceil &= \left\lceil \frac{n \cdot 10}{n} \right\rceil\\
+        &= 10
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration takes constant time, we can conclude that the loop has
+    runtime of $\Theta(1)$.
 
 \end{enumerate}
 
