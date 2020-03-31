@@ -116,6 +116,10 @@
 
     \end{itemize}
 
+\end{enumerate}
+
+\section*{Question 2}
+\begin{itemize}
     \item
 
     \textbf{Predicate Logic:} $\forall a,b \in \mathbb{R}^{+},\:a > 1 \land \:b > 1
@@ -256,10 +260,63 @@
 
     \end{itemize}
 
-\end{enumerate}
-
-\section*{Question 2}
+\end{itemize}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
+
+    \textbf{Predicate Logic:} $\forall f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $c_0 = 1$, $n_0 = 1$. Assume $n \geq n_0$, and $g(n) \leq c_0f(n)$. Let $d_0 = c_0 + 1$,
+    and $m_0 = n_0$. Assume $m \geq m_0$.
+
+    \bigskip
+
+    \begin{proof}
+        Let $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0},\:c_0 = 1, n_0 = 1$. Assume $n \geq n_0$,
+        and $g(n) \leq c_0f(n)$. Let $d_0 = c_0 + 1$ and $m_0 = n_0$. Assume $m \geq m_0$.
+
+        \bigskip
+
+        We will prove the statement by starting from the assumption $g(n) \leq c_0f(n)$,
+        and show that $(f + g)(n) \leq d_0f(n)$.
+
+        \bigskip
+
+        It follows from the assumption $g(n) \leq c_0f(n)$ that we can write
+
+        \setcounter{equation}{0}
+        \begin{align}
+            g(n) &\leq c_0f(n)\\
+            g(n) + f(n) &\leq c_0f(n) + f(n)\\
+            g(n) + f(n) &\leq f(n)(c_0 + 1)
+        \end{align}
+
+        \bigskip
+
+        Then, since $d_0 = c_0 + 1$,
+
+        \begin{align}
+            f(n) + g(n) &\leq d_0f(n)
+        \end{align}
+
+        \bigskip
+
+        The \textbf{sum of $f$ and $g$} fact tells us the following
+
+        \begin{align}
+            \forall n \in \mathbb{N}, (f+g)(n) &= f(n) + g(n)
+        \end{align}
+
+        \bigskip
+
+        Using this fact, we can write
+
+        \begin{align}
+            (f + g)(n) &\leq d_0f(n)
+        \end{align}
+    \end{proof}
+
+\end{itemize}
 
 \end{document}
