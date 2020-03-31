@@ -125,9 +125,85 @@
 
     \bigskip
 
+    \begin{proof}
+        Let $g:\mathbb{N} \to \mathbb{R}^{\geq 0}$, and $a \in \mathbb{R}^{\geq 0}$.
+        Assume $g \in \Omega(1)$, that is there exists $c,n_0 \in \mathbb{R}^{+}$,
+        for every $n \in \mathbb{N}$ such that if $n \geq n_0$, $g(n) \geq c$. Let
+        $c_1 = \frac{1}{2}$, $c_2 = \left( \frac{a}{c} + 1 \right)$ and
+        $n_1 = n_0$. Assume $n \geq n_1$.
+
+        \bigskip
+
+        We will prove $c_1g(n) \leq a + g(n) \leq c_2g(n)$ by diving into two parts,
+        first by proving $c_1g(n) \leq a + g(n)$ is true, and then
+        second by proving $a + g(n) \leq c_2g(n)$. Then, we will combine the two
+        at the end to finish.
+
+        \bigskip
+
+        \textbf{Part 1 ($c_1g(n) \leq a + g(n)$):}
+
+        \bigskip
+
+        It follows from the fact $a \in \mathbb{R}^{+}$ that we can write
+
+        \setcounter{equation}{0}
+        \begin{align}
+            a + g(n) &\geq g(n)\\
+            &\geq \frac{1}{2} \cdot g(n)
+        \end{align}
+
+        \bigskip
+
+        Then, because we know $c_1 = \frac{1}{2}$, we can conclude
+
+        \begin{align}
+            a + g(n) &\geq c_1 \cdot g(n)
+        \end{align}
+
+        \textbf{Part 2 ($a + g(n) \leq c_2g(n)$):}
+
+        \bigskip
+
+        Using the value $c_2 = \left( \frac{a}{c} + 1 \right)$, we can write
+
+        \begin{align}
+            c_2g(n) &= \left( \frac{a}{c} + 1 \right) \cdot g(n)\\
+            &= \frac{a}{c} \cdot g(n) + g(n)
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            c_2g(n) &\geq \frac{a}{c} \cdot c + g(n)
+        \end{align}
+
+        by the assumption that $g(n) \geq c$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            c_2g(n) &\geq a + g(n)
+        \end{align}
+
+        \bigskip
+
+        Since both $a + g(n) \leq c_2g(n)$ and $c_1g(n) \leq a + g(n)$ are true,
+        we can conclude that the inequality $c_1g(n) \leq  a + g(n) \leq c_2g(n)$ is true.
+
+    \end{proof}
+
+    \bigskip
+
     \textbf{Notes:}
 
     \begin{itemize}
+        \item Noticed professor uses english phrase when expanding assumption.
+
         \item
         $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
 
