@@ -79,7 +79,7 @@
         number of iterations.
 
         \item Realized the goal of this problem is to determine the exact cost and runtime
-        of the loops.
+        of each loop.
 
         \bigskip
 
@@ -88,6 +88,23 @@
         \end{mdframed}
 
     \end{itemize}
+
+    \item
+
+    Because we know the loop starts at $i = 4$ and ends at $i = n - 1$ with $i$
+    increasing by 1 per iteration, we can conclude that the loop has
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \lceil n - 1 4 + 1 \rceil &= n - 4
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration takes a constant time, we can conclude that the loop has
+    runtime of $\mathcal{O}(n)$.
 
 \end{enumerate}
 
