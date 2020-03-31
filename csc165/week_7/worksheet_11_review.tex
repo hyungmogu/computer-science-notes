@@ -196,6 +196,66 @@
 
     \end{mdframed}
 
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Change of base rule
+
+        \begin{align}
+            \forall a,b,n \in \mathbb{R}^{+}, a \neq 1 \land b \neq 1 \Rightarrow
+            \log_b n = \frac{\log_a n}{\log_a b}
+        \end{align}
+
+        \item Noticed professor uses 'Let' and 'Assume' twice to introduce headers
+        for the statement and $\log_a n \in \mathcal{O}(\log_b n)$ separately.
+
+        \bigskip
+
+        \begin{mdframed}
+        Let $a,b \in \mathbb{R}^{+}$. Assume that $a > 1$ and $b > 1$.
+        Let $n_0 = 1$, and let $c = \frac{1}{\log_b a}$. Let $n \in \mathbb{N}$,
+        and assume that $n \geq n_0$. We want to show that $\log_a n \leq c \cdot \log_b n$.
+        \end{mdframed}
+
+        \item Noticed if $\log_a n = c \cdot \log_b n$ is true, then the following
+        is also true
+
+        \begin{enumerate}[1.]
+            \item $\log_a n \leq c \cdot \log_b n$
+            \item $\log_a n \geq c \cdot \log_b n$
+        \end{enumerate}
+
+        \item Noticed professor uses the phrase
+
+        \bigskip
+
+        \begin{mdframed}
+
+        \underline{\hspace{1cm}} fact tells us the following
+
+        \begin{align*}
+            \bigl\{ \dots \bigr\}
+        \end{align*}
+
+        Using this rule, we can write
+
+        \begin{align*}
+            \bigl\{ \dots \bigr\}
+        \end{align*}
+
+        \end{mdframed}
+
+        to introduce an external fact to a proof.
+
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \end{itemize}
+
 \end{enumerate}
 
 \section*{Question 2}
