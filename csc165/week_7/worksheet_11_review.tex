@@ -266,9 +266,11 @@
 \begin{itemize}
     \item
 
-    \textbf{Predicate Logic:} $\forall f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$,
-    $c_0 = 1$, $n_0 = 1$. Assume $n \geq n_0$, and $g(n) \leq c_0f(n)$. Let $d_0 = c_0 + 1$,
-    and $m_0 = n_0$. Assume $m \geq m_0$.
+    \textbf{Predicate Logic:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{\geq 0},\:
+    (\exists c_0,n_0 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, \:n \geq
+    n_0 \Rightarrow g(n) \leq c_0f(n)) \Rightarrow (\exists d_0,m_0 \in
+    \mathbb{R}^{+},\:\forall m \in \mathbb{N},\:m \geq m_0 \Rightarrow (f + g)(m)
+    \leq d_0f(m))$
 
     \bigskip
 
@@ -316,6 +318,80 @@
             (f + g)(n) &\leq d_0f(n)
         \end{align}
     \end{proof}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
+
+        \bigskip
+
+        \color{red}
+        \textbf{Predicate Logic:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{\geq 0},\:
+        (\exists c_0,n_0 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, \:n \geq
+        n_0 \Rightarrow g(n) \leq c_0f(n)) \Rightarrow (\exists d_0,m_0 \in
+        \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:n \geq m_0 \Rightarrow (f + g)(n)
+        \leq d_0f(n))$
+        \color{black}
+
+        \bigskip
+
+        \begin{proof}
+            Let $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0},\:c_0 = 1, n_0 = 1$. Assume $n \geq n_0$,
+            and $g(n) \leq c_0f(n)$. Let $d_0 = c_0 + 1$ and $m_0 = n_0$. Assume $m \geq m_0$.
+
+            \bigskip
+
+            We will prove the statement by starting from the assumption $g(n) \leq c_0f(n)$,
+            and show that $(f + g)(n) \leq d_0f(n)$.
+
+            \bigskip
+
+            It follows from the assumption $g(n) \leq c_0f(n)$ that we can write
+
+            \setcounter{equation}{0}
+            \begin{align}
+                g(n) &\leq c_0f(n)\\
+                g(n) + f(n) &\leq c_0f(n) + f(n)\\
+                g(n) + f(n) &\leq f(n)(c_0 + 1)
+            \end{align}
+
+            \bigskip
+
+            Then, since $d_0 = c_0 + 1$,
+
+            \begin{align}
+                f(n) + g(n) &\leq d_0f(n)
+            \end{align}
+
+            \bigskip
+
+            The \textbf{sum of $f$ and $g$} fact tells us the following
+
+            \begin{align}
+                \forall n \in \mathbb{N}, (f+g)(n) &= f(n) + g(n)
+            \end{align}
+
+            \bigskip
+
+            Using this fact, we can write
+
+            \begin{align}
+                (f + g)(n) &\leq d_0f(n)
+            \end{align}
+
+        \end{proof}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor uses the same variable $n$ in predicate logic for
+        consistency
+    \end{itemize}
 
 \end{itemize}
 
