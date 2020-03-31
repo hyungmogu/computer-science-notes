@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mdframed}
 
 \begin{document}
 \title{Worksheet 13 Review}
@@ -39,11 +40,52 @@
 
     \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}
+        Because we know the loop starts from $i = 0$ and ends at
+        $i = n - 1$ with $i$ increasing by 5 per iteration, we can conclude the
+        loop has
+
+        \begin{align}
+            \left\lceil \frac{n}{5} \right\rceil
+        \end{align}
+
+        \color{black}
+
+        iterations.
+
+        \bigskip
+
+        \color{red}
+        Since each iteration takes constant time, the loop has
+        runtime of $\Theta(n)$
+        \color{black}
+
+    \end{mdframed}
+
+    \bigskip
+
     \textbf{Notes:}
 
     \begin{itemize}
         \item How does professor begin a proof after 'We will prove that...' or
         at the beginning of each case/parts?
+
+        \item Noticed professor doesn't provide a detailed explanation for the
+        number of iterations.
+
+        \item Realized the goal of this problem is to determine the exact cost and runtime
+        of the loops.
+
+        \bigskip
+
+        \begin{mdframed}
+            There are $\left\lceil \frac{n}{5} \right\rceil$ iterations. $\cdots$
+        \end{mdframed}
 
     \end{itemize}
 
