@@ -73,6 +73,46 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{itemize}
+    \item
+
+    \textbf{Predicate Logic:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{\geq 0},\:
+    (\exists c_0,n_0 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, \:n \geq
+    n_0 \Rightarrow g(n) \leq c_0f(n)) \Rightarrow (\exists d_0,m_0 \in
+    \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:n \geq m_0 \Rightarrow f(n) \geq d g(n))$
+
+    \bigskip
+
+    \begin{proof}
+
+    Let $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$. Let $c = 2$, $n_0 = 1$ and
+    $n \in \mathbb{N}$. Assume $n \geq m_0$. Let $d = \frac{1}{c}$ and $m_0 = n_0$.
+    Assume $n \geq m_0$.
+
+    \bigskip
+
+    We will prove that $d_0g(n) \leq f(n)$ given $g(n) \leq c_0f(n))$.
+
+    \bigskip
+
+    It follows from the assumption $g(n) \leq f(n)$ that we can write
+
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) &\leq cf(n)\\
+        \frac{1}{2} g(n) &\leq f(n)\\
+        \frac{1}{2} g(n) &\leq f(n)
+    \end{align}
+
+    \bigskip
+
+    Then since $d = \frac{1}{2}$,
+
+    \begin{align}
+        d \cdot g(n) &\leq f(n)
+    \end{align}
+    \end{proof}
+\end{itemize}
 
 \section*{Question 3}
 
