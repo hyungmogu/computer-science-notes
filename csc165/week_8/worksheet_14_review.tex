@@ -717,6 +717,52 @@
 
     \bigskip
 
+    Using the fact $\sum\limits_{i=a}^{b} f(i) = \sum\limits_{i'=0}^{b-a} f(i' + a)$,
+    we can calculate
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} \sum\limits_{j=i}^{n-1} (j - i + 1) &= \sum\limits_{i=0}^{n-1} \sum\limits_{j'=1}^{n-i} j'
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} \sum\limits_{j=i}^{n-1} (j - i + 1) &= \sum\limits_{i=0}^{n-1} \frac{(n-i)(n-i+ 1)}{2}\\
+    \end{align}
+
+    by using the fact $\sum\limits_{i=0}^{n} i = \sum\limits_{i=1}^n i = \frac{n(n+1)}{2}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} \sum\limits_{j=i}^{n-1} (j - i + 1) &= \frac{1}{2} \sum\limits_{i=0}^{n-1} n^2-in+n-in+i^2-i\\
+        &= \frac{1}{2} \sum\limits_{i=0}^{n-1} \left[ (n^2 + n) - (2n + 1)i + i^2 \right]\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n^2 + n) - \sum\limits_{i=0}^{n-1}  (2n + 1)i + \sum\limits_{i=0}^{n-1} i^2 \right]\\
+        &= \frac{1}{2} \left[ n(n^2 + n) - \frac{(2n+1)n(n-1)}{2} + \frac{n(n-1)(2n-1)}{6} \right]
+    \end{align}
+
+    by using the fact $\sum\limits_{i=0}^{n-1} i = \frac{n(n-1)}{2}$, and $\sum\limits_{i=0}^{n-1} i^2 = \frac{n(n-1)(2n-1)}{6}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} \sum\limits_{j=i}^{n-1} (j - i + 1) &= \frac{1}{2} \left[ n(n^2 + n) - \frac{3(2n+1)n(n-1)}{6} + \frac{n(n-1)(2n-1)}{6} \right]\\
+        &= \frac{1}{2} \left[ n^2(n + 1) - \frac{4n(n-1)(n+1)}{6} \right]\\
+        &= \frac{1}{2} \left[ n^2(n + 1) - \frac{6n^2 - 4n^2 + 4n}{6} \right]\\
+        &= \frac{1}{2} \left[ \frac{6n^2(n + 1)}{6} - \frac{4n(n-1)(n+1)}{6} \right]\\
+        &= \frac{1}{2} (n+1) \left[ \frac{6n^2 - 4n(n-1)}{6} \right]\\
+        &= \frac{1}{12} (n+1) \left[ 2n^2 + 4n \right]\\
+        &= \frac{1}{12} (n+1) \left[ 2n^3 + 4n^2 + 2n^2 + 4n \right]\\
+        &= \frac{1}{12} \left[ 2n^3 + 6n^2 + 4n \right]\\
+        &= \frac{n^3}{6} + \frac{n^2}{2} + \frac{n}{3}
+    \end{align}
+
 \end{itemize}
 
 \end{document}
