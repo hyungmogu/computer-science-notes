@@ -203,7 +203,35 @@
 
     \bigskip
 
+    Since the loop runs from $i = 4$ to $i = n - 1$ with $i$ increasing by 1 per
+    iteration, we can conclude the loop has
+
+    \begin{align}
+        \left\lceil \frac{n-1-4+1}{1} \right\rceil &= n - 4
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration takes $\lceil \log_3 n \rceil + \left\lceil \frac{n}{2} \right\rceil$
+    steps, we can conclude the outer loop has total of
+
+    \begin{align}
+        (n-4) \cdot \left( \lceil \log_3 n \rceil + \left\lceil \frac{n}{2} \right\rceil \right)
+    \end{align}
+
+    steps.
+
+    \bigskip
+
     \textbf{Part 4 (Calculating Theta):}
+
+    \bigskip
+
+    Because we know the loop in total has exact cost of $(n-4) \cdot \left( \lceil \log_3 n
+    \rceil + \left\lceil \frac{n}{2} \right\rceil \right)$, we can conclude that
+    the algorithm has total runtime of $\Theta(n^2)$.
 
 \end{enumerate}
 
