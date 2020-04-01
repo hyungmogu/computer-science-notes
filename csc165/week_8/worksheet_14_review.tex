@@ -178,6 +178,27 @@
 
     \bigskip
 
+    Since the loop starts from $k = 0$ and ends at $k = n - 1$, with $k$ increasing
+    by 2 per iteration, we can conclude that the loop has
+
+    \begin{align}
+        \left\lceil \frac{n - 1 -0 + 1}{2} \right\rceil = \left\lceil \frac{n}{2} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the loop takes 1 step per iteration, the loop has total cost of
+
+    \begin{align}
+        \left\lceil \frac{n}{2} \right\rceil \cdot 1 = \left\lceil \frac{n}{2} \right\rceil
+    \end{align}
+
+    steps.
+
+    \bigskip
+
     \textbf{Part 3 (Calculating the exact cost of outer loop):}
 
     \bigskip
