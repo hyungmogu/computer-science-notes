@@ -532,6 +532,56 @@
 
     \end{itemize}
 
+    \item
+
+    First, we need to determine the cost of inner loop.
+
+    \bigskip
+
+    Since the inner loop starts from $j = 0$ until $j = i - 1$, we can conclude
+    that the inner loop has
+
+    \begin{align}
+        i - 1 - 0 + 1 &= i
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Because we know each iteration takes 1 step, we can conclude the inner
+    loop has cost of
+
+    \begin{align}
+        i \cdot 1 &= i
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Now, we need to determine the cost of outer loop.
+
+    \bigskip
+
+    Because we know the outer loop runs from $i = 1$ until $i = n-1$ with $i$ increasing
+    by $2^i$ per iteration, we can conclude this is the same as the loop starting
+    from $i' = 0$ until $i' = \lceil \log (n - 1) \rceil$ with $i'$ increasing by
+    1 per iteration.
+
+    \bigskip
+
+    Because we know the outer loop takes $i$ steps per iteration,
+    we can conclude that in terms of $i'$, the loop takes $2^{i'}$ steps per iteration
+
+    \bigskip
+
+    Using this fact, we can calculate that the outer loop has cost of
+
+    \begin{align}
+        \sum\limits_{i'=1}^{\lceil \log (n-1) \rceil} 2^{i'} &=
+    \end{align}
+
 \end{enumerate}
 
 \section*{Question 2}
