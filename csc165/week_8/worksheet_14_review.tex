@@ -441,6 +441,84 @@
     \right\rceil \cdot \frac{n(n-1)}{2}$ steps, we can conclude that the algorithm
     has runtime of $\Theta(n^3)$.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}
+        First, we calculate the cost of the inner most loop.
+        \color{black}
+
+        \bigskip
+
+        Since the inner most loop has $j$ iterations, and since it has cost of 1 step per
+        iteration, we can conclude the inner most loop has cost of
+
+        \setcounter{equation}{0}
+        \begin{align}
+            j \cdot 1 &= j
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        \color{red}
+        Next, we calculate the cost of the intermediate loop.
+        \color{black}
+
+        \bigskip
+
+        \color{red}
+        Because we know the loop is in reverse from $j = n$ to $j = 1$ with $j$
+        decreasing by 1 per iterations, we can conclude this is the same as going
+        from $j = 1$ to $j = n$ with $j$ increasing by 1.
+
+        \color{black}
+
+        \bigskip
+
+        Because we know the loop has the cost of $j$ steps per iteration,
+        we can conclude the intermediate loop has cost of
+
+        \color{red}
+        \begin{align}
+            \left[ \sum\limits_{j=1}^{n} j \right] \cdot 1 &= \frac{n(n+1)}{2} \cdot 1\\
+            &= \frac{n(n+1)}{2}
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        \color{red}
+        Finally, we calculate the cost of the outer loop.
+        \color{black}
+
+        \bigskip
+
+        Because we know it has $\left\lceil \frac{n}{4} \right\rceil$ iterations
+        with each iteration taking \color{red}$\frac{n(n+1)}{2}$\color{black} steps,
+        we can conclude the the outer loop has cost of
+
+        \begin{align}
+            \left\lceil \frac{n}{4} \right\rceil \cdot \color{red}\frac{n(n+1)}{2}\color{black}
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Because we know the loop has exact cost of $\left\lceil \frac{n}{4}
+        \right\rceil \cdot \color{red}\frac{n(n+1)}{2}\color{black}$ steps, we
+        can conclude that the algorithm has runtime of $\Theta(n^3)$.
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 2}
