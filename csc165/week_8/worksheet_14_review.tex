@@ -129,6 +129,60 @@
 
     and then, we will finish off by calculating the theta of the outer loop.
 
+    \bigskip
+
+    \textbf{Part 1 (Calculating the exact cost of loop 1):}
+
+    \bigskip
+
+    Because we kow $j = j \cdot 3$, we can calculate
+
+    \begin{align*}
+        i_1 &= 3\\
+        i_2 &= 9\\
+        i_3 &= 27\\
+        &\vdots\\
+        i_j &= 3^j
+    \end{align*}
+
+    \bigskip
+
+    Then, using the fact that loop termination occurs when $i_j \geq n$, we can
+    conclude
+
+    \setcounter{equation}{0}
+    \begin{align}
+        3^j &\geq n\\
+        j &\geq \log_3 n
+    \end{align}
+
+    \bigskip
+
+    Since we are looking for the smallest value of $j$ resulting in loop termination,
+    we can conclude the value of $j$ is $\lceil \log_3 n \rceil$.
+
+    \bigskip
+
+    Since the inner loop 1 takes constant step per iteration, we can conclude that
+    the loop has exact cost of
+
+    \begin{align}
+        \lceil \log_3 n \rceil \cdot 1 &= \lceil \log_3 n \rceil
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    \textbf{Part 2 (Calculating the exact cost of loop 2):}
+
+    \bigskip
+
+    \textbf{Part 3 (Calculating the exact cost of outer loop):}
+
+    \bigskip
+
+    \textbf{Part 4 (Calculating Theta):}
 
 \end{enumerate}
 
