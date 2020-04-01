@@ -590,6 +590,74 @@
     Then, because we know $2^{\cdot \lceil \log(n-1) \rceil}$ is roughly $n-1$,
     we can conclude the runtime of the algorithm is $\Theta(n)$
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        First, we need to determine the cost of inner loop.
+
+        \bigskip
+
+        Since the inner loop starts from $j = 0$ until $j = i - 1$, we can conclude
+        that the inner loop has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            i - 1 - 0 + 1 &= i
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Because we know each iteration takes 1 step, we can conclude the inner
+        loop has cost of
+
+        \begin{align}
+            i \cdot 1 &= i
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Now, we need to calculate the cost of outer loop.
+
+        \bigskip
+
+        Because we know the outer loop runs from $i = 1$ until $i = n-1$ with $i$ increasing
+        by $2^i$ per iteration, and because we know each iteration takes $i$ steps, we can
+        conclude that the loop has cost of
+
+        \color{red}
+        \begin{align}
+            \sum\limits_{i= \{1,2,4,8,\dots\}}^{n-1} i &= \sum\limits_{i'=0}^{\lceil \log (n) \rceil - 1} 2^{i'}
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Then, using geometric series $\sum\limits_{k=0}^{n-1} r^k = \frac{1-r^n}{1-r}$, where $r \neq 1$, we can calculate
+
+        \color{red}
+        \begin{align}
+            \sum\limits_{i'=0}^{\lceil \log (n) \rceil - 1} 2^{i'} &= (2^{\lceil \log(n) \rceil} - 1)
+        \end{align}
+        \color{black}
+
+        \bigskip
+
+        Then, because we know \color{red}$2^{\cdot \lceil \log(n) \rceil}$\color{black}
+        is roughly \color{red}$n$\color{black}, we can conclude the runtime of the
+        algorithm is $\Theta(n)$
+
+    \end{mdframed}
+
 
 \end{enumerate}
 
