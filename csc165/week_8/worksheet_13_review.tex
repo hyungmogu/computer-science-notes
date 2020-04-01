@@ -334,6 +334,23 @@
     i_k &= 2^k
     \end{align*}
 
+    \item
+
+    Using the fact that loop termination occurs when $i_k \geq n$, we can
+    calculate
+
+    \setcounter{equation}{0}
+    \begin{align}
+        2^k &\geq n\\
+        \log 2^k &\geq \log n\\
+        k &\geq \log n
+    \end{align}
+
+    \bigskip
+
+    Since the loop terminates when $k$ is greater than or equal to $\log n$, we
+    can conclude that the loop has $\lceil \log n \rceil$ iterations.
+
 \end{enumerate}
 
 \section*{Question 3}
