@@ -398,6 +398,49 @@
 
     \end{itemize}
 
+    \item
+
+    Since the inner most loop has $j$ iterations, and since it has cost of 1 step per
+    iteration, we can conclude the inner most loop has cost of
+
+    \setcounter{equation}{0}
+    \begin{align}
+        j \cdot 1 &= j
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    For the intermediate loop, because we know it runs $n$ iterations with the cost
+    of $j$ steps per iteration, we can conclude the intermediate loop has cost
+    of
+
+    \begin{align}
+        \left[ \sum\limits_{j=0}^{n-1} j \right] \cdot 1 &= \frac{n(n-1)}{2} \cdot 1\\
+        &= \frac{n(n-1)}{2}
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    For the outer loop, because we know it has $\left\lceil \frac{n}{4} \right\rceil$ iterations
+    with each iteration taking $\frac{n(n-1)}{2}$ steps, we can conclude the the outer
+    loop has cost of
+
+    \begin{align}
+        \left\lceil \frac{n}{4} \right\rceil \cdot \frac{n(n-1)}{2}
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Because we know the loop has exact cost of $\left\lceil \frac{n}{4}
+    \right\rceil \cdot \frac{n(n-1)}{2}$ steps, we can conclude that the algorithm
+    has runtime of $\Theta(n^3)$.
+
 \end{enumerate}
 
 \section*{Question 2}
