@@ -662,5 +662,61 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{itemize}
+    \item
+
+    First, we will evaluate the cost of the inner most loop.
+
+    \bigskip
+
+    Because we know the inner most loop starts at $k = i$ and ends at $k = j$ with each
+    iteration costing 1 step, we can conclude the loop has cost of
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \lceil j - i + 1 \rceil \cdot 1 = j - i + 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will evaluate the cost of the intermediate loop.
+
+    \bigskip
+
+    Because we know the intermediate loop starts at $j = i$ and ends at $j = n - 1$
+    with each iteration costing $(j - i + 1)$ steps, we can conclude that the cost of
+    intermediate loop is
+
+    \begin{align}
+        \sum\limits_{j = i}^{n - 1} (i - j + 1)
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will compute the cost of the outer most loop.
+
+    \bigskip
+
+    Because we know the loop starts from $i = 0$ and ends at $i = n - 1$ with each
+    iteration costing $\sum\limits_{j = i}^{n-1} (i - j + i)$ steps, we can conclude
+    that the cost of the outer most loop is
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} \sum\limits_{j=i}^{n-1} (j - i + 1)
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Now, we will evaluate the summation.
+
+    \bigskip
+
+\end{itemize}
 
 \end{document}
