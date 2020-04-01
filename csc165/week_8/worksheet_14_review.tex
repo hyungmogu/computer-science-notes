@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\begin{document}
+\title{Worksheet 14 Review}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    Since the inner loop starts at $j = 0$ and finishes at $j = n-1$ with $j$
+    increasing by 1 per iteration, we can conclude that the inner loop has
+
+    \begin{align}
+        \lceil n - 1 - 0 + 1 \rceil &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the inner loop takes 1 step per iteration, we can conclude that the
+    inner loop has the total cost of
+
+    \begin{align}
+        n \cdot 1 &= n
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    For the outer loop, because it starts at $i = 0$ and ends at $i = n-1$ with $i$
+    increasing by 5 per iteration, we can conclude that the outer loop has
+
+    \begin{align}
+        \left\lceil \frac{n-1-0+1}{5} \right\rceil = \left\lceil \frac{n}{5} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration in the outer loop takes $n$ steps, we can conclude the
+    outer loop has the total cost of
+
+    \begin{align}
+        n \cdot n &= n^2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since we are ignoring the cost of the loop variables, the total cost of the
+    algorithm is $n^2 + n$ steps.
+
+    \bigskip
+
+    Then, because we know the algorithm takes total of $n^2 + n$ steps,
+    we can conclude the algorithm has the runtime of $\Theta(n^2)$.
+
+\end{enumerate}
+
+\section*{Question 2}
+
+\end{document}
