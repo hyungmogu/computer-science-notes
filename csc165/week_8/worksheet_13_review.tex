@@ -163,6 +163,29 @@
     Since each iteration takes constant time, we can conclude that the loop has
     runtime of $\Theta(1)$.
 
+    \item
+
+    For the case where $n^2 \leq 20$, it's omitted because we are assuming the
+    value of $n$ is asymptotically large.
+
+    \bigskip
+
+    For the case where $n^2 > 20$, because we know the loop runs from $i = 20$ to
+    $i = n^2 - 1$ with $i$ increasing by 3 per iteration, we can conclude that the
+    loop has at most
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{n^2 - 1 - 20 + 1}{3} \right\rceil &= \left\lceil \frac{n^2 - 20}{3} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the loop takes constant time per iteration, the loop has total runtime
+    of $\Theta(n^2)$.
+
 \end{enumerate}
 
 \section*{Question 2}
