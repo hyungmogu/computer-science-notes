@@ -5,6 +5,33 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \begin{document}
 \title{Worksheet 14 Review}
@@ -65,6 +92,43 @@
 
     Then, because we know the algorithm takes total of $n^2 + n$ steps,
     we can conclude the algorithm has the runtime of $\Theta(n^2)$.
+
+    \item
+
+    We will determine the exact cost and theta of this algorithm by first
+    calculating the exact cost of inner loop 1
+
+    \begin{lstlisting}[language=Python]
+    j = 1
+    while j < n:
+        j = j * 3
+    \end{lstlisting}
+
+    and then, calculating the exact cost of inner loop 2
+
+    \begin{lstlisting}[language=Python]
+    k = 0
+    while k < n:
+        k = k + 2
+    \end{lstlisting}
+
+    and then, calculating the exact cost of the outer loop using the information
+    from the exact cost of inner loop 1 and inner loop 2
+
+    \begin{lstlisting}[language=Python]
+    i = 4
+    while i < n:
+        j = 1
+        while j < n:
+            j = j * 3
+        k = 0
+        while k < n:
+            k = k + 2
+        i = i + 1
+    \end{lstlisting}
+
+    and then, we will finish off by calculating the theta of the outer loop.
+
 
 \end{enumerate}
 
