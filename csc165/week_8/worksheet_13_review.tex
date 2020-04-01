@@ -364,7 +364,47 @@
 \end{enumerate}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
 
-\section*{Question 4}
+    \begin{proof}
+        Let $k \in \mathbb{Z}^{+}$.
+
+        \bigskip
+
+        Using the fact $i = i \cdot i$, we can calculate
+
+        \setcounter{equation}{0}
+        \begin{align}
+            i_1 &= 4 = 2^2\\
+            i_2 &= 16 = 2^4\\
+            i_3 &= 256 = 2^8\\
+            i_k &= 2^{2^k}
+        \end{align}
+
+        \bigskip
+
+        Since the loop terminates when $i_k \geq n$, we can conclude
+
+        \begin{align}
+            2^{2^k} &\geq n\\
+            \log 2^{2^k} &\geq \log n\\
+            2^k &\geq \log n\\
+            \log 2^k &\geq \log \log n\\
+            k &\geq \log \log n
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest $k$ when the loop terminates, the smallest
+        $k$ possible is $\lceil \log \log n \rceil$.
+
+        \bigskip
+
+        Since the loop takes constant time per iteration, we can conclude the
+        runtime of the algorithm is $\Theta(\log \log n)$
+    \end{proof}
+
+\end{itemize}
 
 \end{document}
