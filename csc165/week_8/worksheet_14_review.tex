@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{mdframed}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -232,6 +233,170 @@
     Because we know the loop in total has exact cost of $(n-4) \cdot \left( \lceil \log_3 n
     \rceil + \left\lceil \frac{n}{2} \right\rceil \right)$, we can conclude that
     the algorithm has total runtime of $\Theta(n^2)$.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        We will determine the exact cost and theta of this algorithm by first
+        calculating the exact cost of inner loop 1
+
+        \begin{lstlisting}[language=Python]
+        j = 1
+        while j < n:
+            j = j * 3
+        \end{lstlisting}
+
+        and then, calculating the exact cost of inner loop 2
+
+        \begin{lstlisting}[language=Python]
+        k = 0
+        while k < n:
+            k = k + 2
+        \end{lstlisting}
+
+        and then, calculating the exact cost of the outer loop using the information
+        from the exact cost of inner loop 1 and inner loop 2
+
+        \begin{lstlisting}[language=Python]
+        i = 4
+        while i < n:
+            j = 1
+            while j < n:
+                j = j * 3
+            k = 0
+            while k < n:
+                k = k + 2
+            i = i + 1
+        \end{lstlisting}
+
+        and then, we will finish off by calculating the theta of the outer loop.
+
+        \bigskip
+
+        \textbf{Part 1 (Calculating the exact cost of loop 1):}
+
+        \bigskip
+
+        Because we kow $j = j \cdot 3$, we can calculate
+
+        \begin{align*}
+            i_1 &= 3\\
+            i_2 &= 9\\
+            i_3 &= 27\\
+            &\vdots\\
+            i_j &= 3^j
+        \end{align*}
+
+        \bigskip
+
+        Then, using the fact that loop termination occurs when $i_j \geq n$, we can
+        conclude
+
+        \setcounter{equation}{0}
+        \begin{align}
+            3^j &\geq n\\
+            j &\geq \log_3 n
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $j$ resulting in loop termination,
+        we can conclude the value of $j$ is $\lceil \log_3 n \rceil$.
+
+        \bigskip
+
+        Since the inner loop 1 takes constant step per iteration, we can conclude that
+        the loop has exact cost of
+
+        \begin{align}
+            \lceil \log_3 n \rceil \cdot 1 &= \lceil \log_3 n \rceil
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        \textbf{Part 2 (Calculating the exact cost of loop 2):}
+
+        \bigskip
+
+        Since the loop starts from $k = 0$ and ends at $k = n - 1$, with $k$ increasing
+        by 2 per iteration, we can conclude that the loop has
+
+        \begin{align}
+            \left\lceil \frac{n - 1 -0 + 1}{2} \right\rceil = \left\lceil \frac{n}{2} \right\rceil
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since the loop takes 1 step per iteration, the loop has total cost of
+
+        \begin{align}
+            \left\lceil \frac{n}{2} \right\rceil \cdot 1 = \left\lceil \frac{n}{2} \right\rceil
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        \textbf{Part 3 (Calculating the exact cost of outer loop):}
+
+        \bigskip
+
+        Since the loop runs from $i = 4$ to $i = n - 1$ with $i$ increasing by 1 per
+        iteration, we can conclude the loop has
+
+        \color{red}
+        \begin{align}
+            max(\left\lceil \frac{n-1-4+1}{1} \right\rceil, 0) &= max(n - 4, 0)
+        \end{align}
+        \color{black}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration takes $\lceil \log_3 n \rceil + \left\lceil \frac{n}{2} \right\rceil$
+        steps, we can conclude the outer loop has total of
+
+        \color{red}
+        \begin{align}
+            max(n-4, 0) \cdot \left( \lceil \log_3 n \rceil + \left\lceil \frac{n}{2} \right\rceil \right)
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        \textbf{Part 4 (Calculating Theta):}
+
+        \bigskip
+
+        Because we know the loop in total has exact cost of $\color{red}max(n-4, 0)\color{black}
+        \cdot \left( \lceil \log_3 n \rceil + \left\lceil \frac{n}{2} \right\rceil \right)$,
+        we can conclude that the algorithm has total runtime of $\Theta(n^2)$.
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor uses $max(f(n),0)$ when a loop variable doesn't start
+        at $i = 0$.
+
+        \item Noticed professor skipped the detailed explanation on the evaluation of
+        the number of iterations.
+
+    \end{itemize}
 
 \end{enumerate}
 
