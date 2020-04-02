@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{enumerate}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -90,6 +91,63 @@
     \bigskip
 
     Then, it follows from above that the algorithm has runtime of $\Theta(n^2)$.
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        First, we will evaluate the cost of he inner most loop.
+
+        \bigskip
+
+        Because the loop runs from $j = i = 1$ to $j = n - 1$, with each iteration costing
+        1 step, we can conclude that the inner most loop has cost of at most
+
+        \begin{align}
+            \lceil (n-1) - (i + 1) + 1 \rceil &= n - i - 1
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Next, we will evaluate the cost of the outer most loop.
+
+        \bigskip
+
+        Because the loop runs from $i = 0$ to $i = n - 1$ with each iteration
+        costing $(n - i - 1)$ steps, we can conclude the outer most loop has cost of
+        at most
+
+        \begin{align}
+            \sum\limits_{i=0}^{n-1} (n - i - 1) &= \left[ \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i \right]\\
+            &= \left[ \frac{2n(n-1)}{2} - \frac(n(n-1)){2} \right]\\
+            &= \frac{n(n-1)}{2}
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Next, we will bring everything together.
+
+        \bigskip
+
+        Since the lines \textbf{n = len(lst)} and \textbf{return\:False} have cost of 1 step each,
+        the total cost of the algorithm is \color{red} at most \color{black}
+
+        \begin{align}
+            \frac{n(n-1)}{2} + 2
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Then, it follows from above that the algorithm has runtime of \color{red}$\mathcal{O}(n^2)$\color{black}.
+
+    \end{mdframed}
 
 \end{enumerate}
 
