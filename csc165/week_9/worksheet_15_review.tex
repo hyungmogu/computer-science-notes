@@ -425,9 +425,32 @@
     \textbf{Notes:}
 
     \begin{itemize}
-        \item How do we introduce the loop variables $i$ and $j$ with $r$?
+        \item
+
+        How do we introduce the loop variables $i$ and $j$ with $r$?
+
+        \bigskip
+
+        \begin{itemize}
+            \item Ah. professor assumes that we know $i$ and $j$. Same with $r_k$
+            and $r_{k+1}$. He introduces $i_k$, $j_k$, $i_{k+1}$, $j_{k+1}$ as follows:
+
+            \bigskip
+
+            \begin{mdframed}
+                Let $i_k$, $j_k$, $i_{k+1}$, and $j_{k+1}$ As the values of $i$
+                and $j$ immediately before and after the $k^{th}$ iteration, respectively.
+                So then $r_k = j_k - i_k$ and $r_{k+1} = j_{k+1} - i_{k+1}$.
+            \end{mdframed}
+
+        \end{itemize}
         \item $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$
+        \item Professor wrote $- \lfloor x \rfloor = \lceil -x \rceil$ is true. Is $x \in \mathbb{R}$? Also, how
+        does $j$ get embedded to $- \left\lfloor \frac{j + i}{2} \right\rfloor$?
+
     \end{itemize}
+
+
 
 \end{enumerate}
 
