@@ -450,7 +450,67 @@
 
     \end{itemize}
 
+    \item
 
+    Let $k \in \mathbb{N}$, and $r_k$ be the value of $r$ at $k^{th}$ iteration.
+
+    \bigskip
+
+    We will prove the statement by evaluating the total cost of the algorithm, and
+    then finding theta.
+
+    \bigskip
+
+    First, we will calculate the total cost of the algorithm.
+
+    \bigskip
+
+    The result in previous problem tells us that
+
+    \setcounter{equation}{0}
+    \begin{align}
+        r_{k+1} &\leq \frac{1}{2} \cdot r_k
+    \end{align}
+
+    \bigskip
+
+    Using this fact, along with the fact that $r_0 = n$, the value of $r$ at $k^{th}$ iteration is
+
+    \begin{align}
+        r_k = \left\lfloor \frac{n}{2^k} \right\rfloor
+    \end{align}
+
+    \bigskip
+
+    Because we know the loop terminates when $r_k \leq 0$, we can conclude this
+    condition occurs when
+
+    \begin{align}
+        2^k &> n\\
+        k &> \log n
+    \end{align}
+
+    \bigskip
+
+    Since $\lceil \log n \rceil$ is the boundary of loop termination, the value of $k$
+    at which it occurs is
+
+    \begin{align}
+        \lceil \log n \rceil + 1
+    \end{align}
+
+    \bigskip
+
+    Since each of the lines \textbf{i = 0}, \textbf{j = len(lst)} and \textbf{return False}
+    have cost of 1 step, the total cost of the algorithm is
+
+    \begin{align}
+        \lceil \log n \rceil + 4
+    \end{align}
+
+    \bigskip
+
+    Then, we can conclude the algorithm has runtime of $\Theta(\log n)$.
 
 \end{enumerate}
 
