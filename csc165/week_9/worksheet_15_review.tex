@@ -2,9 +2,10 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumerate}
 \usepackage{amsfonts}
-\usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{listings}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -326,49 +327,51 @@
 
     \bigskip
 
-    Assume $lst[mid] < x$.
+    \begin{proof}
+        Assume $lst[mid] < x$.
 
-    \bigskip
+        \bigskip
 
-    Because we know $i_{k+1} = \lfloor \frac{i + j}{2} \rfloor + 1$
-    and $j_{k+1} = j$, we can conclude the new value of $r$ or $r_{k+1}$ is
+        Because we know $i_{k+1} = \lfloor \frac{i + j}{2} \rfloor + 1$
+        and $j_{k+1} = j$, we can conclude the new value of $r$ or $r_{k+1}$ is
 
-    \setcounter{equation}{0}
-    \begin{align}
-        r_{k+1} &= j_{k+1}  - i_{k+1}\\
-        r_{k+1} &= j - \left( \left\lfloor \frac{i+j}{2} \right\rfloor + 1 \right)\\
-        &\leq j - \left\lfloor \frac{(i+j)}{2} \right\rfloor\\
-    \end{align}
+        \setcounter{equation}{0}
+        \begin{align}
+            r_{k+1} &= j_{k+1}  - i_{k+1}\\
+            r_{k+1} &= j - \left( \left\lfloor \frac{i+j}{2} \right\rfloor + 1 \right)\\
+            &\leq j - \left\lfloor \frac{(i+j)}{2} \right\rfloor
+        \end{align}
 
-    \bigskip
+        \bigskip
 
-    Then, using a fact about floor/ceil $\forall x \in \mathbb{Z},\:\forall y \in
-    \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$, we can calculate that
+        Then, using a fact about floor/ceil $\forall x \in \mathbb{Z},\:\forall y \in
+        \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$, we can calculate that
 
-    \begin{align}
-        r_{k+1} &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + (-j) \right)\\
-        &\leq - \left( \left\lfloor \frac{i + j}{2} - j \right\rfloor \right)\\
-        &\leq - \left( \left\lfloor \frac{i - j}{2} \right\rfloor \right)
-    \end{align}
+        \begin{align}
+            r_{k+1} &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + (-j) \right)\\
+            &\leq - \left( \left\lfloor \frac{i + j}{2} - j \right\rfloor \right)\\
+            &\leq - \left( \left\lfloor \frac{i - j}{2} \right\rfloor \right)
+        \end{align}
 
-    \bigskip
+        \bigskip
 
-    Then,
+        Then,
 
-    \begin{align}
-        r_{k+1} &\leq - \left( \frac{i - j}{2} \right)\\
-        &\leq \left( \frac{j - i}{2} \right)
-    \end{align}
+        \begin{align}
+            r_{k+1} &\leq - \left( \frac{i - j}{2} \right)\\
+            &\leq \left( \frac{j - i}{2} \right)
+        \end{align}
 
-    by using the fact $\forall x \in \mathbb{R},\: \lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+        by using the fact $\forall x \in \mathbb{R},\: \lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
 
-    \bigskip
+        \bigskip
 
-    Because we know $r_k = j - i$, we can conclude
+        Because we know $r_k = j - i$, we can conclude
 
-    \begin{align}
-        r_{k+1} &\leq \frac{1}{2} r_k
-    \end{align}
+        \begin{align}
+            r_{k+1} &\leq \frac{1}{2} r_k
+        \end{align}
+    \end{proof}
 
     \bigskip
 
@@ -376,7 +379,48 @@
 
     \bigskip
 
-    \bigskip
+    \begin{proof}
+
+        Assume $lst[mid] \geq x$.
+
+        \bigskip
+
+        Because we know $j_{k+1} = \lfloor \frac{i + j}{2} \rfloor$
+        and $i_{k+1} = i$, we can conclude the new value of $r$ or $r_{k+1}$ is
+
+        \setcounter{equation}{0}
+        \begin{align}
+            r_{k+1} &= j_{k+1}  - i_{k+1}\\
+            r_{k+1} &= \left\lfloor \frac{i+j}{2} \right\rfloor - i
+        \end{align}
+
+        \bigskip
+
+        Then, using a fact about floor/ceil $\forall x \in \mathbb{Z},\:\forall y \in
+        \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$, we can calculate that
+
+        \begin{align}
+            r_{k+1} &\leq \left\lfloor \frac{i + j}{2} \right\rfloor + (-i)\\
+            &\leq \left\lfloor \frac{i + j}{2} + (-i) \right\rfloor\\
+            &\leq \left\lfloor \frac{j - i}{2} \right\rfloor
+        \end{align}
+
+        Then,
+
+        \begin{align}
+            r_{k+1} &\leq \frac{j - i}{2}
+        \end{align}
+
+        by using the fact $\forall x \in \mathbb{R},\: \lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+
+        \bigskip
+
+        Because we know $r_k = j - i$, we can conclude
+
+        \begin{align}
+            r_{k+1} &\leq \frac{1}{2} r_k
+        \end{align}
+    \end{proof}
 
     \textbf{Notes:}
 
