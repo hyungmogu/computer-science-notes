@@ -312,6 +312,79 @@
     Since the loop condition is true as long as $i < j$, the loop termination will
     occur when $i \geq j$, or $r \leq 0$.
 
+    \item
+
+    Let $k \in \mathbb{N}$, $x \in \mathbb{R}$, and $r_k = j - i$.
+
+    \bigskip
+
+    We will prove the statement $r_{k+1} \leq \frac{1}{2} r_k$ using proof by cases.
+
+    \bigskip
+
+    \textbf{Case 1} ($lst[mid] < x$):
+
+    \bigskip
+
+    Assume $lst[mid] < x$.
+
+    \bigskip
+
+    Because we know $i_{k+1} = \lfloor \frac{i + j}{2} \rfloor + 1$
+    and $j_{k+1} = j$, we can conclude the new value of $r$ or $r_{k+1}$ is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        r_{k+1} &= j_{k+1}  - i_{k+1}\\
+        r_{k+1} &= j - \left( \left\lfloor \frac{i+j}{2} \right\rfloor + 1 \right)\\
+        &\leq j - \left\lfloor \frac{(i+j)}{2} \right\rfloor\\
+    \end{align}
+
+    \bigskip
+
+    Then, using a fact about floor/ceil $\forall x \in \mathbb{Z},\:\forall y \in
+    \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$, we can calculate that
+
+    \begin{align}
+        r_{k+1} &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + (-j) \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} - j \right\rfloor \right)\\
+        &\leq - \left( \left\lfloor \frac{i - j}{2} \right\rfloor \right)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        r_{k+1} &\leq - \left( \frac{i - j}{2} \right)\\
+        &\leq \left( \frac{j - i}{2} \right)
+    \end{align}
+
+    by using the fact $\forall x \in \mathbb{R},\: \lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+
+    \bigskip
+
+    Because we know $r_k = j - i$, we can conclude
+
+    \begin{align}
+        r_{k+1} &\leq \frac{1}{2} r_k
+    \end{align}
+
+    \bigskip
+
+    \textbf{Case 2} ($lst[mid] \geq x$):
+
+    \bigskip
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item How do we introduce the loop variables $i$ and $j$ with $r$?
+        \item $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
