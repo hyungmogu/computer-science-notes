@@ -5,13 +5,93 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{listings}
+\usepackage{listings}
+\usepackage{xcolor}
 \usepackage{mdframed}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
 
 \begin{document}
 \title{Worksheet 15 Review}
 \maketitle
 
 \section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    First, we will evaluate the cost of he inner most loop.
+
+    \bigskip
+
+    Because the loop runs from $j = i = 1$ to $j = n - 1$, with each iteration costing
+    1 step, we can conclude that the inner most loop has cost of at most
+
+    \begin{align}
+        \lceil (n-1) - (i + 1) + 1 \rceil &= n - i - 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will evaluate the cost of the outer most loop.
+
+    \bigskip
+
+    Because the loop runs from $i = 0$ to $i = n - 1$ with each iteration
+    costing $(n - i - 1)$ steps, we can conclude the outer most loop has cost of
+    at most
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} (n - i - 1) &= \left[ \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i \right]\\
+        &= \left[ \frac{2n(n-1)}{2} - \frac(n(n-1)){2} \right]\\
+        &= \frac{n(n-1)}{2}
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will bring everything together.
+
+    \bigskip
+
+    Since the lines \textbf{n = len(lst)} and \textbf{return\:False} have cost of 1 step each,
+    the total cost of the algorithm is
+
+    \begin{align}
+        \frac{n(n-1)}{2} + 2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Then, it follows from above that the algorithm has runtime of $\Theta(n^2)$.
+
+\end{enumerate}
 
 \section*{Question 2}
 
