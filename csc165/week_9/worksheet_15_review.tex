@@ -527,8 +527,8 @@
 
         \bigskip
 
-        We will prove the statement by evaluating the total cost of the algorithm, and
-        then finding theta.
+        We will prove the statement by evaluating the total cost of the
+        \color{red}iteration\color{black}, and then finding theta.
 
         \bigskip
 
@@ -575,6 +575,24 @@
         Then, we can conclude the algorithm has runtime of \color{red}$\mathcal{O}(\log n)$\color{black}.
 
     \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item I feel I need help here. In previous problem ceiling notation is used to
+        obtain the closest value at which loop termination occurs. Here floor is used.
+        How come a floor notation chosen as opposed to ceiling notation? Are there
+        rules when deciding which notation to use?
+
+        \item Here, professor omits the consideration of the lines \textbf{i = 0},
+        \textbf{j = len(lst)} and \textbf{return False} before computing the big-oh.
+        In some questions, the lines are included. Are there general rules of a
+        thumb when deciding what to include and not to include when determining
+        total cost of the algorithm?
+
+    \end{itemize}
 
 \end{enumerate}
 
