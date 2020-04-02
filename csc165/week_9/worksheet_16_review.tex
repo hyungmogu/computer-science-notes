@@ -12,6 +12,82 @@
 \maketitle
 
 \section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    Let $k \in \mathbb{N}$.
+
+    \bigskip
+
+    Here, the minimum possible change occurs for the loop variable in a single
+    iteration when $i = i + 1$.
+
+    \bigskip
+
+    The maximum possible change occurs for the loop variable in a single
+    iteration when $i = i + 6$.
+
+    \bigskip
+
+    The exact upper bound of the variable after k iteration is
+
+    \begin{align}
+        i_k &\leq 6k
+    \end{align}
+
+    \bigskip
+
+    The exact lower bound of the variable after k iteration is
+
+    \begin{align}
+        k &\leq i_k
+    \end{align}
+
+    \bigskip
+
+    Using the fact that the termination occurs when $i_k = n$, we can calculate
+    that for the upper bound, the loop terminates when
+
+    \begin{align}
+        6k &\geq n\\
+        k &\geq \frac{n}{6}
+    \end{align}
+
+    Because we know $\frac{n}{6}$ may be a decimal, we can conclude the closest value at
+    which the loop terminates is when
+
+    \begin{align}
+        k &= \left\lceil \frac{n}{6} \right\rceil
+    \end{align}
+
+    \bigskip
+
+    Using the same fact, we can calculate that for the lower bound, the loop
+    terminates when
+
+    \begin{align}
+        k &\geq n
+    \end{align}
+
+    It follows from above that for the lower bound, the smallest value of $k$ at which
+    the loop termination occurs is when
+
+    \begin{align}
+        k &= n
+    \end{align}
+
+    \bigskip
+
+    Then, we can conclude the function has asymptotic lower bound of $\Omega(n)$, and
+    asymptotic upper bound of $\mathcal{O}(n)$.
+
+    \bigskip
+
+    Then, since both $\Omega$ and $\mathcal{O}$ have the same value, $\Theta(n)$
+    is also true.
+
+
+\end{enumerate}
 
 \section*{Question 2}
 
