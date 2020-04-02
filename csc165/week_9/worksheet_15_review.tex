@@ -594,6 +594,30 @@
 
     \end{itemize}
 
+    \item
+
+    \begin{proof}
+        Let $n \in \mathbb{N}$, $lst = [0,1,\dots,n-1]$ and $x = n+1$.
+
+        \bigskip
+
+        Since $x$ doesn't exist in $lst$, the loop will continue to run until
+        termination.
+
+        \bigskip
+
+        Because we know the loop behaves the same was when finding the big oh,
+        we can conclude the loop has total cost of
+
+        \begin{align}
+            \lfloor \log n \rfloor + 1
+        \end{align}
+
+        \bigskip
+
+        Then, we can conclude this algorithm has asymptotic lower bound of $\Omega(\log n)$.
+    \end{proof}
+
 \end{enumerate}
 
 \end{document}
