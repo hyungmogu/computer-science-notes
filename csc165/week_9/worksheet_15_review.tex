@@ -173,14 +173,14 @@
 
     \bigskip
 
-    Because we know the loop will terminate when \textbf{if lst[i] == lst[j]} and because we know
+    Because we know the inner most loop will terminate when \textbf{if lst[i] == lst[j]} and because we know
     this condition occurs when $i = n-2$, we can conclude the loop will start
     at $i = 0$ and run until $i = n - 2$.
 
     \bigskip
 
-    Because we know the inner loop condition \textbf{for j in range(i+1,n)}
-    stays true until $i = n - 2$ even for the worst case, we can conclude that the cost of
+    Because we know the condition of the inner most loop \textbf{for j in range(i+1,n)}
+    stays true until $i = n - 2$ even at the worst case, we can conclude that the cost of
     inner loop is the same as the cost of the inner loop at worst case, that is
 
     \setcounter{equation}{0}
@@ -194,8 +194,8 @@
 
     \bigskip
 
-    Since the outer most loop starts at $i = 0$ and ends at $i = n-1$ with each taking
-    $(n - i -1)$ steps, the outer most loop has cost of
+    Since the outer most loop starts at $i = 0$ and ends at $i = n-1$ with each iteration
+    costing $(n - i -1)$ steps, the outer most loop has cost of
 
     \begin{align}
         \sum\limits_{i=0}^{n-1} (n-i-1) &= \frac{n(n-1)}{2}
@@ -220,13 +220,12 @@
 
     \bigskip
 
-    Then, we can conclude that under this input group, the algorithm has runtime of
-    $\Omega(n^2)$.
+    Then, we can conclude the algorithm has runtime of $\Omega(n^2)$.
 
     \bigskip
 
-    Since both $\mathcal{O}(n^2)$ and $\Omega(n^2)$ are true, we can conclude
-    $\Theta(n^2)$ is also true.
+    Because we know both $\mathcal{O}(n^2)$ and $\Omega(n^2)$ are true, we can
+    also conclude the algorithm has runtime of $\Theta(n^2)$.
 
 \end{enumerate}
 
