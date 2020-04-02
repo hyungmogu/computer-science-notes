@@ -163,6 +163,71 @@
 
     \end{itemize}
 
+    \item
+
+    Let $n \in \mathbb{N}$, and $lst = [0,1,2,3,\dots,n-3,n-1,n-1]$.
+
+    \bigskip
+
+    First, we will calculate the cost of the inner most loop.
+
+    \bigskip
+
+    Because we know the loop will terminate when \textbf{if lst[i] == lst[j]} and because we know
+    this condition occurs when $i = n-2$, we can conclude the loop will start
+    at $i = 0$ and run until $i = n - 2$.
+
+    \bigskip
+
+    Because we know the inner loop condition \textbf{for j in range(i+1,n)}
+    stays true until $i = n - 2$ even for the worst case, we can conclude that the cost of
+    inner loop is the same as the cost of the inner loop at worst case, that is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n - i - 1
+    \end{align}
+
+    \bigskip
+
+    Next, we will evaluate the cost of the outer most loop.
+
+    \bigskip
+
+    Since the outer most loop starts at $i = 0$ and ends at $i = n-1$ with each taking
+    $(n - i -1)$ steps, the outer most loop has cost of
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} (n-i-1) &= \frac{n(n-1)}{2}
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will combine everything together.
+
+    \bigskip
+
+    Since each of the lines \textbf{n = len(lst)} and \textbf{return True} have
+    cost of 1 step, we can conclude that the algorithm has total cost of
+
+    \begin{align}
+        \frac{n(n-1)}{2} + 2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Then, we can conclude that under this input group, the algorithm has runtime of
+    $\Omega(n^2)$.
+
+    \bigskip
+
+    Since both $\mathcal{O}(n^2)$ and $\Omega(n^2)$ are true, we can conclude
+    $\Theta(n^2)$ is also true.
+
 \end{enumerate}
 
 \section*{Question 2}
