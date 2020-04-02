@@ -180,6 +180,61 @@
 
     \end{itemize}
 
+
+    \item
+
+    Let $k \in \mathbb{N}$.
+
+    \bigskip
+
+    The minimum possible change occurs when $i = i \cdot 2$.
+
+    \bigskip
+
+    The maximum possible change occurs when $i = i \cdot 3$.
+
+    \bigskip
+
+    Next, we will determine the exact lower bound of loop iteration.
+
+    \bigskip
+
+    Because we know $i = i \cdot 2$ increases smallest, we can conclude the smallest
+    possible change in $i$ will result when $i = i \cdot 2$ happens entirely.
+
+    \bigskip
+
+    Then, it follows from above that at $k^{th}$ iteration, the smallest value
+    of $i$ is $2^k$.
+
+    \bigskip
+
+    For
+
+    \bigskip
+
+    Given this, the value of $i$ at $k^{th}$ iteration is $3^k$.
+
+    \bigskip
+
+    Using the above fact, the exact upper bound and the lower bound of the
+    loop iteration is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        2^k \leq i_k \leq 3^k
+    \end{align}
+
+    \bigskip
+
+    Now, we will determine the asymptotic running time of the upper bound
+    $i_k \leq 3^k$.
+
+    \bigskip
+
+    We want
+
+
 \end{enumerate}
 
 \section*{Question 2}
