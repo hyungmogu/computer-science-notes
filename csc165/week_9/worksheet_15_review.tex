@@ -232,9 +232,73 @@
     \textbf{Notes:}
 
     \begin{itemize}
-        \item Does if condition counted towards the total cost?
+        \item Does \textbf{if condition} counted towards the total cost?
 
     \end{itemize}
+
+    \item
+
+    Let $n \in \mathbb{N}$, and $lst = [1,2,3,\dots,n-2,0]$.
+
+    \bigskip
+
+    We will prove that given the input group, the runtime of the algorithm is
+    $\Theta(n)$ by computing the total cost of the algorithm, starting off
+    with the inner most loop, then the the outer most loop, and then the rest.
+
+    \bigskip
+
+    First, we will calculate the cost of the inner most loop.
+
+    \bigskip
+
+    Because we know the loop starts at $j = i + 1$ and finishes at $j = n-1$ with
+    each iteration costing 1 step, we can conclude the inner most loop has cost of
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n-1-(i+1)+1 &= n-i
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will calculate the cost of the outer most loop.
+
+    \bigskip
+
+    Because we know the outer most loop terminates by the \textbf{if condition} at
+    $i = 0$, we can conclude the outer most loop runs only 1 iteration.
+
+    \bigskip
+
+    Then, since each iteration costs $(n-i-1)$ steps, the cost of the outer most loop is
+
+    \begin{align}
+        1 \cdot (n-0-1) &= n-1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Next, we will combine everything together, and evaluate theta.
+
+    \bigskip
+
+    Because we know both of the lines \textbf{n = len(lst)} and \textbf{return True} have cost of 1,
+    the total cost of the algorithm is
+
+    \begin{align}
+        n - 1 + 2 &= n + 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Then, it follows from above that the runtime of the algorithm is $\Theta(n)$.
 
 \end{enumerate}
 
