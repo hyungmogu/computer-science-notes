@@ -294,6 +294,38 @@
     Because we know $n \in \Theta(n^2)$, we can conclude the algorithm has runtime
     of $\Theta(n^2)$.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}
+        Since \textbf{helper1} has cost of $n$ and \textbf{helper2} has cost of $n^2$,
+        we can conclude the algorithm has total cost of $n + n^2$.
+
+        \bigskip
+
+        It follows from above the algorithm has runtime of $\Theta(n^2)$.
+
+        \color{black}
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item When is $\in$ in $n \in \Theta(n^2)$ used?
+
+        \bigskip
+
+        Is $\in \Theta$ used when $\mathcal{O}$ and $\Omega$ exists with
+        different values to choose which value works for both lower and upper
+        bound of the algorithm?
+
+        \item Noticed that professor evaluates total runtime before Theta
+    \end{itemize}
 
 \end{enumerate}
 
