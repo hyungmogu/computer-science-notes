@@ -167,16 +167,18 @@
     \textbf{Notes:}
 
     \begin{itemize}
-        \item Realized \textbf{+ 1} required after thinking there are $n$ iterations
-        between $i = 0$ and $i = n - 1$ when $i = i + 1$.
+        \item where is \textbf{+1} coming from? Is it coming from the loop variable $i = 0$?
 
-        \item Realized \textbf{+ 1} in $\frac{n}{6}$ is required after playing
-        with the following example [0,1,2,3,4,5] and [0,1,2,3,4,5,6].
+        % \item Realized \textbf{+ 1} required after thinking there are $n$ iterations
+        % between $i = 0$ and $i = n - 1$ when $i = i + 1$.
 
-        \item Realized $\lceil \frac{5}{6} \rceil = 1$ and $\lceil \frac{6}{6} \rceil = 1$,
-        and indeed \textbf{+ 1} is required to reach loop termination.
+        % \item Realized \textbf{+ 1} in $\frac{n}{6}$ is required after playing
+        % with the following example [0,1,2,3,4,5] and [0,1,2,3,4,5,6].
 
-        \item Perhaps the choice of ceiling and floor can be determined by playing with examples.
+        % \item Realized $\lceil \frac{5}{6} \rceil = 1$ and $\lceil \frac{6}{6} \rceil = 1$,
+        % and indeed \textbf{+ 1} is required to reach loop termination.
+
+        % \item Perhaps the choice of ceiling and floor can be determined by playing with examples.
 
     \end{itemize}
 
@@ -274,6 +276,14 @@
 
     Then, we can conclude the algorithm has $\mathcal{O}(\log_2 n)$ and $\Omega(\log_3 n)$.
 
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item How come in solution, \textbf{+1} doesn't exist? What rules of thumb
+        i can follow to better determine whether \textbf{+1} should be included?
+    \end{itemize}
 
 \end{enumerate}
 
