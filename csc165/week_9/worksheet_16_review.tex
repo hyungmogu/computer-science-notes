@@ -2,6 +2,8 @@
 \usepackage{enumerate}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{listings}
@@ -520,7 +522,7 @@
 
     \bigskip
 
-    We will prove the statement using proof by cases.
+    We will prove the statement by cases.
 
     \bigskip
 
@@ -537,12 +539,26 @@
 
         \bigskip
 
-        Then, because we know $x\:\mod\:2 == 0$ is satisfied entirely, we can
-        conclude
+        Then, because we know $x\:\mod\:2 == 0$ in all iterations, we can conclude
+        the line \textbf{x = x // 2} will run 3 times.
+
+        \bigskip
+
+        Then, it follows from above that the value of $x$ at $3(k+1)^{th}$ iteration
+        is
 
         \begin{align}
-            x_{3(k+1)} &\leq \frac{}
+            x_{3(k+1)} &= \frac{x_{3k}}{2^3}
         \end{align}
+
+        \bigskip
+
+        Then, because we know $\frac{1}{2^3} \leq \frac{1}{2}$, we can conclude
+
+        \begin{align}
+            x_{3(k+1)} &\leq \frac{1}{2} x_{3k}
+        \end{align}
+
     \end{proof}
 
     \bigskip
