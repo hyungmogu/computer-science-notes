@@ -18,13 +18,13 @@
     \item
 
     \begin{align*}
-        100 \div 2 = 50,\:&\textbf{Remainders}\:0\\
-        50 \div 2 = 25,\:&\textbf{Remainders}\:0\\
-        25 \div 2 = 12,\:&\textbf{Remainders}\:1\\
-        12 \div 2 = 6,\:&\textbf{Remainders}\:0\\
-        6 \div 2 = 3,\:&\textbf{Remainders}\:0\\
-        3 \div 2 = 1,\:&\textbf{Remainders}\:1\\
-        1 \div 2 = 0,\:&\textbf{Remainders}\:1
+        100 \div 2 = 50,\:&\text{Remainders}\:\textbf{0}\\
+        50 \div 2 = 25,\:&\text{Remainders}\:\textbf{0}\\
+        25 \div 2 = 12,\:&\text{Remainders}\:\textbf{1}\\
+        12 \div 2 = 6,\:&\text{Remainders}\:\textbf{0}\\
+        6 \div 2 = 3,\:&\text{Remainders}\:\textbf{0}\\
+        3 \div 2 = 1,\:&\text{Remainders}\:\textbf{1}\\
+        1 \div 2 = 0,\:&\text{Remainders}\:\textbf{1}
     \end{align*}
 
     \bigskip
@@ -50,9 +50,12 @@
         The smallest number that can be expressed by an n-digit balanced ternary
         representation is
 
+        \setcounter{equation}{0}
+        \color{red}
         \begin{align}
             -\left[ \sum\limits_{i=0}^{n-1} 3^i \right]
         \end{align}
+        \color{black}
     \end{mdframed}
 
     \bigskip
@@ -61,6 +64,12 @@
 
     \begin{itemize}
         \item Realized professor is asking for an example of the smallest number.
+        \item Ternary representation of a number
+
+        \begin{align*}
+            \sum\limits_{i=0}^{n-1} d_i \cdot 3^i,\:\text{where}\:d_i \in \{0,1,2\}
+        \end{align*}
+
         \item Learned a negative number could be expressed in in ternary or binary
         representation of numbers.
     \end{itemize}
@@ -70,6 +79,7 @@
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
         $f(n) \in \Omega(n)$ & True & $g(n) \in \Omega(n)$ & False & $f(n) \in \mathcal{O}(g(n))$ & False\\
+        \hline
         $f(n) \in \Theta(g(n))$ & False & $g(n) \in \Theta(\log_3 n)$ & True & $f(n) + g(n) \in \Theta(f(n))$ & True\\
         \hline
     \end{tabular}
