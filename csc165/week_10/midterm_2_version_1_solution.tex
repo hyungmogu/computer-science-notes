@@ -230,6 +230,78 @@
     by using inductive hypothesis (i.e $5^n + 50 < 6^n$)
 
     \end{proof}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$.
+
+        \bigskip
+
+        We will prove the statement by induction on $n$.
+
+        \bigskip
+
+        \textbf{Base Case ($n = 3$):}
+
+        \bigskip
+
+        Let $n = 3$.
+
+        \bigskip
+
+        We want to show $5^3 + 50 < 6^3$.
+
+        \bigskip
+
+        Starting from $5^3 + 50$, we can calculate
+
+        \setcounter{equation}{0}
+        \begin{align}
+            5^3 + 50 &= 125 + 50\\
+            &= 175\\
+            &< 216\\
+            &< 6^3
+        \end{align}
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $n \geq 3$ and $5^n + 50 < 6^n$.
+
+        \bigskip
+
+        We want to show $5^{n+1} + 50 < 6^{n+1}$.
+
+        \bigskip
+
+        Starting from $5^{n+1} + 50$, we can calculate
+
+        \begin{align}
+            50^{n+1} + 50 &= 5^n \cdot 5 + 50\\
+            &\color{red}=\color{black} 5^n \cdot 5 + 50 \cdot 5\\
+            &< 5(5^n + 50)
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            50^{n+1} + 5 &< 5 \cdot 6^n\\
+            &< 6 \cdot 6^n\\
+            &\color{red}=\color{black} 6^{n+1}
+        \end{align}
+
+        by using inductive hypothesis (i.e $5^n + 50 < 6^n$)
+    \end{mdframed}
 \end{itemize}
 
 \section*{Question 3}
