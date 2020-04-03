@@ -514,24 +514,25 @@
     \item
 
     \textbf{Predicate Logic:} $\forall x \in \mathbb{Z}^{+}$, $k \in \mathbb{N}$,
-    (Three iterations occur) $\Rightarrow x_{3(k+1)} \leq \displaystyle\frac{x_{3k}}{2}$
-
-    \bigskip
-
-    Assume three iterations occur in loop.
-
-    \bigskip
-
-    We will prove the statement by cases.
-
-    \bigskip
-
-    \textbf{Case 1 ($x$ divisible by 2 three times):}
+    (three iterations occur) $\Rightarrow x_{3(k+1)} \leq \displaystyle\frac{x_{3k}}{2}$
 
     \bigskip
 
     \begin{proof}
+
         Let $k \in \mathbb{N}$.
+
+        \bigskip
+
+        Assume three iterations occur in loop.
+
+        \bigskip
+
+        We will show $x_{3(k+1)} \leq \displaystyle\frac{x_{3k}}{2}$ using proof by cases.
+
+        \bigskip
+
+        \textbf{Case 1 ($x$ divisible by 2 three times):}
 
         \bigskip
 
@@ -539,7 +540,7 @@
 
         \bigskip
 
-        Then, because we know $x\:\mod\:2 == 0$ in all iterations, we can conclude
+        Because we know $x\:\mod\:2 == 0$ in all iterations, we can conclude
         the line \textbf{x = x // 2} will run 3 times.
 
         \bigskip
@@ -559,19 +560,51 @@
             x_{3(k+1)} &\leq \frac{1}{2} x_{3k}
         \end{align}
 
+        \bigskip
+
+        \textbf{Case 2 ($x$ divisible by 2 two times):}
+
+        \bigskip
+
+        Assume $x$ is divisible by 2, 2 times.
+
+        \bigskip
+
+        Because we know \textbf{$x \mod 2$ == 0} is true in first two
+        iterations, we can conclude the line \textbf{$\frac{x}{2}$ // 2} will run twice.
+
+        \bigskip
+
+        Then, at the end of second iteration, we can conclude $x$ will have the value of
+
+        \begin{align}
+            \frac{x_{3k}}{2}
+        \end{align}
+
+        \bigskip
+
+        On the final iteration, because we know \textbf{$x \mod 2$ == 0} is false,
+        we can conclude the line \textbf{x = 2 * x - 2} will run.
+
+        \bigskip
+
+        Then, using the above fact, we can calculate
+
+        \begin{align}
+            x_{3(k+1)} &= \frac{x_{3k}}{2^2} \cdot 2 - 2\\
+            &= \frac{x_{3k}}{2} - 2\\
+            &\leq \frac{x_{3k}}{2}
+        \end{align}
+
+        \bigskip
+
+        \textbf{Case 3 ($x$ divisible by 2 once):}
+
+        \bigskip
+
+        \textbf{Case 4 ($x$ is an odd number):}
+
     \end{proof}
-
-    \bigskip
-
-    \textbf{Case 2 ($x$ divisible by 2 two times):}
-
-    \bigskip
-
-    \textbf{Case 3 ($x$ divisible by 2 once):}
-
-    \bigskip
-
-    \textbf{Case 4 ($x$ is an odd number):}
 
     \item
 
