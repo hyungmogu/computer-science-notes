@@ -385,6 +385,85 @@
 
     Then, we can conclude the algorithm has running time of $\Theta(n^2)$
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Because we know loop 1 starts at $i = 0$ and finishes at $i = n - 1$ with $i$
+        increasing by 2 per iteration, we can conclude loop 1 has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \left\lceil \frac{n - 1 - 0 + 1}{2} \right\rceil = \left\lceil \frac{n}{2} \right\rceil
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration in loop 1 takes $n$ step, as required by \textbf{helper 1} function,
+        we can conclude loop 1 has total cost of
+
+        \begin{align}
+            n \cdot \left\lceil \frac{n}{2} \right\rceil
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        For loop 2, because we know it starts at $j = 0$ and finishes at $j = 9$,
+        we can conclude loop 2 has
+
+        \begin{align}
+            \lceil 9 - 0 + 1 \rceil &= 10
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration in loop 2 takes $n^2$ step as required by \textbf{helper 2} function,
+        we can conclude loop 2 has total of
+
+        \begin{align}
+            10 \cdot n^2
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        \color{red} Combining together \color{black}, the total cost of algorithm
+        is
+
+        \begin{align}
+            n \cdot \left\lceil \frac{n}{2} \right\rceil + 10n^2
+        \end{align}
+
+        \bigskip
+
+        Then, we can conclude the algorithm has running time of $\Theta(n^2)$
+        \color{black}
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor doesn't count loop variables toward the total
+        cost of algorithm.
+
+        \bigskip
+
+        If other lines such as \textbf{return False} and \textbf{n = len(lst)} are
+        included, would these count towards the total cost of the algorithm?
+
+    \end{itemize}
+
 \end{enumerate}
 
 \section*{Question 3}
