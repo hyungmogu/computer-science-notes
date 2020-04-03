@@ -540,8 +540,8 @@
 
         \bigskip
 
-        Because we know $x\:\mod\:2 == 0$ in all iterations, we can conclude
-        the line \textbf{x = x // 2} will run 3 times.
+        Because we know the if condition $x\:\mod\:2 == 0$ is true in all iterations,
+        we can conclude the line \textbf{x = x // 2} will run 3 times.
 
         \bigskip
 
@@ -570,8 +570,8 @@
 
         \bigskip
 
-        Because we know \textbf{$x \mod 2$ == 0} is true in first two
-        iterations, we can conclude the line \textbf{$x$ // 2} will run twice.
+        Because we know the if condition \textbf{$x \mod 2$ == 0} is true in first two
+        iterations, we can conclude the line \textbf{x = x // 2} will run twice.
 
         \bigskip
 
@@ -583,8 +583,8 @@
 
         \bigskip
 
-        On the final iteration, because we know \textbf{$x \mod 2$ == 0} is false,
-        we can conclude the line \textbf{x = 2 * x - 2} will run.
+        On the final iteration, because we know the if condition \textbf{$x \mod 2$ == 0}
+        is false, we can conclude the line \textbf{x = 2 * x - 2} will run.
 
         \bigskip
 
@@ -606,8 +606,8 @@
 
         \bigskip
 
-        Because we know \textbf{$x \mod 2$ == 0} is true in first iteration, we
-        can conclude the line \textbf{$x$ // 2} will run.
+        Because we know the if condition \textbf{$x \mod 2$ == 0} is true in first iteration,
+        we can conclude the line \textbf{x = x // 2} will run.
 
         \bigskip
 
@@ -636,7 +636,7 @@
 
         On the final iteration, because we know from assumption $2 \mid x_{3k}$ and $2 \mid -2$,
         we can conclude the if condition \textbf{$x \mod 2$ == 0} will be satisfied
-        and $x // 2$ will run.
+        and the line \textbf{x = x // 2} will run.
 
         \bigskip
 
@@ -651,6 +651,54 @@
         \bigskip
 
         \textbf{Case 4 ($x$ is an odd number):}
+
+        \bigskip
+
+        Assume $x$ is an odd number.
+
+        \bigskip
+
+        Because we know \textbf{$x \mod 2$ == 0} is false in first iteration,
+        we can conclude the line \textbf{x = 2 * x - 2} will run.
+
+        \bigskip
+
+        Then, at the end of first iteration, we can conclude $x$ will have the
+        value of
+
+        \begin{align}
+            x_{3k} \cdot 2 - 2 &= 2 \cdot (x_{3k} - 1)
+        \end{align}
+
+        \bigskip
+
+        On the second iteration, because we know the if condition \textbf{$x \mod 2$ == 0}
+        is true, we can conclude the line \textbf{x = x // 2} will run.
+
+        \bigskip
+
+        Then, at the end of second iteration, we can conclude $x$ will have the
+        value of
+
+        \begin{align}
+            \frac{2 \cdot (x_{3k} - 1)}{2} &= x_{3k} - 1
+        \end{align}
+
+        \bigskip
+
+        On the final iteration, because we know $x_{3k} - 1$ is an even number,
+        we can conclude the if condition \textbf{$x \mod 2$ == 0} is true, and
+        the line \textbf{x = x // 2} will run.
+
+        \bigskip
+
+        Then, at the end of final iteration, we can conclude $x_{3(k+1)}$ will
+        have the value of
+
+        \begin{align}
+            x_{3(k+1)} &= \frac{x_{3k} - 1}{2}\\
+            &\leq \frac{x_{3k}}{2}
+        \end{align}
 
     \end{proof}
 
