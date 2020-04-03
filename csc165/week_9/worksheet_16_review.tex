@@ -571,14 +571,14 @@
         \bigskip
 
         Because we know \textbf{$x \mod 2$ == 0} is true in first two
-        iterations, we can conclude the line \textbf{$\frac{x}{2}$ // 2} will run twice.
+        iterations, we can conclude the line \textbf{$x$ // 2} will run twice.
 
         \bigskip
 
         Then, at the end of second iteration, we can conclude $x$ will have the value of
 
         \begin{align}
-            \frac{x_{3k}}{2}
+            \frac{x_{3k}}{2^2}
         \end{align}
 
         \bigskip
@@ -599,6 +599,54 @@
         \bigskip
 
         \textbf{Case 3 ($x$ divisible by 2 once):}
+
+        \bigskip
+
+        Assume $x$ is divisible by 2 once.
+
+        \bigskip
+
+        Because we know \textbf{$x \mod 2$ == 0} is true in first iteration, we
+        can conclude the line \textbf{$x$ // 2} will run.
+
+        \bigskip
+
+        Then, at the end of first iteration, we can conclude $x$ will have the value
+        of
+
+        \begin{align}
+            \frac{x_{3k}}{2}
+        \end{align}
+
+        \bigskip
+
+        On the second iteration, because we know \textbf{$x \mod 2$ == 0} is false,
+        we can conclude the line \textbf{x = 2 * x - 2} will run.
+
+        \bigskip
+
+        Then, at the ned of second iteration, we can conclude $x$ will have the
+        value of
+
+        \begin{align}
+            \frac{x_{3k}}{2} \cdot 2 - 2 = 3_{3k} - 2
+        \end{align}
+
+        \bigskip
+
+        On the final iteration, because we know from assumption $2 \mid x_{3k}$ and $2 \mid -2$,
+        we can conclude the if condition \textbf{$x \mod 2$ == 0} will be satisfied
+        and $x // 2$ will run.
+
+        \bigskip
+
+        Then, at the end of final iteration, we can conclude $x_{3(k+1)}$ will
+        have the value of
+
+        \begin{align}
+            x_{3(k+1)} &= \frac{x_{3k} - 2}{2}\\
+            &\leq \frac{x_{3k}}{2}
+        \end{align}
 
         \bigskip
 
