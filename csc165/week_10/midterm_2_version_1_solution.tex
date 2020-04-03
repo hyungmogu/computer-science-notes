@@ -67,13 +67,42 @@
 
     \item
 
-    \begin{tabular}{c|c|c}
+    \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        $f(n) \in \Omega(n)$ - True & $g(n) \in \Omega(n)$ - False & $f(n) \in \mathcal{O}(g(n))$ - False\\
-        \hline
-        $f(n) \in \Theta(g(n))$ - False & $g(n) \in \Theta(\log_3 n)$ - True & $f(n) + g(n) \in \Theta(f(n))$ - True\\
+        $f(n) \in \Omega(n)$ & True & $g(n) \in \Omega(n)$ & False & $f(n) \in \mathcal{O}(g(n))$ & False\\
+        $f(n) \in \Theta(g(n))$ & False & $g(n) \in \Theta(\log_3 n)$ & True & $f(n) + g(n) \in \Theta(f(n))$ & True\\
         \hline
     \end{tabular}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item
+
+        $\forall g:\mathbb{N} \to \mathbb{R}^{\geq 0}$, and all numbers $a \in \mathbb{R}^{\geq 0}$,
+        if $g \in \mathcal{O}(f)$, then $f + g \in \mathcal{O}(f)$
+
+        \item
+        $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+
+        or
+
+        $g \in \Theta(f):\:\exists c_1,c_2,n_1 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_1
+        \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)$, where $f,g:\:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+        $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \end{itemize}
+
 \end{enumerate}
 
 \section*{Question 2}
