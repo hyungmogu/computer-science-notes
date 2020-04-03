@@ -187,39 +187,32 @@
 
     \bigskip
 
-    The minimum possible change occurs when $i = i \cdot 2$.
+    \textbf{Part 1 (Determining maximum and minimum possible change in a single iteration):}
 
     \bigskip
 
-    The maximum possible change occurs when $i = i \cdot 3$.
+    It follows from observation that the minimum possible change occurs when
+    $i = i \cdot 2$, and the maximum possible change when $i = i \cdot 3$.
 
     \bigskip
 
-    Next, we will determine the exact lower bound of loop iteration.
+    \textbf{Part 2 (Determining lower bound and upper bound of loop iteration):}
 
     \bigskip
 
-    Because we know $i = i \cdot 2$ increases smallest, we can conclude the smallest
-    possible change in $i$ will result when $i = i \cdot 2$ happens entirely.
+    Because we know the smallest possible change occurs when $i = i \cdot 2$
+    occurs repeatedly, we can conclude that at $k^{th}$ iteration $i_k$ has
+    the lower bound of $2^k$.
 
     \bigskip
 
-    Then, it follows from above that at $k^{th}$ iteration, the smallest value
-    of $i$ is $2^k$.
+    Similarly, because we know largest possible change occurs when $i = i \cdot 3$
+    occurs repeatedly, we can conclude that at $k^{th}$ iteration, $i_k$ has
+    the upper bound of $3^k$.
 
     \bigskip
 
-    For
-
-    \bigskip
-
-    Given this, the value of $i$ at $k^{th}$ iteration is $3^k$.
-
-    \bigskip
-
-    Using the above fact, the exact upper bound and the lower bound of the
-    loop iteration is
-
+    Then, by putting together, we can conclude that
     \setcounter{equation}{0}
     \begin{align}
         2^k \leq i_k \leq 3^k
@@ -227,12 +220,59 @@
 
     \bigskip
 
-    Now, we will determine the asymptotic running time of the upper bound
-    $i_k \leq 3^k$.
+    \textbf{Part 3 (Determining exact number of iterations for the lower bound and
+    upper bound):}
 
     \bigskip
 
-    We want
+    Because we know the loop runs until $i_k < n$, we can conclude that
+    at lower bound, termination occurs when
+
+    \begin{align}
+        i_k &\geq n\\
+        2^k &\geq n\\
+        \log_2 2^k &\geq \log_2 n\\
+        k &\geq \log_2 n
+    \end{align}
+
+    \bigskip
+
+    Using the fact that we are looking for smallest value of $k$, we can calculate that
+    for lower bound
+
+    \begin{align}
+        k &= \lceil \log_2 n \rceil + 1
+    \end{align}
+
+    \bigskip
+
+    Similarly, for the upper bound, loop terminates when
+
+    \begin{align}
+        i_k &\geq n\\
+        3^k &\geq n\\
+        \log_3 3^k &\geq \log_3 n\\
+        k &\geq \log_3 n
+    \end{align}
+
+    \bigskip
+
+    Using the fact, we can calculate that for upper bound,
+
+    \begin{align}
+        k = \lceil \log_3 n \rceil + 1
+    \end{align}
+
+    \textbf{Part 4 (Determining Big-Oh and Omega):}
+
+    \bigskip
+
+    Because we know $\log_2 n$ dominates $\log_3 n$, we can conclude
+    $\log_2 n$ is the asymptotic upper bound, and $\log_3 n$ is the asymptotic lower bound.
+
+    \bigskip
+
+    Then, we can conclude the algorithm has $\mathcal{O}(\log_2 n)$ and $\Omega(\log_3 n)$.
 
 
 \end{enumerate}
