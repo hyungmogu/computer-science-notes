@@ -131,12 +131,21 @@
 
     \item
 
-    The number of iterations the functions loop will run is
+    The number of iterations the function's loop will run is
 
     \setcounter{equation}{0}
     \begin{align}
         \lceil \log_2 \log_3 n \rceil - 1
     \end{align}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item The loop terminates when $3^{2^{(k+1)}} = i_{k+1} = i_k \cdot i_k \geq n$.
+        \item $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$
+        \item Feel more confident there is no need to add an extra \textbf{+1}. Done by
+        playing with examples (i.e is $\lceil \log \log_3 (82) \rceil - 1$ true? Would the loop run only once?)
+    \end{itemize}
 
 \end{enumerate}
 
