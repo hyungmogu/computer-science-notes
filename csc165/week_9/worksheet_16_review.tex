@@ -760,6 +760,74 @@
 
     Then, we can conclude the running time of algorithm is $\Theta (\log n)$
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Let $k \in \mathbb{N}$.
+
+        \bigskip
+
+        We need to find the smallest value of $k$ in terms of $n$ at which the loop
+        termination occurs.
+
+        \bigskip
+
+        The result in previous problem tells us that every 3 iterations, $x$ decreases
+        \color{red}at least\color{black}\:by half. So, initially we have
+
+        \setcounter{equation}{0}
+        \begin{align}
+            x_3 &\leq \frac{x_0}{2}
+        \end{align}
+
+        \bigskip
+
+        Then, we can conclude that at $3k$ iterations,
+
+        \begin{align}
+            x_{3k} &\leq \frac{x_0}{2^k}
+        \end{align}
+
+        \bigskip
+
+        Then, since $x_0 = n$,
+
+        \color{red}
+        \begin{align}
+            x_{3k} &\leq \frac{n}{2^k}
+        \end{align}
+        \color{black}
+
+        \bigskip
+
+        Using the fact that the loop termination occurs when $x \leq 1$, we can
+        calculate
+
+        \begin{align}
+            2^k &\geq n\\
+            k &\geq \log n
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from above the smallest value of $k$ at which termination occurs
+        is
+
+        \begin{align}
+            \lceil \log n \rceil
+        \end{align}
+
+        \bigskip
+
+        Then, we can conclude the running time of algorithm is $\Theta (\log n)$
+
+
+    \end{mdframed}
+
 
 \end{enumerate}
 
