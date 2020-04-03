@@ -464,6 +464,47 @@
 
     \end{itemize}
 
+    \item
+
+    For loop 1, because we know it starts at $i = 0$ and finishes at $i = n - 1$ with each
+    iteration having cost of i steps, we can conclude loop 1 has cost of
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} i = \frac{n(n-1)}{2}
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    For loop 2, because we know it starts at $j = 0$ and finishes at $j = 9$ with
+    each iteration costing $j^2$ steps, we can conclude loop 2 has
+
+    \begin{align}
+        \sum\limits_{j=0}^{9} j^2 &= \frac{9(9-1)(2(9)-1)}{6}\\
+        &= \frac{9 \cdot 8 \cdot 17}{6}\\
+        &= 204
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Combining together, the total cost of algorithm is
+
+    \begin{align}
+        \frac{n(n-1)}{2} + 204
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Then, we can conclude the running time of algorithm is $\Theta(n^2)$.
+
+
+
 \end{enumerate}
 
 \section*{Question 3}
