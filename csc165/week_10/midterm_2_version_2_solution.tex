@@ -38,7 +38,15 @@
         \sum\limits_{i=0}^{n-1} 2^i
     \end{align}
 
+    \item
 
+    \begin{tabular}{|l|c|l|c|l|c|}
+        \hline
+        $f(n) \in \mathcal{O}(n)$ & True & $g(n) \in \Omega(n)$ & False & $f(n) \in \Omega(g(n))$ & True\\
+        \hline
+        $f(n) \in \Theta(g(n))$ & False & $g(n) \in \Theta(\log_3 n)$ & False & $f(n) + g(n) \in \Theta(f(n))$ & True\\
+        \hline
+    \end{tabular}
 \end{enumerate}
 
 \section*{Question 2}
