@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{enumerate}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -47,6 +48,19 @@
         $f(n) \in \Theta(g(n))$ & False & $g(n) \in \Theta(\log_3 n)$ & False & $f(n) + g(n) \in \Theta(f(n))$ & True\\
         \hline
     \end{tabular}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Learned $\sqrt{n}$ rises faster than $\log n$.
+        \item Learned if $g(n) \in \Theta(f(n))$ is true then
+        $f(n) + g(n) \in \Theta(f(n))$ is true.
+    \end{itemize}
+
+
+
 \end{enumerate}
 
 \section*{Question 2}
