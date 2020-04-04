@@ -78,7 +78,17 @@
 
     \begin{lstlisting}[language=Python]
     class Rectangle:
-        """A rectangle is defined by its top-left coordinates as well as its width and height."""
+        """A rectangle is defined by its top-left coordinates as well as its width and height.
+
+        @type x: int
+            The x coordinate of top-left corner of this rectangle
+        @type y: int
+            The y coordinate of top-left corner of this rectangle
+        @type width: int
+            The width of this rectangle
+        @type height: int
+            The height of this rectangle
+        """
 
         def translate_left(self, num):
             """Translate Rectangle to left by <num>
