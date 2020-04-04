@@ -33,7 +33,7 @@
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
-    tabsize=2
+    tabsize=1
 }
 
 \lstset{style=mystyle}
@@ -59,6 +59,70 @@
     \begin{lstlisting}[language=Python]
     Rectangle(10,20,300,400)
     \end{lstlisting}
+
+    \item
+
+    \textbf{Headers:}
+
+    \bigskip
+
+    \begin{itemize}
+        \item translate\_left(self, num):
+        \item translate\_right(self, num):
+        \item translate\_up(self, num):
+        \item translate\_down(self, num):
+        \item is\_equal(self, rect):
+        \item is\_within\_another\_rectangle(self, rect):
+        \item is\_overlapping(self, rect):
+    \end{itemize}
+
+    \begin{lstlisting}[language=Python]
+    class Rectangle:
+        """A rectangle is defined by its top-left coordinates as well as its width and height."""
+
+        def translate_left(self, num):
+            """
+            @type num: int
+            @rtype: None
+            """
+        def translate_right(self, num):
+            """
+            @type num: int
+            @rtype: None
+            """
+
+        def translate_up(self, num):
+            """
+            @type num: int
+            @rtype: None
+            """
+
+        def translate_down(self, num):
+            """
+            @type num: int
+            @rtype: None
+            """
+
+        def is_equal(self, rect):
+            """
+            @type rect: Rectangle
+            @rtype: bool
+            """
+
+        def is_within_another_rectangle(self, rect):
+            """
+            @type rect: Rectangle
+            @rtype: bool
+            """
+
+        def is_overlapping(self, rect):
+            """
+            @type rect: Rectangle
+            @rtype: bool
+            """
+
+    \end{lstlisting}
+
 
 \end{enumerate}
 
