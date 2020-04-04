@@ -187,6 +187,38 @@
 
     \textbf{Inductive Case:}
 
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $\prod\limits_{i=1}^n \frac{2^i - 1}{2^i}
+    \geq \frac{1}{2n}$.
+
+    \bigskip
+
+    We want to show $\prod\limits_{i=1}^{n+1} \frac{2^i - 1}{2^i} \geq \frac{1}{2(n+1)}$.
+
+    \bigskip
+
+    Starting from $\frac{1}{2(n+1)}$, because we know $n \geq 1$, we can conclude
+
+    \begin{align}
+        \frac{1}{2(n+1)} &\leq \frac{1}{2 \cdot (n+n)}\\
+        &= \frac{1}{2 \cdot 2n}
+    \end{align}
+
+    \bigskip
+
+    Then, using inductive hypothesis $\prod\limits_{i=1}^n \frac{2^i - 1}{2^i}
+    \geq \frac{1}{2n}$, we can conclude that
+
+    \begin{align}
+        \frac{1}{2 \cdot (n+1)} &\leq \prod\limits_{i=1}^n \frac{2^i - 1}{2^i} \cdot \frac{1}{2}\\
+        &= \prod\limits_{i=1}^n \frac{2^i - 1}{2^i} \cdot \left( 1 - \frac{1}{2} \right)\\
+        &< \prod\limits_{i=1}^n \frac{2^i - 1}{2^i} \cdot \left( 1 - \frac{1}{2^{n+1}} \right)\\
+        &= \prod\limits_{i=1}^n \frac{2^i - 1}{2^i} \cdot \left( \frac{2^{n+1}}{2^{n+1}} - \frac{1}{2^{n+1}} \right)\\
+        &= \prod\limits_{i=1}^n \frac{2^i - 1}{2^i} \cdot \left( \frac{2^{n+1} - 1}{2^{n+1}} \right)\\
+        &= \prod\limits_{i=1}^{n+1} \frac{2^i - 1}{2^i}
+    \end{align}
+
 \end{itemize}
 
 \section*{Question 3}
