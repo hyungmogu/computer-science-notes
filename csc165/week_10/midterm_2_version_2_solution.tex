@@ -236,6 +236,89 @@
 \end{itemize}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
+
+    \textbf{Statement:} $\exists a \in \mathbb{R}^{+}, an^2 + 1 \in \Theta(n^4)$
+
+    \textbf{Negation of Statement:} $\forall a,c_1,c_2,n_0 \in \mathbb{R}^{+},\:
+    \exists n \in \mathbb{N},\:(n \geq n_0)\land \Bigl( (c_1n^4 > an^2 + 1) \lor
+    (an^2 + 1 > c_2n^4) \Bigr)$
+
+    \begin{proof}
+    Let $a,c_1,n_0 \in \mathbb{R}^{+}$, and $n = \left\lceil max(n_0,
+    \sqrt[4]{\frac{2}{c_1}},\sqrt{\frac{2a}{c_1}}) \right\rceil + 1$.
+
+    \bigskip
+
+    We will disprove the statement by showing $(n \geq n_0)$ and $(c_1n^4 > an^2 + 1)$.
+
+    \bigskip
+
+    \textbf{Part 1 ($n \geq n_0$):}
+
+    \bigskip
+
+    Because we know $\left\lceil max(n_0,\sqrt[4]{\frac{2}{c_1}},\sqrt{\frac{2a}{c_1}}) \right\rceil \geq n_0$,
+    we can conclude
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n = \left\lceil max(n_0, \sqrt[4]{\frac{2}{c_1}},\sqrt{\frac{2a}{c_1}}) \right\rceil + 1 > n_0
+    \end{align}
+
+    \bigskip
+
+    \textbf{Part 2 (Showing $c_1n^4 > an^2 + 1$):}
+
+    \bigskip
+
+    We need to show $c_1n^4 > an^2 + 1$.
+
+    \bigskip
+
+    We will do so by showing $\frac{c_1n^4}{2} > an^2$ and $\frac{c_1n^4}{2} > 1$,
+    and then combining them.
+
+    \bigskip
+
+    For the first inequality, using the fact that $\sqrt{\frac{2a}{c_1}} <
+    \left\lceil max(n_0, \sqrt[4]{\frac{2}{c_1}},\sqrt{\frac{2a}{c_1}}) \right\rceil + 1 = n$,
+    we can calculate
+
+    \begin{align}
+        \sqrt{\frac{2a}{c_1}} &< n\\
+        \frac{2a}{c_1} &< n^2\\
+        2a &< c_1n^2\\
+        a &< \frac{c_1n^2}{2}\\
+        an &< \frac{c_1n^3}{2}
+    \end{align}
+
+    \bigskip
+
+    For the second inequality, using the fact that $\sqrt[4]{\frac{2}{c_1}} <
+    \left\lceil max(n_0, \sqrt[4]{\frac{2}{c_1}},\sqrt{\frac{2a}{c_1}}) \right\rceil + 1 = n$,
+    we can calculate
+
+    \begin{align}
+        \sqrt[4]{\frac{2}{c_1}} &< n\\
+        \frac{2}{c_1} &< n^4\\
+        1 &< \frac{c_1 \cdot n^4}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, by combining the two results together,
+
+    \begin{align}
+        1 + an^2 &< \frac{c_1n^4}{2} + \frac{c_1n^4}{2}\\
+        &< c_1n^4
+    \end{align}
+
+    \end{proof}
+
+
+\end{itemize}
 
 \section*{Question 4}
 
