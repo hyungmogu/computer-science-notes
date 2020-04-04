@@ -32,6 +32,37 @@
 
     It follows from above that the ternary representation of 100 is $(10201)_3$.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
+
+        \color{red}
+        \setcounter{equation}{0}
+        \begin{align*}
+            100 + (-1 \cdot 3^4) &= 100 - 81 = 19\\
+            19 + (-1 \cdot 3^3) &= 19 - 27 = -8\\
+            -8 + (+1 \cdot 3^2) &= -8 + 9 = 1\\
+            1 + (0 \cdot 3^1) &= 1 + 0 = 1\\
+            1 + (-1 \cdot 3^0) &= 1 - 1 = 0
+        \end{align*}
+
+        So by flipping the signs, and reading from top to bottom, we can conclude
+        the balanced ternary representation of 100 is $(11T101)_{bt}$
+        \color{black}
+    \end{mdframed}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Balanced ternary representation expresses a decimal using $1$, $0$ and $-1$
+        \item \textbf{T} represents negative sign in balanced ternary representation.
+        \item Is my way of calculating balanced ternary representation correct? My
+        approach was `which sign should be used given $3^n$ so the calculation stops
+        at $3^0$?'
+    \end{itemize}
+
+
     \item The largest number expressible by an n-digit binary representation is
 
     \setcounter{equation}{0}
@@ -80,8 +111,6 @@
         \item Learned if $g(n) \in \Theta(f(n))$ is true then
         $f(n) + g(n) \in \Theta(f(n))$ is true.
     \end{itemize}
-
-
 
 \end{enumerate}
 
