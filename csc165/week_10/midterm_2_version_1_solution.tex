@@ -488,48 +488,98 @@
 
     \item
 
-    First, we will evaluate upper bound of the worst case.
+    \begin{proof}
 
-    \bigskip
+        \underline{\textbf{Part 1 (Evaluating upper bound of the worst case running time)}}
 
-    Assume the algorithm runs on worst possible case.
+        \bigskip
 
-    \bigskip
+        Assume the algorithm runs on worst possible case.
 
-    We will evaluate the algorithm's upper bound running time by determining
-    the total cost of the loop, and then the big-oh.
+        \bigskip
 
-    \bigskip
+        We will evaluate the algorithm's upper bound running time by determining
+        the total cost of the loop, and then the big-oh.
 
-    We will evaluate the total cost by calculating the cost of loop 2 and then loop 1.
+        \bigskip
 
-    \bigskip
+        First, we will evaluate the total cost the cost of loop 2.
 
-    Because we can conclude the loop starts at $j = 1$ and ends
-    at $j = n-1$.
+        \bigskip
 
-    \bigskip
+        Because we know loop 2 starts at $j = 1$ and ends at $j = n-1$ with
+        $j$ increasing by 1 per iteration, we can conclude loop 2 runs at most
 
-    Since $j$ in loop 2 increases by 1 per iteration, we can conclude loop 2
-    runs at most
+        \setcounter{equation}{0}
+        \begin{align}
+            \left\lceil \frac{n-1-1+1}{1} \right\rceil &= n - 1
+        \end{align}
 
-    \setcounter{equation}{0}
-    \begin{align}
-        \left\lceil \frac{n-1-1+1}{1} \right\rceil &= n - 1
-    \end{align}
+        iterations.
 
-    iterations.
+        \bigskip
 
-    \bigskip
+        Because we know each iteration in loop 2 costs a constant step, we can
+        conclude loop 2 has at most
 
-    Because we know each iteration in loop 2 costs a constant step, we can
-    conclude the loop has at most
+        \begin{align}
+            (n - 1) \cdot 1 &= n - 1
+        \end{align}
 
-    \begin{align}
-        (n - 1) \cdot 1 &= n - 1
-    \end{align}
+        steps.
 
-    steps.
+        \bigskip
+
+        Next, we will calculate the cost of loop 1.
+
+        \bigskip
+
+        Because we know loop 1 starts at $i = 0$ and ends at $i = n-1$,
+        we can conclude the loop has at most
+
+        \begin{align}
+            n -1 - 0 + 1 &= n
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Because we know all the elements in $lst$ become even with loop 2 triggered,
+        and because we know loop 2 will not be triggered for all other values of $i$
+        due to the if condition \textbf{lst[i] $\mod 2$ == 1} not being satisfied,
+        we can conclude each iteration of loop 1 will cost 1 step.
+
+        \bigskip
+
+        Then, we can conclude loop 1 will cost at most
+
+        \begin{align}
+            n \cdot 1 &= n
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Now, we will combine the costs together.
+
+        \bigskip
+
+        Since loop 2 costs $n$ steps, and loop 1 cost $n$ steps, we can conclude
+        the algorithm has total cost of at most
+
+        \begin{align}
+            n + n &= 2n
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Then, it follows from above that the algorithm has upper bound running time of
+        $\mathcal{O}(n)$.
+    \end{proof}
 
 \end{enumerate}
 
