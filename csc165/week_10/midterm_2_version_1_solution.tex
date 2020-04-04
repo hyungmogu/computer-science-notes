@@ -546,8 +546,7 @@
         \bigskip
 
         Because we know all the elements in $lst$ become even with loop 2 triggered,
-        and because we know loop 2 will not be triggered for all other values of $i$
-        due to the if condition \textbf{lst[i] $\mod 2$ == 1} not being satisfied,
+        and because we know loop 2 will not be triggered for all other values of $i$,
         we can conclude each iteration of loop 1 will cost 1 step.
 
         \bigskip
@@ -577,8 +576,36 @@
 
         \bigskip
 
-        Then, it follows from above that the algorithm has upper bound running time of
-        $\mathcal{O}(n)$.
+        Then, it follows from above that the algorithm has upper bound worst-case
+        running time of $\mathcal{O}(n)$.
+
+        \bigskip
+
+        \underline{\textbf{Part 2 (Evaluating lower bound of the worst case running time)}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$, and $lst = [1,2,\cdots,n-1]$
+
+        \bigskip
+
+        Because we know loop 2 will be triggered when $i = 0$, and because we know
+        the rest of elements in $lst$ will become even, we can conclude
+        the algorithm with this input group will run the same as when evaluating the big oh.
+
+        \bigskip
+
+        Then, we can conclude the algorithm has total cost of $2n$.
+
+        \bigskip
+
+        Then, we can conclude the algorithm has lower bound worst-case running
+        time of $\Omega(n)$.
+
+        \bigskip
+
+        Because we know the value of $\mathcal{O}$ and $\Omega$ are the same,
+        we can conclude algorithm has running time of $\Theta(n)$.
     \end{proof}
 
 \end{enumerate}
