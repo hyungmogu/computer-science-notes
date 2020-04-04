@@ -319,6 +319,97 @@
 \end{itemize}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
+
+    \textbf{Statement:} $\exists a \in \mathbb{R}^{+}$, $an + 1 \in \Theta(n^3)$
+
+    \bigskip
+
+    \textbf{Negation of Statement:} $\forall a \in \mathbb{R}^{+}$,
+    $\forall c_1,c_2,n_0 \in \mathbb{R}^{+}$, $\exists n \in \mathbb{N}$,
+    $(n \geq n_0) \land \bigl( (an+1 < c_1n^3) \lor (an+1 > c_2n^3) \bigr)$
+
+    \bigskip
+
+    \begin{proof}
+
+    Let $n = \left\lceil max(n_0, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{1}{c_1}}) \right\rceil + 1$.
+
+    \bigskip
+
+    We will disprove the statement by showing $n \geq n_0$ and $an+1 < c_1n^3$
+
+    \bigskip
+
+    \textbf{Part 1 (Showing $n \geq n_0$):}
+
+    \bigskip
+
+    Using the fact that $\left\lceil max(n_0, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{1}{c_1}}) \right\rceil$
+    will result in a value greater than or equal to $n_0$, we can calculate
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n_0 &\leq \left\lceil max(n_0, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{1}{c_1}}) \right\rceil\\
+        &\leq \left\lceil max(n_0, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{1}{c_1}}) \right\rceil + 1
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $n = \left\lceil max(n_0, \sqrt{\frac{2a}{c_1}},
+    \sqrt[3]{\frac{1}{c_1}}) \right\rceil + 1$, we can conclude
+
+    \begin{align}
+       n_0 &\leq n
+    \end{align}
+
+    \end{proof}
+
+    \bigskip
+
+    \textbf{Part 2 (Showing $an+1 < c_1n^3$):}
+
+    \bigskip
+
+    We will prove $an +1 < c_1n^3$ by showing $an < \frac{c_1}{2}n^3$ and
+    $1 < \frac{c_1}{2}n^3$, and then combining the two together.
+
+    \bigskip
+
+    For the first inequality, because we know $n = \left\lceil max(n_0,
+    \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{1}{c_1}}) \right\rceil + 1 > \sqrt{\frac{2a}{c_1}}$,
+    we can conclude
+
+    \begin{align}
+        \sqrt{\frac{2a}{c_1}} &< n\\
+        \frac{2a}{c_1} &< n^2\\
+        a &< \frac{c_1}{2}n^2\\
+        an &< \frac{c_1}{2}n^3
+    \end{align}
+
+    \bigskip
+
+    For the second inequality, because we know $n = \left\lceil max(n_0,
+    \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{1}{c_1}}) \right\rceil + 1 > \sqrt[3]{\frac{1}{c_1}}$,
+    we can conclude
+
+    \begin{align}
+        \sqrt[3]{\frac{1}{c_1}} &< n\\
+        \frac{1}{c_1} &< n^3\\
+        1 &< n^3
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        an +1 &< \frac{c_1}{2} \cdot n^3 + \frac{c_1}{2} \cdot n^3\\
+        an + 1 &< c_1n^3
+    \end{align}
+
+\end{itemize}
 
 \section*{Question 4}
 
