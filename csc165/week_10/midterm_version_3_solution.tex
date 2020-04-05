@@ -68,6 +68,21 @@
         \hline
     \end{tabular}
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{tabular}{|l|c|l|c|l|c|}
+            \hline
+            $f(n) \in \mathcal{O}(n)$ & True & $g(n) \in \Omega(n)$ & True & $f(n) \in \Omega(g(n))$ & True\\
+            \hline
+            $f(n) \in \Theta(g(n))$ & False & $g(n) \in \Theta(n)$ & False & $f(n) + g(n) \in \Theta(g(n))$ & \color{red}True\color{black}\\
+            \hline
+        \end{tabular}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 2}
