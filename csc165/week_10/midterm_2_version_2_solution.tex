@@ -317,9 +317,83 @@
 
     \end{proof}
 
-
 \end{itemize}
 
 \section*{Question 4}
+\begin{enumerate}[a.]
+    \item
+
+    Let $n \in \mathbb{N}$.
+
+    \bigskip
+
+    We need to evaluate the total number of iterations.
+
+    \bigskip
+
+    We will do so by calculating the number of iterations in loop 2, and then calculating
+    the number of iterations in loop 1.
+
+    \bigskip
+
+    For loop 2, the code tells us it starts at $j = 0$ and ends at $j = i^2 - 1$,
+    and $j$ increases by 2 per iteration.
+
+    \bigskip
+
+    Using this fact, we can conclude that loop 2 has
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{i^2 - 1 - 0 + 1}{2} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Furthermore, since each iteration takes 1 step, we can conclude loop 2 has total of
+
+    \begin{align}
+        \left\lceil \frac{i^2}{2} \right\rceil \cdot 1 =  \left\lceil \frac{i^2}{2} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    For loop 1, the code tells us that it starts at $i = n$ and ends at $i = 1$
+    with $i$ decreasing by 1 per iteration.
+
+    \bigskip
+
+    Because we know each iteration takes $\left\lceil \frac{i^2}{2} \right\rceil$ steps,
+    we can conclude the loop 1 has
+
+    \begin{align}
+        \left\lceil \frac{n^2}{2} \right\rceil + \left\lceil \frac{(n - 1)^2}{2} \right\rceil + \cdots
+        + \left\lceil \frac{1^2}{2} \right\rceil = \sum\limits_{i=1}^{n} \left\lceil \frac{i^2}{2} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the signs of ceilings and floors can be ignored, $\sum\limits_{i=1}^{n} \left\lceil \frac{i^2}{2} \right\rceil$
+    can be simplified to
+
+    \begin{align}
+        \sum\limits_{i=1}^{n} \frac{i^2}{2} &= \frac{1}{2} \sum\limits_{i=1}^{n} i^2
+    \end{align}
+
+    \bigskip
+
+    Then, since $\sum\limits_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$,
+
+    \begin{align}
+        \frac{1}{2} \sum\limits_{i=1}^{n} i^2 &= \frac{1}{2} \cdot \frac{n(n+1)(2n+1)}{6}\\
+        &= \frac{n(n+1)(2n+1)}{12}
+    \end{align}
+
+\end{enumerate}
 
 \end{document}
