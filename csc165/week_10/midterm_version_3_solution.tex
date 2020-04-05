@@ -144,35 +144,85 @@
 
     \bigskip
 
-    Let $n \in \mathbb{N}$.
+    \begin{proof}
 
-    \bigskip
+        Let $n \in \mathbb{N}$. Assume $n \geq 1$.
 
-    We will prove the statement using induction on $n$.
+        \bigskip
 
-    \bigskip
+        We will prove the statement using induction on $n$.
 
-    \textbf{Base Case ($n = 1$):}
+        \bigskip
 
-    \bigskip
+        \textbf{Base Case ($n = 1$):}
 
-    Let $n = 1$.
+        \bigskip
 
-    \bigskip
+        Let $n = 1$.
 
-    We want to show $\sum\limits_{i=1}^1 \frac{1}{\sqrt{i}} > \sqrt{1} - 1$
+        \bigskip
 
-    \bigskip
+        We want to show $\sum\limits_{i=1}^1 \frac{1}{\sqrt{i}} > \sqrt{1} - 1$
 
-    Starting from the left hand side of the inequality, we can calculate
+        \bigskip
 
-    \setcounter{equation}{0}
-    \begin{align}
-        \sum\limits_{i=1}^1 \frac{1}{\sqrt{i}} &= \frac{1}{\sqrt{1}}\\
-        &= 1\\
-        &> 0\\
-        &= \sqrt{1} - 1
-    \end{align}
+        Starting from the left hand side of the inequality, we can calculate
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \sum\limits_{i=1}^1 \frac{1}{\sqrt{i}} &= \frac{1}{\sqrt{1}}\\
+            &= 1\\
+            &> 0\\
+            &= \sqrt{1} - 1
+        \end{align}
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in mathbb{N}$. Assume $\sum\limits_{i=1}^{n} \frac{1}{\sqrt{i}} > \sqrt{n} - 1$.
+
+        \bigskip
+
+        We want to show $\sum\limits_{i=1}^{n+1} \frac{1}{\sqrt{i}} > \sqrt{n+1} - 1$.
+
+        \bigskip
+
+        Starting from the left hand side of the inequality, we can conclude
+
+        \begin{align}
+            \sum\limits_{i=1}^{n+1} \frac{1}{\sqrt{i}} &= \sum\limits_{i=1}^n \frac{1}{\sqrt{i}} + \frac{1}{\sqrt{n+1}}
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from induction hypothesis (i.e. $\sum\limits_{i=1}^{n} \frac{1}{\sqrt{i}} > \sqrt{n} - 1$) that
+
+        \begin{align}
+            \sum\limits_{i=1}^{n+1} \frac{1}{\sqrt{i}} &>  \sqrt{n+1} - 1 + \frac{1}{\sqrt{n+1}}
+        \end{align}
+
+        \bigskip
+
+        The hint tells us the following
+
+        \begin{align}
+            \forall n \in \mathbb{Z}^{+},\:\sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}},\:\text{and}\:\frac{1}{\sqrt{n+1} + \sqrt{n}} < \frac{1}{\sqrt{n+1}}
+        \end{align}
+
+        \bigskip
+
+        Using the hint, we can calculate
+
+        \begin{align}
+            \sum\limits_{i=1}^{n+1} \frac{1}{\sqrt{i}} &> (\sqrt{n}-1) + \frac{1}{\sqrt{n+1} + \sqrt{n}}\\
+            &= (\sqrt(n) - 1) + (\sqrt{n+1} - \sqrt{n})\\
+            &= \sqrt{n+1} - 1
+        \end{align}
+    \end{proof}
+
 \end{itemize}
 
 \section*{Question 3}
