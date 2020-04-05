@@ -394,6 +394,66 @@
         &= \frac{n(n+1)(2n+1)}{12}
     \end{align}
 
+    \item
+
+    \textbf{Part 1 (Determining upper bound worst-case running time):}
+
+    \bigskip
+
+    Assume the algorithm runs on worst possible case.
+
+    \bigskip
+
+    We will evaluate the upper bound worst-case running time by calculating the
+    total cost of the algorithm, and then the big-oh.
+
+    \bigskip
+
+    First, we will evaluate the cost of loop 2.
+
+    \bigskip
+
+    The code tells us loop 2 starts at $j = i + 1$ and ends at $j = n - 1$, and
+    $j$ increases incrementally.
+
+    \bigskip
+
+    Using the fact, we can calculate loop 2 has at most
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{n-1-(i+1)+1}{2} \right\rceil &= n - i - 1
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Because we know each iteration in loop 2 costs a single step, we can conclude
+    loop 2 has cost of at most
+
+    \begin{align}
+        (n - i - 1) \cdot 1 &= n - i - 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Now, we will calculate the cost of loop 1.
+
+    \bigskip
+
+    Because we know the if condition \textbf{if lst[i] \% 2 == 0} will be satisfied
+    at most $n$ times from $i = 0$ to $i = n - 1$, and because we know each
+    iteration costs $(n - i - 1)$ steps, we can conclude the loop has cost of at most
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} (n-i-1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
+        &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
+        &= n \cdot (n-1) - \frac{n \cdot (n-1)}{2}\\
+        &= \frac{n \cdot (n-1)}{2}
+     \end{align}
+
 \end{enumerate}
 
 \end{document}
