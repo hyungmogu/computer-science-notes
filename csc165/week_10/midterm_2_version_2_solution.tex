@@ -396,63 +396,110 @@
 
     \item
 
-    \textbf{Part 1 (Determining upper bound worst-case running time):}
+    \begin{proof}
+        \underline{\textbf{Part 1 (Determining upper bound worst-case running time):}}
 
-    \bigskip
+        \bigskip
 
-    Assume the algorithm runs on worst possible case.
+        Let $n \in \mathbb{N}$. Assume the algorithm runs on worst possible case.
 
-    \bigskip
+        \bigskip
 
-    We will evaluate the upper bound worst-case running time by calculating the
-    total cost of the algorithm, and then the big-oh.
+        We will evaluate the upper bound worst-case running time by calculating the
+        total cost of the algorithm, and then the big-oh.
 
-    \bigskip
+        \bigskip
 
-    First, we will evaluate the cost of loop 2.
+        First, we will evaluate the cost of loop 2.
 
-    \bigskip
+        \bigskip
 
-    The code tells us loop 2 starts at $j = i + 1$ and ends at $j = n - 1$, and
-    $j$ increases incrementally.
+        The code tells us loop 2 starts at $j = i + 1$ and ends at $j = n - 1$, and
+        $j$ increases incrementally.
 
-    \bigskip
+        \bigskip
 
-    Using the fact, we can calculate loop 2 has at most
-    \setcounter{equation}{0}
-    \begin{align}
-        \left\lceil \frac{n-1-(i+1)+1}{2} \right\rceil &= n - i - 1
-    \end{align}
+        Using the fact, we can calculate loop 2 has at most
+        \setcounter{equation}{0}
+        \begin{align}
+            \left\lceil \frac{n-1-(i+1)+1}{2} \right\rceil &= n - i - 1
+        \end{align}
 
-    iterations.
+        iterations.
 
-    \bigskip
+        \bigskip
 
-    Because we know each iteration in loop 2 costs a single step, we can conclude
-    loop 2 has cost of at most
+        Because we know each iteration in loop 2 costs a single step, we can conclude
+        loop 2 has cost of at most
 
-    \begin{align}
-        (n - i - 1) \cdot 1 &= n - i - 1
-    \end{align}
+        \begin{align}
+            (n - i - 1) \cdot 1 &= n - i - 1
+        \end{align}
 
-    steps.
+        steps.
 
-    \bigskip
+        \bigskip
 
-    Now, we will calculate the cost of loop 1.
+        Now, we will calculate the cost of loop 1.
 
-    \bigskip
+        \bigskip
 
-    Because we know the if condition \textbf{if lst[i] \% 2 == 0} will be satisfied
-    at most $n$ times from $i = 0$ to $i = n - 1$, and because we know each
-    iteration costs $(n - i - 1)$ steps, we can conclude the loop has cost of at most
+        Because we know the if condition \textbf{if lst[i] \% 2 == 0} will be satisfied
+        at most $n$ times from $i = 0$ to $i = n - 1$, and because we know each
+        iteration costs $(n - i - 1)$ steps, we can conclude the loop has cost of at most
 
-    \begin{align}
-        \sum\limits_{i=0}^{n-1} (n-i-1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
-        &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
-        &= n \cdot (n-1) - \frac{n \cdot (n-1)}{2}\\
-        &= \frac{n \cdot (n-1)}{2}
-     \end{align}
+        \begin{align}
+            \sum\limits_{i=0}^{n-1} (n-i-1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
+            &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
+            &= n \cdot (n-1) - \frac{n \cdot (n-1)}{2}\\
+            &= \frac{n \cdot (n-1)}{2}
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Then, it follows from above the loop has upper bound running time of
+        $\mathcal{O}(n^2)$.
+
+        \bigskip
+
+        \underline{\textbf{Part 2 (Evaluating Lower Bound Running Time):}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$, and $lst = [2,3,4,5,\dots,n]$.
+
+        \bigskip
+
+        We need to calculate the total cost of the algorithm given the input group,
+        and the omega.
+
+        \bigskip
+
+        Since we know the line \textbf{list[j] = list[j] + 1} will turn all $i^{th}$
+        value to an even number, we can conclude the if condition \textbf{if list[i] \% 2 == 0}
+        and it's inner loop will run $n$ many times.
+
+        \bigskip
+
+        Since, this is equivalent to finding the total cost of algorithm for big-oh,
+        the algorithm has total cost of
+
+        \begin{align}
+            \frac{n \cdot (n-1)}{2}
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from above the algorithm has lower bound running time of
+        $\Omega(n^2)$.
+
+        \bigskip
+
+        Then, since the value in $\mathcal{O}$ and $\Omega$ are equal, $\Theta(n^2)$
+        is true.
+    \end{proof}
 
 \end{enumerate}
 
