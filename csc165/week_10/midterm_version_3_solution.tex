@@ -83,6 +83,25 @@
 
     \end{mdframed}
 
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Note that for $f(n) + g(n) \in \Theta(g(n))$, large values of $n$
+        causes $g(n) = n^{\log_2 n}$ to dominate $f(n) = \frac{3n}{\log_2 n + 8}$.
+        This causes the inequality to be simplified to
+
+        \setcounter{equation}{0}
+        \begin{align}
+            c_1 \cdot n^{\log_2 n} \leq n^{\log_2 n} \leq c_2 \cdot n^{\log_2 n}
+        \end{align}
+
+        \bigskip
+
+        It follows from above the answer is True.
+    \end{itemize}
+
 \end{enumerate}
 
 \section*{Question 2}
