@@ -57,7 +57,29 @@
 
     \end{itemize}
 
+    \item
 
+    \begin{tabular}{|c|c|l|c|}
+        \hline
+        $n$ & $i$ & Sets & $\lvert S_{n,i} \rvert$\\
+        \hline
+        2 & 0 & $\{[0]\}$ & 1\\
+        \hline
+        2 & 0 & $\{[0,1],[0,0]\}$ & 2\\
+        \hline
+        2 & 1 & $\{[1,0]\}$ & 1\\
+        \hline
+        3 & 0 & $\{[0,1,1],[0,0,1],[0,0,0]\}$ & 3\\
+        \hline
+        3 & 1 & $\{[1,0,1],[1,0,0]\}$ & 2\\
+        \hline
+        3 & 2 & $\{[1,1,0]\}$ & 1\\
+        \hline
+    \end{tabular}
+
+    \bigskip
+
+    By the pattern outlined above, we can deduce that $\lvert S_{n,i} \rvert = n - i$.
 \end{enumerate}
 
 \end{document}
