@@ -114,8 +114,39 @@
 
     \item
 
-    Because we know there is only one list in a set $S_{n}$ containing all 1s, we can conclude
-    $\lvert S_{n,n} \rvert = 1$.
+    We will prove the statement informally using proof by cases.
+
+    \bigskip
+
+    \underline{\textbf{Case 1 (when list doesn’t have 0s):}}
+
+    \bigskip
+
+    The definition of $S_{n,i}$ tells us $0 \leq i \leq n$, $S_{n,i}$ contains
+    all lists with 0 starting at ith position.
+
+    \bigskip
+
+    Using the fact, we can conclude $S_{n,n}$ is a set of lists containing 0 at $n^{th}$
+    position.
+
+    \bigskip
+
+    Since $i$ in a list starts at $i = 0$ and ends at $i = n-1$, there are no 0
+    in the list of a set $S_{n,n}$.
+
+    \bigskip
+
+    Then, we can conclude $S_{n,n}$ is one and the only that contains a list of only 1s.
+
+    \bigskip
+
+    \underline{\textbf{Case 2 (when list has one or more 0s):}}
+
+    \bigskip
+
+    Because we know this list has 0 starting at $i^{th}$ position, we can conclude
+    this list exists in the set $S_{n,i}$.
 
 
 \end{enumerate}
