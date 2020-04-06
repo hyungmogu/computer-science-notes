@@ -104,7 +104,6 @@
 
     \item
 
-
     \begin{tabular}{|c|c|c|c|}
         \hline
         $k$ & 0 & 1 & 2 \\
@@ -410,9 +409,76 @@
 
     \end{proof}
 
-    \item
+    \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
 
+        \bigskip
+
+        Let $n \in \mathbb{N}$.
+
+        \bigskip
+
+        First, we need to analyze the number of iterations of loop 2 per iteration of
+        loop 1
+
+        \bigskip
+
+        The code tells us loop 2 starts at $j = 0$, ends at $j = i-1$, and $j$ increases
+        by 2 per iteration.
+
+        \bigskip
+
+        Using the fact, we can conclude that the number of iterations of loop 2 is
+        \setcounter{equation}{0}
+        \begin{align}
+            \left\lceil \frac{i-1-0+1}{2} \right\rceil = \left\lceil \frac{i}{2} \right\rceil
+        \end{align}
+
+        or
+
+        \begin{align}
+            \frac{i}{2}
+        \end{align}
+
+        since we are ignoring floor and ceiling symbols.
+
+        \bigskip
+
+        Next, we need to add this number over all iterations of loop 1.
+
+        \bigskip
+
+        The code tell us us it starts at $i = 0$ with \color{red}$i$ increasing by 1 per iteration
+        until the terminating condition of $i^2 \geq n$.
+
+        \bigskip
+
+        And from the inequality, we know the loop finishes at $i = \sqrt{n} - 1$.
+        \color{black}
+
+        \bigskip
+
+        Using \color{red}these facts\color{black}, the total number of iterations of loop 2 is
+
+        \color{red}
+        \begin{align}
+            \frac{0}{2} + \frac{1}{2} + \cdots + \frac{\sqrt{n} - 1}{2} &= \sum\limits_{i=0}^{\sqrt{n} - 1} \frac{i}{2}\\
+            &= \frac{1}{2} \cdot \sum\limits_{i=0}^{\sqrt{n} - 1} i
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from the fact $\sum\limits_{i=0}^n i = \frac{n(n+1)}{2}$ that,
+
+        \begin{align}
+            \frac{1}{2} \cdot \sum\limits_{i=0}^{\sqrt{n}-1} i &= \frac{1}{2} \cdot \frac{(\sqrt{n}-1)(\sqrt{n}-1+1)}{2}\\
+            &= \frac{(\sqrt{n}-1)\sqrt{n}}{4}
+        \end{align}
+        \color{black}
+
+    \end{mdframed}
 
 \end{enumerate}
 
