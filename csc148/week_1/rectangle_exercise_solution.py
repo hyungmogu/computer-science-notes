@@ -21,6 +21,28 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __eq__(self, rect):
+        """Return whether <rect> and <self> have the same coordinate and size
+        @type self: Rectangle
+        @type rect: Rectangle
+        @rtype: bool
+        >>> rect_1 = Rectangle(10,20,300,400)
+        >>> rect_2 = Rectangle(10,20,300,400)
+        >>> rect_3 = Rectangle(15,25,300,400)
+        >>> rect_1 == rect_2
+        True
+        >>> rect_1 == rect_3
+        False
+        """
+
+        if (self.x == rect.x and
+            self.y == rect.y and
+            self.width == rect.width and
+            self.height == rect.height):
+            return True
+
+        return False
+
     def translate_left(self, num):
         """Translate Rectangle to left by <num>
         @type self: Rectangle
@@ -65,29 +87,6 @@ class Rectangle:
 
         self.y -= num
 
-    def is_equal(self, rect):
-        """Return whether <rect> and <self> have the same coordinate and size
-        @type self: Rectangle
-        @type rect: Rectangle
-        @rtype: bool
-        >>> rect_1 = Rectangle(10,20,300,400)
-        >>> rect_2 = Rectangle(10,20,300,400)
-        >>> rect_3 = Rectangle(15,25,300,400)
-        >>> rect_1.is_equal(rect_2)
-        True
-        >>> rect_1.is_equal(rect_3)
-        False
-        """
-
-        if (self.x == rect.x and
-            self.y == rect.y and
-            self.width == rect.width and
-            self.height == rect.height):
-            return True
-
-        return False
-
-
     def is_falling_within_another_rectangle(self, rect):
         """Return whether <self> is inside <rect>
         @type self: Rectangle
@@ -99,17 +98,17 @@ class Rectangle:
         True
         """
 
-        if (self.x < rect.x and
-            rect.x + rect.width < self.x + self.width and
-            self.y < rect.y and
-            rect.y + rect.height < self.y + self.height):
+        if ((self.x < rect.x) and
+            (rect.x + rect.width < self.x + self.width) and
+            (rect.y < self.y) and
+            (self.y - self.height < rect.y - rect.height)):
 
             return True
 
-        if (rect.x < self.x and
-            self.x + self.width < rect.x + rect.width and
-            rect.y < self.y and
-            self.y + self.height < rect.y + rect.height):
+        if ((rect.x < self.x) and
+            (self.x + self.width < rect.x + rect.width) and
+            (self.y < rect.y) and
+            (rect.y - rect.height < self.y - self.height)):
 
             return True
 
@@ -142,3 +141,8 @@ class Rectangle:
             return True
 
         return False
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
