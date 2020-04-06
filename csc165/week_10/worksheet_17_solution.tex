@@ -80,6 +80,37 @@
     \bigskip
 
     By the pattern outlined above, we can deduce that $\lvert S_{n,i} \rvert = n - i$.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|l|c|}
+            \hline
+            $n$ & $i$ & Sets & $\lvert S_{n,i} \rvert$\\
+            \hline
+            \color{red}1 & 0 & $\{[0]\}$ & 1\\
+            \hline
+            2 & 0 & $\{[0,1],[0,0]\}$ & 2\\
+            \hline
+            2 & 1 & $\{[1,0]\}$ & 1\\
+            \hline
+            3 & 0 & \color{red}$\{[0,1,1],[0,0,1],[0,1,0],[0,0,0]\}$ & \color{red}4\\
+            \hline
+            3 & 1 & $\{[1,0,1],[1,0,0]\}$ & 2\\
+            \hline
+            3 & 2 & $\{[1,1,0]\}$ & 1\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        By the pattern outlined above, we can deduce that \color{red}$\lvert S_{n,i} \rvert = 2^{n-i-1}$\color{black}.
+
+    \end{mdframed}
 \end{enumerate}
 
 \end{document}
