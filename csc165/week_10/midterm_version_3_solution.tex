@@ -540,7 +540,7 @@
 
         \bigskip
 
-        Because we know the if condition \textbf{if lst[i] > 1} will be satisfied at most
+        Because we know the if condition \textbf{if lst[i] $>$ 1} will be satisfied at most
         $n$ times, from $i = 0$ to $i = n - 1$ with $i$ increasing by 1 per iteration,
         we can conclude the total number of iterations of loop 2 is at most
 
@@ -556,6 +556,56 @@
         \bigskip
 
         \underline{\textbf{Part 2 (Determining the lower bound worst case running time):}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$, and $lst = [4n + 0, 4n + 1, 4n + 2,\dots,4n + (n-1)]$.
+
+        \bigskip
+
+        First, we need to analyze the number of iterations in loop 2 per iteration
+        in loop 1.
+
+        \bigskip
+
+        The code tells us loop 2 starts at $j = i + 1$ and ends at $j = n-1$ with
+        $j$ increasing by 1 per iteration.
+
+        \bigskip
+
+        Using these facts, we can calculate that the number of iterations in
+        loop 2 is
+
+        \begin{align}
+            \left\lceil n-1 - (i+1) + 1 \right\rceil = n - i - 1
+        \end{align}
+
+        \bigskip
+
+        Next, we need to evaluate the total number of iterations of loop 2 over
+        loop 1.
+
+        \bigskip
+
+        Because we know the if condition if \textbf{if list[i] $>$ i} is true for
+        all $i$ (i.e. $i = 0,1,2,3,\dots,n-1$), we can conclude the total number
+        of iterations of loop 2 is
+
+        \begin{align}
+            (n-0-1) + (n-1-1) + \cdots + (n - (n-1) - 1) &= \sum\limits_{i=0}^{n-1} i\\
+            &= \frac{n(n-1)}{2}
+        \end{align}
+
+        \bigskip
+
+        Then, we can conclude the lower bound worst-case running time of algorithm is
+        $\Omega(n^2)$.
+
+        \bigskip
+
+        Furthermore, since the value in $\mathcal{O}$ and $\Omega$ are the same, $\Theta(n^2)$
+        is also true.
+
     \end{proof}
 
 \end{enumerate}
