@@ -114,6 +114,11 @@
 
     \item
 
+    Because we know there is only one list in a set $S_{n}$ containing all 1s, we can conclude
+    $\lvert S_{n,n} \rvert = 1$.
+
+    \item
+
     We will prove the statement informally using proof by cases.
 
     \bigskip
@@ -198,6 +203,57 @@
 
     \end{mdframed}
 
+
+    \item
+
+    The definition of exact expression for average-case running time is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \frac{1}{\lvert \mathcal{I}_n \rvert} \cdot \sum\limits_{lst \in \mathcal{I}_n} \text{Runtime of has\_even(lst)}
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \frac{1}{2^n} \cdot \sum\limits_{lst \in \mathcal{I}_n} \text{Runtime of has\_even(lst)}
+    \end{align}
+
+    by the fact $\lvert \mathcal{I}_n \rvert = 2^n$ from the solution of question 1.a.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \frac{1}{2^n} \cdot \sum\limits_{i=0}^{n-1} \sum\limits_{\substack{lst \in S_{n,i}\\ lst[i]=0}} \text{Runtime of has\_even(lst)}
+    \end{align}
+
+    by the fact $\sum\limits_{lst \in \mathcal{I}_n}$ can be re-expressed as $\sum\limits_{i=0}^{n-1} \sum\limits_{\substack{lst \in S_{n,i}\\ lst[i]=0}}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \frac{1}{2^n} \cdot \sum\limits_{i=0}^{n-1} \sum\limits_{\substack{lst \in S_{n,i}\\ lst[i]=0}} (i+1)
+    \end{align}
+
+    by the fact the loop starts at $0$ and ends at $i$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \frac{1}{2^n} \cdot \sum\limits_{i=0}^{n-1} 2^{n-i-1} (i+1)\\
+        &= \sum\limits_{i=0}^{n-1} \frac{i+1}{2^{i+1}}
+    \end{align}
+
+    by the fact there are total of $2^{n-i-1}$ many lists in each $S_{n,i}$ from
+    the solution of question 1.b.
 
 \end{enumerate}
 
