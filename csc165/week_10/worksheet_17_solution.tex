@@ -15,5 +15,34 @@
 \maketitle
 
 \section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    We need to determine $\lvert \mathcal{I}_n \rvert$.
+
+    \bigskip
+
+    The problem tells that the values in inputs are either 1 or 0, and we know
+    $\mathcal{I}_n$ represents all possible inputs of size $n$ containing binary values.
+
+    \bigskip
+
+    After watching lecture videos, and reading notes, I do not yet understand the details
+    of how to evaluate the $\mathcal{I}_n$, but from the pattern below
+
+    \begin{align*}
+        [0], [1], [1,0], [0,1], [1,1], [0,0], [0,0,0],[0,0,1],[0,1,0],[1,0,0],
+        [1,1,0],[1,0,1],[0,1,1],[1,1,1]
+    \end{align*}
+
+    we can see the inputs of size $1$ have $2$ different inputs, the inputs of size $2$ have $4$
+    different inputs, and the inputs of size $3$ have $8$ different inputs.
+
+    \bigskip
+
+    Using this pattern, I can make an educated guess that $\lvert \mathcal{I}_n \rvert = 2^n$.
+
+
+\end{enumerate}
 
 \end{document}
