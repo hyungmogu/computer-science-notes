@@ -188,6 +188,64 @@
         \item \textbf{Definition of Eventually:} $\exists n_0 \in \mathbb{N},
         n \geq n_0 \Rightarrow P$, where $P:\mathbb{N} \to \{\text{True},\text{False}\}$
     \end{itemize}
+
+    \item
+
+    \begin{proof}
+        Let $k \in \mathbb{N}$.
+
+        \bigskip
+
+        First, we will analyze the cost of loop 2 over iteration of loop 1.
+
+        \bigskip
+
+        The code tells us loop 2 starts at $j_k = 1$ with $j_k$ increasing by
+        a factor of 3 per iteration until $j_k \geq 1$.
+
+        \bigskip
+
+        Using these facts, we can calculate that the terminating condition occurs
+        when
+
+        \setcounter{equation}{0}
+        \begin{align}
+            3^k &\geq i\\
+            k &\geq \log_3 i
+        \end{align}
+
+        \bigskip
+
+        Because we know the number of iterations is the smallest value of $k$
+        satisfying the above inequality, we can conclude loop 2 has
+
+        \begin{align}
+            \lceil \log_3 i \rceil
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Next, we need to determine the total number of iterations of loop 2
+        over all iterations of loop 1.
+
+        \bigskip
+
+        The code tells us loop 1 starts at $i = 1$ and ends at $i = n$ with each
+        $i$ increasing by 1 per iteration.
+
+        \bigskip
+
+        Using these facts, we can conclude loop 2 has total of
+
+        \begin{align}
+            \lceil \log_3 1 \rceil + \lceil \log_3 2 \rceil + \cdots + \lceil \log_3 n \rceil &= \sum\limits_{i=1}^n \lceil \log_3 i \rceil
+        \end{align}
+
+        iterations.
+    \end{proof}
+
 \end{enumerate}
 
 \section*{Question 2}
