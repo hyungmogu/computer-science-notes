@@ -20,6 +20,38 @@
 \maketitle
 
 \section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Statement:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{+}$,
+    $b \in \mathbb{R}^{+}$, $(g(n) \in \Theta(f(n))) \land (n_0 \in \mathbb{N},\:
+    n \geq n_0 \Rightarrow f(n) \geq b \land g(n) \geq b) \land (b > 1) \Rightarrow
+    \log_b(g(n)) \in \Theta(\log_b(f(n)))$
+
+    \bigskip
+
+    \textbf{Statement Expanded:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{+}$,
+    $b \in \mathbb{R}^{+}$, $\Bigl(\exists c_1,c_2,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:
+    n \geq n_0 \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)\Bigr) \land \Bigl(\exists n_1 \in \mathbb{N},\:
+    n \geq n_1 \Rightarrow f(n) \geq b \land g(n) \geq b \Bigr) \land \Bigl( b > 1 \Bigr) \Rightarrow
+    \Bigl(\exists d_1,d_2,n_2 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\: n \geq n_2
+    \Rightarrow d_1\log_b(g(n)) \leq \log_b(f(n)) \leq d_2\log_b(g(n) \Bigr)$
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item $\forall x,y \in \mathbb{R}^{+}, x \geq y \Leftrightarrow \log x \geq \log y$
+
+
+        \item $\exists c_1,c_2,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},
+        n \geq n_0 \Rightarrow c_1 \cdot g(n) \leq f(n) \leq c2 \cdot g(n)$
+
+        \item \textbf{Definition of Eventually:} $\exists n_0 \in \mathbb{N},
+        n \geq n_0 \Rightarrow P$, where $P:\mathbb{N} \to \{\text{True},\text{False}\}$
+    \end{itemize}
+\end{enumerate}
 
 \section*{Question 2}
 
