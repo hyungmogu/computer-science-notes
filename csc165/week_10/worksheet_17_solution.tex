@@ -327,6 +327,43 @@
 
     \end{mdframed}
 
+    \item
+
+    The solution to question 1.e tells us
+
+    \setcounter{equation}{0}
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \frac{1}{2^n} \cdot \left[ \left(\sum\limits_{i'=1}^n 2^{n-i'} i' \right) +  1 \cdot (n+1) \right]\\
+        &= \left(\sum\limits_{i'=1}^n \left( \frac{1}{2} \right)^{i'} i' \right) +  \frac{(n+1)}{2^n}
+    \end{align}
+
+    \bigskip
+
+    Because we know $n$ is asymptotically large and $2^n$ dominates $n+1$, the
+    expression can be simplified to
+
+    \begin{align}
+        AVG_{\text{has\_even}}(n) &= \sum\limits_{i'=1}^{\infty} \left( \frac{1}{2} \right)^{i'} i'
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        AVG_{has\_even}(n) &= \frac{\frac{1}{2}}{\left( \frac{1}{2} \right)^2}\\
+        &= \frac{1}{\frac{1}{2}}\\
+        &= 2
+    \end{align}
+
+    by the hint $ \forall x \in \mathbb{R},\:\lvert x \rvert < 1 \Rightarrow
+    \sum\limits_{i=1}^{\infty} ix^i = \frac{x}{(1-x)^2}$
+
+    \bigskip
+
+    Then, it follows from above the upper bound of average-case running time is
+    $\mathcal{O}(1)$.
+
 \end{enumerate}
 
 \end{document}
