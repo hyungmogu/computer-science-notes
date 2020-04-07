@@ -10,6 +10,35 @@
 \usepackage{mdframed}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
 
 \begin{document}
 \title{Worksheet 19 Solution}
@@ -202,6 +231,29 @@
     0 & 1 & 1 & 1 & 0
     \end{bmatrix}
     \end{align}
+
+    \item
+
+    \begin{lstlisting}[language=Python]
+    def degree(A,i):
+        """ Returns the degree of vertex i from adjacency matrix A
+
+        @type A: list
+        @type B: int
+        @rtype: int
+        >>> A = [[0,1,0,1,0],
+            [1,0,1,0,1],
+            [0,1,0,0,1],
+            [1,0,0,0,1],
+            [0,1,1,1,0]]
+        >>> i = 0
+        >>> degree(A,i)
+        2
+        """
+
+        return sum(A[i])
+    \end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
