@@ -137,6 +137,43 @@
         \includegraphics[width=0.24\textwidth]{images/worksheet_19_q2b7_solution.png}\hfill
         \includegraphics[width=0.24\textwidth]{images/worksheet_19_q2b8_placeholder.png}\hfill
     \end{figure}
+
+    \newpage
+
+    \item
+
+    \textbf{Statement:} $\forall G = (V,E),\:(\forall v \in V,\:d(v) \leq 5)
+    \Rightarrow \lvert E \rvert \leq \frac{5}{2} \lvert V \rvert$
+
+    \bigskip
+
+    \begin{proof}
+
+        Let $G = (V,E)$ be a graph. Assume $v \in V$ and $d(v) \leq 5$.
+
+        \bigskip
+
+        We need to show $\lvert E \rvert \leq \frac{5}{2} \lvert V \rvert$.
+
+        \bigskip
+
+        Because we know the number of edges is half of the summation of all
+        degrees of v in V, we can write
+
+        \begin{align}
+            \lvert E \rvert &= \frac{1}{2} \cdot \sum\limits_{v \in V} d(v)
+        \end{align}
+
+        \bigskip
+
+        Then, using the assumption $d(v) \leq 5$, we can conclude
+
+        \begin{align}
+            \lvert E \rvert &\leq \frac{1}{2} \cdot \sum\limits_{v \in V} 5\\
+            &= \frac{5}{2} \lvert V \rvert
+        \end{align}
+    \end{proof}
+
 \end{enumerate}
 
 \section*{Question 3}
