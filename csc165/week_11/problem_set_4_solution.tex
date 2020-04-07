@@ -32,10 +32,81 @@
 
     \textbf{Statement Expanded:} $\forall f,g:\mathbb{N} \to \mathbb{R}^{+}$,
     $b \in \mathbb{R}^{+}$, $\Bigl(\exists c_1,c_2,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:
-    n \geq n_0 \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)\Bigr) \land \Bigl(\exists n_1 \in \mathbb{N},\:
+    n \geq n_0 \Rightarrow c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)\Bigr) \land \Bigl(\exists n_1 \in \mathbb{N},\:
     n \geq n_1 \Rightarrow f(n) \geq b \land g(n) \geq b \Bigr) \land \Bigl( b > 1 \Bigr) \Rightarrow
     \Bigl(\exists d_1,d_2,n_2 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\: n \geq n_2
-    \Rightarrow d_1\log_b(g(n)) \leq \log_b(f(n)) \leq d_2\log_b(g(n) \Bigr)$
+    \Rightarrow d_1 \cdot \log_b(g(n)) \leq \log_b(f(n)) \leq d_2 \cdot \log_b(g(n) \Bigr)$
+
+    \bigskip
+
+    Let $f,g:\mathbb{N} \to \mathbb{R}^{+}$, and $b \in \mathbb{R}^{+}$. Assume
+    $c_1 = 1$, $c_2 = b$, and $n_0 = 1$, and $n \in \mathbb{N}$ such that
+    $n \geq n_0$ and $c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$. Assume $f(n)$
+    and $g(n)$ are eventually $\geq b$. Assume $b > 1$. Let $d_1 = 1$, $d_2 = 2$,
+    and $n_2 = n_0$. Assume $n \geq n_2$.
+
+    \bigskip
+
+    We need to show $d_1 \cdot \log_b g(n) \leq \log_b f(n) \leq d_2 \cdot \log_b g(n)$.
+
+    \bigskip
+
+    We will do so in two parts. One for $(d_1 \cdot \log_b g(n) \leq \log_b f(n))$ and
+    the other for $(\log_b f(n) \leq d_2 \cdot \log_b g(n))$.
+
+    \bigskip
+
+    \textbf{Part 1 ($d_1 \cdot \log_b g(n) \leq \log_b f(n)$):}
+
+    \bigskip
+
+    The assumption tell us
+
+    \begin{align}
+        c_1 \cdot g(n) \leq f(n)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \log (c_1 \cdot g(n)) &\leq \log (f(n))
+    \end{align}
+
+    by the fact $\forall x,y \in \mathbb{R}^{+}, x \geq y \Leftrightarrow \log x \geq \log y$.
+
+    \bigskip
+
+    Then, using the fact $b > 1$, we can calculate
+
+    \begin{align}
+        \frac{\log (c_1 \cdot g(n))}{\log b} &\leq \frac{\log (f(n))}{\log b}\\
+        \frac{\log (c_1) + \log (g(n))}{\log b} &\leq \frac{\log (f(n))}{\log b}
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{\log (g(n))}{\log b} &\leq \frac{\log (f(n))}{\log b}
+    \end{align}
+
+    by the fact $c_1 = 1$ and $\log c_1 = 0$.
+
+    \bigskip
+
+    Then, because we know $\frac{\log f(x)}{\log b} = \log_b f(x)$, we can conclude
+
+    \begin{align}
+        \log_b (g(n)) &\leq \log_b (f(n))
+    \end{align}
+
+
+    \bigskip
+
+    \textbf{Part 2 ($\log_b f(n) \leq d_2 \cdot \log_b g(n)$):}
 
     \bigskip
 
