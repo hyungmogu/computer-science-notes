@@ -283,6 +283,107 @@
         Then, we can conclude the runtime of the algorithm is $\Theta(\log_3^2 n)$.
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}
+        We need to determne $\Theta$ of the algorithm.
+
+        \bigskip
+
+        We will prove that the $\Theta$ of the algorithm is $\Theta(n\log n)$.
+
+        \bigskip
+
+        The answer to previous question tells us the total exact cost of the
+        algorithm is
+
+        \begin{align}
+            \sum\limits_{i=1}^n \lceil \log_3 i \rceil
+        \end{align}
+
+        \bigskip
+
+        Then, by using fact 1 $\forall x \in \mathbb{R}, x \leq \lceil x \rceil \leq x + 1$,
+        we can calculate
+
+        \begin{align}
+            \sum\limits_{i=1}^n \log_3 i &\leq \sum\limits_{i=1}^n \lceil \log_3 i \rceil \leq \sum\limits_{i=1}^n \Bigl( \log_3 i + 1 \Bigr)\\
+            \sum\limits_{i=1}^n \log_3 i &\leq \sum\limits_{i=1}^n \lceil \log_3 i \rceil \leq \Bigl(\sum\limits_{i=1}^n \log_3 i + \sum\limits_{i=1}^n 1 \Bigr)\\
+            \sum\limits_{i=1}^n \log_3 i &\leq \sum\limits_{i=1}^n \lceil \log_3 i \rceil \leq \sum\limits_{i=1}^n \log_3 i + n
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            \log_3 \Bigl(\prod\limits_{i=1}^n i \Bigr) &\leq \sum\limits_{i=1}^n \lceil \log_3 i \rceil \leq \log_3 \Bigl(\prod\limits_{i=1}^n i \Bigr) + n\\
+            \log_3 (n!) &\leq \sum\limits_{i=1}^n \lceil \log_3 i \rceil \leq \log_3 (n!) + n
+        \end{align}
+
+        by the fact $\forall a,b \in \mathbb{R}^{+}, \log (a) + \log (b) = \log (ab)$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            \frac{\ln n!}{\ln 3} &\leq \sum\limits_{i=1}^n \lceil \log_3 i \rceil \leq \frac{\ln (n!)}{\ln 3} + n
+        \end{align}
+
+        by changing the base to $e$ using the formula $\log_3 n! = \frac{\log_e n!}{\log_e 3} = \frac{\ln n!}{\ln 3}$.
+
+        \bigskip
+
+        Now, the fact 2 tells us $n! \in \Theta (e^{n\ln n - n + \frac{1}{2}\ln n})$.
+
+        \bigskip
+
+        Because we know from fact 3 that $n\ln n - n + \frac{1}{2}\ln n$ is
+        eventually $\geq 1$, we can conclude $e^{n\ln n - n \frac{1}{2} \ln n}$ is
+        eventually $\geq e$.
+
+        \bigskip
+
+        Since $n!$ is also eventually $\geq e$, by using solution to problem 1.a with
+        $g(n) = n!$ and $f(n) = e^{n\ln n - n + \frac{1}{2}\ln }$ and $b = e$,
+        we can write
+
+        \begin{align}
+            \ln(n!) \in \Theta(\ln(e^{n\ln n - n + \frac{1}{2}\ln n}))\\
+            \ln(n!) \in \Theta(n\ln n - n + \frac{1}{2}\ln n)
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            \ln(n!) \in \Theta(n\ln n)
+        \end{align}
+
+        by the fact $n \ln n - n + \frac{1}{2} \ln n \in \Theta(n \ln n)$.
+
+        \bigskip
+
+        So, since the algorithm runs at least $\frac{\ln n!}{\ln 3}$, we can
+        conclude it has asymptotic lower bound of $\Omega(n \ln n)$, and since
+        the algorithm runs at most $\frac{\ln n!}{\ln 3} + n$, we can conclude it
+        has upper bound running time of $\mathcal{O}(n\ln n)$.
+
+        \bigskip
+
+        Since the value of $\Omega$ and $\mathcal{O}$ are the same, we can conclude
+        the algorithm has running time of $\Theta(n \ln n)$ or $\Theta(n \log n)$.
+        \color{black}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 2}
