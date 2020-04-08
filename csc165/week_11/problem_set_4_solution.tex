@@ -246,6 +246,43 @@
         iterations.
     \end{proof}
 
+    \item
+    After scratching head and looking at solution many times, I realized that there
+    are many things I do not yet understand, and it's the best to write what I have
+    and learn from the solution. Here is my best attempt :).
+
+    \begin{proof}
+        Let $n \in \mathbb{N}$.
+
+        \bigskip
+
+        The previous answer tells us the exact cost of the algorithm is
+        \setcounter{equation}{0}
+        \begin{align}
+            \sum\limits_{i=1}^n \lceil \log_3 i \rceil
+        \end{align}
+
+        Then, it follows by changing the variable $i$ to $i' = \log_3 i$ we can write
+
+        \begin{align}
+            \sum\limits_{i'=0}^{\lceil \log_3 n \rceil} i'
+        \end{align}
+
+        \bigskip
+
+        Then, because we know $\sum\limits_{i=0}^n i = \frac{n(n+1)}{2}$, we can
+        conclude
+
+        \begin{align}
+            \sum\limits_{i'=0}^{\lceil \log_3 n \rceil} i' &= \frac{(\lceil \log_3 n \rceil)(\lceil \log_3 n \rceil + 1)}{2}\\
+            &= \frac{\lceil \log_3 n \rceil^2 + \lceil \log_3 n\rceil}{2}
+        \end{align}
+
+        \bigskip
+
+        Then, we can conclude the runtime of the algorithm is $\Theta(\log_3^2 n)$.
+    \end{proof}
+
 \end{enumerate}
 
 \section*{Question 2}
