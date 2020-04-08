@@ -643,6 +643,129 @@
 
     steps, which is $\Omega(n^2)$
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Let $n,k \in \mathbb{N}$, and $list = [0,0,\dots,0,1,0,\dots,0]$ where 1 is
+        at $\lceil \frac{n}{2} \rceil$ position.
+
+        \bigskip
+
+        We will prove that the tight asymptotic lower bound running time of this
+        algorithm is $\Omega(n^2)$.
+
+        \bigskip
+
+        First, we need to evaluate the cost of loop 2.
+
+        \bigskip
+
+        The code tells us loop 2 starts at $j_k = 0$, and $j_k$ will increase by 1 until
+        $j_k \geq \lceil \frac{n}{2} \rceil + 1$ (where +1 is because of loop 2
+        stopping at $j_k = \lceil \frac{n}{2} \rceil$ by the if condition on line 10).
+
+        \bigskip
+
+        Using the fact \color{red}$j_k = k$\color{black}, we can calculate that
+        loop 2 stops when
+
+        \setcounter{equation}{0}
+        \begin{align}
+            k &\geq \left\lceil \frac{n}{2} \right\rceil + 1
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $k$ (because the smallest value of
+        k translates to number of iterations), we can conclude the
+        loop has
+
+        \color{red}
+        \begin{align}
+            \left\lceil \frac{n}{2} \right\rceil + 1
+        \end{align}
+        \color{black}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration takes a constant time (1 step), the cost of loop 2
+        is
+
+        \color{red}
+        \begin{align}
+            \left( \left\lceil \frac{n}{2} \right\rceil + 1 \right) \cdot 1 = \left\lceil \frac{n}{2} \right\rceil + 1
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Next, we need to evaluate the cost of loop 1.
+
+        \bigskip
+
+        The code tell us loop 1 will start at $i_k = n$, and $i_k$ will decrease by 1
+        per iteration until $i_k \leq \lceil \frac{n}{2} \rceil$.
+
+        \bigskip
+
+        Using the fact \color{red}$i_k = n - k$\color{black}, we can write loop
+        1 stops when
+
+        \begin{align}
+            n - k &\leq \left\lceil \frac{n}{2} \right\rceil\\
+            -k &\leq \left\lceil \frac{n}{2} \right\rceil - n\\
+            k &\geq n - \left\lceil \frac{n}{2} \right\rceil
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the largest value of $k$ (because the largest value of
+        k translates to number of iterations), we can conclude loop 1
+        has
+
+        \begin{align}
+            n - \left\lceil \frac{n}{2} \right\rceil
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since \color{red}each iteration costs $\left\lceil \frac{n}{2} \right\rceil + 2$ steps (where
+        $\left\lceil \frac{n}{2} \right\rceil + 1$ is the cost of loop 2 and $+1$
+        is the cost of line 14)\color{black}, we can conclude loop 1 has cost of
+
+        \color{red}
+        \begin{align}
+            \left(\left\lceil \frac{n}{2} \right\rceil + 2 \right)\left( n - \left\lceil \frac{n}{2} \right\rceil \right)
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        \color{red}Finally, since the loop takes $\left\lceil \frac{n}{2} \right\rceil + 1$
+        extra steps (where $\left\lceil \frac{n}{2} \right\rceil$ is the cost of traveling
+        from $j = 0$ until $j = \left\lceil \frac{n}{2} \right\rceil$ and $+1$ is the
+        cost of line 14) before coming to a full stop, the total running time
+        is at least
+
+        \begin{align}
+            \left(\left\lceil \frac{n}{2} \right\rceil + 2 \right)\left( n - \left\lceil \frac{n}{2} \right\rceil \right) + \left\lceil \frac{n}{2} \right\rceil + 1
+        \end{align}
+
+        steps, which is $\Omega(n^2)$
+
+    \end{mdframed}
 
 \end{enumerate}
 
