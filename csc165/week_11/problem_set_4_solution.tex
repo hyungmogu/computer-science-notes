@@ -402,6 +402,58 @@
 
     \end{itemize}
 
+    \item
+
+    We need to evaluate tight asymptotic upper bound.
+
+    \bigskip
+
+    We will prove that the tight asymptotic upper bound of the algorithm is
+    $\mathcal{O}(n^2)$.
+
+    \bigskip
+
+    First, we need to analyze the number of iterations of loop 2 per iteration of
+    loop 1.
+
+    \bigskip
+
+    The code tells us loop 2 starts at $j = 0$ and ends at most$j = i - 1$ with
+    $j$ increasing by 1 per iteration.
+
+    \bigskip
+
+    Then, using these facts, we can conclude loop 2 has at most
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{i-1-0+1}{1} \right\rceil = i
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Next, we need to determine the total number of iterations of loop 2 over all
+    iterations of loop 1.
+
+    \bigskip
+
+    The code tells us that loop 1 starts at $i = n$ and ends at most $i = 0$ with
+    $i$ decreasing by 1 per iteration.
+
+    \bigskip
+
+    Because we know each iteration of loop 1 takes $i$ iterations by loop 2, using
+    these facts, we can conclude the total number of iterations of loop 2 is at most
+
+    \begin{align}
+        n + (n-1) + (n-2) + \cdots + 0 &= \sum\limits_{i=1}^n\\
+        &= \frac{n(n+1)}{2}
+    \end{align}
+
+    iterations, or $\mathcal{O}(n^2)$.
+
 \end{enumerate}
 
 \section*{Question 2}
