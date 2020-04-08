@@ -401,7 +401,10 @@
         are satisfied, so a statement $y$ can be used to an equation or an idea?
 
     \end{itemize}
+\end{enumerate}
 
+\section*{Question 2}
+\begin{enumerate}[a.]
     \item
 
     We need to evaluate tight asymptotic upper bound.
@@ -454,9 +457,77 @@
 
     iterations, or $\mathcal{O}(n^2)$.
 
-\end{enumerate}
+    \bigskip
 
-\section*{Question 2}
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        We need to evaluate tight asymptotic upper bound.
+
+    \bigskip
+
+    We will prove that the tight asymptotic upper bound of the algorithm is
+    $\mathcal{O}(n^2)$.
+
+    \bigskip
+
+    \color{red}First, we need to analyze the cost of loop 2.\color{black}
+
+    \bigskip
+
+    The code tells us loop 2 starts at $j = 0$ and ends at most$j = i - 1$ with
+    $j$ increasing by 1 per iteration.
+
+    \bigskip
+
+    \color{red}
+    Then, since each iteration of loop 2 takes 1 step using these facts,
+    we can conclude the cost of loop 2 is at most
+
+    \setcounter{equation}{0}
+    \begin{align}
+        1 \cdot (i-1-0+ 1) = i
+    \end{align}
+
+    steps.
+    \color{black}
+
+    \bigskip
+
+    \color{red}Next, we need to determine cost of loop 1.\color{black}
+
+    \bigskip
+
+    The code tells us that loop 1 starts at $i = n$ and ends at most $i = 0$ with
+    $i$ decreasing by 1 per iteration.
+
+    \bigskip
+
+    Because we know each iteration of loop 1 takes \color{red} $i+1$ steps (where $i$
+    is from loop 2 and $1$ from line 8)\color{black}, using these facts, we can
+    conclude the total cost of \color{red}loop 1 is at most
+
+    \begin{align}
+        (n+1) + n + (n-1) + (n-2) + \cdots + 1 &= \sum\limits_{i=0}^n (i + 1)\\
+        &= \sum\limits_{i=0}^n i + \sum\limits_{i=0}^n 1\\
+        &= \sum\limits_{i=0}^n i + (n+1)\\
+        &= \frac{n(n+1)}{2} + (n+1)\\
+        &= \frac{(n+1)(n+2)}{2}
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Finally, adding the cost of line 6, we can conclude the algorithm has total
+    cost of $\frac{(n+1)(n+2)}{2} + 1$ steps, which is $\mathcal{O}(n^2)$.
+    \color{black}
+
+    \end{mdframed}
+
+\end{enumerate}
 
 \section*{Question 3}
 
