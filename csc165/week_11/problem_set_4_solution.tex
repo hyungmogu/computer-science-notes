@@ -942,6 +942,229 @@
         time of at least $2(n+1) + 1$ steps, which is $\Omega(n)$.
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
+
+        \bigskip
+
+        \color{red}
+        Let $k,n \in \mathbb{N}$.
+
+        \bigskip
+
+        We will prove this statement using proof by cases.
+        \color{black}
+
+        \bigskip
+
+        \underline{\textbf{Case 1: When all elements in $nums$ are even}}
+
+        Let $nums = [a_1,a_2,\dots,a_n]$ where $a_1,\dots,a_n$ are even numbers.
+
+        \bigskip
+
+        We want to prove the best-case lower bound running time of this algorithm is $\Omega(n)$.
+
+        \bigskip
+
+        First, we need to analyze the cost of loop 2.
+
+        \bigskip
+
+        Given the iteration count $k$, the code tells us, the loop starts at $j_k = 0$
+        and increases by 1 per iteration, and so we know $j_k = k$.
+
+        \bigskip
+
+        Because we know loop 2 runs until $j_k \geq i$, we can conclude loop 2 stops when
+
+        \setcounter{equation}{0}
+        \begin{align}
+            k \geq i
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $k$ (because it represents the
+        number of iterations), we can conclude loop 2 has $i$ iterations.
+
+        \bigskip
+
+        Because we know each iteration of loop 2 costs a constant time (1 step), we
+        can conclude loop 2 has cost of at least
+
+        \begin{align}
+            k \cdot 1 = k
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Now, we need to evaluate the cost of loop 1.
+
+        \bigskip
+
+        The code tells us loop 1 starts at $i = n$ and ends at $i = n$ due to the truthy
+        condition of line 14.
+
+        \bigskip
+
+        Using these facts, we can conclude loop 1 has
+
+        \begin{align}
+            \lceil n -n + 1 \rceil = 1
+        \end{align}
+
+        iteration.
+
+        \bigskip
+
+        Because we know each iteration of loop 1 costs $i + 2$ steps (where $i$ is
+        from the cost of loop 2, and $+2$ are from the cost of line 8 and line 16),
+        we can conclude loop 1 has cost of at least
+
+        \begin{align}
+            (i + 2) \cdot 1 = i + 2
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Finally, because we know $i = n$, the total running time is at least $n + 2$,
+        which is $\Omega(n)$.
+
+        \bigskip
+
+        \underline{\textbf{Case 2: When one or more elements in $nums$ are odd}}
+
+        \bigskip
+
+        \color{red}
+        In this case, let $m$ be the index of first odd number in $nums$.
+
+        \bigskip
+
+        We need to prove this algorithm has best-case lower bound running time
+        of $\Omega(n)$.
+
+        \bigskip
+
+        First, we need to evaluate the cost of loop 2.
+
+        \bigskip
+
+        Given loop 2 iteration count $k$, the code tells us loop 2 starts at $j = 0$,
+        and $j$ increases by 1 until $j_k \geq m + 1$.
+
+        \bigskip
+
+        Since we know $j_k = k$, using these facts, we can calculate loop 2 terminates
+        when
+
+        \bigskip
+
+        \begin{align}
+            k &\geq m + 1
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $k$ (because it represents
+        the number of iterations), we can conclude loop 2 has
+
+        \begin{align}
+            m + 1
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Next, we need to evaluate the cost of loop 1.
+
+        \bigskip
+
+        Given loop 1 iteration count $k$,, The code tells us that loop 1 starts at
+        $i = n$, and $i$ decreases by 1 until $i_k \leq m-1$.
+
+        \bigskip
+
+        Since we know $i_k = n - k$, using these facts, we can calculate loop 1 stops
+        when
+
+        \begin{align}
+            n - k &\leq m - 1\\
+            k &\geq n - m +  1
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $k$ (because it represents the
+        number of iterations), we can conclude loop 1 has
+
+        \begin{align}
+            n-m+1
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Because we know that for the first $n-k$ iterations, each iteration of loop 1
+        costs $m + 2$ steps (where $m+1$ is the cost of loop 2 and $+1$ is the cost
+        of line 8), and last iteration of loop 1 costs another $m + 2$ (where $m$
+        is the cost of loop 2 and $+2$ are the cost of line 8 and 15), we can conclude
+        loop 1 has cost of
+
+        \begin{align}
+            (n-m+1)(m+2)
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Next, adding the cost of line 6, we can conclude the algorithm has total
+        cost of at least
+
+        \begin{align}
+            (n-m+1)(m+2) + 1
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Finally, we need to show this algorithm has runtime of $\Omega(n)$.
+
+        \bigskip
+
+        Using the total cost of algorithm, we can calculate
+
+        \begin{align}
+            (n-m+1)(m+2) + 1 &= (n-m)(m+2) + (m+2) + 1\\
+            &> (n-m)(m+2) + (m+2)\\
+            &= (n-m)m + 2(n-m) + (m+2)\\
+            &> (n-m)m + (n-m) + m\\
+            &= (n-m)m + n
+        \end{align}
+
+        \bigskip
+
+        Because we know $n - m \geq 0$ and $m \geq 0$, we can conclude that
+
+        \begin{align}
+            (n-m+1)(m+2) + 1 &> n
+        \end{align}
+
+        and the algorithm has best case lower bound running time of $\Omega(n)$.
+        \color{black}
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 3}
