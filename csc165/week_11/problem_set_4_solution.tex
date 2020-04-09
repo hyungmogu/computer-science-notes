@@ -783,82 +783,164 @@
 
     \item
 
-    Let $k,n \in \mathbb{N}$, and $list = [a_1,a_2,\dots,a_n]$ where $a_1,\dots,a_n$
-    are even numbers.
+    \begin{proof}
+        Let $k,n \in \mathbb{N}$.
 
-    \bigskip
+        \bigskip
 
-    We want to prove the best-case lower bound running time of this algorithm is $\Omega(n)$.
+        We will prove the statement using proof by cases.
 
-    \bigskip
+        \bigskip
 
-    First, we need to analyze the cost of loop 2.
+        \underline{\textbf{Case 1: When all elements in $nums$ are even}}
 
-    \bigskip
+        Let $nums = [a_1,a_2,\dots,a_n]$ where $a_1,\dots,a_n$ are even numbers.
 
-    Given the iteration count $k$, the code tells us, the loop starts at $j_k = 0$
-    and increases by 1 per iteration, and so we know $j_k = k$.
+        \bigskip
 
-    \bigskip
+        We want to prove the best-case lower bound running time of this algorithm is $\Omega(n)$.
 
-    Because we know loop 2 runs until $j_k \geq i$, we can conclude loop 2 stops when
+        \bigskip
 
-    \setcounter{equation}{0}
-    \begin{align}
-        k \geq i
-    \end{align}
+        First, we need to analyze the cost of loop 2.
 
-    \bigskip
+        \bigskip
 
-    Since we are looking for the smallest value of $k$ (because it represents the
-    number of iterations), we can conclude loop 2 has $i$ iterations.
+        Given the iteration count $k$, the code tells us, the loop starts at $j_k = 0$
+        and increases by 1 per iteration, and so we know $j_k = k$.
 
-    \bigskip
+        \bigskip
 
-    Because we know each iteration of loop 2 costs a constant time (1 step), we
-    can conclude loop 2 has cost of at least
+        Because we know loop 2 runs until $j_k \geq i$, we can conclude loop 2 stops when
 
-    \begin{align}
-        k \cdot 1 = k
-    \end{align}
+        \setcounter{equation}{0}
+        \begin{align}
+            k \geq i
+        \end{align}
 
-    steps.
+        \bigskip
 
-    \bigskip
+        Since we are looking for the smallest value of $k$ (because it represents the
+        number of iterations), we can conclude loop 2 has $i$ iterations.
 
-    Now, we need to evaluate the cost of loop 1.
+        \bigskip
 
-    \bigskip
+        Because we know each iteration of loop 2 costs a constant time (1 step), we
+        can conclude loop 2 has cost of at least
 
-    The code tells us loop 1 starts at $i = n$ and ends at $i = n$ due to the truthy
-    condition of line 14.
+        \begin{align}
+            k \cdot 1 = k
+        \end{align}
 
-    \bigskip
+        steps.
 
-    Using these facts, we can conclude loop 1 has
+        \bigskip
 
-    \begin{align}
-        \lceil n -n + 1 \rceil = 1
-    \end{align}
+        Now, we need to evaluate the cost of loop 1.
 
-    iteration.
+        \bigskip
 
-    \bigskip
+        The code tells us loop 1 starts at $i = n$ and ends at $i = n$ due to the truthy
+        condition of line 14.
 
-    Because we know each iteration of loop 1 costs $i + 2$ steps (where $i$ is
-    from the cost of loop 2, and $+2$ are from the cost of line 8 and line 16),
-    we can conclude loop 1 has cost of at least
+        \bigskip
 
-    \begin{align}
-        (i + 2) \cdot 1 = i + 2
-    \end{align}
+        Using these facts, we can conclude loop 1 has
 
-    steps.
+        \begin{align}
+            \lceil n -n + 1 \rceil = 1
+        \end{align}
 
-    \bigskip
+        iteration.
 
-    Finally, because we know $i = n$, the total running time is at least $n + 2$,
-    which is $\Omega(n)$.
+        \bigskip
+
+        Because we know each iteration of loop 1 costs $i + 2$ steps (where $i$ is
+        from the cost of loop 2, and $+2$ are from the cost of line 8 and line 16),
+        we can conclude loop 1 has cost of at least
+
+        \begin{align}
+            (i + 2) \cdot 1 = i + 2
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Finally, because we know $i = n$, the total running time is at least $n + 2$,
+        which is $\Omega(n)$.
+
+        \bigskip
+
+        \underline{\textbf{Case 2: When one or more elements in $nums$ are odd}}
+
+        \bigskip
+
+        Let $nums = [1,a_2,a_3,\dots,a_{n-1}]$ where $a_2,a_3,\dots,a_{n-1}$ are even numbers.
+
+        \bigskip
+
+        We will prove the algorithm has best-case lower bound running time of $\Omega(n)$.
+
+        \bigskip
+
+        First, we need to evaluate the cost of loop 2.
+
+        \bigskip
+
+        The code tellus us loop 2 starts at $j = 0$ and ends at $j = 0$ due to the
+        truthy condition of line 10.
+
+        \bigskip
+
+        Using these facts, we can calculate loop 2 has 1 iteration.
+
+        \bigskip
+
+        Because we know loop 2 takes constant time (1 step) per iteration, we can
+        conclude loop 2 has cost of 1 step.
+
+        \bigskip
+
+        Next, we need to evaluate the cost of loop 1.
+
+        \bigskip
+
+        The code tells us that loop 1 starts at $i = n$, and $i$ increases by 1 until
+        $i_k \leq -1$, where $k$ represents the iteration count of loop 1.
+
+        \bigskip
+
+        Because we know $i_k = n - k$, we can conclude the loop stops when
+
+        \begin{align}
+            n - k &\leq - 1\\
+            k &\geq n +  1
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $k$ (because it represents the
+        number of iterations), we can conclude loop 1 has
+
+        \begin{align}
+            n+1
+        \end{align}
+
+        Since each iteration of loop 1 takes 2 steps (where 1 is the cost of loop 2 and
+        the other 1 is the cost of line 8), we can conclude that loop 1 has cost of at least
+
+        \begin{align}
+            2 \cdot (n+1)
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Finally, adding the cost of line 8, we can conclude the algorithm has running
+        time of at least $2(n+1) + 1$ steps, which is $\Omega(n)$.
+    \end{proof}
 
 \end{enumerate}
 
