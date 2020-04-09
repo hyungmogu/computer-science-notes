@@ -227,10 +227,32 @@
 
     \bigskip
 
-    By using separating products,
+    By the separating products,
 
     \begin{align*}
         \left( \prod\limits_{i=1}^n \frac{i}{i+1} \right) \left( \prod\limits_{i=1}^n \frac{i+1}{i+2} \right) &= \prod\limits_{i=1}^n \left( \frac{i}{i+1} \right) \left( \frac{i+1}{i+2} \right)
+    \end{align*}
+
+    \item
+
+    $\sum\limits_{i=10}^15 2i + \sum\limits_{i=101}^{106} (i-1)$
+
+    \bigskip
+
+    By the changing index,
+
+    \begin{align*}
+        \sum\limits_{i=10}^15 2i + \sum\limits_{i=101}^{106} (i-1) &= \sum\limits_{i'=0}^5 2(i' + 10) + \sum\limits_{i'=0}^5 (i'+101-1)\\
+        &= \sum\limits_{i'=0}^5 (2i' + 20) + \sum\limits_{i'=0}^5 (i'+100)
+    \end{align*}
+
+    \bigskip
+
+    Then, by the separating sums,
+
+    \begin{align*}
+        \sum\limits_{i'=0}^5 (2i' + 20) + \sum\limits_{i'=0}^5 (i'+100) &= \sum\limits_{i'=0}^5 (2i' + 20) + (i'+100)\\
+        &= \sum\limits_{i'=0}^5 (3i' + 120)
     \end{align*}
 \end{enumerate}
 
