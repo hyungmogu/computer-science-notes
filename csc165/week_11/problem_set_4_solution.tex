@@ -781,6 +781,85 @@
         for the inequality, $i_k \leq$ is used as opposed to the normal $i_k \geq$.
     \end{itemize}
 
+    \item
+
+    Let $k,n \in \mathbb{N}$, and $list = [a_1,a_2,\dots,a_n]$ where $a_1,\dots,a_n$
+    are even numbers.
+
+    \bigskip
+
+    We want to prove the best-case lower bound running time of this algorithm is $\Omega(n)$.
+
+    \bigskip
+
+    First, we need to analyze the cost of loop 2.
+
+    \bigskip
+
+    Given the iteration count $k$, the code tells us, the loop starts at $j_k = 0$
+    and increases by 1 per iteration, and so we know $j_k = k$.
+
+    \bigskip
+
+    Because we know loop 2 runs until $j_k \geq i$, we can conclude loop 2 stops when
+
+    \setcounter{equation}{0}
+    \begin{align}
+        k \geq i
+    \end{align}
+
+    \bigskip
+
+    Since we are looking for the smallest value of $k$ (because it represents the
+    number of iterations), we can conclude loop 2 has $i$ iterations.
+
+    \bigskip
+
+    Because we know each iteration of loop 2 costs a constant time (1 step), we
+    can conclude loop 2 has cost of at least
+
+    \begin{align}
+        k \cdot 1 = k
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Now, we need to evaluate the cost of loop 1.
+
+    \bigskip
+
+    The code tells us loop 1 starts at $i = n$ and ends at $i = n$ due to the truthy
+    condition of line 14.
+
+    \bigskip
+
+    Using these facts, we can conclude loop 1 has
+
+    \begin{align}
+        \lceil n -n + 1 \rceil = 1
+    \end{align}
+
+    iteration.
+
+    \bigskip
+
+    Because we know each iteration of loop 1 costs $i + 2$ steps (where $i$ is
+    from the cost of loop 2, and $+2$ are from the cost of line 8 and line 16),
+    we can conclude loop 1 has cost of at least
+
+    \begin{align}
+        (i + 2) \cdot 1 = i + 2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Finally, because we know $i = n$, the total running time is at least $n + 2$,
+    which is $\Omega(n)$.
+
 \end{enumerate}
 
 \section*{Question 3}
