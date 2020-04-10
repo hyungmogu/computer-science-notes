@@ -1243,6 +1243,102 @@
         which is $\Theta(\log n)$.
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
+
+        \bigskip
+
+        Let $n,k \in \mathbb{N}$ and $lst$ be a list with all negative numbers.
+
+        \bigskip
+
+        \color{red}
+        In this case, the loop follows this pattern
+
+        \begin{itemize}
+            \item \textbf{iteration 1} - else condition executes and $j$ increases by a
+            factor of 2
+            \item \textbf{iteration 2} - if condition executes and $i$ increases by a
+            factor of 2, and moves to where $j$ is
+            \item \textbf{iteration 3} - else condition executes again and $j$ increases
+            by a factor of 2
+            \item \textbf{iteration 4} - if condition executes again and $i$ increases
+            by a factor of 2 and moves to where $j$ is.
+            \item and this pattern repeats until the end of while loop.
+
+        \end{itemize}
+
+        \bigskip
+
+        Now, we need to determine the total number of iterations in while loop.
+
+        \color{black}
+
+        \bigskip
+
+        Because we know $i$ increases by a factor of 2 per \color{red}execution of
+        \textbf{if lst[i] $>=$ 0:} condition, we can conclude that at $k^{th}$ \color{red}execution
+        of \textbf{if lst[i] $>=$ 0:} condition\color{black}, $i$ has value of $i_k = 2^k$.
+
+        \bigskip
+
+        Because we know loop terminates when $i_k \geq n$, we can conclude this is true
+        when
+
+        \setcounter{equation}{0}
+        \begin{align}
+            2^k &\geq n\\
+            k &\geq \log n
+        \end{align}
+
+        Since we are looking for the smallest value of $k$ (since it represents the
+        number of \color{red}executions caused by the \textbf{if lst[i] $>=$ 0:} condition\color{black}),
+        we can conclude loop has
+
+        \begin{align}
+            \lceil \log n \rceil
+        \end{align}
+
+        \color{red}executions due to the \textbf{if lst[i] $>=$ 0:} condition\color{black}.
+
+        \bigskip
+
+        \color{red}
+        Because we know every execution of \textbf{if lst[i] $>=$ 0:} condition in an iteration,
+        is followed by the execution of \textbf{else:} condition in previous iteration,
+        we can conclude while loop has total of
+
+        \begin{align}
+            2 \cdot \lceil \log n \rceil
+        \end{align}
+
+        executions, or iterations.
+        \color{black}
+
+        \bigskip
+
+        Since each iteration of while loop takes a constant time (1 step), we can
+        conclude the while loop has cost of
+
+        \color{red}
+        \begin{align}
+            2 \cdot \lceil \log n \rceil
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Finally, \color{red}adding cost of 1 for the constant time operations on line 2-4\color{black},
+        we can conclude the algorithm has total running time of
+        \color{red}$2 \cdot \lceil \log n \rceil + 1$ steps\color{black},
+        which is $\Theta(\log n)$.
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 4}
