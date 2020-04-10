@@ -1190,6 +1190,60 @@
 \end{enumerate}
 
 \section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    \begin{proof}
+        Let $n,k \in \mathbb{N}$ and $lst$ be a list with all negative numbers.
+
+        \bigskip
+
+        Then, the code tells us line 9-12 will run for all elements in the list.
+
+        \bigskip
+
+        Because we know $i$ increases by a factor of 2 per iteration, we can conclude
+        that at $k^{th}$ iteration, $i$ has value of $i_k = 2^k$.
+
+        \bigskip
+
+        Because we know loop terminates when $i_k \geq n$, we can conclude this is true
+        when
+
+        \setcounter{equation}{0}
+        \begin{align}
+            2^k &\geq n\\
+            k &\geq \log n
+        \end{align}
+
+        Since we are looking for the smallest value of $k$ (since it represents the
+        number of iterations), we can conclude loop has
+
+        \begin{align}
+            \lceil \log n \rceil
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration of while loop takes a constant time (1 step), we can
+        conclude the loop has cost of
+
+        \begin{align}
+            \lceil \log n \rceil
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Finally, since lines 2 to 4 have cost of 1 each, by adding to the costs together,
+        we can conclude the algorithm has total running time of $\lceil \log n \rceil + 3$,
+        which is $\Theta(\log n)$.
+    \end{proof}
+
+\end{enumerate}
 
 \section*{Question 4}
 
