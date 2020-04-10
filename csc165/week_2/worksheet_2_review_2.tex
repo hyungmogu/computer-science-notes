@@ -206,6 +206,31 @@
 
     $\forall y \in \{x \mid x \in E \text{ and } SameDept(x,\text{Doug})\}$, $Rich(y)$
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \textbf{Part 1} (Every integer that is great than 10 or less than -40 is not equal to 0):
+
+        $\forall x \in \mathbb{Z}$, $x > 10 \lor x < -40 \Rightarrow x \neq 0$
+
+        $\forall y \in \{x \in x \in \mathbb{Z} \color{red}\text{ and }\color{black} x > 10 \color{red}\text{ or }\color{black} x < -40\}$, $y \neq 0$
+
+        \bigskip
+
+        \textbf{Part 2} (Every employee who is in the same department as Doug is rich):
+
+        \bigskip
+
+        $\forall x \in E,\:SameDept(x, \text{Doug}) \Rightarrow Rich(x)$
+
+        $\forall y \in \{x \mid x \in E \text{ and } SameDept(x,\text{Doug})\}$, $Rich(y)$
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
