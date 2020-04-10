@@ -1365,6 +1365,8 @@
 
         I analyzed the example $[0,0,0,0,-1,-1,-1,-1]$. This is what I found.
 
+        \bigskip
+
         \begin{itemize}
             \item \textbf{iteration 1:} if brach of statement executes and $i$ increases
             by a 1 ($i = 1$, $j = 1$)
@@ -1376,6 +1378,8 @@
             by a 1 ($i = 4$, $j = 1$)
             \item \textbf{iteration 4:} else branch of statement executes, causing
             \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 2$)
+
+            \bigskip
 
             The following is how the list looks after update
 
@@ -1393,6 +1397,8 @@
             \item \textbf{iteration 6:} else branch of statement executes, causing
             \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 4$)
 
+            \bigskip
+
             The following is how the list looks after update
 
             \begin{align*}
@@ -1405,8 +1411,118 @@
             \item \textbf{iteration 8:} if brach of statement executes and $i$ increases
             by a 4 ($i = 8$, $j = 4$)
 
-            \item \textbf{iteration 9:} Loop terminates
+            \item \textbf{iteration 9:} Loop terminates,
         \end{itemize}
+
+        \bigskip
+
+        Here I find that
+
+        \bigskip
+
+        When $j = 1$, loop performs $\frac{n}{2} + 1$ iterations, stops at $\frac{n}{2} + 1$
+
+        When $j = 2$, loop performs $\frac{n}{4} + 1$ iterations, stops at $\frac{n}{2} + 2$
+
+        When $j = 4$, loop performs $\frac{n}{8} + 1$ iterations, stops at $\frac{n}{2} + 4$, loop terminates
+
+        \item
+
+        I analyzed the example $[0,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1]$.
+        This is what I found.
+
+        \bigskip
+
+        \begin{itemize}
+            \item \textbf{iteration 1:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 1$, $j = 1$)
+            \item \textbf{iteration 2:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 2$, $j = 1$)
+            \item \textbf{iteration 3:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 3$, $j = 1$)
+            \item \textbf{iteration 4:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 4$, $j = 1$)
+            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 5$, $j = 1$)
+            \item \textbf{iteration 6:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 6$, $j = 1$)
+            \item \textbf{iteration 7:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 7$, $j = 1$)
+            \item \textbf{iteration 8:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 8$, $j = 1$)
+            \item \textbf{iteration 9:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 9$, $j = 1$)
+            \item \textbf{iteration 10:} else branch of statement executes, causing
+            \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 2$)
+
+            \bigskip
+
+            The following is how the list looks after update
+
+            \begin{align*}
+                [0,0,0,0,0,0,0,0,1,-1,-1,-1,-1,-1,-1,-1]
+            \end{align*}
+
+            \item \textbf{iteration 11:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 2$, $j = 2$)
+            \item \textbf{iteration 12:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 4$, $j = 2$)
+            \item \textbf{iteration 13:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 6$, $j = 2$)
+            \item \textbf{iteration 14:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 8$, $j = 2$)
+            \item \textbf{iteration 15:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 10$, $j = 2$)
+            \item \textbf{iteration 16:} else branch of statement executes, causing
+            \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 4$)
+
+            \bigskip
+
+            The following is how the list looks after update
+
+            \begin{align*}
+                [0,0,0,0,0,0,0,0,1,1,-1,-1,-1,-1,-1,-1]
+            \end{align*}
+
+            \item \textbf{iteration 15:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 4$, $j = 4$)
+            \item \textbf{iteration 16:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 8$, $j = 4$)
+            \item \textbf{iteration 17:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 12$, $j = 4$)
+            \item \textbf{iteration 18:} else branch of statement executes, causing
+            \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 8$)
+
+            \bigskip
+
+            The following is how the list looks after update
+
+            \begin{align*}
+                [0,0,0,0,0,0,0,0,1,1,-1,1,-1,-1,-1,-1]
+            \end{align*}
+
+            \item \textbf{iteration 19:} if brach of statement executes and $i$ increases
+            by a 8 ($i = 8$, $j = 8$)
+            \item \textbf{iteration 20:} if brach of statement executes and $i$ increases
+            by a 8 ($i = 16$, $j = 8$)
+            \item \textbf{iteration 21:} Loop terminates.
+
+            \bigskip
+
+            Here I find that
+
+            \bigskip
+
+            When $j = 1$, if branch performs $\frac{n}{2} + 1$ executions, stops at $\frac{n}{2} + 1$
+
+            When $j = 2$, if branch performs $\frac{n}{4} + 1$ executions, stops at $\frac{n}{2} + 2$
+
+            When $j = 4$, if branch performs $\frac{n}{8} + 1$ executions, stops at $\frac{n}{2} + 4$
+
+            When $j = 8$, if branch performs $\frac{n}{16} + 1$ executions, stops at $\frac{n}{2} + 8$, loop terminates
+
+        \end{itemize}
+
 
     \end{itemize}
 
