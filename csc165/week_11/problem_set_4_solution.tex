@@ -1354,6 +1354,61 @@
         onto proof.
     \end{itemize}
 
+    \item
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item
+
+        I analyzed the example $[0,0,0,0,-1,-1,-1,-1]$. This is what I found.
+
+        \begin{itemize}
+            \item \textbf{iteration 1:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 1$, $j = 1$)
+            \item \textbf{iteration 2:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 2$, $j = 1$)
+            \item \textbf{iteration 3:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 3$, $j = 1$)
+            \item \textbf{iteration 4:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 4$, $j = 1$)
+            \item \textbf{iteration 4:} else branch of statement executes, causing
+            \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 2$)
+
+            The following is how the list looks after update
+
+            \begin{align*}
+                [0,0,0,0,1,-1,-1,-1]
+            \end{align*}
+
+            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 2$, $j = 2$)
+            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 4$, $j = 2$)
+            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 6$, $j = 2$)
+
+            \item \textbf{iteration 6:} else branch of statement executes, causing
+            \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 4$)
+
+            The following is how the list looks after update
+
+            \begin{align*}
+                [0,0,0,0,1,-1,1,-1]
+            \end{align*}
+
+            \item \textbf{iteration 7:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 4$, $j = 4$)
+
+            \item \textbf{iteration 8:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 8$, $j = 4$)
+
+            \item \textbf{iteration 9:} Loop terminates
+        \end{itemize}
+
+    \end{itemize}
 
 \end{enumerate}
 
