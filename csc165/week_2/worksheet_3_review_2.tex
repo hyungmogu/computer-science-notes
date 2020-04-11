@@ -4,6 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{mdframed}
 
 \begin{document}
 \title{Worksheet 3 Review 2}
@@ -13,7 +14,15 @@
 \section*{Question 1}
 \begin{enumerate}[a.]
     \item $Correct(my\_prog) \land Python(my\_prog)$
-    \item $\forall x \in P,\: \neg Correct(x) \Rightarrow Python(x)$
+    \item
+
+    $\forall x \in P,\: \neg Correct(x) \Rightarrow Python(x)$
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        $\color{red}\exists\color{black} x \in P,\: \neg Correct(x) \color{red}\land\color{black} Python(x)$
+    \end{mdframed}
 \end{enumerate}
 
 \section*{Question 2}
