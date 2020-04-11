@@ -1415,6 +1415,85 @@
         So we know the else branch executes at least $\log n - 1$ times, which
         is $\Omega(\log n)$.
 
+        \bigskip
+
+        \textbf{Part 2: Determining running time of algorithm:}
+
+        \bigskip
+
+        We need to prove this algorithm has running time of $\Theta(n)$.
+
+        \bigskip
+
+        First, we need to determine number of executions of if branch in while loop.
+
+        \bigskip
+
+        The pattern tells us at $k^{th}$ execution of else branch of statements in while loop,
+        $\frac{n}{2^{k+1}} + 1$ many executions of if branch of statements are
+        performed.
+
+        \bigskip
+
+        Since loop performs $\log n - 1$ many executions of the else branch of
+        statements, we can conclude
+
+        \begin{align}
+            \sum\limits_{k=1}^{\log n - 2} \left( \frac{n}{2^{k+1}} + 1 \right)
+        \end{align}
+
+        many executions of the if branch are performed.
+
+        \bigskip
+
+        Then, since we know $\log n \in \mathbb{N}$ due to $n$ being in factors of 2,
+        using the fact $\forall n \in \mathbb{N}, \forall r \in \mathbb{R}, \sum\limits_{i=0}^{n-1} r^i = \frac{1 - r^n}{1 -r}$,
+        we can calculate that
+
+        \begin{align}
+            \sum\limits_{k=1}^{\log n - 2} \left( \frac{n}{2^{k+1}} + 1 \right) &= \sum\limits_{k=1}^{\log n - 2} \frac{n}{2^{k+1}} + \sum\limits_{k=1}^{\log n - 2} 1\\
+            &= \frac{n}{2} \cdot \sum\limits_{k=1}^{\log n - 2} \frac{1}{2^{k}} + \sum\limits_{k=1}^{\log n - 2} 1\\
+            &= \frac{n}{2} \cdot \sum\limits_{k=1}^{\log n - 2} \frac{1}{2^{k}} + (\log n - 2)\\
+            &= \frac{n}{2} \cdot \left( \frac{1 - \frac{2}{2^{\log n}}}{1 - \frac{1}{2}} \right) + (\log n - 2)\\
+            &= n \cdot \left( 1 - \frac{2}{n} \right) + (\log n - 2)\\
+            &= n - 2 + \log n - 2\\
+            &= n + \log n - 4
+        \end{align}
+
+        \bigskip
+
+        Now, adding the cost of the number of executions of else statements and
+        the extra iteration taken to verify loop's terminating condition, we can
+        conclude while loop has total of
+
+        \begin{align}
+            n + \log n - 4 + (\log n - 1) + 1 &= n + 2\log n - 4
+        \end{align}
+
+        executions or iterations.
+
+        \bigskip
+
+        Since each execution takes a constant time (1 step), we can conclude
+        while loop has cost of
+
+        \begin{align}
+            1 \cdot (n + 2\log n - 4) &= (n + 2\log n - 4)
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Finally, adding constant time operations on line 2 to 4 (1 step), the
+        algorithm has running time of
+
+        \begin{align}
+            n + 2\log n - 3
+        \end{align}
+
+        which is $\Theta(n)$.
+
     \end{proof}
 
     \underline{\textbf{Notes:}}
