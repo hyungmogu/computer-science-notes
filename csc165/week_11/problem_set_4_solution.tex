@@ -1863,6 +1863,85 @@
         \bigskip
 
         Let $k \in \mathbb{N}$, and assume the statement is true at $k$.
+
+        \bigskip
+
+        We will to prove $\frac{n}{2^{k+1}} - \frac{2^{k+1}-1}{2^{k+1}} \leq
+        x_{k+1} \leq \frac{n}{2^{k+1}}$ in two parts, by showing $\frac{n}{2^{k+1}} -
+        \frac{2^{k+1}-1}{2^{k+1}} \leq x_{k+1}$ and $x_{k+1} \leq \frac{n}{2^{k+1}}$.
+
+        \bigskip
+
+        \textbf{Part 1 (Showing $\frac{n}{2^{k+1}} - \frac{2^{k+1}-1}{2^{k+1}} \leq x_{k+1}$):}
+
+        \bigskip
+
+        Starting from $x_{k+1}$, the code tells us
+
+        \setcounter{equation}{0}
+        \begin{align}
+            x_{k+1} = \left\lfloor \frac{x_k}{2} \right\rfloor
+        \end{align}
+
+        \bigskip
+
+        Then, by the hint ($\forall x \in \mathbb{Z}$,
+        $\frac{x-1}{2} \leq \left\lfloor \frac{x}{2} \right\rfloor \leq \frac{x}{2}$),
+        we can write
+
+        \begin{align}
+            x_{k+1} = \left\lfloor \frac{x_k}{2} \right\rfloor &\geq \frac{x_k - 1}{2}\\
+            &= \frac{1}{2} \cdot (x_k - 1)
+        \end{align}
+
+        \bigskip
+
+        Then, by inductive hypothesis,
+
+        \begin{align}
+            x_{k+1} &\geq \frac{1}{2} \cdot \left( \frac{n}{2^k} - \frac{2^k - 1}{2^k} - 1 \right)\\
+            &= \frac{n}{2^{k+1}} - \frac{2^k-1}{2^{k+1}} - \frac{1}{2}\\
+            &= \frac{n}{2^{k+1}} - \left( \frac{2^k - 1}{2^{k+1}} + \frac{2^k}{2^{k+1}} \right)\\
+            &= \frac{n}{2^{k+1}} - \left( \frac{2^k + 2^k - 1}{2^{k+1}} \right)
+        \end{align}
+
+        \bigskip
+
+        Then, because we know $2^k + 2^k = 2^{k+1}$, we can conclude
+
+        \begin{align}
+            x_{k+1} &\geq \frac{n}{2^{k+1}} - \left( \frac{2^{k+1}-1}{2^{k+1}} \right)
+        \end{align}
+
+        \textbf{Part 2 (Showing $x_{k+1} \leq \frac{n}{2^{k+1}}$):}
+
+        \bigskip
+
+        Starting from $x_{k+1}$, the code tells us
+
+        \begin{align}
+            x_{k+1} &= \left\lfloor \frac{x_k}{2} \right\rfloor
+        \end{align}
+
+        \bigskip
+
+        Then, by the hint ($\forall x \in \mathbb{Z}$, $\frac{x-1}{2} \leq
+        \left\lfloor \frac{x}{2} \right\rfloor \leq \frac{x}{2}$), we can write
+
+        \begin{align}
+            x_{k+1} = \left\lfloor \frac{x_k}{2} \right\rfloor &\leq \frac{x_k}{2}
+        \end{align}
+
+        \bigskip
+
+        Then, by the inductive hypothesis, we can conclude
+
+        \begin{align}
+            x_{k+1} &\leq \frac{n}{2^k \cdot 2}\\
+            &\leq \frac{n}{2^{k+1}}
+        \end{align}
+
+
     \end{proof}
 \end{enumerate}
 
