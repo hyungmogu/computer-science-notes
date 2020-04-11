@@ -1776,6 +1776,44 @@
 
         \item
 
+        \begin{proof}
+            Let $n \in \mathbb{N}$.
+
+            \bigskip
+
+            We will prove the algorithm has worst-case running time of $\mathcal{O}(n)$.
+
+            \bigskip
+
+            First, we need to determine the total cost of algorithm.
+
+            \bigskip
+
+            The code tells us maximum number of while loop occurs when $i$ increases
+            by 1, and this is true when only if branch of statements occur.
+
+            \bigskip
+
+            Since $i$ starts at 0, and finishes at $i = n-1$, we can conclude the
+            loop has
+
+            \begin{align}
+                n-1-0+1 &= n
+            \end{align}
+
+            iterations.
+
+            \bigskip
+
+            Since each iteration of loop takes constant time operations (1 step),
+            we can conclude the algorithm has total of $n$ steps.
+
+            \bigskip
+
+            Finally, adding the cost of constant time operations outside of while loop,
+            we can conclude look takes $n+1$ steps, which is $\mathcal{O}(n)$.
+        \end{proof}
+
     \end{itemize}
 
 \end{enumerate}
