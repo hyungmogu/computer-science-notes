@@ -1356,11 +1356,130 @@
 
     \item
 
+    \begin{proof}
+        Let $n \in \mathbb{N}$, and $lst$ be a list of integers where $lst[0]$ to
+        $lst[\frac{n}{2}]$ have value $0$, and $lst[\frac{n}{2}+1]$ to
+        $lst[n-1]$ have value $-1$.
+
+        \bigskip
+
+        In this case, the loop follows this pattern:
+
+        \begin{itemize}
+            \item When $j = 1$, if branch performs $\frac{n}{2} + 1$ executions, stops at $i = \frac{n}{2} + 1$
+            \item else branch performs, and value of $j$ doubles, and $i$ resets to 0
+            \item When $j = 2$, if branch performs $\frac{n}{4} + 1$ executions, stops at $i = \frac{n}{2} + 2$
+            \item else branch performs, and value of $j$ doubles, and $i$ resets to 0
+            \item When $j = 4$, if branch performs $\frac{n}{8} + 1$ executions, stops at $i = \frac{n}{2} + 4$
+            \item else branch performs, and value of $j$ doubles, and $i$ resets to 0
+            \item When $j = 8$, if branch performs $\frac{n}{16} + 1$ executions, stops at $i = \frac{n}{2} + 8$
+            \item This pattern repeats until $k^{th}$ execution of else branch of statements has value of $j$ half the size of $n$.
+            \item Loop terminates one iteration after $i$ reaches the end of array.
+        \end{itemize}
+
+        \bigskip
+
+        Now, we will prove this statement in two parts: one for determining the
+        number of executions of else branch of statements in while loop, and another for
+        determining the runtime of whole algorithm.
+
+        \bigskip
+
+        \textbf{Part 1: Determining the number of executions of else branch:}
+
+        \bigskip
+
+        We need to prove the else branch executes $\Omega(\log n)$ times.
+
+        \bigskip
+
+        The pattern tells us while loop depends on $j$, and $j$ increases by a
+        factor of 2 per execution of else branch until $j_{k+1} \geq n$.
+
+        \bigskip
+
+        Because we know at $k^th$ execution of else branch has $j$ with
+        value of $j_k = 2^k$, using these facts, we can calculate
+
+        \bigskip
+
+        \setcounter{equation}{0}
+        \begin{align}
+            2^{k+1} &\geq n\\
+            k + 1 &\geq \log n\\
+            k &\geq \log n - 1
+        \end{align}
+
+        \bigskip
+
+        So we know the else branch executes at least $\log n - 1$ times, which
+        is $\Omega(\log n)$.
+
+    \end{proof}
+
     \underline{\textbf{Notes:}}
 
     \bigskip
 
     \begin{itemize}
+        \item
+
+        I analyzed the example $[0,0,-1,-1]$. This is what I found.
+
+        \bigskip
+
+        \begin{itemize}
+            \item \textbf{iteration 1:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 1$, $j = 1$)
+            \item \textbf{iteration 2:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 2$, $j = 1$)
+            \item \textbf{iteration 3:} if brach of statement executes and $i$ increases
+            by a 1 ($i = 3$, $j = 1$)
+            \item \textbf{iteration 4:} else branch of statement executes, causing
+            \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 2$)
+
+            \bigskip
+
+            The following is how the list looks after update
+
+            \begin{align*}
+                [0,0,1,-1]
+            \end{align*}
+
+            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 2$, $j = 2$)
+            \item \textbf{iteration 6:} if brach of statement executes and $i$ increases
+            by a 2 ($i = 4$, $j = 2$)
+            \item \textbf{iteration 7:} Loop terminates,
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Here's what I found about $j$}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Loop terminates when $k+1^{th}$ execution of else statement is greater than or equal to $n$.
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Here's what I found about $i$}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item When $j = 1$, loop performs $\frac{n}{2} + 1$ executions, stops at $\frac{n}{2} + 1$
+            \item When $j = 2$, loop performs $\frac{n}{4} + 1$ executions, stops at $\frac{n}{2} + 2$
+            \item loop terminates 1 after
+            \item Number of execution of if branch of statements depend on the number of execution of else branch of statements
+
+            \begin{align}
+                \textbf{num of exec. of if statements} = \sum\limits_{k=0}^{\text{num of exec. of else}} \left(\frac{n}{2^k+1} + 1 \right)
+            \end{align}
+        \end{itemize}
+
         \item
 
         I analyzed the example $[0,0,0,0,-1,-1,-1,-1]$. This is what I found.
@@ -1376,7 +1495,7 @@
             by a 1 ($i = 3$, $j = 1$)
             \item \textbf{iteration 4:} if brach of statement executes and $i$ increases
             by a 1 ($i = 4$, $j = 1$)
-            \item \textbf{iteration 4:} else branch of statement executes, causing
+            \item \textbf{iteration 5:} else branch of statement executes, causing
             \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 2$)
 
             \bigskip
@@ -1387,14 +1506,14 @@
                 [0,0,0,0,1,-1,-1,-1]
             \end{align*}
 
-            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 6:} if brach of statement executes and $i$ increases
             by a 2 ($i = 2$, $j = 2$)
-            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 7:} if brach of statement executes and $i$ increases
             by a 2 ($i = 4$, $j = 2$)
-            \item \textbf{iteration 5:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 8:} if brach of statement executes and $i$ increases
             by a 2 ($i = 6$, $j = 2$)
 
-            \item \textbf{iteration 6:} else branch of statement executes, causing
+            \item \textbf{iteration 9:} else branch of statement executes, causing
             \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 4$)
 
             \bigskip
@@ -1405,26 +1524,43 @@
                 [0,0,0,0,1,-1,1,-1]
             \end{align*}
 
-            \item \textbf{iteration 7:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 10:} if brach of statement executes and $i$ increases
             by a 4 ($i = 4$, $j = 4$)
 
-            \item \textbf{iteration 8:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 11:} if brach of statement executes and $i$ increases
             by a 4 ($i = 8$, $j = 4$)
 
-            \item \textbf{iteration 9:} Loop terminates,
+            \item \textbf{iteration 12:} Loop terminates,
         \end{itemize}
 
         \bigskip
 
-        Here I find that
+        \underline{\textbf{Here's what I found about $j$}}
 
         \bigskip
 
-        When $j = 1$, loop performs $\frac{n}{2} + 1$ iterations, stops at $\frac{n}{2} + 1$
+        \begin{itemize}
+            \item Loop terminates when $k+1^{th}$ execution of else statement is greater than or equal to $n$.
+        \end{itemize}
 
-        When $j = 2$, loop performs $\frac{n}{4} + 1$ iterations, stops at $\frac{n}{2} + 2$
+        \bigskip
 
-        When $j = 4$, loop performs $\frac{n}{8} + 1$ iterations, stops at $\frac{n}{2} + 4$, loop terminates
+        \underline{\textbf{Here's what I found about $i$}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item When $j = 1$, loop performs $\frac{n}{2} + 1$ iterations, stops at $\frac{n}{2} + 1$
+            \item When $j = 2$, loop performs $\frac{n}{4} + 1$ iterations, stops at $\frac{n}{2} + 2$
+            \item When $j = 4$, loop performs $\frac{n}{8} + 1$ iterations, stops at $\frac{n}{2} + 4$
+            \item Loop terminates 1 after
+            \item Number of execution of if branch of statements depend on the number of execution of else branch of statements
+
+            \begin{align}
+                \textbf{num of exec. of if statements} = \sum\limits_{k=0}^{\text{num of exec. of else}} \left(\frac{n}{2^k+1} + 1 \right)
+            \end{align}
+        \end{itemize}
+
 
         \item
 
@@ -1484,13 +1620,13 @@
                 [0,0,0,0,0,0,0,0,1,1,-1,-1,-1,-1,-1,-1]
             \end{align*}
 
-            \item \textbf{iteration 15:} if brach of statement executes and $i$ increases
-            by a 4 ($i = 4$, $j = 4$)
-            \item \textbf{iteration 16:} if brach of statement executes and $i$ increases
-            by a 4 ($i = 8$, $j = 4$)
             \item \textbf{iteration 17:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 4$, $j = 4$)
+            \item \textbf{iteration 18:} if brach of statement executes and $i$ increases
+            by a 4 ($i = 8$, $j = 4$)
+            \item \textbf{iteration 19:} if brach of statement executes and $i$ increases
             by a 4 ($i = 12$, $j = 4$)
-            \item \textbf{iteration 18:} else branch of statement executes, causing
+            \item \textbf{iteration 20:} else branch of statement executes, causing
             \textbf{lst[i] = abs(lst[i])}, $i = 0$, and $j$ to increase by twice of its size ($i = 0$, $j = 8$)
 
             \bigskip
@@ -1501,25 +1637,40 @@
                 [0,0,0,0,0,0,0,0,1,1,-1,1,-1,-1,-1,-1]
             \end{align*}
 
-            \item \textbf{iteration 19:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 21:} if brach of statement executes and $i$ increases
             by a 8 ($i = 8$, $j = 8$)
-            \item \textbf{iteration 20:} if brach of statement executes and $i$ increases
+            \item \textbf{iteration 22:} if brach of statement executes and $i$ increases
             by a 8 ($i = 16$, $j = 8$)
-            \item \textbf{iteration 21:} Loop terminates.
+            \item \textbf{iteration 23:} Loop terminates.
 
             \bigskip
 
-            Here I find that
+            \underline{\textbf{Here's what I found about $j$}}
 
             \bigskip
 
-            When $j = 1$, if branch performs $\frac{n}{2} + 1$ executions, stops at $\frac{n}{2} + 1$
+            \begin{itemize}
+                \item Loop terminates when $k+1^{th}$ execution of else statement is greater than or equal to $n$.
+            \end{itemize}
 
-            When $j = 2$, if branch performs $\frac{n}{4} + 1$ executions, stops at $\frac{n}{2} + 2$
+            \bigskip
 
-            When $j = 4$, if branch performs $\frac{n}{8} + 1$ executions, stops at $\frac{n}{2} + 4$
+            \underline{\textbf{Here's what I found about $i$}}
 
-            When $j = 8$, if branch performs $\frac{n}{16} + 1$ executions, stops at $\frac{n}{2} + 8$, loop terminates
+            \bigskip
+
+            \begin{itemize}
+                \item When $j = 1$, if branch performs $\frac{n}{2} + 1$ executions, stops at $\frac{n}{2} + 1$
+                \item When $j = 2$, if branch performs $\frac{n}{4} + 1$ executions, stops at $\frac{n}{2} + 2$
+                \item When $j = 4$, if branch performs $\frac{n}{8} + 1$ executions, stops at $\frac{n}{2} + 4$
+                \item When $j = 8$, if branch performs $\frac{n}{16} + 1$ executions, stops at $\frac{n}{2} + 8$
+                \item Loop terminates 1 after
+                \item Number of execution of if branch of statements depend on the number of execution of else branch of statements
+
+                \begin{align}
+                    \textbf{num of exec. of if statements} = \sum\limits_{k=0}^{\text{num of exec. of else}} \left(\frac{n}{2^k+1} + 1 \right)
+                \end{align}
+            \end{itemize}
 
         \end{itemize}
 
