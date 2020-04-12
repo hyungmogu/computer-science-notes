@@ -1967,6 +1967,58 @@
         \item another one is using $x_0$ and $x_k$.
     \end{itemize}
 
+    \bigskip
+
+    \begin{mdframed}
+
+        \underline{\textbf{Pseudoproof:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{Z}$, and $k \in \mathbb{N}$.
+
+        \bigskip
+
+        We will prove the statement in two parts (first is proving in $\Rightarrow$
+        direction, and the second is proving in $\Leftarrow$ direction).
+
+        \bigskip
+
+        \textbf{Part 1 (Proving in $\Rightarrow$ direction):}
+
+        \bigskip
+
+        Assume convert to binary takes $k$ step.
+
+        \bigskip
+
+        We need to show $2^{k-1} \leq n \leq 2^k - 1$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show $2^{k-1} \leq n$ is true
+            \begin{itemize}
+                \item start from the left and move to the right
+            \end{itemize}
+            \item Show $n \leq 2^k - 1$ is true
+            \item Conclusion (combine parts together)
+        \end{enumerate}
+
+        \bigskip
+
+        \textbf{Part 2 (Proving in $\Leftarrow$ direction):}
+
+        \bigskip
+
+        Assume $2^{k-1} \leq n \leq 2^k - 1$.
+
+        \bigskip
+
+        We need to show convert to binary takes $k$ step.
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
