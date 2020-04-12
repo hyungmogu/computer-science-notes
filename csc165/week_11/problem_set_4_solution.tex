@@ -1998,6 +1998,46 @@
 
         \begin{enumerate}[1.]
             \item Show $2^{k-1} \leq n$ is true
+            \begin{itemize}
+                \item Show that $x_{k-1}$ is greater than 1
+
+                \bigskip
+
+                \begin{mdframed}
+                    The code tells us $x_k = \left\lfloor \frac{x_{k-1}}{2} \right\rfloor$
+                    and at $k^{th}$ iteration $x_k = 0$.
+
+                    \bigskip
+
+                    Since the assumption tells us $k$ iterations must occur, we
+                    can conclude $x_{k-1}$ is non-zero.
+
+                    \bigskip
+
+                    Since we know from the code $x_{k-1} \in \mathbb{N}$, we can conclude
+                    $x_0 = 0$ will be true when $x_{k-1} = 1$.
+
+                \end{mdframed}
+
+                \bigskip
+
+                \item Show $n \geq 2^{k-1}$
+
+                \bigskip
+
+                \begin{mdframed}
+                    Then, using this fact, with the inequality $\frac{n}{2^k} - \frac{2^k - 1}{2^k} \leq x_k \leq \frac{n}{2^k}$
+                    from the result of question 4.a, we can conclude
+
+                    \bigskip
+
+                    \begin{align}
+                        1 = x_{k-1} &\geq \frac{n}{2^{k-1}}\\
+                        2^{k-1} &\leq n
+                    \end{align}
+                \end{mdframed}
+
+            \end{itemize}
 
             \item Show $n \leq 2^k - 1$ is true
 
