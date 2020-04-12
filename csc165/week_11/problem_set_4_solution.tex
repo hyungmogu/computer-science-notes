@@ -12,6 +12,7 @@
 \usepackage{subcaption}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage[utf]{kotex}
 
 
 \begin{document}
@@ -1945,7 +1946,26 @@
     \item
 
     \textbf{Statement:} $\forall n \in \mathbb{Z}^{+},\:\forall k \in \mathbb{N}$,
-    (\textbf{convert\_to\_binary($n$)} takes exactly $k$ loop iterations) $\Leftrightarrow 0 \leq n \leq 2^k - 1$
+    (\textbf{convert\_to\_binary($n$)} takes exactly $k$ loop iterations) $\Leftrightarrow 2^{k-1} \leq n \leq 2^k - 1$
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item This is a tough problem.
+        \item 형모 풀꼬얌!! 형모 궁뎡궁뎡 하고 한걸음띡 발쩐해쬬 대학원 갈꼬얌!!
+        \item 오예!!! 형모 해낼꼬다!!
+        \item 형모 화이팅!!
+        \item After hours of thinking, I found the rough idea: find range of values
+        between ($x_1 and x_k$) and add to $2^{k-1}$ (where it's the last digit
+        of binary number).
+
+        (i.e 10000 and 11111 are two extreme range of values. Here we are finding
+        last 4 0000 and 1111, and then adding to first 1).
+
+        \item another one is using $x_0$ and $x_k$.
+    \end{itemize}
 
 \end{enumerate}
 
