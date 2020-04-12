@@ -1988,7 +1988,7 @@
 
         \bigskip
 
-        Assume convert to binary takes $k$ step.
+        Assume \textbf{convert\_to\_binary(n)} takes $k$ step.
 
         \bigskip
 
@@ -1998,10 +1998,37 @@
 
         \begin{enumerate}[1.]
             \item Show $2^{k-1} \leq n$ is true
+
+            \item Show $n \leq 2^k - 1$ is true
+
             \begin{itemize}
                 \item start from the left and move to the right
+
+                \begin{itemize}
+                    \item Show that $x_0 = n$, $x_k = 0$ and $\frac{n}{2^k} - \frac{2^k - 1}{2^k} \leq x_k \leq \frac{n}{2^k}$
+
+                    \begin{mdframed}
+                    The code tells us that $x_0 = n$, $x_k = 0$, and from the result of question 4.a,
+                    we know $\frac{n}{2^k} - \frac{2^k - 1}{2^k} \leq x_k \leq \frac{n}{2^k}$.
+                    \end{mdframed}
+
+                    \item Use these facts to calculate that $2^k - 1 \geq n$
+
+                    \begin{mdframed}
+                    Then, using these facts, we can conclude
+
+                    \begin{align}
+                        n - \left( \frac{n}{2^k} - \frac{2^k - 1}{2^k} \right) &\geq x_0 - x_k = n\\
+                        \frac{2^k \cdot n}{2^k} - \frac{n}{2^k} + \frac{2^k -1}{2^k} &\geq n\\
+                        \frac{n \cdot (n^k - 1)}{2^k} + \frac{2^k -1}{2^k} &\geq n\\
+                        \frac{2^k -1}{2^k} &\geq n + \frac{n \cdot (2^k - 1)}{2^k}\\
+                        \frac{2^k -1}{2^k} &\geq n \cdot \left(\frac{2^k - 2^k + 1}{2^k} \right)\\
+                        2^k - 1 &\geq n
+                    \end{align}
+                    \end{mdframed}
+                \end{itemize}
             \end{itemize}
-            \item Show $n \leq 2^k - 1$ is true
+
             \item Conclusion (combine parts together)
         \end{enumerate}
 
@@ -2015,7 +2042,7 @@
 
         \bigskip
 
-        We need to show convert to binary takes $k$ step.
+        We need to show \textbf{convert\_to\_binary(n)} takes $k$ step.
 
     \end{mdframed}
 
