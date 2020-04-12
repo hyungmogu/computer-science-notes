@@ -4,7 +4,9 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \begin{document}
 \title{Worksheet 4 Review 2}
@@ -16,6 +18,50 @@
     \item The variable is existentially quantified
     \item Because the variable is existentially quantified, the variable's value
     should be a \textit{concrete} natural number
+    \item
+
+    \textbf{Statement:} $\exists n \in \mathbb{N},\:n > 3 \land n^2 -1.5n \geq 5$
+
+    \bigskip
+
+    \begin{proof}
+    Let $n = 5$.
+
+    \bigskip
+
+    We will prove $n > 3 \land n^2 -1.5n \geq 5$.
+
+    \bigskip
+
+    First, we need to prove $n > 3$.
+
+    \bigskip
+
+    The header tells us $n=5$.
+
+    \bigskip
+
+    Using this fact, we can conclude $n > 3$.
+
+    \bigskip
+
+    Now, we need to show $n^2 - 1.5n \geq 5$.
+
+    \bigskip
+
+    Using the fact $n = 5$, we can calculate
+
+    \begin{align}
+        n^2 - 1.5n &= 25 - 7.5\\
+        &= 17.5\\
+        &\geq 5
+    \end{align}
+
+    \bigskip
+
+    Finally, since $n > 3$ and $n^2 - 1.5n \geq 5$ are true, we can conclude
+    $n > 3 \land n^2 - 1.5n \geq 5$ are true.
+    \end{proof}
 \end{enumerate}
 
 \section*{Question 2}
