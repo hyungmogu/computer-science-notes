@@ -395,6 +395,71 @@
 \section*{Question 3}
 \begin{enumerate}[a.]
     \item $\forall a,b \in \mathbb{N}$, $Prime(b) \Rightarrow 1 \geq gcd(a,b) \lor gcd(a,b) \geq b$
+    \item
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Pseudoproof:}}
+
+        \bigskip
+
+        Let $a,b \in \mathbb{N}$. Assume $Prime(b)$. That is, $p > 1 \land (\forall
+        d \in \mathbb{N},\:d \mid p \Rightarrow d = 1 \lor d = p)$.
+
+        \bigskip
+
+        We will prove $1 \geq gcd(a,b)$ or $gcd(a,b) \geq b$ using proof by cases.
+
+        \bigskip
+
+        \textbf{Case 1 ($b \mid a$):}
+
+        \bigskip
+
+        In this case, assume $b$ divides $a$. That is, $\exists k \in \mathbb{Z},\:a = kb$.
+
+        \bigskip
+
+        We need to prove $gcd(a,b) \geq b$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show $b \mid gcd(a,b)$
+            \item Show $b \leq gcd(a,b)$ by using the fact $\forall n \in
+            \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$.
+        \end{enumerate}
+
+        \bigskip
+
+        \textbf{Case 2 ($b \nmid a$):}
+
+        \bigskip
+
+        In this case, assume $b$ doesn't divide $a$.
+
+        \bigskip
+
+        We need to prove $1 \geq gcd(a,b)$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show $gcd(a,b) \mid 1$
+            \item Show $gcd(a,b) \leq 1$ by using the fact $\forall n \in
+            \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$.
+        \end{enumerate}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item $Prime(p):\:p > 1 \land (\forall d \in \mathbb{N},\:d \mid p \Rightarrow d = 1 \lor d = p)$
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
