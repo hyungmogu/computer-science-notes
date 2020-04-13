@@ -1950,6 +1950,176 @@
 
     \bigskip
 
+    \begin{proof}
+        Let $n \in \mathbb{Z}$, and $k \in \mathbb{N}$.
+
+        \bigskip
+
+        We will prove the statement in two parts (first is proving in $\Rightarrow$
+        direction, and the second is proving in $\Leftarrow$ direction).
+
+        \bigskip
+
+        \textbf{Part 1 (Proving in $\Rightarrow$ direction):}
+
+        \bigskip
+
+        Assume the loop in \textbf{convert\_to\_binary(n)} takes $k$ iterations.
+
+        \bigskip
+
+        We need to prove $2^{k-1} \leq n \leq 2^k - 1$.
+
+        \bigskip
+
+        First, we need to show $2^{k-1} \leq n$.
+
+        \bigskip
+
+        The code tells us at $k^{th}$ iteration $x_k = \left\lfloor
+        \frac{x_{k-1}}{2} \right\rfloor$ and $x_k = 0$.
+
+        \bigskip
+
+        Since the assumption tells us $k$ iterations must occur in the loop,
+        using these facts, we can conclude $x_{k-1}$ is non-zero.
+
+        \bigskip
+
+        Then, because we know $0 < x_{k-1} = \left\lfloor \frac{x_{k-2}}{2} \right\rfloor \in \mathbb{N}$ and
+        $0 = x_0 = \left\lfloor \frac{x_{k-1}}{2} \right\rfloor$, we can conclude $x_{k-1} = 1$.
+
+        \bigskip
+
+        Then, using this fact, with the inequality $\frac{n}{2^k} - \frac{2^k - 1}{2^k} \leq x_k \leq \frac{n}{2^k}$
+        from question 4.a, we can conclude
+
+        \bigskip
+
+        \setcounter{equation}{0}
+        \begin{align}
+            1 = x_{k-1} &\leq \frac{n}{2^{k-1}}\\
+            2^{k-1} &\leq n
+        \end{align}
+
+        \bigskip
+
+        Now, we need to show $n \leq 2^k - 1$.
+
+        \bigskip
+
+        The code tells us that $x_0 = n$, $x_k = 0$, and from question 4.a,
+        $\frac{n}{2^k} - \frac{2^k - 1}{2^k} \leq x_k \leq \frac{n}{2^k}$.
+
+        \bigskip
+
+        Then, using these facts, we can conclude
+
+        \begin{align}
+            n - \left( \frac{n}{2^k} - \frac{2^k - 1}{2^k} \right) &\geq x_0 - x_k = n\\
+            \frac{2^k \cdot n}{2^k} - \frac{n}{2^k} + \frac{2^k -1}{2^k} &\geq n\\
+            \frac{n \cdot (n^k - 1)}{2^k} + \frac{2^k -1}{2^k} &\geq n\\
+            \frac{2^k -1}{2^k} &\geq n + \frac{n \cdot (2^k - 1)}{2^k}\\
+            \frac{2^k -1}{2^k} &\geq n \cdot \left(\frac{2^k - 2^k + 1}{2^k} \right)\\
+            2^k - 1 &\geq n
+        \end{align}
+
+        \bigskip
+
+        Since $2^{k-1} \leq n$ and $n \leq 2^k-1$ are true, we can conclude
+        $2^{k-1} \leq n \leq 2^k-1$ is true.
+
+        \bigskip
+
+        \textbf{Part 2 (Proving in $\Leftarrow$ direction):}
+
+        \bigskip
+
+        Assume $2^{k-1} \leq n \leq 2^k - 1$.
+
+        \bigskip
+
+        We need to prove that given $n$, the loop in \textbf{convert\_to\_binary(n)}
+        takes $k$ iterations.
+
+        \bigskip
+
+        First, we need to show that with the lower bound of $n$, the loop in
+        \textbf{convert\_to\_binary(n)} does exactly $k$ iterations.
+
+        \bigskip
+
+        The result of problem 4.a tells us
+
+        \begin{align}
+            \forall n \in \mathbb{Z}^{+},\:\forall k \in \mathbb{N},\:\frac{n}{2^k} - \frac{2^k - 1}{2^k} \leq x_k \leq \frac{n}{2^k}
+        \end{align}
+
+
+        Using this fact, we can calculate that the value of $x$ at $k-1^{th}$ iteration is
+
+        \bigskip
+
+        \begin{align}
+            \frac{2^{k-1}}{2^{k-1}} - \frac{2^{k-1} - 1}{2^{k-1}} &\leq x_{k-1} \leq \frac{2^{k-1}}{2^{k-1}}\\
+            \frac{1}{2^{k-1}} &\leq x_{k-1} \leq 1
+        \end{align}
+
+        \bigskip
+
+        Since $\frac{1}{2^{k-1}} > 0$, and $x_{k-1} \in \mathbb{N}$ (from the code),
+        we can conclude $x_{k-1} = 1$.
+
+        \bigskip
+
+        Then, by taking an iteration further, we can conclude
+
+        \begin{align}
+            x_k &= \left\lfloor \frac{x_{k-1}}{2} \right\rfloor\\
+            &= 0
+        \end{align}
+
+        \bigskip
+
+        Because we know loop termination occurs when $x \leq 0$, we can conclude
+        the loop with lower bound of $n$ stops at $k^{th}$ iteration.
+
+        \bigskip
+
+        Now, we need to show that with $2^k - 1$ as $n$, \textbf{convert\_to\_binary(n)}
+        does exactly $k$ iterations.
+
+        \bigskip
+
+        Using equation 9, we can calculate that the value of
+        $x$ at $k^{th}$ iteration is
+
+        \bigskip
+
+        \begin{align}
+            \frac{2^k - 1}{2^k} - \frac{2^k - 1}{2^k} &\leq x_k \leq \frac{2^k - 1}{2^k}\\
+            0 &\leq x_k \leq \frac{2^k - 1}{2^k}
+        \end{align}
+
+        \bigskip
+
+        Since we know $\frac{2^k - 1}{2^k} < 1$, and $x_k \in \mathbb{N}$ (from the code),
+        we can conclude $x_k = 0$.
+
+        \bigskip
+
+        Because we know loop termination occurs when $x \leq 0$, we can conclude
+        the loop with the upper bound of $n$ stops at $k^{th}$ iteration.
+
+        \bigskip
+
+        So, since the loop stops at $k^{th}$ iterations for both the upper
+        and the lower bound of $n$, we can conclude $n$ performs exactly
+        $k$ iterations.
+    \end{proof}
+
+    \bigskip
+
     \textbf{Notes:}
 
     \begin{itemize}
@@ -2111,7 +2281,7 @@
 
             \bigskip
 
-            Since we know $\frac{2^k - 1}{2^k} > 0$, and $x_{k-1} \in \mathbb{N}$ (from the code),
+            Since we know $\frac{1}{2^{k-1}} > 0$, and $x_{k-1} \in \mathbb{N}$ (from the code),
             we can conclude $x_{k-1} = 1$.
 
             \bigskip
