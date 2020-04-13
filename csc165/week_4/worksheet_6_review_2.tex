@@ -38,6 +38,21 @@
 
     $IsGCD(x,y,d):\:\forall n \in \mathbb{N},\:IsCD(x,y,n) \Rightarrow \exists d
     \in \mathbb{N},\:IsCD(x,y,d) \land n \leq d$
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        $IsCD(x,y,d):\:d \mid x \land d \mid y$, where $x,y,d \in \mathbb{Z}$
+
+        \bigskip
+
+        $IsGCD(x,y,d):\color{red}(x = 0 \land y = 0 \Rightarrow d = 0)
+        \land (\color{red}x \neq 0 \land y \neq 0 \Rightarrow IsCD(x,y,d) \land (\forall d_1 \in \mathbb{Z},\:IsCD(x,y,d_1) \Rightarrow d_1 \leq d))$, \color{red}where $x,y,d \in \mathbb{Z}$\color{black}
+    \end{mdframed}
 \end{enumerate}
 
 \section*{Question 2}
