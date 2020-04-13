@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{enumerate}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -10,6 +11,7 @@
 
 \begin{document}
 \title{Worksheet 5 Review 2}
+\author{Hyungmo Gu}
 \maketitle
 
 \section*{Question 1}
@@ -289,5 +291,66 @@
 \end{enumerate}
 
 \section*{Question 4}
+\begin{itemize}
+    \item
+
+    \textbf{Statement:} $\forall x \in \mathbb{R}^{\geq 0}$, $x \geq 4 \Rightarrow
+    (\lfloor x \rfloor)^2 \geq \frac{1}{2}x^2$
+
+    \bigskip
+
+    \begin{proof}
+    Let $x \in \mathbb{R}^{\geq 0}$. Assume $x \geq 4$.
+
+    \bigskip
+
+    We need to prove $(\lfloor x \rfloor)^2 \geq \frac{1}{2}x^2$.
+
+    \bigskip
+
+    Let $\epsilon = x - \lfloor x \rfloor$.
+
+    \bigskip
+
+    Starting from $(\lfloor x \rfloor)^2$, it follows from the fact
+    $\lfloor x \rfloor = x - \epsilon$ that we can write
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (\lfloor x \rfloor)^2 &= (x - \epsilon)^2\\
+        &= x^2 - 2x\epsilon + \epsilon^2
+    \end{align}
+
+    \bigskip
+
+    Then, by using $0 \leq \epsilon < 1$ from the fact, we can calculate
+
+    \begin{align}
+        x^2 -2x\epsilon + \epsilon^2 &> x^2 - 2x + \epsilon^2\\
+        &> x^2 - 2x
+    \end{align}
+
+    \bigskip
+
+    Now, since we know $x \geq 4$, we can write
+
+    \begin{align}
+        \frac{1}{2} \cdot x^2 = \frac{1}{2} x \cdot x &\geq \frac{1}{2}x \cdot 4\\
+        &= 2x
+    \end{align}
+
+    \bigskip
+
+    So, by using this fact into equation 4, we can conclude
+
+    \begin{align}
+        (\lfloor x \rfloor)^2 = x^2 - 2x\epsilon + \epsilon^2 &> x^2 - 2x\\
+        &\geq x^2 - \frac{1}{2}x^2\\
+        &= \frac{1}{2}x^2
+    \end{align}
+
+    \end{proof}
+
+\end{itemize}
 
 \end{document}
