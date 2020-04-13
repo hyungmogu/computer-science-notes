@@ -220,6 +220,41 @@
         the author avoids common mistakes?
     \end{itemize}
 
+    \item
+
+    \textbf{Negation of is dominated by:} $\neg Dom(f,g):\:\exists n \in \mathbb{N},
+    \:g(n) > f(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \bigskip
+
+    \begin{proof}
+
+    Let $f(n) = n^2$ and $g(n) = n + 165$.
+
+    \bigskip
+
+    We need to prove $g$ is not dominated by $f$. That is, there is a natural
+    number $n$ such that $g(n) > f(n)$.
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then, we can conclude
+
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) = 165 + n &= 165\\
+        &> 0\\
+        &= (0)^2\\
+        &= (n)^2\\
+        &= f(n)
+    \end{align}
+
+    \end{proof}
+
 \end{enumerate}
 
 \section*{Question 4}
