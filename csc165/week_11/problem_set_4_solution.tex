@@ -2100,13 +2100,52 @@
             \begin{mdframed}
             For the lower bound of $n$, using the result of problem 4.a $\frac{n}{2^k} - \frac{2^k - 1}{2^k}
             \leq x_k \leq \frac{n}{2^k}$, we can calculate that the value of $x$
-            at $k^{th}$ iteration is
+            at $k-1^{th}$ iteration is
 
             \bigskip
 
             \begin{align}
-                \frac{2^k - 1}{2^k} - \frac{2^k - 1}{2^k} &\leq x_{k-1} \leq \frac{2^k - 1}{2^k}\\
-                0 &\leq x_{k-1} \leq \frac{2^k - 1}{2^k}
+                \frac{2^{k-1}}{2^{k-1}} - \frac{2^{k-1} - 1}{2^{k-1}} &\leq x_{k-1} \leq \frac{2^{k-1}}{2^{k-1}}\\
+                \frac{1}{2^{k-1}} &\leq x_{k-1} \leq 1
+            \end{align}
+
+            \bigskip
+
+            Since we know $\frac{2^k - 1}{2^k} > 0$, and $x_{k-1} \in \mathbb{N}$ (from the code),
+            we can conclude $x_{k-1} = 1$.
+
+            \bigskip
+
+            Then, by taking an iteration further, we can conclude
+
+            \begin{align}
+                x_k &= \left\lfloor \frac{x_{k-1}}{2} \right\rfloor\\
+                &= 0
+            \end{align}
+
+            \bigskip
+
+            Because we know loop termination occurs when $x \leq 0$, we can conclude
+            the loop with the lower bound of $n$ stops at $k^{th}$ iteration.
+
+            \end{mdframed}
+
+            \bigskip
+
+            \item Show that with $2^k - 1$ as $n$, \textbf{convert\_to\_binary(n)}
+            does exactly $k$ iterations.
+
+            \bigskip
+
+            \begin{mdframed}
+            For the upper bound of $n$, using the same result from problem 4.a,
+            the value of $x$ at $k^{th}$ iteration is
+
+            \bigskip
+
+            \begin{align}
+                \frac{2^k - 1}{2^k} - \frac{2^k - 1}{2^k} &\leq x_k \leq \frac{2^k - 1}{2^k}\\
+                0 &\leq x_k \leq \frac{2^k - 1}{2^k}
             \end{align}
 
             \bigskip
@@ -2117,14 +2156,20 @@
             \bigskip
 
             Because we know loop termination occurs when $x \leq 0$, we can conclude
-            the loop stops at $k^{th}$ iteration.
+            the loop with the upper bound of $n$ stops at $k^{th}$ iteration.
 
             \end{mdframed}
 
-            \item Show that with $2^k - 1$ as $n$, \textbf{convert\_to\_binary(n)}
-            does exactly $k$ iterations.
-
             \item Conclude $n$ performs $k$ iterations.
+
+            \bigskip
+
+            \begin{mdframed}
+            So, since the loop stops at $k^{th}$ iterations for both the upper
+            and the lower bound of $n$, we can conclude $n$ performs exactly
+            $k$ iterations.
+            \end{mdframed}
+
         \end{enumerate}
 
     \end{mdframed}
