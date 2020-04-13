@@ -78,6 +78,66 @@
 
     \textbf{Statement:} $IsCD(x,0,x) \land (\forall d_1 \in \mathbb{Z}, IsCD(x,0,d_1) \Rightarrow d_1 \leq x)$
 
+    \begin{proof}
+        Let $x \in \mathbb{Z}^{+}$
+
+        \bigskip
+
+        We need to prove $x$ is a common divisor to both 0 and $x$, and we need
+        to prove all common divisors $d_1$ of 0 and $x$ is less than or equal to $x$.
+
+        \bigskip
+
+        First, we need to show there is $k_1 \in \mathbb{Z}$ such that
+        $x = k_1 \cdot x$ and we need to show $k_2 \in \mathbb{Z}$ such that
+        $0 = k_2 \cdot x$.
+
+        \bigskip
+
+        Let $k_1 = 1$ and $k_2 = 0$.
+
+        \bigskip
+
+        Then, we can calculate that
+
+        \begin{align}
+            x &= 1 \cdot x = k_1 \cdot x\\
+            0 &= 0 \cdot x = k_2 \cdot x
+        \end{align}
+
+        \bigskip
+
+        Now, we need to show all integers $d_1$ that is a common divisor to both 0 and $x$
+        is less than equal to $x$.
+
+        \bigskip
+
+        Let $d_1 \in \mathbb{Z}$ and assume $d_1 \mid x$ and $d_1 \mid 0$.
+
+        \bigskip
+
+        We need to show $d_1 \leq x$.
+
+        \bigskip
+
+        The hint tells us
+
+        \begin{align}
+            \forall n \in \mathbb{Z}^+,\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n
+        \end{align}
+
+        \bigskip
+
+        Because we know from assumption that $d_1 \mid x$, by using the hint,
+        we can conclude
+
+        \begin{align}
+            d_1 \leq x
+        \end{align}
+    \end{proof}
+
+    \bigskip
+
     \begin{mdframed}
         \underline{\textbf{Pseudoproof:}}
 
@@ -154,14 +214,6 @@
             \end{enumerate}
 
         \end{enumerate}
-
-        \bigskip
-
-
-
-        \bigskip
-
-
 
     \end{mdframed}
 
