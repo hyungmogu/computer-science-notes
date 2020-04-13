@@ -53,6 +53,27 @@
         $IsGCD(x,y,d):\color{red}(x = 0 \land y = 0 \Rightarrow d = 0)
         \land (\color{red}x \neq 0 \land y \neq 0 \Rightarrow IsCD(x,y,d) \land (\forall d_1 \in \mathbb{Z},\:IsCD(x,y,d_1) \Rightarrow d_1 \leq d))$, \color{red}where $x,y,d \in \mathbb{Z}$\color{black}
     \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Realized the definition of $IsGCD$ extends from previous question
+        \item Noticed professor defines conditions in a predicate logic the following way
+
+        \begin{mdframed}
+        \begin{align*}
+        (\text{case 1} \Rightarrow \text{statement 1}) \land (\text{case 2} \Rightarrow \text{statement 2})
+        \end{align*}
+        \end{mdframed}
+
+        \item Hm... I feel puzzled about $\land$ operator used in between cases (
+        i.e. $(x = 0 \land y = 0 \Rightarrow d = 0) \land (x \neq 0 ...)$).
+        At glimpse, I felt $\lor$ is more appropriate since if this case is not true,
+        then we want other case should be true.
+    \end{itemize}
+
 \end{enumerate}
 
 \section*{Question 2}
