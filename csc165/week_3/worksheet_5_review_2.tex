@@ -3,13 +3,49 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \begin{document}
 \title{Worksheet 5 Review 2}
 \maketitle
 
 \section*{Question 1}
+\begin{itemize}
+
+    \item
+
+    \textbf{Statement:} $\forall m,n \in \mathbb{Z},\:(\exists k_1 \in \mathbb{Z},\:m=2k_1+1)
+    \land (\exists k_2 \in \mathbb{Z},\:n = 2k_2 + 1) \Rightarrow (\exists k_3 \in \mathbb{Z},\:mn = 2k_3 + 1)$
+
+    \begin{proof}
+
+    Let $m,n \in \mathbb{Z}$. Assume there is an integer $k_1$ such that $m = 2k_1 + 1$.
+    Assume there is an integer $k_2$ such that $n = 2k_2 + 1$. Let $k_3 = (2k_1k_2) + k_1 + k_2$.
+
+    \bigskip
+
+    We need to prove $mn = 2k_3 + 1$.
+
+    \bigskip
+
+    The assumption tells us $m = 2k_1 + 1$ and $n = 2k_2 + 1$.
+
+    \bigskip
+
+    By using these facts and then multiplying them together, we can conclude
+
+    \begin{align}
+        mn &= (2k_1 + 1)(2k_2 + 1)\\
+        &= 4k_1k_2 + 2k_1 + 2k_2 + 1\\
+        &= 2[(2k_1k_2) + k_1 + k_2] + 1\\
+        &= 2k_3 + 1
+    \end{align}
+
+    \end{proof}
+
+\end{itemize}
 
 \section*{Question 2}
 
