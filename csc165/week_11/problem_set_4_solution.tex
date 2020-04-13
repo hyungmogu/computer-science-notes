@@ -2032,7 +2032,7 @@
                     \bigskip
 
                     \begin{align}
-                        1 = x_{k-1} &\geq \frac{n}{2^{k-1}}\\
+                        1 = x_{k-1} &\leq \frac{n}{2^{k-1}}\\
                         2^{k-1} &\leq n
                     \end{align}
                 \end{mdframed}
@@ -2070,6 +2070,11 @@
             \end{itemize}
 
             \item Conclusion (combine parts together)
+
+            \begin{mdframed}
+            Since $2^{k-1} \leq n$ and $n \leq 2^k-1$ are true, we can conclude
+            $2^{k-1} \leq n \leq 2^k-1$ is true.
+            \end{mdframed}
         \end{enumerate}
 
         \bigskip
@@ -2083,6 +2088,44 @@
         \bigskip
 
         We need to show \textbf{convert\_to\_binary(n)} takes $k$ step.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show that with $2^{k-1}$ as $n$, \textbf{convert\_to\_binary(n)}
+            does exactly $k$ iterations.
+
+            \bigskip
+
+            \begin{mdframed}
+            For the lower bound of $n$, using the result of problem 4.a $\frac{n}{2^k} - \frac{2^k - 1}{2^k}
+            \leq x_k \leq \frac{n}{2^k}$, we can calculate that the value of $x$
+            at $k^{th}$ iteration is
+
+            \bigskip
+
+            \begin{align}
+                \frac{2^k - 1}{2^k} - \frac{2^k - 1}{2^k} &\leq x_{k-1} \leq \frac{2^k - 1}{2^k}\\
+                0 &\leq x_{k-1} \leq \frac{2^k - 1}{2^k}
+            \end{align}
+
+            \bigskip
+
+            Since we know $\frac{2^k - 1}{2^k} < 1$, and $x_k \in \mathbb{N}$ (from the code),
+            we can conclude $x_k = 0$.
+
+            \bigskip
+
+            Because we know loop termination occurs when $x \leq 0$, we can conclude
+            the loop stops at $k^{th}$ iteration.
+
+            \end{mdframed}
+
+            \item Show that with $2^k - 1$ as $n$, \textbf{convert\_to\_binary(n)}
+            does exactly $k$ iterations.
+
+            \item Conclude $n$ performs $k$ iterations.
+        \end{enumerate}
 
     \end{mdframed}
 
