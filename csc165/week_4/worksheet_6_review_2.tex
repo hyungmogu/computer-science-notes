@@ -60,7 +60,7 @@
 
     \begin{itemize}
         \item Realized the definition of $IsGCD$ extends from previous question
-        \item Noticed professor defines conditions in a predicate logic the following way
+        \item Noticed professor defines if...else conditions in a predicate logic the following way
 
         \begin{mdframed}
         \begin{align*}
@@ -73,6 +73,97 @@
         At glimpse, I felt $\lor$ is more appropriate since if this case is not true,
         then we want other case should be true.
     \end{itemize}
+
+    \item
+
+    \textbf{Statement:} $IsCD(x,0,x) \land (\forall d_1 \in \mathbb{Z}, IsCD(x,0,d_1) \Rightarrow d_1 \leq x)$
+
+    \begin{mdframed}
+        \underline{\textbf{Pseudoproof:}}
+
+        \bigskip
+
+        Let $x \in \mathbb{Z}^{+}$
+
+        \bigskip
+
+        We need to prove $x$ is a common divisor to both 0 and $x$, and we need
+        to prove all common divisors $d_1$ of 0 and $x$ is less than or equal to $x$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show $IsCD(x,0,x)$
+
+            \bigskip
+
+            We need to show there is $k_1 \in \mathbb{Z}$ such that
+            $x = k_1 \cdot x$ and we need to show $k_2 \in \mathbb{Z}$ such that
+            $0 = k_2 \cdot x$.
+
+            \bigskip
+
+            Let $k_1 = 1$ and $k_2 = 0$.
+
+            \bigskip
+
+            \begin{itemize}
+                \item Show $x = k_1 \cdot x$ and $0 = k_2 \cdot 0$
+
+                \begin{mdframed}
+                Then, we can calculate that
+
+                \begin{align}
+                    x &= 1 \cdot x = k_1 \cdot x\\
+                    0 &= 0 \cdot x = k_2 \cdot x
+                \end{align}
+                \end{mdframed}
+            \end{itemize}
+
+            \item Show $\forall d_1 \in \mathbb{Z}, IsCD(x,0,d_1) \Rightarrow d_1 \leq x$
+
+            \bigskip
+
+            Let $d_1 \in \mathbb{Z}$ and assume $d_1 \mid x$ and $d_1 \mid 0$.
+
+            \bigskip
+
+            We need to show $d_1 \leq x$.
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item Use fact `$\forall n \in \mathbb{Z}^+,\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$' to show $d_1 \leq x$.
+
+                \begin{mdframed}
+                The hint tells us
+
+                \begin{align}
+                    \forall n \in \mathbb{Z}^+,\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n
+                \end{align}
+
+                \bigskip
+
+                Because we know from assumption that $d_1 \mid x$, by using the hint,
+                we can conclude
+
+                \begin{align}
+                    d_1 \leq x
+                \end{align}
+                \end{mdframed}
+            \end{enumerate}
+
+        \end{enumerate}
+
+        \bigskip
+
+
+
+        \bigskip
+
+
+
+    \end{mdframed}
 
 \end{enumerate}
 
