@@ -2344,6 +2344,31 @@
 
     \end{mdframed}
 
+    \item
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Rough Work:}}
+
+    \bigskip
+
+    \begin{align}
+        AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{\lvert \mathcal{I}_n \rvert} \cdot \sum\limits_{i \in \mathcal{I}_n} \text{Runtime of convert\_to\_binary}\\
+        &= \frac{1}{2^n - 1} \cdot \sum\limits_{i \in \mathcal{I}_n} \text{Runtime of convert\_to\_binary}\\
+        &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n \sum\limits_{i \in S_k} k\\
+        &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot k\\
+        &= \frac{1}{2^n - 1} \cdot \left[ \frac{1 - 2^{n+1}}{(1-2)^2} - \frac{(n+1)2^n}{1-2} \right]\\
+        &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2^{n+1} + (n+1)2^n \right]\\
+        &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2 \cdot 2^n + (n+1)2^n \right]\\
+        &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2 \cdot 2^n + (n+1)2^n \right]\\
+        &= \frac{1}{2^n - 1} \cdot \left[ 1 + 2^n(n+1 - 2) \right]\\
+        &= \frac{1}{2^n - 1} \cdot \left[ 1 + 2^n(n-1) \right]
+    \end{align}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
