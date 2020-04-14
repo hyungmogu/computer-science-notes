@@ -457,25 +457,51 @@
 
                 \begin{mdframed}
 
-                Now, moving onto showing all common divisors to both $a$ and $b$
-                are less than or equal to $b$, the definition of prime number
-                tells us $b$ has two divisors 1 and $b$.
+                Next for showing $(\forall d_1 \in \mathbb{Z},\:IsCD(a,b,d_1)
+                \Rightarrow d_1 \leq b))$, the definition of prime number
+                tells us $b$ has two non-negative divisors 1 and $b$.
 
                 \bigskip
 
-                Because we know $1 \mid a$ and $b \mid a$, using these facts, we
-                can conclude 1 and $b$ are the only common divisor to both $a$ and $b$.
+                Because we know $1 \mid a$ and $b \mid a$, we can conclude 1 and
+                $b$ are the only non-negative common divisor to both $a$ and $b$.
 
                 \bigskip
 
-                Since $1 < b$ and $b = b$, we can conclude all common divisors to
-                both $a$ and $b$ are less than or equal to $b$.
+                Since $1 < b$, $b = b$ and all other common divisors are less than 0,
+                we can conclude all common divisors to both $a$ and $b$ are less than or equal to $b$.
 
                 \end{mdframed}
             \end{itemize}
 
             \item Show $b \leq gcd(a,b)$ by using the fact $b \mid b$ and $\forall n \in
             \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$.
+
+            \begin{mdframed}
+
+            Now, we need to show $b \leq gcd(a,b)$.
+
+            \bigskip
+
+            The hint from question 1.c tells us
+
+            \begin{align}
+                \forall n \in \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n
+            \end{align}
+
+            Since we know $b$ divides $b$, by using this fact, we can write
+
+            \begin{align}
+                b &\leq b
+            \end{align}
+
+            Because we know $b = gcd(a,b)$, we can conclude
+
+            \begin{align}
+                b &\leq gcd(a,b)
+            \end{align}
+
+            \end{mdframed}
         \end{enumerate}
 
         \bigskip
@@ -493,9 +519,71 @@
         \bigskip
 
         \begin{enumerate}[1.]
-            \item Show $gcd(a,b) \mid 1$
+            \item Show $IsGCD(a,b,1)$
+
+            First, we need to show 1 is the greatest common divisor to both $a$
+            and $b$.
+
+            \begin{itemize}
+                \item Find all possible common divisors to both $a$ and $b$.
+
+                \bigskip
+
+                \begin{mdframed}
+
+                The assumption tells us $b$ is a prime number, and so, from definition,
+                we know $b$ has two non-negative divisors 1 and $b$.
+
+                \end{mdframed}
+
+                \item Show 1 is the only common divisor to $a$ and $b$.
+
+                \begin{mdframed}
+
+                Because we know $b \nmid a$ from assumption and $1 \mid a$, we
+                can conclude 1 is the only non-negative common divisor to both
+                $a$ and $b$.
+
+                \end{mdframed}
+
+                \item Conclude $gcd(a,b) = 1$.
+                \begin{mdframed}
+
+                Because we know all common divisors to both $a$ and $b$
+                are less than or equal to 1, we can conclude $gcd(a,b) = 1$.
+
+                \end{mdframed}
+            \end{itemize}
+
             \item Show $gcd(a,b) \leq 1$ by using the fact $\forall n \in
             \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$.
+
+            \begin{mdframed}
+
+            Now, we need to show $1 \geq gcd(a,b)$.
+
+            \bigskip
+
+            The hint from question 1.c tells us
+
+            \begin{align}
+                \forall n \in \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n
+            \end{align}
+
+            Since we know 1 divides 1, by using this fact, we can write
+
+            \begin{align}
+                1 &\geq 1
+            \end{align}
+
+            Because we know $1 = gcd(a,b)$, we can conclude
+
+            \begin{align}
+                1 &\geq gcd(a,b)
+            \end{align}
+
+            \end{mdframed}
+
         \end{enumerate}
 
     \end{mdframed}
