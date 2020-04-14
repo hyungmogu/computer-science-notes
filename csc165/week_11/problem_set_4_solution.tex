@@ -2415,7 +2415,7 @@
         \item Find the number of input elements $\lvert \mathcal{I}_n \rvert$.
 
         \begin{mdframed}
-        Third, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
+        Second, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
 
         \bigskip
 
@@ -2430,8 +2430,12 @@
 
         \item Find the value of $\lvert S_k \rvert$.
 
+        \begin{itemize}
+            \item
+        \end{itemize}
+
         \begin{mdframed}
-        Fourth, we need to find $\lvert S_k \rvert$.
+        Third, we need to find $\lvert S_k \rvert$.
 
         \bigskip
 
@@ -2463,7 +2467,7 @@
         \item Find the first and last value of $k$ of $S_k$ in $\mathcal{I}_n$.
 
         \begin{mdframed}
-        Third, we need to determine the smallest and the largest value of $k$
+        Fourth, we need to determine the smallest and the largest value of $k$
         of $S_k$ in $\mathcal{I}_n$
 
         \bigskip
@@ -2535,7 +2539,16 @@
         Using this fact, we can conclude $k$ has the highest value of $n$.
         \end{mdframed}
 
-        \item Find the running time of of \textbf{convert\_to\_binary(n)} for each $S_k$.
+        \item Evaluate the running time of \textbf{convert\_to\_binary(n)} for all
+        elements in $S_k$.
+
+        \bigskip
+
+        Fifth, we need to evaluate the running time of \textbf{convert\_to\_binary(n)}
+        for all elements in $S_k$.
+
+        \bigskip
+
         \begin{itemize}
             \item State that elements in $S_k$ result in loop with $k$ iterations, and
             that each loop in \textbf{convert\_to\_binary(n)} takes
@@ -2568,8 +2581,13 @@
 
         \begin{mdframed}
 
+        Fifth, we need to evaluate the running time of \textbf{convert\_to\_binary(n)}
+        for all elements in $S_k$.
+
+        \bigskip
+
         The header tells us that elements in $S_k$ result in loop with $k$ iterations, and
-        the code tells us each loop takes a constant time (1 step).
+        the code tells us each loop takes constant time (1 step).
 
         \bigskip
 
@@ -2635,12 +2653,64 @@
 
         \item Evaluate the average case running time.
 
-        \begin{mdframed}
+        \bigskip
+
+        Finally, we need to evaluate the average-case running time of
+        \textbf{convert\_to\_binary(n)}.
+
+        \bigskip
+
+        \begin{itemize}
+            \item State the hint, and the average-case running time
+
+            \begin{mdframed}
+
+            The hint tells us
+
             \begin{align}
-                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{\lvert \mathcal{I}_n \rvert} \cdot \sum\limits_{i \in \mathcal{I}_n} \text{Runtime of convert\_to\_binary}\\
-                &= \frac{1}{2^n - 1} \cdot \sum\limits_{i \in \mathcal{I}_n} \text{Runtime of convert\_to\_binary}\\
-                &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n \sum\limits_{i \in S_k} k\\
-                &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot k\\
+                \forall m \in \mathbb{N},\:\forall r \in \mathbb{R},\:\sum\limits_{i=1}^m ir^{i-1} = \frac{1 - r^{m+1}}{(1-r)^2} - \frac{(m+1)r^m}{1-r}\:\text{where}\:r \neq 1
+            \end{align}
+
+            \end{mdframed}
+
+            \item Evaluate the expression using the hint
+
+            \begin{mdframed}
+
+            Using the hint, we can conclude
+
+            \begin{align}
+                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot k\\
+                &= \frac{1}{2^n - 1} \cdot \left[ \frac{1 - 2^{n+1}}{(1-2)^2} - \frac{(n+1)2^n}{1-2} \right]\\
+                &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2^{n+1} + (n+1)2^n \right]\\
+                &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2 \cdot 2^n + (n+1)2^n \right]\\
+                &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2 \cdot 2^n + (n+1)2^n \right]\\
+                &= \frac{1}{2^n - 1} \cdot \left[ 1 + 2^n(n+1 - 2) \right]\\
+                &= \frac{1}{2^n - 1} \cdot \left[ 1 + 2^n(n-1) \right]
+            \end{align}
+
+            \end{mdframed}
+        \end{itemize}
+
+        \begin{mdframed}
+
+            Finally, we need to evaluate the average-case running time of\\
+            \textbf{convert\_to\_binary(n)}.
+
+            \bigskip
+
+            The hint tells us
+
+            \begin{align}
+                \forall m \in \mathbb{N},\:\forall r \in \mathbb{R},\:\sum\limits_{i=1}^m ir^{i-1} = \frac{1 - r^{m+1}}{(1-r)^2} - \frac{(m+1)r^m}{1-r}\:\text{where}\:r \neq 1
+            \end{align}
+
+            \bigskip
+
+            Using the hint, we can conclude
+
+            \begin{align}
+                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot k\\
                 &= \frac{1}{2^n - 1} \cdot \left[ \frac{1 - 2^{n+1}}{(1-2)^2} - \frac{(n+1)2^n}{1-2} \right]\\
                 &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2^{n+1} + (n+1)2^n \right]\\
                 &= \frac{1}{2^n - 1} \cdot \left[ 1 - 2 \cdot 2^n + (n+1)2^n \right]\\
