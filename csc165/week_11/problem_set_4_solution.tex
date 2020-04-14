@@ -2360,185 +2360,30 @@
 
     \bigskip
 
-    First, we need to show set of $S_k$ over all $k$ are partitions of $\mathcal{I}_n$.
-    That is, the union of all of $S_k$ form $\mathcal{I}_n$ and $S_k$ over all $k$ do
-    not have any elements in common.
-
-    \bigskip
-
-    The question 4.b tells us
-
-    \begin{align}
-        \begin{split}
-        \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
-        convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
-        \\ 2^{k-1} \leq n \leq 2^k -1
-        \end{split}
-    \end{align}
-
-    Using this fact, we can conclude $S_k$ has highest element with the value of $2^k - 1$,
-    and $S_{k+1}$ has element with the lowest value of $2^{k+1-1}=2^k$.
-
-    \bigskip
-
-    Then, we can calculate that
-
-    \begin{align}
-        2^k - (2^k - 1) = 1
-    \end{align}
-
-    \bigskip
-
-    Then, because we know the distance between the two sets have value greater than 0, we can
-    conclude the two sets are non-overlapping, and do not have elements in common.
-
-    \bigskip
-
-    Now, we know $S_k$ is the result of grouping elements in $\mathcal{I}_n$
-    by number of iterations $k$.
-
-    \bigskip
-
-    It follows from this fact that it's union form $\mathcal{I}_n$.
-
-    \bigskip
-
-    Second, we need to re-express equation 1 as sum of all elements in $S_k$ over all iterations $k$.
-
-    \bigskip
-
-    Since we know
-
-    \bigskip
-
-    Third, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
-
-    \bigskip
-
-    Because we know $\mathcal{I}_n$ has all integer elements from $1$ to $2^n - 1$,
-    we can conclude
-
-    \begin{align}
-        \lvert \mathcal{I}_n \rvert &= 2^n - 1 - 1 + 1\\
-        &= 2^n - 1
-    \end{align}
-
-    \bigskip
-
-    Fourth, we need to find $\lvert S_k \rvert$.
-
-    \bigskip
-
-    The question 4.b tells us
-
-    \begin{align}
-        \begin{split}
-        \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
-        convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
-        \\ 2^{k-1} \leq n \leq 2^k -1
-        \end{split}
-    \end{align}
-
-    \bigskip
-
-    Using this fact, we can conclude $S_k$ has values from $2^{k-1}$ to $2^k - 1$.
-
-    \bigskip
-
-    Then, we can calculate that
-
-    \begin{align}
-        \lvert S_k \rvert &= 2^k -1 - 2^K{-1} + 1\\
-        &= 2^k - 2^{k-1}\\
-        &= 2^{k-1}
-    \end{align}
-
-    \bigskip
-
-    Fifth, we need to determine the smallest and the largest value of $k$
-    for the sum $\sum\limits_{k}$.
-
-    \bigskip
-
-    We will do so in parts.
-
-    \bigskip
-
-    \textbf{Part 1 (Finding the smallest value of $k$):}
-
-    \bigskip
-
-    We need to find the smallest value of $k$.
-
-    \bigskip
-
-    The code tells us the value of $k$ rises as $n$ increases.
-
-    \bigskip
-
-    Because we know 1 is the smallest value in $\mathcal{I}_n$, we can conclude
-    $1$ is the value that will result in smallest value of $k$.
-
-    \bigskip
-
-    Now, the question 4.b tells us
-
-    \begin{align}
-        \begin{split}
-        \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
-        convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
-        \\ 2^{k-1} \leq n \leq 2^k -1
-        \end{split}
-    \end{align}
-
-    Because we know $1 = 2^{1 - 1}$, by using the fact, we can conclude $k = 1$.
-
-    \bigskip
-
-    \textbf{Part 2 (Finding the largest value of $k$):}
-
-    \bigskip
-
-    We need to find the largest value of $k$.
-
-    \bigskip
-
-    The code tells us the value of $k$ rises as $n$ increases.
-
-    \bigskip
-
-    Since the highest value in $\mathcal{I}_n$ is $2^n - 1$, we can conclude
-    $2^n - 1$ is the value that will result in highest value of $k$.
-
-    \bigskip
-
-    Now, The question 4.b tells us
-
-    \begin{align}
-        \begin{split}
-        \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
-        convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
-        \\ 2^{k-1} \leq n \leq 2^k -1
-        \end{split}
-    \end{align}
-
-    \bigskip
-
-    Using this fact, we can conclude $k$ has the highest value of $n$.
-
-    \bigskip
-
-    Finally, we need to evaluate the expression.
-
-    \bigskip
-
     \begin{mdframed}
 
-    \underline{\textbf{Pseudoproof:}}
+    \underline{\textbf{Rough Work:}}
 
     \bigskip
 
     \begin{enumerate}[1.]
+
+        \item Find the number of input elements $\lvert \mathcal{I}_n \rvert$.
+
+        \begin{mdframed}
+        Third, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
+
+        \bigskip
+
+        Because we know $\mathcal{I}_n$ has all integer elements from $1$ to $2^n - 1$,
+        we can conclude
+
+        \begin{align}
+            \lvert \mathcal{I}_n \rvert &= 2^n - 1 - 1 + 1\\
+            &= 2^n - 1
+        \end{align}
+        \end{mdframed}
+
         \item Show set of $S_k$ over all $k$ are partitions of $\mathcal{I}_n$.
 
         \begin{mdframed}
@@ -2576,25 +2421,161 @@
 
             \bigskip
 
-            Now, we know $S_k$ is the result of grouping elements in $\mathcal{I}_n$
-            by number of iterations $k$.
+            Now, we know $S_k$ is the result of grouping elements in $\mathcal{I}_n$.
 
             \bigskip
 
             It follows from this fact that it's union form $\mathcal{I}_n$.
         \end{mdframed}
 
+        \item Find the value of $\lvert S_k \rvert$.
+
+        \begin{mdframed}
+        Fourth, we need to find $\lvert S_k \rvert$.
+
+        \bigskip
+
+        The question 4.b tells us
+
+        \begin{align}
+            \begin{split}
+            \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+            convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+            \\ 2^{k-1} \leq n \leq 2^k -1
+            \end{split}
+        \end{align}
+
+        \bigskip
+
+        Using this fact, we can conclude $S_k$ has values from $2^{k-1}$ to $2^k - 1$.
+
+        \bigskip
+
+        Then, we can calculate that
+
+        \begin{align}
+            \lvert S_k \rvert &= 2^k -1 - 2^K{-1} + 1\\
+            &= 2^k - 2^{k-1}\\
+            &= 2^{k-1}
+        \end{align}
+        \end{mdframed}
+
+        \item Find the first and last value of $k$ of $S_k$ in $\mathcal{I}_n$.
+
+        \begin{mdframed}
+        Third, we need to determine the smallest and the largest value of $k$
+        of $S_k$ in $\mathcal{I}_n$
+
+        \bigskip
+
+        We will do so in parts.
+
+        \bigskip
+
+        \textbf{Part 1 (Finding the smallest value of $k$):}
+
+        \bigskip
+
+        We need to find the smallest value of $k$.
+
+        \bigskip
+
+        The code tells us the value of $k$ rises as $n$ increases.
+
+        \bigskip
+
+        Because we know 1 is the smallest value in $\mathcal{I}_n$, we can conclude
+        $1$ is the value that will result in smallest value of $k$.
+
+        \bigskip
+
+        Now, the question 4.b tells us
+
+        \begin{align}
+            \begin{split}
+            \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+            convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+            \\ 2^{k-1} \leq n \leq 2^k -1
+            \end{split}
+        \end{align}
+
+        Because we know $1 = 2^{1 - 1}$, by using the fact, we can conclude $k = 1$.
+
+        \bigskip
+
+        \textbf{Part 2 (Finding the largest value of $k$):}
+
+        \bigskip
+
+        We need to find the largest value of $k$.
+
+        \bigskip
+
+        The code tells us the value of $k$ rises as $n$ increases.
+
+        \bigskip
+
+        Since the highest value in $\mathcal{I}_n$ is $2^n - 1$, we can conclude
+        $2^n - 1$ is the value that will result in highest value of $k$.
+
+        \bigskip
+
+        Now, The question 4.b tells us
+
+        \begin{align}
+            \begin{split}
+            \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+            convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+            \\ 2^{k-1} \leq n \leq 2^k -1
+            \end{split}
+        \end{align}
+
+        \bigskip
+
+        Using this fact, we can conclude $k$ has the highest value of $n$.
+        \end{mdframed}
+
+        \item Find the running time of of \textbf{convert\_to\_binary(n)} for each $S_k$.
+
         \item Re-express the average-case running time as sum over $S_k$.
         \begin{itemize}
             \item Show $\sum\limits_{i \in \mathcal{I}_n}$ is the same as $\sum\limits_{k} \sum\limits_{i \in S_k}$
         \end{itemize}
 
-        \item Find the number of input elements $\lvert \mathcal{I}_n \rvert$.
+        \begin{mdframed}
 
-        \item Find the value of $\lvert S_k \rvert$.
-        \item Find the first and last value of $k$.
-        \item Finish re-express the average-case running time as sum over $S_k$.
-        \item Evaluate $S_k$.
+            Because we know the sets $S_k$ over $k = 1 \dots n$ are partitions of
+            $\mathcal{I}_n$, we can conclude $\sum\limits_{i \in \mathcal{I}_n}$
+            is the same as $\sum\limits_{k = 1}^n \sum\limits_{i \in S_k}$.
+
+            \bigskip
+
+            Using this fact, we can write
+
+            \begin{align}
+                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{\lvert \mathcal{I}_n \rvert} \cdot \sum\limits_{k = 1}^n \sum\limits_{i \in S_k} \text{Runtime of convert\_to\_binary}
+            \end{align}
+
+            \bigskip
+
+            Then, because we know all values in $\lvert S_k \rvert$ has the same
+            running time, we can write
+
+            \begin{align}
+                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{\lvert \mathcal{I}_n \rvert} \cdot \sum\limits_{k = 1}^n \lvert S_k \rvert \cdot \text{Runtime of convert\_to\_binary}
+            \end{align}
+
+            \bigskip
+
+            Then, since we know $\lvert \mathcal{I}_n \rvert = 2^n - 1$, $\lvert S_k \rvert = 2^{k-1}$,
+            and the running time in each $S_k$ is $k$, we can conclude
+
+            \begin{align}
+                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot k
+            \end{align}
+        \end{mdframed}
+
+        \item Evaluate the average case running time.
 
         \begin{mdframed}
             \begin{align}
