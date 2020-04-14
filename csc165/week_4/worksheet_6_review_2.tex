@@ -426,8 +426,55 @@
         \bigskip
 
         \begin{enumerate}[1.]
-            \item Show $b \mid gcd(a,b)$
-            \item Show $b \leq gcd(a,b)$ by using the fact $\forall n \in
+            \item Show $IsGCD(a,b,b)$, i.e. $ IsCD(a,b,b) \land (\forall d_1 \in \mathbb{Z},\:IsCD(a,b,d_1) \Rightarrow d_1 \leq b))$
+
+            \bigskip
+
+            First, we need to show $b$ is the greatest common divisor to both $a$ and $b$. That is,
+            $IsCD(a,b,b) \land (\forall d_1 \in \mathbb{Z},\:IsCD(a,b,d_1) \Rightarrow d_1 \leq b))$
+
+            \bigskip
+
+            \begin{itemize}
+                \item Show $IsCD(a,b,b)$
+
+                \bigskip
+
+                \begin{mdframed}
+                Starting with showing $IsCD(a,b,b)$, the assumption tells us
+                $b \mid a$, and we know $b \mid b$.
+
+                \bigskip
+
+                Then, it follows from these facts that $b$ is a common divisor to
+                both $a$ and $b$.
+
+                \end{mdframed}
+
+                \item Show $\forall d_1 \in \mathbb{Z},\:IsCD(a,b,d_1) \Rightarrow d_1 \leq b$
+
+                \bigskip
+
+                \begin{mdframed}
+
+                Now, moving onto showing all common divisors to both $a$ and $b$
+                are less than or equal to $b$, the definition of prime number
+                tells us $b$ has two divisors 1 and $b$.
+
+                \bigskip
+
+                Because we know $1 \mid a$ and $b \mid a$, using these facts, we
+                can conclude 1 and $b$ are the only common divisor to both $a$ and $b$.
+
+                \bigskip
+
+                Since $1 < b$ and $b = b$, we can conclude all common divisors to
+                both $a$ and $b$ are less than or equal to $b$.
+
+                \end{mdframed}
+            \end{itemize}
+
+            \item Show $b \leq gcd(a,b)$ by using the fact $b \mid b$ and $\forall n \in
             \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n$.
         \end{enumerate}
 
