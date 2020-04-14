@@ -2368,22 +2368,6 @@
 
     \begin{enumerate}[1.]
 
-        \item Find the number of input elements $\lvert \mathcal{I}_n \rvert$.
-
-        \begin{mdframed}
-        Third, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
-
-        \bigskip
-
-        Because we know $\mathcal{I}_n$ has all integer elements from $1$ to $2^n - 1$,
-        we can conclude
-
-        \begin{align}
-            \lvert \mathcal{I}_n \rvert &= 2^n - 1 - 1 + 1\\
-            &= 2^n - 1
-        \end{align}
-        \end{mdframed}
-
         \item Show set of $S_k$ over all $k$ are partitions of $\mathcal{I}_n$.
 
         \begin{mdframed}
@@ -2426,6 +2410,22 @@
             \bigskip
 
             It follows from this fact that it's union form $\mathcal{I}_n$.
+        \end{mdframed}
+
+        \item Find the number of input elements $\lvert \mathcal{I}_n \rvert$.
+
+        \begin{mdframed}
+        Third, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
+
+        \bigskip
+
+        Because we know $\mathcal{I}_n$ has all integer elements from $1$ to $2^n - 1$,
+        we can conclude
+
+        \begin{align}
+            \lvert \mathcal{I}_n \rvert &= 2^n - 1 - 1 + 1\\
+            &= 2^n - 1
+        \end{align}
         \end{mdframed}
 
         \item Find the value of $\lvert S_k \rvert$.
@@ -2536,11 +2536,59 @@
         \end{mdframed}
 
         \item Find the running time of of \textbf{convert\_to\_binary(n)} for each $S_k$.
+        \begin{itemize}
+            \item State that elements in $S_k$ result in loop with $k$ iterations, and
+            that each loop in \textbf{convert\_to\_binary(n)} takes
+            a constant time (1 step)
+
+            \begin{mdframed}
+            The header tells us that elements in $S_k$ result in loop with $k$ iterations, and
+            the code tells us each loop takes a constant time (1 step).
+            \end{mdframed}
+
+            \item Show the loop has total time of $k$ steps
+
+            \begin{mdframed}
+            Using these facts, we can calculate the loop has total time of
+
+            \begin{align}
+                k \cdot 1 = k
+            \end{align}
+
+            steps.
+            \end{mdframed}
+
+            \item Show \textbf{convert\_to\_binary(n)} has running time of $k$ steps.
+
+            \begin{mdframed}
+            Since we are ignoring the time of constant operations outside of the loop,
+            we can conclude \textbf{convert\_to\_binary(n)} has running time of $k$ steps.
+            \end{mdframed}
+        \end{itemize}
+
+        \begin{mdframed}
+
+        The header tells us that elements in $S_k$ result in loop with $k$ iterations, and
+        the code tells us each loop takes a constant time (1 step).
+
+        \bigskip
+
+        Using these facts, we can calculate the loop has total time of
+
+        \begin{align}
+            k \cdot 1 = k
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Since we are ignoring the time of constant operations outside of the loop,
+        we can conclude \textbf{convert\_to\_binary(n)} has running time of $k$ steps.
+
+        \end{mdframed}
 
         \item Re-express the average-case running time as sum over $S_k$.
-        \begin{itemize}
-            \item Show $\sum\limits_{i \in \mathcal{I}_n}$ is the same as $\sum\limits_{k} \sum\limits_{i \in S_k}$
-        \end{itemize}
 
         \begin{mdframed}
 
@@ -2567,12 +2615,22 @@
 
             \bigskip
 
-            Then, since we know $\lvert \mathcal{I}_n \rvert = 2^n - 1$, $\lvert S_k \rvert = 2^{k-1}$,
-            and the running time in each $S_k$ is $k$, we can conclude
+            Then, since we know $\lvert \mathcal{I}_n \rvert = 2^n - 1$, and
+            $\lvert S_k \rvert = 2^{k-1}$, we can write
+
+            \begin{align}
+                AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot \text{Runtime of convert\_to\_binary}
+            \end{align}
+
+            \bigskip
+
+            Then, because we know all elements in $S_k$ has runtime of $k$,
+            we can conclude
 
             \begin{align}
                 AVG_{\text{convert\_to\_binary}}(n) &= \frac{1}{2^n - 1} \cdot \sum\limits_{k = 1}^n 2^{k-1} \cdot k
             \end{align}
+
         \end{mdframed}
 
         \item Evaluate the average case running time.
