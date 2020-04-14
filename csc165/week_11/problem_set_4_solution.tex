@@ -2360,16 +2360,58 @@
 
     \bigskip
 
-    First, we need to re-express equation 1 as sum of all elements in $S_k$
-    over all iterations $k$.
+    First, we need to show set of $S_k$ over all $k$ are partitions of $\mathcal{I}_n$.
+    That is, the union of all of $S_k$ form $\mathcal{I}_n$ and $S_k$ over all $k$ do
+    not have any elements in common.
 
     \bigskip
 
+    The question 4.b tells us
 
+    \begin{align}
+        \begin{split}
+        \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+        convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+        \\ 2^{k-1} \leq n \leq 2^k -1
+        \end{split}
+    \end{align}
+
+    Using this fact, we can conclude $S_k$ has highest element with the value of $2^k - 1$,
+    and $S_{k+1}$ has element with the lowest value of $2^{k+1-1}=2^k$.
 
     \bigskip
 
-    Second, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
+    Then, we can calculate that
+
+    \begin{align}
+        2^k - (2^k - 1) = 1
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the distance between the two sets have value greater than 0, we can
+    conclude the two sets are non-overlapping, and do not have elements in common.
+
+    \bigskip
+
+    Now, we know $S_k$ is the result of grouping elements in $\mathcal{I}_n$
+    by number of iterations $k$.
+
+    \bigskip
+
+    It follows from this fact that it's union form $\mathcal{I}_n$.
+
+    \bigskip
+
+    Second, we need to re-express equation 1 as sum of all elements in $S_k$ over all iterations $k$.
+
+    \bigskip
+
+    Since we know
+
+    \bigskip
+
+    Third, we need to evaluate the number of input elements $\lvert \mathcal{I}_n \rvert$.
 
     \bigskip
 
@@ -2387,7 +2429,7 @@
 
     \bigskip
 
-    Third, we need to find $\lvert S_k \rvert$.
+    Fourth, we need to find $\lvert S_k \rvert$.
 
     \bigskip
 
@@ -2417,7 +2459,7 @@
 
     \bigskip
 
-    Fourth, we need to determine the smallest and the largest value of $k$
+    Fifth, we need to determine the smallest and the largest value of $k$
     for the sum $\sum\limits_{k}$.
 
     \bigskip
@@ -2501,9 +2543,9 @@
     \bigskip
 
     \begin{enumerate}[1.]
+        \item Show set of $S_k$ over all $k$ are partitions of $\mathcal{I}_n$.
         \item Re-express the average-case running time as sum over $S_k$.
         \begin{itemize}
-            \item Show $S_k$ over all $k$ are partitions of $\mathcal{I}_n$.
             \item Show $\sum\limits_{i \in \mathcal{I}_n}$ is the same as $\sum\limits_{k} \sum\limits_{i \in S_k}$
         \end{itemize}
         \item Find the number of input elements $\lvert \mathcal{I}_n \rvert$.
