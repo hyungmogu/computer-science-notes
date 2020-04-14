@@ -397,6 +397,147 @@
     \item $\forall a,b \in \mathbb{N}$, $Prime(b) \Rightarrow 1 \geq gcd(a,b) \lor gcd(a,b) \geq b$
     \item
 
+    \textbf{Statement (Contrapositive):} $\forall a,b \in \mathbb{N}$, $Prime(b) \Rightarrow 1 \geq gcd(a,b) \lor gcd(a,b) \geq b$
+
+    \bigskip
+
+    \begin{proof}
+
+        Let $a,b \in \mathbb{N}$. Assume $Prime(b)$. That is, $p > 1 \land (\forall
+        d \in \mathbb{N},\:d \mid p \Rightarrow d = 1 \lor d = p)$.
+
+        \bigskip
+
+        We will prove $1 \geq gcd(a,b)$ or $gcd(a,b) \geq b$ using proof by cases.
+
+        \bigskip
+
+        \textbf{Case 1 ($b \mid a$):}
+
+        \bigskip
+
+        In this case, assume $b$ divides $a$. That is, $\exists k \in \mathbb{Z},\:a = kb$.
+
+        \bigskip
+
+        We need to prove $b \geq gcd(a,b)$.
+
+        \bigskip
+
+        First, we need to show $b$ is the greatest common divisor to both $a$ and $b$. That is,
+        $IsCD(a,b,b) \land (\forall d_1 \in \mathbb{Z},\:IsCD(a,b,d_1) \Rightarrow d_1 \leq b))$
+
+        \bigskip
+
+        Starting with showing $IsCD(a,b,b)$, the assumption tells us
+        $b \mid a$, and we know $b \mid b$.
+
+        \bigskip
+
+        Then, it follows from these facts that $b$ is a common divisor to
+        both $a$ and $b$.
+
+        \bigskip
+
+        Next for showing $(\forall d_1 \in \mathbb{Z},\:IsCD(a,b,d_1)
+        \Rightarrow d_1 \leq b))$, the definition of prime number
+        tells us $b$ has two non-negative divisors 1 and $b$.
+
+        \bigskip
+
+        Because we know $1 \mid a$ and $b \mid a$, we can conclude 1 and
+        $b$ are the only non-negative common divisor to both $a$ and $b$.
+
+        \bigskip
+
+        Since $1 < b$, $b = b$ and all other common divisors are less than 0,
+        we can conclude all common divisors to both $a$ and $b$ are less than or equal to $b$.
+
+        \bigskip
+
+        Now, we need to show $b \leq gcd(a,b)$.
+
+        \bigskip
+
+        The hint from question 1.c tells us
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \forall n \in \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n
+        \end{align}
+
+        Since we know $b$ divides $b$, by using this fact, we can write
+
+        \begin{align}
+            b &\leq b
+        \end{align}
+
+        Because we know $b = gcd(a,b)$, we can conclude
+
+        \begin{align}
+            b &\leq gcd(a,b)
+        \end{align}
+
+        \bigskip
+
+        \textbf{Case 2 ($b \nmid a$):}
+
+        \bigskip
+
+        In this case, assume $b$ doesn't divide $a$.
+
+        \bigskip
+
+        We need to prove $1 \geq gcd(a,b)$.
+
+        \bigskip
+
+        First, we need to show 1 is the greatest common divisor to both $a$
+        and $b$.
+
+        \bigskip
+
+        The assumption tells us $b$ is a prime number, and so, from definition,
+        we know $b$ has two non-negative divisors 1 and $b$.
+
+        \bigskip
+
+        Because we know $b \nmid a$ from assumption and $1 \mid a$, we
+        can conclude 1 is the only non-negative common divisor to both
+        $a$ and $b$.
+
+        \bigskip
+
+        Because we know all common divisors to both $a$ and $b$
+        are less than or equal to 1, we can conclude $gcd(a,b) = 1$.
+
+
+        \bigskip
+
+        Now, we need to show $1 \geq gcd(a,b)$.
+
+        \bigskip
+
+        The hint from question 1.c tells us
+
+        \begin{align}
+            \forall n \in \mathbb{Z}^{+},\:\forall d \in \mathbb{Z},\:d \mid n \Rightarrow d \leq n
+        \end{align}
+
+        Since we know 1 divides 1, by using this fact, we can write
+
+        \begin{align}
+            1 &\geq 1
+        \end{align}
+
+        Because we know $1 = gcd(a,b)$, we can conclude
+
+        \begin{align}
+            1 &\geq gcd(a,b)
+        \end{align}
+
+    \end{proof}
+
     \bigskip
 
     \begin{mdframed}
