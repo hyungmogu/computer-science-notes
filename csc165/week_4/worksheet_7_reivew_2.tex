@@ -109,37 +109,104 @@
             \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
         \end{align}
 
-        and we know from headers that $a \mid n$, $n > 1$, and $n,a \in \mathbb{N}$.
+        and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
 
         \bigskip
 
         Then, by using these facts, we can write
 
         \begin{align}
-            1 \leq a \leq n
+            1 \leq d \leq n
         \end{align}
 
         \bigskip
 
         Now, the definition of divisibility tells us for $n$ to
-        divide $a$, there must be some $k_1 \in \mathbb{Z}$ such that
-        $a$ is equal to $k_1 \cdot n$.
+        divide $d$, there must be some $k_1 \in \mathbb{Z}$ such that
+        $d$ is equal to $k_1 \cdot n$.
 
         \bigskip
 
-        Then, since we know $n \geq a$, by using these facts, we can conclude
-        the definition of divisibility is satisfied when $k_1 = 1$, or
-        when $n = a$.
+        Then, since we know $n \geq d$, by using these facts, we can conclude
+        the definition of divisibility is satisfied only when $k_1 = 1$, or
+        when $n = d$.
 
         \bigskip
 
-        Then, since we know from the header that $n \neq a$, we can conclude
-        $n \nmid a$.
+        Then, since we know from the header that $n \neq d$, we can conclude
+        $n \nmid d$.
 
+        \bigskip
+
+        Then, since we know $d = a$ from the header, we can conclude $n \nmid a$.
 
         \end{mdframed}
 
         \item Show $n \nmid b$
+        \begin{itemize}
+
+            \item Show $k \mid n$
+
+            \item Show $k \geq 1$.
+
+            \begin{mdframed}
+            The header tells us $n > 1$ $d \geq 0$, and we know from
+            assumption that $n = dk$.
+
+            \bigskip
+
+            Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+            cannot happen, we can conclude $k \geq 1$.
+
+            \end{mdframed}
+
+            \item Show $n \geq k$ using the fact $k \mid n$ and $k \geq 1$.
+
+            \bigskip
+
+            \begin{mdframed}
+            The fact 2 tells us
+
+            \begin{align}
+                \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+            \end{align}
+
+            and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
+
+            \bigskip
+
+            Then, by using these facts, we can write
+
+            \begin{align}
+                1 \leq d \leq n
+            \end{align}
+
+            \end{mdframed}
+
+            \item Show that for $n$ to divide $k$, $n = k$.
+
+            \begin{mdframed}
+            Now, the definition of divisibility tells us for $n$ to
+            divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+            $d$ is equal to $k_1 \cdot n$.
+
+            \bigskip
+
+            Then, since we know $n \geq d$, by using these facts, we can conclude
+            the definition of divisibility is satisfied when $k_1 = 1$, or
+            when $n = d$.
+
+            \end{mdframed}
+
+            \item Conclude $n \nmid b$.
+
+            \begin{mdframed}
+            Then, since we know from header that $n \neq d$, we can conclude
+            $n \nmid d$.
+            \end{mdframed}
+
+
+        \end{itemize}
         \item Show $n \mid ab$
 
     \end{enumerate}
