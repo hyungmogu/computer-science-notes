@@ -148,6 +148,13 @@
         \begin{itemize}
 
             \item Show $k \mid n$
+
+            \bigskip
+
+            First, we need to show $k \mid n$.
+
+            \bigskip
+
             \begin{itemize}
                 \item State $n = kd$.
                 \begin{mdframed}
@@ -163,6 +170,11 @@
             \bigskip
 
             \begin{mdframed}
+
+            First, we need to show $k \mid n$.
+
+            \bigskip
+
             The assumption tells us $n = kd$.
 
             \bigskip
@@ -172,11 +184,166 @@
 
             \item Show $k \geq 1$.
 
+            \bigskip
+
+            Second, we need to show $k \geq 1$.
+
+            \bigskip
+
+            \begin{mdframed}
+            Second, we need to show $k \geq 1$.
+
+            \bigskip
+
+            The header tells us $n > 1$ $d \geq 0$, and we know from
+            assumption that $n = dk$.
+
+            \bigskip
+
+            Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+            cannot happen, we can conclude $k \geq 1$.
+
+            \end{mdframed}
+
             \item Show $n \geq k$ using the fact $k \mid n$ and $k \geq 1$.
+
+            \bigskip
+
+            Third, we need to show $n \geq k$.
+
+            \bigskip
+
+            \begin{mdframed}
+            \bigskip
+
+            Third, we need to show $n \geq k$.
+
+            \bigskip
+
+            The fact 2 tells us
+
+            \begin{align}
+                \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+            \end{align}
+
+            \bigskip
+
+            Since we know $k \mid n$, $n > 1$ and $k,n \in \mathbb{N}$, we can conclude
+            $k \leq n$.
+
+            \end{mdframed}
 
             \item Show that for $n$ to divide $k$, $n = k$.
 
+            \bigskip
+
+            Fourth, we need to show $n = k$.
+
+            \bigskip
+
+            \begin{mdframed}
+            Fourth, we need to show $n = k$.
+
+            \bigskip
+
+            The definition of divisibility tells us for $n$ to
+            divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+            $k$ is equal to $k_1 \cdot n$.
+
+            \bigskip
+
+            Then, using the fact $n \geq k$, we can conclude the definition of
+            divisibility is satisfied only when $k_1 = 1$, or $n = k$.
+
+            \end{mdframed}
+
+            \item Conclude $n \nmid a$.
+
+            \begin{mdframed}
+            Finally, since we know from the header that $n \neq k$, we can conclude
+            $n \nmid k$.
+
+            \bigskip
+
+            It follows from the fact $k = b$, we can conclude $n \nmid b$.
+            \end{mdframed}
+
         \end{itemize}
+
+        \begin{mdframed}
+
+        \underline{\textbf{Part 2 (Proving $n \nmid b$):}}
+
+        \bigskip
+
+        First, we need to show $k \mid n$.
+
+        \bigskip
+
+        The assumption tells us $n = kd$.
+
+        \bigskip
+
+        Then, it follows from the definition of divisibility that $k \mid d$.
+
+        \bigskip
+
+        Second, we need to show $k \geq 1$.
+
+        \bigskip
+
+        The header tells us $n > 1$ $d \geq 0$, and we know from
+        assumption that $n = dk$.
+
+        \bigskip
+
+        Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+        cannot happen, we can conclude $k \geq 1$.
+
+        \bigskip
+
+        Third, we need to show $n \geq k$ using the fact $k \geq 1$ and $k \mid n$.
+
+        \bigskip
+
+        The fact 2 tells us
+
+        \begin{align}
+            \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+        \end{align}
+
+        \bigskip
+
+        Since we know $k \mid n$, $n > 1$ and $k,n \in \mathbb{N}$, we can conclude
+        $k \leq n$.
+
+        \bigskip
+
+        Fourth, we need to show $n = k$.
+
+        \bigskip
+
+        The definition of divisibility tells us for $n$ to
+        divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+        $k$ is equal to $k_1 \cdot n$.
+
+        \bigskip
+
+        Then, using the fact $n \geq k$, we can conclude the definition of
+        divisibility is satisfied only when $k_1 = 1$, or $n = k$.
+
+        \bigskip
+
+        Finally, since we know from the header that $n \neq k$, we can conclude
+        $n \nmid k$.
+
+        \bigskip
+
+        Then, it follows from the fact $k = b$, we can conclude $n \nmid b$.
+
+        \end{mdframed}
+
+
         \item Show $n \mid ab$
 
     \end{enumerate}
