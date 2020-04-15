@@ -3197,10 +3197,37 @@
     \textbf{Notes:}
 
     \begin{itemize}
+        \item Realized the solution to this problem feels something like this
+
+        \begin{align*}
+            A(x_1) \land B(x_2) \land \dots \land P(x_n) \Rightarrow Q(x_m) \Rightarrow R(x_o)
+        \end{align*}
+
+        \item Realized each large part of proof (i.e $P(x_n)$) must be provable
+        and logically structured (i.e. $P(x_n):X(x_n) \Rightarrow Y(x_n)$).
+
+        \bigskip
+
+        For example, the part about finding the first and last value of $k$ in $S_k$
+        should have been the proof of showing the first value of $k$ is 1, and
+        showing the last value of $k$ is $n$.
+
+        \bigskip
+
+        Another example is work on finding the number of input elements $\lvert \mathcal{I}_n \rvert$.
+        this should have been the proof of showing the number of input
+        elements $\lvert \mathcal{I}_n \rvert$ is $2^n - 1$.
+
+        \bigskip
+
+        \item Realized I should have used sub-header like \textbf{Part 1}, \textbf{Part 2}, \dots
+        to make proof more readable.
+
         \item 따뜻한 내 여보 향해 한걸음 더!!!!
         \item 울지마 형모야.
         \item 주저 앉지마 형모야.
         \item 할 수 있어.
+        \item 고마워요
     \end{itemize}
 
 \end{enumerate}
