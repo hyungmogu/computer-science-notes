@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{enumerate}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -8,6 +9,7 @@
 
 \begin{document}
 \title{Worksheet 7 Review 2}
+\author{Hyungmo Gu}
 \maketitle
 
 \section*{Question 1}
@@ -146,65 +148,33 @@
         \begin{itemize}
 
             \item Show $k \mid n$
+            \begin{itemize}
+                \item State $n = kd$.
+                \begin{mdframed}
+                The assumption tells us $n = kd$.
+                \end{mdframed}
+
+                \item Show $k \mid n$ by using the definition of divisibility
+                \begin{mdframed}
+                Then, it follows from the definition of divisibility that $k \mid d$.
+                \end{mdframed}
+            \end{itemize}
+
+            \bigskip
+
+            \begin{mdframed}
+            The assumption tells us $n = kd$.
+
+            \bigskip
+
+            Then, it follows from the definition of divisibility that $k \mid d$.
+            \end{mdframed}
 
             \item Show $k \geq 1$.
 
-            \begin{mdframed}
-            The header tells us $n > 1$ $d \geq 0$, and we know from
-            assumption that $n = dk$.
-
-            \bigskip
-
-            Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
-            cannot happen, we can conclude $k \geq 1$.
-
-            \end{mdframed}
-
             \item Show $n \geq k$ using the fact $k \mid n$ and $k \geq 1$.
 
-            \bigskip
-
-            \begin{mdframed}
-            The fact 2 tells us
-
-            \begin{align}
-                \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
-            \end{align}
-
-            and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
-
-            \bigskip
-
-            Then, by using these facts, we can write
-
-            \begin{align}
-                1 \leq d \leq n
-            \end{align}
-
-            \end{mdframed}
-
             \item Show that for $n$ to divide $k$, $n = k$.
-
-            \begin{mdframed}
-            Now, the definition of divisibility tells us for $n$ to
-            divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
-            $d$ is equal to $k_1 \cdot n$.
-
-            \bigskip
-
-            Then, since we know $n \geq d$, by using these facts, we can conclude
-            the definition of divisibility is satisfied when $k_1 = 1$, or
-            when $n = d$.
-
-            \end{mdframed}
-
-            \item Conclude $n \nmid b$.
-
-            \begin{mdframed}
-            Then, since we know from header that $n \neq d$, we can conclude
-            $n \nmid d$.
-            \end{mdframed}
-
 
         \end{itemize}
         \item Show $n \mid ab$
@@ -212,7 +182,6 @@
     \end{enumerate}
 
     \end{mdframed}
-
 
 \end{enumerate}
 
