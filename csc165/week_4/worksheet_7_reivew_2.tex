@@ -2,9 +2,10 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumerate}
 \usepackage{amsfonts}
-\usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{mdframed}
 
 \begin{document}
@@ -28,6 +29,178 @@
 
     \item
 
+    \begin{proof}
+
+    Let $a = d$ and $b = k$. Assume there exists $d \in \mathbb{N}$ where
+    $(\exists k \in \mathbb{Z}, n = dk) \land d \neq 1 \land d \neq n$. Assume $n > 1$
+
+    \bigskip
+
+    We need to prove that $n \nmid a$, $n \nmid b$ and $n \mid ab$.
+
+    \bigskip
+
+    We will do so in parts.
+
+    \bigskip
+
+    \underline{\textbf{Part 1 (Proving $n \nmid a$):}}
+
+    \bigskip
+
+    We need to prove $n \nmid a$.
+
+    \bigskip
+
+    First, we need to show $n \geq d$.
+
+    \bigskip
+
+    The fact 2 tells us
+
+    \begin{align}
+        \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+    \end{align}
+
+    and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
+
+    \bigskip
+
+    Then, by using these facts, we can write
+
+    \begin{align}
+        1 \leq d \leq n
+    \end{align}
+
+    \bigskip
+
+    Second, we need to show $n = d$.
+
+    \bigskip
+
+    The definition of divisibility tells us for $n$ to
+    divide $d$, there must be some $k_1 \in \mathbb{Z}$ such that
+    $d$ is equal to $k_1 \cdot n$.
+
+    \bigskip
+
+    Then, since we know $n \geq d$, by using these facts, we can conclude
+    the definition of divisibility is satisfied only when $k_1 = 1$, or
+    when $n = d$.
+
+    \bigskip
+
+    Finally, since we know from the header that $n \neq d$, we can conclude
+    $n \nmid d$.
+
+    \bigskip
+
+    Then, since we know $d = a$ from the header, we can conclude $n \nmid a$.
+
+    \bigskip
+
+    \underline{\textbf{Part 2 (Proving $n \nmid b$):}}
+
+    \bigskip
+
+    We need to prove $n \nmid b$.
+
+    \bigskip
+
+    First, we need to show $k \mid n$.
+
+    \bigskip
+
+    The assumption tells us $n = kd$.
+
+    \bigskip
+
+    Then, it follows from the definition of divisibility that $k \mid d$.
+
+    \bigskip
+
+    Second, we need to show $k \geq 1$.
+
+    \bigskip
+
+    The header tells us $n > 1$ $d \geq 0$, and we know from
+    assumption that $n = dk$.
+
+    \bigskip
+
+    Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+    cannot happen, we can conclude $k \geq 1$.
+
+    \bigskip
+
+    Third, we need to show $n \geq k$ using the fact $k \geq 1$ and $k \mid n$.
+
+    \bigskip
+
+    The fact 2 tells us
+
+    \begin{align}
+        \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+    \end{align}
+
+    \bigskip
+
+    Since we know $k \mid n$, $n > 1$ and $k,n \in \mathbb{N}$, we can conclude
+    $k \leq n$.
+
+    \bigskip
+
+    Fourth, we need to show $n = k$.
+
+    \bigskip
+
+    The definition of divisibility tells us for $n$ to
+    divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+    $k$ is equal to $k_1 \cdot n$.
+
+    \bigskip
+
+    Then, using the fact $n \geq k$, we can conclude the definition of
+    divisibility is satisfied only when $k_1 = 1$, or $n = k$.
+
+    \bigskip
+
+    Finally, since we know from the header that $n \neq k$, we can conclude
+    $n \nmid k$.
+
+    \bigskip
+
+    Then, it follows from the fact $k = b$, we can conclude $n \nmid b$.
+
+    \bigskip
+
+    \underline{\textbf{Part 3 (Proving $n \mid ab$):}}
+
+    \bigskip
+
+    We need to prove $n \mid ab$.
+
+    \bigskip
+
+    The fact 1 tells us
+
+    \begin{align}
+        \forall x \in \mathbb{Z}, x \mid x
+    \end{align}
+
+    \bigskip
+
+    Since we know $n \in \mathbb{N}$, we can conclude $n \mid n$.
+
+    \bigskip
+
+    Then, since we know $n = dk$, $d = a$ and $k = b$, we can conclude
+    $n \mid ab$.
+
+    \end{proof}
+
+    \bigskip
+
     \begin{mdframed}
 
     \underline{\textbf{Pseudoproof:}}
@@ -40,6 +213,10 @@
     \bigskip
 
     We need to prove that $n \nmid a$, $n \nmid b$ and $n \mid ab$.
+
+    \bigskip
+
+    We will do so in parts.
 
     \bigskip
 
@@ -101,7 +278,16 @@
         \end{enumerate}
 
         \begin{mdframed}
-        First, we need to show $n \nmid a$.
+
+        \underline{\textbf{Part 1 (Proving $n \nmid a$):}}
+
+        \bigskip
+
+        We need to prove $n \nmid a$.
+
+        \bigskip
+
+        First, we need to show $n \geq d$.
 
         \bigskip
 
@@ -123,7 +309,11 @@
 
         \bigskip
 
-        Now, the definition of divisibility tells us for $n$ to
+        Second, we need to show $n = d$.
+
+        \bigskip
+
+        The definition of divisibility tells us for $n$ to
         divide $d$, there must be some $k_1 \in \mathbb{Z}$ such that
         $d$ is equal to $k_1 \cdot n$.
 
@@ -135,7 +325,7 @@
 
         \bigskip
 
-        Then, since we know from the header that $n \neq d$, we can conclude
+        Finally, since we know from the header that $n \neq d$, we can conclude
         $n \nmid d$.
 
         \bigskip
@@ -276,6 +466,10 @@
 
         \bigskip
 
+        We need to show $n \nmid b$.
+
+        \bigskip
+
         First, we need to show $k \mid n$.
 
         \bigskip
@@ -388,6 +582,10 @@
         \begin{align}
             \forall x \in \mathbb{Z}, x \mid x
         \end{align}
+
+        \bigskip
+
+        Since we know $n \in \mathbb{N}$, we can conclude $n \mid n$.
 
         \bigskip
 
