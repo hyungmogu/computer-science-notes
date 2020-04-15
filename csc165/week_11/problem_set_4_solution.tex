@@ -2428,46 +2428,10 @@
         \end{align}
         \end{mdframed}
 
-        \item Find the value of $\lvert S_k \rvert$.
-
-        \begin{itemize}
-            \item
-        \end{itemize}
-
-        \begin{mdframed}
-        Third, we need to find $\lvert S_k \rvert$.
-
-        \bigskip
-
-        The question 4.b tells us
-
-        \begin{align}
-            \begin{split}
-            \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
-            convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
-            \\ 2^{k-1} \leq n \leq 2^k -1
-            \end{split}
-        \end{align}
-
-        \bigskip
-
-        Using this fact, we can conclude $S_k$ has values from $2^{k-1}$ to $2^k - 1$.
-
-        \bigskip
-
-        Then, we can calculate that
-
-        \begin{align}
-            \lvert S_k \rvert &= 2^k -1 - 2^K{-1} + 1\\
-            &= 2^k - 2^{k-1}\\
-            &= 2^{k-1}
-        \end{align}
-        \end{mdframed}
-
         \item Find the first and last value of $k$ of $S_k$ in $\mathcal{I}_n$.
 
         \begin{mdframed}
-        Fourth, we need to determine the smallest and the largest value of $k$
+        Third, we need to determine the smallest and the largest value of $k$
         of $S_k$ in $\mathcal{I}_n$
 
         \bigskip
@@ -2539,6 +2503,187 @@
         Using this fact, we can conclude $k$ has the highest value of $n$.
         \end{mdframed}
 
+        \item Show the number of $\lvert S_k \rvert = 2^{k-1}$.
+
+        \bigskip
+
+        Fourth, we need to show $\lvert S_k \rvert = 2^{k-1}$ for $k = 1 \dots n$.
+
+        \bigskip
+
+        We will do so using proof by cases.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Case 1 ($k = 1 \dots n-1$):
+
+            \begin{mdframed}
+            In this case, we need to show $\lvert S_k \rvert = 2^{k-1}$
+            for $k = 1 \dots n-1$.
+
+            \bigskip
+
+            The question 4.b tells us
+
+            \begin{align}
+                \begin{split}
+                \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+                convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+                \\ 2^{k-1} \leq n \leq 2^k -1
+                \end{split}
+            \end{align}
+
+            \bigskip
+
+            Because we know no elements are missing in $S_k$,
+            by using this fact, we can calculate that
+
+            \begin{align}
+                \lvert S_k \rvert &= 2^k -1 - 2^{k-1} + 1\\
+                &= 2^k - 2^{k-1}\\
+                &= 2^{k-1}
+            \end{align}
+            \end{mdframed}
+
+            \item Case 2 ($k = n$):
+
+            \begin{mdframed}
+            In this case, we need to show $\lvert S_k \rvert = 2^{k-1}$
+            for $k = n$.
+
+            \bigskip
+
+            The question 4.b tells us
+
+            \begin{align}
+                \begin{split}
+                \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+                convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+                \\ 2^{k-1} \leq n \leq 2^k -1
+                \end{split}
+            \end{align}
+
+            \bigskip
+
+            Using this fact, we know the value of last element in $S_{n-1}$
+            is $2^{n-1} - 1$.
+
+            \bigskip
+
+            Because we know elements in $\mathcal{I}_n$ increases by 1,
+            we can conclude the value of first element in $S_n$ is
+
+            \begin{align}
+                2^{n-1} - 1 + 1 = 2^{n-1}
+            \end{align}
+
+            \bigskip
+
+            Now, because we know the first element in $S_n$ is $2^{n-1}$
+            and the last element in $S_n$ is $2^n -1$, using
+            these fact, we can conclude
+
+            \begin{align}
+                \lvert S_k \rvert &= 2^{n-1} - (2^{n-1} - 1) + 1\\
+                &= 2^n - 2^{n-1}\\
+                &= 2^{n-1}\\
+                &= 2^{k-1}
+            \end{align}
+            \end{mdframed}
+        \end{enumerate}
+
+        \bigskip
+
+        \begin{mdframed}
+            Fourth, we need to show $\lvert S_k \rvert = 2^{k-1}$ for $k = 1 \dots n$.
+
+            \bigskip
+
+            We will do so using proof by cases.
+
+            \bigskip
+
+            \textbf{Case 1 ($k = 1 \dots n-1$):}
+
+            \bigskip
+
+            In this case, we need to show $\lvert S_k \rvert = 2^{k-1}$
+            for $k = 1 \dots n-1$.
+
+            \bigskip
+
+            The question 4.b tells us
+
+            \begin{align}
+                \begin{split}
+                \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+                convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+                \\ 2^{k-1} \leq n \leq 2^k -1
+                \end{split}
+            \end{align}
+
+            \bigskip
+
+            Because we know no elements are missing in $S_k$,
+            by using this fact, we can calculate that
+
+            \begin{align}
+                \lvert S_k \rvert &= 2^k -1 - 2^{k-1} + 1\\
+                &= 2^k - 2^{k-1}\\
+                &= 2^{k-1}
+            \end{align}
+
+            \bigskip
+
+            \textbf{Case 2 ($k = n$):}
+
+            \bigskip
+
+            In this case, we need to show $\lvert S_k \rvert = 2^{k-1}$
+            for $k = n$.
+
+            \bigskip
+
+            The question 4.b tells us
+
+            \begin{align}
+                \begin{split}
+                \forall n \in \mathbb{Z}^+, \forall k \in \mathbb{N},\: (\textbf{
+                convert\_to\_binary(n)}\:\text{takes exactly}\:k\:\text{loop iterations}) \Leftrightarrow
+                \\ 2^{k-1} \leq n \leq 2^k -1
+                \end{split}
+            \end{align}
+
+            \bigskip
+
+            Using this fact, we know the value of last element in $S_{n-1}$
+            is $2^{n-1} - 1$.
+
+            \bigskip
+
+            Because we know elements in $\mathcal{I}_n$ increases by 1,
+            we can conclude the value of first element in $S_n$ is
+
+            \begin{align}
+                2^{n-1} - 1 + 1 = 2^{n-1}
+            \end{align}
+
+            \bigskip
+
+            Now, because we know the first element in $S_n$ is $2^{n-1}$
+            and the last element in $S_n$ is $2^n -1$, using
+            these fact, we can conclude
+
+            \begin{align}
+                \lvert S_k \rvert &= 2^{n-1} - (2^{n-1} - 1) + 1\\
+                &= 2^n - 2^{n-1}\\
+                &= 2^{n-1}\\
+                &= 2^{k-1}
+            \end{align}
+
+        \end{mdframed}
+
         \item Evaluate the running time of \textbf{convert\_to\_binary(n)} for all
         elements in $S_k$.
 
@@ -2608,7 +2753,17 @@
 
         \item Re-express the average-case running time as sum over $S_k$.
 
+        \bigskip
+
+        Sixth, we need to re-express the average-case running time as sum over $S_k$.
+
+        \bigskip
+
         \begin{mdframed}
+
+            Sixth, we need to re-express the average-case running time as sum over $S_k$.
+
+            \bigskip
 
             Because we know the sets $S_k$ over $k = 1 \dots n$ are partitions of
             $\mathcal{I}_n$, we can conclude $\sum\limits_{i \in \mathcal{I}_n}$
