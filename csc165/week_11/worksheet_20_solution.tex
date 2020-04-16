@@ -380,7 +380,7 @@
     \item
 
     \textbf{Conjecture:} If a graph G forms a cycle and G is bipartite, then
-    the length of the set of verticies is even. (i.e. $\forall G = (C,E), Cycle(G) \land Bipartite(G) \Rightarrow \exists k \in \mathbb{Z}, \lvert C \rvert = 2k$)
+    the length of the set of verticies is even. (i.e. $\forall G = (V,E), Cycle(G) \land Bipartite(G) \Rightarrow \exists k \in \mathbb{Z}, \lvert Cycle(G) \rvert = 2k$)
 
     \bigskip
 
@@ -389,21 +389,45 @@
 
         \bigskip
 
-        Strategy: prove by contraposition.
+        Let $G = (V,E)$, and assume $G$ is bipartite, with bipartition $V_1,V_2$.
+        Let $C = v_0,...,v_k$ be a cycle in $G$. Without loss of generality,
+        assume $v_0 \in \mathbb{V_1}$.
 
         \bigskip
 
-        Let $G$ be a graph with set of verticies $C$ and edges $E$. Assume the length
-        of $C$ is odd.
-
-        \bigskip
-
-        We need to prove the graph is not bipartite.
+        We will prove that $k$ is even by using induction on $k$.
 
         \bigskip
 
         \begin{enumerate}[1.]
-            \item .
+            \item Case 1 (Base case):
+
+            \bigskip
+
+            Let $k = 3$. Assume $C$ is a cycle in $G$ and $G$ is bipartite.
+
+            \bigskip
+
+            We need to show the length of the cycle $\lvert C \rvert$ is even.
+
+            \bigskip
+
+            \item Case 2 (Inductive case):
+
+            \bigskip
+
+            Let $k \in \mathbb{N}$. Assume $C=v_0,v_1,\dots,v_k$ is a cycle
+            in $G$, and $G$ is bipartite, and $\exists d \in \mathbb{Z}, k = 2d$.
+
+            \bigskip
+
+            We need to prove $k+1$ is even.
+
+            \bigskip
+
+            \begin{itemize}
+                \item .
+            \end{itemize}
         \end{enumerate}
     \end{mdframed}
 
