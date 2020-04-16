@@ -380,7 +380,7 @@
     \item
 
     \textbf{Conjecture:} If a graph G forms a cycle and G is bipartite, then
-    the length of the set of verticies is even. (i.e. $\forall G = (V,E), Cycle(G) \land Bipartite(G) \Rightarrow \exists k \in \mathbb{Z}, \lvert Cycle(G) \rvert = 2k$)
+    the length of the set of verticies is even. (i.e. $\forall G = (V,E), Bipartite(G) \Rightarrow \forall k \in \mathbb{N}, C = \{v_0,\dots,v_k\} \subseteq V \land Cycle(C,G) \Rightarrow \exists d \in \mathbb{Z}, k = 2d$)
 
     \bigskip
 
@@ -404,11 +404,11 @@
 
             \bigskip
 
-            Let $k = 3$. Assume $C$ is a cycle in $G$ and $G$ is bipartite.
+            Let $k = 3$.
 
             \bigskip
 
-            We need to show the length of the cycle $\lvert C \rvert$ is even.
+            We need to show $C=v_1,v_2,v_3$ is not a cycle.
 
             \bigskip
 
@@ -417,11 +417,12 @@
             \bigskip
 
             Let $k \in \mathbb{N}$. Assume $C=v_0,v_1,\dots,v_k$ is a cycle
-            in $G$, and $G$ is bipartite, and $\exists d \in \mathbb{Z}, k = 2d$.
+            in $G$, and $\exists d \in \mathbb{Z}, k = 2d$.
 
             \bigskip
 
-            We need to prove $k+1$ is even.
+            We need to prove the cycle $C = v_1,\dots,v_{k+1}$ that forms in $G$
+            has even length.
 
             \bigskip
 
