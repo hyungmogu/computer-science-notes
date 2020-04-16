@@ -481,47 +481,195 @@
                 adjacent.
                 \end{mdframed}
 
+            \end{itemize}
+
+            \begin{mdframed}
+
+            \underline{\textbf{Case 1 (Base case):}}
+
+            \bigskip
+
+            Let $k = 3$.
+
+            \bigskip
+
+            We need to show the sequence of verticles $C=v_1,v_2,v_3$ in $G$ do not
+            form a cycle. That is, there is a consecutive pair of vertices that's not
+            adjacent.
+
+            \bigskip
+
+            Assume $v_3 = v_0$.
+
+            \bigskip
+
+            First, we need to show $v_2$ is in $V_1$.
+
+            \bigskip
+
+            The header tells us all even vertices in $C$ are in $V_1$.
+
+            \bigskip
+
+            Since 2 is even, we can conclude $v_2$ is in $V_1$.
+
+            \bigskip
+
+            Second, we need to show $v_3$ is in $V_1$.
+
+            \bigskip
+
+            The header tells us $v_0 \in V_1$ and $v_3 = v_0$.
+
+            \bigskip
+
+            Using these facts, we can conclude $v_3 \in V_1$.
+
+            \bigskip
+
+            Finally, we need to show $v_2, v_3$ are not adjacent.
+
+            \bigskip
+
+            The second property of bipartite graph tells us that no two
+            verticies in $V_1$ are adjacent
+
+            \bigskip
+
+            Since $v_2,v_3$ are in $V_1$, we can conclude $v_2,v_3$ are not
+            adjacent.
+
+            \end{mdframed}
+
+            \bigskip
+
+            \item Case 2 (Inductive case):
+
+            \bigskip
+
+            Let $k \in \mathbb{N}$. Assume $C=v_0,v_1,\dots,v_k$ forms a cycle
+            in $G$, and $\exists d \in \mathbb{Z}, k = 2d$.
+
+            \bigskip
+
+            We need to prove the sequence of verticies $C = v_1,\dots,v_{k+1}$
+            do not form a cycle in $G$. That is, there is a consecutive pair of
+            vertices that's not adjacent.
+
+            \bigskip
+
+            Assume $v_0 = v_{k+1}$.
+
+            \bigskip
+
+            \begin{itemize}
+                \item Show $v_k$ is in $V_1$.
+
+                \bigskip
+
+                First, we need to show $v_k$ is in $V_1$.
+
+                \bigskip
+
                 \begin{mdframed}
-
-                \underline{\textbf{Case 1 (Base case):}}
-
-                \bigskip
-
-                Let $k = 3$.
+                First, we need to show $v_k$ is in $V_1$.
 
                 \bigskip
 
-                We need to show the sequence of verticles $C=v_1,v_2,v_3$ in $G$ do not
-                form a cycle. That is, there is a consecutive pair of vertices that's not
+                The header tells us all even verticies in $C$ are in $V_1$.
+
+                \bigskip
+
+                Since we know from assumption that $k$ is even, we can conclude
+                $v_k$ is in $V_1$.
+                \end{mdframed}
+
+                \item Show $v_{k+1}$ is in $V_1$.
+
+                \bigskip
+
+                Second, we need to show $v_{k+1}$ is in $V_1$.
+
+                \bigskip
+
+                \begin{mdframed}
+                Second, we need to show $v_{k+1}$ is in $V_1$.
+
+                \bigskip
+
+                The assumption tells us $v_0 \in V_1$ and $v_0 = v_{k+1}$.
+
+                \bigskip
+
+                Using these facts, we can conclude $v_{k+1}$ is in $V_1$.
+                \end{mdframed}
+
+                \item Conclude $v_k,v_{k+1}$ are not adjacent using the properties of bipartite
+                that no two vertices in $V_1$ are adjacent.
+
+                \bigskip
+
+                Finally, we need to show $v_k,v_{k+1}$ are not adjacent.
+
+                \bigskip
+
+                \begin{mdframed}
+                Finally, we need to show $v_2, v_3$ are not adjacent.
+
+                \bigskip
+
+                The second property of bipartite graph tells us that no two
+                verticies in $V_1$ are adjacent
+
+                \bigskip
+
+                Since $v_k,v_{k+1}$ are in $V_1$, we can conclude $v_k,v_{k+1}$ are not
                 adjacent.
+                \end{mdframed}
+            \end{itemize}
+
+            \begin{mdframed}
+                \underline{\textbf{Case 2 (Inductive Case):}}
 
                 \bigskip
 
-                Assume $v_3 = v_0$.
+                Let $k \in \mathbb{N}$. Assume $C=v_0,v_1,\dots,v_k$ forms a cycle
+                in $G$, and $\exists d \in \mathbb{Z}, k = 2d$.
 
                 \bigskip
 
-                First, we need to show $v_2$ is in $V_1$.
+                We need to prove the sequence of verticies $C = v_1,\dots,v_{k+1}$
+                do not form a cycle in $G$. That is, there is a consecutive pair of
+                vertices that's not adjacent.
 
                 \bigskip
 
-                The header tells us all even vertices in $C$ are in $V_1$.
+                Assume $v_0 = v_{k+1}$.
 
                 \bigskip
 
-                Since 2 is even, we can conclude $v_2$ is in $V_1$.
+                First, we need to show $v_k$ is in $V_1$.
 
                 \bigskip
 
-                Second, we need to show $v_3$ is in $V_1$.
+                The header tells us all even verticies in $C$ are in $V_1$.
 
                 \bigskip
 
-                The header tells us $v_0 \in V_1$ and $v_3 = v_0$.
+                Since we know from assumption that $k$ is even, we can conclude
+                $v_k$ is in $V_1$.
 
                 \bigskip
 
-                Using these facts, we can conclude $v_3 \in V_1$.
+                Second, we need to show $v_{k+1}$ is in $V_1$.
+
+                \bigskip
+
+                The assumption tells us $v_0 \in V_1$ and $v_0 = v_{k+1}$.
+
+                \bigskip
+
+                Using these facts, we can conclude $v_{k+1}$ is in $V_1$.
 
                 \bigskip
 
@@ -534,31 +682,10 @@
 
                 \bigskip
 
-                Since $v_2,v_3$ are in $V_1$, we can conclude $v_2,v_3$ are not
+                Since $v_k,v_{k+1}$ are in $V_1$, we can conclude $v_k,v_{k+1}$ are not
                 adjacent.
 
-                \end{mdframed}
-            \end{itemize}
-
-            \bigskip
-
-            \item Case 2 (Inductive case):
-
-            \bigskip
-
-            Let $k \in \mathbb{N}$. Assume $C=v_0,v_1,\dots,v_k$ is a cycle
-            in $G$, and $\exists d \in \mathbb{Z}, k = 2d$.
-
-            \bigskip
-
-            We need to prove the sequence of verticies $C = v_1,\dots,v_{k+1}$
-            do not form cycle in $G$.
-
-            \bigskip
-
-            \begin{itemize}
-                \item
-            \end{itemize}
+            \end{mdframed}
         \end{enumerate}
     \end{mdframed}
 
