@@ -155,5 +155,167 @@
 \end{itemize}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
+
+    Test for `$n1$ at the back'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_at_back() -> None:
+        """Test insert_after with one occurrence of n1 at the back of lst.
+        """
+
+        input_list = [0,1,2,3]
+        input_after(input_list, 3, 99)
+        expected = [0,1,2,3,99]
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `$n1$ at the somewhere else'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with one occurrence of n1 at somewhere else in lst.
+        """
+
+        input_list = [0,1,2,3]
+        input_after(input_list, 3, 99)
+        expected = [0,1,99,2,3]
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `$n1$ the same as $n2$'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with <n1> the same as <n2>
+        """
+
+        input_list = [0,1,2,3]
+        expected = [0,1,1,2,3]
+        insert_after(input_list, 1,1)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `$n1$ not the same as $n2$'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with <n1> not the same as <n2>
+        """
+
+        input_list = [0,1,2,3]
+        expected = [0,1,3,2,3]
+        insert_after(input_list, 1,3)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `list with length of 0'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with list with length of 0
+        """
+
+        input_list = []
+        expected = []
+        insert_after(input_list, 3,4)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `list with length of 1'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with list with length of 1
+        """
+
+        input_list = [1]
+        expected = [1]
+        insert_after(input_list, 3,4)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `list with length of small value'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with list with length of small value
+        """
+
+        input_list = [1,2,3,5,6]
+        expected = [1,2,3,4,5,6]
+        insert_after(input_list, 3,4)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `list with 0 occurrence of $n1$'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with list with 0 occurrence of n1
+        """
+
+        input_list = [1,5,6,7]
+        expected = [1,5,6,7]
+        insert_after(input_list, 3,4)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `list with 1 occurrence of $n1$'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with list with 1 occurrence of n1
+        """
+
+        input_list = [1,3,5,6]
+        expected = [1,3,4,5,6]
+        insert_after(input_list, 3,4)
+
+        assert input_list == expected
+    \end{lstlisting}
+
+    \item
+
+    Test for `list with every occurrence of $n1$'
+
+    \begin{lstlisting}[language=Python]
+    def test_insert_after_somewhere_else() -> None:
+        """Test insert_after with list with 1 occurrence of n1
+        """
+
+        input_list = [3,3,3,3]
+        expected = [3,4,3,4,3,4,3,4]
+        insert_after(input_list, 3,4)
+
+        assert input_list == expected
+    \end{lstlisting}
+\end{itemize}
+
 
 \end{document}
