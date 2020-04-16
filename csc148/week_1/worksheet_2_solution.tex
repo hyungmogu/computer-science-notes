@@ -13,6 +13,31 @@
 \usepackage{listings}
 \usepackage{xcolor}
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
 
 \begin{document}
 \title{CSC148 Worksheet 2 Solution}
@@ -91,6 +116,42 @@
         $[3,3,3,3]$ & 3 & 4 & list with every occurrences of $<n1>$\\
         \hline
     \end{tabular}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{tabular}{|p{5cm}|p{1cm}|p{1cm}|p{6cm}|}
+            \hline
+            \textbf{lst} & \textbf{n1} & \textbf{n2} & \textbf{Purpose}\\
+            \hline
+            $[0,1,2,3]$ & 0 & 99 & $n1$ at the front\\
+            \hline
+            $[0,1,2,3]$ & \color{red}3\color{black} & 99 & $n1$ at the back\\
+            \hline
+            $[0,1,2,3]$ & \color{red}1\color{black} & 99 & $n1$ at somewhere else\\
+            \hline
+            $[0,1,2,3]$ & 3 & 3 & $<n1>$ the same as $<n2>$\\
+            \hline
+            $[0,1,2,3]$ & 3 & 4 & $<n1>$ not the same as $<n2>$\\
+            \hline
+            $[]$ & 3 & 4 & list with length of 0\\
+            \hline
+            $[1]$ & 3 & 4 & list with length of 1\\
+            \hline
+            $[1,2,3,5,6]$ & 3 & 4 & list with length of `small' value\\
+            \hline
+            $[1,5,6,7]$ & 3 & 4 & list with 0 occurrences of $<n1>$\\
+            \hline
+            $[1,3,5,6]$ & 3 & 4 & list with 1 occurrences of $<n1>$\\
+            \hline
+            $[3,3,3,3]$ & 3 & 4 & list with every occurrences of $<n1>$\\
+            \hline
+        \end{tabular}
+    \end{mdframed}
 \end{itemize}
 
 \section*{Question 3}
