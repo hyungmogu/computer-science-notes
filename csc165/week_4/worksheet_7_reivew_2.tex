@@ -757,15 +757,40 @@
 
         \bigskip
 
-        Let $n,m \in \mathbb{N}$. Assume $n \mid m$ and assume there exists $r,s \in \mathbb{Z}$,
-        $rn + sm = 1$.
+        Let $n,m \in \mathbb{N}$. Assume $n \mid m$ and assume $n$ is prime, i.e
+        $\forall n,\:n > 1,\:(\forall a,b \in \mathbb{N},\:n \nmid a \land n \nmid b \Rightarrow n \nmid ab)$
 
         \bigskip
 
-        We need to show $n$ is not prime. That is, there exists $a,b \in \mathbb{N},\:
-        n \mid a \land n \mid b \land n \mid ab$.
+        We need to show for every $r,s \in \mathbb{Z}$, $rn + sm \neq 1$.
 
         \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show $gcd(n,m) \geq 1$ using fact 4.
+
+            First, we need to show $gcd(n,m) \geq 1$.
+
+            \begin{mdframed}
+            First, we need to show $gcd(n,m) \geq 1$.
+
+            \bigskip
+
+            The fact 4 tells us
+
+            \begin{align}
+                \forall n,m \in \mathbb{N},\: n \neq 0 \lor m \neq 0 \Rightarrow gcd(m,n) \geq 1
+            \end{align}
+
+            \bigskip
+
+            Because we know from assumption that $n > 1$, we can conclude
+            $gcd(n,m) \geq 1$.
+            \end{mdframed}
+
+            \item Show $gcd(n,m) \neq 1$ using definition of $gcd$ and prime.
+            \item Conclude $rn + sm \neq 1$ using fact 6.
+        \end{enumerate}
     \end{mdframed}
 
 \end{enumerate}
