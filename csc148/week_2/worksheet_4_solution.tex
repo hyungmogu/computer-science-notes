@@ -64,6 +64,24 @@
 
 \section*{Question 2}
 
+\begin{lstlisting}[language=Python]
+    class User:
+        ...
+
+        def tweet(self, message: str) -> None:
+            """Record that this User made a tweet with the given content.
+            Use date.today() to get the current date for the newly-created tweet.
+            """
+
+            # 1. create a tweet with message
+            tweet = Tweet(self.userid, date.today(), message)
+
+            # 2. store tweet in tweets attribute
+            self.tweets.extend(tweet)
+
+\end{lstlisting}
+
+
 \section*{Question 3}
 \
 \end{document}
