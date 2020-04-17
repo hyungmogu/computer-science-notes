@@ -758,7 +758,7 @@
         \bigskip
 
         Let $n,m \in \mathbb{N}$. Assume $n \mid m$ and assume $n$ is prime, i.e
-        $\forall n,\:n > 1,\:(\forall a,b \in \mathbb{N},\:n \nmid a \land n \nmid b \Rightarrow n \nmid ab)$
+        $n > 1 \land (\forall d \in \mathbb{N}, d \mid n \Rightarrow d = 1 \lor d = n, where n \in \mathbb{N})$
 
         \bigskip
 
@@ -784,12 +784,61 @@
 
             \bigskip
 
-            Because we know from assumption that $n > 1$, we can conclude
+            Because we know from assumption that $n > 1$, we can write
             $gcd(n,m) \geq 1$.
             \end{mdframed}
 
-            \item Show $gcd(n,m) \neq 1$ using definition of $gcd$ and prime.
-            \item Conclude $rn + sm \neq 1$ using fact 6.
+            \item Show $gcd(n,m) = n$
+
+            \bigskip
+
+            Second, we need to show $gcd(n,m) = n$.
+
+            \begin{mdframed}
+                Second, we need to show $gcd(n,m) = n$.
+
+                \bigskip
+
+                The definition of greatest common divisor tells us
+
+                \begin{align}
+                    \forall n,m \in \mathbb{Z},\:IsCD(n,m,n) \land (\forall d_1 \in \mathbb{Z},\: IsCD(n,m,d_1) \Rightarrow d_1 \leq n)
+                \end{align}
+
+                \bigskip
+
+                Because we know $n$ is a common divisor to both $n$ and $m$, and $n$
+                is the highest value that divides $n$ and $m$, we can conclude
+                $gcd(n,m) = n$.
+
+            \end{mdframed}
+
+            \item Show $gcd(n,m) \neq 1$ using definition of prime.
+
+            \bigskip
+
+            Third, we need to show $gcd(n,m) \neq 1$.
+
+            \bigskip
+
+            \begin{mdframed}
+
+            Third, we need to show $gcd(n,m) \neq 1$.
+
+            \bigskip
+
+            Because we know from assumption that $n > 1$, we can conclude
+            $gcd(n,m) \neq 1$.
+            \end{mdframed}
+
+            \item Show $\forall r,s \in \mathbb{Z}, rn + sm \geq n$.
+
+            \begin{mdframed}
+
+            \end{mdframed}
+
+            \item Conclude $rn + sm \neq 1$ using the fact $n > 1$.
+
         \end{enumerate}
     \end{mdframed}
 
