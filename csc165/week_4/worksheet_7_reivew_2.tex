@@ -750,6 +750,54 @@
     \underline{\textbf{Contrapositive of Statement:}} $\forall n,m \in \mathbb{N},\:
     n \mid m \Rightarrow \neg Prime(n) \lor (\forall r,s \in \mathbb{Z},\:rn + sm \neq 1)$
 
+    \begin{proof}
+        Let $n,m \in \mathbb{N}$. Assume $n \mid m$, and assume $n$ is prime, i.e
+        $n > 1 \land (\forall d \in \mathbb{N}, d \mid n \Rightarrow d = 1 \lor d = n$, where $n \in \mathbb{N})$
+
+        \bigskip
+
+        We need to prove for every $r,s \in \mathbb{Z}$, $rn + sm \neq 1$.
+
+        \bigskip
+
+        First, we need to show $gcd(n,m) = n$.
+
+        \bigskip
+
+        The definition of greatest common divisor tells us
+
+        \begin{align}
+            \forall n,m \in \mathbb{Z},\:IsCD(n,m,n) \land (\forall d_1 \in \mathbb{Z},\: IsCD(n,m,d_1) \Rightarrow d_1 \leq n)
+        \end{align}
+
+        \bigskip
+
+        Because we know $n$ is a common divisor to both $n$ and $m$, and $n$
+        is the highest value that divides $n$ and $m$, we can conclude
+        $gcd(n,m) = n$.
+
+        \bigskip
+
+        Second, we need to show for every $r,s \in \mathbb{Z},\:rn + sm \geq n$.
+
+        \bigskip
+
+        The fact 5 tells us
+
+        \begin{align}
+            \forall n,m \in \mathbb{N}, \forall r,s \in \mathbb{Z}, gcd(n,m) \mid (rn + sm)
+        \end{align}
+
+        \bigskip
+
+        Using the fact $gcd(n,m) = n$, we can write $rn + sm \geq n$.
+
+        \bigskip
+
+        Finally, because we know $n > 1$ from assumption and $rn + sm \geq n$, we can conclude $rn + sm > 1$,
+        which is $rn + sm \neq 1$.
+    \end{proof}
+
     \bigskip
 
     \begin{mdframed}
@@ -758,44 +806,23 @@
         \bigskip
 
         Let $n,m \in \mathbb{N}$. Assume $n \mid m$ and assume $n$ is prime, i.e
-        $n > 1 \land (\forall d \in \mathbb{N}, d \mid n \Rightarrow d = 1 \lor d = n, where n \in \mathbb{N})$
+        $n > 1 \land (\forall d \in \mathbb{N}, d \mid n \Rightarrow d = 1 \lor d = n$, where $n \in \mathbb{N})$
 
         \bigskip
 
-        We need to show for every $r,s \in \mathbb{Z}$, $rn + sm \neq 1$.
+        We need to prove for every $r,s \in \mathbb{Z}$, $rn + sm \neq 1$.
 
         \bigskip
 
         \begin{enumerate}[1.]
-            \item Show $gcd(n,m) \geq 1$ using fact 4.
-
-            First, we need to show $gcd(n,m) \geq 1$.
-
-            \begin{mdframed}
-            First, we need to show $gcd(n,m) \geq 1$.
-
-            \bigskip
-
-            The fact 4 tells us
-
-            \begin{align}
-                \forall n,m \in \mathbb{N},\: n \neq 0 \lor m \neq 0 \Rightarrow gcd(m,n) \geq 1
-            \end{align}
-
-            \bigskip
-
-            Because we know from assumption that $n > 1$, we can write
-            $gcd(n,m) \geq 1$.
-            \end{mdframed}
-
             \item Show $gcd(n,m) = n$
 
             \bigskip
 
-            Second, we need to show $gcd(n,m) = n$.
+            First, we need to show $gcd(n,m) = n$.
 
             \begin{mdframed}
-                Second, we need to show $gcd(n,m) = n$.
+                First, we need to show $gcd(n,m) = n$.
 
                 \bigskip
 
@@ -817,25 +844,25 @@
 
             \bigskip
 
-            Third, we need to show $\forall r,s \in \mathbb{Z},\:rn + sm \geq n$.
+            Second, we need to show $\forall r,s \in \mathbb{Z},\:rn + sm \geq n$.
 
             \bigskip
 
             \begin{mdframed}
 
-            Third, we need to show for every $r,s \in \mathbb{Z},\:rn + sm \geq n$.
+                Second, we need to show for every $r,s \in \mathbb{Z},\:rn + sm \geq n$.
 
-            \bigskip
+                \bigskip
 
-            The fact 5 tells us
+                The fact 5 tells us
 
-            \begin{align}
-                \forall n,m \in \mathbb{N}, \forall r,s \in \mathbb{Z}, gcd(n,m) \mid (rn + sm)
-            \end{align}
+                \begin{align}
+                    \forall n,m \in \mathbb{N}, \forall r,s \in \mathbb{Z}, gcd(n,m) \mid (rn + sm)
+                \end{align}
 
-            \bigskip
+                \bigskip
 
-            Using the fact $gcd(n,m) = n$, we can write $rn + sm \geq n$.
+                Using the fact $gcd(n,m) = n$, we can write $rn + sm \geq n$.
 
             \end{mdframed}
 
@@ -843,8 +870,8 @@
 
             \begin{mdframed}
 
-            Finally, because we know $n > 1$ from assumption and $rn + sm \geq n$, we can conclude $rn + sm > 1$,
-            or $rn + sm \neq 1$.
+                Finally, because we know $n > 1$ from assumption and $rn + sm \geq n$, we can conclude $rn + sm > 1$,
+                or $rn + sm \neq 1$.
 
             \end{mdframed}
 
