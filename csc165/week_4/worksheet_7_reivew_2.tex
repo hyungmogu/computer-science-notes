@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mdframed}
+\usepackage[utf]{kotex}
 
 \begin{document}
 \title{Worksheet 7 Review 2}
@@ -614,6 +615,47 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Pseudoproof:}}
+
+    \bigskip
+
+    Let $m,n \in \mathbb{N}$. Assume $Prime(n)$ and $n \nmid m$.
+
+    \bigskip
+
+    We need to prove $\exists r,s \in \mathbb{Z}, rn + sm = 1$.
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Show $gcd(p,n) = 1$, using fact 3
+
+        \begin{mdframed}
+        The fact 3 tells us
+
+        \begin{align}
+            \forall n,p \in \mathbb{Z},\:Prime(p) \land p \nmid n \Rightarrow gcd(p,n) = 1
+        \end{align}
+
+        \bigskip
+
+        Because we know from assumption that $n$ is prime and $n \nmid m$, we can write
+        $gcd(n,m) = 1$.
+        \end{mdframed}
+
+        \item Show $rn + sm = gcd(n,m) = 1$ using fact 6
+    \end{enumerate}
+
+    \end{mdframed}
+
+\end{enumerate}
 
 \section*{Question 3}
 
