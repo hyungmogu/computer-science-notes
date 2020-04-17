@@ -63,8 +63,37 @@
     """
 \end{lstlisting}
 
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Python]
+        """
+        from datetime import date, timedelta
+
+        ...
+
+        misbehaved_1 = Tweet('', date.today(), 'test')
+        misbehaved.like(-1)
+
+        yesterday = date.today() - timedelta(days=1)
+        misbehaved_2 = Tweet('john', yesterday 'test')
+
+        misbehaved_3 = Tweet('john', date.today(), '')
+
+        misbehaved_4 = Tweet('john doe', date.today(), 'test') # More solution!!
+        """
+    \end{lstlisting}
+
+\end{mdframed}
+
 
 \section*{Question 2}
+
+
 
 \section*{Question 3}
 
