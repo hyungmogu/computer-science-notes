@@ -46,6 +46,21 @@
 \maketitle
 
 \section*{Question 1}
+\begin{lstlisting}[language=Python]
+    class User:
+        ...
+
+        def __init__(self, userid: str, bio: str) -> None:
+            """Initialize a new user with the given id and bio.
+            The new user initially has no tweets.
+            """
+
+            self.userid = userid
+            self.bio = bio
+            self.tweets = []
+
+\end{lstlisting}
+
 
 \section*{Question 2}
 
