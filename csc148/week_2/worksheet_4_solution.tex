@@ -108,7 +108,16 @@
 \section*{Question 4}
 
 \begin{lstlisting}[language=Python]
+    class User:
+        ...
 
+        def follow(self, who: User) -> None:
+            """Record that the user follows another user with a given userid.
+
+            >>>moe = User('hyungmo','corgi')
+            >>>sunshine = User('sunshine','warm, kind and beautiful')
+            >>>moe.follow(sunshine)
+            """
 \end{lstlisting}
 
 \end{document}
