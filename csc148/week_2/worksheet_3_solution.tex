@@ -160,5 +160,28 @@
 \end{itemize}
 
 \section*{Question 3}
+\begin{lstlisting}[language=Python]
+    class Tweet:
+        ...
+        def edit(self, new_content: str) -> None:
+        """Replace the contents of this tweet with the new message.
+        >>> t = Tweet(
+        Rukhsana
+        , date(2017, 9, 16),
+        Hey!
+        )
+        >>> t.edit(
+        Rukhsana is cool
+        )
+        >>> t.content
+
+        Rukhsana is cool
+
+        """
+
+        self.content = new_content
+
+\end{lstlisting}
+
 
 \end{document}
