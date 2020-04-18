@@ -320,6 +320,44 @@
         negative value (i.e. score1 = -1, score2 = -4)
     \end{enumerate}
 
+    \newpage
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt 2:}}
+
+        \bigskip
+
+        It is insufficient to implement the \textit{best\_percentage}. Consider the
+        following example
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item One or more elements in \textless teams\textgreater with empty
+            strings (i.e. [`', `', `'])
+            \begin{itemize}
+                \item In this case, only one team will be added to dictionary.
+                This would result in \textless team1\textgreater and
+                \textless team2\textgreater being the same value. This results in
+                the misbehavior of calculating tournament score based on the
+                same team.
+            \end{itemize}
+
+            \item All elements in \textless teams\textgreater with same
+            name (i.e. [`a', `a', `a'])
+            \begin{itemize}
+                \item In this case, this leads to the same misbehavior as case 1.
+            \end{itemize}
+            \item \textless team1\textgreater or \textless team2\textgreater as
+            empty string or as same value (i.e.1 team1 = `', team2 = `'), (i.e.2
+            team1 = `a', team2 = `a')
+            \begin{itemize}
+                \item In this case, the instance attribute leads to undesired behavior
+                of calculating tournament score based on the same team.
+            \end{itemize}
+        \end{enumerate}
+    \end{mdframed}
+
     \item
 
 
