@@ -165,7 +165,18 @@ class User:
         # TODO: Implement this!
         # Hint: look up the attributes of date, found here:
         # https://docs.python.org/3/library/datetime.html#date-objects
-        pass
+
+        total_characters = 0
+
+        for tweet in self.tweets:
+            # continue if 'tweet.created_at.year != y'
+            if y != tweet.created_at.year:
+                continue
+
+            # add to total characters
+            total_characters += len(tweet.content)
+
+        return total_characters
 
     def hack(self) -> None:
         """Make every tweet made by every user this user follows say
