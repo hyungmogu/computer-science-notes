@@ -129,6 +129,28 @@
             self.likes += n
     \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+            class Tweet:
+            ...
+
+            def like(self, n: int) -> None:
+                """Record the fact that this tweet received <n> likes.
+                These likes are in addition to the ones <self> already has.
+
+                Precondition: n >= 0 # Correct Solution
+                """
+
+                self.likes += n
+        \end{lstlisting}
+    \end{mdframed}
+
     \item Fix for the property `a tweet user id must not be empty.'
 
     \begin{lstlisting}[language=Python]
@@ -148,6 +170,30 @@
             self.likes = 0
     \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+        class Tweet:
+            ...
+
+            def __init__(self, who: str, when: date, what: str) -> None:
+                """Initialize a new Tweet.
+
+                Precondition: who.strip() != '' # Correct Solution
+                """
+
+                self.userid = who
+                self.content = what
+                self.created_at = when
+                self.likes = 0
+        \end{lstlisting}
+    \end{mdframed}
+
     \item Fix for the property `a tweet must have user id without spaces'
 
     \begin{lstlisting}[language=Python]
@@ -166,6 +212,30 @@
             self.created_at = when
             self.likes = 0
     \end{lstlisting}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+        class Tweet:
+            ...
+
+            def __init__(self, who: str, when: date, what: str) -> None:
+                """Initialize a new Tweet.
+
+                Precondition: ' ' not in who # Correct Solution
+                """
+
+                self.userid = who
+                self.content = what
+                self.created_at = when
+                self.likes = 0
+        \end{lstlisting}
+    \end{mdframed}
 
 
     \item Fix for the property 'a tweet must have content length less than or
@@ -190,9 +260,40 @@
             self.likes = 0
     \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+        class Tweet:
+            ...
+
+            def __init__(self, who: str, when: date, what: str) -> None:
+                """Initialize a new Tweet.
+
+                Precondition: len(what) <= 280 # Correct Solution
+                """
+
+                self.userid = who
+                self.content = what
+                self.created_at = when
+                self.likes = 0
+        \end{lstlisting}
+    \end{mdframed}
+
+
 \end{itemize}
 
+\bigskip
 
 \section*{Question 4}
+\begin{itemize}
+    \item
+
+
+\end{itemize}
 
 \end{document}
