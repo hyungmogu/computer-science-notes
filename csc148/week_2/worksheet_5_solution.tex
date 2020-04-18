@@ -111,6 +111,26 @@
 \end{mdframed}
 
 \section*{Question 3}
+\begin{itemize}
+    \item  Fix for the property `a tweet must receive positive number of likes'
+
+    \begin{lstlisting}[language=Python]
+    class Tweet:
+        ...
+
+        def like(self, n: int) -> None:
+            """Record the fact that this tweet received <n> likes.
+            These likes are in addition to the ones <self> already has.
+            """
+
+            if n < 0:
+                raise ValueError('n must be non-negative value')
+
+            self.likes += n
+    \end{lstlisting}
+
+\end{itemize}
+
 
 \section*{Question 4}
 
