@@ -214,8 +214,9 @@ class User:
         'mwahahaha'
         """
         # TODO: implement this!
-        pass
-
+        for follower in self.follows:
+            for tweet in follower.tweets:
+                tweet.edit('mwahahaha')
 
 if __name__ == '__main__':
     import doctest
