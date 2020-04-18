@@ -90,7 +90,6 @@ class Tweet:
         """
         self.content = new_content
 
-
     # TODO: Suppose we want to turn this function into a method.
     # Which class should we put it into? Once you've decided, move it.
     def retweet(self, new_user: str, tweet: Tweet, new_date: date) -> Tweet:
@@ -100,7 +99,7 @@ class Tweet:
         original tweet.
 
         >>> t1 = Tweet('Sophia', date(2017, 8, 19), 'Sophia is so cool!')
-        >>> t2 = retweet('Jacqueline', t1, date(2017, 8, 20))
+        >>> t2 = t1.retweet('Jacqueline', t1, date(2017, 8, 20))
         >>> t2.content
         'Sophia is so cool!'
         >>> t2.userid
