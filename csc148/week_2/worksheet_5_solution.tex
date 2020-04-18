@@ -112,7 +112,7 @@
 
 \section*{Question 3}
 \begin{itemize}
-    \item  Fix for the property `a tweet must receive positive number of likes'
+    \item Fix for the property `a tweet must receive positive number of likes'
 
     \begin{lstlisting}[language=Python]
     class Tweet:
@@ -127,6 +127,67 @@
                 raise ValueError('n must be non-negative value')
 
             self.likes += n
+    \end{lstlisting}
+
+    \item Fix for the property `a tweet user id must not be empty.'
+
+    \begin{lstlisting}[language=Python]
+    class Tweet:
+        ...
+
+        def __init__(self, who: str, when: date, what: str) -> None:
+            """Initialize a new Tweet.
+            """
+
+            if who.strip() == '':
+                raise ValueError("variable 'who' must not be empty")
+
+            self.userid = who
+            self.content = what
+            self.created_at = when
+            self.likes = 0
+    \end{lstlisting}
+
+    \item Fix for the property `a tweet must have user id without spaces'
+
+    \begin{lstlisting}[language=Python]
+    class Tweet:
+        ...
+
+        def __init__(self, who: str, when: date, what: str) -> None:
+            """Initialize a new Tweet.
+            """
+
+            if ' ' in who:
+                raise ValueError("variable 'who' must not have spaces")
+
+            self.userid = who
+            self.content = what
+            self.created_at = when
+            self.likes = 0
+    \end{lstlisting}
+
+
+    \item Fix for the property 'a tweet must have content length less than or
+    equal to 280 characters'
+
+    \begin{lstlisting}[language=Python]
+    class Tweet:
+        ...
+
+        def __init__(self, who: str, when: date, what: str) -> None:
+            """Initialize a new Tweet.
+            """
+
+            ...
+
+            if len(what) > 280:
+                raise ValueError("variable 'what' must be 280 characters or less")
+
+            self.userid = who
+            self.content = what
+            self.created_at = when
+            self.likes = 0
     \end{lstlisting}
 
 \end{itemize}
