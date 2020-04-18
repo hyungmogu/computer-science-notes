@@ -360,6 +360,23 @@
 
     \item
 
+    One example is \textit{t.record\_game(`a',`b',0,0)}.
+
+    \bigskip
+
+    The following precondition should be added such that the input attributes
+    support the statistics.
+
+    \begin{lstlisting}[language=Python]
+    def record_game(self, team1, team2, score1, score2):
+        """
+        ...
+
+        Precondition: team1 and team2 are both in this tournament.
+        Precondition: <score1> != <score2>
+        """
+
+    \end{lstlisting}
 
 \end{enumerate}
 
