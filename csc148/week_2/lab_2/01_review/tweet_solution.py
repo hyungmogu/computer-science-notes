@@ -90,6 +90,25 @@ class Tweet:
         """
         self.content = new_content
 
+    # TODO: Suppose we want to turn this function into a method.
+    # Which class should we put it into? Once you've decided, move it.
+    def retweet(self, new_user: str, tweet: Tweet, new_date: date) -> Tweet:
+        """Return a copy of the given tweet with the new user and date.
+
+        The new tweet has 0 likes, regardless of the number of likes of the
+        original tweet.
+
+        >>> t1 = Tweet('Sophia', date(2017, 8, 19), 'Sophia is so cool!')
+        >>> t2 = t1.retweet('Jacqueline', t1, date(2017, 8, 20))
+        >>> t2.content
+        'Sophia is so cool!'
+        >>> t2.userid
+        'Jacqueline'
+        >>> t2.created_at
+        datetime.date(2017, 8, 20)
+        """
+        return Tweet(new_user, new_date, tweet.content)
+
 
 class User:
     """A Twitter user.
@@ -165,7 +184,18 @@ class User:
         # TODO: Implement this!
         # Hint: look up the attributes of date, found here:
         # https://docs.python.org/3/library/datetime.html#date-objects
-        pass
+
+        total_characters = 0
+
+        for tweet in self.tweets:
+            # continue if 'tweet.created_at.year != y'
+            if y != tweet.created_at.year:
+                continue
+
+            # add to total characters
+            total_characters += len(tweet.content)
+
+        return total_characters
 
     def hack(self) -> None:
         """Make every tweet made by every user this user follows say
@@ -184,28 +214,9 @@ class User:
         'mwahahaha'
         """
         # TODO: implement this!
-        pass
-
-
-# TODO: Suppose we want to turn this function into a method.
-# Which class should we put it into? Once you've decided, move it.
-def retweet(new_user: str, tweet: Tweet, new_date: date) -> Tweet:
-    """Return a copy of the given tweet with the new user and date.
-
-    The new tweet has 0 likes, regardless of the number of likes of the
-    original tweet.
-
-    >>> t1 = Tweet('Sophia', date(2017, 8, 19), 'Sophia is so cool!')
-    >>> t2 = retweet('Jacqueline', t1, date(2017, 8, 20))
-    >>> t2.content
-    'Sophia is so cool!'
-    >>> t2.userid
-    'Jacqueline'
-    >>> t2.created_at
-    datetime.date(2017, 8, 20)
-    """
-    return Tweet(new_user, new_date, tweet.content)
-
+        for follower in self.follows:
+            for tweet in follower.tweets:
+                tweet.edit('mwahahaha')
 
 if __name__ == '__main__':
     import doctest
