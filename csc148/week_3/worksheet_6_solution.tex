@@ -164,7 +164,9 @@
                     \item Necessary because \textit{self.position} must default
                     to (0,0) if the argument of position not given.
                 \end{itemize}
+                \color{black}
                 \item fuel\_needed
+                \color{red}
                 \begin{itemize}
                     \item Necessary because vehicle uses fuel
                     \item Necessary because needs to define the fuel cost based
@@ -182,7 +184,9 @@
                     \item Necessary because \textit{self.position} must default
                     to (3,5) if the argument of position not given.
                 \end{itemize}
+                \color{black}
                 \item fuel\_needed
+                \color{red}
                 \begin{itemize}
                     \item Necessary because vehicle uses fuel
                     \item Necessary because needs to define the fuel cost based
@@ -217,6 +221,31 @@
 \end{enumerate}
 
 \section*{Question 3}
+\begin{lstlisting}[language=Python]
+    """
+    Initializing SuperDuperManager:
+    >>> s = SuperDuperManager()
+    >>> s._vehicles
+    {}
+
+    Adding Vehicles:
+    >>> s.add_vehicle('Car', '1', 100)
+    >>> s._vehicles['1'].__class__.__name__
+    'Car'
+    >>> s.add_vehicle('Helicopter'
+    >>> s._vehicles['1'].__class__.__name__
+    'Car'
+    >>> s.add_vehicle('Helicopter', '2', 100)
+    >>> s._vehicles['2'].__class__.__name__
+    'Helicopter'
+    >>> s.add_vehicle('UnreliableMagicCarpet','3',100)
+    >>> s._vehicles['3'].__class__.__name__
+    'UnreliableMagicCarpet'
+
+    Moving Vehicle:
+    >>> s.move_vehicle('1', 1, 1)
+    """
+\end{lstlisting}
 
 \section*{Question 4}
 
