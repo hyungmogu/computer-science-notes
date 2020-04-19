@@ -469,7 +469,46 @@ Code is also included in \textit{worksheet\_6\_solution.py}.
 
     \end{enumerate}
     \item \underline{\textbf{Question 6:}}
+    \begin{enumerate}[a.]
+        \item Just like Car class, Helicopter Class inherits the following methods
+        from class Vehicle: \textit{\_\_init\_\_}, \textit{fuel\_needed} and \textit{move}.
+
+        \item Just like Car class, \textit{fuel\_needed} needs to be
+        implemented by overriding it.
+
+        \item With the same reasoning as Car class, the two methods needs
+        overriding: \textit{\_\_init\_\_} and \textit{fuel\_needed}.
+
+    \end{enumerate}
+
 \end{itemize}
+
+\begin{lstlisting}[language=Python]
+    from worksheet_6_starter_code import Vehicle, SuperDuperManager
+    import math
+
+    """
+    Question 8.1
+    """
+
+    class Helicopter(Vehicle):
+
+        def __init__(self, initial_fuel: int,
+                        initial_position: Tuple[int, int] = (0,0)) -> None:
+            super().__init__()
+
+        def fuel_needed(self, new_x: int, new_y: int) -> int:
+
+            old_x = self.position[0]
+            old_y = self.position[1]
+
+            delta_x = abs(old_x - new_x)
+            delta_y = abs(old_y - new_y)
+
+            return math.ceil(math.sqrt(delta_x**2 + delta_y**2))
+
+\end{lstlisting}
+
 
 \bigskip
 
