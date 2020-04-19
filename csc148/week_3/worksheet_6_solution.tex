@@ -334,10 +334,25 @@
     \item If left as is, every car object would possess the instance attributes
     \textit{self.position} and \textit{self.fuel} from class Vehicle.
 
-    \item No. Other instance attributes are not necessary. The instance attribute
-    \textit{position} can be used to define its initial position, and position
-    after move. As well, the attribute \textit{self.fuel} can be used to calculate
-    the amount of distance
+    \item No. Other instance attributes are not necessary.
+
+    \bigskip
+
+    Looking at the table provided at the beginning of worksheet, car class needs
+    information about initial position, final position, fuel usage, and remaining fuel amount.
+
+    \bigskip
+
+    For initial and final position, the instance attribute \textit{position} is used.
+
+    \bigskip
+
+    For fuel usage, this is embedded inside \textit{fuel\_needed} method. So,
+    the additional attribute is not necessary.
+
+    \bigskip
+
+    For fuel remaining, the instance attribute \textit{self.fuel} is used.
 
     \bigskip
 
