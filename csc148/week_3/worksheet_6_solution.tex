@@ -232,18 +232,58 @@
     >>> s.add_vehicle('Car', '1', 100)
     >>> s._vehicles['1'].__class__.__name__
     'Car'
-    >>> s.add_vehicle('Helicopter'
+    >>> s.add_vehicle('Helicopter', '1', 100)
     >>> s._vehicles['1'].__class__.__name__
     'Car'
+
     >>> s.add_vehicle('Helicopter', '2', 100)
     >>> s._vehicles['2'].__class__.__name__
     'Helicopter'
+
     >>> s.add_vehicle('UnreliableMagicCarpet','3',100)
     >>> s._vehicles['3'].__class__.__name__
     'UnreliableMagicCarpet'
 
     Moving Vehicle:
+    >>> s._vehicles['1'].position
+    (0,0)
     >>> s.move_vehicle('1', 1, 1)
+    >>> s._vehicles['1'].position
+    (1,1)
+
+    >>> s._vehicles['2'].position
+    (3,5)
+    >>> s.move_vehicle('2', 1, 1)
+    >>> s._vehicles['2'].position
+    (4,6)
+
+    >>> s._vehicles['3'].position
+    (4,8)
+    >>> s._vehicles['3'].position
+    (12,4)
+    >>> s.move_vehicle('3', 1, 1)
+    >>> s._vehicles['3'].position
+    (100,100)
+
+    Get Vehicle Position:
+    >>> s.get_vehicle_position('1')
+    (1,1)
+
+    >>> s.get_vehicle_position('2')
+    (4,6)
+
+    >>> s.get_vehicle_position('3')
+    (50,200)
+
+    Get Vehicle Fuel:
+    >>> s.get_vehicle_fuel('1')
+    98
+
+    >>> s.get_vehicle_fuel('2')
+    99
+
+    >>> s.get_vehicle_fuel('2')
+    100
     """
 \end{lstlisting}
 
