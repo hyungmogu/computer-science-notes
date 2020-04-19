@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Runner:
     """A runner for the race
 
@@ -35,7 +38,9 @@ class Runner:
         >>> runner.speed_category
         'lt30'
         """
-        pass
+        self.name = name
+        self.email = email
+        self.speed_category = speed_category
 
     def edit_email(self, email: str) -> None:
         """Edits runner email information
@@ -49,7 +54,8 @@ class Runner:
         >>> runner.email
         'gerhard_2@gmail.com'
         """
-        pass
+
+        self.email = email
 
     def edit_category(self, speed_category: str) -> None:
         """Edits runner speed category information
@@ -64,6 +70,8 @@ class Runner:
         'lt20'
         """
 
+        self.speed_category = speed_category
+
     def withdraw(self) -> None:
         """Withdraws runner from race
 
@@ -74,7 +82,8 @@ class Runner:
         >>> runner.speed_category
         ''
         """
-        pass
+
+        self.speed_category = ''
 
 
 class Race:
@@ -123,10 +132,10 @@ class Race:
         """Initializes race registry
 
         >>> r = Race()
-        >>> r.runners()
+        >>> r.runners
         []
         """
-        pass
+        self.runners = []
 
     def register(self, runner: Runner) -> None:
         """Registers runner to race
@@ -137,13 +146,14 @@ class Race:
         >>> r.runners[0].name
         'Gerhard'
         """
-        pass
+        self.runners.append(runner)
 
     def get_runners(self, category: str) -> None:
         """Returns list of runners in race category
 
-        Precondition: <speed_category> in ['lt20','lt30','lt40','gt40','']
+        Precondition: <speed_category> in ['lt20','lt30','lt40','gt40']
 
+        >>> r = Race()
         >>> runner_1 = Runner('Gerhard','gerhard@gmail.com', 'lt40')
         >>> r.register(runner_1)
         >>> runner_2 = Runner('Tom','tom@gmail.com', 'lt20')
@@ -158,23 +168,38 @@ class Race:
         >>> r.get_runners('lt30')
         []
         """
-        pass
+        result = []
+
+        for runner in self.runners:
+            if runner.speed_category != category:
+                continue
+
+            result.append(runner)
+
+        return result
 
     def get_runner(self, name: str) -> None:
         """Returns runner in race registry
 
         Precondition: <name> != ''
 
+        >>> r = Race()
         >>> runner_1 = Runner('Gerhard','gerhard@gmail.com', 'lt40')
         >>> r.register(runner_1)
-        >>> fetched_runner_1 = r.get_runners('Gerhard')
+        >>> fetched_runner_1 = r.get_runner('Gerhard')
         >>> fetched_runner_1.name
         'Gerhard'
-        >>> fetched_runner_2 = r.get_runners('Toni')
+        >>> fetched_runner_2 = r.get_runner('Toni')
         >>> fetched_runner_2
-        None
         """
-        pass
+
+        for runner in self.runners:
+            if runner.name != name:
+                continue
+
+            return runner
+
+        return None
 
 if __name__ == '__main__':
     import doctest
