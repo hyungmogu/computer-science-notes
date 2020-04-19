@@ -48,14 +48,19 @@ class Helicopter(Vehicle):
 Question 8.2
 """
 
- class UnreliableMagicCarpet:
+class UnreliableMagicCarpet:
 
     def __init__(self, initial_fuel: int,
                     initial_position: Tuple[int, int] = (0,0)) -> None:
         super().__init__()
 
         random.seed(datetime.now())
-        self.position = (random.randint(-100,100), random.randint(-100,100))
+        self.position = (random.randint(-10,10), random.randint(-10,10)) #<- Correct solution
+
+    def fuel_needed(self, new_x: int, new_y: int) -> int:
+        return 0 # <- Correct Solution
 
     def move(self, new_x: int, new_y: int) -> None:
-        self.position = (random.randint(-100,100), random.randint(-100,100))
+        new_x = self.position[0] + random.randint(-2, 2) # <- Correct Solution
+        new_y = self.position[1] + random.randint(-2, 2) # <- Correct Solution
+        self.position = (new_x, new_y) # <- Correct Solution
