@@ -375,6 +375,39 @@
     \textit{fuel\_needed} and \textit{move}.
     \item Of these inherited methods, \textit{fuel\_needed} needs to be
     implemented by overriding it.
+    \item
+
+    The two methods needs overriding: \textit{\_\_init\_\_} and \textit{fuel\_needed}.
+
+    \bigskip
+
+    For \textit{\_\_init\_\_}, because we need to set the parameter \textit{initial\_position}
+    as optional while keeping the rest of the code the same, we want to call the
+    parent method as a helper
+
+    \begin{lstlisting}[language=Python]
+    class Car:
+
+        def __init__(self, initial_fuel: int,
+                     initial_position: Tuple[int, int] = (0,0)) -> None:
+
+            super().__init__()
+
+    \end{lstlisting}
+
+    \bigskip
+
+    For \textit{fuel\_needed}, because we need to replace contents within, the
+    parent class method shouldn't be called as a helper.
+
+    \begin{lstlisting}[language=Python]
+    class Car:
+        def fuel_needed(self, new_x: int, new_y: int) -> int:
+            # New lines of code here
+
+    \end{lstlisting}
+
+
 \end{enumerate}
 
 
