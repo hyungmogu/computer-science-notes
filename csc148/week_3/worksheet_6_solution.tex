@@ -146,6 +146,74 @@
         \end{itemize}
     \end{itemize}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Car
+            \begin{itemize}
+                \color{red}
+                \item \_\_init\_\_
+                \begin{itemize}
+                    \item Necessary because the parameter \textit{position} must be
+                    set as optional
+                    \item Necessary because \textit{self.position} must default
+                    to (0,0) if the argument of position not given.
+                \end{itemize}
+                \item fuel\_needed
+                \begin{itemize}
+                    \item Necessary because vehicle uses fuel
+                    \item Necessary because needs to define the fuel cost based
+                    on it not being able to moving diagonally.
+                \end{itemize}
+                \color{black}
+            \end{itemize}
+            \item Helicopter
+            \begin{itemize}
+                \color{red}
+                \item \_\_init\_\_
+                \begin{itemize}
+                    \item Necessary because the parameter \textit{position} must be
+                    set as optional
+                    \item Necessary because \textit{self.position} must default
+                    to (3,5) if the argument of position not given.
+                \end{itemize}
+                \item fuel\_needed
+                \begin{itemize}
+                    \item Necessary because vehicle uses fuel
+                    \item Necessary because needs to define the fuel cost based
+                    on it being able to move diagonally.
+                \end{itemize}
+                \color{black}
+            \end{itemize}
+            \item MagicCarpet
+            \begin{itemize}
+                \item \_\_init\_\_
+                \color{red}
+                \begin{itemize}
+                    \item Necessary to set the parameters \textit{initial\_fuel},
+                    \textit{initial\_position} as optional
+                    \item Necessary to randomize the value of \\\textit{self.position}.
+                \end{itemize}
+                \color{black}
+                \item move
+                \color{red}
+                \begin{itemize}
+                    \item Necessary to set the parameters \textit{new\_x} and \textit{new\_y}
+                    as optional.
+                    \item Necessary to randomize the value of new position.
+                \end{itemize}
+                \color{black}
+
+            \end{itemize}
+        \end{itemize}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 3}
