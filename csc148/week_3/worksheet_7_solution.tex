@@ -429,7 +429,94 @@
     \item Realized that `group' in question means `group 1`, `group 2` and `group 3' in question 2 :(.
 \end{itemize}
 
+\bigskip
+
 \section*{Question 5}
+\begin{itemize}
+    \item
+
+    \bigskip
+
+    We need to find the highest and the lowest possible score on this criterion.
+
+    \bigskip
+
+    We will do so in parts.
+
+    \bigskip
+
+    \underline{\textbf{Part 1 (Calculating highest possible group score):}}
+
+    \bigskip
+
+    We need to find the highest possible group score on this criterion.
+
+    \bigskip
+
+    The definition of group score tells us that
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \text{Group Score} = \frac{\displaystyle\sum\limits_{i=0}^{n-1} \displaystyle\sum\limits_{j=i+1}^{n-1} \left(1 - \displaystyle\frac{\lvert student\_year_i - student\_year_j \rvert}{5} \right)}{\text{\# of elements in list of similarities}}
+    \end{align}
+
+    \bigskip
+
+    By observation, we can conclude that the highest possible group score happens when
+    $\lvert student\_year_i - student\_year_j \rvert = 0$.
+
+    \bigskip
+
+    Then, using this fact, we can calculate that
+
+    \begin{align}
+        \text{Group Score} &= \frac{\displaystyle\sum\limits_{i=0}^{n-1} \displaystyle\sum\limits_{j=i+1}^{n-1} \left(1 - \displaystyle\frac{\lvert student\_year_i - student\_year_j \rvert}{5} \right)}{\text{\# of elements in list of similarities}}\\
+        &= \frac{\displaystyle\sum\limits_{i=0}^{n-1} \displaystyle\sum\limits_{j=i+1}^{n-1} 1}{\text{\# of elements in list of similarities}}
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $\sum\limits_{i=0}^{n-1}\sum\limits_{j=i+1}^{n-1} 1 = \text{\# of elements in list of similarities}$,
+    we can conclude
+
+    \begin{align}
+        &= \frac{\text{\# of elements in list of similarities}}{\text{\# of elements in list of similarities}}\\
+        &= 1
+    \end{align}
+
+    \bigskip
+
+    \underline{\textbf{Part 2 (Calculating lowest possible group score):}}
+
+    \bigskip
+
+    We need to find the lowest possible group score achievable on this criterion.
+
+    \bigskip
+
+    The definition of group score tells us that
+
+    \begin{align}
+        \text{Group Score} = \frac{\displaystyle\sum\limits_{i=0}^{n-1} \displaystyle\sum\limits_{j=i+1}^{n-1} \left(1 - \displaystyle\frac{\lvert student\_year_i - student\_year_j \rvert}{5} \right)}{\text{\# of elements in list of similarities}}
+    \end{align}
+
+    \bigskip
+
+    By observation, we can conclude that the lowest possible group score happens when
+    $\lvert student\_year_i - student\_year_j \rvert = 5$.
+
+    \bigskip
+
+    Then, using this fact, we can calculate that
+
+    \begin{align}
+        \text{Group Score} &= \frac{\displaystyle\sum\limits_{i=0}^{n-1} \displaystyle\sum\limits_{j=i+1}^{n-1} \left(1 - \displaystyle\frac{\lvert student\_year_i - student\_year_j \rvert}{5} \right)}{\text{\# of elements in list of similarities}}\\
+        &= \frac{\displaystyle\sum\limits_{i=0}^{n-1} \displaystyle\sum\limits_{j=i+1}^{n-1} 0}{\text{\# of elements in list of similarities}}\\
+        &= \frac{0}{\text{\# of elements in list of similarities}}\\
+        &= 0
+    \end{align}
+\end{itemize}
+
 
 \section*{Question 6}
 
