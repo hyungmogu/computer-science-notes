@@ -44,6 +44,25 @@
 \section*{2) Become familiar with class \textit{NumberGame}}
 \begin{enumerate}[1.]
     \item What attribute stores the players of the game?
+
+    \begin{itemize}
+    \item The players of the game are stored in instance attribute \textit{players}.
+
+    \begin{lstlisting}[language=Python]
+    class NumberGame:
+        ...
+        def __init__(
+            self,
+            goal: int,
+            min_step: int,
+            max_step: int,
+            players: Tuple[Player, Player]
+        ) -> None:
+            ...
+            self.players = players # <- Here!
+    \end{lstlisting}
+    \end{itemize}
+
     \item If \textit{turn} is 15, whose turn is it?
     \item Write a line of code that would create an instance of \textit{NumberGame}
     that violates one of the representation invariants.
