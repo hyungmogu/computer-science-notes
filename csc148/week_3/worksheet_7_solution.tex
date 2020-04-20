@@ -120,6 +120,12 @@
     group of 3 years (2 $5^{th}$ year students, 1 $4^{th}$ year students and 1
     $3^{rd}$ year student) best satisfy this criterion.
 
+    \bigskip
+
+    \begin{mdframed}
+
+    \end{mdframed}
+
 \end{itemize}
 
 \section*{Question 4}
@@ -217,6 +223,189 @@
     For the least homogeneous group, the group score is $\frac{9}{16}$.
 
 \end{itemize}
+
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    We will calculate the group score \color{red}using\color{black}\:the code below. The code
+    is also included in \textit{worksheet\_7\_q4\_solution.py}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Python]
+    def get_similarity_list(group):
+        """Evaluates the list of similarities""" # <- Correct solution
+        similarity_list = []
+
+        i = 0
+
+        while i < len(group): # <- correct solution
+            j = i + 1 # <- correct solution
+            while j < len(group): # <- correct solution
+                # find the scaled distance
+                scaled_distance = abs(group[i]['year'] - group[j]['year']) / 5.0 # <- correct solution
+
+                # find the similarity
+                similarity = 1 - scaled_distance
+
+                # add to list
+                similarity_list.append(similarity)
+
+                j += 1
+            i += 1
+
+        return similarity_list
+
+
+    if __name__ == '__main__':
+        # Correct Solution
+        group_1 = [{'name': 'Primya', 'year': 3},
+        {'name': 'Alain', 'year': 2},
+        {'name': 'Zoe', 'year': 3},
+        {'name': 'Francesco', 'year': 3}]
+
+        # Correct Solution
+        group_2 = [{'name': 'Mohammed', 'year': 4},
+        {'name': 'Xiaoyuan', 'year': 5},
+        {'name': 'Rohit', 'year': 2},
+        {'name': 'Yimin', 'year': 3}]
+
+        # Correct Solution
+        group_3 = [{'name': 'Grace', 'year': 5},
+        {'name': 'Claire', 'year': 1},
+        {'name': 'Kai', 'year': 1}]
+
+        # Correct Solution
+        list_1 =  get_similarity_list(group_1)
+        print(list_1)
+
+        # Correct Solution
+        list_2 =  get_similarity_list(group_2)
+        print(list_2)
+
+        # Correct Solution
+        list_3 =  get_similarity_list(group_3)
+        print(list_3)
+
+    \end{lstlisting}
+
+    \bigskip
+
+    \color{red}
+    We will calculate the score of each group in parts.
+
+    \bigskip
+
+    \underline{\textbf{Part 1 (Score of Group 1):}}
+
+    \bigskip
+
+    We need to calculate the score of group 1.
+
+    \bigskip
+
+    The problem tells us the group score is
+
+    \begin{align}
+        \text{Group Score} = \frac{\sum \text{similarities}}{\text{\# of elements in list of similarities}}
+    \end{align}
+
+    \bigskip
+
+    and the above program tells us that the list of similarities are
+
+    \begin{align}
+        [0.8, 1.0, 1.0, 0.8, 0.8, 1.0]
+    \end{align}
+
+    \bigskip
+
+    Then, using these facts, we can conclude that
+
+    \begin{align}
+        \text{Group Score} &= \frac{0.8 + 1.0 + 1.0 + 0.8 + 0.8 + 1.0}{6}\\
+        &= \frac{\frac{4}{5} + 1 + 1 + \frac{4}{5} + \frac{4}{5} + 1}{6}\\
+        &= \frac{\frac{4}{5} + \frac{5}{5} + \frac{5}{5} + \frac{4}{5} + \frac{4}{5} + \frac{5}{5}}{6}\\
+        &= \frac{\frac{27}{4}}{6}\\
+        &= \frac{27}{30}\\
+        &= \frac{9}{10}
+    \end{align}
+
+    \bigskip
+
+    \underline{\textbf{Part 2 (Score of Group 2):}}
+
+    \bigskip
+
+    We need to calculate the score of group 2.
+
+    \bigskip
+
+    The problem tells us the group score is
+
+    \begin{align}
+        \text{Group Score} = \frac{\sum \text{similarities}}{\text{\# of elements in list of similarities}}
+    \end{align}
+
+    \bigskip
+
+    and the above program tells us that the list of similarities are
+
+    \begin{align}
+        [0.8, 0.6, 0.8, 0.4, 0.6, 0.8]
+    \end{align}
+
+    \bigskip
+
+    Then, we can conclude that the value of group score is
+
+    \begin{align}
+        \frac{0.8 + 0.6 + 0.8 + 0.4 + 0.6 + 0.8}{6} &= \frac{\frac{4}{5} + \frac{3}{5} + \frac{4}{5} + \frac{2}{5} + \frac{3}{5} + \frac{4}{5}}{6}\\
+        &= \frac{\frac{20}{5}}{6}\\
+        &= \frac{20}{30}\\
+        &= \frac{2}{3}
+    \end{align}
+
+    \bigskip
+
+    \underline{\textbf{Part 3 (Score of Group 3):}}
+
+    \bigskip
+
+    We need to calculate the score of group 3.
+
+    \bigskip
+
+    The problem tells us the group score is
+
+    \begin{align}
+        \text{Group Score} = \frac{\sum \text{similarities}}{\text{\# of elements in list of similarities}}
+    \end{align}
+
+    \bigskip
+
+    and the above program tells us that the list of similarities are
+
+    \begin{align}
+        [0.2, 0.2, 1.0]
+    \end{align}
+
+    \bigskip
+
+    Then, we can conclude that the value of group score is
+
+    \begin{align}
+        \frac{0.2 + 0.2 + 1.0}{3} &= \frac{\frac{1}{5} + \frac{1}{5} + \frac{5}{5}}{3}\\
+        &= \frac{\frac{7}{5}}{3}\\
+        &= \frac{7}{15}
+    \end{align}
+
+    \color{black}
+\end{mdframed}
 
 \section*{Question 5}
 
