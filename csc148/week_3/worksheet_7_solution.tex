@@ -1148,7 +1148,289 @@
             \end{mdframed}
         \end{enumerate}
 
+        \bigskip
+
+        \begin{mdframed}
+
+            First, we need to calculate the score of criterion a for each group.
+
+            \bigskip
+
+            We will do so in parts.
+
+            \bigskip
+
+            \underline{\textbf{Part 1.1 (Calculating the score of criterion a for group 1):}}
+
+            \bigskip
+
+            We need to calculate the score of criterion a for group 1.
+
+            \bigskip
+
+            The formula of calculating the score of criterion a tells us
+
+            \begin{align}
+                \text{Score of Criterion a} = \frac{\sum \text{similarities}}{\text{\# of elements in list of similarities}}
+            \end{align}
+
+            , and we know from the code we know from the code in question 4 that group 1 has the following
+            list of similarities
+
+            \begin{align}
+                [1,1,1,1,1,1]
+            \end{align}
+
+            \bigskip
+
+            Using these facts, we can conclude
+
+            \begin{align}
+                \text{Score of Criterion a} &= \frac{1 + 1 + 1 + 1 + 1 + 1}{\text{\# of elements in list of similarities}}\\
+                &= \frac{1 + 1 + 1 + 1 + 1 + 1}{6}\\
+                &= \frac{6}{6}\\
+                &= 1
+            \end{align}
+
+            \bigskip
+
+            \underline{\textbf{Part 1.2 (Calculating the score of criterion a for group 2):}}
+
+            \bigskip
+
+            We need to calculate the score of criterion a for group 2.
+
+            \bigskip
+
+            The formula of calculating the score of criterion a tells us
+
+            \begin{align}
+                \text{Score of Criterion a} = \frac{\sum \text{similarities}}{\text{\# of elements in list of similarities}}
+            \end{align}
+
+            , and we know from the code we know from the code in question 4 that group 2 has the following
+            list of similarities
+
+            \begin{align}
+                [1,0.8,0.8,0.8,0.8,1]
+            \end{align}
+
+            \bigskip
+
+            Using these facts, we can conclude
+
+            \begin{align}
+                \text{Score of Criterion a} &= \frac{1 + 0.8 + 0.8 + 0.8 + 0.8 + 1}{\text{\# of elements in list of similarities}}\\
+                &= \frac{\frac{5}{5} + \frac{4}{5} + \frac{4}{5} + \frac{4}{5} + \frac{4}{5} + \frac{5}{5}}{6}\\
+                &= \frac{26}{30}
+            \end{align}
+
+            \bigskip
+
+            \underline{\textbf{Part 1.3 (Calculating the score of criterion a for group 3):}}
+
+            \bigskip
+
+            We need to calculate the score of criterion a for group 3.
+
+            \bigskip
+
+            The formula of calculating the score of criterion a tells us
+
+            \begin{align}
+                \text{Score of Criterion a} = \frac{\sum \text{similarities}}{\text{\# of elements in list of similarities}}
+            \end{align}
+
+            , and we know from the code we know from the code in question 4 that group 3 has the following
+            list of similarities
+
+            \begin{align}
+                [0.8,0.8,1]
+            \end{align}
+
+            \bigskip
+
+            Using these facts, we can conclude
+
+            \begin{align}
+                \text{Score of Criterion a} &= \frac{0.8 + 0.8 + 1}{\text{\# of elements in list of similarities}}\\
+                &= \frac{\frac{4}{5} + \frac{4}{5} + \frac{5}{5}}{3}\\
+                &= \frac{13}{15}
+            \end{align}
+
+        \end{mdframed}
+
         \item Show the total score of each group
+
+        \bigskip
+
+        Second, we need to calculate the total score of each group
+
+        \bigskip
+
+        We will do so in parts.
+
+
+        \begin{enumerate}[1.]
+            \item Part 1 (Calculating the total score for group 1)
+
+            \begin{mdframed}
+                We need to calculate the total score of group 1.
+
+                \bigskip
+
+                The formula for total score tells us
+                \setcounter{equation}{0}
+                \begin{align}
+                    \text{Total Score} &= (\text{Score of Criterion a} \times 80) + (\text{Score of Criterion b} \times 20)
+                \end{align}
+
+                \bigskip
+
+                Since we know group 1 has score of $1$ for criteron a) and score of $0$ for
+                criterion b), we can conclude the total score is
+
+                \begin{align}
+                    (1 \times 80) + (0 \times 20) &= 80
+                \end{align}
+            \end{mdframed}
+
+            \item Part 2 (Calculating the total score for group 2)
+
+            \begin{mdframed}
+                We need to calculate the total score of group 2.
+
+                \bigskip
+
+                The formula for total score tells us
+                \setcounter{equation}{0}
+                \begin{align}
+                    \text{Total Score} &= (\text{Score of Criterion a} \times 80) + (\text{Score of Criterion b} \times 20)
+                \end{align}
+
+                \bigskip
+
+                Since we know group 2 has score of $\frac{26}{30}$ for criteron a) and score of $1$ for
+                criterion b), we can conclude the total score is
+
+                \begin{align}
+                    (\frac{26}{30} \times 80) + (1 \times 20) &= 89.333333\\
+                    &\approx 89
+                \end{align}
+            \end{mdframed}
+
+            \item Part 3 (Calculating the total score for group 3)
+
+            \begin{mdframed}
+                We need to calculate the total score of group 3.
+
+                \bigskip
+
+                The formula for total score tells us
+                \setcounter{equation}{0}
+                \begin{align}
+                    \text{Total Score} &= (\text{Score of Criterion a} \times 80) + (\text{Score of Criterion b} \times 20)
+                \end{align}
+
+                \bigskip
+
+                Since we know group 3 has score of $\frac{13}{15}$ for criteron a) and score of $0$ for
+                criterion b), we can conclude the total score is
+
+                \begin{align}
+                    (\frac{13}{15} \times 80) + (0 \times 20) &= 69.333333\\
+                    &\approx 69
+                \end{align}
+            \end{mdframed}
+        \end{enumerate}
+
+        \begin{mdframed}
+
+            Second, we need to calculate the total score of each group.
+
+            \bigskip
+
+            We will do so in parts.
+
+            \bigskip
+
+            \underline{\textbf{Part 2.1 (Calculating the total score for group 1):}}
+
+            \bigskip
+
+            We need to calculate the total score of group 1.
+
+            \bigskip
+
+            The formula for total score tells us
+            \setcounter{equation}{0}
+            \begin{align}
+                \text{Total Score} &= (\text{Score of Criterion a} \times 80) + (\text{Score of Criterion b} \times 20)
+            \end{align}
+
+            \bigskip
+
+            Since we know group 1 has score of $1$ for criteron a) and score of $0$ for
+            criterion b), we can conclude the total score is
+
+            \begin{align}
+                (1 \times 80) + (0 \times 20) &= 80
+            \end{align}
+
+            \bigskip
+
+            \underline{\textbf{Part 2.2 (Calculating the total score for group 2):}}
+
+            \bigskip
+
+            We need to calculate the total score of group 2.
+
+            \bigskip
+
+            The formula for total score tells us
+            \setcounter{equation}{0}
+            \begin{align}
+                \text{Total Score} &= (\text{Score of Criterion a} \times 80) + (\text{Score of Criterion b} \times 20)
+            \end{align}
+
+            \bigskip
+
+            Since we know group 2 has score of $\frac{26}{30}$ for criteron a) and score of $1$ for
+            criterion b), we can conclude the total score is
+
+            \begin{align}
+                (\frac{26}{30} \times 80) + (1 \times 20) &= 89.333333\\
+                &\approx 89
+            \end{align}
+
+            \bigskip
+
+            \underline{\textbf{Part 2.3 (Calculating the total score for group 3):}}
+
+            \bigskip
+
+            We need to calculate the total score of group 3.
+
+            \bigskip
+
+            The formula for total score tells us
+            \setcounter{equation}{0}
+            \begin{align}
+                \text{Total Score} &= (\text{Score of Criterion a} \times 80) + (\text{Score of Criterion b} \times 20)
+            \end{align}
+
+            \bigskip
+
+            Since we know group 3 has score of $\frac{13}{15}$ for criteron a) and score of $0$ for
+            criterion b), we can conclude the total score is
+
+            \begin{align}
+                (\frac{13}{15} \times 80) + (0 \times 20) &= 69.333333\\
+                &\approx 69
+            \end{align}
+
+        \end{mdframed}
+
         \item Show the average total score of the 3 groups is higher than
         60.667
     \end{itemize}
