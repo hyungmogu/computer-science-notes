@@ -2,7 +2,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{titling}
 \usepackage{enumerate}
-\usepackage{graphicx}
+\usepackage{float,graphicx}
 \usepackage{mdframed}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -50,7 +50,7 @@
 
     \bigskip
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
         \begin{tabular}{|p{3.25cm}|}
             \hline
@@ -120,6 +120,71 @@
     starter code.
     \item Decide which methods belong in which class and add them to the appropriate
     spot in your diagram.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tabular}{|p{3.25cm}|}
+            \hline
+            \textbf{Player}\\
+            \hline
+            Data:\\
+            \\
+            \\
+            \\
+            \hline
+            Operations:\\
+            - \textit{move} \\
+            \\
+            \\
+            \hline
+        \end{tabular}
+        \begin{tabular}{|p{3.25cm}|}
+            \hline
+            \textbf{RandomPlayer}\\
+            \hline
+            Data:\\
+            \\
+            \\
+            \\
+            \hline
+            Operations:\\
+            - \textit{move} \\
+            \\
+            \\
+            \hline
+        \end{tabular}
+        \begin{tabular}{|p{3.25cm}|}
+            \hline
+            \textbf{StrategicPlayer}\\
+            \hline
+            Data:\\
+            \\
+            \\
+            \\
+            \hline
+            Operations:\\
+            - \textit{move} \\
+            \\
+            \\
+            \hline
+        \end{tabular}
+        \begin{tabular}{|p{3.25cm}|}
+            \hline
+            \textbf{UserPlayer}\\
+            \hline
+            Data:\\
+            \\
+            \\
+            \\
+            \hline
+            Operations:\\
+            - \textit{move} \\
+            \\
+            \\
+            \hline
+        \end{tabular}
+    \end{figure}
+
     \item What information must be stored in order in order for these methods to provide
     their services?
     \item Don’t worry about attribute names or types yet, just describe the information
