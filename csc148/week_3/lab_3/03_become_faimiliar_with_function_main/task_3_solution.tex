@@ -201,8 +201,75 @@
             \end{mdframed}
 
             \item Find where the instance attribute of \textit{Player} is accessed or set.
+            \bigskip
+
+            \begin{mdframed}
+
+            Second, we need to find where the instance attribute of \textit{Player} is accessed or set.
+
+            \bigskip
+
+            By observation, we can conclude there are two places where one or more instance
+            attributes of \textit{Player} is accessed or set.
+
+            \bigskip
+
+            The first one is inside \textit{play} method.
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def play(self) -> str:
+                    ...
+                    winner = self.whose_turn(self.turn - 1)
+                    return winner.name # <- Here!!
+            \end{lstlisting}
+
+            \bigskip
+
+            The second one is inside \textit{play\_one\_turn} method.
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def play_one_turn(self) -> None:
+                    ...
+                    print(f'{next_player.name} moves {amount}.') # <- Here!!
+                    print(f'Total is now {self.current}.')
+            \end{lstlisting}
+
+            \end{mdframed}
 
             \item Find where a method of \textit{Player} is called.
+
+            \bigskip
+
+            \begin{mdframed}
+
+            Finally, we need to find where method of \textit{Player} is
+            called.
+
+            \bigskip
+
+            By observation, we can conclude one method of \textit{Player}
+            is used, and it is called inside \textit{play\_one\_turn} method.
+
+            \bigskip
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def play_one_turn(self) -> None:
+                    next_player = self.whose_turn(self.turn)
+                    amount = next_player.move( # <- Here!!
+                        self.current,
+                        self.min_step,
+                        self.max_step,
+                        self.goal
+                    )
+            \end{lstlisting}
+
+            \end{mdframed}
 
         \end{enumerate}
 
