@@ -45,6 +45,28 @@
 \section*{3) Become familiar with function \textit{main}}
 \begin{enumerate}[1.]
     \item Where is a \textit{NumberGame} constructed?
+
+    \begin{itemize}
+        \item
+        By observation, we can conclude a \textit{NumberGame} constructed
+        inside function \textit{main}
+
+        \begin{lstlisting}[language=Python]
+        def main() -> None:
+            ...
+            while True:
+                g = NumberGame(goal, minimum, maximum, (p1, p2)) #<- Here!!
+                winner = g.play()
+                print(f'And {winner} is the winner!!!')
+                print(p1)
+                print(p2)
+                again = input('Again? (y/n) ')
+                if again != 'y':
+                    return
+
+        \end{lstlisting}
+    \end{itemize}
+
     \item This function calls \textit{g.play} repeatedly in a loop. What about the
     game can change each time \textit{g.play} is called: the goal, the min or max
     move, the players, the moves?
