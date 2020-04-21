@@ -297,6 +297,143 @@
 
     \item Which of the representation invariants is it possible to violate by
     constructing a \textit{NumberGame} improperly?
+
+    \begin{itemize}
+        \item
+
+        The following code tells us that the constructor of class \textit{NumberGame} has four
+        representational invariants as parameter types
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+        def __init__(self, goal: int, min_step: int, max_step: int,
+            players: Tuple[Player, Player]) -> None:
+        \end{lstlisting}
+
+        \bigskip
+
+        , and one as precondition
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+        """
+        ...
+        Precondition: 0 < min_step <= max_step <= goal
+        """
+        \end{lstlisting}
+
+        \bigskip
+
+        Using these facts, we can conclude that any of the five
+        representational invariants can become violated when
+
+        \begin{enumerate}[1.]
+            \item One or more arguments in \textit{\_\_init\_\_} are of incorrect data type
+            \item $0 \geq \textit{min\_step} > \textit{max\_step} > \textit{goal}$
+        \end{enumerate}
+
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Rough Work:}}
+
+            \bigskip
+
+            We need to determine which of the representational invariant is
+            possible to violate by improperly constructing \textit{NumberGame}.
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item State that the initializer of \textit{NumberGame} has
+                five representational invariants, four regarding parameter types
+                and one regarding precondition.
+
+                \begin{mdframed}
+                The following code tells us that the constructor of class \textit{NumberGame} has four
+                representational invariants as parameter types
+
+                \bigskip
+
+                \begin{lstlisting}[language=Python]
+                def __init__(self, goal: int, min_step: int, max_step: int,
+                    players: Tuple[Player, Player]) -> None:
+                \end{lstlisting}
+
+                \bigskip
+
+                , and one as precondition
+
+                \bigskip
+
+                \begin{lstlisting}[language=Python]
+                """
+                ...
+                Precondition: 0 < min_step <= max_step <= goal
+                """
+                \end{lstlisting}
+
+                \end{mdframed}
+
+                \item Show that constructor of \textit{NumberGame} is violated when arguements
+                are not of correct type, or precondition is not satisfied, using the stated fact.
+
+                \begin{mdframed}
+                Using these facts, we can conclude that any of the five
+                representational invariants can become violated when
+
+                \begin{enumerate}[1.]
+                    \item One or more arguments in \textit{\_\_init\_\_} are of incorrect data type
+                    \item $0 \geq \textit{min\_step} > \textit{max\_step} > \textit{goal}$
+                \end{enumerate}
+
+                \end{mdframed}
+
+            \end{enumerate}
+
+            \begin{mdframed}
+            The following code tells us that the constructor of class \textit{NumberGame} has four
+            representational invariants as parameter types
+
+            \bigskip
+
+            \begin{lstlisting}[language=Python]
+            def __init__(self, goal: int, min_step: int, max_step: int,
+                players: Tuple[Player, Player]) -> None:
+            \end{lstlisting}
+
+            \bigskip
+
+            , and one as precondition
+
+            \bigskip
+
+            \begin{lstlisting}[language=Python]
+            """
+            ...
+            Precondition: 0 < min_step <= max_step <= goal
+            """
+            \end{lstlisting}
+
+            \bigskip
+
+            Using these facts, we can conclude that any of the five
+            representational invariants can become violated when
+
+            \begin{enumerate}[1.]
+                \item One or more arguments in \textit{\_\_init\_\_} are of incorrect data type
+                \item $0 \geq \textit{min\_step} > \textit{max\_step} > \textit{goal}$
+            \end{enumerate}
+
+            \end{mdframed}
+        \end{mdframed}
+
+
+    \end{itemize}
+
     \item List all the places in this class where a \textit{Player} is stored, an instance
     attribute of \textit{Player} is accessed or set, or a method is called on a \textit{Player}
 \end{enumerate}
