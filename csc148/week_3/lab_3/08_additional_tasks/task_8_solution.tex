@@ -99,6 +99,85 @@
 
 \subsection*{8.2) A strategic player}
 
+The solution to this problem makes following assumptions:
+
+\begin{itemize}
+    \item \textit{goal} of 21
+    \item \textit{min\_step} of 1
+    \item \textit{max\_step} of 3
+    \item one of the player as \textit{StrategicPlayer}
+    \item the other as \textit{RandomPlayer}
+\end{itemize}
+
+\bigskip
+
+\noindent We need to create \textit{StrategicPlayer} that always wins as
+player 1, and does win as player 2 when a bad move is by the other player.
+Also, we need to adjust \textit{make\_player} so a player's type can be
+chosen by user.
+
+\bigskip
+
+\begin{lstlisting}[language=Python]
+    ...
+
+    # =============== SOLUTION (Task 8.2) ================
+
+    class StrategicPlayer(Player):
+
+        def move(self, current: int, min_step: int,
+                 max_step: int, goal: int) -> int:
+
+            return 3
+    # ====================================================
+
+    ...
+
+    def make_player(generic_name: str) -> Player:
+        ...
+
+        # =============== SOLUTION (Task 8.2) ================
+        player_type_list = ['r', 'u', 's']
+
+        while True:
+            player_type = input(
+                'Enter player type '
+                '(r - Random Player, u - User Player, s - Strategic Player)')
+
+            if player_type not in player_type_list:
+                print('Please select one of the three values '
+                      '({})'.format(','.join(player_type_list)))
+                continue
+
+            break
+
+        if player_type == 'u':
+            return UserPlayer(name)
+        elif player_type == 's':
+            return StrategicPlayer(name)
+        elif player_type == 'r':
+            return RandomPlayer(name)
+
+        # ====================================================
+
+    ...
+
+    if __name__ == '__main__':
+        # Uncomment the lines below to check your work using
+        # python_ta and doctest.
+        # import python_ta
+        # python_ta.check_all(config={
+        #     'extra-imports': ['random'],
+        #     'allowed-io': [
+        #         'main',
+        #         'make_player',
+        #         'move',
+        #         'play_one_turn'
+        #     ]
+        # })
+        main()
+\end{lstlisting}
+
 \subsection*{8.3) Tracking and reporting a player’s record}
 
 \end{document}
