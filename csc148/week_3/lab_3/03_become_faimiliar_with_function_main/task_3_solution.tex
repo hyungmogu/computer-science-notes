@@ -148,6 +148,67 @@
     \item List all the places in this function where a \textit{Player} is stored,
     an instance attribute of \textit{Player} is accessed or set, or a method is
     called on a \textit{Player}.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        We need to find all places in this function where \textit{Player} is stored,
+        where an instance attribute of \textit{Player} is accessed or set, or where
+        a method is called on a \textit{Player}.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Find where \textit{Player} is stored.
+
+            \bigskip
+
+            \begin{mdframed}
+
+            First, we need to find where \textit{Player} is stored.
+
+            \bigskip
+
+            Because we know from code that the third argument in \textit{NumberGame}
+            is of type Tuple[Player, Player], we can conclude \textit{Player} is
+            stored inside variables \textit{p1} and \textit{p2}
+
+            \begin{lstlisting}[language=Python]
+            def main() -> None:
+                """Play multiple rounds of a NumberGame based on user input settings.
+                """
+                goal = int(input('Enter goal amount: '))
+                minimum = int(input('Enter minimum move: '))
+                maximum = int(input('Enter maximum move: '))
+                p1 = make_player('p1') # <- Here!!
+                p2 = make_player('p2') # <- Here!!
+                while True:
+                    g = NumberGame(goal, minimum, maximum, (p1, p2)) # <- Here!!
+                    winner = g.play()
+                    print(f'And {winner} is the winner!!!')
+                    print(p1)
+                    print(p2)
+                    again = input('Again? (y/n) ')
+                    if again != 'y':
+                        return
+            \end{lstlisting}
+
+
+            \end{mdframed}
+
+            \item Find where the instance attribute of \textit{Player} is accessed or set.
+
+            \item Find where a method of \textit{Player} is called.
+
+        \end{enumerate}
+
+    \end{mdframed}
+
+
 \end{enumerate}
 
 \end{document}
