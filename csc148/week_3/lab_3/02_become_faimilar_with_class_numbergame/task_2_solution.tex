@@ -436,7 +436,93 @@
     \item List all the places in this class where a \textit{Player} is stored, an instance
     attribute of \textit{Player} is accessed or set, or a method is called on a \textit{Player}
 
-    \bigskip
+    \begin{itemize}
+        \item  We need to find all places in \textit{NumberGame} class where one a
+        \textit{Player} is stored, where an instance attribute of \textit{Player}
+        is accessed or set, or where a method is called on a \textit{Player}.
+
+        \bigskip
+
+        First, we need to find where \textit{Player} is stored.
+
+        \bigskip
+
+        By observation, we can conclude \textit{Player} is stored in
+        instance attribute \textit{players} under the initializer method.
+
+        \begin{lstlisting}[language=Python]
+        class NumberGame:
+            def __init__(self, goal: int, min_step: int, max_step: int,
+                players: Tuple[Player, Player]) -> None:
+                """Initialize this NumberGame.
+
+                Precondition: 0 < min_step <= max_step <= goal
+                """
+
+                self.players = players # Here
+        \end{lstlisting}
+
+        \bigskip
+
+        Second, we need to find where the instance attribute of \textit{Player} is accessed or set.
+
+        \bigskip
+
+        By observation, we can conclude there are two places where one or more instance
+        attributes of \textit{Player} is accessed or set.
+
+        \bigskip
+
+        The first one is inside \textit{play} method.
+
+        \begin{lstlisting}[language=Python]
+        class NumberGame:
+            ...
+            def play(self) -> str:
+                ...
+                winner = self.whose_turn(self.turn - 1)
+                return winner.name # <- Here!!
+        \end{lstlisting}
+
+        \bigskip
+
+        The second one is inside \textit{play\_one\_turn} method.
+
+        \begin{lstlisting}[language=Python]
+        class NumberGame:
+            ...
+            def play_one_turn(self) -> None:
+                ...
+                print(f'{next_player.name} moves {amount}.') # <- Here!!
+                print(f'Total is now {self.current}.')
+        \end{lstlisting}
+
+        \bigskip
+
+        Finally, we need to find where method of \textit{Player} is
+        called.
+
+        \bigskip
+
+        By observation, we can conclude one method of \textit{Player}
+        is used, and it is called inside \textit{play\_one\_turn} method.
+
+        \bigskip
+
+        \begin{lstlisting}[language=Python]
+        class NumberGame:
+            ...
+            def play_one_turn(self) -> None:
+                next_player = self.whose_turn(self.turn)
+                amount = next_player.move( # <- Here!!
+                    self.current,
+                    self.min_step,
+                    self.max_step,
+                    self.goal
+                )
+        \end{lstlisting}
+
+    \end{itemize}
 
     \begin{mdframed}
         \underline{\textbf{Rough Work:}}
@@ -478,13 +564,13 @@
 
             \end{mdframed}
 
-            \item Find where instance attribute of \textit{Player} is accessed or set.
+            \item Find where the instance attribute of \textit{Player} is accessed or set.
 
             \bigskip
 
             \begin{mdframed}
 
-            Second, we need to find instance attribute of \textit{Player} is accessed or set.
+            Second, we need to find where the instance attribute of \textit{Player} is accessed or set.
 
             \bigskip
 
@@ -493,7 +579,7 @@
 
             \bigskip
 
-            The first one is \textit{play} method.
+            The first one is inside \textit{play} method.
 
             \begin{lstlisting}[language=Python]
             class NumberGame:
@@ -506,7 +592,7 @@
 
             \bigskip
 
-            The second one is \textit{play\_one\_turn} method.
+            The second one is inside \textit{play\_one\_turn} method.
 
             \begin{lstlisting}[language=Python]
             class NumberGame:
@@ -530,8 +616,8 @@
 
             \bigskip
 
-            By observation, we can conclude the method \textit{move} of \textit{Player}
-            is accessed in \textit{play\_one\_turn} method.
+            By observation, we can conclude one method of \textit{Player}
+            is used, and it is called inside \textit{play\_one\_turn} method.
 
             \bigskip
 
