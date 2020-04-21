@@ -64,6 +64,106 @@
     \end{itemize}
 
     \item If \textit{turn} is 15, whose turn is it?
+
+    \bigskip
+
+    We need to determine who's turn is at turn 15.
+
+    \bigskip
+
+    The code of method \textit{whose\_turn} tells us
+
+    \bigskip
+
+    \begin{lstlisting}[language=Python]
+    class NumberGame:
+        ...
+        def whose_turn(self, turn: int) -> Player:
+            """Return the Player whose turn it is on the given turn number.
+            """
+            if turn % 2 == 0:
+                return self.players[0]
+            else:
+                return self.players[1]
+    \end{lstlisting}
+
+    \bigskip
+
+    Using this code, we can conclude that at turn 15, it's player 2's turn.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        We need to determine who's turn is at turn 15.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item State the code responsible for telling us about player's turn.
+
+            \bigskip
+
+            \begin{mdframed}
+
+                The code of method \textit{whose\_turn} tells us
+
+                \begin{lstlisting}[language=Python]
+                class NumberGame:
+                    ...
+                    def whose_turn(self, turn: int) -> Player:
+                        """Return the Player whose turn it is on the given turn number.
+                        """
+                        if turn % 2 == 0:
+                            return self.players[0]
+                        else:
+                            return self.players[1]
+                \end{lstlisting}
+
+            \end{mdframed}
+
+            \bigskip
+
+            \item Conclude it's player 2's turn at turn 15 using the method
+
+            \bigskip
+
+            \begin{mdframed}
+
+            Using this code, we can conclude that at turn 15, it's player 2's turn.
+            \end{mdframed}
+        \end{enumerate}
+
+        \begin{mdframed}
+            We need to determine who's turn is at turn 15.
+
+            \bigskip
+
+            The code of method \textit{whose\_turn} tells us
+
+            \bigskip
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def whose_turn(self, turn: int) -> Player:
+                    """Return the Player whose turn it is on the given turn number.
+                    """
+                    if turn % 2 == 0:
+                        return self.players[0]
+                    else:
+                        return self.players[1]
+            \end{lstlisting}
+
+            \bigskip
+
+            Using this code, we can conclude that at turn 15, it's player 2's turn.
+        \end{mdframed}
+    \end{mdframed}
+
     \item Write a line of code that would create an instance of \textit{NumberGame}
     that violates one of the representation invariants.
     \item Which of the representation invariants is it possible to violate by
