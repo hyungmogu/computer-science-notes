@@ -450,22 +450,105 @@
         \bigskip
 
         \begin{enumerate}[1.]
-            \item Show where \textit{Player} is stored
-
-            \bigskip
-
-            First, we need to show where \textit{Player} is stored.
+            \item Find where \textit{Player} is stored.
 
             \bigskip
 
             \begin{mdframed}
 
-            First, we need to show where \textit{Player} is stored in class
+            First, we need to find where \textit{Player} is stored.
+
+            \bigskip
+
+            By observation, we can conclude \textit{Player} is stored in
+            instance attribute \textit{players} under the initializer method.
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                def __init__(self, goal: int, min_step: int, max_step: int,
+                    players: Tuple[Player, Player]) -> None:
+                    """Initialize this NumberGame.
+
+                    Precondition: 0 < min_step <= max_step <= goal
+                    """
+
+                    self.players = players # Here
+            \end{lstlisting}
+
 
             \end{mdframed}
 
-            \item Show where instance attribute of \textit{Player} is accessed or set
-            \item Show where method is called on \textit{Player}
+            \item Find where instance attribute of \textit{Player} is accessed or set.
+
+            \bigskip
+
+            \begin{mdframed}
+
+            Second, we need to find instance attribute of \textit{Player} is accessed or set.
+
+            \bigskip
+
+            By observation, we can conclude there are two places where one or more instance
+            attributes of \textit{Player} is accessed or set.
+
+            \bigskip
+
+            The first one is \textit{play} method.
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def play(self) -> str:
+                    ...
+                    winner = self.whose_turn(self.turn - 1)
+                    return winner.name # <- Here!!
+            \end{lstlisting}
+
+            \bigskip
+
+            The second one is \textit{play\_one\_turn} method.
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def play_one_turn(self) -> None:
+                    ...
+                    print(f'{next_player.name} moves {amount}.') # <- Here!!
+                    print(f'Total is now {self.current}.')
+            \end{lstlisting}
+
+            \end{mdframed}
+
+            \item Find where a method of \textit{Player} is called.
+
+            \bigskip
+
+            \begin{mdframed}
+
+            Finally, we need to find where method of \textit{Player} is
+            called.
+
+            \bigskip
+
+            By observation, we can conclude the method \textit{move} of \textit{Player}
+            is accessed in \textit{play\_one\_turn} method.
+
+            \bigskip
+
+            \begin{lstlisting}[language=Python]
+            class NumberGame:
+                ...
+                def play_one_turn(self) -> None:
+                    next_player = self.whose_turn(self.turn)
+                    amount = next_player.move( # <- Here!!
+                        self.current,
+                        self.min_step,
+                        self.max_step,
+                        self.goal
+                    )
+            \end{lstlisting}
+
+            \end{mdframed}
         \end{enumerate}
 
     \end{mdframed}
