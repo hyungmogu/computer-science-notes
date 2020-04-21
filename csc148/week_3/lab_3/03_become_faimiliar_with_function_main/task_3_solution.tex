@@ -70,6 +70,81 @@
     \item This function calls \textit{g.play} repeatedly in a loop. What about the
     game can change each time \textit{g.play} is called: the goal, the min or max
     move, the players, the moves?
+
+    \begin{itemize}
+        \item
+
+        By observation, we can conclude that
+
+        \begin{enumerate}[1.]
+            \item the goal doesn't change
+            \item the min or max move don't change
+            \item the current player change as a result of whose\_turn method.
+
+            \begin{lstlisting}[language=Python]
+            def play(self) -> str:
+                ...
+                while self.current < self.goal:
+                    self.play_one_turn() # <- In here
+                ...
+                winner = self.whose_turn(self.turn - 1)
+                return winner.namePlayers
+
+            def play_one_turn(self) -> None:
+                ...
+                next_player = self.whose_turn(self.turn) # <- Here!!
+                amount = next_player.move(
+                    self.current,
+                    self.min_step,
+                    self.max_step,
+                    self.goal
+                )
+                self.current += amount
+                self.turn += 1
+
+                print(f'{next_player.name} moves {amount}.')
+                print(f'Total is now {self.current}.')
+
+
+            def whose_turn(self, turn: int) -> Player:
+                ...
+                if turn % 2 == 0:
+                    return self.players[0]
+                else:
+                    return self.players[1]
+
+            \end{lstlisting}
+
+            \item the move changes by the \textit{move} method in \textit{play\_one\_turn}.
+
+            \begin{lstlisting}[language=Python]
+                def play(self) -> str:
+                    ...
+                    while self.current < self.goal:
+                        self.play_one_turn()
+                    ...
+                    winner = self.whose_turn(self.turn - 1)
+                    return winner.namePlayers
+
+                def play_one_turn(self) -> None:
+                    ...
+                    next_player = self.whose_turn(self.turn)
+                    amount = next_player.move( # <- Here!!
+                        self.current,
+                        self.min_step,
+                        self.max_step,
+                        self.goal
+                    )
+                    self.current += amount
+                    self.turn += 1
+
+                    print(f'{next_player.name} moves {amount}.')
+                    print(f'Total is now {self.current}.')
+
+                \end{lstlisting}
+        \end{enumerate}
+    \end{itemize}
+
     \item List all the places in this function where a \textit{Player} is stored,
     an instance attribute of \textit{Player} is accessed or set, or a method is
     called on a \textit{Player}.

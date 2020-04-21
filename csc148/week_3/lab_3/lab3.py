@@ -75,7 +75,7 @@ class NumberGame:
         # The player whose turn would be next (if the game weren't over) is
         # the loser. The one who went one turn before that is the winner.
         winner = self.whose_turn(self.turn - 1)
-        return winner.name
+        return winner.namePlayers
 
     def whose_turn(self, turn: int) -> Player:
         """Return the Player whose turn it is on the given turn number.
