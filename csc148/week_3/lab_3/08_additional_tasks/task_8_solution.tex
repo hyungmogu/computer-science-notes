@@ -43,10 +43,62 @@
 
 \section*{8) Additional Tasks}
 
-\subsection*{A user player}
+\subsection*{8.1) A user player}
 
-\subsection*{A strategic player}
+\begin{lstlisting}[language=Python]
+    ...
+    class UserPlayer(Player):
 
-\subsection*{Tracking and reporting a player’s record}
+    def move(self, current: int, min_step: int,
+             max_step: int, goal: int) -> int:
+
+        amount = 0
+
+        while True:
+            amount_raw = input('Enter step amount ({}-{})'.format(min_step, max_step))
+
+            if len(amount_raw.strip()) == 0:
+                print('Please select integer value between {} and {}'.format(min_step, max_step))
+                continue
+
+            if re.search(r'[^0-9]+', amount_raw):
+                print('Please select integer value between {} and {}'.format(min_step, max_step))
+                continue
+
+            amount = int(amount_raw)
+            if amount < min_step or amount > max_step:
+                print('Please select steps between {} and {}'.format(min_step, max_step))
+                continue
+
+            break
+
+        return amount
+
+    ...
+    def make_player(generic_name: str) -> Player:
+        ...
+        return UserPlayer(name)
+
+    ...
+
+    if __name__ == '__main__':
+        # Uncomment the lines below to check your work using
+        # python_ta and doctest.
+        # import python_ta
+        # python_ta.check_all(config={
+        #     'extra-imports': ['random'],
+        #     'allowed-io': [
+        #         'main',
+        #         'make_player',
+        #         'move',
+        #         'play_one_turn'
+        #     ]
+        # })
+        main()
+\end{lstlisting}
+
+\subsection*{8.2) A strategic player}
+
+\subsection*{8.3) Tracking and reporting a player’s record}
 
 \end{document}
