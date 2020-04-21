@@ -151,10 +151,8 @@
 
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
-
-        \bigskip
+    \begin{itemize}
+        \item
 
         We need to find all places in this function where \textit{Player} is stored,
         where an instance attribute of \textit{Player} is accessed or set, or where
@@ -162,118 +160,180 @@
 
         \bigskip
 
-        \begin{enumerate}[1.]
-            \item Find where \textit{Player} is stored.
+        First, we need to find where \textit{Player} is stored in this function.
 
-            \bigskip
+        \bigskip
 
-            \begin{mdframed}
+        The code tells us the type of third argument in \textit{NumberGame}
+        is Tuple, and each element in the tuple is taken by the variables \textit{p1}
+        and \textit{p2}.
 
-            First, we need to find where \textit{Player} is stored.
+        \bigskip
 
-            \bigskip
-
-            Because we know from code that the third argument in \textit{NumberGame}
-            is of type Tuple[Player, Player], we can conclude \textit{Player} is
-            stored inside variables \textit{p1} and \textit{p2}
-
-            \begin{lstlisting}[language=Python]
-            def main() -> None:
-                """Play multiple rounds of a NumberGame based on user input settings.
-                """
-                goal = int(input('Enter goal amount: '))
-                minimum = int(input('Enter minimum move: '))
-                maximum = int(input('Enter maximum move: '))
-                p1 = make_player('p1') # <- Here!!
-                p2 = make_player('p2') # <- Here!!
-                while True:
-                    g = NumberGame(goal, minimum, maximum, (p1, p2)) # <- Here!!
-                    winner = g.play()
-                    print(f'And {winner} is the winner!!!')
-                    print(p1)
-                    print(p2)
-                    again = input('Again? (y/n) ')
-                    if again != 'y':
-                        return
-            \end{lstlisting}
-
-
-            \end{mdframed}
-
-            \item Find where the instance attribute of \textit{Player} is accessed or set.
-            \bigskip
-
-            \begin{mdframed}
-
-            Second, we need to find where the instance attribute of \textit{Player} is accessed or set.
-
-            \bigskip
-
-            By observation, we can conclude there are two places where one or more instance
-            attributes of \textit{Player} is accessed or set.
-
-            \bigskip
-
-            The first one is inside \textit{play} method.
-
-            \begin{lstlisting}[language=Python]
-            class NumberGame:
+        \begin{lstlisting}[language=Python]
+        def main() -> None:
+            ...
+            while True:
+                g = NumberGame(goal, minimum, maximum, (p1, p2)) # <- Here!!
                 ...
-                def play(self) -> str:
-                    ...
-                    winner = self.whose_turn(self.turn - 1)
-                    return winner.name # <- Here!!
-            \end{lstlisting}
+        \end{lstlisting}
 
-            \bigskip
+        \bigskip
 
-            The second one is inside \textit{play\_one\_turn} method.
+        Because we know each element in the tuple is of type \textit{Player}, we can
+        conclude \textit{Player} is stored inside variables \textit{p1} and
+        \textit{p2}
 
-            \begin{lstlisting}[language=Python]
-            class NumberGame:
-                ...
-                def play_one_turn(self) -> None:
-                    ...
-                    print(f'{next_player.name} moves {amount}.') # <- Here!!
-                    print(f'Total is now {self.current}.')
-            \end{lstlisting}
+        \bigskip
 
-            \end{mdframed}
+        Second, we need to find where the instance instance attribute of
+        \textit{Player} is accessed or set in this function.
 
-            \item Find where a method of \textit{Player} is called.
+        \bigskip
 
-            \bigskip
+        By observation, no instance attribute of \textit{Player} is accessed
+        or set.
 
-            \begin{mdframed}
+        \bigskip
 
-            Finally, we need to find where method of \textit{Player} is
-            called.
+        Finally, we need to find where a method of \textit{Player} is called
+        in this function.
 
-            \bigskip
+        \bigskip
 
-            By observation, we can conclude one method of \textit{Player}
-            is used, and it is called inside \textit{play\_one\_turn} method.
+        By observation, no method of \textit{Player} is accessed or set inside this function.
 
-            \bigskip
+    \end{itemize}
 
-            \begin{lstlisting}[language=Python]
-            class NumberGame:
-                ...
-                def play_one_turn(self) -> None:
-                    next_player = self.whose_turn(self.turn)
-                    amount = next_player.move( # <- Here!!
-                        self.current,
-                        self.min_step,
-                        self.max_step,
-                        self.goal
-                    )
-            \end{lstlisting}
+    \bigskip
 
-            \end{mdframed}
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
 
-        \end{enumerate}
+    %     \bigskip
 
-    \end{mdframed}
+    %     We need to find all places in this function where \textit{Player} is stored,
+    %     where an instance attribute of \textit{Player} is accessed or set, or where
+    %     a method is called on a \textit{Player}.
+
+    %     \bigskip
+
+    %     \begin{enumerate}[1.]
+    %         \item Find where \textit{Player} is stored in this function.
+
+    %         \bigskip
+
+    %         \begin{mdframed}
+
+    %         First, we need to find where \textit{Player} is stored in this function.
+
+    %         \bigskip
+
+    %         The code tells us the type of third argument in \textit{NumberGame}
+    %         is Tuple, and each element in the tuple is taken by the variables \textit{p1}
+    %         and \textit{p2}.
+
+    %         \bigskip
+
+    %         \begin{lstlisting}[language=Python]
+    %         def main() -> None:
+    %             ...
+    %             while True:
+    %                 g = NumberGame(goal, minimum, maximum, (p1, p2)) # <- Here!!
+    %                 ...
+    %         \end{lstlisting}
+
+    %         \bigskip
+
+    %         Because we know each element in the tuple is of type \textit{Player}, we can
+    %         conclude \textit{Player} is stored inside variables \textit{p1} and
+    %         \textit{p2}
+
+    %         \end{mdframed}
+
+    %         \item Find where the instance attribute of \textit{Player} is accessed
+    %         or set in this function.
+
+    %         \bigskip
+
+    %         \begin{mdframed}
+
+    %         Second, we need to find where the instance instance attribute of
+    %         \textit{Player} is accessed or set in this function.
+
+    %         \bigskip
+
+    %         By observation, no instance attribute of \textit{Player} is accessed
+    %         or set.
+
+    %         \end{mdframed}
+
+    %         \item Find where a method of \textit{Player} is called in this
+    %         function.
+
+    %         \bigskip
+
+    %         \begin{mdframed}
+
+    %         Finally, we need to find where a method of \textit{Player} is called
+    %         in this function.
+
+    %         \bigskip
+
+    %         By observation, no method of \textit{Player} is
+    %         accessed or set inside this function.
+
+    %         \end{mdframed}
+
+    %     \end{enumerate}
+
+    %     \begin{mdframed}
+    %     First, we need to find where \textit{Player} is stored in this function.
+
+    %     \bigskip
+
+    %     The code tells us the type of third argument in \textit{NumberGame}
+    %     is Tuple, and each element in the tuple is taken by the variables \textit{p1}
+    %     and \textit{p2}.
+
+    %     \bigskip
+
+    %     \begin{lstlisting}[language=Python]
+    %     def main() -> None:
+    %         ...
+    %         while True:
+    %             g = NumberGame(goal, minimum, maximum, (p1, p2)) # <- Here!!
+    %             ...
+    %     \end{lstlisting}
+
+    %     \bigskip
+
+    %     Because we know each element in the tuple is of type \textit{Player}, we can
+    %     conclude \textit{Player} is stored inside variables \textit{p1} and
+    %     \textit{p2}
+
+    %     \bigskip
+
+    %     Second, we need to find where the instance instance attribute of
+    %     \textit{Player} is accessed or set in this function.
+
+    %     \bigskip
+
+    %     By observation, no instance attribute of \textit{Player} is accessed
+    %     or set.
+
+    %     \bigskip
+
+    %     Finally, we need to find where a method of \textit{Player} is called
+    %     in this function.
+
+    %     \bigskip
+
+    %     By observation, no method of \textit{Player} is accessed or set inside this function.
+
+    %     \end{mdframed}
+
+    % \end{mdframed}
 
 
 \end{enumerate}
