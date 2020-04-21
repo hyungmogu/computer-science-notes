@@ -98,6 +98,33 @@
         \item \textit{count} variable allows the number of elements to be counted, as it is being
         removed from \textit{Stack} by \textit{pop} method.
     \end{itemize}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+        \color{red}
+        No. This is not a good solution.
+        \color{black}
+
+        \bigskip
+
+        The quick points are
+
+        \color{red}
+        \begin{itemize}
+            \item The code uses \textit{pop()} method.
+            \item \textit{pop()} method causes \textit{Stack} to mutate in
+            number of elements, and the next time the \textit{size} function is called,
+            it will return 0.
+            \item \textit{size()} function should not affect the number of elements in stack.
+        \end{itemize}
+        \color{black}
+    \end{mdframed}
 \end{itemize}
+
+\section*{Question 3}
 
 \end{document}
