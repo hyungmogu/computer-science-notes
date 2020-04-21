@@ -62,21 +62,42 @@
     \bigskip
 
     We can do better than that by reducing the runtime to $\Theta(1)$ by using \textit{len(...)} function.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+        \color{red}
+        No. It's not a good solution.
+
+        \bigskip
+
+        Stacks are not iterable
+        \color{black}
+    \end{mdframed}
+
 \end{itemize}
 
-\bigskip
+\section*{Question 2}
+\begin{itemize}
+    \item
 
-\begin{mdframed}
-    \underline{\textbf{Correct Solution:}}
-
-    \bigskip
-    \color{red}
-    No. It's not a good solution.
+    Yes. This is a good solution.
 
     \bigskip
 
-    Stacks are not iterable
-    \color{black}
-\end{mdframed}
+    The quick points are
+
+    \begin{itemize}
+        \item The method is trying to determine the number of elements in \textit{Stack}.
+        \item \textit{pop()} method removes an element from stack. This works as an indexing variable for the while loop.
+        \item \textit{is\_empty()} method checks for the condition of stack not having any elements.
+        This allows while loop to terminate after using stack's \textit{pop()} method sufficient number of times.
+        \item \textit{count} variable allows the number of elements to be counted, as it is being
+        removed from \textit{Stack} by \textit{pop} method.
+    \end{itemize}
+\end{itemize}
 
 \end{document}
