@@ -44,6 +44,35 @@
 \section*{7) Make the whole thing run}
 
 \begin{lstlisting}[language=Python, caption={task\_7\_solution.py},captionpos=b]
+    ...
+    # =============== SOLUTION (Task 7) ================
+    def make_player(generic_name: str) -> Player:
+        """Return a new Player based on user input.
 
+        Allow the user to choose a player name and player type.
+        <generic_name> is a placeholder used to identify which player is being made.
+        """
+        name = input(f'Enter a name for {generic_name}: ')
+        # TODO: Create and return some sort of Player.
+        return RandomPlayer(name)
+
+    # ==================================================
+
+    ...
+
+    if __name__ == '__main__':
+        # Uncomment the lines below to check your work using
+        # python_ta and doctest.
+        # import python_ta
+        # python_ta.check_all(config={
+        #     'extra-imports': ['random'],
+        #     'allowed-io': [
+        #         'main',
+        #         'make_player',
+        #         'move',
+        #         'play_one_turn'
+        #     ]
+        # })
+        main()
 \end{lstlisting}
 \end{document}
