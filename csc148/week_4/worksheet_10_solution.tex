@@ -181,7 +181,76 @@
 \end{itemize}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
 
+    None of the code should be changed.
+
+    \bigskip
+
+    The below is the code used in last lecture
+
+    \begin{lstlisting}[language=Python,caption={worksheet\_10\_q1b\_solution.py},captionpos=b]
+        def is_balanced(line: str) -> bool:
+        """Return whether <line> contains balanced parentheses.
+
+        >>> is_balanced('abc')
+        True
+        >>> is_balanced('(a * (3 + b))')
+        True
+        >>> is_balanced('(a * (3 + b]]')
+        False
+        >>> is_balanced('(a * [3 + b])')
+        True
+        >>> is_balanced('1 + 2(x-y)}')
+        False
+        >>> is_balanced('{3 + [2 * 4(x-y)]}')
+        True
+        >>> is_balanced('3 - (x')
+        False
+        """
+        brackets_stack = Stack()
+
+        for character in line:
+            # If the character is one of '[', '{'. or '(',
+            if (character == '(' or
+                character == '[' or
+                character == '{'):
+                # Store it in stack
+                brackets_stack.push(character)
+            # If the character is one of ']', '}', or ')',
+            elif (character == ')' or
+                  character == ']' or
+                  character == '}'):
+                # Check for the non-emptiness of stack.
+                if brackets_stack.is_empty():
+                    # if empty, return false.
+                    return False
+
+                # If the list is not empty, then pop an element form stack.
+                left_bracket = brackets_stack.pop()
+
+                # If popped bracket doesn't match, then return false
+                if ((left_bracket == '(' and character != ')') or
+                    (left_bracket == '[' and character != ']') or
+                    (left_bracket == '{' and character != '}')):
+
+                    return False
+
+        # Check parenthesis are balanced by checking stack is empty.
+        if not brackets_stack.is_empty():
+            return False
+
+        return True
+    \end{lstlisting}
+
+    \bigskip
+
+    Because we know the code is built with the thought of \textit{Stack} functioning
+    as LIFO, and because we know from question 2 that \textit{Stack} still behaves
+    the same after the changes, we can conclude no new changes are required.
+
+\end{itemize}
 \section*{Question 4}
 
 \end{document}
