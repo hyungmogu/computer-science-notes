@@ -154,4 +154,28 @@
     \end{mdframed}
 \end{itemize}
 
+\section*{Question 4}
+\begin{itemize}
+    \item
+
+    No. This is not a good solution.
+
+    \bigskip
+
+    The quick points are
+
+    \begin{itemize}
+        \item Parameter \textit{s} is of type \textit{Stack}
+        \item \textit{Stack} is a class
+        \item Class passes function by reference. That is, changes made to class
+        inside function also affects outside.
+        \item The variable \textit{s\_copy} is pointing to \textit{s}
+        \begin{itemize}
+            \item Unlike with string and integers, this doesn't copy class (this is a huge bad)
+        \end{itemize}
+        \item \textit{pop()} method is used, and this causes \textit{s} outside of
+        function to have size 0 by the end of operation
+    \end{itemize}
+\end{itemize}
+
 \end{document}
