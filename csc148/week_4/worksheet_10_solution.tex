@@ -130,6 +130,7 @@
         \item The line `The items stored in the stack. The end of the list represents the top of the stack.'
         under the description of \textit{\_items} in private attribute should be changed to
         `The items stored in the stack. The end of the list represents the \textit{bottom} of the stack.'
+
         \item The line `Add a new element to the top of this stack.' in \textit{push()}
         method must be changed to `Add a new element to the \textit{bottom} of this stack.'
         \item The line `Remove and return the element at the top of this stack.'
@@ -137,6 +138,33 @@
         element at the \textit{bottom} of this stack.'
     \end{enumerate}
 \end{itemize}
+
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item
+
+        The following changes in docstring must be made.
+
+        \begin{enumerate}[1.]
+            \item The line `The items stored in the stack. The \color{red}front\color{black}\:of the list represents the top of the stack.'
+            under the description of \textit{\_items} in private attribute should be changed to
+            `The items stored in the stack. The end of the list represents the \color{red}top\color{black}\:of the stack.'
+            \color{red}
+                \begin{itemize}
+                    \item This is because stack is LIFO. Last element in is the first to come out.
+                    \item Last element added and removed are now at the beginning of the list.
+                \end{itemize}
+            \color{black}
+        \end{enumerate}
+    \end{itemize}
+
+\end{mdframed}
 
 \bigskip
 
