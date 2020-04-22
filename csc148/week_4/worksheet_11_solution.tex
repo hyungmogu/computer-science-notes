@@ -152,6 +152,24 @@
         the same amount of time.
     \end{enumerate}
 
+    \item
+
+    The definition of \textit{Queue} tells us \textit{Queue} is FIFO. That is,
+    the first element inserted is the first to come out.
+
+    \bigskip
+
+    Since we know the front of \textit{Queue} is the front of the list, we
+    can conclude \textit{LIST.insert(...)} and \textit{LIST.pop(0)} are used
+    to support \textit{QUEUE.enqueue} and \textit{QUEUE.dequeue}, respectively.
+
+    \bigskip
+
+    Since we know \textit{LIST.insert(...)} requires shifting of elements by $n - i = n - 0 = n$
+    and \textit{LIST.pop(0)} requires shifting of $n - i - 1 = n - 1$ many elements,
+    we can conclude both \textit{QUEUE.enqueue} and \textit{QUEUE.dequeue} takes
+    longer time as size increases.
+
 \end{enumerate}
 
 \section*{Question 2 }
