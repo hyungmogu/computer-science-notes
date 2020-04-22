@@ -170,8 +170,33 @@
     we can conclude both \textit{QUEUE.enqueue} and \textit{QUEUE.dequeue} takes
     longer time as size increases.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        The definition of \textit{Queue} tells us \textit{Queue} is FIFO. That is,
+        the first element inserted is the first to come out.
+
+        \bigskip
+
+        Since we know the front of \textit{Queue} is the front of the list, we
+        can conclude \color{red}\textit{LIST.append(...)}\color{black}\:and \color{red}\textit{LIST.pop(0)}\color{black}\:are used
+        to support \textit{QUEUE.enqueue} and \textit{QUEUE.dequeue}, respectively.
+
+        \bigskip
+
+        Since we know \color{red}\textit{LIST.append(...)}\color{black}\:requires the shifting of elements by $n - i = n - n = 0$
+        and \textit{LIST.pop(0)} requires shifting of $n - i - 1 = n - 1$ many elements,
+        we can conclude \textit{QUEUE.dequeue} takes longer time as size increases.
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 2 }
+\begin{enumerate}
+    \item
+\end{enumerate}
 
 \end{document}
