@@ -232,6 +232,89 @@
         \text{Number of steps for \textit{s.push(1)}} + \text{Number of steps for \textit{s.pop()}} &= (n+1) + (n+1)\\
         &= 2n + 1
     \end{align*}
+
+    \item
+
+    \underline{\textbf{Stack 1:}}
+
+    \bigskip
+
+    We need to determine the total number of steps taken in the code using \textit{Stack 1}.
+
+    \bigskip
+
+    First, we need to find the number of steps taken per iteration.
+
+    \bigskip
+
+    The code tells us there is only \textit{s.push(i)} in for loop.
+
+    \bigskip
+
+    Since we know the \textit{push} operation in \textit{Stack 1} takes 1 step,
+    we can conclude 1 step is taken per iteration.
+
+    \bigskip
+
+    Finally, we need to determine the total number of steps taken.
+
+    \bigskip
+
+    Because we know the loop performs 5 iterations and each iteration takes 1 step,
+    we can conclude the code takes total of
+
+    \begin{align}
+        5 \cdot 1 = 5
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    \underline{\textbf{Stack 2:}}
+
+    \bigskip
+
+    We need to determine the total number of steps taken in the code using \textit{Stack 2}.
+
+    \bigskip
+
+    First, we need to find the number of steps taken per iteration.
+
+    \bigskip
+
+    The code tells us there is only \textit{s.push(i)} in for loop.
+
+    \bigskip
+
+    Since we know the list in $s$ starts empty, and the size of list grows to $i$ at $i^{th}$
+    iteration, we can conclude the size of list $n$ is $i$.
+
+    \bigskip
+
+    Since we know the \textit{push} operation in \textit{Stack 2} takes $n+1$ step,
+    and since we know $n = i$, we can conclude $i+1$ step is taken per iteration.
+
+    \bigskip
+
+    Finally, we need to determine the total number of steps taken.
+
+    \bigskip
+
+    Because we know the loop starts at $i = 0$, ends at $i = 4$ with each iteration
+    taking $i+1$ steps, we can conclude the code has total of
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{i=0}^4 (i+1) &= \sum\limits_{i'=1}^5 i'\\
+        &= \frac{5(5+1)}{2}\\
+        &= \frac{30}{2}\\
+        &= 15
+    \end{align}
+
+    steps.
+
+
 \end{enumerate}
 
 \end{document}
