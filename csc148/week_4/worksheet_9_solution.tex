@@ -80,6 +80,46 @@
 \end{enumerate}
 
 \section*{Question 3}
+\begin{lstlisting}[language=Python,caption={worksheet\_9\_q3\_solution.py},captionpos=b]
+    def is_balanced(line: str) -> bool:
+        """Return whether <line> contains balanced parentheses.
+
+        Ignore square and curly brackets.
+
+        >>> is_balanced('(a * (3 + b))')
+        True
+        >>> is_balanced('(a * (3 + b]]') # Note that the two ']'s don't matter
+        False
+        >>> is_balanced('1 + 2(x-y)}') # Note that the '}' doesn't matter
+        True
+        >>> is_balanced('3 - (x')
+        False
+        """
+        parenthesis_stack = Stack()
+
+        for character in line:
+            # If the character is left parenthesis,
+            if character == '(':
+                # Store it in stack
+                parenthesis_stack.push('(')
+            # If the character is right parenthesis,
+            elif character == ')':
+                # Check for the non-emptiness of stack.
+                if parenthesis_stack.is_empty():
+                    # if empty, return false.
+                    return False
+
+                # If the list is not empty, then pop an element form stack.
+                parenthesis_stack.pop()
+
+        # Check parenthesis are balanced by checking stack is empty.
+        if not parenthesis_stack.is_empty():
+            return False
+
+        return True
+\end{lstlisting}
+
+
 
 \section*{Question 4}
 
