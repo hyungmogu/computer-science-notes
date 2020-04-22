@@ -91,6 +91,31 @@
 
     \item Because we know the list size stays as is when an element is removed, we can
     conclude 0 many list elements must be moved.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \color{red}
+        The following example tells us
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/worksheet_11_q1c_correction.png}
+        \end{center}
+
+        when an element at index $i = 3$ is removed from the list $n - (i+1) =
+        7 - (3 - 1) = 3$ many elements must be moved.
+
+        \bigskip
+
+        Using this fact, we can generalize that when an element is removed,
+        $n - (i+1) = n - i - 1$ many elements must be shifted to left.
+
+        \color{black}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 2 }
