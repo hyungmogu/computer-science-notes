@@ -136,6 +136,22 @@
 
     Going further, this is a good solution for any iterable objects with
     \textit{\_\_len\_\_} method (it should be correctly defined as well!).
+
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+        \color{red}
+        No. This is not a good solution.
+
+        \bigskip
+
+        \textit{s.\_item} is a private attribute, and private attribute should
+        not be used outside of \textit{Stack}.
+
+        \color{black}
+    \end{mdframed}
 \end{itemize}
 
 \end{document}
