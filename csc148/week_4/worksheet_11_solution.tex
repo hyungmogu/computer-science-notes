@@ -394,6 +394,94 @@
 
     steps.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \underline{\textbf{Stack 1:}}
+
+        \bigskip
+
+        We need to determine the total number of steps taken in the code using \textit{Stack 1}.
+
+        \bigskip
+
+        First, we need to find the number of steps taken per iteration.
+
+        \bigskip
+
+        The code tells us there is only \textit{s.push(i)} in for loop.
+
+        \bigskip
+
+        Since we know the \textit{push} operation in \textit{Stack 1} takes 1 step,
+        we can conclude 1 step is taken per iteration.
+
+        \bigskip
+
+        Finally, we need to determine the total number of steps taken.
+
+        \bigskip
+
+        Because we know the loop performs $(k-1) - 0 + 1 = k$ iterations and each
+        iteration takes 1 step, we can conclude the code takes total of
+        \color{red}
+        \setcounter{equation}{0}
+        \begin{align}
+            k \cdot 1 = k
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        \underline{\textbf{Stack 2:}}
+
+        \bigskip
+
+        We need to determine the total number of steps taken in the code using \textit{Stack 2}.
+
+        \bigskip
+
+        First, we need to find the number of steps taken per iteration.
+
+        \bigskip
+
+        The code tells us there is only \textit{s.push(i)} in for loop.
+
+        \bigskip
+
+        Since we know the list in $s$ starts empty, and the size of list grows to $i$ at $i^{th}$
+        iteration, we can conclude the size of list $n$ is $i$.
+
+        \bigskip
+
+        Since we know the \textit{push} operation in \textit{Stack 2} takes $n+1$ step,
+        and since we know $n = i$, we can conclude $i+1$ step is taken per iteration.
+
+        \bigskip
+
+        Finally, we need to determine the total number of steps taken.
+
+        \bigskip
+
+        Because we know the loop starts at $i = 0$, ends at $i = k-1$ with each iteration
+        taking $i+1$ steps, we can conclude the code has total of
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \sum\limits_{i=0}^{k-1} (i+1) &= \sum\limits_{i'=1}^k i'\\
+            &= \frac{k(k+1)}{2}
+        \end{align}
+
+        steps.
+
+    \end{mdframed}
+
 
 \end{enumerate}
 
