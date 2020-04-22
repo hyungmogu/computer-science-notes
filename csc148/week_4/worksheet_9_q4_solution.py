@@ -90,7 +90,6 @@ def is_balanced(line: str) -> bool:
 
                 return False
 
-
     # Check parenthesis are balanced by checking stack is empty.
     if not brackets_stack.is_empty():
         return False
