@@ -48,6 +48,44 @@
     \item Write a function that takes a stack of integers and removes all of the items which are greater than 5.
     The other items in the stack, and their relative order, should remain unchanged.
 
+    \begin{lstlisting}[language=Python,caption={task\_1\_solution.py},captionpos=b]
+    ...
+    def remove_big(s: Stack) -> None:
+        """Remove the items in <stack> that are greater than 5.
+
+        Do not change the relative order of the other items.
+
+        >>> s = Stack()
+        >>> s.push(1)
+        >>> s.push(29)
+        >>> s.push(8)
+        >>> s.push(4)
+        >>> remove_big(s)
+        >>> s.pop()
+        4
+        >>> s.pop()
+        1
+        >>> s.is_empty()
+        True
+        """
+        side_stack = Stack()
+
+        # 1. Move all elements in stack 1 to stack 2
+        while not s.is_empty():
+            # 1.1 While moving elements, if element value is greater than 5, then pass
+            popped_element = s.pop()
+
+            if type(popped_element) == int and popped_element > 5:
+                continue
+
+            side_stack.push(popped_element)
+
+        # 2. Move back all elements from stack 2 back to stack 1.
+        while not side_stack.is_empty():
+            s.push(side_stack.pop())
+    ...
+    \end{lstlisting}
+
     \item Write a function that takes a stack and returns a new stack that contains each item in the old stack twice in a row.
     We’ll leave it up to you to decide what order to put the copies into in the new stack.
 
