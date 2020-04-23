@@ -486,27 +486,120 @@
 
     \underline{\textbf{Stack 1:}}
 
+    \bigskip
+
+    We need to determine the total number of steps taken in the code using \textit{Stack 1}.
+
+    \bigskip
+
+    First, we need to determine the number of steps taken by \textit{s2.push(s1.pop())}.
+
+    \bigskip
+
+    The problem tells us both \textit{s2.push(...)} and \textit{s1.pop()} takes 1 step.
+
+    \bigskip
+
+    Using this fact, we can conclude \textit{s2.push(s1.pop())} takes 1 step.
+
+    \bigskip
+
+    Second, we need to determine the total number of steps taken by loop 1.
+
+    \bigskip
+
+    The code tells us that for loop 1, an element popped from \textit{s1} is inserted to \textit{s2},
+    and this is repeated until no elements are left in \textit{s1}.
+
+    \bigskip
+
+    Since we know \textit{s1} starts with $n$ many elements, and its size decreases
+    by 1 until its length is 0, we can write that with $k$ representing
+    $k^{th}$ iteration in loop 1, the terminating condition is reached when
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n - k &\leq 0\\
+        n &\leq k
+    \end{align}
+
+    \bigskip
+
+    Since we are looking for the smallest value of $k$ (because it represents
+    the number of iterations), we can conclude loop 1 has
+
+    \begin{align}
+        \lceil n \rceil = n
+    \end{align}
+
+    many iterations.
+
+    \bigskip
+
+    Since we know each iteration in loop 1 takes 1 step, we can conclude
+    loop 1 takes total of
+
+    \begin{align}
+        n \cdot 1 = n
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Third, we need to show that the second loop takes total of 0 steps.
+
+    \bigskip
+
+    The code tells us \textit{s2} starts a stack of size 0.
+
+    \bigskip
+
+    Since loop 2 terminates when the size of \textit{s2} is 0,
+    we can conclude loop 2 has 0 iterations.
+
+    \bigskip
+
+    Using this fact, we can conclude loop 2 has total of 0 steps.
+
+    \bigskip
+
+    Finally, we need to determine the total number of steps taken in this code.
+
+    \bigskip
+
+    Since we know loop 1 takes total of $n$ steps and loop 2 takes total of 0 step, we can
+    conclude the total number of steps taken by the code is
+
+    \begin{align}
+        n + 0 = n
+    \end{align}
+
+    steps.
+
+    \bigskip
+
     \begin{mdframed}
         \underline{\textbf{Rough Work:}}
 
         \bigskip
 
-        We need to determine the total number of steps taken in the code using \textit{Stack 2}.
+        We need to determine the total number of steps taken in the code using \textit{Stack 1}.
 
         \bigskip
 
         \begin{enumerate}[1.]
-            \item Determine the cost of \textit{s2.push(s1.pop())}
+            \item Determine the number of steps taken by \textit{s2.push(s1.pop())}
 
             \bigskip
 
-            First, determine the cost of \textit{s2.push(s1.pop())}.
+            First, we need to determine the number of steps taken by \textit{s2.push(s1.pop())}.
 
             \bigskip
 
             \begin{mdframed}
 
-            First, determine the cost of \textit{s2.push(s1.pop())}.
+            First, we need to determine the number of steps taken by \textit{s2.push(s1.pop())}.
 
             \bigskip
 
@@ -514,20 +607,20 @@
 
             \bigskip
 
-            Using this fact, we can conclude \textit{s2.push(s1.pop())} has cost of 1.
+            Using this fact, we can conclude \textit{s2.push(s1.pop())} takes 1 step.
 
             \end{mdframed}
 
-            \item Determine the cost of loop 1.
+            \item Determine the total number of steps taken by loop 1.
 
             \bigskip
 
-            Second, we need to determine the total cost of loop 1.
+            Second, we need to determine the total number of steps taken by loop 1.
 
             \bigskip
 
             \begin{mdframed}
-            Second, we need to determine the total cost of loop 1.
+            Second, we need to determine the total number of steps taken by loop 1.
 
             \bigskip
 
@@ -559,7 +652,7 @@
             \bigskip
 
             Since we know each iteration in loop 1 takes 1 step, we can conclude
-            loop 1 has total cost of
+            loop 1 takes total of
 
             \begin{align}
                 n \cdot 1 = n
@@ -569,10 +662,149 @@
 
             \end{mdframed}
 
-            \item Show that for the second loop, 0 steps are taken.
+            \item Show that the second loop takes total of 0 steps.
+
+            \bigskip
+
+            Third, we need to show that the second loop takes total of 0 steps.
+
+            \bigskip
+
+            \begin{mdframed}
+            Third, we need to show that the second loop takes total of 0 steps.
+
+            \bigskip
+
+            The code tells us \textit{s2} starts a stack of size 0.
+
+            \bigskip
+
+            Since loop 2 terminates when the size of \textit{s2} is 0,
+            we can conclude loop 2 has 0 iterations.
+
+            \bigskip
+
+            Using this fact, we can conclude loop 2 has total of 0 steps.
+
+            \end{mdframed}
 
             \item Calculate the total number of steps.
+
+            \begin{mdframed}
+            Finally, we need to determine the total number of steps taken in this code.
+
+            \bigskip
+
+            Since we know loop 1 takes total of $n$ steps and loop 2 takes total of 0 step, we can
+            conclude the total number of steps taken by the code is
+
+            \begin{align}
+                n + 0 = n
+            \end{align}
+
+            steps.
+
+            \end{mdframed}
+
         \end{enumerate}
+
+        \bigskip
+
+        \begin{mdframed}
+
+        \underline{\textbf{Stack 1:}}
+
+        \bigskip
+
+        We need to determine the total number of steps taken in the code using \textit{Stack 1}.
+
+        \bigskip
+
+        First, we need to determine the number of steps taken by \textit{s2.push(s1.pop())}.
+
+        \bigskip
+
+        The problem tells us both \textit{s2.push(...)} and \textit{s1.pop()} takes 1 step.
+
+        \bigskip
+
+        Using this fact, we can conclude \textit{s2.push(s1.pop())} takes 1 step.
+
+        \bigskip
+
+        Second, we need to determine the total number of steps taken by loop 1.
+
+        \bigskip
+
+        The code tells us that for loop 1, an element popped from \textit{s1} is inserted to \textit{s2},
+        and this is repeated until no elements are left in \textit{s1}.
+
+        \bigskip
+
+        Since we know \textit{s1} starts with $n$ many elements, and its size decreases
+        by 1 until its length is 0, we can write that with $k$ representing
+        $k^{th}$ iteration in loop 1, the terminating condition is reached when
+
+        \begin{align}
+            n - k &\leq 0\\
+            n &\leq k
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest value of $k$ (because it represents
+        the number of iterations), we can conclude loop 1 has
+
+        \begin{align}
+            \lceil n \rceil = n
+        \end{align}
+
+        many iterations.
+
+        \bigskip
+
+        Since we know each iteration in loop 1 takes 1 step, we can conclude
+        loop 1 takes total of
+
+        \begin{align}
+            n \cdot 1 = n
+        \end{align}
+
+        steps.
+
+        \bigskip
+
+        Third, we need to show that the second loop takes total of 0 steps.
+
+        \bigskip
+
+        The code tells us \textit{s2} starts a stack of size 0.
+
+        \bigskip
+
+        Since loop 2 terminates when the size of \textit{s2} is 0,
+        we can conclude loop 2 has 0 iterations.
+
+        \bigskip
+
+        Using this fact, we can conclude loop 2 has total of 0 steps.
+
+        \bigskip
+
+        Finally, we need to determine the total number of steps taken in this code.
+
+        \bigskip
+
+        Since we know loop 1 takes total of $n$ steps and loop 2 takes total of 0 step, we can
+        conclude the total number of steps taken by the code is
+
+        \begin{align}
+            n + 0 = n
+        \end{align}
+
+        steps.
+
+        \end{mdframed}
 
     \end{mdframed}
 
