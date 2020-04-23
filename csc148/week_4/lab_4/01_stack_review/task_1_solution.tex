@@ -48,7 +48,7 @@
     \item Write a function that takes a stack of integers and removes all of the items which are greater than 5.
     The other items in the stack, and their relative order, should remain unchanged.
 
-    \begin{lstlisting}[language=Python,caption={task\_1\_solution.py},captionpos=b]
+    \begin{lstlisting}[language=Python,caption={task\_1\_q1\_solution.py},captionpos=b]
     ...
     def remove_big(s: Stack) -> None:
         """Remove the items in <stack> that are greater than 5.
@@ -93,6 +93,55 @@
 
     Note that because the docstring doesn’t say that the old stack will be mutated,
     the old stack should remain unchanged when the function returns.
+
+    \bigskip
+
+    \begin{lstlisting}[language=Python,caption={task\_1\_q2\_solution.py},captionpos=b]
+    ...
+    def double_stack(s: Stack) -> Stack:
+        """Return a new stack that contains two copies of every item in <stack>.
+
+        We'll leave it up to you to decide what order to put the copies into in
+        the new stack.
+
+        >>> s = Stack()
+        >>> s.push(1)
+        >>> s.push(29)
+        >>> new_stack = double_stack(s)
+        >>> s.pop()  # s should be unchanged.
+        29
+        >>> s.pop()
+        1
+        >>> s.is_empty()
+        True
+        >>> new_items = []
+        >>> new_items.append(new_stack.pop())
+        >>> new_items.append(new_stack.pop())
+        >>> new_items.append(new_stack.pop())
+        >>> new_items.append(new_stack.pop())
+        >>> sorted(new_items)
+        [1, 1, 29, 29]
+        """
+        side_stack = Stack()
+        output_stack = Stack()
+
+        # 1. Move elements from original_stack to side_stack
+        while not s.is_empty():
+            side_stack.push(s.pop())
+
+        # 2. Move back elements from side stack to original stack
+        while not side_stack.is_empty():
+
+            popped_element = side_stack.pop()
+
+            # 2.1 When moving back element, copy element twice and push to output_stack
+            copied_element = copy.deepcopy(popped_element)
+            for i in range(2):
+                output_stack.push(copied_element)
+
+            s.push(popped_element)
+    ...
+    \end{lstlisting}
 \end{enumerate}
 
 \bigskip
