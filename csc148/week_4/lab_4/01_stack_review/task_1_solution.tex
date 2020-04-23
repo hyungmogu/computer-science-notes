@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titling}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[utf]{kotex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\predate{}
+\postdate{}
+
+\begin{document}
+\title{Lab 4: Abstract Data Type Solution}
+\date{}
+\maketitle
+
+\section*{1) Stack review}
+\begin{enumerate}[1.]
+    \item Write a function that takes a stack of integers and removes all of the items which are greater than 5.
+    The other items in the stack, and their relative order, should remain unchanged.
+
+    \item Write a function that takes a stack and returns a new stack that contains each item in the old stack twice in a row.
+    We’ll leave it up to you to decide what order to put the copies into in the new stack.
+
+    \bigskip
+
+    Note that because the docstring doesn’t say that the old stack will be mutated,
+    the old stack should remain unchanged when the function returns.
+\end{enumerate}
+
+\bigskip
+
+
+
+\end{document}
