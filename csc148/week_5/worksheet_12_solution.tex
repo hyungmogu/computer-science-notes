@@ -10,6 +10,7 @@
 \usepackage{mdframed}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{adjustbox}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{booktabs}
@@ -50,19 +51,32 @@
 \begin{enumerate}[a.]
     \item
 
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/worksheet_12_q1a_solution.png}
-    \end{center}
+    \adjustbox{valign=t}{
+        \includegraphics[width=\linewidth]{images/worksheet_12_q1a_solution.png}
+    }
 
     \item
 
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/worksheet_12_q1b_solution.png}
-    \end{center}
+    \adjustbox{valign=t}{
+        \includegraphics[width=\linewidth]{images/worksheet_12_q1b_solution.png}
+    }
+
+    \newpage
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \adjustbox{valign=t}{
+            \includegraphics[width=\linewidth]{images/worksheet_12_q1b_correction.png}
+        }
+    \end{mdframed}
 
 \end{enumerate}
 
 \section*{Question 2}
+
 
 \section*{Question 3}
 
