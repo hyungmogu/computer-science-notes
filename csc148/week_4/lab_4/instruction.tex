@@ -547,7 +547,7 @@ plot them on a graph to display.
     \bigskip
 
     \item To get a basic 2-D plot of your timing data, work your way through the
-    first part of this guide (Links to an external site.). (Ignore all of the
+    first part of \href{https://matplotlib.org/users/pyplot_tutorial.html}{this guide} (Links to an external site.). (Ignore all of the
     references to “numpy”, which is another Python library we aren’t using in this
     course. Also ignore the other sections after the first one; the whole tutorial
     is pretty long!)
@@ -561,5 +561,35 @@ plot them on a graph to display.
     \item If you still have time, explore! There’s lots of customization you can
     do with \textit{matplotlib} to make your graphs really pretty.
 \end{enumerate}
+
 \subsection*{Undo and redo}
+As we discussed in lecture, one of the most common applications of stacks is in
+implementing an “undo” or “back” functionality in various contexts, from website
+browsing to editing documents.
+
+\bigskip
+
+\noindent Your task here is to write a program which repeatedly prompts the user
+for a string, and stores the strings in a stack except for when the user types
+``UNDO''. Int his case, rather than storing the string ``UNDO'', it prints out
+the most recently stored string, and removes it from the stack.
+
+\bigskip
+
+\noindent Once you have that working, implement redo functionality using a second stack:
+when the user types “REDO”, your program should print the most recently ``undone''
+string, and push the string back onto the original stack.
+
+\bigskip
+
+\noindent The user should be able to ``REDO'' multiple times to restore multiple strings in
+a row.
+
+\bigskip
+
+\noindent What should happen if a user types in ``REDO'', and then begins entering new strings?
+
+\bigskip
+
+\noindent Get some ideas from \href{https://en.wikipedia.org/wiki/Undo#Redo_models}{here}.
 \end{document}
