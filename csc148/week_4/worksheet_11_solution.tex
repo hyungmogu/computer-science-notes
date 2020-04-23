@@ -808,6 +808,55 @@
 
     \end{mdframed}
 
+    \bigskip
+
+    \underline{\textbf{Stack 2:}}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        We need to determine the total number of steps taken in the code using \textit{Stack 2}.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Determine the number of steps taken by \textit{s2.push(s1.pop())} in loop 1.
+
+            \bigskip
+
+            First, we need to determine the number of steps taken by \textit{s2.push(s1.pop())} in loop 1.
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item State that \textit{s1.pop()} takes $n_1 + 1$ steps and \textit{s2.push(...)}
+                takes $n_2 + 1$.
+                \item Show that \textit{s1.pop()} takes $(n - k) + 1$ steps and \textit{s2.push(...)}
+                takes $k + 1$.
+                \item Show that \textit{s2.push(s1.pop())} takes $i + 2$ steps.
+            \end{enumerate}
+
+            \item Determine the total number of steps taken by loop 1.
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item State that for loop 1, an element popped from \textit{s1}
+                is inserted to \textit{s2}, and this is repeated until no elements are left in \textit{s1}.
+                \item Show loop 1 takes $n$ iterations.
+                \item Show loop 1 takes total of $\displaystyle\frac{(n+2)(n+3)}{2}-3$ steps.
+            \end{enumerate}
+
+            \item Show that the total number of steps taken by loop 2 is 0.
+            \item Conclude by calculating the total number of steps taken in this code.
+        \end{enumerate}
+
+
+    \end{mdframed}
 
 \end{enumerate}
 
