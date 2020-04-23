@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titling}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[utf]{kotex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\predate{}
+\postdate{}
+
+\begin{document}
+\title{Lab 4: Abstract Data Type Solution}
+\date{}
+\maketitle
+
+\section*{4) Additional Tasks}
+\subsection*{Graphing your results}
+\begin{enumerate}[1.]
+    \item Implement \textit{time\_queue\_lists}, a modified version of your timing
+    experiment function that returns a tuple containing three lists:
+
+    \begin{itemize}
+        \item A list of queue sizes it tried
+        \item A list of the corresponding times to run enqueue for each queue size
+        \item A list of the corresponding times to run dequeue for each queue size
+    \end{itemize}
+
+    \bigskip
+
+    Note that each of your lists should have the same length.
+
+    \item To actually plot the data, we’ll use the Python library \textit{matplotlib},
+    which is an extremely powerful and popular library for plotting all sorts of
+    data.
+
+    \bigskip
+
+    If you’re on a Teaching Lab machine, you already have this library installed.
+
+    \bigskip
+
+    If you’re on your own machine, you should have already installed this library
+    by following the CSC148 Software Guide. (Look for the section on installing
+    Python libraries.)
+
+    \bigskip
+
+    Add the statement \textit{import matplotlib.pyplot as plt} to the top of \textit{timequeue.py},
+    and make sure you can still run your file without error.
+
+    \bigskip
+
+    \item To get a basic 2-D plot of your timing data, work your way through the
+    first part of \href{https://matplotlib.org/users/pyplot_tutorial.html}{this guide} (Links to an external site.). (Ignore all of the
+    references to “numpy”, which is another Python library we aren’t using in this
+    course. Also ignore the other sections after the first one; the whole tutorial
+    is pretty long!)
+
+    \bigskip
+
+    You can use an x-axis range of 0-200000 and a y-axis range of 0-0.02 (feel
+    free to adjust the y-axis depending on how long the experiments take to run
+    on your computer).
+
+    \item If you still have time, explore! There’s lots of customization you can
+    do with \textit{matplotlib} to make your graphs really pretty.
+\end{enumerate}
+
+\subsection*{Undo and redo}
+
+\end{document}
