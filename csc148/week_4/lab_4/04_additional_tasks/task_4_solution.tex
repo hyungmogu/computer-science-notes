@@ -59,6 +59,49 @@
 
     Note that each of your lists should have the same length.
 
+    \bigskip
+
+    \begin{mdframed}
+        \begin{lstlisting}[language=Python,caption={task\_4\_q1\_solution.py},captionpos=b]
+        ...
+        def time_queue_lists() -> Tuple[List[int], List[float], List[float]]:
+            """Run timing experiments for Queue.enqueue and Queue.dequeue.
+
+            Return lists storing the results of the experiments.  See the lab
+            handout for further details.
+            """
+            queue_sizes = [10000, 20000, 40000, 80000, 160000]
+            enqueue_time_list = []
+            dequeue_time_list = []
+
+            trials = 200
+
+            for queue_size in queue_sizes:
+                queues = _setup_queues(queue_size, trials)
+
+                time = 0
+                for queue in queues:
+                    time += timeit('queue.enqueue(1)', number=1, globals=locals())
+
+                print(f'enqueue: Queue size {queue_size:>7}, time {time}')
+                enqueue_time_list.append(time)
+
+            for queue_size in queue_sizes:
+                queues = _setup_queues(queue_size, trials)
+
+                time = 0
+                for queue in queues:
+                    time += timeit('queue.dequeue()', number=1, globals=locals())
+
+                print(f'dequeue: Queue size {queue_size:>7}, time {time}')
+                dequeue_time_list.append(time)
+
+            return (queue_sizes, enqueue_time_list, dequeue_time_list)
+
+        ...
+        \end{lstlisting}
+    \end{mdframed}
+
     \item To actually plot the data, we’ll use the Python library \textit{matplotlib},
     which is an extremely powerful and popular library for plotting all sorts of
     data.
@@ -79,6 +122,26 @@
     and make sure you can still run your file without error.
 
     \bigskip
+
+    \begin{mdframed}
+
+    \begin{lstlisting}[language=Python,caption={task\_4\_q2\_solution.py},captionpos=b]
+    ...
+    import matplotlib.pyplot as plt
+    ...
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Note:}}
+
+    \begin{itemize}
+        \item
+        If \textit{matplotlib} is missing, install by typing \textit{pip3 install matplotlib}
+        in terminal or windows command line.
+    \end{itemize}
+
+    \end{mdframed}
 
     \item To get a basic 2-D plot of your timing data, work your way through the
     first part of \href{https://matplotlib.org/users/pyplot_tutorial.html}{this guide} (Links to an external site.). (Ignore all of the
