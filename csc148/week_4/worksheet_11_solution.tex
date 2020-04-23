@@ -482,6 +482,100 @@
 
     \end{mdframed}
 
+    \item
+
+    \underline{\textbf{Stack 1:}}
+
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        We need to determine the total number of steps taken in the code using \textit{Stack 2}.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Determine the cost of \textit{s2.push(s1.pop())}
+
+            \bigskip
+
+            First, determine the cost of \textit{s2.push(s1.pop())}.
+
+            \bigskip
+
+            \begin{mdframed}
+
+            First, determine the cost of \textit{s2.push(s1.pop())}.
+
+            \bigskip
+
+            The problem tells us both \textit{s2.push(...)} and \textit{s1.pop()} takes 1 step.
+
+            \bigskip
+
+            Using this fact, we can conclude \textit{s2.push(s1.pop())} has cost of 1.
+
+            \end{mdframed}
+
+            \item Determine the cost of loop 1.
+
+            \bigskip
+
+            Second, we need to determine the total cost of loop 1.
+
+            \bigskip
+
+            \begin{mdframed}
+            Second, we need to determine the total cost of loop 1.
+
+            \bigskip
+
+            The code tells us that for loop 1, an element popped from \textit{s1} is inserted to \textit{s2},
+            and this is repeated until no elements are left in \textit{s1}.
+
+            \bigskip
+
+            Since we know \textit{s1} starts with $n$ many elements, and its size decreases
+            by 1 until its length is 0, we can write that with $k$ representing
+            $k^{th}$ iteration in loop 1, the terminating condition is reached when
+
+            \begin{align}
+                n - k &\leq 0\\
+                n &\leq k
+            \end{align}
+
+            \bigskip
+
+            Since we are looking for the smallest value of $k$ (because it represents
+            the number of iterations), we can conclude loop 1 has
+
+            \begin{align}
+                \lceil n \rceil = n
+            \end{align}
+
+            many iterations.
+
+            \bigskip
+
+            Since we know each iteration in loop 1 takes 1 step, we can conclude
+            loop 1 has total cost of
+
+            \begin{align}
+                n \cdot 1 = n
+            \end{align}
+
+            steps.
+
+            \end{mdframed}
+
+            \item Show that for the second loop, 0 steps are taken.
+
+            \item Calculate the total number of steps.
+        \end{enumerate}
+
+    \end{mdframed}
+
 
 \end{enumerate}
 
