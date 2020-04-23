@@ -46,6 +46,61 @@
 \section*{2) Queues}
 \begin{enumerate}[1.]
     \item Implement \textit{Queue} class found in \textit{myqueue.py}
+
+    \begin{lstlisting}[language=Python,caption={task\_2\_q1\_solution.py},captionpos=b]
+    ...
+    class Queue:
+        """A first-in-first-out (FIFO) queue of items.
+
+        Stores data in a first-in, first-out order. When removing an item from the
+        queue, the least recently-added item (i.e. the oldest item in the Queue)
+        is the one that is removed.
+        # === Private Attributes ===
+        # _items:
+        #     The items stored in this queue. The front of the list represents
+        #     the front of the queue.
+        """
+        _items: List
+        def __init__(self) -> None:
+            """Initialize a new empty queue."""
+            self._items = []
+
+        def is_empty(self) -> bool:
+            """Return whether this queue contains no items.
+
+            >>> q = Queue()
+            >>> q.is_empty()
+            True
+            >>> q.enqueue('hello')
+            >>> q.is_empty()
+            False
+            """
+            return self._items == []
+
+        def enqueue(self, item: Any) -> None:
+            """Add <item> to the back of this queue.
+            """
+            self._items.append(item)
+
+        def dequeue(self) -> Optional[Any]:
+            """Remove and return the item at the front of this queue.
+
+            Return None if this Queue is empty.
+            (We illustrate a different mechanism for handling an erroneous case.)
+
+            >>> q = Queue()
+            >>> q.enqueue('hello')
+            >>> q.enqueue('goodbye')
+            >>> q.dequeue()
+            'hello'
+            """
+            if self.is_empty():
+                raise EmptyStackError
+            else:
+                return self._items.pop(0)
+    ...
+    \end{lstlisting}
+
     \item Complete functions \textit{product} and \textit{product\_star} in \textit{myqueue.py}
 \end{enumerate}
 
