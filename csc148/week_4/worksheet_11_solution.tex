@@ -835,24 +835,171 @@
             \begin{enumerate}[1.]
                 \item State that \textit{s1.pop()} takes $n_1 + 1$ steps and \textit{s2.push(...)}
                 takes $n_2 + 1$.
-                \item Show that \textit{s1.pop()} takes $(n - k) + 1$ steps and \textit{s2.push(...)}
-                takes $k + 1$.
+
+                \begin{mdframed}
+                Let $n_1$ and $n_2$ be the size of stack for \textit{s1} and \textit{s2}, respectively.
+
+                \bigskip
+
+                The code tells us that \textit{s1.pop()} operation takes $n_1 + 1$ steps and
+                \textit{s2.push(...)} takes $n_2 + 1$ steps, where
+                \end{mdframed}
+
                 \item Show that \textit{s2.push(s1.pop())} takes $i + 2$ steps.
+
+                \begin{mdframed}
+                Since we know $s2$ starts as an empty stack, and $s1$ starts as a stack
+                with the size of $n$, and since we know \textit{s2.push()} and \textit{s1.pop(...)} causes the
+                stack size of \textit{s2} and \textit{s1} to increase and decrease by 1 per iteration, respectively,
+                we can conclude that at $k^{th}$ iteration, \textit{s2.push(s1.pop())}
+                takes total of
+
+                \begin{align}
+                    (n - k + 1) + (k + 1) = n + 2
+                \end{align}
+
+                steps.
+
+                \end{mdframed}
             \end{enumerate}
 
             \item Determine the total number of steps taken by loop 1.
 
             \bigskip
 
+            Second, we need to determine the total number of steps taken by loop 1.
+
+            \bigskip
+
             \begin{enumerate}[1.]
                 \item State that for loop 1, an element popped from \textit{s1}
                 is inserted to \textit{s2}, and this is repeated until no elements are left in \textit{s1}.
+
+                \begin{mdframed}
+                The code tells us that for loop 1, an element popped from \textit{s1} is inserted to \textit{s2},
+                and this is repeated until no elements are left in \textit{s1}.
+                \end{mdframed}
+
                 \item Show loop 1 takes $n$ iterations.
-                \item Show loop 1 takes total of $\displaystyle\frac{(n+2)(n+3)}{2}-3$ steps.
+
+                \begin{mdframed}
+                Since we know \textit{s1} starts with $n$ many elements, and its size decreases
+                by 1 until its length is 0, we can write that with $k$ representing
+                $k^{th}$ iteration in loop 1, the terminating condition is reached when
+
+                \begin{align}
+                    n - k &\leq 0\\
+                    n &\leq k
+                \end{align}
+
+                \bigskip
+
+                Since we are looking for the smallest value of $k$ (because it represents
+                the number of iterations), we can conclude loop 1 has
+
+                \begin{align}
+                    \lceil n \rceil = n
+                \end{align}
+
+                many iterations.
+                \end{mdframed}
+
+                \item Show loop 1 takes total of $n(n+2)$ steps.
+
+                \begin{mdframed}
+                Since we know each iteration in loop 1 takes $n+2$ step, we can conclude
+                loop 1 takes total of
+
+                \begin{align}
+                    n \cdot (n+2) = n(n+2)
+                \end{align}
+
+                steps.
+                \end{mdframed}
             \end{enumerate}
 
+            \bigskip
+
+            \begin{mdframed}
+            Second, we need to determine the total number of steps taken by loop 1.
+
+            \bigskip
+
+            The code tells us that for loop 1, an element popped from \textit{s1} is inserted to \textit{s2},
+            and this is repeated until no elements are left in \textit{s1}.
+
+            \bigskip
+
+            Since we know \textit{s1} starts with $n$ many elements, and its size decreases
+            by 1 until its length is 0, we can write that with $k$ representing
+            $k^{th}$ iteration in loop 1, the terminating condition is reached when
+
+            \begin{align}
+                n - k &\leq 0\\
+                n &\leq k
+            \end{align}
+
+            \bigskip
+
+            Since we are looking for the smallest value of $k$ (because it represents
+            the number of iterations), we can conclude loop 1 has
+
+            \begin{align}
+                \lceil n \rceil = n
+            \end{align}
+
+            many iterations.
+
+            \bigskip
+
+            Since we know each iteration in loop 1 takes $n+2$ step, we can conclude
+            loop 1 takes total of
+
+            \begin{align}
+                n \cdot (n+2) = n(n+2)
+            \end{align}
+
+            steps.
+
+            \end{mdframed}
+
             \item Show that the total number of steps taken by loop 2 is 0.
+
+            \bigskip
+
+            \begin{mdframed}
+            Third, we need to show that the second loop takes total of 0 steps.
+
+            \bigskip
+
+            The code tells us \textit{s2} starts a stack of size 0.
+
+            \bigskip
+
+            Since loop 2 terminates when the size of \textit{s2} is 0,
+            we can conclude loop 2 has 0 iterations.
+
+            \bigskip
+
+            Using this fact, we can conclude loop 2 has total of 0 steps.
+            \end{mdframed}
+
             \item Conclude by calculating the total number of steps taken in this code.
+
+            \begin{mdframed}
+            Finally, we need to determine the total number of steps taken in this code.
+
+            \bigskip
+
+            Since we know loop 1 takes total of $n$ steps and loop 2 takes total of 0 step, we can
+            conclude the total number of steps taken by the code is
+
+            \begin{align}
+                n(n+2) + 0 = n(n+2)
+            \end{align}
+
+            steps.
+            \end{mdframed}
         \end{enumerate}
 
 
