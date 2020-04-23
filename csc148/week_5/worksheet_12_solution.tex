@@ -93,6 +93,31 @@
         To make \textit{insert} method to behave the same as \textit{LinkedList.append},
         \textit{len(self)} can be any value, but \color{red}$index = len(self)$\color{black}.
     \end{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item
+
+        Learned that the first node in linked list represents $index = 0$.
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/worksheet_12_q1b_note_1.png}
+        \end{center}
+
+        \item Learned that \textit{insert} operation for linked list is the same as
+        the \textit{insert} operation for lists.
+
+        \begin{itemize}
+            \item If node doesn't exist at this index, then hook last node to the inserting node.
+            \item If node does exist, then hook current node to one end of the
+            inserting node, and the other end to the next node
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 
