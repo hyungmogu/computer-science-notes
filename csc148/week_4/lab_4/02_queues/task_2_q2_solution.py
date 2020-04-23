@@ -127,7 +127,7 @@ def product_star(integer_queue: Queue) -> int:
 
     # 2. Move back elements from side_queue to integer_queue
     while not side_queue.is_empty():
-        integer_queue.push(side_queue.dequeue())
+        integer_queue.enqueue(side_queue.dequeue())
 
     return output
 

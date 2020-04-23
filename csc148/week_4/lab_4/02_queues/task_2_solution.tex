@@ -105,6 +105,47 @@
 
     \bigskip
 
+    \begin{lstlisting}[language=Python,caption={task\_2\_q2\_solution.py},captionpos=b]
+    ...
+    def product_star(integer_queue: Queue) -> int:
+        """Return the product of integers in the queue.
+
+        Precondition: integer_queue contains only integers.
+
+        >>> primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+        >>> prime_line = Queue()
+        >>> for prime in primes:
+        ...     prime_line.enqueue(prime)
+        ...
+        >>> product_star(prime_line)
+        6469693230
+        >>> prime_line.is_empty()
+        False
+        """
+        side_queue = Queue()
+        output = 1
+
+        if integer_queue.is_empty():
+            return 0
+
+        # 1. Move elements from integer_queue to side_queue
+        while not integer_queue.is_empty():
+            dequeued_element = integer_queue.dequeue()
+
+            # 1.1 While moving elements, multiply each of them to output.
+            output *= dequeued_element
+            side_queue.enqueue(dequeued_element)
+
+        # 2. Move back elements from side_queue to integer_queue
+        while not side_queue.is_empty():
+            integer_queue.enqueue(side_queue.dequeue())
+
+        return output
+    ...
+    \end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
