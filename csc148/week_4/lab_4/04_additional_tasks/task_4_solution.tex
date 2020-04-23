@@ -62,7 +62,7 @@
     \bigskip
 
     \begin{mdframed}
-        \begin{lstlisting}[language=Python,caption={task\_4\_q1\_solution.py},captionpos=b]
+        \begin{lstlisting}[language=Python,caption={task\_4\_q1\_part\_1\_solution.py},captionpos=b]
         ...
         def time_queue_lists() -> Tuple[List[int], List[float], List[float]]:
             """Run timing experiments for Queue.enqueue and Queue.dequeue.
@@ -125,7 +125,7 @@
 
     \begin{mdframed}
 
-    \begin{lstlisting}[language=Python,caption={task\_4\_q2\_solution.py},captionpos=b]
+    \begin{lstlisting}[language=Python,caption={task\_4\_q1\_part\_2\_solution.py},captionpos=b]
     ...
     import matplotlib.pyplot as plt
     ...
@@ -154,6 +154,28 @@
     You can use an x-axis range of 0-200000 and a y-axis range of 0-0.02 (feel
     free to adjust the y-axis depending on how long the experiments take to run
     on your computer).
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \begin{lstlisting}[language=Python,caption={task\_4\_q1\_part\_3\_solution.py},captionpos=b]
+    if __name__ == '__main__':
+        ...
+        plt.plot(queue_sizes, enqueue_time_list, 'ro')
+        plt.plot(queue_sizes, dequeue_time_list, 'bo')
+        plt.xlim([0,200000])
+        plt.ylim([0,0.02])
+        plt.xlabel('Queue Size')
+        plt.ylabel('Time (Seconds)')
+        plt.show()
+    \end{lstlisting}
+
+    \begin{center}
+    \includegraphics[width=0.8 \linewidth]{../../images/lab4_t4_q1_part3_solution.png}
+    \end{center}
+
+    \end{mdframed}
 
     \item If you still have time, explore! There’s lots of customization you can
     do with \textit{matplotlib} to make your graphs really pretty.
