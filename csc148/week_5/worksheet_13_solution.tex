@@ -112,7 +112,51 @@
     return True
     \end{lstlisting}
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution}}:
+
+        \bigskip
+
+        The code that should go after the end of while loop is
+
+        \begin{lstlisting}[language=Python]
+        return curr1 is None and curr2 is None # <- Correct solution
+        \end{lstlisting}
+    \end{mdframed}
+
 \end{enumerate}
+
+\bigskip
+
+\begin{lstlisting}[language=Python,caption={worksheet\_13\_q2\_solution.py},captionpos=b]
+def __eq__(self, other: LinkedList) -> bool:
+    """Return whether this list and the other list are equal.
+
+    >>> lst1 = LinkedList([1, 2, 3])
+    >>> lst2 = LinkedList([])
+    >>> lst1.__eq__(lst2)
+    False
+    >>> lst2.append(1)
+    >>> lst2.append(2)
+    >>> lst2.append(3)
+    >>> lst1.__eq__(lst2)
+    True
+    """
+    curr1 = self._first
+    curr2 = other._first
+
+    while (curr1 is not None) and (curr2 is not None):
+        if curr1 is None or curr2 is None:
+            return False
+
+        if curr1.item != curr2.item:
+            return False
+
+        curr1 = curr1.next
+        curr2 = curr2.next
+
+    return curr1 is None and curr2 is None
+\end{lstlisting}
 
 \section*{Question 2}
 \begin{enumerate}[a.]
