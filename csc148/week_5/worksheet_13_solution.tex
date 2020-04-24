@@ -91,7 +91,7 @@
     \bigskip
 
     \begin{lstlisting}[language=Python]
-    (curr1 is None) or (curr2 is None) # <- Correct Solution
+    (curr1 is None) and (curr2 is None) # <- Correct Solution
     \end{lstlisting}
     \end{mdframed}
 
@@ -255,6 +255,36 @@ def __eq__(self, other: LinkedList) -> bool:
     # 4. If index - 1 == current_index, then return item of curr.next
     return curr.next.item
     \end{lstlisting}
+
+    \newpage
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    The code for the loop body is
+    \begin{lstlisting}[language=Python]
+    # 1. If index == 0, then return curr.item (edge case)
+    if index == 0:
+        return curr.item
+
+    # 2. If index - 1 != i, then continue to next node
+    if index - 1 != i:
+        curr = curr.next
+        i += 1
+        continue
+
+    # 3. If curr.next is none, then let it terminate naturally
+    if curr.next is None:
+        curr = curr.next
+        i += 1
+        continue
+
+    # 4. If index - 1 == i, then return item of curr.next
+    return curr.next.item
+    \end{lstlisting}
+    \end{mdframed}
 
     \item
 

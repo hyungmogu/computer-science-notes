@@ -175,26 +175,26 @@ class LinkedList:
         """
 
         curr = self._first
-        current_index = 0
+        i = 0
 
-        # 1. If index == 0 and curr is not none, then return curr.item (edge case)
-        if index == 0 and (curr is not None):
-            return curr.item
+        while (curr is not None) and (i <= index):
+            # 1. If index == 0, then return curr.item (edge case)
+            if index == 0:
+                return curr.item
 
-        while curr is not None:
-            # 2. If index - 1 != current_index, then continue to next node
-            if index - 1 != current_index:
+            # 2. If index - 1 != i, then continue to next node
+            if index - 1 != i:
                 curr = curr.next
-                current_index += 1
+                i += 1
                 continue
 
             # 3. If curr.next is none, then let it terminate naturally
             if curr.next is None:
                 curr = curr.next
-                current_index += 1
+                i += 1
                 continue
 
-            # 4. If index - 1 == current_index, then return item of curr.next
+            # 4. If index - 1 == i, then return item of curr.next
             return curr.next.item
 
         raise IndexError
