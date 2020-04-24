@@ -120,8 +120,6 @@
 
     Initially, \textit{curr} and \textit{i} are as follows
 
-    \bigskip
-
     \begin{lstlisting}[language=Python]
     curr = self._first
     i = 0
@@ -131,8 +129,6 @@
 
     The stopping condition for the while loop is
 
-    \bigskip
-
     \begin{lstlisting}[language=Python]
     curr is not None
     \end{lstlisting}
@@ -141,11 +137,28 @@
 
     Using this fact, we can conclude that the while loop condition is
 
-    \bigskip
-
     \begin{lstlisting}[language=Python]
     while curr is not None:
         ...
+    \end{lstlisting}
+
+    \item
+    The code for the loop body is
+    \begin{lstlisting}[language=Python]
+    # 2. If index - 1 != current_index, then continue to next node
+    if index - 1 != current_index:
+        curr = curr.next
+        current_index += 1
+        continue
+
+    # 3. If curr.next is none, then let it terminate naturally
+    if curr.next is None:
+        curr = curr.next
+        current_index += 1
+        continue
+
+    # 4. If index - 1 == current_index, then return item of curr.next
+    return curr.next.item
     \end{lstlisting}
 
 \end{enumerate}
