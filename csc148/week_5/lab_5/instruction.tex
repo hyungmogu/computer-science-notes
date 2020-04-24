@@ -133,6 +133,111 @@ you begin.
 \end{enumerate}
 
 \section*{3) Augmenting our linked list implementation}
+It makes sense that our implementation of \textit{LinkedList.\_\_len\_\_} is so
+slow; but how is the built-in \textit{list.\_\_len\_\_} so much faster?
+
+\bigskip
+
+\noindent It turns out that built-in Python lists use an additional attribute to
+store their length, so that whenever \textit{list.\_\_len\_\_} is called, it simply
+returns the value of this attribute.
+
+\bigskip
+
+\noindent The process of adding an extra attribute to an existing data structure
+is known as augmentation, and is very common in computer science. Every data
+structure augmentation poses a question of trade-offs:
+
+\begin{itemize}
+    \item The benefit of augmenting is that the extra attribute makes certain operations simpler and/or more efficient to implement.
+    \item The cost of augmenting is that this extra attribute increases the complexity of the data structure implementation.
+
+    In particular, such attributes often have representation invariants associated with them that must be maintained every time the data structure is mutated.
+\end{itemize}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item Create a copy of your \textit{LinkedList} class (you can pick a name for the copy),
+    and add a new private attribute \textit{\_length} to the class documentation and initializer.
+
+    \bigskip
+
+    Write down a representation invariant for this new attribute; you can use
+    English here, but try to be precise without using the word “length” in your
+    description. (Hint: how do we define length in terms of the nodes of a list?)
+
+    \item Update each mutating method to preserve your representation invariant for this new attribute.
+    (Why don’t we need to worry about the non-mutating methods?)
+
+    \item Now let’s enjoy the benefit of this augmentation!
+
+    \bigskip
+
+    Modify your new class’ \textit{\_\_len\_\_} method to simply return this new
+    attribute.
+
+    \textit{Use doctests wisely to ensure you’ve made the correct changes for this and the previous step.}
+
+    \item Finally, perform some additional timing tests to demonstrate that you really have
+    improved the efficiency of \textit{\_\_len\_\_}.
+
+\end{enumerate}
 
 \section*{4) Additional exercises}
+\subsection*{Generalizing \textit{\_\_getitem\_\_}}
+The implementation we’ve provided for \textit{\_\_getitem\_\_} has many shortcomings
+compared to Python’s built-in lists.
+
+\bigskip
+
+\noindent Two features that it doesn’t currently support are negative indexes and slices
+(e.g., \textit{my\_list[2:5]}).
+
+\bigskip
+
+\noindent Your first task here is to investigate the different ways in which Python
+supports these operations for built-in Python lists; you can do this by experimenting
+yourself in the Python console, or by doing some reading online.
+
+\bigskip
+
+\noindent Then, modify the linked list implementation of \textit{\_\_getitem\_\_}
+so that it handles both negative indexes and slices.
+
+\bigskip
+
+\noindent Note that a slice in Python is actually a class: the expression
+\textit{my\_list[2:5]} is equivalent to \textit{my\_list.\_\_getitem\_\_(slice(2, 5))}.
+
+\bigskip
+
+\noindent Use \textit{isinstance} to determine whether the input to \textit{\_\_getitem\_\_}
+is an integer or a slice.
+
+\bigskip
+
+\noindent The fully general method signature of \textit{\_\_getitem\_\_} should
+become:
+
+\bigskip
+
+\begin{lstlisting}[language=python]
+    def __getitem__(self, index: Union[int, slice]) -> Union[Any, LinkedList]
+\end{lstlisting}
+
+\bigskip
+
+\noindent Note: slicing should always return a new \textit{LinkedList} object.
+
+\bigskip
+
+\noindent This means that for a given slice, you’ll need to create a \textit{LinkedList} and new
+\textit{\_Nodes} as well, in a similar manner to how you implemented the more
+powerful initializer at the end of Task 1.
+
+
+\subsection*{Matplotlib Practice}
+Use \textit{matplotlib} to plot the results of your timing experiments, using the same
+approach as last week (See matplotlib section in lab 4).
 \end{document}
