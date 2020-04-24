@@ -220,6 +220,51 @@
         \sum\limits_{i=2}^{n-1} (i-1) &= \sum\limits_{i'= 1}^{n-2} i'\\
         &= \frac{(n-2)(n-1)}{2}
     \end{align}
+
+    \bigskip
+
+    \begin{mdframed}
+
+        \bigskip
+
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}The code for \textit{append} method tells us\color{black}
+
+        \begin{lstlisting}[language=python,caption={linked\_list.py}]
+        class LinkedList:
+            ...
+            def append(self, item: Any) -> None:
+                """Append <item> to the end of this list.
+                """
+                if self._first is None:
+                    self._first = _Node(item)
+                else:
+                    curr = self._first
+                    while curr.next is not None:
+                        curr = curr.next
+                    curr.next = _Node(item)
+        \end{lstlisting}
+
+        \bigskip
+
+        When $n = 1$, the total number of nodes traversed is 0. This is because
+        we are only replacing None in \textit{self.\_first} with \textit{\_Node(item)}.
+
+        \bigskip
+
+        When \color{red}$n > 1$, we know the number of nodes traversal
+        required to add an item increases by 1 starting with the $2^{nd}$
+        element\color{black}\:and this continues until $n - 1$ (where it represents
+        the last item in a list). So in this case, the total number of nodes traversed is
+
+        \begin{align}
+            \sum\limits_{i=1}^{n-1} i &= \frac{(n)(n-1)}{2}
+        \end{align}
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Question 5}
