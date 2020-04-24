@@ -165,6 +165,23 @@
     located right after another, I believe it's significantly faster for
     array-based lists to insert an element at position $i$.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}
+        Since $n - i = 1,000,000 - 500,000 = 500,000$, we can write
+        $\mathcal{O}(n-i) \approx \mathcal{O}(i)$
+
+        \bigskip
+
+        Using this fact, we can conclude the speed of linked lists and array-based
+        lists are roughly about the same.
+        \color{black}
+    \end{mdframed}
 
 \end{itemize}
 
