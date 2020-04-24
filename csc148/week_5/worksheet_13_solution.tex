@@ -69,7 +69,7 @@
     (curr1 is not None) and (curr2 is not None)
     \end{lstlisting}
 
-    \bigskip
+    \newpage
 
     \begin{mdframed}
     \underline{\textbf{Correct Solution}}:
@@ -91,7 +91,7 @@
     \bigskip
 
     \begin{lstlisting}[language=Python]
-    (curr1 is None) and (curr2 is None) # <- Correct Solution
+    (curr1 is None) or (curr2 is None) # <- Correct Solution
     \end{lstlisting}
     \end{mdframed}
 
@@ -137,6 +137,8 @@
     \begin{lstlisting}[language=Python]
     return True
     \end{lstlisting}
+
+    \newpage
 
     \begin{mdframed}
         \underline{\textbf{Correct Solution}}:
@@ -211,6 +213,29 @@ def __eq__(self, other: LinkedList) -> bool:
     while curr is not None:
         ...
     \end{lstlisting}
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    The stopping condition for the while loop is
+
+    \begin{lstlisting}[language=Python]
+    (curr is None) or (i > index) # <- Correct solution
+    \end{lstlisting}
+
+    \bigskip
+
+    Using this fact, we can conclude that the while loop condition is
+
+    \begin{lstlisting}[language=Python]
+    while (curr is not None) and (i <= index): # <- Correct Solution
+        ...
+    \end{lstlisting}
+    \end{mdframed}
 
     \item
     The code for the loop body is
