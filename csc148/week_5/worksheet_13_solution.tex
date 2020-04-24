@@ -156,7 +156,7 @@
 
 \bigskip
 
-\begin{lstlisting}[language=Python,caption={worksheet\_13\_q2\_solution.py},captionpos=b]
+\begin{lstlisting}[language=Python,caption={worksheet\_13\_q1\_solution.py},captionpos=b]
 def __eq__(self, other: LinkedList) -> bool:
     """Return whether this list and the other list are equal.
 
@@ -265,7 +265,7 @@ def __eq__(self, other: LinkedList) -> bool:
 
     The code for the loop body is
     \begin{lstlisting}[language=Python]
-    # 1. If index == 0, then return curr.item (edge case)
+    # 1. If index == 0, then return curr.item
     if index == 0:
         return curr.item
 
@@ -319,7 +319,7 @@ def __eq__(self, other: LinkedList) -> bool:
 
 \end{enumerate}
 
-\bigskip
+\newpage
 
 \begin{lstlisting}[language=Python,caption={worksheet\_13\_q2\_solution.py},captionpos=b]
     def __getitem__(self, index: int) -> Any:
@@ -344,7 +344,7 @@ def __eq__(self, other: LinkedList) -> bool:
         i = 0
 
         while (curr is not None) and (i <= index):
-            # 1. If index == 0, then return curr.item (edge case)
+            # 1. If index == 0, then return curr.item
             if index == 0:
                 return curr.item
 

@@ -178,7 +178,7 @@ class LinkedList:
         i = 0
 
         while (curr is not None) and (i <= index):
-            # 1. If index == 0, then return curr.item (edge case)
+            # 1. If index == 0, then return curr.item)
             if index == 0:
                 return curr.item
 
