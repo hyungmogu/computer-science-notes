@@ -161,8 +161,66 @@
     return curr.next.item
     \end{lstlisting}
 
+    \item
+
+    After the loop ends, we know \textit{curr} is None and \textit{index == len(self)}.
+
+    \bigskip
+
+    Using this fact, we can write that the post-loop code is
+
+    \begin{lstlisting}[language=Python]
+    raise IndexError
+    \end{lstlisting}
+
 \end{enumerate}
 
+\bigskip
+
+\begin{lstlisting}[language=Python,caption={worksheet\_13\_q2\_solution.py},captionpos=b]
+    def __getitem__(self, index: int) -> Any:
+        """Return the item at position <index> in this list.
+        Raise an IndexError if the <index> is out of bounds.
+        Precondition: index >= 0.
+
+        >>> lst = LinkedList([1, 2, 3])
+        >>> print(lst[0])
+        1
+        >>> print(lst[1])
+        2
+        >>> print(lst[2])
+        3
+        >>> print(lst[3])
+        Traceback (most recent call last):
+            ...
+        IndexError
+        """
+
+        curr = self._first
+        current_index = 0
+
+        # 1. If index == 0 and curr is not none, then return curr.item (edge case)
+        if index == 0 and (curr is not None):
+            return curr.item
+
+        while curr is not None:
+            # 2. If index - 1 != current_index, then continue to next node
+            if index - 1 != current_index:
+                curr = curr.next
+                current_index += 1
+                continue
+
+            # 3. If curr.next is none, then let it terminate naturally
+            if curr.next is None:
+                curr = curr.next
+                current_index += 1
+                continue
+
+            # 4. If index - 1 == current_index, then return item of curr.next
+            return curr.next.item
+
+        raise IndexError
+\end{lstlisting}
 
 
 \end{document}
