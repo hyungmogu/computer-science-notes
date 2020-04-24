@@ -120,7 +120,52 @@
     \end{itemize}
 \end{enumerate}
 
-
 \section*{Question 3}
+\begin{lstlisting}[language=Python,caption={worksheet\_12\_q3\_solution.py},captionpos=b]
+    ...
+    def insert(self, index: int, item: Any) -> None:
+        """Insert a the given item at the given index in this list.
+        Raise IndexError if index > len(self) or index < 0.
+        Note that adding to the end of the list is okay.
+
+        >>> lst = LinkedList([1, 2, 3])
+        >>> lst.insert(0,0)
+        >>> str(lst)
+        '[0 -> 1 -> 2 -> 3]'
+        >>> lst.insert(1,10)
+        >>> str(lst)
+        '[0 -> 10 -> 1 -> 2 -> 3]'
+        >>> lst.insert(5,10)
+        >>> str(lst)
+        '[0 -> 10 -> 1 -> 2 -> 3 -> 10]'
+        """
+
+        curr = self._first
+        current_index = 0
+
+        if index == 0:
+            current_node = curr
+            self._first = _Node(item)
+            self._first.next = current_node
+            return
+
+        while curr is not None:
+            if current_index != index - 1:
+                curr = curr.next
+                current_index += 1
+                continue
+
+            # 1. if index == len(self), then append to list
+            # 2. if index < len(self), then insert value at index
+            current_node = curr.next
+            inserting_node = _Node(item)
+            curr.next = inserting_node
+            inserting_node.next = current_node
+            return
+
+        # 3. if index > len(self), raise IndexError
+        raise IndexError
+    ...
+\end{lstlisting}
 
 \end{document}
