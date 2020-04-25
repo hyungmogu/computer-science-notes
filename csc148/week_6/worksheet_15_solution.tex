@@ -147,6 +147,33 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Input that does NOT reveal an error:} $[1,[2,3,[4]],5]$
+
+    \bigskip
+
+    \textbf{Expected output:} $[1,2,3,4]$
+
+    \bigskip
+
+    \adjustbox{center, valign=t}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{sublist} & \textbf{flatten(sublist)} & \textbf{Value of s at the end of the iteration}\\
+            \hline
+            N/A & N/A & [] (initial value of a)\\
+            \hline
+            1 & [1] & [1] \\
+            \hline
+            [2,3,[4]] & [2,3,4] & [1,2,3,4]\\
+            \hline
+            5 & [5] & [1,2,3,4,5]\\
+            \hline
+        \end{tabular}
+    }
+\end{enumerate}
 
 \section*{Question 3}
 
