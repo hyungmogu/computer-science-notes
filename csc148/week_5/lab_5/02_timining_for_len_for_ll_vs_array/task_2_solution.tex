@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titling}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[utf]{kotex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\predate{}
+\postdate{}
+
+\begin{document}
+\title{Lab 5: Linked Lists Solution}
+\date{}
+\maketitle
+
+\section*{2) Timing \_\_len\_\_ for linked lists vs. array-based lists}
+
+\begin{enumerate}[1.]
+    \item Most methods take longer to run on large inputs than on small inputs,
+    although this is not always the case.
+
+    \bigskip
+
+    Look at your code for your linked list method \textit{\_\_len\_\_}.
+
+    Do you expect it to take longer to run on a larger
+    linked list than on a smaller one?
+
+    \item Pick one the following terms to relate the growth of \textit{\_\_len\_\_}'s
+    running time vs. input size, and justify.
+    \begin{itemize}
+        \item constant, logarithmic, linear, quadratic, exponential
+    \end{itemize}
+
+    \item Complete the code in \textit{time\_lists.py} to measure how running
+    time for your \textit{\_\_len\_\_} method changes as the size of the linked
+    list grows. Is it as you predicted?
+
+    \bigskip
+
+    Now’s let’s assess and compare the performance of Python’s built-in \textit{list}.
+    You can do this by simply adding it to the list of types that \textit{list\_class}
+    iterates over. What do you notice about the behaviour of calling \textit{len} on
+    a built-in \textit{list}?
+
+\end{enumerate}
+
+\end{document}
