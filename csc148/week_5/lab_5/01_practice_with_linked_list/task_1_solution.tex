@@ -53,13 +53,39 @@ you begin.
 \bigskip
 
 \begin{enumerate}[1.]
-    \item In the starter code, find and read the docstring of the method \textit{\_\_len\_\_},
+    \item
+    In the starter code, find and read the docstring of the method \textit{\_\_len\_\_},
     and then implement it.
 
     \bigskip
 
     You already implemented this method in this week’s prep, but it’s good practice
     to implement it again. (And if you missed this week’s prep, do it now!)
+
+    \begin{mdframed}
+        \begin{lstlisting}[language=python]
+        class LinkedList:
+            ...
+            def __len__(self) -> int:
+                """Return the number of elements in this list.
+
+                # >>> lst = LinkedList([])
+                # >>> len(lst)              # Equivalent to lst.__len__()
+                # 0
+                # >>> lst = LinkedList([1, 2, 3])
+                # >>> len(lst)
+                # 3
+                """
+                curr = self._first
+                count = 0
+
+                while curr is not None:
+                    curr = curr.next
+                    count += 1
+
+                return count
+        \end{lstlisting}
+    \end{mdframed}
 
     \item Then, implement the methods \textit{count}, \textit{index}, and \textit{\_\_setitem\_\_}.
 
