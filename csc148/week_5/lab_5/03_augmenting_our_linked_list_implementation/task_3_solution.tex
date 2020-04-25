@@ -320,5 +320,25 @@ structure augmentation poses a question of trade-offs:
     \item Finally, perform some additional timing tests to demonstrate that you really have
     improved the efficiency of \textit{\_\_len\_\_}.
 
+    \begin{mdframed}
+
+    In comparison to previous result of \textit{\_\_len\_\_}, time taken stays
+    constant over input sizes.
+
+    \bigskip
+
+    This is a significant improvement.
+
+    \bigskip
+
+    \begin{lstlisting}
+    LinkedList] Size   1000: 3.918999999998063e-06
+    [LinkedList] Size   2000: 2.317000000001679e-06
+    [LinkedList] Size   4000: 2.640999999997673e-06
+    [LinkedList] Size   8000: 2.5440000000001572e-06
+    [LinkedList] Size  16000: 2.6340000000013575e-06
+    \end{lstlisting}
+    \end{mdframed}
+
 \end{enumerate}
 \end{document}
