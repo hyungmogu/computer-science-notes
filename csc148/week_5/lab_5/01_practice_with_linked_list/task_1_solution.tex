@@ -235,6 +235,36 @@ you begin.
 
     Spend time drawing some pictures before writing any code!
 
+    \bigskip
+
+    \begin{mdframed}
+    \begin{lstlisting}[language=python,caption={task\_1\_step\_3\_solution.py}]
+    class LinkedList:
+        """A linked list implementation of the List ADT.
+        """
+        # === Private Attributes ===
+        # _first:
+        #     The first node in the linked list, or None if the list is empty.
+        _first: Optional[_Node]
+
+        def  __init__(self, items: list) -> None:
+            """ Initialize a new linked list containing the given items.
+
+                The first node in the linked list contains the first item in <items>
+            """
+
+            index = 0
+            while index < len(items):
+                items[index] = _Node(items[index])
+
+                if index > 0:
+                    items[index-1].next = items[index]
+                index += 1
+
+            self._first = items[0]
+    \end{lstlisting}
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
