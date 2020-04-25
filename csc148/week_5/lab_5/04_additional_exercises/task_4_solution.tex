@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titling}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[utf]{kotex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\predate{}
+\postdate{}
+
+\begin{document}
+\title{Lab 5: Linked Lists Solution}
+\date{}
+\maketitle
+
+\section*{4) Additional exercises}
+\subsection*{Generalizing \textit{\_\_getitem\_\_}}
+The implementation we’ve provided for \textit{\_\_getitem\_\_} has many shortcomings
+compared to Python’s built-in lists.
+
+\bigskip
+
+\noindent Two features that it doesn’t currently support are negative indexes and slices
+(e.g., \textit{my\_list[2:5]}).
+
+\bigskip
+
+\noindent Your first task here is to investigate the different ways in which Python
+supports these operations for built-in Python lists; you can do this by experimenting
+yourself in the Python console, or by doing some reading online.
+
+\bigskip
+
+\noindent Then, modify the linked list implementation of \textit{\_\_getitem\_\_}
+so that it handles both negative indexes and slices.
+
+\bigskip
+
+\noindent Note that a slice in Python is actually a class: the expression
+\textit{my\_list[2:5]} is equivalent to \textit{my\_list.\_\_getitem\_\_(slice(2, 5))}.
+
+\bigskip
+
+\noindent Use \textit{isinstance} to determine whether the input to \textit{\_\_getitem\_\_}
+is an integer or a slice.
+
+\bigskip
+
+\noindent The fully general method signature of \textit{\_\_getitem\_\_} should
+become:
+
+\bigskip
+
+\begin{lstlisting}[language=python]
+    def __getitem__(self, index: Union[int, slice]) -> Union[Any, LinkedList]
+\end{lstlisting}
+
+\bigskip
+
+\noindent Note: slicing should always return a new \textit{LinkedList} object.
+
+\bigskip
+
+\noindent This means that for a given slice, you’ll need to create a \textit{LinkedList} and new
+\textit{\_Nodes} as well, in a similar manner to how you implemented the more
+powerful initializer at the end of Task 1.
+
+
+\subsection*{Matplotlib Practice}
+Use \textit{matplotlib} to plot the results of your timing experiments, using the same
+approach as last week (See matplotlib section in lab 4).
+
+\end{document}
