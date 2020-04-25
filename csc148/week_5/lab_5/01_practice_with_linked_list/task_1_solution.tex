@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titling}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[utf]{kotex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\predate{}
+\postdate{}
+
+\begin{document}
+\title{Lab 5: Linked Lists Solution}
+\date{}
+\maketitle
+
+\section*{1) Practice with linked lists}
+
+For this task: we have commented out the doctests in the methods. You will not
+be able to run them until you finish step (3) of this task, at which point you
+may uncomment them. We recommend you read all of the steps in this task before
+you begin.
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item In the starter code, find and read the docstring of the method \textit{\_\_len\_\_},
+    and then implement it.
+
+    \bigskip
+
+    You already implemented this method in this week’s prep, but it’s good practice
+    to implement it again. (And if you missed this week’s prep, do it now!)
+
+    \item Then, implement the methods \textit{count}, \textit{index}, and \textit{\_\_setitem\_\_}.
+
+    \item You might have noticed that all the doctests were commented out in the previous part.
+
+    This is because they use a more powerful initializer than the one we’ve started with.
+
+    \bigskip
+
+    Your final task in this section is to implement a new initializer with the following interface:
+
+    \bigskip
+
+    \begin{lstlisting}[language=python]
+        def __init__(self, items: list) -> None:
+            """Initialize a new linked list containing the given items.
+
+            The first node in the linked list contains the first item
+            in <items>.
+            """
+    \end{lstlisting}
+
+    \bigskip
+
+    The lecture notes suggest one way to do this using \textit{append}; however,
+    here we want you to try doing this without using \textit{append} (or any other helper
+    method).
+
+    \bigskip
+
+    There are many different ways you could implement this method, but the key idea
+    is that you need to loop through \textit{items}, create a new \textit{\_Node} for each
+    item, link the nodes together, and initialize \textit{self.\_first}.
+
+    \bigskip
+
+    Spend time drawing some pictures before writing any code!
+
+\end{enumerate}
+
+\end{document}
