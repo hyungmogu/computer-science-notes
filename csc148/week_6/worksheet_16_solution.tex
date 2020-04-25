@@ -48,6 +48,42 @@
 \maketitle
 
 \section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    The doctests for the base case is
+
+    \begin{lstlisting}[language=python]
+    """
+    >>> nested_list_contains(1,1)
+    True
+    >>> nested_list_contains(1,2)
+    False
+    """
+    \end{lstlisting}
+
+    \bigskip
+
+    Using this fact, we can write
+
+    \begin{lstlisting}[language=python,caption={worksheet\_16\_q1a\_solution}]
+    from typing import Union, List
+
+    def nested_list_contains(obj: Union[int, List], item: int) -> bool:
+        """Return whether the given item appears in <obj>.
+        Note that if <obj> is an integer, this function checks whether
+        <item> is equal to <obj>.
+
+        >>> nested_list_contains(1,1)
+        True
+        >>> nested_list_contains(1,2)
+        False
+        """
+
+        if isinstance(self, int):
+            return obj == item
+    \end{lstlisting}
+\end{enumerate}
 
 \section*{Question 2}
 
