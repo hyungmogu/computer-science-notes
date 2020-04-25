@@ -119,6 +119,31 @@
 
     \item Yes, the final value of $s$ in previous problem matches the solution of
     [0,-1,2,-3,-5,-7] in problem 1.a.
+
+    \item
+
+    \begin{lstlisting}[language=Python]
+    def flatten(obj: Union[int, List]) -> List[int]:
+        """Return a (non-nested) list of the integers in <obj>.
+        The integers are returned in the left-to-right order they appear
+        in <obj>.
+
+        >>> flatten(6)
+        [6]
+        >>> flatten([1, [-2, 3], -4])
+        [1, -2, 3, -4]
+        >>> flatten([[0, -1], -2, [[-3, [-5]]]])
+        [0, -1, -2, -3, -5]
+        """
+        if isinstance(obj, int):
+            return [obj]
+        else:
+            s = []
+            for sublist in obj:
+                s.extend(flatten(sublist))
+            return s
+    \end{lstlisting}
+
 \end{enumerate}
 
 \section*{Question 2}
