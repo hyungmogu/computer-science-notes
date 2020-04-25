@@ -138,7 +138,7 @@ class LinkedList:
     # ------------------------------------------------------------------------
     # TODO: implement this method
     # NOTE: The doctest will not run until task 3
-    # ==================== (Task 1, Question 1) =======================
+    # ==================== (Task 1, Step 1) =======================
     def __len__(self) -> int:
         """Return the number of elements in this list.
 
