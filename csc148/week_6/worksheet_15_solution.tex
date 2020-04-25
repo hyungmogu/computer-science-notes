@@ -173,6 +173,36 @@
             \hline
         \end{tabular}
     }
+
+    \item
+
+    \textbf{Input that does reveal an error:} $[1,2,[2,2,3],4]$
+
+    \bigskip
+
+    \textbf{Expected output:} $[1,2,3,4]$
+
+    \bigskip
+
+    \adjustbox{center, valign=t}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{sublist} & \textbf{flatten(sublist)} & \textbf{Value of s at the end of the iteration}\\
+            \hline
+            N/A & N/A & [] (initial value of a)\\
+            \hline
+            1 & [1] & [1] \\
+            \hline
+            2 & [2] & [1,2]\\
+            \hline
+            [2,2,3] & [2,3] & [1,2,2,3]\\
+            \hline
+            4 & [4] & [1,2,2,3,4]\\
+            \hline
+        \end{tabular}
+    }
+
+
 \end{enumerate}
 
 \section*{Question 3}
