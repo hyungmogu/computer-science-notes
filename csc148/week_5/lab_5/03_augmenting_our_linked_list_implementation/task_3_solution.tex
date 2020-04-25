@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titling}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[utf]{kotex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\predate{}
+\postdate{}
+
+\begin{document}
+\title{Lab 5: Linked Lists Solution}
+\date{}
+\maketitle
+
+\section*{3) Augmenting our linked list implementation}
+It makes sense that our implementation of \textit{LinkedList.\_\_len\_\_} is so
+slow; but how is the built-in \textit{list.\_\_len\_\_} so much faster?
+
+\bigskip
+
+\noindent It turns out that built-in Python lists use an additional attribute to
+store their length, so that whenever \textit{list.\_\_len\_\_} is called, it simply
+returns the value of this attribute.
+
+\bigskip
+
+\noindent The process of adding an extra attribute to an existing data structure
+is known as augmentation, and is very common in computer science. Every data
+structure augmentation poses a question of trade-offs:
+
+\begin{itemize}
+    \item The benefit of augmenting is that the extra attribute makes certain operations simpler and/or more efficient to implement.
+    \item The cost of augmenting is that this extra attribute increases the complexity of the data structure implementation.
+
+    In particular, such attributes often have representation invariants associated with them that must be maintained every time the data structure is mutated.
+\end{itemize}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item Create a copy of your \textit{LinkedList} class (you can pick a name for the copy),
+    and add a new private attribute \textit{\_length} to the class documentation and initializer.
+
+    \bigskip
+
+    Write down a representation invariant for this new attribute; you can use
+    English here, but try to be precise without using the word “length” in your
+    description. (Hint: how do we define length in terms of the nodes of a list?)
+
+    \bigskip
+
+    \begin{mdframed}
+    \begin{lstlisting}[language=python,caption={task\_3\_step\_1\_solution.py}]
+    class LinkedList:
+        """A linked list implementation of the List ADT.
+        """
+        # === Private Attributes ===
+        # _first:
+        #     The first node in the linked list, or None if the list is empty.
+        # _length:
+        #     The number of nodes in the linked list.
+        #
+        # === Representational Invariants ===
+        # - _length >= 0
+    \end{lstlisting}
+    \end{mdframed}
+
+    \item Update each mutating method to preserve your representation invariant for this new attribute.
+    (Why don’t we need to worry about the non-mutating methods?)
+
+    \item Now let’s enjoy the benefit of this augmentation!
+
+    \bigskip
+
+    Modify your new class’ \textit{\_\_len\_\_} method to simply return this new
+    attribute.
+
+    \textit{Use doctests wisely to ensure you’ve made the correct changes for this and the previous step.}
+
+    \item Finally, perform some additional timing tests to demonstrate that you really have
+    improved the efficiency of \textit{\_\_len\_\_}.
+
+\end{enumerate}
+\end{document}
