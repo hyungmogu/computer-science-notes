@@ -9,12 +9,11 @@ This module runs timing experiments to determine how the time taken
 to call `len` on a Python list vs. a LinkedList grows as the list size grows.
 """
 from timeit import timeit
-from task_4_step_1_solution import LinkedList
+from task_4_part_1_solution import LinkedList
 import matplotlib.pyplot as plt
 
 NUM_TRIALS = 3000                        # The number of trials to run.
-# SIZES = [1000, 2000, 4000, 8000, 16000]  # The list sizes to try.
-SIZES = [1000, 2000]
+SIZES = [1000, 2000, 4000, 8000, 16000]  # The list sizes to try.
 
 def profile_getitem(list_class: type, size: int) -> float:
     """Return the time taken to call len on a list of the given class and size.
@@ -22,7 +21,6 @@ def profile_getitem(list_class: type, size: int) -> float:
     Precondition: list_class is either list or LinkedList.
     """
     # TODO: Create an instance of list_class containing <size> 0's.
-    # ==================== (Task 4, Step 2) =======================
     my_list = LinkedList([0 for x in range(size)])
 
     # TODO: call timeit appropriately to check the runtime of len on the list.
@@ -32,7 +30,6 @@ def profile_getitem(list_class: type, size: int) -> float:
     time = timeit('my_list[-1]', number=1, globals=locals())
 
     return time
-    # =================================================================
 
 def profile_slice(list_class: type, size: int) -> float:
     """Return the time taken to call len on a list of the given class and size.
@@ -40,7 +37,6 @@ def profile_slice(list_class: type, size: int) -> float:
     Precondition: list_class is either list or LinkedList.
     """
     # TODO: Create an instance of list_class containing <size> 0's.
-    # ==================== (Task 4, Step 2) =======================
     my_list = LinkedList([0 for x in range(size)])
     n = len(my_list)
 
@@ -86,7 +82,5 @@ if __name__ == '__main__':
     ax2.legend([plt2],["'__getitem__.slice(...)'"], loc="lower right")
     ax2.set_xlabel('Size')
     ax2.set_ylabel('Time (Seconds)')
-
-    plt.subplots_adjust(hspace=0.7)
 
     plt.show()

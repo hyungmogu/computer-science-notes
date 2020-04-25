@@ -102,7 +102,7 @@ powerful initializer at the end of Task 1.
 
 \underline{\textbf{Negative Index:}}
 
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[language=python,caption={task\_4\_part\_1\_solution.py}]
     class LinkedList:
     ...
         def __getitem__(self, index: int) -> Any:
@@ -126,7 +126,7 @@ powerful initializer at the end of Task 1.
             """
             curr = self._first
             curr_index = 0
-            # ============= (Task 4, step 1) =============
+            # ============= (Task 4, Part 1) =============
             index = index if index >= 0 else self._length + index
 
             if index < 0:
@@ -152,10 +152,10 @@ powerful initializer at the end of Task 1.
 
 \bigskip
 
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[language=python,caption={task\_4\_part\_1\_solution.py}]
     class LinkedList:
     ...
-        # ============= (Task 4, step 1) =============
+        # ============= (Task 4, Part 1) =============
         def __getitem__(self, index: Union[int , slice]) -> Union[Any , LinkedList]:
             """Return the item at position <index> in this list.
 
@@ -226,7 +226,7 @@ approach as last week (See matplotlib section in lab 4).
 
 
 \begin{mdframed}
-    \begin{lstlisting}[language=python]
+    \begin{lstlisting}[language=python,caption={task\_4\_part\_2\_solution.py}]
     """CSC148 Lab 5: Linked Lists
 
     === CSC148 Winter 2020 ===
@@ -238,12 +238,11 @@ approach as last week (See matplotlib section in lab 4).
     to call `len` on a Python list vs. a LinkedList grows as the list size grows.
     """
     from timeit import timeit
-    from task_4_step_1_solution import LinkedList
+    from task_4_part_1_solution import LinkedList
     import matplotlib.pyplot as plt
 
     NUM_TRIALS = 3000                        # The number of trials to run.
-    # SIZES = [1000, 2000, 4000, 8000, 16000]  # The list sizes to try.
-    SIZES = [1000, 2000]
+    SIZES = [1000, 2000, 4000, 8000, 16000]  # The list sizes to try.
 
     def profile_getitem(list_class: type, size: int) -> float:
         """Return the time taken to call len on a list of the given class and size.
@@ -251,7 +250,6 @@ approach as last week (See matplotlib section in lab 4).
         Precondition: list_class is either list or LinkedList.
         """
         # TODO: Create an instance of list_class containing <size> 0's.
-        # ==================== (Task 4, Step 2) =======================
         my_list = LinkedList([0 for x in range(size)])
 
         # TODO: call timeit appropriately to check the runtime of len on the list.
@@ -261,7 +259,6 @@ approach as last week (See matplotlib section in lab 4).
         time = timeit('my_list[-1]', number=1, globals=locals())
 
         return time
-        # =================================================================
 
     def profile_slice(list_class: type, size: int) -> float:
         """Return the time taken to call len on a list of the given class and size.
@@ -269,7 +266,6 @@ approach as last week (See matplotlib section in lab 4).
         Precondition: list_class is either list or LinkedList.
         """
         # TODO: Create an instance of list_class containing <size> 0's.
-        # ==================== (Task 4, Step 2) =======================
         my_list = LinkedList([0 for x in range(size)])
         n = len(my_list)
 
@@ -316,12 +312,14 @@ approach as last week (See matplotlib section in lab 4).
         ax2.set_xlabel('Size')
         ax2.set_ylabel('Time (Seconds)')
 
-        plt.subplots_adjust(hspace=0.7)
-
         plt.show()
     \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8 \linewidth]{../../images/lab5_t4_s2_solution.png}
+    \end{center}
 \end{mdframed}
-
-
 
 \end{document}
