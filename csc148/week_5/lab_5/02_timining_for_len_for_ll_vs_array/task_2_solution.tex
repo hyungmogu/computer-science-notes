@@ -4,6 +4,7 @@
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{mdframed}
+\usepackage{amsmath}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -68,6 +69,49 @@
     \begin{itemize}
         \item constant, logarithmic, linear, quadratic, exponential
     \end{itemize}
+
+    \begin{mdframed}
+    The growth of \textit{\_\_len\_\_}'s running time is \textbf{linear}.
+
+    \bigskip
+
+    First, we need to calculate the number of steps taken by the loop.
+
+    \bigskip
+
+    The code tells us that the loop starts at $0^{th}$ node and increments by
+    one until $n-1^{th}$ node in the linked list.
+
+    \bigskip
+
+    Using this fact, we can calculate the loop has
+
+    \begin{align}
+        n - 1 - 0 + 1 = n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Because we know each iteration takes a constant time (1 step), we can conclude
+    the loop takes total of
+
+    \begin{align}
+        n \cdot 1 = n
+    \end{align}
+
+    \bigskip
+
+    steps.
+
+    \bigskip
+
+    Finally, adding the constant time operations outside of the loop (1 step),
+    we can conclude the algorithm has total running time of $n + 1$, which is
+    $\mathcal{O}(n)$.
+
+    \end{mdframed}
 
     \item Complete the code in \textit{time\_lists.py} to measure how running
     time for your \textit{\_\_len\_\_} method changes as the size of the linked
