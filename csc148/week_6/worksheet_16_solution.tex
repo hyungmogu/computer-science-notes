@@ -69,7 +69,7 @@
     \begin{lstlisting}[language=python,caption={worksheet\_16\_q1a\_solution}]
     from typing import Union, List
 
-    def nested_list_contains(obj: Union[int, List], item: int) -> bool:
+    def nested_list_contains(obj: Union[int, List], item: int) $\to$ bool:
         """Return whether the given item appears in <obj>.
         Note that if <obj> is an integer, this function checks whether
         <item> is equal to <obj>.
@@ -83,8 +83,72 @@
         if isinstance(self, int):
             return obj == item
     \end{lstlisting}
+
+    \item
+
+    Consider the following doctest
+
+    \begin{lstlisting}[language=python]
+    """
+    >>> nested_list_contains([4,2,2,[6,5,7,[8]]],8)
+    True
+    """
+    \end{lstlisting}
+
+    \bigskip
+
+
+    Using the base case from question 1.a, and the basic recursive design recipe,
+    we can conclude the algorithm will behave as follows
+
+    \begin{mdframed}
+
+    1) 4 $\to$ $4 == item$? $\to$ False
+
+    2) 2 $\to$ $2 == item$? $\to$ False
+
+    3) 2 $\to$ False
+
+    4)[6,5,7,[8]] $\to$ Recursion
+
+    \hspace{10mm} 5) 6 $\to$ $6 == item$? $\to$ False
+
+    \hspace{10mm} 6) 5 $\to$ $5 == item$? $\to$ False
+
+    \hspace{10mm} 7) 7 $\to$ $7 == item$? $\to$ False
+
+    \bigskip
+
+    \hspace{10mm} 8) [8] $\to$ Recursion
+
+    \hspace{10mm} \hspace{10mm} 9) 8 $\to$ $8 == item$? $\to$  True (function terminates)
+
+    \bigskip
+
+    11) Function Terminates until the end of recursion
+
+    \end{mdframed}
+
+    \bigskip
+
+    Now, no new parameters other than \textit{obj} and \textit{item} are required,
+    since
+
+    \begin{enumerate}[1.]
+        \item for the traversing and checking of elements, they are done using
+        the two parameters.
+
+        \item for bringing the value `True' to user, it is done
+        by repeatedly ending the recursive function call early with the value
+
+        \item for brining the value `False' to user, it is done by
+        returning False at the end.
+
+    \end{enumerate}
+
 \end{enumerate}
 
 \section*{Question 2}
+
 
 \end{document}
