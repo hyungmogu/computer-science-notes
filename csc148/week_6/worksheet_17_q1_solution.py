@@ -18,4 +18,8 @@ def add_one(obj: Union[int, List]) -> None:
     """
 
     if isinstance(obj, int):
-        return obj
+        pass
+
+if __name__ =='__main__':
+    import doctest
+    doctest.testmod()

@@ -84,6 +84,56 @@
         if isinstance(obj, int):
             return obj
     \end{lstlisting}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        We need to implement the base case for this function.
+
+        \bigskip
+
+        The docstring tells us the function does nothing if \textless obj \textgreater is an int.
+
+        \bigskip
+
+        Using this fact, we can write that
+
+        \bigskip
+
+        \begin{lstlisting}[language=python,caption={worksheet\_17\_q1\_solution.py}]
+        from typing import Union, List, Optional
+
+        def add_one(obj: Union[int, List]) -> None:
+            """Add one to every number stored in <obj>. Do nothing if <obj> is an int.
+            If <obj> is a list, *mutate* it to change the numbers stored.
+            >>> lst0 = 1
+            >>> add_one(lst0)
+            >>> lst0
+            1
+            >>> lst1 = []
+            >>> add_one(lst1)
+            >>> lst1
+            []
+            >>> lst2 = [1, [2, 3], [[[5]]]]
+            >>> add_one(lst2)
+            >>> lst2
+            [2, [3, 4], [[[6]]]]
+            """
+
+            if isinstance(obj, int):
+        # =========== Correction ===========
+                pass
+
+        if __name__ =='__main__':
+            import doctest
+            doctest.testmod()
+        # ==================================
+        \end{lstlisting}
+    \end{mdframed}
 \end{itemize}
 
 \section*{Question 2}
@@ -94,7 +144,6 @@
     \includegraphics[width=0.8 \linewidth]{images/worksheet_17_q2_solution.png}
     \end{center}
 \end{itemize}
-
 
 \section*{Question 3}
 
