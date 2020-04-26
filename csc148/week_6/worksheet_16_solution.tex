@@ -216,6 +216,82 @@
 
     \bigskip
 
+    First, we need to write doctests for the function call on input of some complexity.
+
+    \bigskip
+
+    Consider the following doctests.
+
+    \begin{lstlisting}[language=python]
+    """
+    >>> first_at_depth([1,2,[3,4,[5,6]]],1)
+    1
+    >>> first_at_depth([1,2,[3,4,[5,6]]],3)
+    5
+    >>> first_at_depth([1,2,[3,4,[5,6]]],4)
+    None
+    >>> first_at_depth([[1,2,[3]],4,[[5],6]],3)
+    3
+    """
+    \end{lstlisting}
+
+    \bigskip
+
+    Second, we need to write down the relevant recursive calls for each sub-nested-list of input.
+
+    \bigskip
+
+    The recursive calls for the example \textit{first\_at\_depth([1,2,[3,4,[5,6]]],3)}
+    is as follows
+
+    \begin{mdframed}
+
+        1) 1 $\to$ is current\_depth == 3? $\to$ False $\to$ return None
+
+        2) 2 $\to$ is current\_depth == 3? $\to$ False $\to$ return None
+
+        3) [3,4,[5,6]] $\to$ Recursion
+
+        \bigskip
+
+        \hspace{10mm} 4) 3 $\to$ is current\_depth == 3? $\to$ False $\to$ return None
+
+        \hspace{10mm} 5) 4 $\to$ is current\_depth == 3? $\to$ False $\to$ return None
+
+        \hspace{10mm} 6) [5,6] $\to$ Recursion
+
+        \bigskip
+
+        \hspace{10mm} \hspace{10mm} 7) 5 $\to$ is current\_depth == 3? $\to$ True $\to$ return 5
+
+        \bigskip
+
+        8) Function Terminates with return value 5 until the end of recursion
+
+    \end{mdframed}
+
+    \bigskip
+
+    Finally, we need to think about the extra parameters for each function.
+
+    \bigskip
+
+    It follows from above that the extra parameter required for this function is
+    \textit{current\_depth}. To add this parameter, we need to change function
+    \textit{first\_at\_depth} from
+
+    \begin{lstlisting}[language=python,keepspaces=false]
+    first_at_depth(obj: Union[int, List], d: int) -> Optional[int]:
+    \end{lstlisting}
+
+    to
+
+    \begin{lstlisting}[language=python,keepspaces=false]
+    first_at_depth(obj: Union[int, List], d: int, current_depth: int) -> Optional[int]:
+    \end{lstlisting}
+
+    \bigskip
+
     \begin{mdframed}
         \underline{\textbf{Rough Work:}}
 
