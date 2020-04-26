@@ -69,7 +69,7 @@
     \begin{lstlisting}[language=python,caption={worksheet\_16\_q1a\_solution}]
     from typing import Union, List
 
-    def nested_list_contains(obj: Union[int, List], item: int) $\to$ bool:
+    def nested_list_contains(obj: Union[int, List], item: int) -> bool:
         """Return whether the given item appears in <obj>.
         Note that if <obj> is an integer, this function checks whether
         <item> is equal to <obj>.
@@ -181,6 +181,37 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{enumerate}[a.]
+    \item The doctests for the base case is
 
+    \begin{lstlisting}[language=python]
+    """
+    >>> first_at_depth(1,2)
+    None
+    """
+    \end{lstlisting}
+
+    \bigskip
+
+    Using this fact, we can write
+
+    \begin{lstlisting}[language=python,caption={worksheet\_16\_q2a\_solution}]
+    from typing import Union, List, Optional
+
+
+    def first_at_depth(obj: Union[int, List], d: int) -> Optional[int]:
+        """Return the first (leftmost) item in <obj> at depth <d>.
+        Return None if there is no item at depth <d>.
+        Precondition: d >= 0.
+
+        >>> first_at_depth(1,2)
+        None
+        """
+
+        if isinstance(obj, int):
+            return None
+    \end{lstlisting}
+
+\end{enumerate}
 
 \end{document}
