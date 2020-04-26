@@ -87,13 +87,13 @@
 
     \bigskip
 
-    \begin{lstlisting}
+    \begin{lstlisting}[language=python]
     self.stuff = stuff
     \end{lstlisting}
 
     to
 
-    \begin{lstlisting}
+    \begin{lstlisting}[language=python]
     self.stuff = [x for x in stuff]
     \end{lstlisting}
 
@@ -102,6 +102,28 @@
 \end{enumerate}
 
 \section*{Question 2}
+\begin{itemize}
+    \item
+    \adjustbox{center, valign=t}{
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            Class 1 & Class 2 & Composition? & Inheritance? & Neither?\\
+            \hline
+            Chirper & Cheep & & x & \\
+            \hline
+            Customer & Item & x & & \\
+            \hline
+            ExpressLine & Customer & x & & \\
+            \hline
+            ExpressLine & SelfServeLine & & x & \\
+            \hline
+            PriorityQueue & Container & & & x \\
+            \hline
+            GroceryStore & GroceryStoreSimulation & x & & \\
+            \hline
+        \end{tabular}
+    }
+\end{itemize}
 
 \section*{Question 3}
 
