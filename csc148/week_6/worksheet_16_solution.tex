@@ -212,6 +212,55 @@
             return None
     \end{lstlisting}
 
+    \item
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Write a doctest for the function call on input of some complexity
+
+            \bigskip
+
+            First, we need to write a doctest for the function call on input of some complexity
+
+            \bigskip
+
+            \begin{mdframed}
+
+            \bigskip
+
+            First, we need to write doctests for the function call on input of some complexity.
+
+            \bigskip
+
+            Consider the following doctests.
+
+            \begin{lstlisting}[language=python]
+            """
+            >>> first_at_depth([1,2,[3,4,5]],1)
+            1
+            >>> first_at_depth([1,2,[3,4,5]],2)
+            3
+            >>> first_at_depth([1,2,[3,4,5]],3)
+            None
+            >>> first_at_depth([[1,2,[3]],4,[[5],6]],3)
+            3
+            """
+            \end{lstlisting}
+
+            \end{mdframed}
+
+            \item Write down the relevant recursive calls for each sub-nested-list of input.
+            \item Think about the extra parameters for each function.
+        \end{enumerate}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
