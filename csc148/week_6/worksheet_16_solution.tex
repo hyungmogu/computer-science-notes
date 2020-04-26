@@ -166,13 +166,15 @@
         if isinstance(self, int):
             return obj == item
         else:
+            # ==================== (Solution) =======================
             for sublist in obj:
                 result = nested_list_contains(sublist, item)
 
                 if result:
                     return result
 
-        return False
+            return False
+            # =======================================================
     \end{lstlisting}
 
 
