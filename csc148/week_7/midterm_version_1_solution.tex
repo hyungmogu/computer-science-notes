@@ -66,6 +66,39 @@
         \includegraphics[width=0.8 \linewidth]{images/midterm_version_1_q1a_correction.png}
         }
     \end{mdframed}
+
+    \item
+
+    First, we need to write what causes the assertion to fail
+
+    \bigskip
+
+    The assertion fails because the instance attribute \textit{stuff} in two
+    different instances of class `BagOfStuff' are pointing to the same list.
+
+    \bigskip
+
+    Second, we need to write down how to fix this issue.
+
+    \bigskip
+
+    To fix this issue, we need make sure \textit{stuff} don't point to the list in
+    same memory location. This is done by changing the line from
+
+    \bigskip
+
+    \begin{lstlisting}
+    self.stuff = stuff
+    \end{lstlisting}
+
+    to
+
+    \begin{lstlisting}
+    self.stuff = [x for x in stuff]
+    \end{lstlisting}
+
+
+
 \end{enumerate}
 
 \section*{Question 2}
