@@ -211,7 +211,6 @@
         if isinstance(obj, int):
             return None
     \end{lstlisting}
-
     \item
 
     \bigskip
@@ -487,6 +486,124 @@
 
         \end{mdframed}
     \end{mdframed}
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    First, we need to write doctests for the function call on input of some complexity.
+
+    \bigskip
+
+    Consider the following doctests.
+
+    \begin{lstlisting}[language=python]
+    """
+    >>> first_at_depth([1,2,[3,4,[5,6]]],1)
+    1
+    >>> first_at_depth([1,2,[3,4,[5,6]]],3)
+    5
+    >>> first_at_depth([1,2,[3,4,[5,6]]],4)
+    >>> first_at_depth([[1,2,[3]],4,[[5],6]],3)
+    3
+    """
+    \end{lstlisting}
+
+    \bigskip
+
+    Second, we need to write down the relevant recursive calls for each sub-nested-list of input.
+
+    \bigskip
+
+    The recursive calls for the example \textit{first\_at\_depth([1,2,[3,4,[5,6]]],3)}
+    is as follows
+
+    \begin{mdframed}
+
+        1) 1 $\to$ \color{red}is d == 0\color{black}? $\to$ False $\to$ return None
+
+        2) 2 $\to$ \color{red}is d == 0\color{black}? $\to$ False $\to$ return None
+
+        3) [3,4,[5,6]] $\to$ Recursion
+
+        \bigskip
+
+        \hspace{10mm} 4) 3 $\to$ \color{red}is d == 0\color{black}? $\to$ False $\to$ return None
+
+        \hspace{10mm} 5) 4 $\to$ \color{red}is d == 0\color{black}? $\to$ False $\to$ return None
+
+        \hspace{10mm} 6) [5,6] $\to$ Recursion
+
+        \bigskip
+
+        \hspace{10mm} \hspace{10mm} 7) 5 $\to$ \color{red}is d == 0\color{black}? $\to$ True $\to$ return 5
+
+        \bigskip
+
+        8) Function Terminates with return value 5 until the end of recursion
+
+    \end{mdframed}
+
+    \bigskip
+
+    Finally, we need to think about the extra parameters for each function.
+
+    \bigskip
+
+    It follows from above that \color{red}we have everything we need to
+    execute the function\color{black}\:and the extra parameter \color{red}is not
+    required\color{black}.
+
+    \end{mdframed}
+
+    \item
+
+    \begin{lstlisting}[language=python,caption={worksheet\_16\_q2c\_solution.py}]
+    from typing import Union, List, Optional
+
+
+    def first_at_depth(obj: Union[int, List], d: int) -> Optional[int]:
+        """Return the first (leftmost) item in <obj> at depth <d>.
+        Return None if there is no item at depth <d>.
+        Precondition: d >= 0.
+
+        >>> first_at_depth(1,2)
+        >>> first_at_depth(1,0)
+        1
+        >>> first_at_depth([1,2,[3,4,[5,6]]],1)
+        1
+        >>> first_at_depth([1,2,[3,4,[5,6]]],3)
+        5
+        >>> first_at_depth([1,2,[3,4,[5,6]]],4)
+        >>> first_at_depth([[1,2,[3]],4,[[5],6]],3)
+        3
+        """
+
+        if isinstance(obj, int):
+            if d != 0:
+                return None
+            return obj
+
+        else:
+        # ==================== (Solution) =======================
+            for sublist in obj:
+                result = first_at_depth(sublist, d - 1)
+
+                if result:
+                    return result
+
+            return None
+        # =======================================================
+
+    if __name__ =='__main__':
+        import doctest
+        doctest.testmod()
+    """
+    \end{lstlisting}
+
 
 \end{enumerate}
 
