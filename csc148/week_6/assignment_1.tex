@@ -380,7 +380,9 @@ of these classes?
 \section*{7) Complete the Group Class}
 The \textit{Group} class represents a collection of one or more students.
 
-The starter code for the \textit{Group} class can be found in \textit{grouper.py}.
+\bigskip
+
+\noindent The starter code for the \textit{Group} class can be found in \textit{grouper.py}.
 Open up this file and read through the docstrings for each of the the \textit{Group}
 class’s methods. Then implement each of the methods in the Group class.
 
@@ -492,10 +494,168 @@ be added later. Why might we have chosen to implement these classes differently?
 What does this design choice tell us about how these classes are intended to be used?
 
 \section*{9) Complete the Survey Class}
+The \textit{Survey} class represents a collection of questions. It also associates
+each question with a criterion (indicating how to judge the quality of a group
+based on their answers to the question) and a weight (indicating the importance
+of this question in deciding how to group students).
+
+\bigskip
+
+\noindent The starter code for the \textit{Survey} class can be found in \textit{survey.py}.
+Open up this file and read through the docstrings for each of the the \textit{GroupSurveying}
+class’s methods. Then, implement each of the methods in the Survey class.
+
+\bigskip
+
+\noindent Hint: Read the documentation for \textit{Survey.\_get\_criterion} and
+\textit{Survey.\_get\_weight} carefully before you implement the initializer.
+
+\bigskip
+
+\noindent Note: The weights associated with the questions in in a survey do NOT
+have to sum up to any particular amount.
+
+\noindent Remember: you may need to define additional private attributes or
+private helper methods!
+
+\subsection*{Test your code!}
+\begin{itemize}
+    \item Write at least one unit test for each method in \textit{Survey}. You are not required to write tests for initializers.
+    \item You should write these tests in the \textit{tests.py} file.
+    \item Once you have finished writing these tests, run all the tests in \textit{test.py}.
+    Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}, the tests in the TestSurvey class should
+    now pass.
+\end{itemize}
+
+\bigskip
+
+\subsection*{Something to think about!}
+What is the relationship between the \textit{Survey.score\_students} method and
+the\\ \textit{Survey.score\_grouping} method?
 
 \section*{10) Complete the helper functions in \textit{grouper.py}}
+The file \textit{grouper.py} contains helper functions that implement two different ways
+of dividing a list up into parts.
+
+\bigskip
+
+\noindent Open this file and read through the documentation for these functions.
+Then, implement the functions.
+
+\bigskip
+
+\subsection*{Test your code!}
+\begin{itemize}
+    \item Write at least one unit test for each function you implemented in this step.
+    \item You should write these tests in the \textit{tests.py} file.
+    \item Once you have finished writing these tests, run all the tests in \textit{test.py}.
+    Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}. The \textit{test\_slice\_list} and
+    \textit{test\_windows} tests should now pass.
+\end{itemize}
+
+\subsection*{Something to think about!}
+Why are we writing these functions outside of a class? Why not make them instance
+methods of one of the \textit{Grouper} classes instead?
+
 
 \section*{11) Complete the Grouper Classes}
+The \textit{Grouper} classes represent different techniques for deciding how to split all
+the students in a course into a groups. See the docstrings of each of these classes
+and their methods for implementation details. The file Grouper Explanation.pdfPreview
+the document walks through a detailed example for each of the groupers. Make sure
+you understand the algorithms before you start writing code.
+
+\bigskip
+
+\noindent The starter code for the \textit{Grouper} classes can be found in
+\textit{grouper.py}. Open up this file and read through the docstrings for each
+of the the \textit{Grouper} class’ methods.
+
+\bigskip
+
+\noindent The \textit{Grouper} classes are the classes in this file that have
+“Grouper” in their name:
+
+\begin{itemize}
+    \item \textit{Grouper}
+    \item \textit{AlphaGrouper}
+    \item \textit{RandomGrouper}
+    \item \textit{GreedyGrouper}
+    \item \textit{WindowGrouper}
+\end{itemize}
+
+\noindent Unlike the \textit{Criterion} classes and \textit{Question} classes, the
+inheritance structure between the Grouper classes has been given to you. You
+should NOT change the inheritance structure between the \textit{Grouper} classes.
+
+\bigskip
+
+\noindent Implement each of the methods in the \textit{Grouper} classes. You may
+find the function \textit{sort\_students} (defined in the course module) helpful.
+
+\bigskip
+
+\noindent Remember: you may need to define additional private attributes or private
+helper methods!
+
+\bigskip
+
+\subsection*{Test your code!}
+\begin{itemize}
+\item Write at least one unit test for each method in each of the Grouper classes. You
+do not need to write tests for abstract methods but you do need to write tests
+for inherited methods.
+
+\item For example, even if you structure your code so that a child class
+inherits a private helper method without modification from the parent class,
+you still need to write separate tests for the private helper method in the
+parent class and the child class.
+
+\item You should write these tests in the \textit{tests.py} file.
+\item Once you have finished writing these tests, run all the tests in
+\textit{test.py}. Make sure your code passes all your tests before moving on.
+Run the tests in \textit{example\_tests.py}. The tests in the \textit{TestAlphaGrouper},
+\textit{TestRandomGrouper}, \textit{TestGreedy} Grouper, and TestWindowGrouper
+classes should now pass.
+
+\subsection*{A note on writing tests for methods that include randomness}
+When you test methods that include some randomness, you cannot simply test the
+return value since it will change from one call to the next. This is where property
+testing comes in (see the first lecture!).
+
+\bigskip
+
+For example, the tests in \textit{TestRandomGrouper} test the following properties
+of the \textit{Grouping} instance returned by the \textit{RandomGrouper.make\_grouping} method:
+
+\begin{itemize}
+    \item the number of groups in the grouping
+    \item the number of members in each group
+    \item the uniqueness of all members in the grouping
+\end{itemize}
+
+\bigskip
+
+\noindent Think about what other properties you could test for when you write your own tests
+for this class.
+
+\bigskip
+
+\subsection*{Something to think about!}
+Now that you have written all the code, go back and look at the diagram in Step 1.
+This is just one possible way to have designed this code. Think about:
+
+\bigskip
+
+\begin{itemize}
+\item How could we have structured the classes differently?
+\item What other classes might we want to add to this code in the future?
+\item Imagine we wanted to add a class that keeps track of all of the courses in
+a university? How easy would it be to add this new class? Which existing classes
+(if any) would have to change?
+\end{itemize}
 
 \section*{12) Test the Code Again}
 
