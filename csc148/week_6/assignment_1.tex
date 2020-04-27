@@ -303,10 +303,193 @@ in this assignment. What is the advantage of creating such a simple class? Are
 there any disadvantages?
 
 \section*{6) Complete the Criterion Class}
+A criterion is a way of judging the quality of a group based on the group members’
+answers to a particular question. For example, one criterion could be to want
+groups with homogeneous answers to a question asking what year they are in.
+
+\bigskip
+
+\noindent The starter code defines several Criterion classes in \textit{criterion.py}. Open
+up this file and read through the docstrings for each of the the \textit{Criterion}
+class’ methods. The \textit{Criterion} classes are the classes in this file that
+have “Criterion” in their name:
+
+\begin{itemize}
+    \item \textit{Criterion}
+    \item \textit{HomogeneousCriterion}
+    \item \textit{HeterogeneousCriterion}
+    \item \textit{LonelyMemberCriterion}
+\end{itemize}
+
+\bigskip
+
+You might notice that we have not defined any inheritance hierarchy between these
+classes. You get to decide what it should be. However, in doing so you must
+follow these rules:
+
+\begin{enumerate}[1.]
+    \item The abstract \textit{Criterion} class should not inherit from any class
+    other than object.
+    \item All other \textit{Criterion} classes should inherit from the abstract \textit{Criterion}
+    class, either directly or indirectly.
+    \item At least one non-abstract \textit{Criterion} class should inherit from another
+    non-abstract Criterion class.
+    \item There are many possible inheritanceses. You should NOT implement an
+    initializer for these classes.
+\end{enumerate}
+
+\bigskip
+
+\noindent Remember: You may remove a method defined in a child class if you wish to
+simply inherit the parent’s method directly. structures you could choose. Remember
+that one of the requirements for this assignment is to avoid writing duplicate code.
+Think about which sort of inheritance structure best lets you avoid duplicate code.
+
+\bigskip
+
+\noindent Implement each of the methods in the \textit{Criterion} classes. You should NOT implement
+an initializer for these classes.
+
+\noindent Remember: you may need to define additional private helper methods!
+
+\subsection*{Test your code!}
+\begin{itemize}
+    \item Write at least one unit test for each method in each of the \textit{Criterion}
+    classes. You do not need to write tests for abstract methods but you do need to
+    write tests for inherited methods.
+
+    \item For example, even if you structure your code so that a child class
+    inherits its \textit{score\_answers} method without modification from the parent class,
+    you still need to write separate tests for the \textit{score\_answers} method in
+    the parent class and the child class.
+
+    \item You should write these tests in the \textit{tests.py} file.
+    \item Once you have finished writing these tests, run all the tests in \textit{test.py}.
+    Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}, the tests in the
+    \textit{TestHomogeneousCriterion},\\ \textit{TestHeterogeneousCriterion}, and
+    \textit{TestLonelyMemberCriterion} classes should now pass.
+\end{itemize}
+
+\subsection*{Something to think about!}
+You are asked not to implement an initializer for the \textit{Criterion} classes.
+Why is an initializer not necessary for these classes? If the \textit{Criterion}
+classes do not define an initializer, will it be impossible to create instances
+of these classes?
 
 \section*{7) Complete the Group Class}
+The \textit{Group} class represents a collection of one or more students.
+
+The starter code for the \textit{Group} class can be found in \textit{grouper.py}.
+Open up this file and read through the docstrings for each of the the \textit{Group}
+class’s methods. Then implement each of the methods in the Group class.
+
+\bigskip
+
+\noindent Remember: you may need to define additional private attributes or
+private helper methods!
+
+\bigskip
+
+\subsection*{Test your code!}
+\begin{itemize}
+    \item Write at least one unit test for each method in \textit{Group}. You are
+    not required to write tests for initializers.
+    \item You should write these tests in the \textit{tests.py} file.
+    \item Once you have finished writing these tests, run all the tests in \textit{test.py}.
+    Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}, the tests in the \textit{TestGroup}
+    class should now pass.
+    \item Something to think about!
+\end{itemize}
+
+\bigskip
+
+\noindent You may find the Python \textit{set} type to be useful.
+
+\bigskip
+
+\noindent The \textit{Group.get\_members} method asks you to return a shallow
+copy of the \textit{\_members} private attribute instead of simply returning the list that
+\_members refers to. A \textit{shallow} copy of an object is a new object (with a different
+\textit{id}) but whose contents are the same. For example,
+
+\bigskip
+
+\begin{lstlisting}[language=python,caption={worksheet\_17\_q1\_solution.py}]
+    >>> dicts = [{1:2, 3:9}, {5:18}, {"adieu":7}]
+    >>> copy = []
+    >>> for item in dicts:
+    ...     copy.append(item)
+    ...
+    >>> # dicts and copy are two different objects.
+    >>> id(dicts)
+    4485971264
+    >>> id(copy)
+    4485971200
+    >>> # But each item in copy is an alias for an item in dicts.
+    >>> For example:
+    >>> id(dicts[2])
+    4486046896
+    >>> id(copy[2])
+    4486046896
+    >>> # With a Python list, any time we slice we get a new list.
+    >>> # This provides an easy way to make a shallow copy.
+    >>> another_copy = dicts[:]
+    >>> id(another_copy)
+    4485971008
+    >>> id(another_copy[2])
+    4486046896
+\end{lstlisting}
+
+\bigskip
+
+\noindent In contrast, a \textbf{deep copy} has new objects at every level, so
+it contains no aliases.
+
+\bigskip
+
+By returning a shallow copy, the \textit{Group.get\_members} method allows the client code
+to mutate the individual Student objects but not the Group object itself. The same
+reasoning holds for the \textit{Grouping.get\_groups} method in the next step.
 
 \section*{8) Complete the Grouping Class}
+The \textit{Grouping} class represents a collection of Group instances. An
+instance of a \textit{Grouping} class can be used to represent every student in a course,
+divided up into groups.
+
+\bigskip
+
+\noindent  The starter code for the Grouping class can be found in \textit{grouper.py}. Open
+up this file and read through the docstrings for each of the the Grouping class’s
+methods. Then, implement each of the methods in the \textit{Grouping} class.
+
+\bigskip
+
+\noindent Remember: you may need to define additional private attributes or
+private helper methods!
+
+\bigskip
+
+\subsection*{Test your code!}
+
+\begin{itemize}
+    \item Write at least one unit test for each method in \textit{Grouping}. You
+    are not required to write tests for initializers.
+    \item You should write these tests in the tests.py file.
+    \item Once you have finished writing these tests, run all the tests in test.py. Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}, the tests in the \textit{TestGrouping} class
+    should now pass.
+\end{itemize}
+
+\bigskip
+
+\subsection*{Something to think about!}
+An instance of the \textit{Grouping} class starts out containing zero groups and
+more can be added later using the \textit{Grouping.add\_group}. On the other
+hand, an instance of the \textit{Group} class starts out with some members and more cannot
+be added later. Why might we have chosen to implement these classes differently?
+What does this design choice tell us about how these classes are intended to be used?
 
 \section*{9) Complete the Survey Class}
 
