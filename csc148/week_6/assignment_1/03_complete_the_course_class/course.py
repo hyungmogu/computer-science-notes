@@ -23,7 +23,7 @@ This file contains classes that describe a university course and the students
 who are enrolled in these courses.
 """
 from __future__ import annotations
-from typing import TYPE_CHECKING, List, Tuple, Optional
+from typing import TYPE_CHECKING, List, Tuple, Optional,Dict
 if TYPE_CHECKING:
     from survey import Answer, Survey, Question
 
@@ -52,6 +52,7 @@ class Student:
     === Public Attributes ===
     id: the id of the student
     name: the name of the student
+    _answers: questions answered by the student
 
     === Representation Invariants ===
     name is not the empty string
@@ -59,7 +60,7 @@ class Student:
 
     id: int
     name: str
-    answers: dict
+    answers: Dict[int,Answer]
 
     def __init__(self, id_: int, name: str) -> None:
         """ Initialize a student with name <name> and id <id>"""
@@ -139,7 +140,17 @@ class Course:
         do not add any of the students in <students> to the course.
         """
         # TODO: complete the body of this method
-        self.students.extend(students)
+
+        students_set = set([student.id for student in self.students])
+
+        # 1. For each student, if student already in course
+        for student in students:
+            # 1.1. if student already in course, then continue
+            if student.id in students_set:
+                continue
+
+            # 1.2. if student not in course, then add
+            self.students.append(student)
 
     def all_answered(self, survey: Survey) -> bool:
         """
@@ -148,15 +159,19 @@ class Course:
         """
         # TODO: complete the body of this method
 
+        if not hasattr(survey, 'questions'):
+            return False
+
         # 1. for each student,
         for student in self.students:
-            for question in survey:
+
+            for id_ in survey._questions:
                 # 1.1 if question id not exists in student answer, return false
-                if question.id not in student.answers:
+                if id_ not in student.answers:
                     return False
 
                 # 1.2 if answer to the question is not valid, return false
-                if not student.answers[question.id].is_valid():
+                if not student.answers[id_].is_valid():
                     return False
 
         return True
