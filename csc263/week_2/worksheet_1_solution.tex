@@ -43,13 +43,44 @@
 \lstset{style=mystyle}
 
 \begin{document}
-\title{CSC236 Worksheet 1 Solution}
+\title{CSC263 Worksheet 1 Solution}
 \author{Hyungmo Gu}
 \maketitle
 
 \section*{Question 1}
 \begin{enumerate}[a.]
     \item
+
+    \begin{proof}
+        Assume the statement $P(115)$ is true. That is, $\sum\limits_{i=0}^{i=115} 2^i = 2^{115+1}$.
+
+        \bigskip
+
+        We need to prove $\sum\limits_{i=0}^{i=116} 2^i = 2^{116+1}$.
+
+        \bigskip
+
+        Starting from the left, we can write
+
+        \bigskip
+
+        \begin{align}
+            \sum\limits_{i=0}^{i=116} 2^i = \sum\limits_{i=0}^{i=115} 2^i + 2
+        \end{align}
+
+        \bigskip
+
+        Then, using the assumption $\sum\limits_{i=0}^{i=115} 2^i = 2^{115+1}$, we
+        can conclude
+
+        \begin{align}
+            \sum\limits_{i=0}^{i=116} 2^i &= 2^{115+1} + 2^{116}\\
+            &= 2^{116} + 2^{116}\\
+            &= 2^{116}(1 + 1)\\
+            &= 2 \cdot 2^{116}\\
+            &= 2^{116+1}
+        \end{align}
+    \end{proof}
 \end{enumerate}
 
 
