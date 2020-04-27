@@ -244,12 +244,6 @@ class YesNoQuestion(Question):
     id: int
     text: str
 
-    def __init__(self, id_: int, text: str) -> None:
-        """
-        Initialize a question with the text <text> and id <id>.
-        """
-        # TODO: complete the body of this method
-
     def __str__(self) -> str:
         """
         Return a string representation of this question including the
@@ -258,12 +252,16 @@ class YesNoQuestion(Question):
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
+        return "{}. {}".format(self.id, self.text)
 
     def validate_answer(self, answer: Answer) -> bool:
         """
         Return True iff <answer>'s content is a boolean.
         """
         # TODO: complete the body of this method
+        if not isinstance(answer.content, bool):
+            return False
+        return True
 
     def get_similarity(self, answer1: Answer, answer2: Answer) -> float:
         """
@@ -275,6 +273,10 @@ class YesNoQuestion(Question):
         """
         # TODO: complete the body of this method
 
+        if answer1.content != answer2.content:
+            return 0.0
+        return 1.0
+
 
 class CheckboxQuestion(Question):
     # TODO: make this a child class of another class defined in this file
@@ -283,6 +285,7 @@ class CheckboxQuestion(Question):
     === Public Attributes ===
     id: the id of this question
     text: the text of this question
+    options: the options to this question
 
     === Representation Invariants ===
     text is not the empty string
@@ -290,6 +293,7 @@ class CheckboxQuestion(Question):
 
     id: int
     text: str
+    options: List[str]
 
     def __init__(self, id_: int, text: str, options: List[str]) -> None:
         """
@@ -301,6 +305,8 @@ class CheckboxQuestion(Question):
         <options> contains at least two elements
         """
         # TODO: complete the body of this method
+        super().__init__()
+        self.options = options
 
     def __str__(self) -> str:
         """
@@ -310,6 +316,7 @@ class CheckboxQuestion(Question):
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
+        return "{}. {} : {}".format(self.id, self.text,",".join(self.options))
 
     def validate_answer(self, answer: Answer) -> bool:
         """
@@ -319,6 +326,19 @@ class CheckboxQuestion(Question):
         unique possible answers to this question.
         """
         # TODO: complete the body of this method
+
+        if not hasattr(answer, 'content') or isinstance(answer.content, list):
+            return False
+
+        if len(self.options) != len(set(answer.content)):
+            return False
+
+        for option in answer.content:
+            if option.lower() not in self.options:
+                return False
+
+        return True
+
 
     def get_similarity(self, answer1: Answer, answer2: Answer) -> float:
         """
@@ -338,6 +358,9 @@ class CheckboxQuestion(Question):
         <answer1> and <answer2> are both valid answers to this question
         """
         # TODO: complete the body of this method
+        common_options_size = len(set(answer1.content).intersection(answer2.content))
+
+        return common_options_size / len(set(answer1.content + answer2.content))
 
 # =====================================================================
 
