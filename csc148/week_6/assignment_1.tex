@@ -190,8 +190,117 @@ private helper methods!
 \end{itemize}
 
 \section*{4) Complete the Question Classes}
+The file \textit{survey.py} contains an abstract \textit{Question} class, and the following classes
+for representing different types of questions that you might find on a survey:
+
+\begin{itemize}
+    \item Question
+    \item MultipleChoiceQuestion
+    \item NumericQuestion
+    \item YesNoQuestion
+    \item CheckboxQuestion
+\end{itemize}
+
+\bigskip
+
+\noindent As well as defining the text of the question itself, these classes also specify
+what are valid answers to these questions.
+
+\bigskip
+
+\noindent Open up \textit{survey.py} and read through the docstrings for the methods in
+these question classes.
+
+\bigskip
+
+You might notice that we have not defined any inheritance hierarchy between these
+classes. You get to decide what it should be. However, in doing so you must follow
+these rules:
+
+\begin{enumerate}[1.]
+    \item The abstract Question class should not inherit from any class other than
+    object.
+    \item All other \textit{Question} classes should inherit from the abstract
+    \textit{Question} class either directly or indirectly.
+    \item At least one non-abstract \textit{Question} class should inherit from another
+    non-abstract Question class.
+    \item There are many possible inheritance structures you could choose.
+    Remember that one of the requirements for this assignment is to avoid
+    writing duplicate code. Think about which sort of inheritance structure
+    best lets you avoid duplicate code.
+\end{enumerate}
+
+\bigskip
+
+\noindent Implement each of the methods in the Question classes. You may remove a method
+that we included in the starter code for a child class if you wish to simply
+inherit the parent’s method rather than to override it.
+
+\noindent Remember: you may need to define additional private attributes or
+private helper methods!
+
+\subsection*{Test your code!}
+\begin{itemize}
+    \item Write at least one unit test for each method in each of the Question classes. You
+    do not need to write tests for abstract methods or initializers but you do need
+    to write tests for inherited methods.
+    \item For example, even if you structure your code so that a child class inherits its
+    \textit{validate\_answer} method without modification from the parent class, you still need
+    to write separate tests for the \textit{validate\_answer} method in the parent
+    class and the child class.
+    \item You should write these tests in the \textit{tests.py} file.
+    \item Once you have finished writing these tests, run all the tests in \textit{test.py}.
+    Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}, the tests in the
+    \textit{TestMultipleChoiceQuestion},\\ \textit{TestNumericQuestion},
+    \textit{TestYesNoQuestion}, and \textit{TestCheckboxQuestion} class should now pass.
+\end{itemize}
+
+\subsection*{Something to think about!}
+The \textit{validate\_answer} methods ask you to check if an answer is a valid answer for
+this question. Do we have a enough information about the \textit{Answer} class
+in order to complete this method now? You may need to come back and finish this
+method after completing step 4.
+
+\bigskip
 
 \section*{5) Complete the Answer Class}
+The \textit{Answer} class represents an answer to one of the questions you wrote
+classes for in Step 3.
+
+\bigskip
+
+\noindent The starter code for the \textit{Answer} class can be found in \textit{survey.py}.
+Open up this file and read through the docstrings for each of the the \textit{Answer}
+class’s methods. Then, implement each of the methods in the \textit{Answer} class.
+
+\bigskip
+
+\noindent Remember: you may need to define additional private attributes or
+private helper methods!
+
+\bigskip
+
+If you have not implemented the \textit{validate\_answer} methods in the \textit{Question}
+classes, the \textit{Course.all\_answered} and the \textit{Student.has\_answer}
+methods yet, go back and finish them now.
+
+\bigskip
+
+\subsection*{Test your code!}
+\begin{itemize}
+    \item Write at least one unit test for each method in \textit{Answer}. You are not required to write tests for initializers.
+    \item You should write these tests in the \textit{tests.py} file.
+    \item Once you have finished writing these tests, run all the tests in
+    \textit{test.py}. Make sure your code passes all your tests before moving on.
+    \item Run the tests in \textit{example\_tests.py}, the tests in the \textit{TestAnswer}
+    class should now pass.
+\end{itemize}
+
+\subsection*{Something to think about!}
+The \textit{Answer} class is one of the simplest classes that we will implement
+in this assignment. What is the advantage of creating such a simple class? Are
+there any disadvantages?
 
 \section*{6) Complete the Criterion Class}
 
