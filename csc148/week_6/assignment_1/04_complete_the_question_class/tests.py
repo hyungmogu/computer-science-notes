@@ -205,8 +205,7 @@ class TestYesNoQuestion:
         assert expected == result
 
 
-class CheckboxQuestion:
-
+class TestCheckboxQuestion:
     def test_the_class_should_be_inheritance_of_MultipleChoiceQuestion_class(self, checkbox_question):
         expected = True
 
@@ -221,3 +220,71 @@ class CheckboxQuestion:
 
         assert expected == result
 
+    def test_validate_answer_method_should_return_false_if_not_a_list(self, checkbox_question):
+        answer1 = Answer("B")
+        answer2 = Answer(1)
+
+        expected = False
+
+        result1 = checkbox_question.validate_answer(answer1)
+        result2 = checkbox_question.validate_answer(answer2)
+
+        assert expected == result1
+        assert expected == result2
+
+    def test_validate_answer_method_should_return_false_if_empty(self, checkbox_question):
+        answer = Answer([])
+
+        expected = False
+
+        result = checkbox_question.validate_answer(answer)
+
+        assert expected == result
+
+    def test_validate_answer_method_should_return_false_if_duplicate_choice_exists(self, checkbox_question):
+        answer = Answer(["A","A","B"])
+
+        expected = False
+
+        result = checkbox_question.validate_answer(answer)
+
+        assert expected == result
+
+    def test_validate_answer_method_should_return_true_if_correctly_answered(self, checkbox_question):
+        answer = Answer(["A","B"])
+
+        expected = True
+
+        result = checkbox_question.validate_answer(answer)
+
+        assert expected == result
+
+    def test_get_similarity_method_should_return_1_if_answer1_and_answer2_overlap_entirely(self, checkbox_question):
+        answer1 = Answer(["A","B"])
+        answer2 = Answer(["A","B"])
+
+        expected = 1
+
+        result = checkbox_question.get_similarity(answer1, answer2)
+
+        assert expected == result
+
+    def test_get_similarity_method_should_return_0_if_answer1_and_answer2_does_not_overlap(self, checkbox_question):
+        answer1 = Answer(["A","B"])
+        answer2 = Answer(["C","D"])
+
+        expected = 0
+
+        result = checkbox_question.get_similarity(answer1, answer2)
+
+        assert expected == result
+
+    def test_get_similarity_method_should_return_correct_value_if_answer1_and_answer2_overlap(self, checkbox_question):
+        answer1 = Answer(["A","B"])
+        answer2 = Answer(["B","D"])
+
+        expected = 1/3
+
+        result = checkbox_question.get_similarity(answer1, answer2)
+
+        assert expected == result

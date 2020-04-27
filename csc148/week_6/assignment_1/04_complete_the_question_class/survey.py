@@ -304,14 +304,17 @@ class CheckboxQuestion(MultipleChoiceQuestion):
         """
         # TODO: complete the body of this method
 
-        if not hasattr(answer, 'content') or isinstance(answer.content, list):
+        if not isinstance(answer.content, list):
             return False
 
-        if len(self.options) != len(set(answer.content)):
+        if len(answer.content) == 0:
+            return False
+
+        if len(answer.content) != len(set(answer.content)):
             return False
 
         for option in answer.content:
-            if option.lower() not in self.options:
+            if option not in self.options:
                 return False
 
         return True
