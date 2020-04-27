@@ -9,26 +9,74 @@ def student():
     """Initializes a student with name Simon"""
     return Student(1, 'Simon')
 
-def test_student__str__(student):
+"""
+Test for student.__str__
+"""
+
+def test_return_simon_as_student_name(student):
     expected = 'Simon'
-    assert student.name == expected
+    result = student.name
+    assert expected == result
 
 
-def test_student_set_answer(student):
+"""
+Test for student.set_answer()
+"""
+
+def test_return_1_for_the_length_of_answers_keys(student):
     q = Question(2, 'Question')
     a = Answer('Answer')
     student.set_answer(q, a)
 
-    expected_1 = 'Question'
-    expected_2 = 2
-    expected_3 = 'Answer'
+    expected = 1
 
-    keys = list(dict.keys(student.answers))
+    result = len(list(dict.keys(student.answers)))
 
-    result_1 = keys[0].text
-    result_2 = keys[0].id
-    result_3 = student.answers[q].content
+    assert expected == result
 
-    assert result_1 == expected_1
-    assert result_2 == expected_2
-    assert result_3 == expected_3
+
+def test_return_2_for_the_key_in_answers(student):
+    q = Question(2, 'Question')
+    a = Answer('Answer')
+    student.set_answer(q, a)
+
+    expected = 2
+
+    result = list(dict.keys(student.answers))[0]
+
+    assert expected == result
+
+"""
+Test for student.has_answer()
+"""
+
+def test_return_False_when_student_does_not_have_answer_to_question(student):
+    q1 = Question(2, 'Question')
+    q2 = Question(3, 'Question')
+    a1 = Answer('Answer')
+
+    student.set_answer(q1, a1)
+    expected = False
+
+    result = student.has_answer(q2)
+
+    assert result == expected
+
+
+"""
+Test for student.get_answer()
+"""
+
+def test_return_Answer_with_content_answer_given_question_id_2(student):
+    q1 = Question(2, 'Question')
+    a1 = Answer('answer')
+
+    student.set_answer(q1, a1)
+    expected = 'answer'
+
+    result = student.get_answer(q1).content
+
+    assert result == expected
+
+
+

@@ -80,8 +80,12 @@ class Student:
         id as <question> and that answer is a valid answer for <question>.
         """
         # TODO: complete the body of this method
-        if question not in answers:
+        if question.id not in self.answers:
             return False
+
+        # answer = self.answers[question.id]
+        # if not answer.is_valid(question):
+        #     return False
 
         return True
 
@@ -90,7 +94,7 @@ class Student:
         Record this student's answer <answer> to the question <question>.
         """
         # TODO: complete the body of this method
-        self.answers[question] = answer
+        self.answers[question.id] = answer
 
     def get_answer(self, question: Question) -> Optional[Answer]:
         """
@@ -101,7 +105,7 @@ class Student:
         if not self.has_answer(question):
             return None
 
-        return self.answers[question]
+        return self.answers[question.id]
 
 # =======================================================================
 
