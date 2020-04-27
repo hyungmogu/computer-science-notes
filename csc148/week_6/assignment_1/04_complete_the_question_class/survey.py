@@ -30,6 +30,7 @@ if TYPE_CHECKING:
     from grouper import Grouping
     from course import Student
 
+# ========================== Solution ===================================
 
 class Question:
     """ An abstract class representing a question used in a survey
@@ -77,13 +78,14 @@ class Question:
         raise NotImplementedError
 
 
-class MultipleChoiceQuestion:
+class MultipleChoiceQuestion(Question):
     # TODO: make this a child class of another class defined in this file
     """ A question whose answers can be one of several options
 
     === Public Attributes ===
     id: the id of this question
     text: the text of this question
+    options: the options to this question
 
     === Representation Invariants ===
     text is not the empty string
@@ -91,6 +93,7 @@ class MultipleChoiceQuestion:
 
     id: int
     text: str
+    options: List[str]
 
     def __init__(self, id_: int, text: str, options: List[str]) -> None:
         """
@@ -102,6 +105,8 @@ class MultipleChoiceQuestion:
         <options> contains at least two elements
         """
         # TODO: complete the body of this method
+        super()__init__()
+        self.options = options
 
     def __str__(self) -> str:
         """
@@ -111,6 +116,7 @@ class MultipleChoiceQuestion:
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
+        return "{}. {} : {}".format(self.id, self.text, ",".join(self.options))
 
     def validate_answer(self, answer: Answer) -> bool:
         """
@@ -120,6 +126,9 @@ class MultipleChoiceQuestion:
         question.
         """
         # TODO: complete the body of this method
+        if answer.content not in self.options:
+            return False
+        return True
 
     def get_similarity(self, answer1: Answer, answer2: Answer) -> float:
         """
@@ -131,8 +140,12 @@ class MultipleChoiceQuestion:
         """
         # TODO: complete the body of this method
 
+        if answer1.content != answer2.content:
+            return 0.0
+        return 1.0
 
-class NumericQuestion:
+
+class NumericQuestion(Question):
     # TODO: make this a child class of another class defined in this file
     """ A question whose answer can be an integer between some
     minimum and maximum value (inclusive).
@@ -140,6 +153,8 @@ class NumericQuestion:
     === Public Attributes ===
     id: the id of this question
     text: the text of this question
+    max: the max value of this question
+    min: the min value of this question
 
     === Representation Invariants ===
     text is not the empty string
@@ -147,6 +162,7 @@ class NumericQuestion:
 
     id: int
     text: str
+    max
 
     def __init__(self, id_: int, text: str, min_: int, max_: int) -> None:
         """
@@ -157,6 +173,9 @@ class NumericQuestion:
         min_ < max_
         """
         # TODO: complete the body of this method
+        super().__init__()
+        self.min = min_
+        self.max = max_
 
     def __str__(self) -> str:
         """
@@ -166,6 +185,7 @@ class NumericQuestion:
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
+        return "{}. {} : {} - {}".format(self.id, self.text, self.min, self.max)
 
     def validate_answer(self, answer: Answer) -> bool:
         """
@@ -173,6 +193,14 @@ class NumericQuestion:
         minimum and maximum (inclusive) possible answers to this question.
         """
         # TODO: complete the body of this method
+
+        if not isinstance(answer.content, int):
+            return False
+
+        if answer.content < self.min and answer.content > self.max:
+            return False
+
+        return True
 
     def get_similarity(self, answer1: Answer, answer2: Answer) -> float:
         """
@@ -199,9 +227,9 @@ class NumericQuestion:
         <answer1> and <answer2> are both valid answers to this question
         """
         # TODO: complete the body of this method
+        return 1.0 - abs(answer1.content - answer2.content)/(self.max - self.min)
 
-
-class YesNoQuestion:
+class YesNoQuestion(Question):
     # TODO: make this a child class of another class defined in this file
     """ A question whose answer is either yes (represented by True) or
     no (represented by False).
@@ -248,7 +276,7 @@ class YesNoQuestion:
         # TODO: complete the body of this method
 
 
-class CheckboxQuestion:
+class CheckboxQuestion(Question):
     # TODO: make this a child class of another class defined in this file
     """ A question whose answers can be one or more of several options
 
@@ -311,6 +339,7 @@ class CheckboxQuestion:
         """
         # TODO: complete the body of this method
 
+# =====================================================================
 
 class Answer:
     """ An answer to a question used in a survey
@@ -330,7 +359,7 @@ class Answer:
         """Return True iff self.content is a valid answer to <question>"""
         # TODO: complete the body of this method
 
-# ========================== Solution ===================================
+
 class Survey:
     """
     A survey containing questions as well as criteria and weights used to
@@ -478,7 +507,6 @@ class Survey:
         """
         # TODO: complete the body of this method
 
-# =====================================================================
 
 
 if __name__ == '__main__':
