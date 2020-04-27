@@ -128,6 +128,8 @@ class Course:
         Initialize a course with the name of <name>.
         """
         # TODO: complete the body of this method
+        self.name = name
+        self.students = []
 
     def enroll_students(self, students: List[Student]) -> None:
         """
@@ -137,6 +139,7 @@ class Course:
         do not add any of the students in <students> to the course.
         """
         # TODO: complete the body of this method
+        self.students.extend(students)
 
     def all_answered(self, survey: Survey) -> bool:
         """
@@ -144,6 +147,19 @@ class Course:
         answer for every question in <survey>.
         """
         # TODO: complete the body of this method
+
+        # 1. for each student,
+        for student in self.students:
+            for question in survey:
+                # 1.1 if question id not exists in student answer, return false
+                if question.id not in student.answers:
+                    return False
+
+                # 1.2 if answer to the question is not valid, return false
+                if not student.answers[question.id].is_valid():
+                    return False
+
+        return True
 
     def get_students(self) -> Tuple[Student, ...]:
         """
@@ -155,6 +171,7 @@ class Course:
         Hint: the sort_students function might be useful
         """
         # TODO: complete the body of this method
+        return sort_students(self.students, 'id')
 
 # =====================================================================
 
