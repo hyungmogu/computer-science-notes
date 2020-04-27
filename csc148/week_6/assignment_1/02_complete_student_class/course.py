@@ -45,7 +45,7 @@ def sort_students(lst: List[Student], attribute: str) -> List[Student]:
     """
     return sorted(lst, key=lambda s: getattr(s, attribute))
 
-
+# ========================== Solution ===================================
 class Student:
     """
     A Student who can be enrolled in a university course.
@@ -60,14 +60,19 @@ class Student:
 
     id: int
     name: str
+    answers: dict
 
     def __init__(self, id_: int, name: str) -> None:
         """ Initialize a student with name <name> and id <id>"""
         # TODO: complete the body of this method
+        self.id = id_
+        self.name = name
+        self.answers = {}
 
     def __str__(self) -> str:
-        """ Return the name of this student """
+        """ Return the name of this student"""
         # TODO: complete the body of this method
+        return self.name
 
     def has_answer(self, question: Question) -> bool:
         """
@@ -75,12 +80,17 @@ class Student:
         id as <question> and that answer is a valid answer for <question>.
         """
         # TODO: complete the body of this method
+        if question not in answers:
+            return False
+
+        return True
 
     def set_answer(self, question: Question, answer: Answer) -> None:
         """
         Record this student's answer <answer> to the question <question>.
         """
         # TODO: complete the body of this method
+        self.answers[question] = answer
 
     def get_answer(self, question: Question) -> Optional[Answer]:
         """
@@ -88,7 +98,12 @@ class Student:
         this student does not have an answer to <question>
         """
         # TODO: complete the body of this method
+        if not self.has_answer(question):
+            return None
 
+        return self.answers[question]
+
+# =======================================================================
 
 class Course:
     """
