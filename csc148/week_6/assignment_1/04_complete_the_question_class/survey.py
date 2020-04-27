@@ -105,7 +105,7 @@ class MultipleChoiceQuestion(Question):
         <options> contains at least two elements
         """
         # TODO: complete the body of this method
-        super()__init__()
+        super().__init__(id_, text)
         self.options = options
 
     def __str__(self) -> str:
@@ -173,7 +173,7 @@ class NumericQuestion(Question):
         min_ < max_
         """
         # TODO: complete the body of this method
-        super().__init__()
+        super().__init__(id_, text)
         self.min = min_
         self.max = max_
 
@@ -197,7 +197,7 @@ class NumericQuestion(Question):
         if not isinstance(answer.content, int):
             return False
 
-        if answer.content < self.min and answer.content > self.max:
+        if answer.content < self.min or answer.content > self.max:
             return False
 
         return True
@@ -278,7 +278,7 @@ class YesNoQuestion(Question):
         return 1.0
 
 
-class CheckboxQuestion(Question):
+class CheckboxQuestion(MultipleChoiceQuestion):
     # TODO: make this a child class of another class defined in this file
     """ A question whose answers can be one or more of several options
 
@@ -294,29 +294,6 @@ class CheckboxQuestion(Question):
     id: int
     text: str
     options: List[str]
-
-    def __init__(self, id_: int, text: str, options: List[str]) -> None:
-        """
-        Initialize a question with the text <text> and id <id> and
-        possible answers <options>.
-
-        === Precondition ===
-        No two elements in <options> are the same string
-        <options> contains at least two elements
-        """
-        # TODO: complete the body of this method
-        super().__init__()
-        self.options = options
-
-    def __str__(self) -> str:
-        """
-        Return a string representation of this question including the
-        text of the question and a description of the possible answers.
-
-        You can choose the precise format of this string.
-        """
-        # TODO: complete the body of this method
-        return "{}. {} : {}".format(self.id, self.text,",".join(self.options))
 
     def validate_answer(self, answer: Answer) -> bool:
         """
