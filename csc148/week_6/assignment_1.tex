@@ -418,7 +418,7 @@ copy of the \textit{\_members} private attribute instead of simply returning the
 
 \bigskip
 
-\begin{lstlisting}[language=python,caption={worksheet\_17\_q1\_solution.py}]
+\begin{lstlisting}[language=python]
     >>> dicts = [{1:2, 3:9}, {5:18}, {"adieu":7}]
     >>> copy = []
     >>> for item in dicts:
@@ -620,6 +620,8 @@ Run the tests in \textit{example\_tests.py}. The tests in the \textit{TestAlphaG
 \textit{TestRandomGrouper}, \textit{TestGreedy} Grouper, and TestWindowGrouper
 classes should now pass.
 
+\end{itemize}
+
 \subsection*{A note on writing tests for methods that include randomness}
 When you test methods that include some randomness, you cannot simply test the
 return value since it will change from one call to the next. This is where property
@@ -658,7 +660,45 @@ a university? How easy would it be to add this new class? Which existing classes
 \end{itemize}
 
 \section*{12) Test the Code Again}
+Now that you have finished writing all the code, go back and run the
+\textit{example\_usage.py} file again. This file should now run without errors.
 
-\section*{13) Submit your work}
+\bigskip
+
+\noindent The \textit{example\_usage.py} file will create a course (from the
+data in \textit{example\_course.json}) and a survey (from the data in
+\textit{example\_course.json} and will use that survey to group the students
+into groups of 2 using the \textit{AlphaGrouper} class. Then it prints the members
+of each group and an overall score for the grouping.
+
+\bigskip
+
+\noindent You may change the group size and the grouper type by modifying the
+two lines at the bottom of the \textit{example\_usage.py} file under this comment:
+
+\bigskip
+
+\begin{lstlisting}[language=python]
+    # change the two variables below to test your code with different group
+    # sizes and grouper types.
+\end{lstlisting}
+
+\bigskip
+
+\subsection*{Why you should write your own tests}
+The \textit{example\_tests.py} file might catch some bugs in your code but it
+will certainly not catch them all. In order to make sure your code is bug free
+must write your own unit tests for each method.
+
+\bigskip
+
+\noindent Writing tests is also a great way to think about the code in a different
+way. If you find that you are getting stuck, try writing a test for the method
+you are stuck on; it just might help!
+
+\bigskip
+
+\noindent Also you will be graded on the tests you write so if nothing else you
+should do it for the marks.
 
 \end{document}
