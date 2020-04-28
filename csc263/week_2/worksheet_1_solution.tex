@@ -643,10 +643,10 @@
         We will do so by induction on $n$.
 
         \begin{enumerate}[1.]
-            \item Base Case ($m = 7$)
+            \item Base Case ($n = 7$)
 
             \begin{mdframed}
-            Let $m = 7$.
+            Let $n = 7$.
 
             \bigskip
 
@@ -654,7 +654,7 @@
 
             \bigskip
 
-            Starting with the left hand side, using the fact $m = 7$, we
+            Starting with the left hand side, using the fact $n = 7$, we
             can calculate
             \setcounter{equation}{0}
             \begin{align}
@@ -672,6 +672,47 @@
             \end{mdframed}
 
             \item Inductive Step
+
+            \begin{mdframed}
+
+            Let $n \in \mathbb{N}$. Assume that $4^n \geq 5n^4 + 6$.
+
+            \bigskip
+
+            We need to prove $4^{n+1} \geq 5 \cdot (n+1)^4 + 6$.
+
+            \bigskip
+
+            Starting from the left hand side, we can write
+
+            \begin{align}
+            4^{n+1} &= 4^n + 4^n + 4^n + 4^n
+            \end{align}
+
+            \bigskip
+
+            Then, by inductive hypothesis, i.e. $4^n \geq 5n^4 + 6$,
+
+            \begin{align}
+            4^{n+1} &\geq (5n^4 + 6) + (5n^4 + 6) + (5n^4 + 6) + (5n^4 + 6)\\
+            &= 5n^4 + 5n^4 + 5n^4 + 5n^4 + 24\\
+            &= (5n^4 + 5 \cdot n \cdot n^3 + 5 \cdot n^2 \cdot n^2 + 5 \cdot n^3 \cdot n) + 24
+            \end{align}
+
+            \bigskip
+
+            Then, because we know $n \geq 7$ from the header, we can conclude
+
+            \begin{align}
+            4^{n+1} &\geq (5n^4 + 5 \cdot 7 \cdot n^3 + 5 \cdot 7^2 \cdot n^2 + 5 \cdot 7^3 \cdot n) + 24\\
+            &\geq (5n^4 + 5 \cdot 4 \cdot n^3 + 5 \cdot 6 \cdot n^2 + 5 \cdot 4 \cdot n) + 5 + 19\\
+            &\geq 5 \cdot (n^4 + 4n^3 + 6n^2 + 4n + 1) + 19\\
+            &= 5 \cdot \bigl((n+1)^2 \cdot (n+1)^2 \bigr) + 19\\
+            &= 5 \cdot (n+1)^4 + 19\\
+            &> 5 \cdot (n+1)^4 + 6
+            \end{align}
+
+            \end{mdframed}
         \end{enumerate}
     \end{mdframed}
 \end{itemize}
