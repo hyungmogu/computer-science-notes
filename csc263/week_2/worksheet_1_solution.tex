@@ -522,6 +522,104 @@
     %     \end{enumerate}
 
     % \end{mdframed}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \underline{\textbf{Statement:}} $\forall n \in \mathbb{N},\:\exists m \in \mathbb{N}$,
+        the units digit of $7^n$ is the same as the units digit of $3^m$.
+
+        \bigskip
+
+        \begin{proof}
+
+        We will prove this statement by induction on $n$.
+
+        \bigskip
+
+        \underline{\textbf{Base Case:}}
+
+        \bigskip
+
+        Let $n = 0$.
+
+        \bigskip
+
+        We need to prove there is a natural number $m$ such that the
+        units digit of $7^0 = 1$ is the same as the units digit of $3^m$. That is,
+        the ones place of the number $3^m$ is 1.
+
+        \bigskip
+
+        Let $m = 0$.
+
+        \bigskip
+
+        Then, using this fact, we can conclude
+        \setcounter{equation}{0}
+        \begin{align}
+            3^0 = 1
+        \end{align}
+
+        \bigskip
+
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume there exists a natural number $m$ such that
+        the units digit of $7^n$ is the same as the units digit of $3^m$.
+
+        \bigskip
+
+        We need to prove there is a natural number $\tilde{m}$ such that the
+        units digit of $7^{n+1}$ is the same as the units digit of $3^{\tilde{m}}$.
+        That is, the ones digit of $7^{n+1}$ is the same as the ones digit of $3^{\tilde{m}}$.
+
+        \bigskip
+
+        Let $\tilde{m} = m + \color{red}3\color{black}$.
+
+        \bigskip
+
+        Starting with $7^{n+1}$, we can write
+
+        \begin{align}
+            7^{n+1} = 7 \cdot 7^n.
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from above fact that the ones digit of $7^{n+1}$
+        is 7 times the ones digit of $7^n$.
+
+        \bigskip
+
+        Now, for $3^{\tilde{m}}$, using the fact $\tilde{m} = m + \color{red}3\color{black}$, we
+        can write
+
+        \begin{align}
+            3^{\tilde{m}} &= 3^{m+\color{red}3\color{black}}\\
+            &= 3^{\color{red}3\color{black}} \cdot 3^m\\
+            &= 27 \cdot 3^m
+        \end{align}
+
+        \bigskip
+
+        Then, it follows from above fact that that the ones digit of $3^{\tilde{m}}$
+        is 7 times the ones digit of $3^m$.
+
+        \bigskip
+
+        Then, using inductive hypothesis, we can conclude the ones digit of $3^{\tilde{m}}$
+        is 7 times the ones digit of $7^n$.
+
+        \end{proof}
+    \end{mdframed}
 \end{itemize}
 
 \section*{Question 4}
