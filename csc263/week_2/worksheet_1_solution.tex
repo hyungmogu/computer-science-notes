@@ -120,6 +120,154 @@
 \bigskip
 
 \section*{Question 2}
+\begin{itemize}
+    \item
+
+    \underline{\textbf{Statement:}} $\forall n \in \mathbb{N},\:\exists d \in \mathbb{Z},\:8^n-1 = 7d$
+
+    \bigskip
+
+    \begin{proof}
+
+    We will prove this statement by induction on $n$.
+
+    \bigskip
+
+    \underline{\textbf{Base Case:}}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    We need to prove $8^n-1 = 7 \cdot 0$.
+
+    \bigskip
+
+    Starting from the left hand side, using the fact $n = 0$, we can conclude,
+    \setcounter{equation}{0}
+    \begin{align}
+        8^{0} - 1 &= 1 - 1\\
+        &= 0\\
+        &= 7 \cdot 0
+    \end{align}
+
+    \bigskip
+
+    \underline{\textbf{Inductive Step:}}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume there is an integer $d$ such that $8^n-1 = 7d$.
+
+    \bigskip
+
+    We need to prove there is an integer $\tilde{d}$ such that $8^{n+1} - 1 = 7 \tilde{d}$.
+
+    \bigskip
+
+    Let $\tilde{d} = 8^n+d$.
+
+    \bigskip
+
+    Starting from the left hand side, we can write
+
+    \bigskip
+    \begin{align}
+        8^{n+1} - 1 &= 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n - 1\\
+        &= 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + (8^n - 1)
+    \end{align}
+
+    \bigskip
+
+    Then, using inductive hypothesis, i.e. $8^n-1 = 7d$, we can conclude
+
+    \begin{align}
+        8^{n+1} - 1 &= 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 7d\\
+        &= 7 \cdot 8^n + 7d\\
+        &= 7 \cdot (8^n + d)\\
+        &= 7 \cdot \tilde{d}
+    \end{align}
+
+    \end{proof}
+
+    % \bigskip
+
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
+
+    %     \bigskip
+
+    %     \begin{enumerate}[1.]
+    %         \item Base Case
+
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case:}}
+
+    %         \bigskip
+
+    %         Let $n = 0$.
+
+    %         \bigskip
+
+    %         We need to prove $8^n-1 = 7 \cdot 0$.
+
+    %         \bigskip
+
+    %         Starting from the left hand side, using the fact $n = 0$, we can conclude,
+    %         \setcounter{equation}{0}
+    %         \begin{align}
+    %             8^{0} - 1 &= 1 - 1\\
+    %             &= 0\\
+    %             &= 7 \cdot 0
+    %         \end{align}
+
+    %         \end{mdframed}
+
+    %         \item Inductive Step
+
+    %         \begin{mdframed}
+    %         \underline{\textbf{Inductive Step:}}
+
+    %         \bigskip
+
+    %         Let $n \in \mathbb{N}$. Assume there is an integer $d$ such that $8^n-1 = 7d$.
+
+    %         \bigskip
+
+    %         We need to prove there is an integer $\tilde{d}$ such that $8^{n+1} - 1 = 7 \tilde{d}$.
+
+    %         \bigskip
+
+    %         Let $\tilde{d} = 8^n+d$.
+
+    %         \bigskip
+
+    %         Starting from the left hand side, we can write
+
+    %         \bigskip
+    %         \begin{align}
+    %             8^{n+1} - 1 &= 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n - 1\\
+    %             &= 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + (8^n - 1)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Then, using inductive hypothesis, i.e. $8^n-1 = 7d$, we can conclude
+
+    %         \begin{align}
+    %             8^{n+1} - 1 &= 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 8^n + 7d\\
+    %             &= 7 \cdot 8^n + 7d\\
+    %             &= 7 \cdot (8^n + d)\\
+    %             &= 7 \cdot \tilde{d}
+    %         \end{align}
+
+    %         \bigskip
+    %         \end{mdframed}
+    %     \end{enumerate}
+    % \end{mdframed}
+\end{itemize}
 
 \section*{Question 3}
 
