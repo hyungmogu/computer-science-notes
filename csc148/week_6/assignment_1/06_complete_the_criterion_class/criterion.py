@@ -85,7 +85,7 @@ class HomogeneousCriterion(Criterion):
         similarity_list = []
 
         if len(answers) == 1:
-            if answers.is_valid(question):
+            if answers[0].is_valid(question):
                 return 1.0
             else:
                 raise InvalidAnswerError
@@ -97,7 +97,7 @@ class HomogeneousCriterion(Criterion):
 
                 similarity_list.append(question.get_similarity(answers[i],answers[j]))
 
-        return 1 - sum(similarity_list)/len(similarity_list)
+        return sum(similarity_list)/len(similarity_list)
 
 
 class HeterogeneousCriterion(HomogeneousCriterion):
@@ -130,7 +130,7 @@ class HeterogeneousCriterion(HomogeneousCriterion):
         similarity_list = []
 
         if len(answers) == 1:
-            if answers.is_valid(question):
+            if answers[0].is_valid(question):
                 return 0.0
             else:
                 raise InvalidAnswerError

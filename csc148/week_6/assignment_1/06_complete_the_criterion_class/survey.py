@@ -226,7 +226,7 @@ class NumericQuestion(Question):
         <answer1> and <answer2> are both valid answers to this question
         """
         # TODO: complete the body of this method
-        return 1.0 - abs(answer1.content - answer2.content)/(self.max - self.min)
+        return 1.0 - (abs(answer1.content - answer2.content)/(self.max - self.min))
 
 class YesNoQuestion(Question):
     # TODO: make this a child class of another class defined in this file
