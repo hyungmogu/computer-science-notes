@@ -193,7 +193,7 @@ class NumericQuestion(Question):
         """
         # TODO: complete the body of this method
 
-        if not isinstance(answer.content, int):
+        if type(answer.content) is not int:
             return False
 
         if answer.content < self.min or answer.content > self.max:
@@ -361,8 +361,9 @@ class Answer:
     def is_valid(self, question: Question) -> bool:
         """Return True iff self.content is a valid answer to <question>"""
         # TODO: complete the body of this method
-        if question.validate_answer(self):
-            return True
+        if not question.validate_answer(self):
+            return False
+        return True
 
 # =====================================================================
 
