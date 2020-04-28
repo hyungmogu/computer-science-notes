@@ -92,7 +92,7 @@ class HomogeneousCriterion(Criterion):
 
         for i in range (len(answers)):
             for j in range(i+1, len(answers)):
-                if not answer[i].is_valid(question) or not answer[j].is_valid(question)):
+                if not answers[i].is_valid(question) or not answers[j].is_valid(question):
                     raise InvalidAnswerError
 
                 similarity_list.append(question.get_similarity(answers[i],answers[j]))
@@ -100,7 +100,7 @@ class HomogeneousCriterion(Criterion):
         return 1 - sum(similarity_list)/len(similarity_list)
 
 
-class HeterogeneousCriterion(Criterion):
+class HeterogeneousCriterion(HomogeneousCriterion):
     # TODO: make this a child class of another class defined in this file
     """ A criterion used to evaluate the quality of a group based on the group
     members' answers for a given question.
@@ -137,7 +137,7 @@ class HeterogeneousCriterion(Criterion):
 
         for i in range (len(answers)):
             for j in range(i+1, len(answers)):
-                if not answer[i].is_valid(question) or not answer[j].is_valid(question)):
+                if not answers[i].is_valid(question) or not answers[j].is_valid(question):
                     raise InvalidAnswerError
 
                 similarity_list.append(question.get_similarity(answers[i],answers[j]))
