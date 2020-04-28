@@ -361,6 +361,8 @@ class Answer:
     def is_valid(self, question: Question) -> bool:
         """Return True iff self.content is a valid answer to <question>"""
         # TODO: complete the body of this method
+        if question.validate_answer(self):
+            return True
 
 # =====================================================================
 
