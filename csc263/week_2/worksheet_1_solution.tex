@@ -43,7 +43,7 @@
 \lstset{style=mystyle}
 
 \begin{document}
-\title{CSC263 Worksheet 1 Solution}
+\title{CSC236 Worksheet 1 Solution}
 \author{Hyungmo Gu}
 \maketitle
 
@@ -292,6 +292,10 @@
 
             \begin{mdframed}
 
+            \underline{\textbf{Base Case:}}
+
+            \bigskip
+
             Let $n = 0$.
 
             \bigskip
@@ -315,6 +319,121 @@
             \end{mdframed}
 
             \item Inductive Step
+
+            Let $n \in \mathbb{N}$. Assume there exists a natural number $m$ such that
+            the units digit of $7^n$ is the same as the units digit of $3^m$.
+
+            \bigskip
+
+            We need to prove there is a natural number $\tilde{m}$ such that the
+            units digit of $7^{n+1}$ is the same as the units digit of $3^{\tilde{m}}$.
+            That is, the ones digit of $7^{n+1}$ is the same as the ones digit of $3^{\tilde{m}}$.
+
+            \bigskip
+
+            Let $\tilde{m} = m + 9$.
+
+            \bigskip
+
+            \begin{itemize}
+                \item Show $7^{n+1} = 7 \cdot 7^n$.
+
+                \begin{mdframed}
+                Starting with $7^{n+1}$, we can write
+
+                \begin{align}
+                    7^{n+1} = 7 \cdot 7^n.
+                \end{align}
+
+                \end{mdframed}
+
+                \item Show the ones digit of $7^{n+1}$ is 7 times the ones digit
+                of $7^n$.
+
+                \begin{mdframed}
+                Then, it follows from above fact that the ones digit of $7^{n+1}$
+                is 7 times the ones digit of $7^n$.
+                \end{mdframed}
+
+                \item Show $3^{\tilde{m}}$ also has 7 times the ones digit of $7^n$
+
+                \begin{mdframed}
+                Now, for $3^{\tilde{m}}$, using the fact $\tilde{m} = m + 9$, we
+                can write
+
+                \begin{align}
+                    3^{\tilde{m}} &= 3^{m+9}\\
+                    &= 3^9 \cdot 3^m\\
+                    &= 27 \cdot 3^m
+                \end{align}
+
+                \bigskip
+
+                Then, it follows from above fact that that the ones digit of $3^{\tilde{m}}$
+                is 7 times the ones digit of $3^m$.
+
+                \bigskip
+
+                Then, using inductive hypothesis, we can conclude the ones digit of $3^{\tilde{m}}$
+                is 7 times the ones digit of $7^n$.
+                \end{mdframed}
+
+            \end{itemize}
+
+            \begin{mdframed}
+
+            \underline{\textbf{Inductive Step:}}
+
+            \bigskip
+
+            Let $n \in \mathbb{N}$. Assume there exists a natural number $m$ such that
+            the units digit of $7^n$ is the same as the units digit of $3^m$.
+
+            \bigskip
+
+            We need to prove there is a natural number $\tilde{m}$ such that the
+            units digit of $7^{n+1}$ is the same as the units digit of $3^{\tilde{m}}$.
+            That is, the ones digit of $7^{n+1}$ is the same as the ones digit of $3^{\tilde{m}}$.
+
+            \bigskip
+
+            Let $\tilde{m} = m + 9$.
+
+            \bigskip
+
+            Starting with $7^{n+1}$, we can write
+
+            \begin{align}
+                7^{n+1} = 7 \cdot 7^n.
+            \end{align}
+
+            \bigskip
+
+            Then, it follows from above fact that the ones digit of $7^{n+1}$
+            is 7 times the ones digit of $7^n$.
+
+            \bigskip
+
+            Now, for $3^{\tilde{m}}$, using the fact $\tilde{m} = m + 9$, we
+            can write
+
+            \begin{align}
+                3^{\tilde{m}} &= 3^{m+9}\\
+                &= 3^9 \cdot 3^m\\
+                &= 27 \cdot 3^m
+            \end{align}
+
+            \bigskip
+
+            Then, it follows from above fact that that the ones digit of $3^{\tilde{m}}$
+            is 7 times the ones digit of $3^m$.
+
+            \bigskip
+
+            Then, using inductive hypothesis, we can conclude the ones digit of $3^{\tilde{m}}$
+            is 7 times the ones digit of $7^n$.
+
+            \end{mdframed}
         \end{enumerate}
 
     \end{mdframed}
