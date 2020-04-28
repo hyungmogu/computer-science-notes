@@ -10,7 +10,7 @@ Copying for purposes other than this use is expressly prohibited.
 All forms of distribution of this code, whether as given or with
 any changes, are expressly prohibited.
 
-Authors: Misha Schwartz, Mario Badr, Christine Murad, Diane Horton, 
+Authors: Misha Schwartz, Mario Badr, Christine Murad, Diane Horton,
 Sophia Huynh and Jaisie Sin
 
 All of the files in this directory and all subdirectories are:
@@ -54,7 +54,7 @@ class Criterion:
         raise NotImplementedError
 
 
-class HomogeneousCriterion:
+class HomogeneousCriterion(Criterion):
     # TODO: make this a child class of another class defined in this file
     """
     A criterion used to evaluate the quality of a group based on the group
@@ -82,9 +82,25 @@ class HomogeneousCriterion:
         len(answers) > 0
         """
         # TODO: complete the body of this method
+        similarity_list = []
+
+        if len(answers) == 1:
+            if answers.is_valid(question):
+                return 1.0
+            else:
+                raise InvalidAnswerError
+
+        for i in range (len(answers)):
+            for j in range(i+1, len(answers)):
+                if not answer[i].is_valid(question) or not answer[j].is_valid(question)):
+                    raise InvalidAnswerError
+
+                similarity_list.append(question.get_similarity(answers[i],answers[j]))
+
+        return 1 - sum(similarity_list)/len(similarity_list)
 
 
-class HeterogeneousCriterion:
+class HeterogeneousCriterion(Criterion):
     # TODO: make this a child class of another class defined in this file
     """ A criterion used to evaluate the quality of a group based on the group
     members' answers for a given question.
@@ -111,9 +127,24 @@ class HeterogeneousCriterion:
         len(answers) > 0
         """
         # TODO: complete the body of this method
+        similarity_list = []
 
+        if len(answers) == 1:
+            if answers.is_valid(question):
+                return 0.0
+            else:
+                raise InvalidAnswerError
 
-class LonelyMemberCriterion:
+        for i in range (len(answers)):
+            for j in range(i+1, len(answers)):
+                if not answer[i].is_valid(question) or not answer[j].is_valid(question)):
+                    raise InvalidAnswerError
+
+                similarity_list.append(question.get_similarity(answers[i],answers[j]))
+
+        return 1 - sum(similarity_list)/len(similarity_list)
+
+class LonelyMemberCriterion(Criterion):
     # TODO: make this a child class of another class defined in this file
     """ A criterion used to measure the quality of a group of students
     according to the group members' answers to a question. This criterion
@@ -139,6 +170,19 @@ class LonelyMemberCriterion:
         len(answers) > 0
         """
         # TODO: complete the body of this method
+
+        answers_set = set([answer.content for answer in answers])
+
+        for answer in range (answers):
+            if not answer.is_valid(question):
+                raise InvalidAnswerError
+
+            if answer.content not in answers_set:
+                return 0.0
+
+            answer_set.remove(answer.content)
+
+        return 1.0
 
 
 if __name__ == '__main__':
