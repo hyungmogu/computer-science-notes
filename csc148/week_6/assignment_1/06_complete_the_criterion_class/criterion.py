@@ -169,18 +169,37 @@ class LonelyMemberCriterion(Criterion):
         === Precondition ===
         len(answers) > 0
         """
+        from survey import CheckboxQuestion
+
         # TODO: complete the body of this method
+        current_val = None
 
-        answers_set = set([answer.content for answer in answers])
+        if isinstance(question, CheckboxQuestion):
 
-        for answer in range (answers):
-            if not answer.is_valid(question):
-                raise InvalidAnswerError
+            for answer in answers:
+                if not answer.is_valid(question):
+                    raise InvalidAnswerError
 
-            if answer.content not in answers_set:
-                return 0.0
+                for checked_val in answer.content:
+                    if current_val == None:
+                        current_val = checked_val
+                        continue
 
-            answer_set.remove(answer.content)
+                    if checked_val != current_val:
+                        return 0.0
+
+        else:
+            for answer in answers:
+                print(answer.content)
+                if not answer.is_valid(question):
+                    raise InvalidAnswerError
+
+                if current_val == None:
+                    current_val = answer.content
+                    continue
+
+                if answer.content != current_val:
+                    return 0.0
 
         return 1.0
 
