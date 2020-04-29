@@ -857,7 +857,7 @@
 
         \bigskip
 
-        We will use complete induction to prove the statement holds for $n \geq 7$.
+        We will use complete induction to prove the statement holds for $n \geq 13$.
 
         \begin{enumerate}[1.]
             \item Base Case ($n = 13$)
@@ -941,6 +941,20 @@
             \end{mdframed}
 
             \item Inductive Step
+
+            \bigskip
+
+            Let $k \geq 13$ be an arbitrary natural number. Assume that for all natural
+            number $i$ satisfying $13 \leq i \leq k$, $P(i)$ holds. That is, the postage of
+            exactly $i$ cents can be made using only 3-cent and 4-cent stamps. In other words,
+            $\exists k, \ell \in \mathbb{N}$, $k \cdot 3 + \ell \cdot 4 = i$.
+
+            \bigskip
+
+            We need to prove the statement is true for $P(k+1)$. That is, the postage
+            of exactly $k+1$ cents can be made using only 3-cent and 4-cent stamps. In other
+            words, we need to prove $\exists k', \ell' \in \mathbb{N},\:
+            k' \cdot 3 + \ell' \cdot 4 = i + 1$.
         \end{enumerate}
     \end{mdframed}
 \end{itemize}
