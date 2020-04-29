@@ -840,430 +840,658 @@
 \begin{itemize}
     \item
 
+    \begin{proof}
+    Let $P(n)$ be the predicate defined as follows
+
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+    \begin{center}
+        $P(n)$: Postage of exactly $n$ cents can be made using only 3-cent and 4-cent stamps
+    \end{center}
 
-        \bigskip
+    \bigskip
 
-        Let $P(n)$ be the predicate defined as follows
+    We will use complete induction to prove the statement holds for $n \geq 13$.
 
-        \bigskip
+    \bigskip
 
-        \begin{center}
-            $P(n)$: Postage of exactly $n$ cents can be made using only 3-cent and 4-cent stamps
-        \end{center}
+    \underline{\textbf{Base Case ($n = 13$):}}
 
-        \bigskip
+    \bigskip
 
-        We will use complete induction to prove the statement holds for $n \geq 13$.
+    Let $n = 13$.
 
-        \begin{enumerate}[1.]
-            \item Base Case ($n = 13$)
+    \bigskip
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($n = 13$):}}
+    We need to prove the statement is true for $n = 13$. That is, the
+    postage of exactly 13 cents can be made using only 3-cent and 4-cent.
 
-            \bigskip
+    \bigskip
 
-            Let $n = 13$.
+    Because we know $(3 \cdot 3) + (1 \cdot 4)=13$, we can conclude the statement holds.
 
-            \bigskip
+    \bigskip
 
-            We need to prove the statement is true for $n = 13$. That is, the
-            postage of exactly 13 cents can be made using only 3-cent and 4-cent.
+    \underline{\textbf{Base Case ($n = 14$):}}
 
-            \bigskip
+    \bigskip
 
-            Because we know $(3 \cdot 3) + (1 \cdot 4)=13$, we can conclude the statement holds.
+    Let $n = 14$.
 
-            \end{mdframed}
+    \bigskip
 
-            \item Base Case ($n = 14$)
+    We need to prove the statement is true for $n = 14$. That is, the
+    postage of exactly 14 cents can be made using only 3-cent and 4-cent.
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($n = 14$):}}
+    \bigskip
 
-            \bigskip
+    Because we know $(2 \cdot 3) + (2 \cdot 4)=14$, we can conclude the statement holds.
 
-            Let $n = 14$.
+    \bigskip
 
-            \bigskip
+    \underline{\textbf{Base Case ($n = 15$):}}
 
-            We need to prove the statement is true for $n = 14$. That is, the
-            postage of exactly 14 cents can be made using only 3-cent and 4-cent.
+    \bigskip
 
-            \bigskip
+    Let $n = 15$.
 
-            Because we know $(2 \cdot 3) + (2 \cdot 4)=14$, we can conclude the statement holds.
+    \bigskip
 
-            \end{mdframed}
+    We need to prove the statement is true for $n = 15$. That is, the
+    postage of exactly 15 cents can be made using only 3-cent and 4-cent.
 
-            \item Base Case ($n = 15$)
+    \bigskip
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($n = 15$):}}
+    Because we know $(1 \cdot 3) + (3 \cdot 4)=15$, we can conclude the statement holds.
 
-            \bigskip
+    \bigskip
 
-            Let $n = 15$.
+    \underline{\textbf{Base Case ($n = 16$):}}
 
-            \bigskip
+    \bigskip
 
-            We need to prove the statement is true for $n = 15$. That is, the
-            postage of exactly 15 cents can be made using only 3-cent and 4-cent.
+    Let $n = 16$.
 
-            \bigskip
+    \bigskip
 
-            Because we know $(1 \cdot 3) + (3 \cdot 4)=15$, we can conclude the statement holds.
+    We need to prove the statement is true for $n = 16$. That is, the
+    postage of exactly 16 cents can be made using only 3-cent and 4-cent.
 
-            \end{mdframed}
+    \bigskip
 
-            \item Base Case ($n = 16$)
+    Because we know $(4 \cdot 3) + (1 \cdot 4)=16$, we can conclude the statement holds.
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($n = 16$):}}
+    \bigskip
 
-            \bigskip
+    \underline{\textbf{Base Case ($n = 17$):}}
 
-            Let $n = 16$.
+    \bigskip
 
-            \bigskip
+    Let $n = 17$.
 
-            We need to prove the statement is true for $n = 16$. That is, the
-            postage of exactly 16 cents can be made using only 3-cent and 4-cent.
+    \bigskip
 
-            \bigskip
+    We need to prove the statement is true for $n = 17$. That is, the
+    postage of exactly 17 cents can be made using only 3-cent and 4-cent.
 
-            Because we know $(4 \cdot 3) + (1 \cdot 4)=16$, we can conclude the statement holds.
+    \bigskip
 
-            \end{mdframed}
+    Because we know $(3 \cdot 3) + (2 \cdot 4)=17$, we can conclude the statement holds.
 
-            \item Base Case ($n = 17$)
+    \bigskip
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($n = 17$):}}
+    \underline{\textbf{Inductive Step:}}
 
-            \bigskip
+    \bigskip
 
-            Let $n = 17$.
+    Let $i \in \mathbb{N}$ such that $i \geq 13$. Suppose that $P(i)$ holds. That is, the postage of
+    exactly $i$ cents can be made using only 3-cent and 4-cent stamps. In other words,
+    $\exists k, \ell \in \mathbb{N}$, $k \cdot 3 + \ell \cdot 4 = i$.
 
-            \bigskip
+    \bigskip
 
-            We need to prove the statement is true for $n = 17$. That is, the
-            postage of exactly 17 cents can be made using only 3-cent and 4-cent.
+    We need to prove the statement is true for $P(i+1)$. That is, the postage
+    of exactly $i+1$ cents can be made using only 3-cent and 4-cent stamps. In other
+    words, we need to prove $\exists k', \ell' \in \mathbb{N},\:
+    3k' + 4\ell' = i + 1$. There are two cases: $\ell > 0$
+    or $\ell = 0$.
 
-            \bigskip
+    \bigskip
 
-            Because we know $(3 \cdot 3) + (2 \cdot 4)=17$, we can conclude the statement holds.
+    We will use proof by cases.
 
-            \end{mdframed}
+    \bigskip
 
-            \item Inductive Step
+    \textbf{Case 1 ($\ell > 0$):}
 
-            \bigskip
+    \bigskip
 
-            Let $i \in \mathbb{N}$ such that $i \geq 13$. Suppose that $P(i)$ holds. That is, the postage of
-            exactly $i$ cents can be made using only 3-cent and 4-cent stamps. In other words,
-            $\exists k, \ell \in \mathbb{N}$, $k \cdot 3 + \ell \cdot 4 = i$.
+    Assume $\ell > 0$.
 
-            \bigskip
+    \bigskip
 
-            We need to prove the statement is true for $P(i+1)$. That is, the postage
-            of exactly $i+1$ cents can be made using only 3-cent and 4-cent stamps. In other
-            words, we need to prove $\exists k', \ell' \in \mathbb{N},\:
-            3k' + 4\ell' = i + 1$. There are two cases: $\ell > 0$
-            or $\ell = 0$.
+    We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
 
-            \bigskip
+    \bigskip
 
-            We will use proof by cases.
+    Let $k' = k + 3$ and $\ell' = \ell - 2$ (where $\ell - 2$ is possible
+    since $\ell > 0$).
 
-            \begin{enumerate}[1.]
-                \item Case 1 ($\ell > 0$):
+    \bigskip
 
-                \bigskip
+    Starting from the left hand side, using the facts $k' = k + 3$ and $\ell' = \ell - 2$, we can write
 
-                Assume $\ell > 0$.
+    \setcounter{equation}{0}
+    \begin{align}
+        3k' + 4\ell' &= (k+3) \cdot 3 + (\ell-2) \cdot 4\\
+        &= 3 \cdot k + 9 + 4 \cdot \ell - 8\\
+        &= 3 \cdot k + 4 \cdot \ell + 1\\
+        &= (3 \cdot k + 4 \cdot \ell) + 1
+    \end{align}
 
-                \bigskip
+    \bigskip
 
-                We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
+    Then, using induction hypothesis, i.e. $k \cdot 3 + \ell \cdot 4 = i$, we can conclude
 
-                \bigskip
+    \begin{align}
+        3k' + 4\ell' &= i + 1
+    \end{align}
 
-                Let $k' = k + 3$ and $\ell' = \ell - 2$ (where $\ell - 2$ is possible
-                since $\ell > 0$).
+    \bigskip
 
-                \begin{itemize}
-                    \item Show $3k' + 4\ell' = 3 \cdot k + 4 \cdot l + 1$, starting from the left, using the facts
+    \textbf{Case 2 ($\ell = 0$):}
 
-                    \begin{mdframed}
-                    Starting from the left hand side, using the facts $k' = k + 3$ and $\ell' = \ell - 2$, we can write
+    \bigskip
 
-                    \setcounter{equation}{0}
-                    \begin{align}
-                        3k' + 4\ell' &= (k+3) \cdot 3 + (\ell-2) \cdot 4\\
-                        &= 3 \cdot k + 9 + 4 \cdot \ell - 8\\
-                        &= 3 \cdot k + 4 \cdot \ell + 1\\
-                        &= (3 \cdot k + 4 \cdot \ell) + 1
-                    \end{align}
+    First, we need to choose the value of $k'$.
 
-                    \end{mdframed}
+    \bigskip
 
-                    \item Conclude $3k' + 4\ell' = i + 1$, using induction hypothesis.
+    The header tells us
 
-                    \begin{mdframed}
-                        Then, using induction hypothesis, i.e. $k \cdot 3 + \ell \cdot 4 = i$, we can conclude
+    \begin{align}
+        3 \cdot k + 4 \cdot \ell = i
+    \end{align}
 
-                        \begin{align}
-                            3k' + 4\ell' &= i + 1
-                        \end{align}
-                    \end{mdframed}
-                \end{itemize}
+    \bigskip
 
-                \bigskip
+    Using the fact $\ell = 0$, we can write
 
-                \begin{mdframed}
-                \underline{\textbf{Case 1 ($\ell > 0$):}}
+    \begin{align}
+        3 \cdot k &= i\\
+        k &= \frac{i}{3}
+    \end{align}
 
-                \bigskip
+    \bigskip
 
-                Assume $\ell > 0$.
+    Then, because we know $i \geq 18$, we can write $k \geq 6$.
 
-                \bigskip
+    \bigskip
 
-                We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
+    Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
 
-                \bigskip
+    \bigskip
 
-                Let $k' = k + 3$ and $\ell' = \ell - 2$ (where $\ell - 2$ is possible
-                since $\ell > 0$).
+    Second, we need to choose the value of $\ell'$.
 
-                \bigskip
+    \bigskip
 
-                Starting from the left hand side, using the facts $k' = k + 3$ and $\ell' = \ell - 2$, we can write
+    Since we know $\ell = 0$, and since we want the total to increase from $i$ by 1
+    in $3 \cdot k' + 4 \cdot \ell$, let $\ell' = 4$.
 
-                \setcounter{equation}{0}
-                \begin{align}
-                    3k' + 4\ell' &= (k+3) \cdot 3 + (\ell-2) \cdot 4\\
-                    &= 3 \cdot k + 9 + 4 \cdot \ell - 8\\
-                    &= 3 \cdot k + 4 \cdot \ell + 1\\
-                    &= (3 \cdot k + 4 \cdot \ell) + 1
-                \end{align}
+    \bigskip
 
-                \bigskip
+    Finally, starting from the left, using the facts $k' = k - 5$ and $\ell' = 4$, we can write
 
-                Then, using induction hypothesis, i.e. $k \cdot 3 + \ell \cdot 4 = i$, we can conclude
+    \begin{align}
+    3k' + 4\ell' &= (k-5) \cdot 3 + 4 \cdot 4\\
+    &= 3k - 15 + 16\\
+    &= 3k + 1
+    \end{align}
 
-                \begin{align}
-                    3k' + 4\ell' &= i + 1
-                \end{align}
-                \end{mdframed}
+    \bigskip
 
-                \item Case 2 ($\ell = 0$):
+    Then, by the fact $4\ell = \ell = 0$, we can write
 
-                \bigskip
+    \begin{align}
+    3k' + 4\ell' &= 3k + 4\ell + 1\\
+    &= (3k + 4\ell) + 1
+    \end{align}
 
-                Assume $\ell = 0$.
+    \bigskip
 
-                \bigskip
+    Then, by using inductive hypothesis, $3k + 4\ell = i$, we can conclude
 
-                We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
+    \begin{align}
+    3k' + 4\ell' &= i + 1
+    \end{align}
 
-                \bigskip
+    \end{proof}
 
-                \begin{itemize}
-                    \item Find the value of $k'$.
+    % \bigskip
 
-                    \bigskip
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
 
-                    First, we need to find the value of $k'$.
+    %     \bigskip
 
-                    \bigskip
+    %     Let $P(n)$ be the predicate defined as follows
 
-                    \begin{itemize}
-                        \item Show that $k \geq 6$ using the fact $\ell = 0$ and $3k + 4\ell = i$
+    %     \bigskip
 
-                        \begin{mdframed}
-                        The header tells us
+    %     \begin{center}
+    %         $P(n)$: Postage of exactly $n$ cents can be made using only 3-cent and 4-cent stamps
+    %     \end{center}
 
-                        \begin{align}
-                            3 \cdot k + 4 \cdot \ell = i
-                        \end{align}
+    %     \bigskip
 
-                        \bigskip
+    %     We will use complete induction to prove the statement holds for $n \geq 13$.
 
-                        Using the fact $\ell = 0$, we can write
+    %     \begin{enumerate}[1.]
+    %         \item Base Case ($n = 13$)
 
-                        \begin{align}
-                            3 \cdot k &= i\\
-                            k &= \frac{i}{3}
-                        \end{align}
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case ($n = 13$):}}
 
-                        \bigskip
+    %         \bigskip
 
-                        Then, because we know $i \geq 18$, we can write $k \geq 6$.
-                        \end{mdframed}
+    %         Let $n = 13$.
 
-                        \item Conclude by choosing $k' = k - 5$
+    %         \bigskip
 
-                        \begin{mdframed}
-                        Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
-                        \end{mdframed}
-                    \end{itemize}
+    %         We need to prove the statement is true for $n = 13$. That is, the
+    %         postage of exactly 13 cents can be made using only 3-cent and 4-cent.
 
-                    \begin{mdframed}
-                    First, we need to find the value of $k'$.
+    %         \bigskip
 
-                    \bigskip
+    %         Because we know $(3 \cdot 3) + (1 \cdot 4)=13$, we can conclude the statement holds.
 
-                    The header tells us
+    %         \end{mdframed}
 
-                    \begin{align}
-                        3 \cdot k + 4 \cdot \ell = i
-                    \end{align}
+    %         \item Base Case ($n = 14$)
 
-                    \bigskip
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case ($n = 14$):}}
 
-                    Using the fact $\ell = 0$, we can write
+    %         \bigskip
 
-                    \begin{align}
-                        3 \cdot k &= i\\
-                        k &= \frac{i}{3}
-                    \end{align}
+    %         Let $n = 14$.
 
-                    \bigskip
+    %         \bigskip
 
-                    Then, because we know $i \geq 18$, we can write $k \geq 6$.
+    %         We need to prove the statement is true for $n = 14$. That is, the
+    %         postage of exactly 14 cents can be made using only 3-cent and 4-cent.
 
-                    \bigskip
+    %         \bigskip
 
-                    Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
+    %         Because we know $(2 \cdot 3) + (2 \cdot 4)=14$, we can conclude the statement holds.
 
-                    \end{mdframed}
+    %         \end{mdframed}
 
-                    \item Find the value of $\ell'$
+    %         \item Base Case ($n = 15$)
 
-                    \bigskip
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case ($n = 15$):}}
 
-                    Second, we need to find the value of $\ell'$.
+    %         \bigskip
 
-                    \begin{mdframed}
-                    Second, we need to find the value of $\ell'$.
+    %         Let $n = 15$.
 
-                    \bigskip
+    %         \bigskip
 
-                    Since we know $\ell = 0$, and since we want the total to increase from $i$ by 1
-                    in $3 \cdot k' + 4 \cdot \ell$, let $\ell' = 4$.
-                    \end{mdframed}
+    %         We need to prove the statement is true for $n = 15$. That is, the
+    %         postage of exactly 15 cents can be made using only 3-cent and 4-cent.
 
-                    \item Show $3k' + 4\ell' = i + 1$ using the value of $\ell' = 4$ and $k' = k - 5$.
+    %         \bigskip
 
-                    \begin{mdframed}
-                    Finally, starting from the left, using the facts $k' = k - 5$ and $\ell' = 4$, we can write
+    %         Because we know $(1 \cdot 3) + (3 \cdot 4)=15$, we can conclude the statement holds.
 
-                    \begin{align}
-                    3k' + 4\ell' &= (k-5) \cdot 3 + 4 \cdot 4\\
-                    &= 3k - 15 + 16\\
-                    &= 3k + 1
-                    \end{align}
+    %         \end{mdframed}
 
-                    \bigskip
+    %         \item Base Case ($n = 16$)
 
-                    Then, by the fact $4\ell = \ell = 0$, we can write
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case ($n = 16$):}}
 
-                    \begin{align}
-                    3k' + 4\ell' &= 3k + 4\ell + 1\\
-                    &= (3k + 4\ell) + 1
-                    \end{align}
+    %         \bigskip
 
-                    \bigskip
+    %         Let $n = 16$.
 
-                    Then, by using inductive hypothesis, $3k + 4\ell = i$, we can conclude
+    %         \bigskip
 
-                    \begin{align}
-                    3k' + 4\ell' &= i + 1
-                    \end{align}
+    %         We need to prove the statement is true for $n = 16$. That is, the
+    %         postage of exactly 16 cents can be made using only 3-cent and 4-cent.
 
-                    \end{mdframed}
-                \end{itemize}
+    %         \bigskip
 
-                \bigskip
+    %         Because we know $(4 \cdot 3) + (1 \cdot 4)=16$, we can conclude the statement holds.
 
-                \begin{mdframed}
-                \underline{\textbf{Case 2 ($\ell = 0$):}}
+    %         \end{mdframed}
 
-                \bigskip
+    %         \item Base Case ($n = 17$)
 
-                First, we need to find the value of $k'$.
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case ($n = 17$):}}
 
-                \bigskip
+    %         \bigskip
 
-                The header tells us
+    %         Let $n = 17$.
 
-                \begin{align}
-                    3 \cdot k + 4 \cdot \ell = i
-                \end{align}
+    %         \bigskip
 
-                \bigskip
+    %         We need to prove the statement is true for $n = 17$. That is, the
+    %         postage of exactly 17 cents can be made using only 3-cent and 4-cent.
 
-                Using the fact $\ell = 0$, we can write
+    %         \bigskip
 
-                \begin{align}
-                    3 \cdot k &= i\\
-                    k &= \frac{i}{3}
-                \end{align}
+    %         Because we know $(3 \cdot 3) + (2 \cdot 4)=17$, we can conclude the statement holds.
 
-                \bigskip
+    %         \end{mdframed}
 
-                Then, because we know $i \geq 18$, we can write $k \geq 6$.
+    %         \item Inductive Step
 
-                \bigskip
+    %         \bigskip
 
-                Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
+    %         Let $i \in \mathbb{N}$ such that $i \geq 13$. Suppose that $P(i)$ holds. That is, the postage of
+    %         exactly $i$ cents can be made using only 3-cent and 4-cent stamps. In other words,
+    %         $\exists k, \ell \in \mathbb{N}$, $k \cdot 3 + \ell \cdot 4 = i$.
 
-                \bigskip
+    %         \bigskip
 
-                Second, we need to find the value of $\ell'$.
+    %         We need to prove the statement is true for $P(i+1)$. That is, the postage
+    %         of exactly $i+1$ cents can be made using only 3-cent and 4-cent stamps. In other
+    %         words, we need to prove $\exists k', \ell' \in \mathbb{N},\:
+    %         3k' + 4\ell' = i + 1$. There are two cases: $\ell > 0$
+    %         or $\ell = 0$.
 
-                \bigskip
+    %         \bigskip
 
-                Since we know $\ell = 0$, and since we want the total to increase from $i$ by 1
-                in $3 \cdot k' + 4 \cdot \ell$, let $\ell' = 4$.
+    %         We will use proof by cases.
 
-                \bigskip
+    %         \begin{enumerate}[1.]
+    %             \item Case 1 ($\ell > 0$):
 
-                Finally, starting from the left, using the facts $k' = k - 5$ and $\ell' = 4$, we can write
+    %             \bigskip
 
-                \begin{align}
-                3k' + 4\ell' &= (k-5) \cdot 3 + 4 \cdot 4\\
-                &= 3k - 15 + 16\\
-                &= 3k + 1
-                \end{align}
+    %             Assume $\ell > 0$.
 
-                \bigskip
+    %             \bigskip
 
-                Then, by the fact $4\ell = \ell = 0$, we can write
+    %             We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
 
-                \begin{align}
-                3k' + 4\ell' &= 3k + 4\ell + 1\\
-                &= (3k + 4\ell) + 1
-                \end{align}
+    %             \bigskip
 
-                \bigskip
+    %             Let $k' = k + 3$ and $\ell' = \ell - 2$ (where $\ell - 2$ is possible
+    %             since $\ell > 0$).
 
-                Then, by using inductive hypothesis, $3k + 4\ell = i$, we can conclude
+    %             \begin{itemize}
+    %                 \item Show $3k' + 4\ell' = 3 \cdot k + 4 \cdot l + 1$, starting from the left, using the facts
 
-                \begin{align}
-                3k' + 4\ell' &= i + 1
-                \end{align}
+    %                 \begin{mdframed}
+    %                 Starting from the left hand side, using the facts $k' = k + 3$ and $\ell' = \ell - 2$, we can write
 
-                \end{mdframed}
-            \end{enumerate}
-        \end{enumerate}
-    \end{mdframed}
+    %                 \setcounter{equation}{0}
+    %                 \begin{align}
+    %                     3k' + 4\ell' &= (k+3) \cdot 3 + (\ell-2) \cdot 4\\
+    %                     &= 3 \cdot k + 9 + 4 \cdot \ell - 8\\
+    %                     &= 3 \cdot k + 4 \cdot \ell + 1\\
+    %                     &= (3 \cdot k + 4 \cdot \ell) + 1
+    %                 \end{align}
+
+    %                 \end{mdframed}
+
+    %                 \item Conclude $3k' + 4\ell' = i + 1$, using induction hypothesis.
+
+    %                 \begin{mdframed}
+    %                     Then, using induction hypothesis, i.e. $k \cdot 3 + \ell \cdot 4 = i$, we can conclude
+
+    %                     \begin{align}
+    %                         3k' + 4\ell' &= i + 1
+    %                     \end{align}
+    %                 \end{mdframed}
+    %             \end{itemize}
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+    %             \underline{\textbf{Case 1 ($\ell > 0$):}}
+
+    %             \bigskip
+
+    %             Assume $\ell > 0$.
+
+    %             \bigskip
+
+    %             We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
+
+    %             \bigskip
+
+    %             Let $k' = k + 3$ and $\ell' = \ell - 2$ (where $\ell - 2$ is possible
+    %             since $\ell > 0$).
+
+    %             \bigskip
+
+    %             Starting from the left hand side, using the facts $k' = k + 3$ and $\ell' = \ell - 2$, we can write
+
+    %             \setcounter{equation}{0}
+    %             \begin{align}
+    %                 3k' + 4\ell' &= (k+3) \cdot 3 + (\ell-2) \cdot 4\\
+    %                 &= 3 \cdot k + 9 + 4 \cdot \ell - 8\\
+    %                 &= 3 \cdot k + 4 \cdot \ell + 1\\
+    %                 &= (3 \cdot k + 4 \cdot \ell) + 1
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, using induction hypothesis, i.e. $k \cdot 3 + \ell \cdot 4 = i$, we can conclude
+
+    %             \begin{align}
+    %                 3k' + 4\ell' &= i + 1
+    %             \end{align}
+    %             \end{mdframed}
+
+    %             \item Case 2 ($\ell = 0$):
+
+    %             \bigskip
+
+    %             Assume $\ell = 0$.
+
+    %             \bigskip
+
+    %             We need to prove $\exists k',\:\ell' \in \mathbb{N},\:3k' + 4\ell' = i + 1$.
+
+    %             \bigskip
+
+    %             \begin{itemize}
+    %                 \item Find the value of $k'$.
+
+    %                 \bigskip
+
+    %                 First, we need to choose the value of $k'$.
+
+    %                 \bigskip
+
+    %                 \begin{itemize}
+    %                     \item Show that $k \geq 6$ using the fact $\ell = 0$ and $3k + 4\ell = i$
+
+    %                     \begin{mdframed}
+    %                     The header tells us
+
+    %                     \begin{align}
+    %                         3 \cdot k + 4 \cdot \ell = i
+    %                     \end{align}
+
+    %                     \bigskip
+
+    %                     Using the fact $\ell = 0$, we can write
+
+    %                     \begin{align}
+    %                         3 \cdot k &= i\\
+    %                         k &= \frac{i}{3}
+    %                     \end{align}
+
+    %                     \bigskip
+
+    %                     Then, because we know $i \geq 18$, we can write $k \geq 6$.
+    %                     \end{mdframed}
+
+    %                     \item Conclude by choosing $k' = k - 5$
+
+    %                     \begin{mdframed}
+    %                     Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
+    %                     \end{mdframed}
+    %                 \end{itemize}
+
+    %                 \begin{mdframed}
+    %                 First, we need to choose the value of $k'$.
+
+    %                 \bigskip
+
+    %                 The header tells us
+
+    %                 \begin{align}
+    %                     3 \cdot k + 4 \cdot \ell = i
+    %                 \end{align}
+
+    %                 \bigskip
+
+    %                 Using the fact $\ell = 0$, we can write
+
+    %                 \begin{align}
+    %                     3 \cdot k &= i\\
+    %                     k &= \frac{i}{3}
+    %                 \end{align}
+
+    %                 \bigskip
+
+    %                 Then, because we know $i \geq 18$, we can write $k \geq 6$.
+
+    %                 \bigskip
+
+    %                 Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
+
+    %                 \end{mdframed}
+
+    %                 \item Find the value of $\ell'$
+
+    %                 \bigskip
+
+    %                 Second, we need to choose the value of $\ell'$.
+
+    %                 \begin{mdframed}
+    %                 Second, we need to choose the value of $\ell'$.
+
+    %                 \bigskip
+
+    %                 Since we know $\ell = 0$, and since we want the total to increase from $i$ by 1
+    %                 in $3 \cdot k' + 4 \cdot \ell$, let $\ell' = 4$.
+    %                 \end{mdframed}
+
+    %                 \item Show $3k' + 4\ell' = i + 1$ using the value of $\ell' = 4$ and $k' = k - 5$.
+
+    %                 \begin{mdframed}
+    %                 Finally, starting from the left, using the facts $k' = k - 5$ and $\ell' = 4$, we can write
+
+    %                 \begin{align}
+    %                 3k' + 4\ell' &= (k-5) \cdot 3 + 4 \cdot 4\\
+    %                 &= 3k - 15 + 16\\
+    %                 &= 3k + 1
+    %                 \end{align}
+
+    %                 \bigskip
+
+    %                 Then, by the fact $4\ell = \ell = 0$, we can write
+
+    %                 \begin{align}
+    %                 3k' + 4\ell' &= 3k + 4\ell + 1\\
+    %                 &= (3k + 4\ell) + 1
+    %                 \end{align}
+
+    %                 \bigskip
+
+    %                 Then, by using inductive hypothesis, $3k + 4\ell = i$, we can conclude
+
+    %                 \begin{align}
+    %                 3k' + 4\ell' &= i + 1
+    %                 \end{align}
+
+    %                 \end{mdframed}
+    %             \end{itemize}
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+    %             \underline{\textbf{Case 2 ($\ell = 0$):}}
+
+    %             \bigskip
+
+    %             First, we need to choose the value of $k'$.
+
+    %             \bigskip
+
+    %             The header tells us
+
+    %             \begin{align}
+    %                 3 \cdot k + 4 \cdot \ell = i
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Using the fact $\ell = 0$, we can write
+
+    %             \begin{align}
+    %                 3 \cdot k &= i\\
+    %                 k &= \frac{i}{3}
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, because we know $i \geq 18$, we can write $k \geq 6$.
+
+    %             \bigskip
+
+    %             Then, since $k'$ must be a natural number and $k \geq 6$, let $k' = k - 5$.
+
+    %             \bigskip
+
+    %             Second, we need to choose the value of $\ell'$.
+
+    %             \bigskip
+
+    %             Since we know $\ell = 0$, and since we want the total to increase from $i$ by 1
+    %             in $3 \cdot k' + 4 \cdot \ell$, let $\ell' = 4$.
+
+    %             \bigskip
+
+    %             Finally, starting from the left, using the facts $k' = k - 5$ and $\ell' = 4$, we can write
+
+    %             \begin{align}
+    %             3k' + 4\ell' &= (k-5) \cdot 3 + 4 \cdot 4\\
+    %             &= 3k - 15 + 16\\
+    %             &= 3k + 1
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, by the fact $4\ell = \ell = 0$, we can write
+
+    %             \begin{align}
+    %             3k' + 4\ell' &= 3k + 4\ell + 1\\
+    %             &= (3k + 4\ell) + 1
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, by using inductive hypothesis, $3k + 4\ell = i$, we can conclude
+
+    %             \begin{align}
+    %             3k' + 4\ell' &= i + 1
+    %             \end{align}
+
+    %             \end{mdframed}
+    %         \end{enumerate}
+    %     \end{enumerate}
+    % \end{mdframed}
 \end{itemize}
 
 \section*{Question 3}
