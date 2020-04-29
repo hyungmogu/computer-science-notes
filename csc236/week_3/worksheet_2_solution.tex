@@ -62,6 +62,57 @@
         \begin{itemize}
             \item \underline{\textbf{Statement:}} $\forall i \in \mathbb{N},\:\forall n \in \mathbb{N},\:n < i \Rightarrow A(n) \Rightarrow \forall i \in \mathbb{N},\:A(i)$
             \item \underline{\textbf{Statement Alt.:}} $\Bigl(\forall n \in \mathbb{N},\:\Bigl[ \ \bigwedge\limits_{k = 0}^{k=n-1} P(k) \Bigr] \Rightarrow P(n) \Bigr) \Rightarrow \forall n \in \mathbb{N}, P(n)$
+
+            \begin{mdframed}
+                \textbf{Simple Example 1:}
+
+                \bigskip
+
+                \underline{\textbf{Statement:}} $\forall n \in \mathbb{N},\:n \geq 0 \Rightarrow 10 \mid (n^5 - n)$
+
+                \bigskip
+
+                We will prove the statement by strong induction on $n$.
+
+                \begin{enumerate}[1.]
+                    \item Base Case ($n = 0$)
+
+                    \begin{mdframed}
+
+                    Let $n = 0$.
+
+                    \bigskip
+
+                    We need to prove $10 \mid (n^5 - n)$ is true when $n = 0$. That is,
+                    there exists $k \in \mathbb{Z}$ such that $(n^5 - n) = 10k$.
+
+                    \bigskip
+
+                    Let $k = 0$.
+
+                    \bigskip
+
+                    Starting from the left hand side, using the fact $n = 0$,
+                    we can write
+
+                    \begin{align}
+                        (n^5 - n) = 0
+                    \end{align}
+
+                    \bigskip
+
+                    Then, because we know $10k = 0$, we can conclude
+
+                    \begin{align}
+                        (n^5 - n) = 10k
+                    \end{align}
+
+                    \end{mdframed}
+                    \item Base Case ($n = 1$)
+                    \item Inductive Step
+                \end{enumerate}
+
+            \end{mdframed}
         \end{itemize}
     \end{itemize}
 \end{itemize}
