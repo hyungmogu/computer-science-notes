@@ -58,406 +58,619 @@
 
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+    \begin{proof}
+    Let $n$ be the total number of nodes in a full binary tree.
 
-        \bigskip
+    \bigskip
 
-        Let $n$ be the total number of nodes in a full binary tree.
+    We will prove the statement by complete induction on $n$.
 
-        \bigskip
+    \bigskip
 
-        We will prove the statement by complete induction on $n$.
+    \underline{\textbf{Base Case ($n = 1$):}}
 
-        \bigskip
+    \bigskip
 
-        \begin{enumerate}[1.]
-            \item Base Case ($n = 1$)
+    Let $n = 1$.
 
-            \begin{mdframed}
+    \bigskip
 
-            Let $n = 1$.
+    We need to prove the full binary tree with 1 total number of nodes
+    has more leaves than internal nodes.
 
-            \bigskip
+    \bigskip
 
-            We need to prove the full binary tree with 1 total number of nodes
-            has more leaves than internal nodes.
+    There is only one full binary tree exists with 1 total number of node. That is,
+    the full binary tree with 1 child node and 0 internal nodes.
 
-            \bigskip
+    \bigskip
 
-            The definition of leaf tells us that a node that has no children
-            is a leaf.
+    Then, since we know a node is a leaf if it has no children, and since we know
+    the child node has 0 children, we can write the child node is a leaf node.
 
-            \bigskip
+    \bigskip
 
-            Since the full binary tree with 1 node has no children, we
-            can conclude the node is a leaf.
+    Then, because we know the full binary tree has 1 leaf node, and 0 internal node,
+    we can conclude it has more leaves than internal nodes.
 
-            \bigskip
+    \bigskip
 
-            Using this fact, we can write the full binary tree has 1 leaf.
+    \underline{\textbf{Base Case ($n = 2$):}}
 
-            \bigskip
+    \bigskip
 
-            Now, the definition of an internal node tells us that a node is
-            an internal node if it is not a leaf.
+    Let $n = 2$.
 
-            \bigskip
+    \bigskip
 
-            Since there is 1 leaf and 1 total node in the full binary tree,
-            we can write there is 0 internal node.
+    We need to prove the full binary tree with 2 total number of nodes
+    has more leaves than internal nodes.
 
-            \bigskip
+    \bigskip
 
-            So, since there is 1 leaf node and 0 internal node, we can
-            conclude the full binary tree has more leaves than internal nodes.
+    The definition of full binary tree tells us that a binary tree is a full
+    binary tree if every internal node has two children.
 
-            \end{mdframed}
+    \bigskip
 
-            \item Base Case ($n = 2$)
+    Since we know the tree with 2 total number of nodes
+    has 1 leaf and 1 internal node, using above fact, we can write the
+    tree is not a full binary tree.
 
-            \begin{mdframed}
+    \bigskip
 
-            Let $n = 2$.
+    Then, by vacuous truth, we can conclude the tree has more leaves than
+    internal nodes.
 
-            \bigskip
+    \bigskip
 
-            We need to prove the full binary tree with 2 total number of nodes
-            has more leaves than internal nodes.
+    \underline{\textbf{Base Case ($n = 3$):}}
 
-            \bigskip
+    \bigskip
 
-            The definition of full binary tree tells us that a binary tree is a full
-            binary tree if every internal node has two children.
+    Let $n = 3$.
 
-            \bigskip
+    \bigskip
 
-            Since we know by observation that the tree with 2 total number of nodes
-            has 1 leaf and 1 internal node, using above fact, we can write the
-            tree is not a full binary tree.
+    We need to prove the full binary tree with 3 total number of nodes
+    has more leaves than internal nodes.
 
-            \bigskip
+    \bigskip
 
-            Then, by vacuous truth, we can conclude the tree has more leaves than
-            internal nodes.
-            \end{mdframed}
+    The definition of full binary tree tells us that a binary tree is a full
+    binary tree if every internal node has two children.
 
-            \item Base Case ($n = 3$)
+    \bigskip
 
-            Let $n = 3$.
+    Because we know there are two types of binary trees possible,
+    one is the tree with 2 internal nodes and 1 child and the other
+    is 1 internal node and 2 children, using above fact, we can write
+    the only possible full binary tree with 3 total nodes is 1 internal
+    node and 2 children.
 
-            \bigskip
+    \bigskip
 
-            We need to prove the full binary tree with 3 total number of nodes
-            has more leaves than internal nodes.
+    Now, the definition of leaf tells us leaf is a node that has no children.
 
-            \begin{enumerate}[1.]
-                \item Show the three forms a full binary tree
-                \begin{itemize}
-                    \item State the definition of full binary tree
+    \bigskip
 
-                    \begin{mdframed}
-                    The definition of full binary tree tells us that a binary tree is a full
-                    binary tree if every internal node has two children.
-                    \end{mdframed}
+    Because we know by observation that the 2 child nodes don't
+    have children, we can write the full binary tree has 2 leaves.
 
-                    \item Show that with 3 as the total number of nodes, the only full binary
-                    tree that can be formed is 1 internal node and 2 children.
+    \bigskip
 
-                    \begin{mdframed}
-                    Because we know there are two types of binary trees possible,
-                    one is the tree with 2 internal nodes and 1 child and the other
-                    is 1 internal node and 2 children, using above fact, we can write
-                    the only possible full binary tree with 3 total nodes is 1 internal
-                    node and 2 children.
-                    \end{mdframed}
+    So, because we know the full binary tree has 1 internal node
+    and 2 leaves, we can conclude the full binary tree has more
+    leaves than internal node.
 
-                    \item Conclude that the children are leaves, and there are more
-                    leaves than internal nodes
+    \bigskip
 
-                    \begin{mdframed}
-                    Now, the definition of leaf tells us leaf is a node that has no children.
+    \underline{\textbf{Inductive Step:}}
 
-                    \bigskip
+    \bigskip
 
-                    Because we know by observation that the 2 child nodes don't
-                    have children, we can write the full binary tree has 2 leaves.
+    Let $k \geq 1$ be an arbitrary natural number. Assume that for all natural
+    number $i$ satisfying $1 \leq i \leq k$, any full binary trees with $i$
+    total number of nodes has more leaves than internal nodes.
 
-                    \bigskip
+    \bigskip
 
-                    So, because we know the full binary tree has 1 internal node
-                    and 2 leaves, we can conclude the full binary tree has more
-                    leaves than internal node.
-                    \end{mdframed}
-                \end{itemize}
+    Let $T$ be an arbitrary full binary tree with $k+1$ nodes. Let $T'$
+    be the binary tree obtained by removing 2 leaves from the same parent
+    node.
 
-                \bigskip
 
-                \begin{mdframed}
+    \bigskip
 
-                \underline{\textbf{Base Case ($n = 3$):}}
+    Let $\ell$ be the number of leaves of $T$, and $m$ be the number of
+    internal nodes of $T$. Similarly, let $\ell'$ be the number of leaves of
+    $T'$ and $m'$ be the number of internal nodes of $T'$. We must prove
+    $l > m$.
 
-                \bigskip
+    \bigskip
 
-                Let $n = 3$.
+    First, we need to show $\ell' > m'$.
 
-                \bigskip
+    \bigskip
 
-                We need to prove the full binary tree with 3 total number of nodes
-                has more leaves than internal nodes.
+    The header tells us that $T'$ is a full binary tree as a result
+    of removing 2 leaves from the parent node of $T$.
 
-                \bigskip
+    \bigskip
 
-                The definition of full binary tree tells us that a binary tree is a full
-                binary tree if every internal node has two children.
+    Using this fact, we can calculate $T'$ has
+    \setcounter{equation}{0}
+    \begin{align}
+        k+1-2 = k-1
+    \end{align}
 
-                \bigskip
+    nodes.
 
-                Because we know there are two types of binary trees possible,
-                one is the tree with 2 internal nodes and 1 child and the other
-                is 1 internal node and 2 children, using above fact, we can write
-                the only possible full binary tree with 3 total nodes is 1 internal
-                node and 2 children.
+    \bigskip
 
-                \bigskip
+    Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
+    we can write
 
-                Now, the definition of leaf tells us leaf is a node that has no children.
+    \begin{align}
+        \ell' > m'
+    \end{align}
 
-                \bigskip
+    \bigskip
 
-                Because we know by observation that the 2 child nodes don't
-                have children, we can write the full binary tree has 2 leaves.
+    Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
 
-                \bigskip
+    \bigskip
 
-                So, because we know the full binary tree has 1 internal node
-                and 2 leaves, we can conclude the full binary tree has more
-                leaves than internal node.
+    The total number of both the leaf nodes and the internal
+    nodes increase by 1 when 2 nodes are added to the same leaf node
+    in a full binary tree.
 
-                \end{mdframed}
-            \end{enumerate}
-            \item Inductive Step
+    \bigskip
 
-            Let $k \geq 1$ be an arbitrary natural number. Assume that for all natural
-            number $i$ satisfying $1 \leq i \leq k$, any full binary trees with $i$
-            total number of nodes has more leaves than internal nodes.
+    Since 2 nodes added to the same leaf node of $T'$ is $T$, we can
+    write $\ell = \ell' + 1$ and $m = m' + 1$.
 
-            \bigskip
+    \bigskip
 
-            Let $T$ be an arbitrary full binary tree with $k+1$ nodes. Let $T'$
-            be the binary tree obtained by removing 2 leaves from the same parent
-            node.
+    Finally, putting together, because we know $\ell' > m'$, $\ell = \ell' + 1$
+    and $m = m' + 1$, we can conclude
 
+    \begin{align}
+        \ell' + 1 &> m' + 1\\
+        \ell &> m
+    \end{align}
 
-            \bigskip
 
-            Let $\ell$ be the number of leaves of $T$, and $m$ be the number of
-            internal nodes of $T$. Similarly, let $\ell'$ be the number of leaves of
-            $T'$ and $m'$ be the number of internal nodes of $T'$. We must prove
-            $l > m$.
+    \end{proof}
 
-            \bigskip
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
 
-            \begin{itemize}
+    %     \bigskip
 
-                \item Show $\ell' > m'$
+    %     Let $n$ be the total number of nodes in a full binary tree.
 
-                \bigskip
+    %     \bigskip
 
-                First, we need to show $\ell' > m'$.
+    %     We will prove the statement by complete induction on $n$.
 
-                \bigskip
+    %     \bigskip
 
-                \begin{itemize}
-                    \item State that $T'$.
+    %     \begin{enumerate}[1.]
+    %         \item Base Case ($n = 1$)
 
-                    \begin{mdframed}
+    %         \bigskip
 
-                    The header tells us that $T'$ is a full binary tree as a result
-                    of removing 2 leaves from the parent node of $T$.
+    %         Let $n = 1$.
 
-                    \end{mdframed}
-                    \item Show that $T'$ has $k-1$ nodes.
+    %         \bigskip
 
-                    \begin{mdframed}
-                    Using this fact, we can calculate $T'$ has
+    %         We need to prove the full binary tree with 1 total number of nodes
+    %         has more leaves than internal nodes.
 
-                    \begin{align}
-                        k+1-2 = k-1
-                    \end{align}
+    %         \bigskip
 
-                    nodes.
+    %         \begin{itemize}
+    %             \item Show only one full binary tree exists with 1 total number of nodes.
 
-                    \end{mdframed}
+    %             \begin{mdframed}
+    %             There is only one full binary tree exists with 1 total number of node. That is,
+    %             the full binary tree with 1 child node and 0 internal nodes.
 
-                    \item Show that $\ell' > m'$, using induction hypothesis.
+    %             \end{mdframed}
 
-                    \begin{mdframed}
-                    Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
-                    we can write
+    %             \item Show the child node is a leaf
 
-                    \begin{align}
-                        \ell' > m'
-                    \end{align}
+    %             \begin{mdframed}
+    %             Then, since we know a node is a leaf if it has no children, and since we know
+    %             the child node has 0 children, we can write the child node is a leaf node.
+    %             \end{mdframed}
 
-                    \end{mdframed}
-                \end{itemize}
+    %             \item Conclude the full binary tree has more leaves than internal nodes
+    %             \begin{mdframed}
+    %             Then, because we know the full binary tree has 1 leaf node, and 0 internal node,
+    %             we can conclude it has more leaves than internal nodes.
+    %             \end{mdframed}
+    %         \end{itemize}
 
-                \bigskip
+    %         \begin{mdframed}
 
-                \begin{mdframed}
-                First, we need to show $\ell' > m'$.
+    %         \underline{\textbf{Base Case ($n = 1$):}}
 
-                \bigskip
+    %         \bigskip
 
-                The header tells us that $T'$ is a full binary tree as a result
-                of removing 2 leaves from the parent node of $T$.
+    %         Let $n = 1$.
 
-                \bigskip
+    %         \bigskip
 
-                Using this fact, we can calculate $T'$ has
+    %         We need to prove the full binary tree with 1 total number of nodes
+    %         has more leaves than internal nodes.
 
-                \begin{align}
-                    k+1-2 = k-1
-                \end{align}
+    %         \bigskip
 
-                nodes.
+    %         There is only one full binary tree exists with 1 total number of node. That is,
+    %         the full binary tree with 1 child node and 0 internal nodes.
 
-                \bigskip
+    %         \bigskip
 
-                Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
-                we can write
+    %         Then, since we know a node is a leaf if it has no children, and since we know
+    %         the child node has 0 children, we can write the child node is a leaf node.
 
-                \begin{align}
-                    \ell' > m'
-                \end{align}
+    %         \bigskip
 
-                \end{mdframed}
+    %         Then, because we know the full binary tree has 1 leaf node, and 0 internal node,
+    %         we can conclude it has more leaves than internal nodes.
 
-                \item Show that $\ell = \ell' + 1$ and $m = m' + 1$ using the fact that
-                when 2 nodes are added to a leaf node of $T'$, the number of leaf
-                nodes increase by 1 and internal nodes increase by 1
+    %         \end{mdframed}
 
-                \bigskip
+    %         \item Base Case ($n = 2$)
 
-                Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
+    %         \begin{mdframed}
 
-                \bigskip
+    %         \underline{\textbf{Base Case ($n = 2$):}}
 
-                \begin{mdframed}
+    %         \bigskip
 
-                Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
+    %         Let $n = 2$.
 
-                \bigskip
+    %         \bigskip
 
-                The total number of both the leaf nodes and the internal
-                nodes increase by 1 when 2 nodes are added to the same leaf node
-                in a full binary tree.
+    %         We need to prove the full binary tree with 2 total number of nodes
+    %         has more leaves than internal nodes.
 
-                \bigskip
+    %         \bigskip
 
-                Since 2 nodes added to the same leaf node of $T'$ is $T$, we can
-                write $\ell = \ell' + 1$ and $m = m' + 1$.
+    %         The definition of full binary tree tells us that a binary tree is a full
+    %         binary tree if every internal node has two children.
 
-                \end{mdframed}
+    %         \bigskip
 
-                \item Conclude $\ell > m$.
+    %         Since we know the tree with 2 total number of nodes
+    %         has 1 leaf and 1 internal node, using above fact, we can write the
+    %         tree is not a full binary tree.
 
-                \begin{mdframed}
+    %         \bigskip
 
-                Finally, putting together, because we know $\ell' > m'$, $\ell = \ell' + 1$
-                and $m = m' + 1$, we can conclude
+    %         Then, by vacuous truth, we can conclude the tree has more leaves than
+    %         internal nodes.
+    %         \end{mdframed}
 
-                \begin{align}
-                    \ell' + 1 &> m' + 1\\
-                    \ell &> m
-                \end{align}
+    %         \item Base Case ($n = 3$)
 
-                \end{mdframed}
-            \end{itemize}
+    %         Let $n = 3$.
 
-            \begin{mdframed}
+    %         \bigskip
 
-            \underline{\textbf{Inductive Step:}}
+    %         We need to prove the full binary tree with 3 total number of nodes
+    %         has more leaves than internal nodes.
 
-            \bigskip
+    %         \begin{enumerate}[1.]
+    %             \item Show the three forms a full binary tree
+    %             \begin{itemize}
+    %                 \item State the definition of full binary tree
 
-            Let $k \geq 1$ be an arbitrary natural number. Assume that for all natural
-            number $i$ satisfying $1 \leq i \leq k$, any full binary trees with $i$
-            total number of nodes has more leaves than internal nodes.
+    %                 \begin{mdframed}
+    %                 The definition of full binary tree tells us that a binary tree is a full
+    %                 binary tree if every internal node has two children.
+    %                 \end{mdframed}
 
-            \bigskip
+    %                 \item Show that with 3 as the total number of nodes, the only full binary
+    %                 tree that can be formed is 1 internal node and 2 children.
 
-            Let $T$ be an arbitrary full binary tree with $k+1$ nodes. Let $T'$
-            be the binary tree obtained by removing 2 leaves from the same parent
-            node.
+    %                 \begin{mdframed}
+    %                 Because we know there are two types of binary trees possible,
+    %                 one is the tree with 2 internal nodes and 1 child and the other
+    %                 is 1 internal node and 2 children, using above fact, we can write
+    %                 the only possible full binary tree with 3 total nodes is 1 internal
+    %                 node and 2 children.
+    %                 \end{mdframed}
 
+    %                 \item Conclude that the children are leaves, and there are more
+    %                 leaves than internal nodes
 
-            \bigskip
+    %                 \begin{mdframed}
+    %                 Now, the definition of leaf tells us leaf is a node that has no children.
 
-            Let $\ell$ be the number of leaves of $T$, and $m$ be the number of
-            internal nodes of $T$. Similarly, let $\ell'$ be the number of leaves of
-            $T'$ and $m'$ be the number of internal nodes of $T'$. We must prove
-            $l > m$.
+    %                 \bigskip
 
-            \bigskip
+    %                 Because we know by observation that the 2 child nodes don't
+    %                 have children, we can write the full binary tree has 2 leaves.
 
-            First, we need to show $\ell' > m'$.
+    %                 \bigskip
 
-            \bigskip
+    %                 So, because we know the full binary tree has 1 internal node
+    %                 and 2 leaves, we can conclude the full binary tree has more
+    %                 leaves than internal node.
+    %                 \end{mdframed}
+    %             \end{itemize}
 
-            The header tells us that $T'$ is a full binary tree as a result
-            of removing 2 leaves from the parent node of $T$.
+    %             \bigskip
 
-            \bigskip
+    %             \begin{mdframed}
 
-            Using this fact, we can calculate $T'$ has
-            \setcounter{equation}{0}
-            \begin{align}
-                k+1-2 = k-1
-            \end{align}
+    %             \underline{\textbf{Base Case ($n = 3$):}}
 
-            nodes.
+    %             \bigskip
 
-            \bigskip
+    %             Let $n = 3$.
 
-            Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
-            we can write
+    %             \bigskip
 
-            \begin{align}
-                \ell' > m'
-            \end{align}
+    %             We need to prove the full binary tree with 3 total number of nodes
+    %             has more leaves than internal nodes.
 
-            \bigskip
+    %             \bigskip
 
-            Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
+    %             The definition of full binary tree tells us that a binary tree is a full
+    %             binary tree if every internal node has two children.
 
-            \bigskip
+    %             \bigskip
 
-            The total number of both the leaf nodes and the internal
-            nodes increase by 1 when 2 nodes are added to the same leaf node
-            in a full binary tree.
+    %             Because we know there are two types of binary trees possible,
+    %             one is the tree with 2 internal nodes and 1 child and the other
+    %             is 1 internal node and 2 children, using above fact, we can write
+    %             the only possible full binary tree with 3 total nodes is 1 internal
+    %             node and 2 children.
 
-            \bigskip
+    %             \bigskip
 
-            Since 2 nodes added to the same leaf node of $T'$ is $T$, we can
-            write $\ell = \ell' + 1$ and $m = m' + 1$.
+    %             Now, the definition of leaf tells us leaf is a node that has no children.
 
-            \bigskip
+    %             \bigskip
 
-            Finally, putting together, because we know $\ell' > m'$, $\ell = \ell' + 1$
-            and $m = m' + 1$, we can conclude
+    %             Because we know by observation that the 2 child nodes don't
+    %             have children, we can write the full binary tree has 2 leaves.
 
-            \begin{align}
-                \ell' + 1 &> m' + 1\\
-                \ell &> m
-            \end{align}
+    %             \bigskip
 
-            \end{mdframed}
+    %             So, because we know the full binary tree has 1 internal node
+    %             and 2 leaves, we can conclude the full binary tree has more
+    %             leaves than internal node.
 
-        \end{enumerate}
+    %             \end{mdframed}
+    %         \end{enumerate}
+    %         \item Inductive Step
 
-    \end{mdframed}
+    %         Let $k \geq 1$ be an arbitrary natural number. Assume that for all natural
+    %         number $i$ satisfying $1 \leq i \leq k$, any full binary trees with $i$
+    %         total number of nodes has more leaves than internal nodes.
+
+    %         \bigskip
+
+    %         Let $T$ be an arbitrary full binary tree with $k+1$ nodes. Let $T'$
+    %         be the binary tree obtained by removing 2 leaves from the same parent
+    %         node.
+
+
+    %         \bigskip
+
+    %         Let $\ell$ be the number of leaves of $T$, and $m$ be the number of
+    %         internal nodes of $T$. Similarly, let $\ell'$ be the number of leaves of
+    %         $T'$ and $m'$ be the number of internal nodes of $T'$. We must prove
+    %         $l > m$.
+
+    %         \bigskip
+
+    %         \begin{itemize}
+
+    %             \item Show $\ell' > m'$
+
+    %             \bigskip
+
+    %             First, we need to show $\ell' > m'$.
+
+    %             \bigskip
+
+    %             \begin{itemize}
+    %                 \item State that $T'$.
+
+    %                 \begin{mdframed}
+
+    %                 The header tells us that $T'$ is a full binary tree as a result
+    %                 of removing 2 leaves from the parent node of $T$.
+
+    %                 \end{mdframed}
+    %                 \item Show that $T'$ has $k-1$ nodes.
+
+    %                 \begin{mdframed}
+    %                 Using this fact, we can calculate $T'$ has
+
+    %                 \begin{align}
+    %                     k+1-2 = k-1
+    %                 \end{align}
+
+    %                 nodes.
+
+    %                 \end{mdframed}
+
+    %                 \item Show that $\ell' > m'$, using induction hypothesis.
+
+    %                 \begin{mdframed}
+    %                 Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
+    %                 we can write
+
+    %                 \begin{align}
+    %                     \ell' > m'
+    %                 \end{align}
+
+    %                 \end{mdframed}
+    %             \end{itemize}
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+    %             First, we need to show $\ell' > m'$.
+
+    %             \bigskip
+
+    %             The header tells us that $T'$ is a full binary tree as a result
+    %             of removing 2 leaves from the parent node of $T$.
+
+    %             \bigskip
+
+    %             Using this fact, we can calculate $T'$ has
+
+    %             \begin{align}
+    %                 k+1-2 = k-1
+    %             \end{align}
+
+    %             nodes.
+
+    %             \bigskip
+
+    %             Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
+    %             we can write
+
+    %             \begin{align}
+    %                 \ell' > m'
+    %             \end{align}
+
+    %             \end{mdframed}
+
+    %             \item Show that $\ell = \ell' + 1$ and $m = m' + 1$ using the fact that
+    %             when 2 nodes are added to a leaf node of $T'$, the number of leaf
+    %             nodes increase by 1 and internal nodes increase by 1
+
+    %             \bigskip
+
+    %             Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+
+    %             Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
+
+    %             \bigskip
+
+    %             The total number of both the leaf nodes and the internal
+    %             nodes increase by 1 when 2 nodes are added to the same leaf node
+    %             in a full binary tree.
+
+    %             \bigskip
+
+    %             Since 2 nodes added to the same leaf node of $T'$ is $T$, we can
+    %             write $\ell = \ell' + 1$ and $m = m' + 1$.
+
+    %             \end{mdframed}
+
+    %             \item Conclude $\ell > m$.
+
+    %             \begin{mdframed}
+
+    %             Finally, putting together, because we know $\ell' > m'$, $\ell = \ell' + 1$
+    %             and $m = m' + 1$, we can conclude
+
+    %             \begin{align}
+    %                 \ell' + 1 &> m' + 1\\
+    %                 \ell &> m
+    %             \end{align}
+
+    %             \end{mdframed}
+    %         \end{itemize}
+
+    %         \begin{mdframed}
+
+    %         \underline{\textbf{Inductive Step:}}
+
+    %         \bigskip
+
+    %         Let $k \geq 1$ be an arbitrary natural number. Assume that for all natural
+    %         number $i$ satisfying $1 \leq i \leq k$, any full binary trees with $i$
+    %         total number of nodes has more leaves than internal nodes.
+
+    %         \bigskip
+
+    %         Let $T$ be an arbitrary full binary tree with $k+1$ nodes. Let $T'$
+    %         be the binary tree obtained by removing 2 leaves from the same parent
+    %         node.
+
+
+    %         \bigskip
+
+    %         Let $\ell$ be the number of leaves of $T$, and $m$ be the number of
+    %         internal nodes of $T$. Similarly, let $\ell'$ be the number of leaves of
+    %         $T'$ and $m'$ be the number of internal nodes of $T'$. We must prove
+    %         $l > m$.
+
+    %         \bigskip
+
+    %         First, we need to show $\ell' > m'$.
+
+    %         \bigskip
+
+    %         The header tells us that $T'$ is a full binary tree as a result
+    %         of removing 2 leaves from the parent node of $T$.
+
+    %         \bigskip
+
+    %         Using this fact, we can calculate $T'$ has
+    %         \setcounter{equation}{0}
+    %         \begin{align}
+    %             k+1-2 = k-1
+    %         \end{align}
+
+    %         nodes.
+
+    %         \bigskip
+
+    %         Then, because we know $1 \leq k-1 \leq k$, using induction hypothesis,
+    %         we can write
+
+    %         \begin{align}
+    %             \ell' > m'
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Second, we need to show $\ell = \ell' + 1$ and $m = m' + 1$.
+
+    %         \bigskip
+
+    %         The total number of both the leaf nodes and the internal
+    %         nodes increase by 1 when 2 nodes are added to the same leaf node
+    %         in a full binary tree.
+
+    %         \bigskip
+
+    %         Since 2 nodes added to the same leaf node of $T'$ is $T$, we can
+    %         write $\ell = \ell' + 1$ and $m = m' + 1$.
+
+    %         \bigskip
+
+    %         Finally, putting together, because we know $\ell' > m'$, $\ell = \ell' + 1$
+    %         and $m = m' + 1$, we can conclude
+
+    %         \begin{align}
+    %             \ell' + 1 &> m' + 1\\
+    %             \ell &> m
+    %         \end{align}
+
+    %         \end{mdframed}
+
+    %     \end{enumerate}
+
+    % \end{mdframed}
 
     \bigskip
 
