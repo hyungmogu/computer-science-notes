@@ -108,8 +108,106 @@
                     \end{align}
 
                     \end{mdframed}
+
                     \item Base Case ($n = 1$)
+
+                    \begin{mdframed}
+
+                    Let $n = 1$.
+
+                    \bigskip
+
+                    We need to prove $10 \mid (n^5 - n)$ is true when $n = 1$. That is,
+                    there exists $k \in \mathbb{Z}$ such that $(n^5 - n) = 10k$.
+
+                    \bigskip
+
+                    Let $k = 0$.
+
+                    \bigskip
+
+                    Starting from the left hand side, using the fact $n = 0$,
+                    we can write
+
+                    \begin{align}
+                        (n^5 - n) &= 1 - 1\\
+                        &= 0
+                    \end{align}
+
+                    \bigskip
+
+                    Then, because we know $10k = 0$, we can conclude
+
+                    \begin{align}
+                        (n^5 - n) = 10k
+                    \end{align}
+
+                    \end{mdframed}
+
                     \item Inductive Step
+
+                    \begin{mdframed}
+
+                    Assume $k \geq 1$. Assume that for all natural number $i$ satisfying $0 \leq i \leq k$, $10 \mid (i^5 - i)$.
+                    That is, $\exists d \in \mathbb{Z},\:(i^5 - i) = 10d$.
+
+                    \bigskip
+
+                    We need to prove $\exists \tilde{d} \in \mathbb{Z}$ such that
+                    $((k+1)^5 - (k+1)) = 10 \tilde{d}$.
+
+                    \bigskip
+
+                    Let $\tilde{d} = c + (k-1)^4 + 4 \cdot (k-1)^3 + 8 \cdot (k-1)^2 +
+                    8 \cdot(k-1) + 3$.
+
+                    \bigskip
+
+                    Starting from $((k+1)^5 - (k+1))$, using binominal theorem, we can write,
+
+                    \begin{align}
+                        (k+1)^5 - (k+1) &= \Bigl[ (k-1) + 2 \Bigr]^5 - \Bigl[ (k-1) + 2 \Bigr]\\
+                        &= \sum\limits_{b=0}^5 \binom{5}{b} (k-1)^5 \cdot 2^k\\
+                        \begin{split}
+                        &= (k-1)^5 + 10 \cdot (k-1)^4 + 40 \cdot (k-1)^3 + \\
+                        & 80 \cdot (k-1)^2 + 80 \cdot(k-1) + 32 - \Bigl[ (k-1) + 2 \Bigr] \\
+                        \end{split}\\
+                        \begin{split}
+                        &= \Bigl[ (k-1)^5 - (k-1) \Bigr] + 10 \cdot (k-1)^4 + \\
+                        & 40 \cdot (k-1)^3 + 80 \cdot (k-1)^2 + 80 \cdot(k-1) + 30
+                        \end{split}
+                    \end{align}
+
+                    (The reason why $k-1$ is chosen instead of $k-2$ and $k-3$ is
+                    because of the last term $2^5 = 32$, i.e $32 -2 = 30$)
+
+                    \bigskip
+
+                    Then, because we know $0 \leq k - 1 \leq k$ and $10 \mid (k-1)^5 - (k-1)$
+                    from the header, we can write $\exists c \in \mathbb{Z}$ such that
+                    $(k-1)^5 - (k-1) = 10c$, and
+
+                    \begin{align}
+                        \begin{split}
+                        (k+1)^5 - (k+1) &= 10c + 10 \cdot (k-1)^4 + 40 \cdot (k-1)^3 + \\
+                        & 80 \cdot (k-1)^2 + 80 \cdot(k-1) + 30
+                        \end{split}\\
+                        \begin{split}
+                        (k+1)^5 - (k+1) &= 10 \cdot \Bigl[c +\cdot (k-1)^4 + 4 \cdot (k-1)^3 + \\
+                        & 8 \cdot (k-1)^2 + 8 \cdot(k-1) + 3\Bigr]
+                        \end{split}\\
+                    \end{align}
+
+                    \bigskip
+
+                    Then, because we know $\tilde{d} = c + (k-1)^4 + 4 \cdot (k-1)^3 + 8 \cdot (k-1)^2 +
+                    8 \cdot(k-1) + 3$ from the header, we can conclude
+
+                    \begin{align}
+                        (k+1)^5 - (k+1) &= 10 \tilde{d}
+                    \end{align}
+
+                    \end{mdframed}
                 \end{enumerate}
 
             \end{mdframed}
