@@ -76,47 +76,48 @@
 
             \begin{mdframed}
 
-                Let $n = 1$.
+            Let $n = 1$.
 
-                \bigskip
+            \bigskip
 
-                We need to prove the full binary tree with 1 total number of nodes
-                has more leaves than internal nodes.
+            We need to prove the full binary tree with 1 total number of nodes
+            has more leaves than internal nodes.
 
-                \bigskip
+            \bigskip
 
-                The definition of leaf tells us that a node that has no children
-                is a leaf.
+            The definition of leaf tells us that a node that has no children
+            is a leaf.
 
-                \bigskip
+            \bigskip
 
-                Since the full binary tree with 1 node has no children, we
-                can conclude the node is a leaf.
+            Since the full binary tree with 1 node has no children, we
+            can conclude the node is a leaf.
 
-                \bigskip
+            \bigskip
 
-                Using this fact, we can write the full binary tree has 1 leaf.
+            Using this fact, we can write the full binary tree has 1 leaf.
 
-                \bigskip
+            \bigskip
 
-                Now, the definition of an internal node tells us that a node is
-                an internal node if it is not a leaf.
+            Now, the definition of an internal node tells us that a node is
+            an internal node if it is not a leaf.
 
-                \bigskip
+            \bigskip
 
-                Since there is 1 leaf and 1 total node in the full binary tree,
-                we can write there is 0 internal node.
+            Since there is 1 leaf and 1 total node in the full binary tree,
+            we can write there is 0 internal node.
 
-                \bigskip
+            \bigskip
 
-                So, since there is 1 leaf node and 0 internal node, we can
-                conclude the full binary tree has more leaves than internal nodes.
+            So, since there is 1 leaf node and 0 internal node, we can
+            conclude the full binary tree has more leaves than internal nodes.
 
             \end{mdframed}
 
             \item Base Case ($n = 2$)
 
             \begin{mdframed}
+
             Let $n = 2$.
 
             \bigskip
@@ -142,6 +143,94 @@
             \end{mdframed}
 
             \item Base Case ($n = 3$)
+
+            Let $n = 3$.
+
+            \bigskip
+
+            We need to prove the full binary tree with 3 total number of nodes
+            has more leaves than internal nodes.
+
+            \begin{enumerate}[1.]
+                \item Show the three forms a full binary tree
+                \begin{itemize}
+                    \item State the definition of full binary tree
+
+                    \begin{mdframed}
+                    The definition of full binary tree tells us that a binary tree is a full
+                    binary tree if every internal node has two children.
+                    \end{mdframed}
+
+                    \item Show that with 3 as the total number of nodes, the only full binary
+                    tree that can be formed is 1 internal node and 2 children.
+
+                    \begin{mdframed}
+                    Because we know there are two types of binary trees possible,
+                    one is the tree with 2 internal nodes and 1 child and the other
+                    is 1 internal node and 2 children, using above fact, we can write
+                    the only possible full binary tree with 3 total nodes is 1 internal
+                    node and 2 children.
+                    \end{mdframed}
+
+                    \item Conclude that the children are leaves, and there are more
+                    leaves than internal nodes
+
+                    \begin{mdframed}
+                    Now, the definition of leaf tells us leaf is a node that has no children.
+
+                    \bigskip
+
+                    Because we know by observation that the 2 child nodes don't
+                    have children, we can write the full binary tree has 2 leaves.
+
+                    \bigskip
+
+                    So, because we know the full binary tree has 1 internal node
+                    and 2 leaves, we can conclude the full binary tree has more
+                    leaves than internal node.
+                    \end{mdframed}
+                \end{itemize}
+
+                \bigskip
+
+                \begin{mdframed}
+
+                \underline{\textbf{Base Case ($n = 3$):}}
+
+                \bigskip
+
+                Let $n = 3$.
+
+                \bigskip
+
+                We need to prove the full binary tree with 3 total number of nodes
+                has more leaves than internal nodes.
+
+                \bigskip
+
+                Because we know there are two types of binary trees possible,
+                one is the tree with 2 internal nodes and 1 child and the other
+                is 1 internal node and 2 children, using above fact, we can write
+                the only possible full binary tree with 3 total nodes is 1 internal
+                node and 2 children.
+
+                \bigskip
+
+                Now, the definition of leaf tells us leaf is a node that has no children.
+
+                \bigskip
+
+                Because we know by observation that the 2 child nodes don't
+                have children, we can write the full binary tree has 2 leaves.
+
+                \bigskip
+
+                So, because we know the full binary tree has 1 internal node
+                and 2 leaves, we can conclude the full binary tree has more
+                leaves than internal node.
+
+                \end{mdframed}
+            \end{enumerate}
             \item Inductive Step
         \end{enumerate}
 
