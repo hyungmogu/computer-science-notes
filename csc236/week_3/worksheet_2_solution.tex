@@ -244,8 +244,29 @@
 
             \bigskip
 
-            We need to prove that any full binary trees with $k+1$
-            total number of nodes has more leaves than internal nodes.
+            Let $T$ be an arbitrary full binary tree with $k+1$ nodes. Let $T'$
+            be the binary tree obtained by removing 2 leaves from the same parent
+            node.
+
+
+            \bigskip
+
+            Let $\ell$ be the number of leaves of $T$, and $m$ be the number of
+            internal nodes of $T$. Similarly, let $\ell'$ be the number of leaves of
+            $T'$ and $m'$ be the number of internal nodes of $T'$. We must prove
+            $l > m$.
+
+            \bigskip
+
+            \begin{itemize}
+                \item State that $T'$ is a full binary tree with the number of
+                leaves more than the internal nodes, using induction hypothesis.
+                \item Show that $\ell' > m'$
+                \item Show that $\ell = \ell' + 1$ and $m = m' + 1$ using the fact that
+                when 2 nodes are added to a leaf node of $T'$, the number of leaf
+                nodes increase by 1 and internal nodes increase by 1
+                \item Conclude $\ell > m$.
+            \end{itemize}
 
         \end{enumerate}
 
