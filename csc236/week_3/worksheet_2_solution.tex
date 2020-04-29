@@ -208,6 +208,11 @@
 
                 \bigskip
 
+                The definition of full binary tree tells us that a binary tree is a full
+                binary tree if every internal node has two children.
+
+                \bigskip
+
                 Because we know there are two types of binary trees possible,
                 one is the tree with 2 internal nodes and 1 child and the other
                 is 1 internal node and 2 children, using above fact, we can write
@@ -232,6 +237,16 @@
                 \end{mdframed}
             \end{enumerate}
             \item Inductive Step
+
+            Let $k \geq 1$ be an arbitrary natural number. Assume that for all natural
+            number $i$ satisfying $1 \leq i \leq k$, any full binary trees with $i$
+            total number of nodes has more leaves than internal nodes.
+
+            \bigskip
+
+            We need to prove that any full binary trees with $k+1$
+            total number of nodes has more leaves than internal nodes.
+
         \end{enumerate}
 
     \end{mdframed}
