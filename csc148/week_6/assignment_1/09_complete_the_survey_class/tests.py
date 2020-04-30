@@ -22,6 +22,16 @@ def grouping() -> Grouping:
     return grouping
 
 @pytest.fixture
+def grouping_2() -> Grouping:
+    group1 = Group([Student(7, "Johnny"), Student(8, "Marianne"), Student(9, "Sim")])
+    group2 = Group([Student(10, "Nan"), Student(11, "Albert"), Student(12, "Justin")])
+
+    grouping = Grouping()
+    grouping._groups = [group1, group2]
+    return grouping
+
+
+@pytest.fixture
 def survey() -> Survey:
     questions = [
         MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"]),
@@ -315,6 +325,143 @@ class TestSurvey:
 
         result_1 = survey.score_students(students)
         result_2 = survey.score_students(students_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2
+
+
+    def test_score_students_method_should_return_correct_value_if_all_is_well_for_lonely_member_criterion(self, students, students_2, mc_questions):
+        survey = Survey(mc_questions)
+
+        for student in students:
+            for question in mc_questions:
+                answer = Answer("A")
+                survey.set_criterion(LonelyMemberCriterion(), question)
+                student.set_answer(question, answer)
+
+        for student in students_2:
+            for question in mc_questions:
+                if question.id == 1:
+                    answer = Answer("A")
+                else:
+                    answer = Answer("B")
+
+                survey.set_criterion(LonelyMemberCriterion(), question)
+                student.set_answer(question, answer)
+
+        expected_1 = 1.0
+        expected_2 = 0.0
+
+        result_1 = survey.score_students(students)
+        result_2 = survey.score_students(students_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2
+
+    def test_score_grouping_method_should_return_0_if_grouping_has_no_groups(self, survey):
+        grouping = Grouping()
+
+        expected = 0.0
+
+        result = survey.score_grouping(grouping)
+
+        assert expected == result
+
+    def test_score_grouping_method_should_return_correct_value_if_all_is_well_for_homogeneous_criterion(self, grouping, grouping_2, mc_questions):
+        survey = Survey(mc_questions)
+
+        for group in grouping.get_groups():
+            students = group.get_members()
+            for student in students:
+                for question in mc_questions:
+                    answer = Answer("A")
+                    student.set_answer(question, answer)
+
+        for group in grouping_2.get_groups():
+            students = group.get_members()
+            for student in students:
+                for question in mc_questions:
+                    if question.id == 1:
+                        answer = Answer("A")
+                    elif question.id == 2:
+                        answer = Answer("B")
+                    elif question.id == 3:
+                        answer = Answer("C")
+                    elif question.id == 4:
+                        answer = Answer("D")
+                    student.set_answer(question, answer)
+
+        expected_1 = 1.0
+        expected_2 = 0.0
+
+        result_1 = survey.score_grouping(grouping)
+        result_2 = survey.score_grouping(grouping_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2
+
+    def test_score_grouping_method_should_return_correct_value_if_all_is_well_for_hetrogeneous_criterion(self, grouping, grouping_2, mc_questions):
+        survey = Survey(mc_questions)
+
+        for group in grouping.get_groups():
+            students = group.get_members()
+            for student in students:
+                for question in mc_questions:
+                    answer = Answer("A")
+                    survey.set_criterion(HeterogeneousCriterion(), question)
+                    student.set_answer(question, answer)
+
+        for group in grouping_2.get_groups():
+            students = group.get_members()
+            for student in students:
+                for question in mc_questions:
+                    if question.id == 1:
+                        answer = Answer("A")
+                    elif question.id == 2:
+                        answer = Answer("B")
+                    elif question.id == 3:
+                        answer = Answer("C")
+                    elif question.id == 4:
+                        answer = Answer("D")
+                    survey.set_criterion(HeterogeneousCriterion(), question)
+                    student.set_answer(question, answer)
+
+        expected_1 = 0.0
+        expected_2 = 1.0
+
+        result_1 = survey.score_grouping(grouping)
+        result_2 = survey.score_grouping(grouping_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2
+
+    def test_score_grouping_method_should_return_correct_value_if_all_is_well_for_lonely_member_criterion(self, grouping, grouping_2, mc_questions):
+        survey = Survey(mc_questions)
+
+        for group in grouping.get_groups():
+            students = group.get_members()
+            for student in students:
+                for question in mc_questions:
+                    answer = Answer("A")
+                    survey.set_criterion(LonelyMemberCriterion(), question)
+                    student.set_answer(question, answer)
+
+        for group in grouping_2.get_groups():
+            students = group.get_members()
+            for student in students:
+                for question in mc_questions:
+                    if question.id == 1:
+                        answer = Answer("A")
+                    else:
+                        answer = Answer("B")
+                    survey.set_criterion(LonelyMemberCriterion(), question)
+                    student.set_answer(question, answer)
+
+        expected_1 = 1.0
+        expected_2 = 0.0
+
+        result_1 = survey.score_grouping(grouping)
+        result_2 = survey.score_grouping(grouping_2)
 
         assert expected_1 == result_1
         assert expected_2 == result_2
