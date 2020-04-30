@@ -86,9 +86,8 @@ class TestSurvey:
 
         assert expected == result
 
-    def test__get_criterion_method_should_return_homogeneous_criterion_if_question_doesnt_exist_in_critera(self, survey):
-        question = MultipleChoiceQuestion(5, "Multiplechoice Question 2",
-                                          ["A","B","C","D","E"])
+    def test__get_criterion_method_should_return_homogeneous_criterion_if_question_doesnt_exist_in__critera(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
 
         expected = True
 
@@ -96,7 +95,7 @@ class TestSurvey:
 
         assert expected == result
 
-    def test__get_criterion_method_should_return_correct_criterion_if_question_exists_in_critera(self, survey):
+    def test__get_criterion_method_should_return_correct_criterion_if_question_exists_in__critera(self, survey):
         question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
         survey._criteria[question.id] = LonelyMemberCriterion()
 
@@ -105,3 +104,81 @@ class TestSurvey:
         result = isinstance(survey._get_criterion(question), LonelyMemberCriterion)
 
         assert expected == result
+
+
+    def test__get_weight_method_should_return_1_if_question_doesnt_exist_in__weights(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
+
+        expected = 1
+
+        result = survey._get_weight(question)
+
+        assert expected == result
+
+    def test__get_weight_method_should_return_correct_weight_if_question_exists_in__weights(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
+        survey._weights[question.id] = 10
+
+        expected = 10
+
+        result = survey._get_weight(question)
+
+        assert expected == result
+
+    def test_set_weight_method_should_return_False_if_question_doesnt_exist_in__questions(self, survey):
+        question = MultipleChoiceQuestion(5, "Multiplechoice Question 2", ["A","B","C","D","E"])
+
+        expected = False
+
+        result = survey.set_weight(10, question)
+
+        assert expected == result
+
+    def test_set_weight_method_should_return_True_if_question_exists_in__questions(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
+
+        expected = True
+
+        result = survey.set_weight(10, question)
+
+        assert expected == result
+
+    def test_set_weight_method_should_store_correct_weight_if_successful(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
+        survey.set_weight(10, question)
+
+        expected = 10
+
+        result = survey._weights[question.id]
+
+        assert expected == result
+
+    def test_set_criterion_method_should_return_False_if_question_doesnt_exist_in__questions(self, survey):
+        question = MultipleChoiceQuestion(5, "Multiplechoice Question 2", ["A","B","C","D","E"])
+
+        expected = False
+
+        result = survey.set_criterion(HomogeneousCriterion(), question)
+
+        assert expected == result
+
+    def test_set_criterion_method_should_return_True_if_question_exists_in__questions(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
+
+        expected = True
+
+        result = survey.set_criterion(HomogeneousCriterion(), question)
+
+        assert expected == result
+
+    def test_set_criterion_method_should_store_correct_criterion_if_successful(self, survey):
+        question = MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"])
+        survey.set_criterion(HomogeneousCriterion(), question)
+
+        expected = True
+
+        result = isinstance(survey._criteria[question.id], HomogeneousCriterion)
+
+        assert expected == result
+
+
