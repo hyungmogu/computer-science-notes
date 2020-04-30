@@ -430,15 +430,15 @@ class Survey:
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
-        questions_lst = [str(question) for question in self._questions]
+        questions_lst = [str(self._questions[id_]) for id_ in self._questions]
 
-        return ",".join(questions_lst)
+        return "\n".join(questions_lst)
 
     def get_questions(self) -> List[Question]:
         """ Return a list of all questions in this survey """
         # TODO: complete the body of this method
 
-        return self._questions
+        return self._questions.values()
 
     def _get_criterion(self, question: Question) -> Criterion:
         """
