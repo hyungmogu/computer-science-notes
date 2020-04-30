@@ -400,7 +400,9 @@ class Survey:
         and should use 1 as a default weight.
         """
         # TODO: complete the body of this method
-        self._questions = questions
+        self._questions = {question.id : question for question in questions}
+        self._criteria = {}
+        self._weights = {}
         self._default_criterion = HomogeneousCriterion()
         self._default_weight = 1
 
@@ -438,6 +440,8 @@ class Survey:
         """ Return a list of all questions in this survey """
         # TODO: complete the body of this method
 
+        return self._questions
+
     def _get_criterion(self, question: Question) -> Criterion:
         """
         Return the criterion associated with <question> in this survey.
@@ -449,6 +453,11 @@ class Survey:
         <question>.id occurs in this survey
         """
         # TODO: complete the body of this method
+
+        if question.id not in self._criteria:
+            return self._default_criterion
+
+        return self._criteria[question.id]
 
     def _get_weight(self, question: Question) -> int:
         """
@@ -462,6 +471,11 @@ class Survey:
         """
         # TODO: complete the body of this method
 
+        if question.id not in self._weights:
+            return self._default_weight
+
+        return self._weights[question.id]
+
     def set_weight(self, weight: int, question: Question) -> bool:
         """
         Set the weight associated with <question> to <weight> and return True.
@@ -470,6 +484,12 @@ class Survey:
         and return False instead.
         """
         # TODO: complete the body of this method
+
+        if question.id not in self._questions:
+            return False
+
+        self._weights[question.id] = weight
+        return True
 
     def set_criterion(self, criterion: Criterion, question: Question) -> bool:
         """
