@@ -400,10 +400,14 @@ class Survey:
         and should use 1 as a default weight.
         """
         # TODO: complete the body of this method
+        self._questions = questions
+        self._default_criterion = HomogeneousCriterion()
+        self._default_weight = 1
 
     def __len__(self) -> int:
         """ Return the number of questions in this survey """
         # TODO: complete the body of this method
+        return len(self._questions)
 
     def __contains__(self, question: Question) -> bool:
         """
@@ -411,6 +415,12 @@ class Survey:
         id as <question>.
         """
         # TODO: complete the body of this method
+        for existing_question in self._questions:
+            if question.id == existing_question.id:
+                return True
+
+        return False
+
 
     def __str__(self) -> str:
         """
@@ -420,6 +430,9 @@ class Survey:
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
+        questions_lst = [str(question) for question in self._questions]
+
+        return ",".join(questions_lst)
 
     def get_questions(self) -> List[Question]:
         """ Return a list of all questions in this survey """
