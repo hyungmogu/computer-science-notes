@@ -7,7 +7,8 @@ from typing import List
 from course import Student
 from grouper import Group, Grouping
 from survey import (Answer, CheckboxQuestion, MultipleChoiceQuestion,
-                    NumericQuestion, Survey, YesNoQuestion, InvalidAnswerError)
+                    NumericQuestion, Question, Survey, YesNoQuestion,
+                    InvalidAnswerError)
 from criterion import (HomogeneousCriterion, HeterogeneousCriterion,
                        LonelyMemberCriterion, InvalidAnswerError)
 
@@ -35,6 +36,16 @@ def survey() -> Survey:
 def students() -> List[Student]:
     return [Student(1, "John"), Student(2, "Mary"), Student(3, "Simon")]
 
+@pytest.fixture
+def students_2() -> List[Student]:
+    return [Student(4, "Nanny"), Student(5, "Dilbert"), Student(6, "Jason")]
+
+@pytest.fixture
+def mc_questions() -> List[Question]:
+    return [MultipleChoiceQuestion(1, "Multiplechoice Question", ["A","B","C","D"]),
+            MultipleChoiceQuestion(2, "Multiplechoice Question", ["A","B","C","D"]),
+            MultipleChoiceQuestion(3, "Multiplechoice Question", ["A","B","C","D"]),
+            MultipleChoiceQuestion(4, "Multiplechoice Question", ["A","B","C","D"])]
 
 class TestSurvey:
 
@@ -187,6 +198,16 @@ class TestSurvey:
 
         assert expected == result
 
+    def test_score_students_method_should_return_0_if_quesetions_dont_exist(self, students):
+        survey = Survey([])
+        students = [Student(1, "John"), Student(2, "Mary"), Student(3, "Simon")]
+
+        expected = 0
+
+        result = survey.score_students(students)
+
+        assert expected == result
+
     def test_score_students_method_should_return_0_if_more_than_1_question_exists_but_answer_is_invalid(self, survey, students):
         questions = survey.get_questions()
         students = [Student(1, "John"), Student(2, "Mary"), Student(3, "Simon")]
@@ -210,4 +231,90 @@ class TestSurvey:
 
         assert expected == result
 
+    def test_score_students_method_should_return_correct_value_if_all_is_well_for_homogeneous_criterion(self, students, students_2, mc_questions):
+        survey = Survey(mc_questions)
 
+        for student in students:
+            for question in mc_questions:
+                answer = Answer("A")
+                student.set_answer(question, answer)
+
+        for student in students_2:
+            for question in mc_questions:
+                if question.id == 1:
+                    answer = Answer("A")
+                elif question.id == 2:
+                    answer = Answer("B")
+                elif question.id == 3:
+                    answer = Answer("C")
+                elif question.id == 4:
+                    answer = Answer("D")
+                student.set_answer(question, answer)
+
+        expected_1 = 1.0
+        expected_2 = 0.0
+
+        result_1 = survey.score_students(students)
+        result_2 = survey.score_students(students_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2
+
+    def test_score_students_method_should_return_correct_value_if_all_is_well_for_hetrogeneous_criterion(self, students, students_2, mc_questions):
+        survey = Survey(mc_questions)
+
+        for student in students:
+            for question in mc_questions:
+                answer = Answer("A")
+                survey.set_criterion(HeterogeneousCriterion(), question)
+                student.set_answer(question, answer)
+
+        for student in students_2:
+            for question in mc_questions:
+                if question.id == 1:
+                    answer = Answer("A")
+                elif question.id == 2:
+                    answer = Answer("B")
+                elif question.id == 3:
+                    answer = Answer("C")
+                elif question.id == 4:
+                    answer = Answer("D")
+                survey.set_criterion(HeterogeneousCriterion(), question)
+                student.set_answer(question, answer)
+
+        expected_1 = 0.0
+        expected_2 = 1.0
+
+        result_1 = survey.score_students(students)
+        result_2 = survey.score_students(students_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2
+
+    def test_score_students_method_should_return_correct_value_if_all_is_well_for_lonely_member_criterion(self, students, students_2, mc_questions):
+        survey = Survey(mc_questions)
+
+        for student in students:
+            for question in mc_questions:
+                answer = Answer("A")
+                survey.set_criterion(LonelyMemberCriterion(), question)
+                student.set_answer(question, answer)
+
+        for student in students_2:
+            for question in mc_questions:
+                if question.id == 1:
+                    answer = Answer("A")
+                else:
+                    answer = Answer("B")
+
+                survey.set_criterion(LonelyMemberCriterion(), question)
+                student.set_answer(question, answer)
+
+        expected_1 = 1.0
+        expected_2 = 0.0
+
+        result_1 = survey.score_students(students)
+        result_2 = survey.score_students(students_2)
+
+        assert expected_1 == result_1
+        assert expected_2 == result_2

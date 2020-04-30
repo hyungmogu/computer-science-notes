@@ -190,7 +190,6 @@ class LonelyMemberCriterion(Criterion):
 
         else:
             for answer in answers:
-                print(answer.content)
                 if not answer.is_valid(question):
                     raise InvalidAnswerError
 
