@@ -371,7 +371,7 @@ class Grouping:
         all_members_lst = []
 
         for group in self._groups:
-            all_members_list.extends([ member.name for member in member group.get_members()])
+            all_members_list.extends([ member.name for member in group.get_members()])
 
         return "\n".join(all_members_lst)
 
