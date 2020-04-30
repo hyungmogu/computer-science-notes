@@ -65,23 +65,33 @@ def slice_list(lst: List[Any], n: int) -> List[List[Any]]:
 
     return slices_list
 
-# def windows(lst: List[Any], n: int) -> List[List[Any]]:
-#     """
-#     Return a list containing windows of <lst> in order. Each window is a list
-#     of size <n> containing the elements with index i through index i+<n> in the
-#     original list where i is the index of window in the returned list.
+def windows(lst: List[Any], n: int) -> List[List[Any]]:
+    """
+    Return a list containing windows of <lst> in order. Each window is a list
+    of size <n> containing the elements with index i through index i+<n> in the
+    original list where i is the index of window in the returned list.
 
-#     === Precondition ===
-#     n <= len(lst)
+    === Precondition ===
+    n <= len(lst)
 
-#     >>> windows([3, 4, 6, 2, 3], 2) == [[3, 4], [4, 6], [6, 2], [2, 3]]
-#     True
-#     >>> windows(['a', 1, 6.0, False], 3) == [['a', 1, 6.0], [1, 6.0, False]]
-#     True
-#     """
-#     # TODO: complete the body of this function
+    >>> windows([3, 4, 6, 2, 3], 2) == [[3, 4], [4, 6], [6, 2], [2, 3]]
+    True
+    >>> windows(['a', 1, 6.0, False], 3) == [['a', 1, 6.0], [1, 6.0, False]]
+    True
+    """
+    # TODO: complete the body of this function
 
+    output = []
 
+    for i in range(len(lst)):
+        lst_slice = lst[i:i+n]
+
+        if len(lst_slice) < n:
+            break
+
+        output.append(lst_slice)
+
+    return output
 
 
 # class Grouper:
@@ -261,97 +271,115 @@ def slice_list(lst: List[Any], n: int) -> List[List[Any]]:
 #         # TODO: complete the body of this method
 
 
-# class Group:
-#     """
-#     A group of one or more students
+class Group:
+    """
+    A group of one or more students
 
-#     === Private Attributes ===
-#     _members: a list of unique students in this group
+    === Private Attributes ===
+    _members: a list of unique students in this group
 
-#     === Representation Invariants ===
-#     No two students in _members have the same id
-#     """
+    === Representation Invariants ===
+    No two students in _members have the same id
+    """
 
-#     _members: List[Student]
+    _members: List[Student]
 
-#     def __init__(self, members: List[Student]) -> None:
-#         """ Initialize a group with members <members> """
-#         # TODO: complete the body of this method
+    def __init__(self, members: List[Student]) -> None:
+        """ Initialize a group with members <members> """
+        # TODO: complete the body of this method
+        self.members = []
+        members_set = set([member.id for member in members])
 
-#     def __len__(self) -> int:
-#         """ Return the number of members in this group """
-#         # TODO: complete the body of this method
+        for member in members_set:
+            if member.id not in members_set:
+                continue
 
-#     def __contains__(self, member: Student) -> bool:
-#         """
-#         Return True iff this group contains a member with the same id
-#         as <member>.
-#         """
-#         # TODO: complete the body of this method
+            self._members.append(member)
+            members_set.remove(member.id)
 
-#     def __str__(self) -> str:
-#         """
-#         Return a string containing the names of all members in this group
-#         on a single line.
+    def __len__(self) -> int:
+        """ Return the number of members in this group """
+        # TODO: complete the body of this method
+        return len(self._members)
 
-#         You can choose the precise format of this string.
-#         """
-#         # TODO: complete the body of this method
+    def __contains__(self, member: Student) -> bool:
+        """
+        Return True iff this group contains a member with the same id
+        as <member>.
+        """
+        # TODO: complete the body of this method
+        for existing_member in self._members:
+            if member.id == existing_member.id:
+                return True
 
-#     def get_members(self) -> List[Student]:
-#         """ Return a list of members in this group. This list should be a
-#         shallow copy of the self._members attribute.
-#         """
-#         # TODO: complete the body of this method
+        return False
+
+    def __str__(self) -> str:
+        """
+        Return a string containing the names of all members in this group
+        on a single line.
+
+        You can choose the precise format of this string.
+        """
+        # TODO: complete the body of this method
+        members = [member.name for member in self.members]
+        return ",".join(members)
+
+    def get_members(self) -> List[Student]:
+        """ Return a list of members in this group. This list should be a
+        shallow copy of the self._members attribute.
+        """
+        # TODO: complete the body of this method
+        return copy.copy(self._members)
 
 
-# class Grouping:
-#     """
-#     A collection of groups
+class Grouping:
+    """
+    A collection of groups
 
-#     === Private Attributes ===
-#     _groups: a list of Groups
+    === Private Attributes ===
+    _groups: a list of Groups
 
-#     === Representation Invariants ===
-#     No group in _groups contains zero members
-#     No student appears in more than one group in _groups
-#     """
+    === Representation Invariants ===
+    No group in _groups contains zero members
+    No student appears in more than one group in _groups
+    """
 
-#     _groups: List[Group]
+    _groups: List[Group]
 
-#     def __init__(self) -> None:
-#         """ Initialize a Grouping that contains zero groups """
-#         # TODO: complete the body of this method
+    def __init__(self) -> None:
+        """ Initialize a Grouping that contains zero groups """
+        # TODO: complete the body of this method
 
-#     def __len__(self) -> int:
-#         """ Return the number of groups in this grouping """
-#         # TODO: complete the body of this method
+    def __len__(self) -> int:
+        """ Return the number of groups in this grouping """
+        # TODO: complete the body of this method
 
-#     def __str__(self) -> str:
-#         """
-#         Return a multi-line string that includes the names of all of the members
-#         of all of the groups in <self>. Each line should contain the names
-#         of members for a single group.
+    def __str__(self) -> str:
+        """
+        Return a multi-line string that includes the names of all of the members
+        of all of the groups in <self>. Each line should contain the names
+        of members for a single group.
 
-#         You can choose the precise format of this string.
-#         """
-#         # TODO: complete the body of this method
+        You can choose the precise format of this string.
+        """
+        # TODO: complete the body of this method
 
-#     def add_group(self, group: Group) -> bool:
-#         """
-#         Add <group> to this grouping and return True.
+    def add_group(self, group: Group) -> bool:
+        """
+        Add <group> to this grouping and return True.
 
-#         Iff adding <group> to this grouping would violate a representation
-#         invariant don't add it and return False instead.
-#         """
-#         # TODO: complete the body of this method
+        Iff adding <group> to this grouping would violate a representation
+        invariant don't add it and return False instead.
+        """
+        # TODO: complete the body of this method
 
-#     def get_groups(self) -> List[Group]:
-#         """ Return a list of all groups in this grouping.
-#         This list should be a shallow copy of the self._groups
-#         attribute.
-#         """
-#         # TODO: complete the body of this method
+    def get_groups(self) -> List[Group]:
+        """ Return a list of all groups in this grouping.
+        This list should be a shallow copy of the self._groups
+        attribute.
+        """
+        # TODO: complete the body of this method
 
 
 if __name__ == '__main__':
