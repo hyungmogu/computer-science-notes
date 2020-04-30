@@ -351,10 +351,12 @@ class Grouping:
     def __init__(self) -> None:
         """ Initialize a Grouping that contains zero groups """
         # TODO: complete the body of this method
+        self._groups = []
 
     def __len__(self) -> int:
         """ Return the number of groups in this grouping """
         # TODO: complete the body of this method
+        return len(self._groups)
 
     def __str__(self) -> str:
         """
@@ -366,6 +368,13 @@ class Grouping:
         """
         # TODO: complete the body of this method
 
+        all_members_lst = []
+
+        for group in self._groups:
+            all_members_list.extends([ member.name for member in member group.get_members()])
+
+        return "\n".join(all_members_lst)
+
     def add_group(self, group: Group) -> bool:
         """
         Add <group> to this grouping and return True.
@@ -374,6 +383,19 @@ class Grouping:
         invariant don't add it and return False instead.
         """
         # TODO: complete the body of this method
+        all_members_lst = []
+
+        for existing_group in self._groups:
+            all_members_lst.extend([member.id for member in existing_group.get_members()])
+
+        all_members_set = set(all_members_lst)
+        group_members_set = set([member.id for member in group.get_members()])
+
+        if len(list(all_members_set.intersection(group_members_set))) != 0:
+            return False
+
+        self._groups.append(group)
+        return True
 
     def get_groups(self) -> List[Group]:
         """ Return a list of all groups in this grouping.
@@ -381,6 +403,7 @@ class Grouping:
         attribute.
         """
         # TODO: complete the body of this method
+        return [group for group in self._groups]
 
 
 if __name__ == '__main__':
