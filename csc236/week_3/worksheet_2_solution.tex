@@ -1520,5 +1520,98 @@
 \end{itemize}
 
 \section*{Question 3}
+\begin{itemize}
+    \item
+
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        Define $C(n):$ $f(n) \leq 3^n$.
+
+        \bigskip
+
+        We will prove by complete induction that $\forall n \in \mathbb{N}, n \geq 2 \Rightarrow C(n)$.
+
+        \bigskip
+
+        \begin{itemize}
+            \item Inductive Step
+
+            \begin{mdframed}
+            Let $n \in \mathbb{N}$ and assume $n \geq 2$. Assume $H(n):\:\bigwedge\limits_{i=0}^{n-1} C(i)$.
+
+            \bigskip
+
+            We need to prove $C(n)$ follows. That is, $f(n) \leq 3^n$.
+            \end{mdframed}
+
+            \item Base Case ($n = 0$)
+
+            \begin{mdframed}
+            \underline{\textbf{Base Case ($n = 0$):}}
+
+            \bigskip
+
+            Let $n = 0$.
+
+            \bigskip
+
+            We need to prove $C(0)$ is true. That is, $f(0) \leq 3^0$.
+
+            \bigskip
+
+            The definition of $f(n)$ tells us that $f(0) = 1$.
+
+            \bigskip
+
+            Using this fact, we can conclude
+
+            \begin{align}
+                f(0) = 1 &\leq 1\\
+                &\leq 3^0
+            \end{align}
+            \end{mdframed}
+
+            \item Base Case ($n = 1$)
+
+            Let $n = 1$.
+
+            \bigskip
+
+            We need to prove $C(1)$ is true. That is, $f(1) \leq 3^1$.
+
+            \begin{mdframed}
+
+            \underline{\textbf{Base Case ($n = 1$):}}
+
+            \bigskip
+
+            Let $n = 1$.
+
+            \bigskip
+
+            We need to prove $C(1)$ is true. That is, $f(1) \leq 3$.
+
+            \bigskip
+
+            The definition of $f(n)$ tells us that $f(1) = 3$.
+
+            \bigskip
+
+            Using this fact, we can conclude
+
+            \begin{align}
+                f(1) = 3 &\leq 3\\
+                &\leq 3^1
+            \end{align}
+
+            \end{mdframed}
+
+            \item $n \geq 2$
+        \end{itemize}
+    \end{mdframed}
+\end{itemize}
 
 \end{document}
