@@ -2,11 +2,12 @@
 
 import pytest
 import unittest
+from typing import List
 
 from course import Student
 from grouper import Group, Grouping
 from survey import (Answer, CheckboxQuestion, MultipleChoiceQuestion,
-                    NumericQuestion, Survey, YesNoQuestion)
+                    NumericQuestion, Survey, YesNoQuestion, InvalidAnswerError)
 from criterion import (HomogeneousCriterion, HeterogeneousCriterion,
                        LonelyMemberCriterion, InvalidAnswerError)
 
@@ -29,6 +30,11 @@ def survey() -> Survey:
 
     survey = Survey(questions)
     return survey
+
+@pytest.fixture
+def students() -> List[Student]:
+    return [Student(1, "John"), Student(2, "Mary"), Student(3, "Simon")]
+
 
 class TestSurvey:
 
@@ -178,6 +184,29 @@ class TestSurvey:
         expected = True
 
         result = isinstance(survey._criteria[question.id], HomogeneousCriterion)
+
+        assert expected == result
+
+    def test_score_students_method_should_return_0_if_more_than_1_question_exists_but_answer_is_invalid(self, survey, students):
+        questions = survey.get_questions()
+        students = [Student(1, "John"), Student(2, "Mary"), Student(3, "Simon")]
+
+        for student in students:
+            for question in questions:
+                if question.id == 1:
+                    answer = Answer("E")
+                elif question.id == 2:
+                    answer = Answer(2)
+                elif question.id == 3:
+                    answer = Answer(True)
+                else:
+                    answer = Answer(["A","B"])
+
+                student.set_answer(question, answer)
+
+        expected = 0
+
+        result = survey.score_students(students)
 
         assert expected == result
 
