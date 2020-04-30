@@ -26,6 +26,7 @@ well as a grouping (a group of groups).
 """
 from __future__ import annotations
 import random
+import copy
 from typing import TYPE_CHECKING, List, Any
 from course import sort_students
 if TYPE_CHECKING:
@@ -94,181 +95,181 @@ def windows(lst: List[Any], n: int) -> List[List[Any]]:
     return output
 
 
-# class Grouper:
-#     """
-#     An abstract class representing a grouper used to create a grouping of
-#     students according to their answers to a survey.
+class Grouper:
+    """
+    An abstract class representing a grouper used to create a grouping of
+    students according to their answers to a survey.
 
-#     === Public Attributes ===
-#     group_size: the ideal number of students that should be in each group
+    === Public Attributes ===
+    group_size: the ideal number of students that should be in each group
 
-#     === Representation Invariants ===
-#     group_size > 1
-#     """
+    === Representation Invariants ===
+    group_size > 1
+    """
 
-#     group_size: int
+    group_size: int
 
-#     def __init__(self, group_size: int) -> None:
-#         """
-#         Initialize a grouper that creates groups of size <group_size>
+    def __init__(self, group_size: int) -> None:
+        """
+        Initialize a grouper that creates groups of size <group_size>
 
-#         === Precondition ===
-#         group_size > 1
-#         """
-#         # TODO: complete the body of this method
+        === Precondition ===
+        group_size > 1
+        """
+        # TODO: complete the body of this method
 
-#     def make_grouping(self, course: Course, survey: Survey) -> Grouping:
-#         """ Return a grouping for all students in <course> using the questions
-#         in <survey> to create the grouping.
-#         """
-#         raise NotImplementedError
-
-
-# class AlphaGrouper(Grouper):
-#     """
-#     A grouper that groups students in a given course according to the
-#     alphabetical order of their names.
-
-#     === Public Attributes ===
-#     group_size: the ideal number of students that should be in each group
-
-#     === Representation Invariants ===
-#     group_size > 1
-#     """
-
-#     group_size: int
-
-#     def make_grouping(self, course: Course, survey: Survey) -> Grouping:
-#         """
-#         Return a grouping for all students in <course>.
-
-#         The first group should contain the students in <course> whose names come
-#         first when sorted alphabetically, the second group should contain the
-#         next students in that order, etc.
-
-#         All groups in this grouping should have exactly self.group_size members
-#         except for the last group which may have fewer than self.group_size
-#         members if that is required to make sure all students in <course> are
-#         members of a group.
-
-#         Hint: the sort_students function might be useful
-#         """
-#         # TODO: complete the body of this method
+    def make_grouping(self, course: Course, survey: Survey) -> Grouping:
+        """ Return a grouping for all students in <course> using the questions
+        in <survey> to create the grouping.
+        """
+        raise NotImplementedError
 
 
-# class RandomGrouper(Grouper):
-#     """
-#     A grouper used to create a grouping of students by randomly assigning them
-#     to groups.
+class AlphaGrouper(Grouper):
+    """
+    A grouper that groups students in a given course according to the
+    alphabetical order of their names.
 
-#     === Public Attributes ===
-#     group_size: the ideal number of students that should be in each group
+    === Public Attributes ===
+    group_size: the ideal number of students that should be in each group
 
-#     === Representation Invariants ===
-#     group_size > 1
-#     """
+    === Representation Invariants ===
+    group_size > 1
+    """
 
-#     group_size: int
+    group_size: int
 
-#     def make_grouping(self, course: Course, survey: Survey) -> Grouping:
-#         """
-#         Return a grouping for all students in <course>.
+    def make_grouping(self, course: Course, survey: Survey) -> Grouping:
+        """
+        Return a grouping for all students in <course>.
 
-#         Students should be assigned to groups randomly.
+        The first group should contain the students in <course> whose names come
+        first when sorted alphabetically, the second group should contain the
+        next students in that order, etc.
 
-#         All groups in this grouping should have exactly self.group_size members
-#         except for one group which may have fewer than self.group_size
-#         members if that is required to make sure all students in <course> are
-#         members of a group.
-#         """
-#         # TODO: complete the body of this method
+        All groups in this grouping should have exactly self.group_size members
+        except for the last group which may have fewer than self.group_size
+        members if that is required to make sure all students in <course> are
+        members of a group.
 
-
-# class GreedyGrouper(Grouper):
-#     """
-#     A grouper used to create a grouping of students according to their
-#     answers to a survey. This grouper uses a greedy algorithm to create
-#     groups.
-
-#     === Public Attributes ===
-#     group_size: the ideal number of students that should be in each group
-
-#     === Representation Invariants ===
-#     group_size > 1
-#     """
-
-#     group_size: int
-
-#     def make_grouping(self, course: Course, survey: Survey) -> Grouping:
-#         """
-#         Return a grouping for all students in <course>.
-
-#         Starting with a tuple of all students in <course> obtained by calling
-#         the <course>.get_students() method, create groups of students using the
-#         following algorithm:
-
-#         1. select the first student in the tuple that hasn't already been put
-#            into a group and put this student in a new group.
-#         2. select the student in the tuple that hasn't already been put into a
-#            group that, if added to the new group, would increase the group's
-#            score the most (or reduce it the least), add that student to the new
-#            group.
-#         3. repeat step 2 until there are N students in the new group where N is
-#            equal to self.group_size.
-#         4. repeat steps 1-3 until all students have been placed in a group.
-
-#         In step 2 above, use the <survey>.score_students method to determine
-#         the score of each group of students.
-
-#         The final group created may have fewer than N members if that is
-#         required to make sure all students in <course> are members of a group.
-#         """
-#         # TODO: complete the body of this method
+        Hint: the sort_students function might be useful
+        """
+        # TODO: complete the body of this method
 
 
-# class WindowGrouper(Grouper):
-#     """
-#     A grouper used to create a grouping of students according to their
-#     answers to a survey. This grouper uses a window search algorithm to create
-#     groups.
+class RandomGrouper(Grouper):
+    """
+    A grouper used to create a grouping of students by randomly assigning them
+    to groups.
 
-#     === Public Attributes ===
-#     group_size: the ideal number of students that should be in each group
+    === Public Attributes ===
+    group_size: the ideal number of students that should be in each group
 
-#     === Representation Invariants ===
-#     group_size > 1
-#     """
+    === Representation Invariants ===
+    group_size > 1
+    """
 
-#     group_size: int
+    group_size: int
 
-#     def make_grouping(self, course: Course, survey: Survey) -> Grouping:
-#         """
-#         Return a grouping for all students in <course>.
+    def make_grouping(self, course: Course, survey: Survey) -> Grouping:
+        """
+        Return a grouping for all students in <course>.
 
-#         Starting with a tuple of all students in <course> obtained by calling
-#         the <course>.get_students() method, create groups of students using the
-#         following algorithm:
+        Students should be assigned to groups randomly.
 
-#         1. Get the windows of the list of students who have not already been
-#            put in a group.
-#         2. For each window in order, calculate the current window's score as
-#            well as the score of the next window in the list. If the current
-#            window's score is greater than or equal to the next window's score,
-#            make a group out of the students in current window and start again at
-#            step 1. If the current window is the last window, compare it to the
-#            first window instead.
+        All groups in this grouping should have exactly self.group_size members
+        except for one group which may have fewer than self.group_size
+        members if that is required to make sure all students in <course> are
+        members of a group.
+        """
+        # TODO: complete the body of this method
 
-#         In step 2 above, use the <survey>.score_students to determine the score
-#         of each window (list of students).
 
-#         In step 1 and 2 above, use the windows function to get the windows of
-#         the list of students.
+class GreedyGrouper(Grouper):
+    """
+    A grouper used to create a grouping of students according to their
+    answers to a survey. This grouper uses a greedy algorithm to create
+    groups.
 
-#         If there are any remaining students who have not been put in a group
-#         after repeating steps 1 and 2 above, put the remaining students into a
-#         new group.
-#         """
-#         # TODO: complete the body of this method
+    === Public Attributes ===
+    group_size: the ideal number of students that should be in each group
+
+    === Representation Invariants ===
+    group_size > 1
+    """
+
+    group_size: int
+
+    def make_grouping(self, course: Course, survey: Survey) -> Grouping:
+        """
+        Return a grouping for all students in <course>.
+
+        Starting with a tuple of all students in <course> obtained by calling
+        the <course>.get_students() method, create groups of students using the
+        following algorithm:
+
+        1. select the first student in the tuple that hasn't already been put
+           into a group and put this student in a new group.
+        2. select the student in the tuple that hasn't already been put into a
+           group that, if added to the new group, would increase the group's
+           score the most (or reduce it the least), add that student to the new
+           group.
+        3. repeat step 2 until there are N students in the new group where N is
+           equal to self.group_size.
+        4. repeat steps 1-3 until all students have been placed in a group.
+
+        In step 2 above, use the <survey>.score_students method to determine
+        the score of each group of students.
+
+        The final group created may have fewer than N members if that is
+        required to make sure all students in <course> are members of a group.
+        """
+        # TODO: complete the body of this method
+
+
+class WindowGrouper(Grouper):
+    """
+    A grouper used to create a grouping of students according to their
+    answers to a survey. This grouper uses a window search algorithm to create
+    groups.
+
+    === Public Attributes ===
+    group_size: the ideal number of students that should be in each group
+
+    === Representation Invariants ===
+    group_size > 1
+    """
+
+    group_size: int
+
+    def make_grouping(self, course: Course, survey: Survey) -> Grouping:
+        """
+        Return a grouping for all students in <course>.
+
+        Starting with a tuple of all students in <course> obtained by calling
+        the <course>.get_students() method, create groups of students using the
+        following algorithm:
+
+        1. Get the windows of the list of students who have not already been
+           put in a group.
+        2. For each window in order, calculate the current window's score as
+           well as the score of the next window in the list. If the current
+           window's score is greater than or equal to the next window's score,
+           make a group out of the students in current window and start again at
+           step 1. If the current window is the last window, compare it to the
+           first window instead.
+
+        In step 2 above, use the <survey>.score_students to determine the score
+        of each window (list of students).
+
+        In step 1 and 2 above, use the windows function to get the windows of
+        the list of students.
+
+        If there are any remaining students who have not been put in a group
+        after repeating steps 1 and 2 above, put the remaining students into a
+        new group.
+        """
+        # TODO: complete the body of this method
 
 
 class Group:
@@ -287,10 +288,10 @@ class Group:
     def __init__(self, members: List[Student]) -> None:
         """ Initialize a group with members <members> """
         # TODO: complete the body of this method
-        self.members = []
+        self._members = []
         members_set = set([member.id for member in members])
 
-        for member in members_set:
+        for member in members:
             if member.id not in members_set:
                 continue
 
@@ -322,7 +323,7 @@ class Group:
         You can choose the precise format of this string.
         """
         # TODO: complete the body of this method
-        members = [member.name for member in self.members]
+        members = [member.name for member in self._members]
         return ",".join(members)
 
     def get_members(self) -> List[Student]:
