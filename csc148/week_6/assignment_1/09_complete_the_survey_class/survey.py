@@ -417,12 +417,10 @@ class Survey:
         id as <question>.
         """
         # TODO: complete the body of this method
-        for existing_question in self._questions:
-            if question.id == existing_question.id:
-                return True
+        if question.id in self._questions:
+            return True
 
         return False
-
 
     def __str__(self) -> str:
         """
@@ -530,7 +528,7 @@ class Survey:
         # TODO: complete the body of this method
         try:
             score_lst = []
-            for question in self._questions
+            for question in self._questions:
                 criterion = self._critera[question.id]
                 weight = self._weights[question.id]
                 answers = student.answers
