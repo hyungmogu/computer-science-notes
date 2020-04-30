@@ -500,6 +500,11 @@ class Survey:
         and return False instead.
         """
         # TODO: complete the body of this method
+        if question.id not in self._questions:
+            return False
+
+        self._criteria[question.id] = criterion
+        return True
 
     def score_students(self, students: List[Student]) -> float:
         """
@@ -523,6 +528,18 @@ class Survey:
             survey
         """
         # TODO: complete the body of this method
+        try:
+            score_lst = []
+            for question in self._questions
+                criterion = self._critera[question.id]
+                weight = self._weights[question.id]
+                answers = student.answers
+
+                score_lst.append(criterion.score_answers(question, answers) * weight)
+
+            return sum(score_lst)/len(score_lst)
+        except InvalidAnswerError:
+            return 0
 
     def score_grouping(self, grouping: Grouping) -> float:
         """ Return a score for <grouping> calculated based on the answers of
@@ -541,7 +558,14 @@ class Survey:
             in this survey
         """
         # TODO: complete the body of this method
+        groups = grouping.get_groups()
 
+        if (len(groups)) == 0:
+            return 0.0
+
+        group_score_lst = [self.score_students(group.get_members()) for group in groups]
+
+        return sum(group_score_lst)/len(group_score_lst)
 
 
 if __name__ == '__main__':

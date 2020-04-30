@@ -83,9 +83,9 @@ class Student:
         if question.id not in self.answers:
             return False
 
-        # answer = self.answers[question.id]
-        # if not answer.is_valid(question):
-        #     return False
+        answer = self.answers[question.id]
+        if not answer.is_valid(question):
+            return False
 
         return True
 
