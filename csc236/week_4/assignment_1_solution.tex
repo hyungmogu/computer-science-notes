@@ -82,6 +82,54 @@
 
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
+
+        Assume $P(234)$. That is, every bipartite graph on 234 vertices has no more
+        than $\frac{234^2}{4}$ edges.
+
+        \bigskip
+
+        We need to prove $P(235)$ follows. That is, every bipartite graph on 235
+        vertices has no more than $\frac{235^2}{4}$ edges.
+
+        \bigskip
+
+        Let $b$ be the bipartite graph with 235 vertices. Let $b'$ be the bipartite
+        graph with a vertex removed from the larger of two partitions in $b$ along with its edges.
+
+        \bigskip
+
+        Since we know the maximum number of edges occur in $b'$ when there are
+        117 vertices in both sides of the partitions, and since we know the edges
+        of removed vertex forms edges with partition with bigger number of vertices,
+        we can conclude the removed vertex forms at most 117 edges.
+
+        \bigskip
+
+        Since the assumption tells us $b'$ has at most $\frac{234^2}{4}$ edges,
+        we can conclude the upper bound number of edges for the bipartite
+        graph with 235 vertices is
+
+
+        \begin{align}
+            \frac{234^2}{4} + 117 &= \frac{234^2}{4} + \frac{4 \cdot 117}{4}\\
+            &= \frac{234^2 + 2 \cdot 234}{4}\\
+            &\leq \frac{234^2 + 2 \cdot 234 + 1}{4}\\
+            &= \frac{(234+1)^2}{4}\\
+            &= \frac{(235)^2}{4}
+        \end{align}
+
+        \bigskip
+
+        So $P(235)$ follows.
+
+    \end{mdframed}
+
     % \bigskip
 
     % \begin{mdframed}
