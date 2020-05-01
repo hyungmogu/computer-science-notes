@@ -426,16 +426,60 @@
                 \bigskip
 
                 \begin{itemize}
-                    \item Show $2k-1$ is the most number of edges $v$ could have
+                    \item Show $k$ is the most number of edges $v$ could have
                     in $b$.
+
+                    \bigskip
+
+                    First, we need to show $k$ is the most number of edges $v$
+                    could have in $b$.
+
+                    \begin{mdframed}
+                    We know the edges of vertex $v$ runs from $v$ to each vertex
+                    in the smaller partition.
+
+                    \bigskip
+
+                    Since the smaller partition has at most $\frac{n+1}{2} = k$,
+                    vertices, we can write the vertex $v$ has at most $k$ vertices.
+                    \end{mdframed}
 
                     \item Show the bipartite graph with $n$ vertices has
                     at most $\frac{(2k-2)^2}{4}$ edges
 
-                    \item Conclude $b$ has no more than $\frac{(2k)^2}{4}$ edges.
+                    \bigskip
+
+                    Second, we need to show the bipartite graph with $n$ vertices has
+                    at most $\frac{(2k-2)^2}{4}$ edges
+
+                    \bigskip
 
                     \begin{mdframed}
-                    So, by combining the two together, we can conclude $b$ has no more than
+                    Second, we need to show the bipartite graph with $n$ vertices has
+                    at most $\frac{(2k-2)^2}{4}$ edges
+
+                    \bigskip
+
+                    The assumption tells us every bipartite graph with $n'$ vertices
+                    has no more than $\frac{(n'-1)^2}{4}$ edges when $n'$ is odd, or
+                    $\frac{n'^2}{4}$ edges when $n'$ is even.
+
+                    \bigskip
+
+                    Since we know $n = 2k - 1$ is odd, we can write the bipartite
+                    graph with $n$ vertices has at most
+
+                    \begin{align}
+                        \frac{(n-1)^2}{4} &= \frac{(2k-2)^2}{4}
+                    \end{align}
+
+                    edges.
+                    \end{mdframed}
+
+                    \item Conclude $b$ has no more than $\frac{(2k)^2}{4}$ edges. \textit{Needs fix**}
+
+                    \begin{mdframed}
+                    Finally, by combining the two together, we can conclude $b$ has no more than
 
                     \begin{align}
                         \frac{(n-1)^2}{4} + 2k - 1 &= \frac{(2k-1-1)^2}{4} + 2k - 1\\
