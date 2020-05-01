@@ -392,6 +392,53 @@
             \end{itemize}
 
             \item Inductive Step
+
+            \bigskip
+
+            Let $n \in \mathbb{N}$. And assume $H(n)$.
+
+            \bigskip
+
+            We must prove that $H(n+1)$ is true. There are two cases: $n+1$ is odd, or
+            $n+1$ is even.
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item Case 1 ($n+1$ is even)
+
+                \bigskip
+
+                Assume $n+1$ is even. That is, $\exists k \in \mathbb{Z}$ such that
+                $n+1 = 2k$. Assume $H(n)$.
+
+                \bigskip
+
+                We must prove $H(n+1)$ is true. That is, every bipartite graph
+                with $n+1$ vertices has no more than $\frac{(n+1)^2}{4}$ edges.
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Show that $k$ vertices in $V_1$ and $k$ vertices in $V_2$
+                    is the one and the only bipartite graph with $n+1$ vertices with
+                    the most number of edges
+
+                    \item Remove a vertex from the either $V_1$ or $V_2$ along with its edges,
+                    and show that the new bipartite graph gives the most number of
+                    edges in terms of $n$ vertices.
+
+                    \item Conclude that graph with $n+1$ vertices has no more
+                    than $\frac{(n+1)^2}{4}$ edges.
+                \end{itemize}
+
+                \item Case 2 ($n+1$ is odd)
+
+                \begin{mdframed}
+
+                \end{mdframed}
+            \end{enumerate}
+
         \end{enumerate}
 
     \end{mdframed}
