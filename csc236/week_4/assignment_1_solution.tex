@@ -55,55 +55,84 @@
 
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+    \begin{proof}
+    Let $b$ be the bipartite graph with 235 vertices where
+    117 vertices are in one partition and 118 vertices in
+    the other partition (Note this is the configuration where maximum number of edges form).
 
-        Assume $P(234)$. That is, every bipartite graph on 234 vertices has no more
-        than $\frac{234^2}{4}$ edges.
+    \bigskip
 
-        \bigskip
+    The bipartite graph with 117 vertices on both sides of partition has
+    $\frac{234^2}{4}$ edges, and the assumption tells us this is the maximum number of edges the
+    bipartite graph could form.
 
-        We need to prove $P(235)$ follows. That is, every bipartite graph on 235
-        vertices has no more than $\frac{235^2}{4}$ edges.
+    \bigskip
 
-        \begin{enumerate}[1.]
-            \item Find the configuration where bipartite graph on 235 vertices form most number of edges in
-            terms of bipartite graph on 234 vertices.
+    Since we know $b$ has 117 more edges than the bipartite graph with 117 vertices on
+    both sides, using these facts, we can conclude the upper bound number of edges for the bipartite
+    graph with 235 vertices is
 
-            \begin{mdframed}
-            Let $b$ be the bipartite graph with 235 vertices where
-            117 vertices are in one partition and 118 vertices in
-            the other partition (Note this is the configuration where maximum number of edges form).
+    \begin{align}
+        \frac{234^2}{4} + 117 &= \frac{234^2}{4} + \frac{4 \cdot 117}{4}\\
+        &= \frac{234^2 + 2 \cdot 234}{4}\\
+        &\leq \frac{234^2 + 2 \cdot 234 + 1}{4}\\
+        &= \frac{(234+1)^2}{4}\\
+        &= \frac{(235)^2}{4}
+    \end{align}
 
-            \end{mdframed}
+    \end{proof}
 
-            \item Show that $\frac{235^2}{4}$ is the most number of edges bipartite graph on 235
-            vertices could form.
+    % \bigskip
 
-            \begin{mdframed}
-            The bipartite graph with 117 vertices on both sides of partition has
-            $\frac{234^2}{4}$ edges, and the assumption tells us this is the maximum number of edges the
-            bipartite graph could form.
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
 
-            \bigskip
+    %     Assume $P(234)$. That is, every bipartite graph on 234 vertices has no more
+    %     than $\frac{234^2}{4}$ edges.
 
-            Since we know $b$ has 117 more edges than the bipartite graph with 117 vertices on
-            both sides, using these facts, we can conclude the upper bound number of edges for the bipartite
-            graph with 235 vertices is
+    %     \bigskip
 
-            \begin{align}
-                \frac{234^2}{4} + 117 &= \frac{234^2}{4} + \frac{4 \cdot 117}{4}\\
-                &= \frac{234^2 + 2 \cdot 234}{4}\\
-                &\leq \frac{234^2 + 2 \cdot 234 + 1}{4}\\
-                &= \frac{(234+1)^2}{4}\\
-                &= \frac{(235)^2}{4}
-            \end{align}
+    %     We need to prove $P(235)$ follows. That is, every bipartite graph on 235
+    %     vertices has no more than $\frac{235^2}{4}$ edges.
 
-            \bigskip
-            \end{mdframed}
-        \end{enumerate}
+    %     \begin{enumerate}[1.]
+    %         \item Find the configuration where bipartite graph on 235 vertices form most number of edges in
+    %         terms of bipartite graph on 234 vertices.
 
-    \end{mdframed}
+    %         \begin{mdframed}
+    %         Let $b$ be the bipartite graph with 235 vertices where
+    %         117 vertices are in one partition and 118 vertices in
+    %         the other partition (Note this is the configuration where maximum number of edges form).
+
+    %         \end{mdframed}
+
+    %         \item Show that $\frac{235^2}{4}$ is the most number of edges bipartite graph on 235
+    %         vertices could form.
+
+    %         \begin{mdframed}
+    %         The bipartite graph with 117 vertices on both sides of partition has
+    %         $\frac{234^2}{4}$ edges, and the assumption tells us this is the maximum number of edges the
+    %         bipartite graph could form.
+
+    %         \bigskip
+
+    %         Since we know $b$ has 117 more edges than the bipartite graph with 117 vertices on
+    %         both sides, using these facts, we can conclude the upper bound number of edges for the bipartite
+    %         graph with 235 vertices is
+
+    %         \begin{align}
+    %             \frac{234^2}{4} + 117 &= \frac{234^2}{4} + \frac{4 \cdot 117}{4}\\
+    %             &= \frac{234^2 + 2 \cdot 234}{4}\\
+    %             &\leq \frac{234^2 + 2 \cdot 234 + 1}{4}\\
+    %             &= \frac{(234+1)^2}{4}\\
+    %             &= \frac{(235)^2}{4}
+    %         \end{align}
+
+    %         \bigskip
+    %         \end{mdframed}
+    %     \end{enumerate}
+
+    % \end{mdframed}
 \end{enumerate}
 
 \section*{Question 2}
