@@ -210,8 +210,8 @@
 
         \bigskip
 
-        Let $b'$ be an arbitrary bipartite graph with 235 vertices. Assume $P(235)$. That is,
-        $b'$ has no more than $\frac{235^2}{4}$ edges.
+        Assume $P(235)$. That is, every bipartite graph with 235 vertices has no
+        more than $\frac{235^2}{4}$ edges.
 
         \bigskip
 
@@ -221,24 +221,43 @@
         \bigskip
 
         Let $b$ be bipartite graph with 118 vertices in $V_1$ and 118 vertices in
-        $V_2$.
+        $V_2$ (Notice that this forms the most number of edges).
 
         \begin{enumerate}[1.]
-            \item State that $b$ results in maximum number of edges.
+
+            \item Show that this is 118 edges more than $\frac{235^2}{4}$.
 
             \begin{mdframed}
+
+            The assumption tells us that every bipartite graph with 235 vertices
+            has $\frac{235^2}{4}$ edges.
+
+            \bigskip
+
+            Since we know that by removing a vertex with 118 edges from either one
+            of the partition results in bipartite graph with 235 vertices, using
+            the fact, we can write that $b$ has
+
+            \begin{align}
+                \frac{235^2}{4} + 118 = 13924.25
+            \end{align}
+
+            edges.
 
             \end{mdframed}
 
-            \item Show that this is 118 edges more than $\frac{235^2}{4}$.
             \item Conclude this choice of $b$ has more than $\frac{236^2}{4}$ edges.
             \begin{mdframed}
-            Since we know $b$ results in maximum number of edges
+            Since $\frac{236^2}{4} = 13924.0$, we can conclude $P(236)$ doesn't follow.
             \end{mdframed}
         \end{enumerate}
 
     \end{mdframed}
 \end{enumerate}
+
+\bigskip
+
+\underline
 
 \section*{Question 2}
 
