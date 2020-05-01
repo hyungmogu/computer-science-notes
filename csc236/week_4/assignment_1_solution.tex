@@ -414,22 +414,40 @@
 
                 \bigskip
 
+                Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+                $v$ be the vertex in larger of two partitions.
+
+                \bigskip
+
                 We must prove $H(n+1)$ is true. That is, every bipartite graph
-                with $n+1$ vertices has no more than $\frac{(n+1)^2}{4}$ edges.
+                with $n+1$ vertices has no more than $\frac{(n+1)^2}{4} = \frac{(2k)^2}{4}$
+                edges.
 
                 \bigskip
 
                 \begin{itemize}
-                    \item Show that $k$ vertices in $V_1$ and $k$ vertices in $V_2$
-                    is the one and the only bipartite graph with $n+1$ vertices with
-                    the most number of edges
+                    \item Show $2k-1$ is the most number of edges $v$ could have
+                    in $b$.
 
-                    \item Remove a vertex from the either $V_1$ or $V_2$ along with its edges,
-                    and show that the new bipartite graph gives the most number of
-                    edges in terms of $n$ vertices.
+                    \item Show the bipartite graph with $n$ vertices has
+                    at most $\frac{(2k-2)^2}{4}$ edges
 
-                    \item Conclude that graph with $n+1$ vertices has no more
-                    than $\frac{(n+1)^2}{4}$ edges.
+                    \item Conclude $b$ has no more than $\frac{(2k)^2}{4}$ edges.
+
+                    \begin{mdframed}
+                    So, by combining the two together, we can conclude $b$ has no more than
+
+                    \begin{align}
+                        \frac{(n-1)^2}{4} + 2k - 1 &= \frac{(2k-1-1)^2}{4} + 2k - 1\\
+                        &= \frac{(2k-2)^2}{4} + 2k - 1\\
+                        &= \frac{(2k-2)^2}{4} + \frac{8k - 4}{4}\\
+                        &= \frac{4k^2 - 8k + 4}{4} + \frac{8k - 4}{4}\\
+                        &= \frac{2k^2}{4}
+                    \end{align}
+
+                    edges.
+                    \end{mdframed}
+
                 \end{itemize}
 
                 \item Case 2 ($n+1$ is odd)
