@@ -348,11 +348,7 @@
 
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
-
-        \bigskip
-
+    \begin{proof}
         For convenience, define
 
         \begin{align*}
@@ -367,314 +363,587 @@
 
         \bigskip
 
-        \begin{enumerate}[1.]
-            \item Base Case ($n = 0$)
+        \underline{\textbf{Base Case ($n = 0$):}}
 
-            \bigskip
+        \bigskip
 
-            We need to verify $H(0)$. That is, every bipartite graph with 0 vertices
-            has no more than 0 edges.
+        The definition of edge tells us that to form, it requires a pair of two
+        distinct vertices.
 
-            \bigskip
+        \bigskip
 
-            \begin{itemize}
-                \item State that bipartite graph with 0 vertices has 0 edge, and conclude $H(n)$ is verified.
+        Since the graph has 0 vertices, we can conclude no edge can be
+        formed.
 
-                \begin{mdframed}
-                The definition of edge tells us that to form, it requires a pair of two
-                distinct vertices.
+        \bigskip
 
-                \bigskip
+        \underline{\textbf{Inductive Step:}}
 
-                Since the graph has 0 vertices, we can conclude no edge can be
-                formed.
-                \end{mdframed}
-            \end{itemize}
+        \bigskip
 
-            \item Inductive Step
+        Let $n \in \mathbb{N}$. And assume $H(n)$.
 
-            \bigskip
+        \bigskip
 
-            Let $n \in \mathbb{N}$. And assume $H(n)$.
+        We must prove that $H(n+1)$ is true. There are two cases: $n+1$ is odd, or
+        $n+1$ is even.
 
-            \bigskip
+        \bigskip
 
-            We must prove that $H(n+1)$ is true. There are two cases: $n+1$ is odd, or
-            $n+1$ is even.
+        \textbf{Case 1 ($n+1$ is even):}
 
-            \bigskip
+        \bigskip
 
-            \begin{enumerate}[1.]
-                \item Case 1 ($n+1$ is even)
+        Assume $n+1$ is even. That is, $\exists k \in \mathbb{Z}$ such that
+        $n+1 = 2k$.
 
-                \bigskip
+        \bigskip
 
-                Assume $n+1$ is even. That is, $\exists k \in \mathbb{Z}$ such that
-                $n+1 = 2k$. Assume $H(n)$.
+        Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+        $v$ be the vertex in larger of two partitions.
 
-                \bigskip
+        \bigskip
 
-                Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
-                $v$ be the vertex in larger of two partitions.
+        We must prove $H(n+1)$ is true. That is, every bipartite graph
+        with $n+1$ vertices has no more than $\frac{(n+1)^2}{4} = \frac{(2k)^2}{4}$
+        edges.
 
-                \bigskip
+        \bigskip
 
-                We must prove $H(n+1)$ is true. That is, every bipartite graph
-                with $n+1$ vertices has no more than $\frac{(n+1)^2}{4} = \frac{(2k)^2}{4}$
-                edges.
+        First, we need to show $k$ is the most number of edges $v$
+        could have in $b$.
 
-                \bigskip
+        \bigskip
 
-                \begin{itemize}
-                    \item Show $k$ is the most number of edges $v$ could have
-                    in $b$.
+        The definition of bipartite graph tells us the edges of vertex
+        $v$ runs from $v$ to each vertex in the smaller partition.
 
-                    \bigskip
+        \bigskip
 
-                    First, we need to show $k$ is the most number of edges $v$
-                    could have in $b$.
+        Since we know the smaller partition has at most $\frac{n+1}{2} = k$,
+        vertices, we can write the vertex $v$ has no more than $k$ edges.
 
-                    \begin{mdframed}
-                    First, we need to show $k$ is the most number of edges $v$
-                    could have in $b$.
+        \bigskip
 
-                    \bigskip
+        Second, we need to show the bipartite graph with $n$ vertices has
+        at most $\frac{4k^2-4k}{4}$ edges.
 
-                    The definition of bipartite graph tells us the edges of vertex
-                    $v$ runs from $v$ to each vertex in the smaller partition.
+        \bigskip
 
-                    \bigskip
+        The assumption tells us every bipartite graph with $n'$ vertices
+        has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
+        $\frac{n'^2}{4}$ edges when $n'$ is even.
 
-                    Since we know the smaller partition has at most $\frac{n+1}{2} = k$,
-                    vertices, we can write the vertex $v$ has no more than $k$ edges.
+        \bigskip
 
-                    \end{mdframed}
+        Since we know $n = 2k - 1$ is odd, we can write the bipartite
+        graph with $n$ vertices has no more than
 
-                    \item Show the bipartite graph with $n$ vertices has
-                    at most $\frac{(2k-2)^2}{4}$ edges \textit{Needs Fix**}
+        \begin{align}
+            \frac{n^2-1}{4} &= \frac{(2k-1)^2-1}{4}\\
+            &= \frac{4k^2-4k+1-1}{4}\\
+            &= \frac{4k^2-4k}{4}
+        \end{align}
 
-                    \bigskip
+        edges.
 
-                    Second, we need to show the bipartite graph with $n$ vertices has
-                    no more than $\frac{(2k-2)^2}{4}$ edges
+        \bigskip
 
-                    \bigskip
+        Finally, by combining the two together, and using the fact $k \geq 1$
+        (note this is required for $n$ to stay positive), we can
+        conclude the bipartite graph has no more than
 
-                    \begin{mdframed}
-                    Second, we need to show the bipartite graph with $n$ vertices has
-                    at most $\frac{(2k-2)^2}{4}$ edges
+        \begin{align}
+            \frac{n^2-1}{4} + k &=\frac{4k^2-4k}{4} + k\\
+            &= \frac{4k^2-4k}{4} + \frac{4k}{4}\\
+            &= \frac{4k^2}{4}\\
+            &= \frac{(2k)^2}{4}\\
+            &= \frac{(2k)^2}{4}\\
+            &= \frac{(n+1)^2}{4}
+        \end{align}
 
-                    \bigskip
+        edges.
 
-                    The assumption tells us every bipartite graph with $n'$ vertices
-                    has no more than $\frac{(n'-1)^2}{4}$ edges when $n'$ is odd, or
-                    $\frac{n'^2}{4}$ edges when $n'$ is even.
+        \bigskip
 
-                    \bigskip
+        \textbf{Case 2 ($n+1$ is odd):}
 
-                    Since we know $n = 2k - 1$ is odd, we can write the bipartite
-                    graph with $n$ vertices has no more than
+        \bigskip
 
-                    \begin{align}
-                        \frac{(n-1)^2}{4} &= \frac{(2k-2)^2}{4}
-                    \end{align}
+        Assume $n+1$ is odd. That is, $\exists k \in \mathbb{Z}$ such that
+        $n+1 = 2k-1$.
 
-                    edges.
-                    \end{mdframed}
+        \bigskip
 
-                    \item Conclude $b$ has no more than $\frac{(n+1)^2}{4}$ edges. \textit{Needs Fix**}
+        Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+        $v$ be the vertex in larger of two partitions.
 
-                    \begin{mdframed}
-                    Finally, by combining the two together, and using the fact $k \geq 1$
-                    (note this is required for $n$ to stay positive), we can
-                    conclude the bipartite graph has no more than
+        \bigskip
 
-                    \begin{align}
-                        \frac{(n-1)^2}{4} + k &=\frac{(2k-2)^2}{4} + k\\
-                        &\leq \frac{(2k-2)^2}{4} + (2k - 1)\\
-                        &= \frac{(2k-2)^2}{4} + \frac{8k - 4}{4}\\
-                        &= \frac{4k^2 - 8k + 4}{4} + \frac{8k - 4}{4}\\
-                        &= \frac{2k^2}{4}\\
-                        &= \frac{(n+1)^2}{4}
-                    \end{align}
+        We must prove $H(n+1)$ is true. That is, every bipartite graph
+        with $n+1$ vertices has no more than $\frac{(n+1)^2-1}{4} = \frac{n(n+2)}{4} = \frac{2k(2k-2)}{4}$
+        edges.
 
-                    edges.
-                    \end{mdframed}
+        \bigskip
 
-                \end{itemize}
+        First, we need to show $k-1$ is the most number of edges $v$
+        could have in $b$.
 
-                \bigskip
+        \bigskip
 
-                \begin{mdframed}
+        The definition of bipartite graph tells us the edges of vertex
+        $v$ runs from $v$ to each vertex in the smaller partition.
 
-                \underline{\textbf{Case 1 ($n+1$ is even):}}
+        \bigskip
 
-                \bigskip
+        Since we know the smaller partition has at most $\frac{n}{2} = \frac{2k-2}{2} = k - 1$,
+        vertices, we can write the vertex $v$ has no more than $k-1$ edges.
 
-                Assume $n+1$ is even. That is, $\exists k \in \mathbb{Z}$ such that
-                $n+1 = 2k$. Assume $H(n)$.
+        \bigskip
 
-                \bigskip
+        Second, we need to show the bipartite graph with $n$ vertices has
+        at most $\frac{(2k-2)^2}{4}$ edges
 
-                Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
-                $v$ be the vertex in larger of two partitions.
+        \bigskip
 
-                \bigskip
+        The assumption tells us every bipartite graph with $n'$ vertices
+        has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
+        $\frac{n'^2}{4}$ edges when $n'$ is even.
 
-                We must prove $H(n+1)$ is true. That is, every bipartite graph
-                with $n+1$ vertices has no more than $\frac{(n+1)^2}{4} = \frac{(2k)^2}{4}$
-                edges.
+        \bigskip
 
-                \bigskip
+        Since we know $n = 2k - 2$ is even, we can write the bipartite
+        graph with $n$ vertices has no more than
 
-                First, we need to show $k$ is the most number of edges $v$
-                could have in $b$.
+        \begin{align}
+            \frac{n^2}{4} &= \frac{(2k-2)^2}{4}
+        \end{align}
 
-                \bigskip
+        edges.
 
-                The definition of bipartite graph tells us the edges of vertex
-                $v$ runs from $v$ to each vertex in the smaller partition.
+        \bigskip
 
-                \bigskip
+        Finally, by combining the two together, we can conclude the
+        bipartite graph has no more than
 
-                Since we know the smaller partition has at most $\frac{n+1}{2} = k$,
-                vertices, we can write the vertex $v$ has no more than $k$ edges.
+        \begin{align}
+            \frac{n^2}{4} + k-1 &= \frac{(2k-2)^2}{4} + k-1\\
+            &= \frac{(2k-2)^2}{4} + \frac{4k-4}{4}\\
+            &= \frac{4k^2-8k+4}{4} + \frac{4k-4}{4}\\
+            &= \frac{2k(k-2)}{4}\\
+            &= \frac{(n+2) \cdot n}{4}\\
+            &= \frac{(n+1)^2 - 1}{4}
+        \end{align}
 
-                \bigskip
+        edges.
 
-                Second, we need to show the bipartite graph with $n$ vertices has
-                at most $\frac{(2k-2)^2}{4}$ edges
+    \end{proof}
 
-                \bigskip
 
-                The assumption tells us every bipartite graph with $n'$ vertices
-                has no more than $\frac{(n'-1)^2}{4}$ edges when $n'$ is odd, or
-                $\frac{n'^2}{4}$ edges when $n'$ is even.
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
 
-                \bigskip
+    %     \bigskip
 
-                Since we know $n = 2k - 1$ is odd, we can write the bipartite
-                graph with $n$ vertices has no more than
-                \setcounter{equation}{0}
-                \begin{align}
-                    \frac{(n-1)^2}{4} &= \frac{(2k-2)^2}{4}
-                \end{align}
+    %     For convenience, define
 
-                edges.
+    %     \begin{align*}
+    %     & H(n'):\:\text{Every bipartite graph with $n'$ vertices has no more than
+    %     $\frac{n'^2-1}{4}$ edges}\\
+    %     & \text{when $n'$ is odd, or $\frac{n'^2}{4}$ edges when $n'$ is even.}
+    %     \end{align*}
 
-                \bigskip
+    %     \bigskip
 
-                Finally, by combining the two together, and using the fact $k \geq 1$
-                (note this is required for $n$ to stay positive), we can
-                conclude the bipartite graph has no more than
+    %     I must prove $\forall n \in \mathbb{N}$, $H(n)$.
 
-                \begin{align}
-                    \frac{(n-1)^2}{4} + k &=\frac{(2k-2)^2}{4} + k\\
-                    &\leq \frac{(2k-2)^2}{4} + (2k - 1)\\
-                    &= \frac{(2k-2)^2}{4} + \frac{8k - 4}{4}\\
-                    &= \frac{4k^2 - 8k + 4}{4} + \frac{8k - 4}{4}\\
-                    &= \frac{2k^2}{4}\\
-                    &= \frac{(n+1)^2}{4}
-                \end{align}
+    %     \bigskip
 
-                edges.
+    %     \begin{enumerate}[1.]
+    %         \item Base Case ($n = 0$)
 
-                \end{mdframed}
+    %         \bigskip
 
-                \item Case 2 ($n+1$ is odd)
+    %         We need to verify $H(0)$. That is, every bipartite graph with 0 vertices
+    %         has no more than 0 edges.
 
-                \bigskip
+    %         \bigskip
 
-                Assume $n+1$ is odd. That is, $\exists k \in \mathbb{Z}$ such that
-                $n+1 = 2k-1$. Assume $H(n)$.
+    %         \begin{itemize}
+    %             \item State that bipartite graph with 0 vertices has 0 edge, and conclude $H(n)$ is verified.
 
-                \bigskip
+    %             \begin{mdframed}
+    %             The definition of edge tells us that to form, it requires a pair of two
+    %             distinct vertices.
 
-                Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
-                $v$ be the vertex in larger of two partitions.
+    %             \bigskip
 
-                \bigskip
+    %             Since the graph has 0 vertices, we can conclude no edge can be
+    %             formed.
+    %             \end{mdframed}
+    %         \end{itemize}
 
-                We must prove $H(n+1)$ is true. That is, every bipartite graph
-                with $n+1$ vertices has no more than $\frac{(n+1)^2-1}{4} = \frac{n(n+2)}{4} = \frac{2k(2k-2)}{4}$
-                edges.
+    %         \item Inductive Step
 
-                \bigskip
+    %         \bigskip
 
-                \begin{itemize}
-                    \item Show $k-1$ is the most number of edges $v$ could have
-                    in $b$.
+    %         Let $n \in \mathbb{N}$. And assume $H(n)$.
 
-                    First, we need to show $k-1$ is the most number of edges $v$
-                    could have in $b$.
+    %         \bigskip
 
-                    \begin{mdframed}
-                    First, we need to show $k-1$ is the most number of edges $v$
-                    could have in $b$.
+    %         We must prove that $H(n+1)$ is true. There are two cases: $n+1$ is odd, or
+    %         $n+1$ is even.
 
-                    \bigskip
+    %         \bigskip
 
-                    The definition of bipartite graph tells us the edges of vertex
-                    $v$ runs from $v$ to each vertex in the smaller partition.
+    %         \begin{enumerate}[1.]
+    %             \item Case 1 ($n+1$ is even)
 
-                    \bigskip
+    %             \bigskip
 
-                    Since we know the smaller partition has at most $\frac{n}{2} = \frac{2k-2}{2} = k - 1$,
-                    vertices, we can write the vertex $v$ has no more than $k-1$ edges.
+    %             Assume $n+1$ is even. That is, $\exists k \in \mathbb{Z}$ such that
+    %             $n+1 = 2k$. Assume $H(n)$.
 
-                    \end{mdframed}
+    %             \bigskip
 
-                    \item Show the bipartite graph with $n$ vertices has
-                    at most $\frac{(2k-2)^2}{4}$ edges
+    %             Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+    %             $v$ be the vertex in larger of two partitions.
 
-                    \begin{mdframed}
-                    Second, we need to show the bipartite graph with $n$ vertices has
-                    at most $\frac{(2k-2)^2}{4}$ edges
+    %             \bigskip
 
-                    \bigskip
+    %             We must prove $H(n+1)$ is true. That is, every bipartite graph
+    %             with $n+1$ vertices has no more than $\frac{(n+1)^2}{4} = \frac{(2k)^2}{4}$
+    %             edges.
 
-                    The assumption tells us every bipartite graph with $n'$ vertices
-                    has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
-                    $\frac{n'^2}{4}$ edges when $n'$ is even.
+    %             \bigskip
 
-                    \bigskip
+    %             \begin{itemize}
+    %                 \item Show $k$ is the most number of edges $v$ could have
+    %                 in $b$.
 
-                    Since we know $n = 2k - 2$ is even, we can write the bipartite
-                    graph with $n$ vertices has no more than
+    %                 \bigskip
 
-                    \begin{align}
-                        \frac{n^2}{4} &= \frac{(2k-2)^2}{4}
-                    \end{align}
+    %                 First, we need to show $k$ is the most number of edges $v$
+    %                 could have in $b$.
 
-                    edges.
-                    \end{mdframed}
+    %                 \begin{mdframed}
+    %                 First, we need to show $k$ is the most number of edges $v$
+    %                 could have in $b$.
 
-                    \item Conclude $b$ has no more than $\frac{(n+1)^2}{4}$ edges.
+    %                 \bigskip
 
-                    \begin{mdframed}
-                    Finally, by combining the two together, we can conclude the
-                    bipartite graph has no more than
+    %                 The definition of bipartite graph tells us the edges of vertex
+    %                 $v$ runs from $v$ to each vertex in the smaller partition.
 
-                    \begin{align}
-                        \frac{n^2}{4} + k-1 &= \frac{(2k-2)^2}{4} + k-1\\
-                        &= \frac{(2k-2)^2}{4} + \frac{4k-4}{4}\\
-                        &= \frac{4k^2-8k+4}{4} + \frac{4k-4}{4}\\
-                        &= \frac{2k(k-2)}{4}\\
-                        &= \frac{(n+2) \cdot n}{4}\\
-                        &= \frac{(n+1)^2 - 1}{4}
-                    \end{align}
+    %                 \bigskip
 
-                    edges.
+    %                 Since we know the smaller partition has at most $\frac{n+1}{2} = k$,
+    %                 vertices, we can write the vertex $v$ has no more than $k$ edges.
 
-                    \bigskip
+    %                 \end{mdframed}
 
-                    \end{mdframed}
-                \end{itemize}
-            \end{enumerate}
+    %                 \item Show the bipartite graph with $n$ vertices has
+    %                 at most $\frac{4k^2-4k}{4}$ edges.
 
-        \end{enumerate}
+    %                 \bigskip
 
-    \end{mdframed}
+    %                 Second, we need to show the bipartite graph with $n$ vertices has
+    %                 at most $\frac{4k^2-4k}{4}$ edges.
+
+    %                 \bigskip
+
+    %                 \begin{mdframed}
+    %                 Second, we need to show the bipartite graph with $n$ vertices has
+    %                 at most $\frac{4k^2-4k}{4}$ edges.
+
+    %                 \bigskip
+
+    %                 The assumption tells us every bipartite graph with $n'$ vertices
+    %                 has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
+    %                 $\frac{n'^2}{4}$ edges when $n'$ is even.
+
+    %                 \bigskip
+
+    %                 Since we know $n = 2k - 1$ is odd, we can write the bipartite
+    %                 graph with $n$ vertices has no more than
+
+    %                 \begin{align}
+    %                     \frac{n^2-1}{4} &= \frac{(2k-1)^2-1}{4}\\
+    %                     &= \frac{4k^2-4k+1-1}{4}\\
+    %                     &= \frac{4k^2-4k}{4}
+    %                 \end{align}
+
+    %                 edges.
+    %                 \end{mdframed}
+
+    %                 \item Conclude $b$ has no more than $\frac{(n+1)^2}{4}$ edges.
+
+    %                 \begin{mdframed}
+    %                 Finally, by combining the two together, and using the fact $k \geq 1$
+    %                 (note this is required for $n$ to stay positive), we can
+    %                 conclude the bipartite graph has no more than
+
+    %                 \begin{align}
+    %                     \frac{n^2-1}{4} + k &=\frac{4k^2-4k}{4} + k\\
+    %                     &= \frac{4k^2-4k}{4} + \frac{4k}{4}\\
+    %                     &= \frac{4k^2}{4}\\
+    %                     &= \frac{(2k)^2}{4}\\
+    %                     &= \frac{(2k)^2}{4}\\
+    %                     &= \frac{(n+1)^2}{4}
+    %                 \end{align}
+
+    %                 edges.
+    %                 \end{mdframed}
+
+    %             \end{itemize}
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+
+    %             \underline{\textbf{Case 1 ($n+1$ is even):}}
+
+    %             \bigskip
+
+    %             Assume $n+1$ is even. That is, $\exists k \in \mathbb{Z}$ such that
+    %             $n+1 = 2k$.
+
+    %             \bigskip
+
+    %             Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+    %             $v$ be the vertex in larger of two partitions.
+
+    %             \bigskip
+
+    %             We must prove $H(n+1)$ is true. That is, every bipartite graph
+    %             with $n+1$ vertices has no more than $\frac{(n+1)^2}{4} = \frac{(2k)^2}{4}$
+    %             edges.
+
+    %             \bigskip
+
+    %             First, we need to show $k$ is the most number of edges $v$
+    %             could have in $b$.
+
+    %             \bigskip
+
+    %             The definition of bipartite graph tells us the edges of vertex
+    %             $v$ runs from $v$ to each vertex in the smaller partition.
+
+    %             \bigskip
+
+    %             Since we know the smaller partition has at most $\frac{n+1}{2} = k$,
+    %             vertices, we can write the vertex $v$ has no more than $k$ edges.
+
+    %             \bigskip
+
+    %             Second, we need to show the bipartite graph with $n$ vertices has
+    %             at most $\frac{4k^2-4k}{4}$ edges.
+
+    %             \bigskip
+
+    %             The assumption tells us every bipartite graph with $n'$ vertices
+    %             has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
+    %             $\frac{n'^2}{4}$ edges when $n'$ is even.
+
+    %             \bigskip
+
+    %             Since we know $n = 2k - 1$ is odd, we can write the bipartite
+    %             graph with $n$ vertices has no more than
+
+    %             \begin{align}
+    %                 \frac{n^2-1}{4} &= \frac{(2k-1)^2-1}{4}\\
+    %                 &= \frac{4k^2-4k+1-1}{4}\\
+    %                 &= \frac{4k^2-4k}{4}
+    %             \end{align}
+
+    %             edges.
+
+    %             \bigskip
+
+    %             Finally, by combining the two together, and using the fact $k \geq 1$
+    %             (note this is required for $n$ to stay positive), we can
+    %             conclude the bipartite graph has no more than
+
+    %             \begin{align}
+    %                 \frac{n^2-1}{4} + k &=\frac{4k^2-4k}{4} + k\\
+    %                 &= \frac{4k^2-4k}{4} + \frac{4k}{4}\\
+    %                 &= \frac{4k^2}{4}\\
+    %                 &= \frac{(2k)^2}{4}\\
+    %                 &= \frac{(2k)^2}{4}\\
+    %                 &= \frac{(n+1)^2}{4}
+    %             \end{align}
+
+    %             edges.
+
+    %             \end{mdframed}
+
+    %             \item Case 2 ($n+1$ is odd)
+
+    %             \bigskip
+
+    %             Assume $n+1$ is odd. That is, $\exists k \in \mathbb{Z}$ such that
+    %             $n+1 = 2k-1$. Assume $H(n)$.
+
+    %             \bigskip
+
+    %             Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+    %             $v$ be the vertex in larger of two partitions.
+
+    %             \bigskip
+
+    %             We must prove $H(n+1)$ is true. That is, every bipartite graph
+    %             with $n+1$ vertices has no more than $\frac{(n+1)^2-1}{4} = \frac{n(n+2)}{4} = \frac{2k(2k-2)}{4}$
+    %             edges.
+
+    %             \bigskip
+
+    %             \begin{itemize}
+    %                 \item Show $k-1$ is the most number of edges $v$ could have
+    %                 in $b$.
+
+    %                 First, we need to show $k-1$ is the most number of edges $v$
+    %                 could have in $b$.
+
+    %                 \begin{mdframed}
+    %                 First, we need to show $k-1$ is the most number of edges $v$
+    %                 could have in $b$.
+
+    %                 \bigskip
+
+    %                 The definition of bipartite graph tells us the edges of vertex
+    %                 $v$ runs from $v$ to each vertex in the smaller partition.
+
+    %                 \bigskip
+
+    %                 Since we know the smaller partition has at most $\frac{n}{2} = \frac{2k-2}{2} = k - 1$,
+    %                 vertices, we can write the vertex $v$ has no more than $k-1$ edges.
+
+    %                 \end{mdframed}
+
+    %                 \item Show the bipartite graph with $n$ vertices has
+    %                 at most $\frac{(2k-2)^2}{4}$ edges
+
+    %                 \begin{mdframed}
+    %                 Second, we need to show the bipartite graph with $n$ vertices has
+    %                 at most $\frac{(2k-2)^2}{4}$ edges
+
+    %                 \bigskip
+
+    %                 The assumption tells us every bipartite graph with $n'$ vertices
+    %                 has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
+    %                 $\frac{n'^2}{4}$ edges when $n'$ is even.
+
+    %                 \bigskip
+
+    %                 Since we know $n = 2k - 2$ is even, we can write the bipartite
+    %                 graph with $n$ vertices has no more than
+
+    %                 \begin{align}
+    %                     \frac{n^2}{4} &= \frac{(2k-2)^2}{4}
+    %                 \end{align}
+
+    %                 edges.
+    %                 \end{mdframed}
+
+    %                 \item Conclude $b$ has no more than $\frac{(n+1)^2-1}{4}$ edges.
+
+    %                 \begin{mdframed}
+    %                 Finally, by combining the two together, we can conclude the
+    %                 bipartite graph has no more than
+
+    %                 \begin{align}
+    %                     \frac{n^2}{4} + k-1 &= \frac{(2k-2)^2}{4} + k-1\\
+    %                     &= \frac{(2k-2)^2}{4} + \frac{4k-4}{4}\\
+    %                     &= \frac{4k^2-8k+4}{4} + \frac{4k-4}{4}\\
+    %                     &= \frac{2k(k-2)}{4}\\
+    %                     &= \frac{(n+2) \cdot n}{4}\\
+    %                     &= \frac{(n+1)^2 - 1}{4}
+    %                 \end{align}
+
+    %                 edges.
+
+    %                 \end{mdframed}
+    %             \end{itemize}
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+    %                 \underline{\textbf{Case 2 ($n+1$ is odd):}}
+
+    %                 \bigskip
+
+    %                 Assume $n+1$ is odd. That is, $\exists k \in \mathbb{Z}$ such that
+    %                 $n+1 = 2k-1$.
+
+    %                 \bigskip
+
+    %                 Let $b$ be an arbitrary bipartite graph with $n+1$ vertices. Let
+    %                 $v$ be the vertex in larger of two partitions.
+
+    %                 \bigskip
+
+    %                 We must prove $H(n+1)$ is true. That is, every bipartite graph
+    %                 with $n+1$ vertices has no more than $\frac{(n+1)^2-1}{4} = \frac{n(n+2)}{4} = \frac{2k(2k-2)}{4}$
+    %                 edges.
+
+    %                 \bigskip
+
+    %                 First, we need to show $k-1$ is the most number of edges $v$
+    %                 could have in $b$.
+
+    %                 \bigskip
+
+    %                 The definition of bipartite graph tells us the edges of vertex
+    %                 $v$ runs from $v$ to each vertex in the smaller partition.
+
+    %                 \bigskip
+
+    %                 Since we know the smaller partition has at most $\frac{n}{2} = \frac{2k-2}{2} = k - 1$,
+    %                 vertices, we can write the vertex $v$ has no more than $k-1$ edges.
+
+    %                 \bigskip
+
+    %                 Second, we need to show the bipartite graph with $n$ vertices has
+    %                 at most $\frac{(2k-2)^2}{4}$ edges
+
+    %                 \bigskip
+
+    %                 The assumption tells us every bipartite graph with $n'$ vertices
+    %                 has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
+    %                 $\frac{n'^2}{4}$ edges when $n'$ is even.
+
+    %                 \bigskip
+
+    %                 Since we know $n = 2k - 2$ is even, we can write the bipartite
+    %                 graph with $n$ vertices has no more than
+
+    %                 \begin{align}
+    %                     \frac{n^2}{4} &= \frac{(2k-2)^2}{4}
+    %                 \end{align}
+
+    %                 edges.
+
+    %                 \bigskip
+
+    %                 Finally, by combining the two together, we can conclude the
+    %                 bipartite graph has no more than
+
+    %                 \begin{align}
+    %                     \frac{n^2}{4} + k-1 &= \frac{(2k-2)^2}{4} + k-1\\
+    %                     &= \frac{(2k-2)^2}{4} + \frac{4k-4}{4}\\
+    %                     &= \frac{4k^2-8k+4}{4} + \frac{4k-4}{4}\\
+    %                     &= \frac{2k(k-2)}{4}\\
+    %                     &= \frac{(n+2) \cdot n}{4}\\
+    %                     &= \frac{(n+1)^2 - 1}{4}
+    %                 \end{align}
+
+    %                 edges.
+    %             \end{mdframed}
+    %         \end{enumerate}
+
+    %     \end{enumerate}
+
+    % \end{mdframed}
 \end{enumerate}
 
 \bigskip
