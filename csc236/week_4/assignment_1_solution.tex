@@ -356,9 +356,9 @@
         For convenience, define
 
         \begin{align*}
-        & H(n):\:\text{Every bipartite graph with $n$ vertices has no more than
-        $\frac{(n-1)^2}{4}$ edges}\\
-        & \text{when $n$ is odd, or $\frac{n^2}{4}$ edges when $n$ is even.}
+        & H(n'):\:\text{Every bipartite graph with $n'$ vertices has no more than
+        $\frac{n'^2-1}{4}$ edges}\\
+        & \text{when $n'$ is odd, or $\frac{n'^2}{4}$ edges when $n'$ is even.}
         \end{align*}
 
         \bigskip
@@ -451,7 +451,7 @@
                     \end{mdframed}
 
                     \item Show the bipartite graph with $n$ vertices has
-                    at most $\frac{(2k-2)^2}{4}$ edges
+                    at most $\frac{(2k-2)^2}{4}$ edges \textit{Needs Fix**}
 
                     \bigskip
 
@@ -482,7 +482,7 @@
                     edges.
                     \end{mdframed}
 
-                    \item Conclude $b$ has no more than $\frac{(n+1)^2}{4}$ edges.
+                    \item Conclude $b$ has no more than $\frac{(n+1)^2}{4}$ edges. \textit{Needs Fix**}
 
                     \begin{mdframed}
                     Finally, by combining the two together, and using the fact $k \geq 1$
@@ -596,7 +596,7 @@
                 \bigskip
 
                 We must prove $H(n+1)$ is true. That is, every bipartite graph
-                with $n+1$ vertices has no more than $\frac{((n+1)-1)^2}{4} = \frac{n^2}{4} = \frac{(2k-2)^2}{4}$
+                with $n+1$ vertices has no more than $\frac{(n+1)^2-1}{4} = \frac{n(n+2)}{4} = \frac{2k(2k-2)}{4}$
                 edges.
 
                 \bigskip
@@ -634,7 +634,7 @@
                     \bigskip
 
                     The assumption tells us every bipartite graph with $n'$ vertices
-                    has no more than $\frac{(n'-1)^2}{4}$ edges when $n'$ is odd, or
+                    has no more than $\frac{n'^2-1}{4}$ edges when $n'$ is odd, or
                     $\frac{n'^2}{4}$ edges when $n'$ is even.
 
                     \bigskip
@@ -652,15 +652,22 @@
                     \item Conclude $b$ has no more than $\frac{(n+1)^2}{4}$ edges.
 
                     \begin{mdframed}
-                    Finally, by combining the two together, and using the fact $k \geq 2$
-                    (note this is required for $n$ to stay positive), we can
-                    conclude the bipartite graph has no more than
+                    Finally, by combining the two together, we can conclude the
+                    bipartite graph has no more than
 
                     \begin{align}
-                        \frac{n^2}{4} + k-1
+                        \frac{n^2}{4} + k-1 &= \frac{(2k-2)^2}{4} + k-1\\
+                        &= \frac{(2k-2)^2}{4} + \frac{4k-4}{4}\\
+                        &= \frac{4k^2-8k+4}{4} + \frac{4k-4}{4}\\
+                        &= \frac{2k(k-2)}{4}\\
+                        &= \frac{(n+2) \cdot n}{4}\\
+                        &= \frac{(n+1)^2 - 1}{4}
                     \end{align}
 
                     edges.
+
+                    \bigskip
+
                     \end{mdframed}
                 \end{itemize}
             \end{enumerate}
