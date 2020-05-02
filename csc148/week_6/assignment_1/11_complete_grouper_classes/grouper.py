@@ -239,13 +239,20 @@ class GreedyGrouper(Grouper):
         Starting with a tuple of all students in <course> obtained by calling
         the <course>.get_students() method, create groups of students using the
         following algorithm:
-
+                         *
+        studnets = [s1, s2, s3, s4, s5]
+                    x
         1. select the first student in the tuple that hasn't already been put
            into a group and put this student in a new group.
+
+            group1_students = [s1]
+
         2. select the student in the tuple that hasn't already been put into a
            group that, if added to the new group, would increase the group's
            score the most (or reduce it the least), add that student to the new
            group.
+
+
         3. repeat step 2 until there are N students in the new group where N is
            equal to self.group_size.
         4. repeat steps 1-3 until all students have been placed in a group.
@@ -257,6 +264,21 @@ class GreedyGrouper(Grouper):
         required to make sure all students in <course> are members of a group.
         """
         # TODO: complete the body of this method
+
+        students = course.get_students()
+        score_lst = []
+
+        #1. get score of each student and put in list starting from the first
+        # student, i.e. [(1,89), (2,90),...]
+        index = 1
+        while index < len(students):
+            student = students[index]
+            score = survey.score_students([student])
+
+
+        #2. sort list by score, i.e. [(2,90), (1,89),...]
+        #3. reposition students by the order of score
+        #4. group students by group size
 
 
 class WindowGrouper(Grouper):

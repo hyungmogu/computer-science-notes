@@ -47,7 +47,6 @@ class TestAlphaGrouper:
 
 
 class TestRandomGrouper:
-
     def test_make_grouping_method_should_return_grouping_of_randomly_grouped_students(self, course, survey, students_lst):
         course.enroll_students(students_lst)
 
