@@ -1233,7 +1233,8 @@
 
             \bigskip
 
-            I will show that $P(n)$ follows, that $f(n)$ is a multiple of 4.
+            I will show that $P(n)$ follows, that $f(n)$ is a multiple of 4. That is,
+            $\exists d \in \mathbb{Z}$, $f(n) = 4d$.
 
             \bigskip
 
@@ -1242,7 +1243,7 @@
 
                 \bigskip
 
-                Let $n = 1$.
+                Let $n = 1$. Let $d = 3$.
 
                 \bigskip
 
@@ -1251,7 +1252,7 @@
 
                 \bigskip
 
-                Let $n = 1$.
+                Let $n = 1$. Let $d = 3$.
 
                 \bigskip
 
@@ -1267,7 +1268,15 @@
 
                 \bigskip
 
-                So, $P(n)$ follows this case.
+                Then, since $d = 3$,
+
+                \bigskip
+
+                \begin{align}
+                    f(1) &= 4 \cdot (3)\\
+                    f(1) &= 4d
+                \end{align}
+
                 \end{mdframed}
 
                 \item Base Case ($n = 2$)
@@ -1279,14 +1288,14 @@
 
                 \bigskip
 
-                Let $n = 2$.
+                Let $n = 2$. Let $d = 3$.
 
                 \bigskip
 
                 Then,
 
                 \begin{align}
-                    f(2) &= [f(\lfloor \log_3 2 \rfloor)]^2 + f(\lfloor \log_3 2  \rfloor)\\
+                    f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
                     &= f(0)^2 + f(0)\\
                     &= (3)^2 + 3\\
                     &= 12
@@ -1294,14 +1303,22 @@
 
                 \bigskip
 
-                So, $P(n)$ follows this case.
+                Then, since $d = 3$,
+
+                \bigskip
+
+                \begin{align}
+                    f(1) &= 4 \cdot (3)\\
+                    f(1) &= 4d
+                \end{align}
+
                 \end{mdframed}
 
                 \item Case $n \geq 3$
 
                 \bigskip
 
-                Let $n \geq 3$.
+                Let $n \geq 3$, and $d = 4k^2 + k$
 
                 \bigskip
 
@@ -1314,6 +1331,40 @@
 
                     \bigskip
                 \end{itemize}
+
+                \begin{mdframed}
+                \underline{\textbf{Case ($n \geq 3$):}}
+
+                \bigskip
+
+                Let $n \geq 3$, and $d = 4k^2 + k$
+
+                \bigskip
+
+                Then, since $n > 0$,
+
+                \begin{align}
+                    f(n) &= f(\lfloor \log_3 n \rfloor)^2 + f(\lfloor \log_3 n \rfloor)
+                \end{align}
+
+                \bigskip
+
+                Then, since $1 \leq \lfloor \log_3 n \rfloor < n$, and
+                $P(\lfloor \log_3 n \rfloor)$, $\exists k \in \mathbb{Z}$,
+
+                \begin{align}
+                    f(n) &= [4k]^2 + 4k\\
+                    &= 4(4k^2 + k)
+                \end{align}
+
+                \bigskip
+
+                Then, since $d = 4k^2 + k$,
+
+                \begin{align}
+                    f(n) &= 4d
+                \end{align}
+                \end{mdframed}
             \end{itemize}
         \end{enumerate}
 
