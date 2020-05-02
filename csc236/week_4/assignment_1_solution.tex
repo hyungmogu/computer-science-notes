@@ -961,8 +961,10 @@
     %     \end{enumerate}
 
     % \end{mdframed}
+\end{enumerate}
 
-
+\section*{Question 2}
+\begin{enumerate}[a.]
     \item
 
     \bigskip
@@ -1073,9 +1075,135 @@
     %         \end{mdframed}
     %     \end{enumerate}
     % \end{mdframed}
-\end{enumerate}
 
-\section*{Question 2}
+    \item
+
+    Yes. $P(29)$ follows from $P(4)$.
+
+    \bigskip
+
+    \begin{proof}
+    Assume $P(4)$. That is $\exists k \in \mathbb{Z}$, $f(4) = 4k$.
+
+    \bigskip
+
+    I must prove $P(29)$ follows. That is, $\exists d \in \mathbb{Z}$,
+    $f(29) = 4d$.
+
+    \bigskip
+
+    Let $d = k \cdot (4k + 1)$.
+
+    \bigskip
+
+    The definition of $f(n)$ tells us
+    \setcounter{equation}{0}
+    \begin{align}
+        f(29) = [f(\lfloor \log_3 29 \rfloor)]^2 + f(\lfloor \log_3 29 \rfloor)
+    \end{align}
+
+    \bigskip
+
+    Using above fact, we can calculate
+
+    \begin{align}
+        f(29) &= [f(3)]^2 + f(3)
+    \end{align}
+
+    \bigskip
+
+    Then, since we know from the definition of $f(n)$ that $f(4) = f(3) = f(1)^2 + f(1)$, we can write
+
+    \begin{align}
+        f(29) &= [f(1)^2 + f(1)]^2 + [f(1)^2 + f(1)]\\
+        &= [f(4)]^2 + f(4)
+    \end{align}
+
+    \bigskip
+
+    Then, since we know from the header that $f(4) = 4k$, we can write
+
+    \begin{align}
+        f(29) &= [4k]^2 + 4k\\
+        &= 4k \cdot ( 4k + 1 )
+    \end{align}
+
+    Then, since we know from the header that $d = k \cdot (4k + 1)$, we can conclude
+
+    \begin{align}
+        f(29) &= 4d
+    \end{align}
+
+    \end{proof}
+
+    % \bigskip
+    % \begin{mdframed}
+    %     \underline{\textbf{Rought Work:}}
+
+    %     \bigskip
+
+    %     Assume $P(4)$. That is $\exists k \in \mathbb{Z}$, $f(4) = 4k$.
+
+    %     \bigskip
+
+    %     I must prove $P(29)$ follows. That is, $\exists d \in \mathbb{Z}$,
+    %     $f(29) = 4d$
+
+    %     \bigskip
+
+    %     Let $d = k \cdot (4k + 1)$.
+
+    %     \bigskip
+
+    %     \begin{enumerate}[1.]
+    %         \item Show $f(29) = 4d$, starting from the left hand side, using the
+    %         definition of $f(29)$.
+
+    %         \begin{mdframed}
+
+    %         The definition of $f(n)$ tells us
+    %         \setcounter{equation}{0}
+    %         \begin{align}
+    %             f(29) = [f(\lfloor \log_3 29 \rfloor)]^2 + f(\lfloor \log_3 29 \rfloor)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Using above fact, we can calculate
+
+    %         \begin{align}
+    %             f(29) &= [f(3)]^2 + f(3)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Then, since we know from the definition of $f(n)$ that $f(4) = f(3) = f(1)^2 + f(1)$, we can write
+
+    %         \begin{align}
+    %             f(29) &= [f(1)^2 + f(1)]^2 + [f(1)^2 + f(1)]\\
+    %             &= [f(4)]^2 + f(4)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Then, since we know from the header that $f(4) = 4k$, we can write
+
+    %         \begin{align}
+    %             f(29) &= [4k]^2 + 4k\\
+    %             &= 4k \cdot ( 4k + 1 )
+    %         \end{align}
+
+    %         Then, since we know from the header that $d = k \cdot (4k + 1)$, we can conclude
+
+    %         \begin{align}
+    %             f(29) &= 4d
+    %         \end{align}
+
+    %         \end{mdframed}
+    %     \end{enumerate}
+    % \end{mdframed}
+
+\end{enumerate}
 
 \section*{Question 3}
 
