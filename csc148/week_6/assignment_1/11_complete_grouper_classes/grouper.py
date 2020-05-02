@@ -160,6 +160,19 @@ class AlphaGrouper(Grouper):
         """
         # TODO: complete the body of this method
 
+        grouping = Grouping()
+
+        # 1. Sort students
+        sorted_lst = sort_students(course.get_students())
+
+        # 2. Create list of groups
+        groups_lst = [Group(students_group) for students_group in slice_list(sorted_lst, self.group_size)]
+
+        # 3. Store groups in grouping
+        for group in groups_lst:
+            grouping.add_group(group)
+
+        return grouping
 
 class RandomGrouper(Grouper):
     """
