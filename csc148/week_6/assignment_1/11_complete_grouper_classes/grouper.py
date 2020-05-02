@@ -295,7 +295,6 @@ class GreedyGrouper(Grouper):
         return grouping
 
 
-
 class WindowGrouper(Grouper):
     """
     A grouper used to create a grouping of students according to their

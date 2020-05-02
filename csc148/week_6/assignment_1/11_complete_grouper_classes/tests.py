@@ -4,7 +4,7 @@ import pytest
 import unittest
 from typing import List
 from course import Course, Student
-from grouper import AlphaGrouper, RandomGrouper
+from grouper import AlphaGrouper, GreedyGrouper, RandomGrouper
 from survey import (Answer, CheckboxQuestion, MultipleChoiceQuestion,
                     NumericQuestion, Question, Survey, YesNoQuestion,
                     InvalidAnswerError)
@@ -58,3 +58,39 @@ class TestRandomGrouper:
         result = str(grouper1.make_grouping(course, survey)) != str(grouper2.make_grouping(course, survey))
 
         assert expected == result
+
+
+class TestGreedyGrouper:
+    def test_make_grouping_method_should_return_grouping_with_each_group_in_decreasing_student_score(self, course, survey, students_lst):
+
+        for question in survey.get_questions():
+            if question.id == 1:
+                students_lst[0].set_answer(question, Answer("A"))
+                students_lst[1].set_answer(question, Answer("A"))
+                students_lst[2].set_answer(question, Answer("A"))
+                students_lst[3].set_answer(question, Answer("A"))
+            elif question.id == 2:
+                students_lst[0].set_answer(question, Answer(1))
+                students_lst[1].set_answer(question, Answer(1))
+                students_lst[2].set_answer(question, Answer(1))
+                students_lst[3].set_answer(question, Answer(1))
+            elif question.id == 3:
+                students_lst[0].set_answer(question, Answer(True))
+                students_lst[1].set_answer(question, Answer(True))
+                students_lst[2].set_answer(question, Answer(True))
+                students_lst[3].set_answer(question, Answer(True))
+            elif question.id == 4:
+                students_lst[0].set_answer(question, Answer(["A","B"]))
+                students_lst[1].set_answer(question, Answer(["A","B"]))
+                students_lst[2].set_answer(question, Answer(["A","B"]))
+                students_lst[3].set_answer(question, Answer(["A","B"]))
+
+        course.enroll_students(students_lst)
+
+        expected = True
+
+        grouper = GreedyGrouper(2)
+
+        print(grouper.make_grouping(course, survey))
+
+        assert False
