@@ -243,10 +243,14 @@ class GreedyGrouper(Grouper):
         1. select the first student in the tuple that hasn't already been put
            into a group and put this student in a new group.
 
+           group = [students[0]]
+
+
         2. select the student in the tuple that hasn't already been put into a
            group that, if added to the new group, would increase the group's
            score the most (or reduce it the least), add that student to the new
            group.
+
 
 
         3. repeat step 2 until there are N students in the new group where N is
@@ -268,28 +272,33 @@ class GreedyGrouper(Grouper):
         if len(students) == 0:
             return grouping
 
-        #1. get score of each student and put in list starting from the first
-        # student, i.e. [(1,89), (2,90),...]
-        i = 1
+        i = 0
         while i < len(students):
-            student = students[i]
-            score = survey.score_students([student])
-            score_lst.append((i,score))
+            # 1. select the first student in the tuple that hasn't already been put
+            #     into a group and put this student in a new group.
+
+            group = [students[i]]
+            max_score = -1
+            max_index = -1
+            j = i+1
+
+            while len(group) <= self.group_size:
+                # 2. select the student in the tuple that hasn't already been put into a
+                #     group that, if added to the new group, would increase the group's
+                #     score the most (or reduce it the least), add that student to the new
+                #     group.
+
+                # 3. repeat step 2 until there are N students in the new group where N is
+                #     equal to self.group_size.
+
+                if len(group) == self.group_size:
+                    grouping.add_group(group)
+                    break
+
+                j += 1
+
+            # 4. repeat steps 1-3 until all students have been placed in a group.
             i += 1
-        print(score_lst)
-        #2. sort list by score, i.e. [(2,90), (1,89),...]
-        score_lst = sorted(score_lst, key=lambda score: score[1], reverse=True)
-
-        #3. reposition students by the order of score
-        sorted_lst = [students[0]]
-        for index, score in score_lst:
-            sorted_lst.append(students[index])
-            i+=1
-
-        # 4. Store groups in grouping
-        groups_lst = [Group(g) for g in slice_list(sorted_lst, self.group_size)]
-        for group in groups_lst:
-            grouping.add_group(group)
 
         return grouping
 

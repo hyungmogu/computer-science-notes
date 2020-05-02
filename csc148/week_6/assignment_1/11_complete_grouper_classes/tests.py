@@ -66,19 +66,19 @@ class TestGreedyGrouper:
         for question in survey.get_questions():
             if question.id == 1:
                 students_lst[0].set_answer(question, Answer("A"))
-                students_lst[1].set_answer(question, Answer("A"))
+                students_lst[1].set_answer(question, Answer("B"))
                 students_lst[2].set_answer(question, Answer("A"))
-                students_lst[3].set_answer(question, Answer("A"))
+                students_lst[3].set_answer(question, Answer("B"))
             elif question.id == 2:
                 students_lst[0].set_answer(question, Answer(1))
-                students_lst[1].set_answer(question, Answer(1))
+                students_lst[1].set_answer(question, Answer(2))
                 students_lst[2].set_answer(question, Answer(1))
-                students_lst[3].set_answer(question, Answer(1))
+                students_lst[3].set_answer(question, Answer(2))
             elif question.id == 3:
                 students_lst[0].set_answer(question, Answer(True))
-                students_lst[1].set_answer(question, Answer(True))
+                students_lst[1].set_answer(question, Answer(False))
                 students_lst[2].set_answer(question, Answer(True))
-                students_lst[3].set_answer(question, Answer(True))
+                students_lst[3].set_answer(question, Answer(False))
             elif question.id == 4:
                 students_lst[0].set_answer(question, Answer(["A","B"]))
                 students_lst[1].set_answer(question, Answer(["A","B"]))
