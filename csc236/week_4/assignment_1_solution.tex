@@ -1207,11 +1207,7 @@
 
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
-
-        \bigskip
-
+    \begin{proof}
         Define
 
         \begin{center}
@@ -1224,151 +1220,275 @@
 
         \bigskip
 
-        \begin{enumerate}[1.]
-            \item Inductive step
+        \underline{\textbf{Inductive Step:}}
 
-            \bigskip
+        \bigskip
 
-            Let $n \in \mathbb{N} - \{0\}$. Assume $H(n): \bigwedge\limits_{i=1}^{i=n-1} P(i)$.
+        Let $n \in \mathbb{N} - \{0\}$. Assume $H(n): \bigwedge\limits_{i=1}^{i=n-1} P(i)$.
 
-            \bigskip
+        \bigskip
 
-            I will show that $P(n)$ follows, that $f(n)$ is a multiple of 4. That is,
-            $\exists d \in \mathbb{Z}$, $f(n) = 4d$.
+        I will show that $P(n)$ follows, that $f(n)$ is a multiple of 4. In other words,
+        $\exists d \in \mathbb{Z}$, $f(n) = 4d$.
 
-            \bigskip
+        \bigskip
 
-            \begin{itemize}
-                \item Base Case ($n = 1$)
+        \underline{\textbf{Base Case ($n = 1$):}}
 
-                \bigskip
+        \bigskip
 
-                Let $n = 1$. Let $d = 3$.
+        Let $n = 1$. Let $d = 3$.
 
-                \bigskip
+        \bigskip
 
-                \begin{mdframed}
-                \underline{\textbf{Base Case ($n = 1$):}}
+        Then,
 
-                \bigskip
+        \setcounter{equation}{0}
+        \begin{align}
+            f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
+            &= f(0)^2 + f(0)\\
+            &= (3)^2 + 3\\
+            &= 12\\
+            &= 4 \cdot 3
+        \end{align}
 
-                Let $n = 1$. Let $d = 3$.
+        \bigskip
 
-                \bigskip
+        Then, since $d = 3$,
 
-                Then,
+        \bigskip
 
-                \setcounter{equation}{0}
-                \begin{align}
-                    f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
-                    &= f(0)^2 + f(0)\\
-                    &= (3)^2 + 3\\
-                    &= 12
-                \end{align}
+        \begin{align}
+            f(1) &= 4d
+        \end{align}
 
-                \bigskip
+        \bigskip
 
-                Then, since $d = 3$,
+        \underline{\textbf{Base Case ($n = 2$):}}
 
-                \bigskip
+        \bigskip
 
-                \begin{align}
-                    f(1) &= 4 \cdot (3)\\
-                    f(1) &= 4d
-                \end{align}
+        Let $n = 2$. Let $d = 3$.
 
-                \end{mdframed}
+        \bigskip
 
-                \item Base Case ($n = 2$)
+        Then,
 
-                \bigskip
+        \begin{align}
+            f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
+            &= f(0)^2 + f(0)\\
+            &= (3)^2 + 3\\
+            &= 12\\
+            &= 4 \cdot 3
+        \end{align}
 
-                \begin{mdframed}
-                \underline{\textbf{Base Case ($n = 2$):}}
+        \bigskip
 
-                \bigskip
+        Then, since $d = 3$,
 
-                Let $n = 2$. Let $d = 3$.
+        \bigskip
 
-                \bigskip
+        \begin{align}
+            f(1) &= 4d
+        \end{align}
 
-                Then,
+        \bigskip
 
-                \begin{align}
-                    f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
-                    &= f(0)^2 + f(0)\\
-                    &= (3)^2 + 3\\
-                    &= 12
-                \end{align}
+        \underline{\textbf{Case ($n \geq 3$):}}
 
-                \bigskip
+        \bigskip
 
-                Then, since $d = 3$,
+        Let $n \geq 3$, and $d = 4k^2 + k$
 
-                \bigskip
+        \bigskip
 
-                \begin{align}
-                    f(1) &= 4 \cdot (3)\\
-                    f(1) &= 4d
-                \end{align}
+        Then, since $n > 0$,
 
-                \end{mdframed}
+        \begin{align}
+            f(n) &= f(\lfloor \log_3 n \rfloor)^2 + f(\lfloor \log_3 n \rfloor)
+        \end{align}
 
-                \item Case $n \geq 3$
+        \bigskip
 
-                \bigskip
+        Then, since $1 \leq \lfloor \log_3 n \rfloor < n$, and
+        $P(\lfloor \log_3 n \rfloor)$, $\exists k \in \mathbb{Z}$,
 
-                Let $n \geq 3$, and $d = 4k^2 + k$
+        \begin{align}
+            f(n) &= [4k]^2 + 4k\\
+            &= 4(4k^2 + k)
+        \end{align}
 
-                \bigskip
+        \bigskip
 
-                \begin{itemize}
-                    \item State $f(n) = [f(\lfloor \log_3 n \rfloor)]^2 + f(\lfloor \log_3 n \rfloor)$
-                    using the definition of $f(n)$.
+        Then, since $d = 4k^2 + k$,
 
-                    \item Conclude $f(n)$ is divisible by 4 by using the fact
-                    $1 \leq \lfloor \log_3 n \rfloor < n$ and strong induction.
+        \begin{align}
+            f(n) &= 4d
+        \end{align}
+    \end{proof}
 
-                    \bigskip
-                \end{itemize}
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
 
-                \begin{mdframed}
-                \underline{\textbf{Case ($n \geq 3$):}}
+    %     \bigskip
 
-                \bigskip
+    %     Define
 
-                Let $n \geq 3$, and $d = 4k^2 + k$
+    %     \begin{center}
+    %     $P(n):$ $f(n)$ is a multiple of 4
+    %     \end{center}
 
-                \bigskip
+    %     \bigskip
 
-                Then, since $n > 0$,
+    %     I must prove by complete induction that $\forall n \in \mathbb{N} - \{0\}$, $P(n)$.
 
-                \begin{align}
-                    f(n) &= f(\lfloor \log_3 n \rfloor)^2 + f(\lfloor \log_3 n \rfloor)
-                \end{align}
+    %     \bigskip
 
-                \bigskip
+    %     \begin{enumerate}[1.]
+    %         \item Inductive step
 
-                Then, since $1 \leq \lfloor \log_3 n \rfloor < n$, and
-                $P(\lfloor \log_3 n \rfloor)$, $\exists k \in \mathbb{Z}$,
+    %         \bigskip
 
-                \begin{align}
-                    f(n) &= [4k]^2 + 4k\\
-                    &= 4(4k^2 + k)
-                \end{align}
+    %         Let $n \in \mathbb{N} - \{0\}$. Assume $H(n): \bigwedge\limits_{i=1}^{i=n-1} P(i)$.
 
-                \bigskip
+    %         \bigskip
 
-                Then, since $d = 4k^2 + k$,
+    %         I will show that $P(n)$ follows, that $f(n)$ is a multiple of 4. In other words,
+    %         $\exists d \in \mathbb{Z}$, $f(n) = 4d$.
 
-                \begin{align}
-                    f(n) &= 4d
-                \end{align}
-                \end{mdframed}
-            \end{itemize}
-        \end{enumerate}
+    %         \bigskip
 
-    \end{mdframed}
+    %         \begin{itemize}
+    %             \item Base Case ($n = 1$)
+
+    %             \bigskip
+
+    %             Let $n = 1$. Let $d = 3$.
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+    %             \underline{\textbf{Base Case ($n = 1$):}}
+
+    %             \bigskip
+
+    %             Let $n = 1$. Let $d = 3$.
+
+    %             \bigskip
+
+    %             Then,
+
+    %             \setcounter{equation}{0}
+    %             \begin{align}
+    %                 f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
+    %                 &= f(0)^2 + f(0)\\
+    %                 &= (3)^2 + 3\\
+    %                 &= 12
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, since $d = 3$,
+
+    %             \bigskip
+
+    %             \begin{align}
+    %                 f(1) &= 4 \cdot 3\\
+    %                 f(1) &= 4d
+    %             \end{align}
+
+    %             \end{mdframed}
+
+    %             \item Base Case ($n = 2$)
+
+    %             \bigskip
+
+    %             \begin{mdframed}
+    %             \underline{\textbf{Base Case ($n = 2$):}}
+
+    %             \bigskip
+
+    %             Let $n = 2$. Let $d = 3$.
+
+    %             \bigskip
+
+    %             Then,
+
+    %             \begin{align}
+    %                 f(1) &= [f(\lfloor \log_3 1 \rfloor)]^2 + f(\lfloor \log_3 1  \rfloor)\\
+    %                 &= f(0)^2 + f(0)\\
+    %                 &= (3)^2 + 3\\
+    %                 &= 12
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, since $d = 3$,
+
+    %             \bigskip
+
+    %             \begin{align}
+    %                 f(1) &= 4 \cdot 3\\
+    %                 f(1) &= 4d
+    %             \end{align}
+
+    %             \end{mdframed}
+
+    %             \item Case $n \geq 3$
+
+    %             \bigskip
+
+    %             Let $n \geq 3$, and $d = 4k^2 + k$
+
+    %             \bigskip
+
+    %             \begin{itemize}
+    %                 \item State $f(n) = [f(\lfloor \log_3 n \rfloor)]^2 + f(\lfloor \log_3 n \rfloor)$
+    %                 using the definition of $f(n)$.
+
+    %                 \item Conclude $f(n)$ is divisible by 4 by using the fact
+    %                 $1 \leq \lfloor \log_3 n \rfloor < n$ and strong induction.
+
+    %                 \bigskip
+    %             \end{itemize}
+
+    %             \begin{mdframed}
+    %             \underline{\textbf{Case ($n \geq 3$):}}
+
+    %             \bigskip
+
+    %             Let $n \geq 3$, and $d = 4k^2 + k$
+
+    %             \bigskip
+
+    %             Then, since $n > 0$,
+
+    %             \begin{align}
+    %                 f(n) &= f(\lfloor \log_3 n \rfloor)^2 + f(\lfloor \log_3 n \rfloor)
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, since $1 \leq \lfloor \log_3 n \rfloor < n$, and
+    %             $P(\lfloor \log_3 n \rfloor)$, $\exists k \in \mathbb{Z}$,
+
+    %             \begin{align}
+    %                 f(n) &= [4k]^2 + 4k\\
+    %                 &= 4(4k^2 + k)
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Then, since $d = 4k^2 + k$,
+
+    %             \begin{align}
+    %                 f(n) &= 4d
+    %             \end{align}
+    %             \end{mdframed}
+    %         \end{itemize}
+    %     \end{enumerate}
+
+    % \end{mdframed}
 
 \end{enumerate}
 
