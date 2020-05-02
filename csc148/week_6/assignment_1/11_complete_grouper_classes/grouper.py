@@ -239,13 +239,9 @@ class GreedyGrouper(Grouper):
         Starting with a tuple of all students in <course> obtained by calling
         the <course>.get_students() method, create groups of students using the
         following algorithm:
-                         *
-        studnets = [s1, s2, s3, s4, s5]
-                    x
+
         1. select the first student in the tuple that hasn't already been put
            into a group and put this student in a new group.
-
-            group1_students = [s1]
 
         2. select the student in the tuple that hasn't already been put into a
            group that, if added to the new group, would increase the group's
@@ -264,21 +260,40 @@ class GreedyGrouper(Grouper):
         required to make sure all students in <course> are members of a group.
         """
         # TODO: complete the body of this method
-
+        grouping = Grouping()
         students = course.get_students()
         score_lst = []
+        sorted_lst = []
+
+        if len(students) == 0:
+            return grouping
 
         #1. get score of each student and put in list starting from the first
         # student, i.e. [(1,89), (2,90),...]
-        index = 1
-        while index < len(students):
-            student = students[index]
+        i = 1
+        while i < len(students):
+            student = students[i]
             score = survey.score_students([student])
-
+            score_lst.append((i,score))
+            i += 1
 
         #2. sort list by score, i.e. [(2,90), (1,89),...]
+        score_lst = sorted(score_lst, key=lambda score: score[1], reverse=True)
+
         #3. reposition students by the order of score
-        #4. group students by group size
+        i = 1
+        sorted_lst = [students[0]]
+        while i < len(score_lst):
+            sorted_lst.append(students[score_lst[i][0]])
+            i+=1
+
+        # 4. Store groups in grouping
+        groups_lst = [Group(g) for g in slice_list(sorted_lst, self.group_size)]
+        for group in groups_lst:
+            grouping.add_group(group)
+
+        return grouping
+
 
 
 class WindowGrouper(Grouper):
