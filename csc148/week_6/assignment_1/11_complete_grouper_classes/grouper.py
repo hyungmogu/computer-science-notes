@@ -163,7 +163,7 @@ class AlphaGrouper(Grouper):
         grouping = Grouping()
 
         # 1. Sort students
-        sorted_lst = sort_students(course.get_students())
+        sorted_lst = sort_students(course.get_students(), 'name')
 
         # 2. Create list of groups
         groups_lst = [Group(students_group) for students_group in slice_list(sorted_lst, self.group_size)]
@@ -200,6 +200,21 @@ class RandomGrouper(Grouper):
         members of a group.
         """
         # TODO: complete the body of this method
+        grouping = Grouping()
+        students = course.get_students()
+
+        # 1. get random students
+        random_lst = random.sample(students, len(students))
+
+        # 2. Create list of groups
+        groups_lst = [Group(students_group) for students_group in slice_list(random_lst, self.group_size)]
+
+        # 3. Store groups in grouping
+        for group in groups_lst:
+            grouping.add_group(group)
+
+        return grouping
+
 
 
 class GreedyGrouper(Grouper):
