@@ -54,6 +54,9 @@ def slice_list(lst: List[Any], n: int) -> List[List[Any]]:
     slices_list = []
     lst_slice = []
 
+    if len(lst) == 0:
+        return []
+
     for i in range(len(lst)):
 
         if i % n == 0 and i > 0:
