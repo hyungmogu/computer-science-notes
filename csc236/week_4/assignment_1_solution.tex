@@ -1270,17 +1270,50 @@
                 So, $P(n)$ follows this case.
                 \end{mdframed}
 
-                \item Case $n \geq 2$
-
-                \bigskip
-
-                Let $n \geq 2$.
+                \item Base Case ($n = 2$)
 
                 \bigskip
 
                 \begin{mdframed}
+                \underline{\textbf{Base Case ($n = 2$):}}
 
+                \bigskip
+
+                Let $n = 2$.
+
+                \bigskip
+
+                Then,
+
+                \begin{align}
+                    f(2) &= [f(\lfloor \log_3 2 \rfloor)]^2 + f(\lfloor \log_3 2  \rfloor)\\
+                    &= f(0)^2 + f(0)\\
+                    &= (3)^2 + 3\\
+                    &= 12
+                \end{align}
+
+                \bigskip
+
+                So, $P(n)$ follows this case.
                 \end{mdframed}
+
+                \item Case $n \geq 3$
+
+                \bigskip
+
+                Let $n \geq 3$.
+
+                \bigskip
+
+                \begin{itemize}
+                    \item State $f(n) = [f(\lfloor \log_3 n \rfloor)]^2 + f(\lfloor \log_3 n \rfloor)$
+                    using the definition of $f(n)$.
+
+                    \item Conclude $f(n)$ is divisible by 4 by using the fact
+                    $1 \leq \lfloor \log_3 n \rfloor < n$ and strong induction.
+
+                    \bigskip
+                \end{itemize}
             \end{itemize}
         \end{enumerate}
 
