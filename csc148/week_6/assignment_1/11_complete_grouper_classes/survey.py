@@ -526,17 +526,18 @@ class Survey:
             survey
         """
         # TODO: complete the body of this method
+
         try:
-            if len(self._questions) == 0:
+            questions = self.get_questions()
+            if len(questions) == 0:
                 raise InvalidAnswerError
 
             score_lst = []
-            for student in students:
-                for question in self._questions.values():
-                    criterion = self._get_criterion(question)
-                    weight = self._get_weight(question)
-                    answers = list(student.answers.values())
-                    score_lst.append(criterion.score_answers(question, answers) * weight)
+            for question in questions:
+                criterion = self._get_criterion(question)
+                weight = self._get_weight(question)
+                answers = [student.get_answer(question) for student in students]
+                score_lst.append(criterion.score_answers(question, answers) * weight)
 
             return sum(score_lst)/len(score_lst)
         except InvalidAnswerError:

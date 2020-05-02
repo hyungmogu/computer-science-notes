@@ -276,15 +276,14 @@ class GreedyGrouper(Grouper):
             score = survey.score_students([student])
             score_lst.append((i,score))
             i += 1
-
+        print(score_lst)
         #2. sort list by score, i.e. [(2,90), (1,89),...]
         score_lst = sorted(score_lst, key=lambda score: score[1], reverse=True)
 
         #3. reposition students by the order of score
-        i = 1
         sorted_lst = [students[0]]
-        while i < len(score_lst):
-            sorted_lst.append(students[score_lst[i][0]])
+        for index, score in score_lst:
+            sorted_lst.append(students[index])
             i+=1
 
         # 4. Store groups in grouping
