@@ -159,19 +159,17 @@ class Course:
         """
         # TODO: complete the body of this method
 
-        if not hasattr(survey, 'questions'):
-            return False
-
         # 1. for each student,
         for student in self.students:
+            for question in survey.get_questions():
 
-            for id_ in survey._questions:
-                # 1.1 if question id not exists in student answer, return false
-                if id_ not in student.answers:
+                # 1.1 if student does not have answer, return false
+                if not student.has_answer(question):
                     return False
 
                 # 1.2 if answer to the question is not valid, return false
-                if not student.answers[id_].is_valid():
+                answer = student.get_answer(question)
+                if not answer.is_valid(question):
                     return False
 
         return True
