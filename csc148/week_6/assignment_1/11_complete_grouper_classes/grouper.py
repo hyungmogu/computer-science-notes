@@ -266,7 +266,7 @@ class GreedyGrouper(Grouper):
         # TODO: complete the body of this method
         grouping = Grouping()
         students = course.get_students()
-        score_lst = []
+        grouped_students_set = set()
         sorted_lst = []
 
         if len(students) == 0:
@@ -276,17 +276,27 @@ class GreedyGrouper(Grouper):
         while i < len(students):
             # 1. select the first student in the tuple that hasn't already been put
             #     into a group and put this student in a new group.
-
-            group = [students[i]]
             max_score = -1
             max_index = -1
-            j = i+1
+            j = 0
+
+            # 1.1. if student id is in grouped_students_set then continue
+            if student_1.id in grouped_students_set:
+                i += 1
+                continue
+
+            # 1.2. if student id is in grouped_students_set then put student into a group
+            group = [students[i]]
+            grouped_students_set.add(students[i].id)
 
             while len(group) <= self.group_size:
                 # 2. select the student in the tuple that hasn't already been put into a
                 #     group that, if added to the new group, would increase the group's
                 #     score the most (or reduce it the least), add that student to the new
                 #     group.
+                if student[j].id in grouped_students_set:
+                    j = (j + 1) % len(students)
+                    continue
 
                 # 3. repeat step 2 until there are N students in the new group where N is
                 #     equal to self.group_size.
@@ -295,10 +305,9 @@ class GreedyGrouper(Grouper):
                     grouping.add_group(group)
                     break
 
-                j += 1
+                j = (j + 1) % len(students)
 
             # 4. repeat steps 1-3 until all students have been placed in a group.
-            i += 1
 
         return grouping
 
