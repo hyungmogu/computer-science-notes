@@ -92,13 +92,10 @@ class HomogeneousCriterion(Criterion):
 
         for i in range (len(answers)):
             for j in range(i+1, len(answers)):
-                print(answers[i].is_valid(question))
-                print(answers[j].is_valid(question))
                 if not answers[i].is_valid(question) or not answers[j].is_valid(question):
                     raise InvalidAnswerError
 
                 similarity_list.append(question.get_similarity(answers[i],answers[j]))
-        print(similarity_list)
         return sum(similarity_list)/len(similarity_list)
 
 

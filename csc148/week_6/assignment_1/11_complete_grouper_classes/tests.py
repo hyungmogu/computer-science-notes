@@ -86,7 +86,7 @@ class TestGreedyGrouper:
                 students_lst[3].set_answer(question, Answer(["A","B"]))
 
         course.enroll_students(students_lst)
-        expected = ''
+        expected = "Jason,Simon\nMary,Jessie"
         result = str(GreedyGrouper(2).make_grouping(course, survey))
 
         assert expected == result

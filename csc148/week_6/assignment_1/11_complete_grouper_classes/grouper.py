@@ -251,8 +251,6 @@ class GreedyGrouper(Grouper):
            score the most (or reduce it the least), add that student to the new
            group.
 
-
-
         3. repeat step 2 until there are N students in the new group where N is
            equal to self.group_size.
         4. repeat steps 1-3 until all students have been placed in a group.
@@ -276,39 +274,63 @@ class GreedyGrouper(Grouper):
         while i < len(students):
             # 1. select the first student in the tuple that hasn't already been put
             #     into a group and put this student in a new group.
-            max_score = -1
-            max_index = -1
-            j = 0
 
             # 1.1. if student id is in grouped_students_set then continue
-            if student_1.id in grouped_students_set:
+            if students[i].id in grouped_students_set:
                 i += 1
                 continue
 
             # 1.2. if student id is in grouped_students_set then put student into a group
-            group = [students[i]]
+            slice_lst = [students[i]]
             grouped_students_set.add(students[i].id)
 
-            while len(group) <= self.group_size:
-                # 2. select the student in the tuple that hasn't already been put into a
-                #     group that, if added to the new group, would increase the group's
-                #     score the most (or reduce it the least), add that student to the new
-                #     group.
-                if student[j].id in grouped_students_set:
-                    j = (j + 1) % len(students)
-                    continue
+            while True:
+                max_score = -1
+                max_index = -1
+                j = i + 1
+                while j < len(students):
+                    # 2. select the student in the tuple that hasn't already been put into a
+                    #     group that, if added to the new group, would increase the group's
+                    #     score the most (or reduce it the least), add that student to the new
+                    #     group.
+                    if students[j].id in grouped_students_set:
+                        j += 1
+                        continue
+
+                    # 2.1. create a group with current group and student j
+                    slice_lst_tmp = copy.copy(slice_lst)
+                    slice_lst_tmp.append(students[j])
+                    group = Group(slice_lst_tmp)
+
+                    # 2.2. create a grouping of the created_group
+                    grouping_tmp = Grouping()
+                    grouping_tmp.add_group(group)
+
+                    # 2.3 calculate score
+                    score = survey.score_grouping(grouping_tmp)
+                    max_score = max(max_score, score)
+
+                    # 2.4 if score is different, update index
+                    if max_score == score:
+                        max_index = j
+
+                    j += 1
 
                 # 3. repeat step 2 until there are N students in the new group where N is
                 #     equal to self.group_size.
-
-                if len(group) == self.group_size:
+                slice_lst.append(students[max_index])
+                grouped_students_set.add(students[max_index].id)
+                group = Group(slice_lst)
+                if len(slice_lst) == self.group_size:
                     grouping.add_group(group)
                     break
 
-                j = (j + 1) % len(students)
+                if len(slice_lst) == len(grouped_students_set):
+                    grouping.add_group(group)
+                    break
 
             # 4. repeat steps 1-3 until all students have been placed in a group.
-
+            i += 1
         return grouping
 
 
