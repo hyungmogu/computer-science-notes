@@ -537,6 +537,10 @@ class Survey:
                 criterion = self._get_criterion(question)
                 weight = self._get_weight(question)
                 answers = [student.get_answer(question) for student in students]
+
+                if None in answers:
+                    raise InvalidAnswerError
+
                 score_lst.append(criterion.score_answers(question, answers) * weight)
 
             return sum(score_lst)/len(score_lst)
