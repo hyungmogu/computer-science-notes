@@ -81,23 +81,24 @@
         \item State that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
         \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
 
-        \begin{mdframed}
-        Then, we can write the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
-        \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
-        \end{mdframed}
+        \item State that there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+        satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle
 
-        \item State that there are elements $x_0,y_0,z_0$ satisfying $x^3 + 3y^3 = 9z^3$.
+        \item Show that $x_0 = 3 \cdot k$, using $x_0^3 + 3y_0^3 = 9z_0^3$ and the
+        fact if a prime number $p$ divides a perfect cube $n^3$, then $p$ also divides $n$.
 
-        \item Find next elements $x_1, y_1, z_1$ satisfying $x^3 + 3y^3 = 9z^3$, and check
-        to see if $x_1,y_1,z_1$ are all in $\mathbb{N}^+$
+        \item Show that $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given $x_0 > x_1$
 
         \begin{itemize}
-            \item First, show that $x_0 = 3 \cdot x_1$, using $x_0^3 = 9z_0^3 - 3y_0^3$
+            \item First, show that $x_0 = 3 \cdot x_1$, using $x_0^3 + 3y_0^3 = 9z_0^3$ and the
+            fact if a prime number $p$ divides a perfect cube $n^3$, then $p$ also divides $n$.
             \item Second, show that $y_0 = 3 \cdot y_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3$
             \item Third, show that $z_0 = 3 \cdot z_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3 =  9z_0^3 - 3^4y_1^3$
+            \item Finally, show $x_1^3 = 9z_1^3 - 3y_1^3$
         \end{itemize}
 
-        \item Repeat until finding a value not in $\mathbb{N}^+$.
+        \item Conclude that this contracts the original claim that $x_0$ is the smallest
+        non-negative value satisfying $x^3 + 3y^3 = 9z^3$.
     \end{enumerate}
 
 \end{mdframed}
