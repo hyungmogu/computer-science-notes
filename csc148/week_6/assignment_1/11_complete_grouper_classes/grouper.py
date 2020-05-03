@@ -378,6 +378,44 @@ class WindowGrouper(Grouper):
         """
         # TODO: complete the body of this method
 
+        # Starting with a tuple of all students in <course> obtained by calling
+        # the <course>.get_students() method, create groups of students using the
+        # following algorithm:
+        students = course.get_students()
+        grouping = Grouping()
+
+        if len(students) == 0:
+            return grouping
+
+
+        while True:
+
+           if len(students) < self.group_size:
+                grouping.add_group(Group(students))
+                students = []
+                break
+
+            # 1. Get the windows of the list of students who have not already been
+            #     put in a group.
+
+            slices_lst = windows(students, self.group_size)
+
+            # 2. For each window in order, calculate the current window's score as
+            #     well as the score of the next window in the list. If the current
+            #     window's score is greater than or equal to the next window's score,
+            #     make a group out of the students in current window and start again at
+            #     step 1. If the current window is the last window, compare it to the
+            #     first window instead.
+            i = 0
+            while i < len(slices_lst):
+                score_1 = survey.score_students(slices_lst[i])
+                score_2 = survey.score_students(slices_lst[(i+1) % len(slices_lst)])
+
+                if score_1 >= score_2:
+                    grouping.add_group(group(score_1))
+                    students = students[i + self.group_size:]
+
+        return grouping
 
 class Group:
     """

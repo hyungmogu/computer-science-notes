@@ -43,7 +43,7 @@ def sort_students(lst: List[Student], attribute: str) -> List[Student]:
     >>> sort_students([s1, s2, s3], 'name') == [s2, s3, s1]
     True
     """
-    return sorted(lst, key=lambda s: getattr(s, attribute))
+    return copy.copy(sorted(lst, key=lambda s: getattr(s, attribute)))
 
 class Student:
     """
