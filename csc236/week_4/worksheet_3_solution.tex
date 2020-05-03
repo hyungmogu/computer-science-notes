@@ -78,7 +78,7 @@
     Assume $\exists x,y,z \in \mathbb{N}^{+}$, $x^3 + 3y^3 = 9z^3$.
 
     \begin{enumerate}[1.]
-        \item Show that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
+        \item State that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
         \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
 
         \begin{mdframed}
@@ -86,16 +86,17 @@
         \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
         \end{mdframed}
 
-        \item Show that there is a minimum element in set satisfying $x^3 + 3y^3 = 9z^3$,
-        using well-ordering principle
-
-        \begin{mdframed}
-        Then, by principle of well-ordering, we can conclude there exists values
-        $x_0,y_0,z_0$ satisfying the equation $x^3 + 3y^3 = 9z^3$.
-        \end{mdframed}
+        \item State that there are elements $x_0,y_0,z_0$ satisfying $x^3 + 3y^3 = 9z^3$.
 
         \item Find next elements $x_1, y_1, z_1$ satisfying $x^3 + 3y^3 = 9z^3$, and check
         to see if $x_1,y_1,z_1$ are all in $\mathbb{N}^+$
+
+        \begin{itemize}
+            \item First, show that $x_0 = 3 \cdot x_1$, using $x_0^3 = 9z_0^3 - 3y_0^3$
+            \item Second, show that $y_0 = 3 \cdot y_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3$
+            \item Third, show that $z_0 = 3 \cdot z_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3 =  9z_0^3 - 3^4y_1^3$
+        \end{itemize}
+
         \item Repeat until finding a value not in $\mathbb{N}^+$.
     \end{enumerate}
 
