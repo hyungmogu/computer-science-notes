@@ -23,6 +23,7 @@ This file contains classes that describe a university course and the students
 who are enrolled in these courses.
 """
 from __future__ import annotations
+import copy
 from typing import TYPE_CHECKING, List, Tuple, Optional,Dict
 if TYPE_CHECKING:
     from survey import Answer, Survey, Question

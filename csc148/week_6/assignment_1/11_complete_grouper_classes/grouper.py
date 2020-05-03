@@ -387,17 +387,15 @@ class WindowGrouper(Grouper):
         if len(students) == 0:
             return grouping
 
-
         while True:
 
-           if len(students) < self.group_size:
+            if len(students) <= self.group_size:
                 grouping.add_group(Group(students))
                 students = []
                 break
 
             # 1. Get the windows of the list of students who have not already been
             #     put in a group.
-
             slices_lst = windows(students, self.group_size)
 
             # 2. For each window in order, calculate the current window's score as
@@ -412,8 +410,10 @@ class WindowGrouper(Grouper):
                 score_2 = survey.score_students(slices_lst[(i+1) % len(slices_lst)])
 
                 if score_1 >= score_2:
-                    grouping.add_group(group(score_1))
-                    students = students[i + self.group_size:]
+                    grouping.add_group(Group(slices_lst[i]))
+                    students = students[:i] + students[i + self.group_size:]
+
+                i += 1
 
         return grouping
 
