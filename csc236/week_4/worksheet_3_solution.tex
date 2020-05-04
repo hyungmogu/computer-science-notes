@@ -930,15 +930,33 @@
 
         \bigskip
 
+        Define the set of non-empty full binary trees, $\mathcal{T}$, as the
+        smallest set such that:
+
+        \begin{enumerate}[a.]
+            \item Any single node is an element of $\mathcal{T}$
+            \item If $t_1,t_2 \in \mathcal{T}$, $n$ is a node that belongs to neither
+            $t_1$ nor $t_2$, and $t_1,t_2$ have no nodes in common, then $n$
+            together with edges to the $\textbf{root nodes}$ $t_1$ and $t_2$ is
+            also an element of $\mathcal{T}$.
+         \end{enumerate}
+
+        Prove $P(t):$ $\textbf{leaf\_node}(t) = \textbf{internal\_node}(t) + 1$
+
         \begin{enumerate}[1.]
             \item Basis
 
             \begin{mdframed}
             There is one case, where $t$ is the binary tree with one node. In
-            this case $\textbf{node}(t) = 1$. So, $P(t)$ holds for the case.
+            this case, the node is leaf node. So, $\textbf{leaf\_node}(t) = 1$.
+            So, $P(t)$ holds for the case.
             \end{mdframed}
 
             \item Inductive Step
+
+            \begin{mdframed}
+
+            \end{mdframed}
         \end{enumerate}
     \end{mdframed}
 \end{itemize}
