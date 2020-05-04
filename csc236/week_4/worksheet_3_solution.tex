@@ -94,220 +94,6 @@
 
         \bigskip
 
-    \end{proof}
-\end{itemize}
-
-\begin{mdframed}
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
-
-    \textbf{Predicate Logic:} $\forall A \subseteq \mathbb{N},\:A \neq \emptyset \Rightarrow
-    (\exists a \in A, \: \forall x \in A,\: a \leq x)$
-
-    \bigskip
-
-    Given the statement to prove
-
-    \bigskip
-
-    \begin{center}
-        $P(x,y,z):$ There are no positive integers $x,y,z$ such that $x^3 + 3y^3 = 9z^3$
-    \end{center}
-
-    \bigskip
-
-    We will prove $P(x,y,z)$ using proof by contradiction.
-
-    \bigskip
-
-    Assume $\exists x,y,z \in \mathbb{N}^{+}$, $x^3 + 3y^3 = 9z^3$.
-
-    \begin{enumerate}[1.]
-
-        \item State that there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
-        satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle
-
-        \bigskip
-
-        First, we need to show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
-        satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle.
-
-        \bigskip
-
-        \begin{mdframed}
-        First, we need to show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
-        satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle.
-
-        \bigskip
-
-        The header tells us there are elements $x,y,z \in \mathbb{N}^+$, satisfying
-        $x^3 + 3y^3 = 9z^3$.
-
-        \bigskip
-
-        Then, we can write the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
-        \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
-
-        \bigskip
-
-        Then, using principle of well-ordering, we can write that there is smallest
-        positive natural number $x_0 \in X$ along with $y_0,z_0 \in \mathbb{N}^+$ satisfying
-        $x^3 + 3y^3 = 9z^3$.
-        \end{mdframed}
-
-        \item Show that $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given $x_0 > x_1$
-
-        \bigskip
-
-        Second, we need to show $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given
-        $x_0 > x_1$.
-
-        \bigskip
-
-        We will do so in parts.
-
-        \bigskip
-
-        \begin{itemize}
-            \item First, show that $x_0 = 3 \cdot x_1$, using $x_0^3 + 3y_0^3 = 9z_0^3$ and the
-            fact if a prime number $p$ divides a perfect cube $n^3$, then $p$ also divides $n$.
-
-            \begin{mdframed}
-            \underline{\textbf{Part 1 (Showing $x_0 = 3 \cdot x_1$):}}
-
-            \bigskip
-
-            We know that
-
-            \begin{align}
-                x_0^3 + 3y_0^3 &= 9z_0^3\\
-                x_0^3 &= 9z_0^3 - 3y_0^3
-            \end{align}
-
-            \bigskip
-
-            Since $3 \mid 9z_0^3 - 3y_0^3$, we can write $3 \mid x_0^3$.
-
-            \bigskip
-
-            Then, since 3 is a prime number, by using the hint provided in question 3
-            of assignment 1, we can write there is $x_1 \in \mathbb{Z}$, $x_0 = 3 \cdot x_1$.
-
-            \bigskip
-
-            Then, because we know $x_0, 3 \in \mathbb{N}^+$, we can conclude
-            $x_1 \in \mathbb{N}^+$.
-
-            \end{mdframed}
-
-            \item Second, show that $y_0 = 3 \cdot y_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3$
-
-            \begin{mdframed}
-            \underline{\textbf{Part 2 (Showing $y_0 = 3 \cdot y_1$):}}
-
-            \bigskip
-
-            We know that
-
-            \begin{align}
-                x_0^3 + 3y_0^3 &= 9z_0^3\\
-                3y_0^3 &= 9z_0^3 - x_0^3
-            \end{align}
-
-            \bigskip
-
-            Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, we can calculate
-
-            \begin{align}
-                3y_0^3 &= 9z_0^3 - 3^3x_1^3\\
-                y_0^3 &= 3z_0^3 - 3^2x_1^3
-            \end{align}
-
-            \bigskip
-
-            Since $3 \mid 3z_0^3 - 3^2x_1^3$, we can write that $3 \mid y_0^3$.
-
-            \bigskip
-
-            Then, since 3 is a prime number, by using the hint provided in question 3
-            of assignment 1, we can write there is $y_1 \in \mathbb{Z}$, $y_0 = 3 \cdot y_1$.
-
-            \bigskip
-
-            Then, because we know $y_0, 3 \in \mathbb{N}^+$, we can conclude
-            $y_1 \in \mathbb{N}^+$.
-
-            \end{mdframed}
-
-            \item Third, show that $z_0 = 3 \cdot z_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3 =  9z_0^3 - 3^4y_1^3$
-
-            \begin{mdframed}
-            \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
-
-            \bigskip
-
-            We know that
-
-            \begin{align}
-                9z_0^3 &= x_0^3 + 3y_0^3
-            \end{align}
-
-            \bigskip
-
-            Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
-            $y_0 = 3 \cdot y_1$ from part 2, we can calculate
-
-            \begin{align}
-                9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
-                z_0^3 &= 3x_1^3 + 3^2y_1^3
-            \end{align}
-
-            \bigskip
-
-            Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
-
-            \bigskip
-
-            Then, since 3 is a prime number, by using the hint provided in question 3
-            of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
-
-            \bigskip
-
-            Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
-            $z_1 \in \mathbb{N}^+$.
-
-            \end{mdframed}
-
-            \item Finally, show $x_1^3 = 9z_1^3 - 3y_1^3$
-
-            \begin{mdframed}
-            \underline{\textbf{Part 4 (Showing $x_1^3 = 9z_1^3 - 3y_1^3$):}}
-
-            \bigskip
-
-            We know that
-
-            \begin{align}
-                9z_0^3 &= x_0^3 + 3y_0^3
-            \end{align}
-
-            \bigskip
-
-            Then, using the fact $x_0 = 3 \cdot x_1$ from part 1,
-            $y_0 = 3 \cdot y_1$ from part 2, and $z_0 = 3 \cdot z_1$ we can calculate
-
-            \begin{align}
-                3^5z_1^3 &= 3^3x_1^3 + 3^4y_1^3\\
-                3^2z_1^3 &= x_1^3 + 3y_1^3
-            \end{align}
-
-            \end{mdframed}
-        \end{itemize}
-
-        \bigskip
-
-        \begin{mdframed}
         Second, we need to show that $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given
         $x_0 > x_1$.
 
@@ -344,39 +130,39 @@
 
         \bigskip
 
-        \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
+        \underline{\textbf{Part 2 (Showing $y_0 = 3 \cdot y_1$):}}
 
         \bigskip
 
         We know that
 
         \begin{align}
-            9z_0^3 &= x_0^3 + 3y_0^3
+            x_0^3 + 3y_0^3 &= 9z_0^3\\
+            3y_0^3 &= 9z_0^3 - x_0^3
         \end{align}
 
         \bigskip
 
-        Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
-        $y_0 = 3 \cdot y_1$ from part 2, we can calculate
+        Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, we can calculate
 
         \begin{align}
-            9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
-            z_0^3 &= 3x_1^3 + 3^2y_1^3
+            3y_0^3 &= 9z_0^3 - 3^3x_1^3\\
+            y_0^3 &= 3z_0^3 - 3^2x_1^3
         \end{align}
 
         \bigskip
 
-        Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
+        Since $3 \mid 3z_0^3 - 3^2x_1^3$, we can write that $3 \mid y_0^3$.
 
         \bigskip
 
         Then, since 3 is a prime number, by using the hint provided in question 3
-        of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
+        of assignment 1, we can write there is $y_1 \in \mathbb{Z}$, $y_0 = 3 \cdot y_1$.
 
         \bigskip
 
-        Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
-        $z_1 \in \mathbb{N}^+$.
+        Then, because we know $y_0, 3 \in \mathbb{N}^+$, we can conclude
+        $y_1 \in \mathbb{N}^+$.
 
         \bigskip
 
@@ -437,12 +223,8 @@
             9z_1^3 &= x_1^3 + 3y_1^3
         \end{align}
 
-        \end{mdframed}
+        \bigskip
 
-        \item Conclude that this contracts the original claim that $x_0$ is the smallest
-        non-negative value satisfying $x^3 + 3y^3 = 9z^3$.
-
-        \begin{mdframed}
         Finally, the part 4 tells us
 
         \begin{align}
@@ -460,10 +242,377 @@
         \bigskip
 
         Then, we can conclude the the assumption is false.
-        \end{mdframed}
-    \end{enumerate}
 
-\end{mdframed}
+    \end{proof}
+\end{itemize}
+
+% \begin{mdframed}
+%     \underline{\textbf{Rough Work:}}
+
+%     \bigskip
+
+%     \textbf{Predicate Logic:} $\forall A \subseteq \mathbb{N},\:A \neq \emptyset \Rightarrow
+%     (\exists a \in A, \: \forall x \in A,\: a \leq x)$
+
+%     \bigskip
+
+%     Given the statement to prove
+
+%     \bigskip
+
+%     \begin{center}
+%         $P(x,y,z):$ There are no positive integers $x,y,z$ such that $x^3 + 3y^3 = 9z^3$
+%     \end{center}
+
+%     \bigskip
+
+%     We will prove $P(x,y,z)$ using proof by contradiction.
+
+%     \bigskip
+
+%     Assume $\exists x,y,z \in \mathbb{N}^{+}$, $x^3 + 3y^3 = 9z^3$.
+
+%     \begin{enumerate}[1.]
+
+%         \item State that there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+%         satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle
+
+%         \bigskip
+
+%         First, we need to show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+%         satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle.
+
+%         \bigskip
+
+%         \begin{mdframed}
+%         First, we need to show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+%         satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle.
+
+%         \bigskip
+
+%         The header tells us there are elements $x,y,z \in \mathbb{N}^+$, satisfying
+%         $x^3 + 3y^3 = 9z^3$.
+
+%         \bigskip
+
+%         Then, we can write the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
+%         \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
+
+%         \bigskip
+
+%         Then, using principle of well-ordering, we can write that there is smallest
+%         positive natural number $x_0 \in X$ along with $y_0,z_0 \in \mathbb{N}^+$ satisfying
+%         $x^3 + 3y^3 = 9z^3$.
+%         \end{mdframed}
+
+%         \item Show that $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given $x_0 > x_1$
+
+%         \bigskip
+
+%         Second, we need to show $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given
+%         $x_0 > x_1$.
+
+%         \bigskip
+
+%         We will do so in parts.
+
+%         \bigskip
+
+%         \begin{itemize}
+%             \item First, show that $x_0 = 3 \cdot x_1$, using $x_0^3 + 3y_0^3 = 9z_0^3$ and the
+%             fact if a prime number $p$ divides a perfect cube $n^3$, then $p$ also divides $n$.
+
+%             \begin{mdframed}
+%             \underline{\textbf{Part 1 (Showing $x_0 = 3 \cdot x_1$):}}
+
+%             \bigskip
+
+%             We know that
+
+%             \begin{align}
+%                 x_0^3 + 3y_0^3 &= 9z_0^3\\
+%                 x_0^3 &= 9z_0^3 - 3y_0^3
+%             \end{align}
+
+%             \bigskip
+
+%             Since $3 \mid 9z_0^3 - 3y_0^3$, we can write $3 \mid x_0^3$.
+
+%             \bigskip
+
+%             Then, since 3 is a prime number, by using the hint provided in question 3
+%             of assignment 1, we can write there is $x_1 \in \mathbb{Z}$, $x_0 = 3 \cdot x_1$.
+
+%             \bigskip
+
+%             Then, because we know $x_0, 3 \in \mathbb{N}^+$, we can conclude
+%             $x_1 \in \mathbb{N}^+$.
+
+%             \end{mdframed}
+
+%             \item Second, show that $y_0 = 3 \cdot y_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3$
+
+%             \begin{mdframed}
+%             \underline{\textbf{Part 2 (Showing $y_0 = 3 \cdot y_1$):}}
+
+%             \bigskip
+
+%             We know that
+
+%             \begin{align}
+%                 x_0^3 + 3y_0^3 &= 9z_0^3\\
+%                 3y_0^3 &= 9z_0^3 - x_0^3
+%             \end{align}
+
+%             \bigskip
+
+%             Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, we can calculate
+
+%             \begin{align}
+%                 3y_0^3 &= 9z_0^3 - 3^3x_1^3\\
+%                 y_0^3 &= 3z_0^3 - 3^2x_1^3
+%             \end{align}
+
+%             \bigskip
+
+%             Since $3 \mid 3z_0^3 - 3^2x_1^3$, we can write that $3 \mid y_0^3$.
+
+%             \bigskip
+
+%             Then, since 3 is a prime number, by using the hint provided in question 3
+%             of assignment 1, we can write there is $y_1 \in \mathbb{Z}$, $y_0 = 3 \cdot y_1$.
+
+%             \bigskip
+
+%             Then, because we know $y_0, 3 \in \mathbb{N}^+$, we can conclude
+%             $y_1 \in \mathbb{N}^+$.
+
+%             \end{mdframed}
+
+%             \item Third, show that $z_0 = 3 \cdot z_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3 =  9z_0^3 - 3^4y_1^3$
+
+%             \begin{mdframed}
+%             \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
+
+%             \bigskip
+
+%             We know that
+
+%             \begin{align}
+%                 9z_0^3 &= x_0^3 + 3y_0^3
+%             \end{align}
+
+%             \bigskip
+
+%             Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
+%             $y_0 = 3 \cdot y_1$ from part 2, we can calculate
+
+%             \begin{align}
+%                 9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
+%                 z_0^3 &= 3x_1^3 + 3^2y_1^3
+%             \end{align}
+
+%             \bigskip
+
+%             Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
+
+%             \bigskip
+
+%             Then, since 3 is a prime number, by using the hint provided in question 3
+%             of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
+
+%             \bigskip
+
+%             Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
+%             $z_1 \in \mathbb{N}^+$.
+
+%             \end{mdframed}
+
+%             \item Finally, show $x_1^3 = 9z_1^3 - 3y_1^3$
+
+%             \begin{mdframed}
+%             \underline{\textbf{Part 4 (Showing $x_1^3 = 9z_1^3 - 3y_1^3$):}}
+
+%             \bigskip
+
+%             We know that
+
+%             \begin{align}
+%                 9z_0^3 &= x_0^3 + 3y_0^3
+%             \end{align}
+
+%             \bigskip
+
+%             Then, using the fact $x_0 = 3 \cdot x_1$ from part 1,
+%             $y_0 = 3 \cdot y_1$ from part 2, and $z_0 = 3 \cdot z_1$ we can calculate
+
+%             \begin{align}
+%                 3^5z_1^3 &= 3^3x_1^3 + 3^4y_1^3\\
+%                 3^2z_1^3 &= x_1^3 + 3y_1^3
+%             \end{align}
+
+%             \end{mdframed}
+%         \end{itemize}
+
+%         \bigskip
+
+%         \begin{mdframed}
+%         Second, we need to show that $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given
+%         $x_0 > x_1$.
+
+%         \bigskip
+
+%         We will do so in parts.
+
+%         \bigskip
+
+%         \underline{\textbf{Part 1 (Showing $x_0 = 3 \cdot x_1$):}}
+
+%         \bigskip
+
+%         We know that
+
+%         \begin{align}
+%             x_0^3 + 3y_0^3 &= 9z_0^3\\
+%             x_0^3 &= 9z_0^3 - 3y_0^3
+%         \end{align}
+
+%         \bigskip
+
+%         Since $3 \mid 9z_0^3 - 3y_0^3$, we can write $3 \mid x_0^3$.
+
+%         \bigskip
+
+%         Then, since 3 is a prime number, by using the hint provided in question 3
+%         of assignment 1, we can write there is $x_1 \in \mathbb{Z}$, $x_0 = 3 \cdot x_1$.
+
+%         \bigskip
+
+%         Then, because we know $x_0, 3 \in \mathbb{N}^+$, we can conclude
+%         $x_1 \in \mathbb{N}^+$.
+
+%         \bigskip
+
+%         \underline{\textbf{Part 2 (Showing $y_0 = 3 \cdot y_1$):}}
+
+%         \bigskip
+
+%         We know that
+
+%         \begin{align}
+%             x_0^3 + 3y_0^3 &= 9z_0^3\\
+%             3y_0^3 &= 9z_0^3 - x_0^3
+%         \end{align}
+
+%         \bigskip
+
+%         Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, we can calculate
+
+%         \begin{align}
+%             3y_0^3 &= 9z_0^3 - 3^3x_1^3\\
+%             y_0^3 &= 3z_0^3 - 3^2x_1^3
+%         \end{align}
+
+%         \bigskip
+
+%         Since $3 \mid 3z_0^3 - 3^2x_1^3$, we can write that $3 \mid y_0^3$.
+
+%         \bigskip
+
+%         Then, since 3 is a prime number, by using the hint provided in question 3
+%         of assignment 1, we can write there is $y_1 \in \mathbb{Z}$, $y_0 = 3 \cdot y_1$.
+
+%         \bigskip
+
+%         Then, because we know $y_0, 3 \in \mathbb{N}^+$, we can conclude
+%         $y_1 \in \mathbb{N}^+$.
+
+%         \bigskip
+
+%         \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
+
+%         \bigskip
+
+%         We know that
+
+%         \begin{align}
+%             9z_0^3 &= x_0^3 + 3y_0^3
+%         \end{align}
+
+%         \bigskip
+
+%         Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
+%         $y_0 = 3 \cdot y_1$ from part 2, we can calculate
+
+%         \begin{align}
+%             9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
+%             z_0^3 &= 3x_1^3 + 3^2y_1^3
+%         \end{align}
+
+%         \bigskip
+
+%         Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
+
+%         \bigskip
+
+%         Then, since 3 is a prime number, by using the hint provided in question 3
+%         of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
+
+%         \bigskip
+
+%         Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
+%         $z_1 \in \mathbb{N}^+$.
+
+%         \bigskip
+
+%         \underline{\textbf{Part 4 (Showing $x_1^3 = 9z_1^3 - 3y_1^3$):}}
+
+%         \bigskip
+
+%         We know that
+
+%         \begin{align}
+%             9z_0^3 &= x_0^3 + 3y_0^3
+%         \end{align}
+
+%         \bigskip
+
+%         Then, using the fact $x_0 = 3 \cdot x_1$ from part 1,
+%         $y_0 = 3 \cdot y_1$ from part 2, and $z_0 = 3 \cdot z_1$ we can calculate
+
+%         \begin{align}
+%             3^5z_1^3 &= 3^3x_1^3 + 3^4y_1^3\\
+%             3^2z_1^3 &= x_1^3 + 3y_1^3\\
+%             9z_1^3 &= x_1^3 + 3y_1^3
+%         \end{align}
+
+%         \end{mdframed}
+
+%         \item Conclude that this contracts the original claim that $x_0$ is the smallest
+%         non-negative value satisfying $x^3 + 3y^3 = 9z^3$.
+
+%         \begin{mdframed}
+%         Finally, the part 4 tells us
+
+%         \begin{align}
+%             9z_1^3 &= x_1^3 + 3y_1^3
+%         \end{align}
+
+%         where $x_1 < x_0$.
+
+%         \bigskip
+
+%         Then, because we know $x_0$ is the smallest
+%         number satisfying $x^3 + 3y^3 = 9z^3$, we can conclude above leads to
+%         contradiction.
+
+%         \bigskip
+
+%         Then, we can conclude the the assumption is false.
+%         \end{mdframed}
+%     \end{enumerate}
+
+% \end{mdframed}
 
 \bigskip
 
