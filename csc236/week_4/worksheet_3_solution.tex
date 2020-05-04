@@ -675,6 +675,14 @@
         \item Basis
 
         \begin{mdframed}
+        \underline{\textbf{Basis:}}
+
+        \bigskip
+
+        We need to show that the property is true for the simplest members $x,y,z$.
+
+        \bigskip
+
         There are three cases: $e = x$, $e = y$ and $e = z$. In each of the cases
         $s_2(e) = 1$ and $s_1(e) = 0$.
 
@@ -690,6 +698,66 @@
         \end{mdframed}
 
         \item Inductive Step
+
+        \bigskip
+
+        Let $e_1$ and $e_2$ be arbitrary elements of $\varepsilon$.
+        Assume $H({e_1,e_2}):$ $P(e_1)$ and $P(e_2)$. That is, $e_1$ and $e_2$
+        have the property $s_1(e_1) = 3 \cdot (s_2(e) - 1)$ and
+        $s_1(e_2) = 3 \cdot (s_2(e_2) - 1)$.
+
+        \bigskip
+
+        We need to show all possible combinations of $e_1$ and $e_2$ have the
+        property. That is, $P((e_1 + e_2))$, $P((e_1 \times e_2))$.
+
+        \bigskip
+
+        \begin{mdframed}
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+        Let $e_1$ and $e_2$ be arbitrary elements of $\varepsilon$.
+        Assume $H({e_1,e_2}):$ $P(e_1)$ and $P(e_2)$. That is, $e_1$ and $e_2$
+        have the property $s_1(e_1) = 3 \cdot (s_2(e) - 1)$ and
+        $s_1(e_2) = 3 \cdot (s_2(e_2) - 1)$.
+
+        \bigskip
+
+        We need to show all possible combinations of $e_1$ and $e_2$ have the
+        property. That is, $P((e_1 + e_2))$, $P((e_1 \times e_2))$.
+
+        \bigskip
+
+        There are two cases, depending on how $e$ is constructed from $e_1$ and $e_2$:
+        $e = (e_1 + e_2)$, $e = (e_1 \times e_2)$.
+        In each case we have
+
+        \begin{align}
+            s_1(e) = s_1(e_1) + s_1(e_2) + 3 & \\
+            s_2(e) = s_2(e_2) + s_2(e_2)
+        \end{align}
+
+        \bigskip
+
+        Then, using above fact, we can conclude
+
+        \bigskip
+
+        \begin{align}
+            s_1(e) &= s_1(e_1) + s_1(e_2) + 3 & [\text{by 4}]\\
+            &= 3 \cdot (s_2(e_1) - 1) + 3 \cdot (s_2(e_2) - 1) + 3 & [\text{by induction hypothesis}]\\
+            &= 3 \cdot s_2(e_1) - 3 + 3 \cdot s_2(e_2) - 3 + 3\\
+            &= 3 \cdot s_2(e_1) + 3 \cdot s_2(e_2) - 6 + 3\\
+            &= 3 \cdot ( s_2(e_1) + s_2(e_2)) - 3\\
+            &= 3 \cdot s_2(e) - 3 & [\text{by 5}]
+        \end{align}
+
+        \end{mdframed}
+
+        \begin{mdframed}
+
+        \end{mdframed}
     \end{enumerate}
 \end{mdframed}
 
