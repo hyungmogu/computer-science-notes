@@ -1496,15 +1496,6 @@
 \begin{itemize}
     \item
 
-\end{itemize}
-
-\bigskip
-
-\begin{mdframed}
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
-
     Given the statement to prove
 
     \bigskip
@@ -1515,54 +1506,131 @@
 
     \bigskip
 
+    \begin{proof}
     We will prove $P(x,y,z)$ using proof by contradiction.
 
     \bigskip
 
     Assume $\exists x,y,z \in \mathbb{N}^+, 5x^3 + 50y^3 = 3z^3$.
 
-    \begin{enumerate}[1.]
-        \item Show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
-        satisfying $5x^3 + 50y^3 = 3z^3$, using well-ordering principle
+    \bigskip
 
-        \begin{mdframed}
-        Then, we can write that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists
-        y,z \in \mathbb{N}^+,\:5x^3 + 50y^3 = 3z^3\}$ is not empty.
+    Then, we can write that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists
+    y,z \in \mathbb{N}^+,\:5x^3 + 50y^3 = 3z^3\}$ is not empty.
 
-        \bigskip
+    \bigskip
 
-        Then, using the well-ordering principle, we can write there is the smallest
-        positive integer $x_0 \in X$, and $y_0,z_0 \in \mathbb{N}^+$ such that
-        $5x_0^3 + 50y_0^3 = 3z_0^3$.
-        \end{mdframed}
+    Then, using the well-ordering principle, we can write there is the smallest
+    positive integer $x_0 \in X$, and $y_0,z_0 \in \mathbb{N}^+$ such that
+    $5x_0^3 + 50y_0^3 = 3z_0^3$.
 
-        \item Show $5x_1^3 + 50y_1^3 = 3z_1^3$ is satisfied given $x_0 > x_1$.
+    \bigskip
 
-        \begin{mdframed}
-        Then,
+    Then,
 
-        \begin{align*}
-            50x_0^3 + 50y_0^3 = 3z_0^3 &\Rightarrow 5 \mid 3z_0^3 \Rightarrow 5 \mid z_0 & [\text{by hint}]\\[1em]
-            \begin{split}
-            \text{Let $\exists z_1 \in \mathbb{N}^+$}, z_0 = 5z_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5x_0^3 = 5^3 3z_1^3 - 50y_0^3 \\
-            &\Rightarrow x_0^3 = 5^2 \cdot 3z_1^3 - 10y_0^3 \Rightarrow 5 \mid x_0^3 \Rightarrow 5 \mid x_0
-            \end{split} & \text{[by hint]}\\[1em]
-            \begin{split}
-            \text{Let $\exists x_1 \in \mathbb{N}^+$}, x_0 = 5x_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 50y_0^3 = 5^3 3z_1^3 - 5^4x_1^3 \\
-            &\Rightarrow 2y_0^3 = 5^3 3z_1^3 - 5^2x_1^3 \Rightarrow 5 \mid y_0^3 \Rightarrow 5 \mid y_0
-            \end{split} & \text{[by hint]}\\[1em]
-            \begin{split}
-            \text{Let $\exists y_1 \in \mathbb{N}^+$}, y_0 = 5y_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5^3 5x_1^3 + 5^3 50y_1^3 = 5^3 3z_1^3 \\
-            &\Rightarrow 5x_1^3 + 50y_1^3 = 3z_1^3
-            \end{split}
-        \end{align*}
+    \begin{align*}
+        50x_0^3 + 50y_0^3 = 3z_0^3 &\Rightarrow 5 \mid 3z_0^3 \Rightarrow 5 \mid z_0 & [\text{by hint}]\\[1em]
+        \begin{split}
+        \text{Let $\exists z_1 \in \mathbb{N}^+$}, z_0 = 5z_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5x_0^3 = 5^3 3z_1^3 - 50y_0^3 \\
+        &\Rightarrow x_0^3 = 5^2 \cdot 3z_1^3 - 10y_0^3 \Rightarrow 5 \mid x_0^3 \Rightarrow 5 \mid x_0
+        \end{split} & \text{[by hint]}\\[1em]
+        \begin{split}
+        \text{Let $\exists x_1 \in \mathbb{N}^+$}, x_0 = 5x_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 50y_0^3 = 5^3 3z_1^3 - 5^4x_1^3 \\
+        &\Rightarrow 2y_0^3 = 5^3 3z_1^3 - 5^2x_1^3 \Rightarrow 5 \mid y_0^3 \Rightarrow 5 \mid y_0
+        \end{split} & \text{[by hint]}\\[1em]
+        \begin{split}
+        \text{Let $\exists y_1 \in \mathbb{N}^+$}, y_0 = 5y_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5^3 5x_1^3 + 5^3 50y_1^3 = 5^3 3z_1^3 \\
+        &\Rightarrow 5x_1^3 + 50y_1^3 = 3z_1^3 \Rightarrow x_1 \in X
+        \end{split}
+    \end{align*}
 
-        \end{mdframed}
+    \bigskip
 
-        \item Conclude that the assumption is false using contradiction.
-    \end{enumerate}
+    Then, since $x_1 < x_0$, $x_1 \in X$, but $x_0$ must be
+    the smallest number in $X$, this leads to contradiction.
 
-\end{mdframed}
+    \bigskip
+
+    Then, we can conclude the assumption is false.
+
+    \end{proof}
+
+\end{itemize}
+
+% \bigskip
+
+% \begin{mdframed}
+%     \underline{\textbf{Rough Work:}}
+
+%     \bigskip
+
+%     Given the statement to prove
+
+%     \bigskip
+
+%     \begin{center}
+%         $P(x,y,z):$ There are no positive integers $x,y,z$ such that $5x^3 + 50y^3 = 3z^3$
+%     \end{center}
+
+%     \bigskip
+
+%     We will prove $P(x,y,z)$ using proof by contradiction.
+
+%     \bigskip
+
+%     Assume $\exists x,y,z \in \mathbb{N}^+, 5x^3 + 50y^3 = 3z^3$.
+
+%     \begin{enumerate}[1.]
+%         \item Show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+%         satisfying $5x^3 + 50y^3 = 3z^3$, using well-ordering principle
+
+%         \begin{mdframed}
+%         Then, we can write that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists
+%         y,z \in \mathbb{N}^+,\:5x^3 + 50y^3 = 3z^3\}$ is not empty.
+
+%         \bigskip
+
+%         Then, using the well-ordering principle, we can write there is the smallest
+%         positive integer $x_0 \in X$, and $y_0,z_0 \in \mathbb{N}^+$ such that
+%         $5x_0^3 + 50y_0^3 = 3z_0^3$.
+%         \end{mdframed}
+
+%         \item Show $5x_1^3 + 50y_1^3 = 3z_1^3$ is satisfied given $x_0 > x_1$.
+
+%         \begin{mdframed}
+%         Then,
+
+%         \begin{align*}
+%             50x_0^3 + 50y_0^3 = 3z_0^3 &\Rightarrow 5 \mid 3z_0^3 \Rightarrow 5 \mid z_0 & [\text{by hint}]\\[1em]
+%             \begin{split}
+%             \text{Let $\exists z_1 \in \mathbb{N}^+$}, z_0 = 5z_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5x_0^3 = 5^3 3z_1^3 - 50y_0^3 \\
+%             &\Rightarrow x_0^3 = 5^2 \cdot 3z_1^3 - 10y_0^3 \Rightarrow 5 \mid x_0^3 \Rightarrow 5 \mid x_0
+%             \end{split} & \text{[by hint]}\\[1em]
+%             \begin{split}
+%             \text{Let $\exists x_1 \in \mathbb{N}^+$}, x_0 = 5x_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 50y_0^3 = 5^3 3z_1^3 - 5^4x_1^3 \\
+%             &\Rightarrow 2y_0^3 = 5^3 3z_1^3 - 5^2x_1^3 \Rightarrow 5 \mid y_0^3 \Rightarrow 5 \mid y_0
+%             \end{split} & \text{[by hint]}\\[1em]
+%             \begin{split}
+%             \text{Let $\exists y_1 \in \mathbb{N}^+$}, y_0 = 5y_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5^3 5x_1^3 + 5^3 50y_1^3 = 5^3 3z_1^3 \\
+%             &\Rightarrow 5x_1^3 + 50y_1^3 = 3z_1^3 \Rightarrow x_1 \in X
+%             \end{split}
+%         \end{align*}
+
+%         \end{mdframed}
+
+%         \item Conclude that the assumption is false using contradiction.
+
+%         \begin{mdframed}
+%         Then, since $x_1 < x_0$, $x_1 \in X$, but $x_0$ must be
+%         the smallest number in $X$, this leads to contradiction.
+
+%         \bigskip
+
+%         Then, we can conclude the assumption is false.
+%         \end{mdframed}
+%     \end{enumerate}
+
+% \end{mdframed}
 
 \section*{Question 4}
 
