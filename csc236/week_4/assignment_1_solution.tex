@@ -1500,26 +1500,48 @@
 
 \bigskip
 
-\underline{\textbf{Notes:}}
+\begin{mdframed}
+    \underline{\textbf{Rough Work:}}
 
-\begin{itemize}
-    \item \textbf{Well-Ordering Principle:}
+    \bigskip
 
-    \begin{itemize}
-        \item means `every non-empty subset of natural numbers contains a least element'
-        \item examples of well-ordered sets
-        \begin{enumerate}[1.]
-            \item $\mathbb{N} \cup \{0\}$
-            \item $\mathbb{N} \cup \{1,2\}$
-            \item $\{n \in \mathbb{N}: n > 5\}$
-        \end{enumerate}
-        \item examples of non-well-ordered sets
-        \begin{enumerate}[1.]
-            \item $\mathbb{R}$ and the open interval $(0,2)$
-            \item $\mathbb{Z}$
-        \end{enumerate}
-    \end{itemize}
-\end{itemize}
+    Given the statement to prove
+
+    \bigskip
+
+    \begin{center}
+        $P(x,y,z):$ There are no positive integers $x,y,z$ such that $5x^3 + 50y^3 = 3z^3$
+    \end{center}
+
+    \bigskip
+
+    We will prove $P(x,y,z)$ using proof by contradiction.
+
+    \bigskip
+
+    Assume $\exists x,y,z \in \mathbb{N}^+, 5x^3 + 50y^3 = 3z^3$.
+
+    \begin{enumerate}[1.]
+        \item Show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+        satisfying $5x^3 + 50y^3 = 3z^3$, using well-ordering principle
+
+        \begin{mdframed}
+        Then, we can write that the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists
+        y,z \in \mathbb{N}^+,\:5x^3 + 50y^3 = 3z^3\}$ is not empty.
+
+        \bigskip
+
+        Then, using the well-ordering principle, we can write there is the smallest
+        positive integer $x_0 \in X$, and $y_0,z_0 \in \mathbb{N}^+$ such that
+        $5x_0^3 + 50y_0^3 = 3z_0^3$.
+        \end{mdframed}
+
+        \item Show $5x_1^3 + 50y_1^3 = 3z_1^3$ is satisfied given $x_0 > x_1$.
+
+        \item Conclude that the assumption is false using contradiction.
+    \end{enumerate}
+
+\end{mdframed}
 
 \section*{Question 4}
 
