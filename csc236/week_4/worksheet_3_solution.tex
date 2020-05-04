@@ -51,6 +51,52 @@
 
 \bigskip
 
+\begin{itemize}
+    \item
+    Given the statement to prove
+
+    \bigskip
+
+    \begin{center}
+        $P(x,y,z):$ There are no positive integers $x,y,z$ such that $x^3 + 3y^3 = 9z^3$
+    \end{center}
+
+    \bigskip
+
+    \begin{proof}
+
+        We will prove $P(x,y,z)$ using proof by contradiction.
+
+        \bigskip
+
+        Assume $\exists x,y,z \in \mathbb{N}^{+}$, $x^3 + 3y^3 = 9z^3$.
+
+        \bigskip
+
+        First, we need to show there is smallest element $x_0 \in X$ with $y_0,z_0 \in \mathbb{N}^+$
+        satisfying $x^3 + 3y^3 = 9z^3$, using well-ordering principle.
+
+        \bigskip
+
+        The header tells us there are elements $x,y,z \in \mathbb{N}^+$, satisfying
+        $x^3 + 3y^3 = 9z^3$.
+
+        \bigskip
+
+        Then, we can write the set $X = \{x \mid x \in \mathbb{N}^+,\:\exists y,z \in
+        \mathbb{N}^+,\:x^3 + 3y^3 = 9z^3\}$ is not empty.
+
+        \bigskip
+
+        Then, using principle of well-ordering, we can write that there is smallest
+        positive natural number $x_0 \in X$ along with $y_0,z_0 \in \mathbb{N}^+$ satisfying
+        $x^3 + 3y^3 = 9z^3$.
+
+        \bigskip
+
+    \end{proof}
+\end{itemize}
+
 \begin{mdframed}
     \underline{\textbf{Rough Work:}}
 
@@ -71,7 +117,7 @@
 
     \bigskip
 
-    I will prove $P(x,y,z)$ using proof by contradiction.
+    We will prove $P(x,y,z)$ using proof by contradiction.
 
     \bigskip
 
@@ -114,7 +160,7 @@
 
         \bigskip
 
-        Second, we need to show that $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given
+        Second, we need to show $x_1^3 = 9z_1^3 - 3y_1^3$ is satisfied, given
         $x_0 > x_1$.
 
         \bigskip
@@ -132,7 +178,7 @@
 
             \bigskip
 
-            The assumption tells us
+            We know that
 
             \begin{align}
                 x_0^3 + 3y_0^3 &= 9z_0^3\\
@@ -141,7 +187,7 @@
 
             \bigskip
 
-            Since $3 \mid 9z_0^3 - 3y_0^3$, we can write that $3 \mid x_0^3$.
+            Since $3 \mid 9z_0^3 - 3y_0^3$, we can write $3 \mid x_0^3$.
 
             \bigskip
 
@@ -162,7 +208,7 @@
 
             \bigskip
 
-            The assumption tells us
+            We know that
 
             \begin{align}
                 x_0^3 + 3y_0^3 &= 9z_0^3\\
@@ -171,7 +217,7 @@
 
             \bigskip
 
-            Then, using the fact from part 1 that $x_0 = 3 \cdot x_1$, we can calculate
+            Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, we can calculate
 
             \begin{align}
                 3y_0^3 &= 9z_0^3 - 3^3x_1^3\\
@@ -194,9 +240,69 @@
 
             \end{mdframed}
 
-
             \item Third, show that $z_0 = 3 \cdot z_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3 =  9z_0^3 - 3^4y_1^3$
+
+            \begin{mdframed}
+            \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
+
+            \bigskip
+
+            We know that
+
+            \begin{align}
+                9z_0^3 &= x_0^3 + 3y_0^3
+            \end{align}
+
+            \bigskip
+
+            Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
+            $y_0 = 3 \cdot y_1$ from part 2, we can calculate
+
+            \begin{align}
+                9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
+                z_0^3 &= 3x_1^3 + 3^2y_1^3
+            \end{align}
+
+            \bigskip
+
+            Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
+
+            \bigskip
+
+            Then, since 3 is a prime number, by using the hint provided in question 3
+            of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
+
+            \bigskip
+
+            Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
+            $z_1 \in \mathbb{N}^+$.
+
+            \end{mdframed}
+
             \item Finally, show $x_1^3 = 9z_1^3 - 3y_1^3$
+
+            \begin{mdframed}
+            \underline{\textbf{Part 4 (Showing $x_1^3 = 9z_1^3 - 3y_1^3$):}}
+
+            \bigskip
+
+            We know that
+
+            \begin{align}
+                9z_0^3 &= x_0^3 + 3y_0^3
+            \end{align}
+
+            \bigskip
+
+            Then, using the fact $x_0 = 3 \cdot x_1$ from part 1,
+            $y_0 = 3 \cdot y_1$ from part 2, and $z_0 = 3 \cdot z_1$ we can calculate
+
+            \begin{align}
+                3^5z_1^3 &= 3^3x_1^3 + 3^4y_1^3\\
+                3^2z_1^3 &= x_1^3 + 3y_1^3
+            \end{align}
+
+            \end{mdframed}
         \end{itemize}
 
         \bigskip
@@ -211,6 +317,125 @@
 
         \bigskip
 
+        \underline{\textbf{Part 1 (Showing $x_0 = 3 \cdot x_1$):}}
+
+        \bigskip
+
+        We know that
+
+        \begin{align}
+            x_0^3 + 3y_0^3 &= 9z_0^3\\
+            x_0^3 &= 9z_0^3 - 3y_0^3
+        \end{align}
+
+        \bigskip
+
+        Since $3 \mid 9z_0^3 - 3y_0^3$, we can write $3 \mid x_0^3$.
+
+        \bigskip
+
+        Then, since 3 is a prime number, by using the hint provided in question 3
+        of assignment 1, we can write there is $x_1 \in \mathbb{Z}$, $x_0 = 3 \cdot x_1$.
+
+        \bigskip
+
+        Then, because we know $x_0, 3 \in \mathbb{N}^+$, we can conclude
+        $x_1 \in \mathbb{N}^+$.
+
+        \bigskip
+
+        \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
+
+        \bigskip
+
+        We know that
+
+        \begin{align}
+            9z_0^3 &= x_0^3 + 3y_0^3
+        \end{align}
+
+        \bigskip
+
+        Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
+        $y_0 = 3 \cdot y_1$ from part 2, we can calculate
+
+        \begin{align}
+            9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
+            z_0^3 &= 3x_1^3 + 3^2y_1^3
+        \end{align}
+
+        \bigskip
+
+        Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
+
+        \bigskip
+
+        Then, since 3 is a prime number, by using the hint provided in question 3
+        of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
+
+        \bigskip
+
+        Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
+        $z_1 \in \mathbb{N}^+$.
+
+        \bigskip
+
+        \underline{\textbf{Part 3 (Showing $z_0 = 3 \cdot z_1$):}}
+
+        \bigskip
+
+        We know that
+
+        \begin{align}
+            9z_0^3 &= x_0^3 + 3y_0^3
+        \end{align}
+
+        \bigskip
+
+        Then, using the fact $x_0 = 3 \cdot x_1$ from part 1, and
+        $y_0 = 3 \cdot y_1$ from part 2, we can calculate
+
+        \begin{align}
+            9z_0^3 &= 3^3x_1^3 + 3^4y_1^3\\
+            z_0^3 &= 3x_1^3 + 3^2y_1^3
+        \end{align}
+
+        \bigskip
+
+        Since $3 \mid 3x_1^3 + 3^2y_1^3$, we can write that $3 \mid z_0^3$.
+
+        \bigskip
+
+        Then, since 3 is a prime number, by using the hint provided in question 3
+        of assignment 1, we can write there is $z_1 \in \mathbb{Z}$, $z_0 = 3 \cdot z_1$.
+
+        \bigskip
+
+        Then, because we know $z_0, 3 \in \mathbb{N}^+$, we can conclude
+        $z_1 \in \mathbb{N}^+$.
+
+        \bigskip
+
+        \underline{\textbf{Part 4 (Showing $x_1^3 = 9z_1^3 - 3y_1^3$):}}
+
+        \bigskip
+
+        We know that
+
+        \begin{align}
+            9z_0^3 &= x_0^3 + 3y_0^3
+        \end{align}
+
+        \bigskip
+
+        Then, using the fact $x_0 = 3 \cdot x_1$ from part 1,
+        $y_0 = 3 \cdot y_1$ from part 2, and $z_0 = 3 \cdot z_1$ we can calculate
+
+        \begin{align}
+            3^5z_1^3 &= 3^3x_1^3 + 3^4y_1^3\\
+            3^2z_1^3 &= x_1^3 + 3y_1^3\\
+            9z_1^3 &= x_1^3 + 3y_1^3
+        \end{align}
 
         \end{mdframed}
 
@@ -218,7 +443,23 @@
         non-negative value satisfying $x^3 + 3y^3 = 9z^3$.
 
         \begin{mdframed}
+        Finally, the part 4 tells us
 
+        \begin{align}
+            9z_1^3 &= x_1^3 + 3y_1^3
+        \end{align}
+
+        where $x_1 < x_0$.
+
+        \bigskip
+
+        Then, because we know $x_0$ is the smallest
+        number satisfying $x^3 + 3y^3 = 9z^3$, we can conclude above leads to
+        contradiction.
+
+        \bigskip
+
+        Then, we can conclude the the assumption is false.
         \end{mdframed}
     \end{enumerate}
 
