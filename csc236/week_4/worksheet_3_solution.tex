@@ -126,7 +126,75 @@
         \begin{itemize}
             \item First, show that $x_0 = 3 \cdot x_1$, using $x_0^3 + 3y_0^3 = 9z_0^3$ and the
             fact if a prime number $p$ divides a perfect cube $n^3$, then $p$ also divides $n$.
+
+            \begin{mdframed}
+            \underline{\textbf{Part 1 (Showing $x_0 = 3 \cdot x_1$):}}
+
+            \bigskip
+
+            The assumption tells us
+
+            \begin{align}
+                x_0^3 + 3y_0^3 &= 9z_0^3\\
+                x_0^3 &= 9z_0^3 - 3y_0^3
+            \end{align}
+
+            \bigskip
+
+            Since $3 \mid 9z_0^3 - 3y_0^3$, we can write that $3 \mid x_0^3$.
+
+            \bigskip
+
+            Then, since 3 is a prime number, by using the hint provided in question 3
+            of assignment 1, we can write there is $x_1 \in \mathbb{Z}$, $x_0 = 3 \cdot x_1$.
+
+            \bigskip
+
+            Then, because we know $x_0, 3 \in \mathbb{N}^+$, we can conclude
+            $x_1 \in \mathbb{N}^+$.
+
+            \end{mdframed}
+
             \item Second, show that $y_0 = 3 \cdot y_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3$
+
+            \begin{mdframed}
+            \underline{\textbf{Part 2 (Showing $y_0 = 3 \cdot y_1$):}}
+
+            \bigskip
+
+            The assumption tells us
+
+            \begin{align}
+                x_0^3 + 3y_0^3 &= 9z_0^3\\
+                3y_0^3 &= 9z_0^3 - x_0^3
+            \end{align}
+
+            \bigskip
+
+            Then, using the fact from part 1 that $x_0 = 3 \cdot x_1$, we can calculate
+
+            \begin{align}
+                3y_0^3 &= 9z_0^3 - 3^3x_1^3\\
+                y_0^3 &= 3z_0^3 - 3^2x_1^3
+            \end{align}
+
+            \bigskip
+
+            Since $3 \mid 3z_0^3 - 3^2x_1^3$, we can write that $3 \mid y_0^3$.
+
+            \bigskip
+
+            Then, since 3 is a prime number, by using the hint provided in question 3
+            of assignment 1, we can write there is $y_1 \in \mathbb{Z}$, $y_0 = 3 \cdot y_1$.
+
+            \bigskip
+
+            Then, because we know $y_0, 3 \in \mathbb{N}^+$, we can conclude
+            $y_1 \in \mathbb{N}^+$.
+
+            \end{mdframed}
+
+
             \item Third, show that $z_0 = 3 \cdot z_1$, using $x_0^3 = 3^3 x_1^3 = 9z_0^3 - 3y_0^3 =  9z_0^3 - 3^4y_1^3$
             \item Finally, show $x_1^3 = 9z_1^3 - 3y_1^3$
         \end{itemize}
@@ -140,6 +208,10 @@
         \bigskip
 
         We will do so in parts.
+
+        \bigskip
+
+
         \end{mdframed}
 
         \item Conclude that this contracts the original claim that $x_0$ is the smallest
