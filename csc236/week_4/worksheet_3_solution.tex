@@ -923,62 +923,183 @@
 \begin{itemize}
     \item
 
+    Define the set of non-empty full binary trees, $\mathcal{T}$, as the
+    smallest set such that:
+
+    \begin{enumerate}[a.]
+        \item Any single node is an element of $\mathcal{T}$
+        \item If $t_1,t_2 \in \mathcal{T}$, $n$ is a node that belongs to neither
+        $t_1$ nor $t_2$, and $t_1,t_2$ have no nodes in common, then $n$
+        together with edges to the $\textbf{root nodes}$ $t_1$ and $t_2$ is
+        also an element of $\mathcal{T}$.
+
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/worksheet_3_q3_note.png}
+        \end{center}
+
+        \end{enumerate}
+
+    Prove $P(t):$ $\textbf{leaf}(t) = \textbf{internal}(t) + 1$
+
     \bigskip
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+    \begin{proof}
+    \underline{\textbf{Basis:}}
 
-        \bigskip
+    \bigskip
 
-        Define the set of non-empty full binary trees, $\mathcal{T}$, as the
-        smallest set such that:
+    There is one case, where $t$ is the binary tree with one node. In
+    this case, the node is leaf node. So, $\textbf{leaf}(t) = 1$.
+    So, $P(t)$ holds for the case.
 
-        \begin{enumerate}[a.]
-            \item Any single node is an element of $\mathcal{T}$
-            \item If $t_1,t_2 \in \mathcal{T}$, $n$ is a node that belongs to neither
-            $t_1$ nor $t_2$, and $t_1,t_2$ have no nodes in common, then $n$
-            together with edges to the $\textbf{root nodes}$ $t_1$ and $t_2$ is
-            also an element of $\mathcal{T}$.
+    \bigskip
+
+    \underline{\textbf{Inductive Step:}}
+
+    \bigskip
+
+    Let $t_1$ and $t_2$ be arbitrary element of $\mathcal{T}$. Assume
+    $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ have
+    the property $\textbf{leaf}(t_1) = \textbf{internal}(t_1) + 1$
+    and $\textbf{leaf}(t_2) = \textbf{internal}(t_2) + 1$.
+    Let $n$ be a node that belongs to neither $t_1$ nor $t_2$. Assume
+    $t_1$ and $t_2$ have no nodes in common. Let $t$ be $n$ together with
+    edges to the root node of $t_1$ and $t_2$.
+
+    \bigskip
+
+    We need to show $P(t)$ follows. That is, $\textbf{leaf}(t) =
+    \textbf{internal}(t) + 1$.
+
+    \bigskip
+
+    In this case, we have
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \textbf{internal}(t) &= \textbf{internal}(t_1) + \textbf{internal}(t_2) + 1\\
+        \textbf{leaf}(t) &= \textbf{leaf}(t_1) + \textbf{leaf}(t_2)
+    \end{align}
+
+    \bigskip
+
+    Thus,
+
+    \begin{align}
+        \textbf{leaf}(t) &= \textbf{leaf}(t_1) + \textbf{leaf}(t_2) & [\text{by 2}]\\
+        &= \textbf{internal}(t_1) + 1 + \textbf{internal}(t_2) + 1 & [\text{by I.H}]\\
+        &= (\textbf{internal}(t_1) + \textbf{internal}(t_2) + 1) + 1 \\
+        &= \textbf{internal}(t) + 1 & [\text{by 1}]
+    \end{align}
+
+    \bigskip
+
+    So, $P(t)$ follows.
+
+    \end{proof}
+
+    % \bigskip
+
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
+
+    %     \bigskip
+
+    %     Define the set of non-empty full binary trees, $\mathcal{T}$, as the
+    %     smallest set such that:
+
+    %     \begin{enumerate}[a.]
+    %         \item Any single node is an element of $\mathcal{T}$
+    %         \item If $t_1,t_2 \in \mathcal{T}$, $n$ is a node that belongs to neither
+    %         $t_1$ nor $t_2$, and $t_1,t_2$ have no nodes in common, then $n$
+    %         together with edges to the $\textbf{root nodes}$ $t_1$ and $t_2$ is
+    %         also an element of $\mathcal{T}$.
 
 
-            \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/worksheet_3_q3_note.png}
-            \end{center}
+    %         \begin{center}
+    %         \includegraphics[width=0.8\linewidth]{images/worksheet_3_q3_note.png}
+    %         \end{center}
 
-         \end{enumerate}
+    %      \end{enumerate}
 
-        Prove $P(t):$ $\textbf{leaf\_node}(t) = \textbf{internal\_node}(t) + 1$
+    %     Prove $P(t):$ $\textbf{leaf}(t) = \textbf{internal}(t) + 1$
 
-        \begin{enumerate}[1.]
-            \item Basis
+    %     \begin{enumerate}[1.]
+    %         \item Basis
 
-            \begin{mdframed}
-            There is one case, where $t$ is the binary tree with one node. In
-            this case, the node is leaf node. So, $\textbf{leaf\_node}(t) = 1$.
-            So, $P(t)$ holds for the case.
-            \end{mdframed}
+    %         \begin{mdframed}
+    %         \underline{\textbf{Basis:}}
 
-            \item Inductive Step
+    %         \bigskip
 
-            \bigskip
+    %         There is one case, where $t$ is the binary tree with one node. In
+    %         this case, the node is leaf node. So, $\textbf{leaf}(t) = 1$.
+    %         So, $P(t)$ holds for the case.
+    %         \end{mdframed}
 
-            Let $t_1$ and $t_2$ be arbitrary element of $\mathcal{T}$. Assume
-            $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ have
-            the property $\textbf{leaf\_node}(t_1) = \textbf{internal\_node}(t_1) + 1$
-            and $\textbf{leaf\_node}(t_2) = \textbf{internal\_node}(t_2) + 1$.
-            Let $n$ be a node that belongs to neither $t_1$ nor $t_2$. Assume
-            $t_1$ and $t_2$ have no nodes in common.
+    %         \item Inductive Step
 
-            \bigskip
+    %         \bigskip
 
-            We need to show $P(t)$ follows. That is, $\textbf{leaf\_node}(t) =
-            \textbf{internal\_node}(t) + 1$.
+    %         Let $t_1$ and $t_2$ be arbitrary element of $\mathcal{T}$. Assume
+    %         $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ have
+    %         the property $\textbf{leaf}(t_1) = \textbf{internal}(t_1) + 1$
+    %         and $\textbf{leaf}(t_2) = \textbf{internal}(t_2) + 1$.
+    %         Let $n$ be a node that belongs to neither $t_1$ nor $t_2$. Assume
+    %         $t_1$ and $t_2$ have no nodes in common. Let $t$ be $n$ together with
+    %         edges to the root node of $t_1$ and $t_2$.
 
-            \begin{enumerate}[1.]
-                \item a
-            \end{enumerate}
-        \end{enumerate}
-    \end{mdframed}
+    %         \bigskip
+
+    %         We need to show $P(t)$ follows. That is, $\textbf{leaf}(t) =
+    %         \textbf{internal}(t) + 1$.
+
+    %         \begin{mdframed}
+    %         \underline{\textbf{Inductive Step:}}
+
+    %         \bigskip
+
+    %         Let $t_1$ and $t_2$ be arbitrary element of $\mathcal{T}$. Assume
+    %         $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ have
+    %         the property $\textbf{leaf}(t_1) = \textbf{internal}(t_1) + 1$
+    %         and $\textbf{leaf}(t_2) = \textbf{internal}(t_2) + 1$.
+    %         Let $n$ be a node that belongs to neither $t_1$ nor $t_2$. Assume
+    %         $t_1$ and $t_2$ have no nodes in common. Let $t$ be $n$ together with
+    %         edges to the root node of $t_1$ and $t_2$.
+
+    %         \bigskip
+
+    %         We need to show $P(t)$ follows. That is, $\textbf{leaf}(t) =
+    %         \textbf{internal}(t) + 1$.
+
+    %         \bigskip
+
+    %         In this case, we have
+
+    %         \setcounter{equation}{0}
+    %         \begin{align}
+    %             \textbf{internal}(t) &= \textbf{internal}(t_1) + \textbf{internal}(t_2) + 1\\
+    %             \textbf{leaf}(t) &= \textbf{leaf}(t_1) + \textbf{leaf}(t_2)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Thus,
+
+    %         \begin{align}
+    %             \textbf{leaf}(t) &= \textbf{leaf}(t_1) + \textbf{leaf}(t_2) & [\text{by 2}]\\
+    %             &= \textbf{internal}(t_1) + 1 + \textbf{internal}(t_2) + 1 & [\text{by I.H}]\\
+    %             &= (\textbf{internal}(t_1) + \textbf{internal}(t_2) + 1) + 1 \\
+    %             &= \textbf{internal}(t) + 1 & [\text{by 1}]
+    %         \end{align}
+
+    %         \bigskip
+
+    %         So, $P(t)$ follows.
+    %         \end{mdframed}
+    %     \end{enumerate}
+    % \end{mdframed}
 \end{itemize}
 
 \end{document}
