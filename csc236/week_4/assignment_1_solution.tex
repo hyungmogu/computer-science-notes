@@ -1637,20 +1637,48 @@
 \bigskip
 
 \begin{mdframed}
-    \underline{\textbf{Rough Work:}}
+\underline{\textbf{Rough Work:}}
+
+\bigskip
+
+Define $\mathcal{T}$ as the smallest set of strings that satisfies:
+
+\begin{itemize}
+    \item $``*'' \in \mathcal{T}$
+    \item $t_1, t_2 \in \mathcal{T}$ then their parenthesized concatenation $(t_1t_2) \in \mathcal{T}$.
+\end{itemize}
+
+\bigskip
+
+Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item Basis
+
+    \begin{mdframed}
+    Let $t = ``*'' \in \mathcal{T}$.
 
     \bigskip
 
-    Define $\mathcal{T}$ as the smallest set of strings that satisfies:
-
-    \begin{enumerate}[1.]
-        \item $\textbf{``*''} \in  \mathcal{T}$
-        \item $t_1, t_2 \in \mathcal{T}$ then their parenthesized concatenation $(t_1t_2) \in \mathcal{T}$.
-    \end{enumerate}
+    Then, the code tells us $\text{left\_count}(t) = 0$, and $\text{max\_left\_surplus}(t) = 0$.
 
     \bigskip
 
-    Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$
+    Then, we can conclude
+
+    \begin{align}
+        \text{left\_count}(t) = 0 &\leq 0\\
+        &\leq 1 - 1\\
+        &\leq 2^{0} - 1\\
+        &\leq 2^{\text{max\_left\_surplus}(t)} - 1\\
+    \end{align}
+
+    \end{mdframed}
+
+    \item Inductive Step
+\end{enumerate}
 \end{mdframed}
 
 \end{document}
