@@ -1538,6 +1538,27 @@
 
         \item Show $5x_1^3 + 50y_1^3 = 3z_1^3$ is satisfied given $x_0 > x_1$.
 
+        \begin{mdframed}
+        Then,
+
+        \begin{align*}
+            50x_0^3 + 50y_0^3 = 3z_0^3 &\Rightarrow 5 \mid 3z_0^3 \Rightarrow 5 \mid z_0 & [\text{by hint}]\\[1em]
+            \begin{split}
+            \text{Let $\exists z_1 \in \mathbb{N}^+$}, z_0 = 5z_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5x_0^3 = 5^3 3z_1^3 - 50y_0^3 \\
+            &\Rightarrow x_0^3 = 5^2 \cdot 3z_1^3 - 10y_0^3 \Rightarrow 5 \mid x_0^3 \Rightarrow 5 \mid x_0
+            \end{split} & \text{[by hint]}\\[1em]
+            \begin{split}
+            \text{Let $\exists x_1 \in \mathbb{N}^+$}, x_0 = 5x_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 50y_0^3 = 5^3 3z_1^3 - 5^4x_1^3 \\
+            &\Rightarrow 2y_0^3 = 5^3 3z_1^3 - 5^2x_1^3 \Rightarrow 5 \mid y_0^3 \Rightarrow 5 \mid y_0
+            \end{split} & \text{[by hint]}\\[1em]
+            \begin{split}
+            \text{Let $\exists y_1 \in \mathbb{N}^+$}, y_0 = 5y_1 &\Rightarrow 5x_0^3 + 50y_0^3 = 3z_0^3 \Rightarrow 5^3 5x_1^3 + 5^3 50y_1^3 = 5^3 3z_1^3 \\
+            &\Rightarrow 5x_1^3 + 50y_1^3 = 3z_1^3
+            \end{split}
+        \end{align*}
+
+        \end{mdframed}
+
         \item Conclude that the assumption is false using contradiction.
     \end{enumerate}
 
