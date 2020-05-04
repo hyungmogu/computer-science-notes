@@ -1667,7 +1667,7 @@ Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_lef
     \bigskip
 
     Then, we can conclude
-
+    \setcounter{equation}{0}
     \begin{align}
         \text{left\_count}(t) = 0 &\leq 0\\
         &\leq 1 - 1\\
@@ -1678,6 +1678,23 @@ Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_lef
     \end{mdframed}
 
     \item Inductive Step
+
+    \begin{mdframed}
+    Let $t_1$ and $t_2$ be arbitrary string of $\mathcal{T}$. Assume $H(t_1,t_2):$
+    $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ satisfies the property
+    $\text{left\_count}(t_1) \leq 2^{\text{max\_left\_surplus}(t_1)}-1$ and
+    $\text{left\_count}(t_2) \leq 2^{\text{max\_left\_surplus}(t_2)}-1$, respectively.
+
+    \bigskip
+
+    Let $(t_1t_2)$ be the parenthesized concatenation of $t_1,t_2$. Assume
+    $(t_1t_2) \in \mathcal{T}$.
+
+    \bigskip
+
+    We need to show $P(t)$ follows. That is, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$.
+
+    \end{mdframed}
 \end{enumerate}
 \end{mdframed}
 
