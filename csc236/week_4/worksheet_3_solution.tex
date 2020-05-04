@@ -939,6 +939,12 @@
             $t_1$ nor $t_2$, and $t_1,t_2$ have no nodes in common, then $n$
             together with edges to the $\textbf{root nodes}$ $t_1$ and $t_2$ is
             also an element of $\mathcal{T}$.
+
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/worksheet_3_q3_note.png}
+            \end{center}
+
          \end{enumerate}
 
         Prove $P(t):$ $\textbf{leaf\_node}(t) = \textbf{internal\_node}(t) + 1$
@@ -954,9 +960,23 @@
 
             \item Inductive Step
 
-            \begin{mdframed}
+            \bigskip
 
-            \end{mdframed}
+            Let $t_1$ and $t_2$ be arbitrary element of $\mathcal{T}$. Assume
+            $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ have
+            the property $\textbf{leaf\_node}(t_1) = \textbf{internal\_node}(t_1) + 1$
+            and $\textbf{leaf\_node}(t_2) = \textbf{internal\_node}(t_2) + 1$.
+            Let $n$ be a node that belongs to neither $t_1$ nor $t_2$. Assume
+            $t_1$ and $t_2$ have no nodes in common.
+
+            \bigskip
+
+            We need to show $P(t)$ follows. That is, $\textbf{leaf\_node}(t) =
+            \textbf{internal\_node}(t) + 1$.
+
+            \begin{enumerate}[1.]
+                \item a
+            \end{enumerate}
         \end{enumerate}
     \end{mdframed}
 \end{itemize}
