@@ -1636,28 +1636,27 @@
 
 \bigskip
 
-\begin{mdframed}
-\underline{\textbf{Rough Work:}}
-
-\bigskip
-
-Define $\mathcal{T}$ as the smallest set of strings that satisfies:
-
 \begin{itemize}
-    \item $``*'' \in \mathcal{T}$
-    \item $t_1, t_2 \in \mathcal{T}$ then their parenthesized concatenation $(t_1t_2) \in \mathcal{T}$.
-\end{itemize}
+    \item
 
-\bigskip
+    Define $\mathcal{T}$ as the smallest set of strings that satisfies:
 
-Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$
+    \begin{itemize}
+        \item $``*'' \in \mathcal{T}$
+        \item $t_1, t_2 \in \mathcal{T}$ then their parenthesized concatenation $(t_1t_2) \in \mathcal{T}$.
+    \end{itemize}
 
-\bigskip
+    \bigskip
 
-\begin{enumerate}[1.]
-    \item Basis
+    Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$
 
-    \begin{mdframed}
+    \bigskip
+
+    \begin{proof}
+    \underline{\textbf{Basis:}}
+
+    \bigskip
+
     Let $t = ``*'' \in \mathcal{T}$.
 
     \bigskip
@@ -1675,11 +1674,12 @@ Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_lef
         &\leq 2^{\text{max\_left\_surplus}(t)} - 1\\
     \end{align}
 
-    \end{mdframed}
+    \bigskip
 
-    \item Inductive Step
+    \underline{\textbf{Inductive Step:}}
 
-    \begin{mdframed}
+    \bigskip
+
     Let $t_1$ and $t_2$ be arbitrary string of $\mathcal{T}$. Assume $H(t_1,t_2):$
     $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ satisfies the property
     $\text{left\_count}(t_1) \leq 2^{\text{max\_left\_surplus}(t_1)}-1$ and
@@ -1687,15 +1687,137 @@ Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_lef
 
     \bigskip
 
-    Let $(t_1t_2)$ be the parenthesized concatenation of $t_1,t_2$. Assume
-    $(t_1t_2) \in \mathcal{T}$.
+    Let $(t_1t_2) \in \mathcal{T}$ be the parenthesized concatenation of $t_1,t_2 \in \mathcal{T}$.
 
     \bigskip
 
-    We need to show $P(t)$ follows. That is, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$.
+    We need to prove $P((t_1t_2))$ follows. That is, $\text{left\_count}((t_1t_2))
+    \leq 2^{\text{max\_left\_surplus}((t_1t_2))}-1$.
 
-    \end{mdframed}
-\end{enumerate}
-\end{mdframed}
+    \bigskip
+
+    The code tells us
+
+    \begin{align}
+        \text{left\_count}((t_1t_2)) = \text{left\_count}(t_1) + \text{left\_count}(t_2) + 1
+    \end{align}
+
+    Then, using this fact, we have
+
+    \begin{align}
+        \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_1) + \text{left\_count}(t_2) + 1\\
+        &\leq 2^{\text{max\_left\_surplus}(t_1)}-1 + 2^{\text{max\_left\_surplus}(t_2)} - 1 + 1 & [\text{By I.H}]\\
+        &\leq 2^{\text{max\_left\_surplus}(t_1)} + 2^{\text{max\_left\_surplus}(t_2)} - 1\\
+        &\leq 2^{\text{max\_left\_surplus}(t_1)} + 2^{\text{max\_left\_surplus}(t_2)} - 1\\
+        &\leq 2^{\text{max\_left\_surplus}(t_1)} + 2^{\text{max\_left\_surplus}(t_2)} - 1\\
+        &\leq 2 \cdot 2^{max(\text{max\_left\_surplus}(t_1),\text{max\_left\_surplus}(t_2))} - 1\\
+        &\leq 2^{max(\text{max\_left\_surplus}(t_1),\text{max\_left\_surplus}(t_2)) + 1} - 1\\
+        &\leq 2^{\text{max\_left\_surplus}((t_1t_2))} - 1 & [\text{By hint}]\\
+    \end{align}
+
+    \bigskip
+
+    Thus, $P((t_1t_2))$ follows.
+
+    \end{proof}
+
+\end{itemize}
+
+% \bigskip
+
+% \begin{mdframed}
+% \underline{\textbf{Rough Work:}}
+
+% \bigskip
+
+% Define $\mathcal{T}$ as the smallest set of strings that satisfies:
+
+% \begin{itemize}
+%     \item $``*'' \in \mathcal{T}$
+%     \item $t_1, t_2 \in \mathcal{T}$ then their parenthesized concatenation $(t_1t_2) \in \mathcal{T}$.
+% \end{itemize}
+
+% \bigskip
+
+% Prove $\forall t \in \mathcal{T}$, $\text{left\_count}(t) \leq 2^{\text{max\_left\_surplus}(t)}-1$
+
+% \bigskip
+
+% \begin{enumerate}[1.]
+%     \item Basis
+
+%     \begin{mdframed}
+%     \underline{\textbf{Basis:}}
+
+%     \bigskip
+
+%     Let $t = ``*'' \in \mathcal{T}$.
+
+%     \bigskip
+
+%     Then, the code tells us $\text{left\_count}(t) = 0$, and $\text{max\_left\_surplus}(t) = 0$.
+
+%     \bigskip
+
+%     Then, we can conclude
+%     \setcounter{equation}{0}
+%     \begin{align}
+%         \text{left\_count}(t) = 0 &\leq 0\\
+%         &\leq 1 - 1\\
+%         &\leq 2^{0} - 1\\
+%         &\leq 2^{\text{max\_left\_surplus}(t)} - 1\\
+%     \end{align}
+
+%     \end{mdframed}
+
+%     \item Inductive Step
+
+%     \begin{mdframed}
+%     \underline{\textbf{Inductive Step:}}
+
+%     \bigskip
+
+%     Let $t_1$ and $t_2$ be arbitrary string of $\mathcal{T}$. Assume $H(t_1,t_2):$
+%     $P(t_1)$ and $P(t_2)$. That is, $t_1$ and $t_2$ satisfies the property
+%     $\text{left\_count}(t_1) \leq 2^{\text{max\_left\_surplus}(t_1)}-1$ and
+%     $\text{left\_count}(t_2) \leq 2^{\text{max\_left\_surplus}(t_2)}-1$, respectively.
+
+%     \bigskip
+
+%     Let $(t_1t_2) \in \mathcal{T}$ be the parenthesized concatenation of $t_1,t_2 \in \mathcal{T}$.
+
+%     \bigskip
+
+%     We need to prove $P((t_1t_2))$ follows. That is, $\text{left\_count}((t_1t_2))
+%     \leq 2^{\text{max\_left\_surplus}((t_1t_2))}-1$.
+
+%     \bigskip
+
+%     The code tells us
+
+%     \begin{align}
+%         \text{left\_count}((t_1t_2)) = \text{left\_count}(t_1) + \text{left\_count}(t_2) + 1
+%     \end{align}
+
+%     Then, using this fact, we have
+
+%     \begin{align}
+%         \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_1) + \text{left\_count}(t_2) + 1\\
+%         &\leq 2^{\text{max\_left\_surplus}(t_1)}-1 + 2^{\text{max\_left\_surplus}(t_2)} - 1 + 1 & [\text{By I.H}]\\
+%         &\leq 2^{\text{max\_left\_surplus}(t_1)} + 2^{\text{max\_left\_surplus}(t_2)} - 1\\
+%         &\leq 2^{\text{max\_left\_surplus}(t_1)} + 2^{\text{max\_left\_surplus}(t_2)} - 1\\
+%         &\leq 2^{\text{max\_left\_surplus}(t_1)} + 2^{\text{max\_left\_surplus}(t_2)} - 1\\
+%         &\leq 2 \cdot 2^{max(\text{max\_left\_surplus}(t_1),\text{max\_left\_surplus}(t_2))} - 1\\
+%         &\leq 2^{max(\text{max\_left\_surplus}(t_1),\text{max\_left\_surplus}(t_2)) + 1} - 1\\
+%         &\leq 2^{\text{max\_left\_surplus}((t_1t_2))} - 1 & [\text{By hint}]\\
+%     \end{align}
+
+%     \bigskip
+
+%     Thus, $P((t_1t_2))$ follows.
+
+%     \end{mdframed}
+% \end{enumerate}
+% \end{mdframed}
 
 \end{document}
