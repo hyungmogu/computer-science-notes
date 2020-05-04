@@ -676,23 +676,75 @@
         \item is a proof method used in mathematical logic, computer science, graph theory.
         \item is a generalization of mathematical induction over natural numbers.
         \item is a recursion method
-        \item to prove a property using structural induction:
+        \item
+        \underline{\textbf{Example:}}
+
+        \begin{mdframed}
+
+            Define $\varepsilon$: The smallest set such that
+            \begin{itemize}
+                \item $x,y,z \in \varepsilon$ \color{red}\# variables\color{black}
+                \item $e_1, e_2 \in \varepsilon \Rightarrow (e_1 + e_2), (e_1 - e_2),
+                (e_1 \times e_2),(e_1 \div e_2) \in \varepsilon$ \color{red}\# operators\color{black}
+            \end{itemize}
+
+            \bigskip
+
+            (steps omitted). Prove $P(e):\:\textbf{vr}(e) = \textbf{op}(e) + 1$ \color{red}\# \textbf{vr} means number of variable,
+            \textbf{op} means number of operators\color{black}
+
+        \end{mdframed}
+
+        \bigskip
+
+        to prove above using structural induction:
+
+        \bigskip
 
         \begin{enumerate}[1.]
             \item \textbf{Verify Base Case(s):} Show that the property is true for the
             simplest members, {x,y,z}. That is show $P(x)$, $P(y)$, and $P(z)$.
+
+            \begin{mdframed}
+            There are three cases: $e =x$, $e = y$, and $e = z$. In each case $\textbf{vr}(e) = 1$
+            and $\textbf{op}(e) = 0$, so $P(e)$ holds for the basis.
+            \end{mdframed}
+
             \item \textbf{Inductive Step:} Let $e_1$ and $e_2$ be arbitrary elements of $\varepsilon$.
             Assume $H({e_1,e_2}):$ $P(e_1)$ and $P(e_2)$. That is, $e_1$ and $e_2$
-            have the property
+            have the property $\textbf{vr}(e_1) = \textbf{op}(e_1) + 1$ and
+            $\textbf{vr}(e_2) = \textbf{op}(e_2) + 1$.
 
             \bigskip
 
-            Show that $C({e_1,e_2})$ follows.
-            \begin{itemize}
-                \item Show All possible combinations of $e_1$ and $e_2$ have the
-                property, that is $P((e_1 + e_2))$, $P((e_1 - e_2))$, $P((e_1 \times e_2))$,
-                and $P((e_1 \div e_2))$.
-            \end{itemize}
+            We need to show all possible combinations of $e_1$ and $e_2$ have the
+            property. That is, $P((e_1 + e_2))$, $P((e_1 - e_2))$, $P((e_1 \times e_2))$,
+            and $P((e_1 \div e_2))$.
+
+            \begin{mdframed}
+
+            There are four cases, depending on how $e$ is constructed from $e_1$ and $e_2$:
+            $e = (e_1 + e_2)$, $e = (e_1 - e_2)$, $e = (e_1 \times e_2)$ and $e = (e_1 \div e_2)$.
+            In each case we have
+
+            \begin{align}
+                \textbf{vr}(e) = \textbf{vr}(e_1) + \textbf{vr}(e_2) & \\
+                \textbf{op}(e) = \textbf{op}(e_1) + \textbf{op}(e_2) + 1 & \color{red}\text{\# +1 is from + in $e_1 + e_2$}
+            \end{align}
+
+            \bigskip
+
+            Thus,
+
+            \begin{align}
+                \textbf{vr}(e) &= \textbf{vr}(e_1) + \textbf{vr}(e_2) & [\text{by (4.1)}]\\
+                &= (\textbf{op}(e_1) + 1) + (\textbf{op}(e_2) + 1) & [\text{by induction hypothesis}]\\
+                &= (\textbf{op}(e_1) + \textbf{op}(e_2)) + 2\\
+                &= (\textbf{op}(e) - 1) + 2 & [\text{by (4.2)}]\\
+                &= \textbf{op}(e) + 1
+            \end{align}
+
+            \end{mdframed}
         \end{enumerate}
     \end{itemize}
 \end{itemize}
