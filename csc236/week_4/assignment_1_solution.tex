@@ -2013,7 +2013,220 @@
 
     So, $P((t_1t_2))$ follows.
 
+    \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Define $\mathcal{T}$ as the smallest set of strings that satisfies:
+
+        \begin{itemize}
+            \item $``*'' \in \mathcal{T}$
+            \item $t_1, t_2 \in \mathcal{T}$ then their parenthesized concatenation $(t_1t_2) \in \mathcal{T}$.
+        \end{itemize}
+
+        \bigskip
+
+        Prove $\forall t \in \mathcal{T}$,
+
+        \begin{align*}
+            \text{double\_count}(t) =
+            \begin{cases}
+            0 & \text{if $t = `*'$}\\
+            \text{left\_count(t)} - 1 & \text{otherwise}
+            \end{cases}
+        \end{align*}
+
+        \bigskip
+
+        \underline{\textbf{Basis:}}
+
+        \bigskip
+
+        Let $t = ``*'' \in \mathcal{T}$.
+
+        \bigskip
+
+        Then, since it doesnt have parenthesis, $\text{double\_count}(t) = 0$.
+
+        \bigskip
+
+        Thus, $P(t)$ holds.
+
+        \bigskip
+
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $t_1$ and $t_2$ be arbitrary string of $\mathcal{T}$. Assume $H(t_1,t_2):$
+        $P(t_1)$ and $P(t_2)$.
+
+        \bigskip
+
+        Let $(t_1t_2) \in \mathcal{T}$ be the parenthesized concatenation of $t_1,t_2 \in \mathcal{T}$.
+
+        \bigskip
+
+        We need to prove $P((t_1t_2))$ follows. That is, $\text{double\_count}((t_1t_2)) = \text{left\_count}((t_1t_2)) - 1$.
+        There are four cases to consider.
+
+        \bigskip
+
+        \textbf{Case 1 ($t_1,t_2 = `*'$):}
+
+        \bigskip
+
+        Assume $t_1,t_2 = `*'$.
+
+        \bigskip
+
+        Then, \color{red}since there is only single parenthesis in $(t_1t_2)$,
+        we have\color{black}
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= 0\\
+            \text{left\_count}((t_1t_2)) &= 1
+        \end{align}
+
+        \bigskip
+
+        Then, using above facts, we can conclude
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= 1 - 1\\
+            &= \text{left\_count}((t_1t_2)) - 1
+        \end{align}
+
+        \bigskip
+
+        So, $P((t_1t_2))$ follows.
+
+        \bigskip
+
+        \textbf{Case 2 ($t_1,t_2 = `*'$):}
+
+        \bigskip
+
+        Assume $t_1$ is not `*' and $t_2 = `*'$.
+
+        \bigskip
+
+        \color{red}Then, the initial left parenthesis in $(t_1t_2)$ increases
+        the number of left parenthesis by 1, and the number of double left parenthesis
+        increases by 1. Furthermore, since $t_2 = `*'$ the final right parenthesis in $(t_1t_2)$
+        does not increases the number of double right parenthesis.
+
+        \bigskip
+
+        Then, it folows from these facts that
+        \color{black}
+
+        \bigskip
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_1) + 1\\
+            \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_1) + 1
+        \end{align}
+
+        \bigskip
+
+        Then, using above facts, we can conclude
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_1) - 1 + 1 & [\text{By I.H}]\\
+            &= \text{left\_count}((t_1t_2)) - 1 & [\text{By 5}]
+        \end{align}
+
+        \bigskip
+
+        So, $P((t_1t_2))$ follows.
+
+        \bigskip
+
+        \textbf{Case 3 ($t_1 = `*'$ and $t_2$ is not `*'):}
+
+        \bigskip
+
+        Assume $t_1 = `*'$ and $t_2$ is not `*'.
+
+        \bigskip
+
+        \color{red}Then, the initial left parenthesis in $(t_1t_2)$ increases
+        the number of left parenthesis by 1, but not the number of double left parenthesis.
+        Furthermore, the final right parenthesis in $(t_1t_2)$ increases the number
+        of double right parenthesis by 1.
+
+        \bigskip
+
+        Then, it folows from these facts that
+        \color{black}
+
+        \bigskip
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_2) + 1\\
+            \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_2) + 1
+        \end{align}
+
+        \bigskip
+
+        Then, using above facts, we can conclude
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_2) - 1 + 1 & [\text{By I.H}]\\
+            &= \text{left\_count}((t_1t_2)) - 1 & [\text{By 9}]
+        \end{align}
+
+        \bigskip
+
+        So, $P((t_1t_2))$ follows.
+
+        \bigskip
+
+        \textbf{Case 4 (both $t_1,t_2$ are not `*'):}
+
+        \bigskip
+
+        Assume both $t_1,t_2$ are not `*'.
+
+        \bigskip
+
+        \color{red}Then, the initial left parenthesis in $(t_1t_2)$ increases
+        the number of left parenthesis by 1, and the number of double left parenthesis
+        by 1. Similarly, the final right parenthesis in $(t_1t_2)$ increases
+        the number of double right parenthesis by 1.
+
+        \bigskip
+
+        Then, it folows from these facts that
+        \color{black}
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_1) + \text{double\_count}(t_2) + 2\\
+            \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_1) + \text{left\_count}(t_2) + 1
+        \end{align}
+
+        \bigskip
+
+        Then, using above facts, we can conclude
+
+        \begin{align}
+            \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_1) - 1 + \text{left\_count}(t_2) - 1 + 2 & [\text{By I.H}]\\
+            &= \text{left\_count}(t_1) + \text{left\_count}(t_2)\\
+            &= \text{left\_count}(t) - 1 & [\text{By 13}]
+        \end{align}
+
+        \bigskip
+
+        So, $P((t_1t_2))$ follows.
+
+        \bigskip
+
+    \end{mdframed}
     % \begin{mdframed}
     % \underline{\textbf{Rough Work:}}
 
