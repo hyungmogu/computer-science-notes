@@ -1949,6 +1949,41 @@
 
             \end{mdframed}
 
+            \item Case 3 ($t_1 = `*'$ and $t_2$ is not `*')
+
+            \begin{mdframed}
+            Assume $t_1 = `*'$ and $t_2$ is not `*'.
+
+            \bigskip
+
+            Then, the definition of $\mathcal{T}$ tells us $t_2$ is a parenthesized
+            concatenation of string in $\mathcal{T}$.
+
+            \bigskip
+
+            Then, we can write
+
+            \bigskip
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_2) + 1\\
+                \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_2) + 1
+            \end{align}
+
+            \bigskip
+
+            Thus,
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_2) - 1 + 1 & [\text{By I.H}]\\
+                &= \text{left\_count}((t_1t_2)) - 1 & [\text{By 9}]
+            \end{align}
+
+            \bigskip
+
+            So, $P((t_1t_2))$ follows.
+            \end{mdframed}
+
             \item Case 4 (both $t_1,t_2$ are not `*')
 
             \begin{mdframed}
@@ -1957,7 +1992,7 @@
             \bigskip
 
             Then, the definition tells us $t_1$ and $t_2$ are
-            parenthesized concatentation of string that satisfies $\mathcal{T}$.
+            parenthesized concatentation of string in $\mathcal{T}$.
 
             \bigskip
 
@@ -1975,7 +2010,7 @@
             \begin{align}
                 \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_1) - 1 + \text{left\_count}(t_2) - 1 + 2 & [\text{By I.H}]\\
                 &= \text{left\_count}(t_1) + \text{left\_count}(t_2)\\
-                &= \text{left\_count}(t) - 1 & [\text{By 5}]
+                &= \text{left\_count}(t) - 1 & [\text{By 11}]
             \end{align}
             \end{mdframed}
 
