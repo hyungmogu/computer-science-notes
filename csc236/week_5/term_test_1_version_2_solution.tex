@@ -51,122 +51,265 @@
 \begin{itemize}
     \item
 
-    aa
-\end{itemize}
-
-\bigskip
-
-\begin{mdframed}
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
-
+    \begin{proof}
     Define $P(n):f(n) = 3^n$.
 
     \bigskip
 
-    I will use complete induction to prove that $\forall n \in \mathbb{N}, n > 2 \Rightarrow \:C(n)$.
+    I will use complete induction to prove that $\forall n \in \mathbb{N}, n > 2 \Rightarrow \:P(n)$.
 
-    \begin{enumerate}[1.]
-        \item Inductive Step
+    \bigskip
 
-        \begin{mdframed}
-        \underline{\textbf{Inductive Step:}}
+    \underline{\textbf{Base Case ($n = 0$):}}
 
-        \bigskip
+    \bigskip
 
-        Let $n \in \mathbb{N}$. Assume $n > 2$. Assume
-        $H(n):\bigwedge\limits_{i=0}^{n-1} P(i)$. I will prove $C(n)$ follows.
-        That is, $f(n) = 3^n$.
-        \end{mdframed}
+    Let $n = 0$.
 
-        \item Base Case ($n = 0$)
+    \bigskip
 
-        \begin{mdframed}
-        \underline{\textbf{Base Case ($n = 0$):}}
+    Then, the definition of $f(n)$ tells us $f(n) = 1$.
 
-        \bigskip
+    \bigskip
 
-        Let $n = 0$.
+    Then, we have
 
-        \bigskip
+    \begin{align}
+        f(n) &= 3^0\\
+        &= 3^n
+    \end{align}
 
-        Then, the definition of $f(n)$ tells us $f(n) = 1$.
+    \bigskip
 
-        \bigskip
+    Thus, $P(n)$ follows.
 
-        Then, we have
+    \bigskip
 
-        \begin{align}
-            f(n) &= 3^0\\
-            &= 3^n
-        \end{align}
+    \underline{\textbf{Base Case ($n = 1$):}}
 
-        \bigskip
+    \bigskip
 
-        Thus, $P(n)$ follows.
-        \end{mdframed}
+    Let $n = 1$.
 
-        \item Base Case ($n = 1$)
+    \bigskip
 
-        \begin{mdframed}
-        \underline{\textbf{Base Case ($n = 1$):}}
+    Then, the definition of $f(n)$ tells us $f(n) = 3$.
 
-        \bigskip
+    \bigskip
 
-        Let $n = 1$.
+    Then, we have
 
-        \bigskip
+    \begin{align}
+        f(n) &= 3^1\\
+        &= 3^n
+    \end{align}
 
-        Then, the definition of $f(n)$ tells us $f(n) = 3$.
+    \bigskip
 
-        \bigskip
+    Thus, $P(n)$ follows.
 
-        Then, we have
+    \bigskip
 
-        \begin{align}
-            f(n) &= 3^1\\
-            &= 3^n
-        \end{align}
+    \underline{\textbf{Base Case ($n = 2$):}}
 
-        \bigskip
+    \bigskip
 
-        Thus, $P(n)$ follows.
+    Let $n = 2$.
 
-        \end{mdframed}
+    \bigskip
 
-        \item Base Case ($n = 2$)
+    Then, the definition of $f(n)$ tells us $f(n) = 9$.
 
-        \begin{mdframed}
-        \underline{\textbf{Base Case ($n = 2$):}}
+    \bigskip
 
-        \bigskip
+    Then, we have
 
-        Let $n = 2$.
+    \begin{align}
+        f(n) &= 3^2\\
+        &= 3^n
+    \end{align}
 
-        \bigskip
+    \bigskip
 
-        Then, the definition of $f(n)$ tells us $f(n) = 9$.
+    Thus, $P(n)$ follows.
 
-        \bigskip
+    \bigskip
 
-        Then, we have
+    \underline{\textbf{Case ($n > 2$):}}
 
-        \begin{align}
-            f(n) &= 3^2\\
-            &= 3^n
-        \end{align}
+    \bigskip
 
-        \bigskip
+    Assume $n > 2$.
 
-        Thus, $P(n)$ follows.
+    \bigskip
 
-        \end{mdframed}
+    Then, since $0 \leq n - 1 < n$, $0 \leq n -2 < n$, and $0 \leq n - 3 < n$,
+    the complete induction tells us $P(n-1)$, $P(n-2)$, and $P(n-3)$, i.e.
+    $f(n-1) = 3^{n-1}$, $f(n-2) = 3^{n-2}$, and $f(n-3) = 3^{n-3}$, respectively.
 
-        \item Case ($n > 2$)
-    \end{enumerate}
+    \bigskip
 
-\end{mdframed}
+    Then, using these facts, we can write
+
+    \begin{align}
+        f(n) &= f(n-1) + 3f(n-2) + 9f(n-3)\\
+        &= 3^{n-1} + 3 \cdot 3^{n-2} + 3^2 \cdot 3^{n-3}\\
+        &= 3^{n-1} + 3^{n-1} + 3^{n-1}\\
+        &= 3^{n-1}(1 + 1 + 1)\\
+        &= 3^{n-1}3\\
+        &= 3^n
+    \end{align}
+
+    \bigskip
+
+    Thus, $P(n)$ follows.
+    \end{proof}
+\end{itemize}
+
+% \bigskip
+
+% \begin{mdframed}
+%     \underline{\textbf{Rough Work:}}
+
+%     \bigskip
+
+%     Define $P(n):f(n) = 3^n$.
+
+%     \bigskip
+
+%     I will use complete induction to prove that $\forall n \in \mathbb{N}, n > 2 \Rightarrow \:P(n)$.
+
+%     \begin{enumerate}[1.]
+%         \item Inductive Step
+
+%         \begin{mdframed}
+%         \underline{\textbf{Inductive Step:}}
+
+%         \bigskip
+
+%         Let $n \in \mathbb{N}$. Assume $n > 2$. Assume
+%         $H(n):\bigwedge\limits_{i=0}^{n-1} P(i)$. I will prove $P(n)$ follows.
+%         That is, $f(n) = 3^n$.
+%         \end{mdframed}
+
+%         \item Base Case ($n = 0$)
+
+%         \begin{mdframed}
+%         \underline{\textbf{Base Case ($n = 0$):}}
+
+%         \bigskip
+
+%         Let $n = 0$.
+
+%         \bigskip
+
+%         Then, the definition of $f(n)$ tells us $f(n) = 1$.
+
+%         \bigskip
+
+%         Then, we have
+
+%         \begin{align}
+%             f(n) &= 3^0\\
+%             &= 3^n
+%         \end{align}
+
+%         \bigskip
+
+%         Thus, $P(n)$ follows.
+%         \end{mdframed}
+
+%         \item Base Case ($n = 1$)
+
+%         \begin{mdframed}
+%         \underline{\textbf{Base Case ($n = 1$):}}
+
+%         \bigskip
+
+%         Let $n = 1$.
+
+%         \bigskip
+
+%         Then, the definition of $f(n)$ tells us $f(n) = 3$.
+
+%         \bigskip
+
+%         Then, we have
+
+%         \begin{align}
+%             f(n) &= 3^1\\
+%             &= 3^n
+%         \end{align}
+
+%         \bigskip
+
+%         Thus, $P(n)$ follows.
+
+%         \end{mdframed}
+
+%         \item Base Case ($n = 2$)
+
+%         \begin{mdframed}
+%         \underline{\textbf{Base Case ($n = 2$):}}
+
+%         \bigskip
+
+%         Let $n = 2$.
+
+%         \bigskip
+
+%         Then, the definition of $f(n)$ tells us $f(n) = 9$.
+
+%         \bigskip
+
+%         Then, we have
+
+%         \begin{align}
+%             f(n) &= 3^2\\
+%             &= 3^n
+%         \end{align}
+
+%         \bigskip
+
+%         Thus, $P(n)$ follows.
+
+%         \end{mdframed}
+
+%         \item Case ($n > 2$)
+
+%         \begin{mdframed}
+%         \underline{\textbf{Case ($n > 2$):}}
+
+%         \bigskip
+
+%         Assume $n > 2$.
+
+%         \bigskip
+
+%         Then, since $0 \leq n - 1 < n$, $0 \leq n -2 < n$, and $0 \leq n - 3 < n$,
+%         the complete induction tells us $P(n-1)$, $P(n-2)$, and $P(n-3)$, i.e.
+%         $f(n-1) = 3^{n-1}$, $f(n-2) = 3^{n-2}$, and $f(n-3) = 3^{n-3}$, respectively.
+
+%         \bigskip
+
+%         Then, using these facts, we can write
+
+%         \begin{align}
+%             f(n) &= f(n-1) + 3f(n-2) + 9f(n-3)\\
+%             &= 3^{n-1} + 3 \cdot 3^{n-2} + 3^2 \cdot 3^{n-3}\\
+%             &= 3^{n-1} + 3^{n-1} + 3^{n-1}\\
+%             &= 3^{n-1}(1 + 1 + 1)\\
+%             &= 3^{n-1}3\\
+%             &= 3^n
+%         \end{align}
+
+%         \bigskip
+
+%         Thus, $P(n)$ follows.
+%         \end{mdframed}
+%     \end{enumerate}
+
+% \end{mdframed}
 
 \section*{Question 2}
 
