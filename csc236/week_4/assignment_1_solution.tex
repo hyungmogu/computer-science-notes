@@ -1886,8 +1886,60 @@
 
         \begin{enumerate}[1.]
             \item Case 1 ($t_1,t_2 = `*'$)
+
+            \begin{mdframed}
+            Assume $t_1,t_2 = `*'$.
+
+            \bigskip
+
+            Then, since $t_1t_2$ are surrounded by single parenthesis,
+            \setcounter{equation}{0}
+            \begin{align}
+                \text{double\_count}((t_1t_2)) = 0
+            \end{align}
+
+            \bigskip
+
+            Thus, we have
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= 1 - 1\\
+                &= \text{left\_count}((t_1t_2)) - 1
+            \end{align}
+            \end{mdframed}
+
             \item Case 2 (either $t_1 = `*'$ $t_2 = `*'$)
+
             \item Case 3 (both $t_1,t_2$ are not `*')
+
+            \begin{mdframed}
+            Assume both $t_1,t_2$ are not `*'.
+
+            \bigskip
+
+            Then, the definition tells us $t_1$ and $t_2$ are
+            parenthesized concatentation in $\mathcal{T}$.
+
+            \bigskip
+
+            Then, the code tells us [\textit{Need help with reasoning!}]
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_1) + \text{double\_count}(t_2) + 2\\
+                \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_1) + \text{left\_count}(t_2) + 1
+            \end{align}
+
+            \bigskip
+
+            Then, using this fact, we can conclude
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_1) - 1 + \text{left\_count}(t_2) - 1 + 2 & [\text{By I.H}]\\
+                &= \text{left\_count}(t_1) + \text{left\_count}(t_2)\\
+                &= \text{left\_count}(t) - 1 & [\text{By 5}]
+            \end{align}
+            \end{mdframed}
+
         \end{enumerate}
 
         \end{mdframed}
