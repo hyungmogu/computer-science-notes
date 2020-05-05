@@ -1900,17 +1900,56 @@
 
             \bigskip
 
-            Thus, we have
+            Thus,
 
             \begin{align}
                 \text{double\_count}((t_1t_2)) &= 1 - 1\\
                 &= \text{left\_count}((t_1t_2)) - 1
             \end{align}
+
+            \bigskip
+
+            So, $P((t_1t_2))$ follows.
+
             \end{mdframed}
 
-            \item Case 2 (either $t_1 = `*'$ $t_2 = `*'$)
+            \item Case 2 ($t_1$ is not `*' and $t_2 = `*'$)
 
-            \item Case 3 (both $t_1,t_2$ are not `*')
+            \begin{mdframed}
+            Assume $t_1$ is not `*' and $t_2 = `*'$.
+
+            \bigskip
+
+            Then, the definition tells us $t_1$ is a parenthesized
+            concatenation of string that satisfies $\mathcal{T}$.
+
+            \bigskip
+
+            Then, we can write
+
+            \bigskip
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_1) + 1\\
+                \text{left\_count}((t_1t_2)) &= \text{left\_count}(t_1) + 1
+            \end{align}
+
+            \bigskip
+
+            Thus,
+
+            \begin{align}
+                \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_1) - 1 + 1 & [\text{By I.H}]\\
+                &= \text{left\_count}((t_1t_2)) - 1 & [\text{By 5}]
+            \end{align}
+
+            \bigskip
+
+            So, $P((t_1t_2))$ follows.
+
+            \end{mdframed}
+
+            \item Case 4 (both $t_1,t_2$ are not `*')
 
             \begin{mdframed}
             Assume both $t_1,t_2$ are not `*'.
@@ -1918,11 +1957,11 @@
             \bigskip
 
             Then, the definition tells us $t_1$ and $t_2$ are
-            parenthesized concatentation in $\mathcal{T}$.
+            parenthesized concatentation of string that satisfies $\mathcal{T}$.
 
             \bigskip
 
-            Then, the code tells us [\textit{Need help with reasoning!}]
+            Then, we can write
 
             \begin{align}
                 \text{double\_count}((t_1t_2)) &= \text{double\_count}(t_1) + \text{double\_count}(t_2) + 2\\
@@ -1931,7 +1970,7 @@
 
             \bigskip
 
-            Then, using this fact, we can conclude
+            Thus,
 
             \begin{align}
                 \text{double\_count}((t_1t_2)) &= \text{left\_count}(t_1) - 1 + \text{left\_count}(t_2) - 1 + 2 & [\text{By I.H}]\\
@@ -1939,6 +1978,10 @@
                 &= \text{left\_count}(t) - 1 & [\text{By 5}]
             \end{align}
             \end{mdframed}
+
+            \bigskip
+
+            So, $P((t_1t_2))$ follows.
 
         \end{enumerate}
 
