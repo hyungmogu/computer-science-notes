@@ -65,12 +65,28 @@
 
     \bigskip
 
-    I will use complete inducction to prove that $\forall n \in \mathbb{N},\:P(n)$.
+    I will use complete induction to prove that $\forall n \in \mathbb{N}, n > 2 \Rightarrow \:C(n)$.
 
     \begin{enumerate}[1.]
         \item Inductive Step
 
         \begin{mdframed}
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $n > 2$. Assume
+        $H(n):\bigwedge\limits_{i=0}^{n-1} P(i)$. I will prove $C(n)$ follows.
+        That is, $f(n) = 3^n$.
+        \end{mdframed}
+
+        \item Base Case ($n = 0$)
+
+        \begin{mdframed}
+        \underline{\textbf{Base Case ($n = 0$):}}
+
+        \bigskip
+
         Let $n = 0$.
 
         \bigskip
@@ -91,9 +107,62 @@
         Thus, $P(n)$ follows.
         \end{mdframed}
 
-        \item Base Case ($n = 0$)
         \item Base Case ($n = 1$)
+
+        \begin{mdframed}
+        \underline{\textbf{Base Case ($n = 1$):}}
+
+        \bigskip
+
+        Let $n = 1$.
+
+        \bigskip
+
+        Then, the definition of $f(n)$ tells us $f(n) = 3$.
+
+        \bigskip
+
+        Then, we have
+
+        \begin{align}
+            f(n) &= 3^1\\
+            &= 3^n
+        \end{align}
+
+        \bigskip
+
+        Thus, $P(n)$ follows.
+
+        \end{mdframed}
+
         \item Base Case ($n = 2$)
+
+        \begin{mdframed}
+        \underline{\textbf{Base Case ($n = 2$):}}
+
+        \bigskip
+
+        Let $n = 2$.
+
+        \bigskip
+
+        Then, the definition of $f(n)$ tells us $f(n) = 9$.
+
+        \bigskip
+
+        Then, we have
+
+        \begin{align}
+            f(n) &= 3^2\\
+            &= 3^n
+        \end{align}
+
+        \bigskip
+
+        Thus, $P(n)$ follows.
+
+        \end{mdframed}
+
         \item Case ($n > 2$)
     \end{enumerate}
 
