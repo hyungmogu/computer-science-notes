@@ -1868,6 +1868,28 @@
         \begin{mdframed}
         \underline{\textbf{Inductive Step:}}
 
+        \bigskip
+
+        Let $t_1$ and $t_2$ be arbitrary string of $\mathcal{T}$. Assume $H(t_1,t_2):$
+        $P(t_1)$ and $P(t_2)$.
+
+        \bigskip
+
+        Let $(t_1t_2) \in \mathcal{T}$ be the parenthesized concatenation of $t_1,t_2 \in \mathcal{T}$.
+
+        \bigskip
+
+        We need to prove $P((t_1t_2))$ follows. That is, $\text{double\_count}((t_1t_2)) = \text{left\_count}((t_1t_2)) - 1$.
+        There are three cases to consider.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Case 1 ($t_1,t_2 = `*'$)
+            \item Case 2 (either $t_1 = `*'$ $t_2 = `*'$)
+            \item Case 3 (both $t_1,t_2$ are not `*')
+        \end{enumerate}
+
         \end{mdframed}
     \end{enumerate}
     \end{mdframed}
