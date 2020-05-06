@@ -218,4 +218,40 @@
     \end{align}
 \end{itemize}
 
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $\exists k \in \mathbb{N}^+$, $n = 3^k$, so
+    $\log_3 n = k$.
+
+    \bigskip
+
+    Then, because we know $3 \mid 3^k$, we can write $\lceil n/3 \rceil = n/3$.
+
+    \bigskip
+
+    Then,
+
+    \color{red}
+    \begin{align}
+        R(n) &= n + 3R(n/3) & [\text{By def.}]\\
+        &= n + 3(n/3 +3R(n/3^2)) & [\text{By subtituting $n/3$ for $n$ in def.}]\\
+        &= 2n + 3^2R(n/3^2)\\
+        &= 2n + 3^2(n/3^2 + 3R(n/3^3)) & [\text{By subtituting $n/3$ for $n$ in def.}]\\
+        &= 3n + 3^3R(n/3^3)\\
+        &\vdots\\
+        &= kn + 3^kR(n/3^k) & [\text{After k repeatitons}]\\
+        &= kn + 3^kR(1) & [\text{By subtituting $3^k$ for $n$ in $R(n/3^k)$}]\\
+        &= kn + 3^k \cdot 0 & [\text{By def.}]\\
+        &= kn\\
+        &= n\log_3 n & [\text{By subtituting $\log_3 n$ for $k$}]
+    \end{align}
+    \color{black}
+
+\end{mdframed}
+
 \end{document}
