@@ -47,5 +47,48 @@
 \author{Hyungmo Gu}
 \maketitle
 
+\section*{The Unix Command Line}
+\begin{itemize}
+\item cat
+\begin{itemize}
+    \item \textit{cat hello} : reads file
 
+    \begin{lstlisting}[language=Python]
+    >>> cat hello
+    Hello World!
+    \end{lstlisting}
+    \item \textit{cat hello1 \textgreater\:hello2} : transfer contents from file \textit{hello1} to \textit{hello2}
+
+    \begin{lstlisting}[language=Python]
+    >>> cat hello > hello1
+    >>> cat hello1
+    Hello World!
+    \end{lstlisting}
+
+    \begin{itemize}
+        \item \textit{hello2} created if doesn't exist
+    \end{itemize}
+\end{itemize}
+\item rm
+\begin{itemize}
+    \item \textit{-i} in \textit{rm -i} : creates prompt
+    \item \textit{-r} in \textit{rm -r} : removes files recursively
+    \item \textit{-f} in \textit{rm -r -f} : supresses prompt (also removes files recursively).
+
+    \bigskip
+
+    Don't use \textit{-f} in \textit{rm -r -f} unnecess necessary.
+\end{itemize}
+\item alias
+\begin{itemize}
+    \item A shell alias is a shortcut to reference a command
+    \item avoids typing long commands
+    \begin{lstlisting}[language=Python]
+    >>> alias rm='rm -i'
+    >>> rm  hello
+    remove hello?
+    \end{lstlisting}
+    \item \textit{unalias} - remove alias
+\end{itemize}
+\end{itemize}
 \end{document}
