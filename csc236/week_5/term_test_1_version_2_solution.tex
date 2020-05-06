@@ -741,7 +741,7 @@
 
     \begin{enumerate}[a.]
         \item $() \in \mathcal{T}$
-        \item If $t_1,t_2 \in \mathcal{T}$, $(t_1,t_2) \in \mathcal{T}$
+        \item If $t_1,t_2 \in \mathcal{T}$, $(t_1t_2) \in \mathcal{T}$
     \end{enumerate}
 
     \bigskip
@@ -753,15 +753,60 @@
         \item Basis
 
         \begin{mdframed}
+        \underline{\textbf{Basis:}}
+
+        \bigskip
+
         Let $() \in \mathcal{T}$.
 
         \bigskip
 
-        Then, since there is only 1 left parenthesis and since this is odd,
+        Then, since there is only 1 left parenthesis and 1 is odd,
         $P(t)$ holds.
         \end{mdframed}
 
         \item Inductive Step
+
+        \begin{mdframed}
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $t_1,t_2$ be arbitrary string in $\mathcal{T}$. Assume
+        $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is left($t_1$) and left($t_2$)
+        are odd. Let $(t_1t_2) \in \mathcal{T}$.
+
+        \bigskip
+
+        I need to prove $P((t_1t_2))$ follows. That is, left($(t_1t_2)$) is odd.
+
+        \bigskip
+
+        The initial left parenthesis in $(t_1t_2)$ increases the total number of left
+        parenthesis by 1. This means, we have
+        \setcounter{equation}{0}
+        \begin{align}
+            \text{left}((t_1t_2)) &= \text{left}(t_1) + \text{left}(t_2) + 1
+        \end{align}
+
+        \bigskip
+
+        Then, since we know from induction hypothesis that left($t_1$) and left($t_2$)
+        are odd, we can write $\text{left}(t_1) + \text{left}(t_2)$ is even.
+
+        \bigskip
+
+        Then, we can write $\text{left}(t_1) + \text{left}(t_2) + 1$ is odd.
+
+        \bigskip
+
+        Then, we can conclude $\text{left}((t_1t_2))$ is odd.
+
+        \bigskip
+
+        Thus, $P((t_1t_2))$ follows.
+
+        \end{mdframed}
     \end{enumerate}
 \end{mdframed}
 
