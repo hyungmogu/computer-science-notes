@@ -798,6 +798,84 @@
     \end{proof}
 \end{itemize}
 
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    Define $\mathcal{T}$ as the smallest set such that
+
+    \begin{enumerate}[a.]
+        \item $() \in \mathcal{T}$
+        \item If $t_1,t_2 \in \mathcal{T}$, $(t_1t_2) \in \mathcal{T}$
+    \end{enumerate}
+
+    \bigskip
+
+    I need to prove $\forall t \in \mathcal{T}, P(t)$. That is,
+    left(t) is odd.
+
+    \bigskip
+
+    \underline{\textbf{Basis:}}
+
+    \bigskip
+
+    Let $() \in \mathcal{T}$.
+
+    \bigskip
+
+    Then, since there is only 1 left parenthesis and 1 is odd,
+    $P(t)$ holds.
+
+    \bigskip
+
+    \underline{\textbf{Inductive Step:}}
+
+    \bigskip
+
+    Let $t_1,t_2$ be arbitrary string in $\mathcal{T}$. Assume
+    $H(t_1,t_2):$ $P(t_1)$ and $P(t_2)$. That is left($t_1$) and left($t_2$)
+    are odd. \color{red}In other words, $\exists k_1,k_2 \in \mathbb{Z}$ such that
+    $\text{left}(t_1) = 2k_1 + 1$, $\text{left}(t_2) = 2k_2 + 1$\color{black}.
+    Let $(t_1t_2) \in \mathcal{T}$.
+
+    \bigskip
+
+    I need to prove $P((t_1t_2))$ follows. That is, left($(t_1t_2)$) is odd.
+    \color{red}In other words, $\exists k_3 \in \mathbb{Z}$, $\text{left}((t_1t_2)) = 2k_3 + 1$.
+
+    \bigskip
+
+    Let $k_3 = k_1+k_2+1$.\color{black}
+
+    \bigskip
+
+    The initial left parenthesis in $(t_1t_2)$ increases the total number of left
+    parenthesis by 1. This means, we have
+    \setcounter{equation}{0}
+    \begin{align}
+        \text{left}((t_1t_2)) &= \text{left}(t_1) + \text{left}(t_2) + 1
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \text{left}((t_1t_2)) &=  2k_1 + 1 + 2k_2 + 1 + 1 & \color{red}[\text{By I.H}]\color{black}\\
+        &=  2(k_1 + k_2 + 1) + 1\\
+        &\color{red}=  2k_3 + 1\color{black}
+    \end{align}
+
+    \bigskip
+
+    Thus, $P((t_1t_2))$ follows.
+
+\end{mdframed}
+
 % \bigskip
 
 % \begin{mdframed}
