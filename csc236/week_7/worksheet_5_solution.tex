@@ -108,6 +108,73 @@
         \end{align}
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        For convenience, define $H(k): R(3^k) = 3^kk$. Notice that when $n = 3^k$,
+        $3^kk$ is the same as $n\log_3 n$. I will use simple induction to prove
+        $\forall k \in \mathbb{N},\:H(k)$.
+
+        \bigskip
+
+        \underline{\textbf{Base Case ($k = 0$):}}
+
+        \bigskip
+
+        Let $k = 0$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            3^k \cdot k &= 3^0 \cdot 0\\
+            &= 0\\
+            &= R(n) & [\text{By def.}]
+        \end{align}
+
+        Thus, $H(0)$ is verified.
+
+        \bigskip
+
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $k \in \mathbb{N}$. Assume $H(k)$. That is $R(3^k) = 3^kk$.
+
+        \bigskip
+
+        I will show that $H(k+1)$ follows. That is, $R(3^{k+1}) = (k+1)3^{k+1}$.
+
+        \bigskip
+
+        \color{red}Since $k+1 > 0$, $3^{k+1} > 1$.
+
+        \bigskip
+
+        So\color{black}\:the definition of $R(3^{k+1})$ tells us,
+
+        \begin{align}
+            R(3^{k+1}) &= 3^{k+1} + 3R(\lceil 3^{k+1}/3 \rceil)\\
+            &= 3^{k+1} + 3R(3^k)
+        \end{align}
+
+        \bigskip
+
+        Then, using this fact, we can conclude
+
+        \begin{align}
+            R(3^{k+1}) &= 3^{k+1} + 3 \cdot 3^kk & [\text{By I.H}]\\
+            &= 3^{k+1} + 3^{k+1}k\\
+            &= 3^{k+1}(k + 1)
+        \end{align}
+    \end{mdframed}
+
     % \begin{mdframed}
     %     \underline{\textbf{Rough Works:}}
 
