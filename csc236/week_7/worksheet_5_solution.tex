@@ -271,12 +271,44 @@
     Define $P(k)$ as
 
     \begin{center}
-        $P(k):$ for every postive integer $m$, if $m < k$, then $R(3^m) \leq R(3^k)$
+        $P(k):$ $\bigwedge\limits_{m=1}^{m=k} R(m) \leq R(k)$
     \end{center}
 
     \bigskip
 
-    I will use complete induction to prove $\forall k \in \mathbb{N}, P(k)$.
+    I will prove $\forall n \in \mathbb{N}^+, P(n)$ using complete induction.
+    I will assume without proof, that if $n$ is a natural number greater than 1,
+    then $n > \lceil n/3 \rceil \geq 1$.
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Inductive Step
+
+        \begin{mdframed}
+        Let $n \in \mathbb{N}$. Assume $n \geq 1$. Assume $H(n):\bigwedge\limits_{i=1}^{n-1} P(i)$.
+        I will prove that $P(n)$ follows.
+
+        \end{mdframed}
+
+        \item Base Case ($n = 1$)
+
+        \begin{mdframed}
+        Let $n = 1$.
+
+        \bigskip
+
+        Then, $\bigwedge\limits_{m=1}^{m=1} R(m) = R(1)$.
+
+        \bigskip
+
+        So, $P(1)$ follows.
+
+        \end{mdframed}
+
+        \item Base Case ($n = 2$)
+        \item Case ($n > 2$)
+    \end{enumerate}
 
     \end{mdframed}
 
