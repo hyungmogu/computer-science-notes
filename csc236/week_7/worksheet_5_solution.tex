@@ -307,6 +307,45 @@
         \end{mdframed}
 
         \item Base Case ($n = 2$)
+
+        \begin{mdframed}
+        Let $n = 2$.
+
+        \bigskip
+
+        I need to show $P(2)$ holds. That is, $R(1) \leq R(2)$ and $R(2) \leq R(2)$.
+
+        \bigskip
+
+        I will do so in parts.
+
+        \bigskip
+
+        \textbf{Part 1 ($R(1) \leq R(2)$):}
+
+        \bigskip
+
+        In this part, $R(1) = 0$ and $R(2) = 2 + R(\lceil 2/3 \rceil) = 2 + R(1) = 2$.
+
+        \bigskip
+
+        Since $0 \leq 2$, we can conclude $R(1) \leq R(2)$.
+
+        \bigskip
+
+        \textbf{Part 2 ($R(2) \leq R(2)$):}
+
+        \bigskip
+
+        In this part, since $R(2) = R(2)$, we can conclude $R(2) \leq R(2)$.
+
+        \bigskip
+
+        So, since $R(1) \leq R(2)$ and $R(2) \leq R(2)$ are true, we can conclude
+        $P(2)$ holds.
+
+        \end{mdframed}
+
         \item Case ($n > 2$)
     \end{enumerate}
 
