@@ -62,7 +62,25 @@
     \begin{itemize}
         \item Is a technique used to find a closed form formula
         \item \textbf{closed form formula} is a simple formula that allows evaluation
-        of $T(n)$ without the need to evaluate $T([n/3])$
+        of $T(n)$ without the need to evaluate, say $T(n/2)$
+
+        \bigskip
+
+        i.e. from
+
+        \begin{align}
+            T(n) =
+            \begin{cases}
+            c & \text{if $n = 1$}\\
+            2T(n/2) + dn & \text{if $n > 1$}
+            \end{cases}
+        \end{align}
+
+        to
+
+        \bigskip
+
+        $T(n) = cn + dn \log_2 n$
     \end{itemize}
 
     \bigskip
@@ -78,7 +96,7 @@
             T(n) =
             \begin{cases}
             c & \text{if $n = 1$}\\
-            2T([n/2]) + dn & \text{if $n > 1$}
+            2T(n/2) + dn & \text{if $n > 1$}
             \end{cases}
         \end{align}
 
@@ -87,6 +105,12 @@
 
         \bigskip
 
+        Let $n \in \mathbb{N}$ and assume that $\exists k \in \mathbb{N}^+$, $n = 2^k$, so $k = \log_2 n$.
+
+        \bigskip
+
+        Then,
+
         \begin{align}
             T(n) &= 2T(n/2) + dn & [\text{By 1}]\\
             &= 2\Bigl(2T(n/2^2) + dn/2\Bigr) + dn & [\text{By subtituting $n/2$ for $n$ in 1}]\\
@@ -94,7 +118,10 @@
             &= 2^2\Bigl(2T(n/2^3) + dn/2^2\Bigr) + 2dn & [\text{By subtituting $n/2^2$ for $n$ in 1}]\\
             &= 2^3T(n/2^3) + 3dn & [\text{By subtituting $n/2^2$ for $n$ in 1}]\\
             &\vdots\\
-            &= 2^iT(n/2^i) + idn & [\text{After $i$ applications}]
+            &= 2^kT(n/2^k) + kdn & [\text{After $k$ applications}]\\
+            &= 2^{\log_2 n}T(n/2^{\log_2 n}) + (\log_2 n)dn & [\text{By replacing $k = \log_2 n$}]\\
+            &= nT(1) + (\log_2 n)dn\\
+            &= cn + (\log_2 n)dn
         \end{align}
     \end{mdframed}
 
