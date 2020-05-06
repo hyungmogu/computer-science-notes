@@ -473,14 +473,6 @@
 
 \begin{itemize}
     \item
-\end{itemize}
-
-\bigskip
-
-\begin{mdframed}
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
 
     Given the statement to prove
 
@@ -490,54 +482,154 @@
 
     \bigskip
 
+    \begin{proof}
     I will prove $P(x,y,z,w)$ using proof by contradiction.
 
     \bigskip
 
     Assume $\exists x,y,z,w \in \mathbb{N}^+$, $x^4 + 3y^4 + 9z^4 = 27w^4$.
 
-    \begin{enumerate}[1.]
-        \item Show that the set $X = \{x \in \mathbb{N}^+ \mid \exists y,z,w \in \mathbb{N}^+, x^4 + 3y^4 + 9z^4 = 27w^4\}$
+    \bigskip
 
-        \begin{mdframed}
-        Then, the set $X = \{x \in \mathbb{N}^+ \mid \exists y,z,w \in \mathbb{N}^+, x^4 + 3y^4 + 9z^4 = 27w^4\}$ is
-        not empty.
-        \end{mdframed}
+    Then, the set $X = \{x \in \mathbb{N}^+ \mid \exists y,z,w \in \mathbb{N}^+, x^4 + 3y^4 + 9z^4 = 27w^4\}$ is
+    not empty.
 
-        \item Show there is smallest positive integer $x_0 \in X$ and positive integers $y_0,z_0,w_0 \in \mathbb{N}^+$,
-        such that $x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4$ using principle of well-ordering
+    \bigskip
 
-        \begin{mdframed}
-        Then, by principle of well-ordering, there is smallest positive integer
-        $x_0 \in X$, and postive integers $y_0,z_0,w_0 \in \mathbb{N}^+$ such
-        that $x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4$.
+    Then, by principle of well-ordering, there is smallest positive integer
+    $x_0 \in X$, and postive integers $y_0,z_0,w_0 \in \mathbb{N}^+$ such
+    that $x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4$.
 
-        \end{mdframed}
+    \bigskip
 
-        \item Show there is $x_1 < x_0$ and $x_1 \in X$
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \begin{split}
+        x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4 &\Rightarrow x_0^4 = 27w_0^4 - 3y_0^4 - 9z_0^4\\
+        & \Rightarrow 3 \mid x_0^4 \Rightarrow 3 \mid x_0
+        \end{split} & [\text{By hint}]\\[1em]
+        \begin{split}
+        \text{Let $\exists x_1 \in \mathbb{N}^+$, $x_0 = 3x_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+        &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - x_0^4\\
+        &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - 3^4x_1^4\\
+        &\Rightarrow y_0^4 = 9w_0^4 - 3z_0^4 - 3^3x_1^4\\
+        &\Rightarrow 3 \mid y_0^4 \Rightarrow 3 \mid y_0
+        \end{split} & [\text{By hint}]\\[1em]
+        \begin{split}
+        \text{Let $\exists y_1 \in \mathbb{N}^+$, $y_0 = 3y_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+        &\Rightarrow 9z_0^4 = 27w_0^4 - 3y_0^4 - x_0^4\\
+        &\Rightarrow 9z_0^4 = 27w_0^4 - 3^5y_1^4 - 3^4x_1^4\\
+        &\Rightarrow z_0^4 = 3w_0^4 - 3^3y_1^4 - 3^2x_1^4\\
+        &\Rightarrow 3 \mid z_0^4 \Rightarrow 3 \mid z_0
+        \end{split} & [\text{By hint}]\\[1em]
+        \begin{split}
+        \text{Let $\exists w_1 \in \mathbb{N}^+$, $w_0 = 3w_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+        &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 3^7w_1^4\\
+        &\Rightarrow x_1^4 + 3y_1^4 + 3^2z_1^4 = 3^3w_1^4\\
+        &\Rightarrow x_1^4 + 3y_1^4 + 9z_1^4 = 27w_1^4\\
+        &\Rightarrow x_1 \in X
+        \end{split}
+    \end{align}
 
-        \begin{mdframed}
-        Then,
+    \bigskip
 
-        \begin{align}
-            \begin{split}
-            x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4 &\Rightarrow x_0^4 = 27w_0^4 - 3y_0^4 - 9z_0^4\\
-            & \Rightarrow 3 \mid x_0^4 \Rightarrow 3 \mid x_0
-            \end{split} & [\text{By hint}]\\[1em]
-            \begin{split}
-            \text{Let $\exists x_1 \in \mathbb{N}^+$, $x_0 = 3x_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
-            &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - x_0^4\\
-            &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - 3^4x_1^4\\
-            &\Rightarrow y_0^4 = 9w_0^4 - 3z_0^4 - 3^3x_1^4\\
-            &\Rightarrow 3 \mid y_0^4 \Rightarrow 3 \mid y_0
-            \end{split} & [\text{By hint}]\\[1em]
-        \end{align}
+    Then, this leads to contradiction, because we know $x_1 < x_0$, $x_1 \in X$,
+    but $x_0$ is the smallest number in $X$.
 
-        \end{mdframed}
+    \bigskip
 
-        \item Conclude proof by contradiction
-    \end{enumerate}
-\end{mdframed}
+    Thus, we can conclude the assumption is false.
+
+    \end{proof}
+\end{itemize}
+
+% \bigskip
+
+% \begin{mdframed}
+%     \underline{\textbf{Rough Work:}}
+
+%     \bigskip
+
+%     Given the statement to prove
+
+%     \begin{center}
+%         $P(x,y,z,w):$ There are no positive integers $x,y,z,w$ such that $x^4 + 3y^4 + 9z^4 = 27w^4$.
+%     \end{center}
+
+%     \bigskip
+
+%     I will prove $P(x,y,z,w)$ using proof by contradiction.
+
+%     \bigskip
+
+%     Assume $\exists x,y,z,w \in \mathbb{N}^+$, $x^4 + 3y^4 + 9z^4 = 27w^4$.
+
+%     \begin{enumerate}[1.]
+%         \item Show that the set $X = \{x \in \mathbb{N}^+ \mid \exists y,z,w \in \mathbb{N}^+, x^4 + 3y^4 + 9z^4 = 27w^4\}$
+
+%         \begin{mdframed}
+%         Then, the set $X = \{x \in \mathbb{N}^+ \mid \exists y,z,w \in \mathbb{N}^+, x^4 + 3y^4 + 9z^4 = 27w^4\}$ is
+%         not empty.
+%         \end{mdframed}
+
+%         \item Show there is smallest positive integer $x_0 \in X$ and positive integers $y_0,z_0,w_0 \in \mathbb{N}^+$,
+%         such that $x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4$ using principle of well-ordering
+
+%         \begin{mdframed}
+%         Then, by principle of well-ordering, there is smallest positive integer
+%         $x_0 \in X$, and postive integers $y_0,z_0,w_0 \in \mathbb{N}^+$ such
+%         that $x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4$.
+
+%         \end{mdframed}
+
+%         \item Show there is $x_1 < x_0$ and $x_1 \in X$
+
+%         \begin{mdframed}
+%         Then,
+%         \setcounter{equation}{0}
+%         \begin{align}
+%             \begin{split}
+%             x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4 &\Rightarrow x_0^4 = 27w_0^4 - 3y_0^4 - 9z_0^4\\
+%             & \Rightarrow 3 \mid x_0^4 \Rightarrow 3 \mid x_0
+%             \end{split} & [\text{By hint}]\\[1em]
+%             \begin{split}
+%             \text{Let $\exists x_1 \in \mathbb{N}^+$, $x_0 = 3x_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+%             &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - x_0^4\\
+%             &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - 3^4x_1^4\\
+%             &\Rightarrow y_0^4 = 9w_0^4 - 3z_0^4 - 3^3x_1^4\\
+%             &\Rightarrow 3 \mid y_0^4 \Rightarrow 3 \mid y_0
+%             \end{split} & [\text{By hint}]\\[1em]
+%             \begin{split}
+%             \text{Let $\exists y_1 \in \mathbb{N}^+$, $y_0 = 3y_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+%             &\Rightarrow 9z_0^4 = 27w_0^4 - 3y_0^4 - x_0^4\\
+%             &\Rightarrow 9z_0^4 = 27w_0^4 - 3^5y_1^4 - 3^4x_1^4\\
+%             &\Rightarrow z_0^4 = 3w_0^4 - 3^3y_1^4 - 3^2x_1^4\\
+%             &\Rightarrow 3 \mid z_0^4 \Rightarrow 3 \mid z_0
+%             \end{split} & [\text{By hint}]\\[1em]
+%             \begin{split}
+%             \text{Let $\exists w_1 \in \mathbb{N}^+$, $w_0 = 3w_1$} &\Rightarrow x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+%             &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 3^7w_1^4\\
+%             &\Rightarrow x_1^4 + 3y_1^4 + 3^2z_1^4 = 3^3w_1^4\\
+%             &\Rightarrow x_1^4 + 3y_1^4 + 9z_1^4 = 27w_1^4\\
+%             &\Rightarrow x_1 \in X
+%             \end{split}
+%         \end{align}
+
+%         \end{mdframed}
+
+%         \item Conclude proof by contradiction
+
+%         \begin{mdframed}
+%         Then, this leads to contradiction, because we know $x_1 < x_0$, $x_1 \in X$,
+%         but $x_0$ is the smallest number in $X$.
+
+%         \bigskip
+
+%         Thus, we can conclude the assumption is false.
+%         \end{mdframed}
+%     \end{enumerate}
+% \end{mdframed}
 
 \section*{Question 3}
 
