@@ -61,6 +61,8 @@
 
     \begin{itemize}
         \item Is a technique used to find a closed form formula
+        \item \textbf{closed form formula} is a simple formula that allows evaluation
+        of $T(n)$ without the need to evaluate $T([n/3])$
     \end{itemize}
 
     \bigskip
@@ -70,6 +72,30 @@
 
         \bigskip
 
+        Consider the recurrence
+
+        \begin{align}
+            T(n) =
+            \begin{cases}
+            c & \text{if $n = 1$}\\
+            2T([n/2]) + dn & \text{if $n > 1$}
+            \end{cases}
+        \end{align}
+
+        Find closed form formula for $T(n)$, where $n$ is an arbitrary power of 2.
+        That is $\exists k \in \mathbb{N}, n = 2^k$.
+
+        \bigskip
+
+        \begin{align}
+            T(n) &= 2T(n/2) + dn & [\text{By 1}]\\
+            &= 2\Bigl(2T(n/2^2) + dn/2\Bigr) + dn & [\text{By subtituting $n/2$ for $n$ in 1}]\\
+            &= 2^2T(n/2^2) + 2dn\\
+            &= 2^2\Bigl(2T(n/2^3) + dn/2^2\Bigr) + 2dn & [\text{By subtituting $n/2^2$ for $n$ in 1}]\\
+            &= 2^3T(n/2^3) + 3dn & [\text{By subtituting $n/2^2$ for $n$ in 1}]\\
+            &\vdots\\
+            &= 2^iT(n/2^i) + idn & [\text{After $i$ applications}]
+        \end{align}
     \end{mdframed}
 
 \end{itemize}
