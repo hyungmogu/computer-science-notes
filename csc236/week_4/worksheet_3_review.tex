@@ -51,81 +51,186 @@
 \begin{itemize}
     \item
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+    \begin{proof}
+    Define $P(e):S_1(e) = 3(s_2(e) - 1)$
 
-        \bigskip
+    \bigskip
 
-        Define $P(e):S_1(e) = 3(s_2(e) - 1)$
+    I will use structural induction to prove $\forall e \in \varepsilon,\:P(e)$.
 
-        \bigskip
+    \bigskip
 
-        I will use structural induction to prove $\forall \in \varepsilon,\:P(e)$.
+    \underline{\textbf{Basis:}}
 
-        \bigskip
+    \bigskip
 
-        \begin{enumerate}[1.]
-            \item Basis
+    Let $\{x,y,z\} \in \varepsilon$.
 
-            \begin{mdframed}
-            Let $\{x,y,z\} \in \varepsilon$.
+    \bigskip
 
-            \bigskip
+    In this step, there are following cases to consider: $e = x$, $e = y$, and $e = z$.
 
-            In this step, there are following cases to consider: $e = x$, $e = y$, and $e = z$.
- ㅇ
-            \bigskip
+    \bigskip
 
-            In each of the cases, we have $s_1(e) = 0$ and $s_2(e) = 1$.
+    In each of the cases, we have $s_1(e) = 0$ and $s_2(e) = 1$.
 
-            \bigskip
+    \bigskip
 
-            Thus,
+    Thus,
 
-            \begin{align}
-                s_1(e) = 0 &= 3(0)\\
-                &= 3(1-1)\\
-                &= 3(s_2(e) - 1)
-            \end{align}
+    \begin{align}
+        s_1(e) = 0 &= 3(0)\\
+        &= 3(1-1)\\
+        &= 3(s_2(e) - 1)
+    \end{align}
 
-            \bigskip
+    \bigskip
 
-            So, , $P(e)$ holds.
-            \end{mdframed}
-            \item Inductive Step
+    So, , $P(e)$ holds.
 
-            \begin{mdframed}
+    \bigskip
 
-                Let $e_1, e_2 \in \varepsilon$. Assume $H(e):$ $P(e_1)$ and $P(e_2)$.
-                That is, $s_1(e_1) = 3(s_2(e_1) - 1)$ and $s_2(e_2) = 3(s_2(e_2) - 1)$.
+    \underline{\textbf{Inductive Step:}}
 
-                \bigskip
+    \bigskip
 
-                I need to prove all possible combinations of $e_1$ and $e_2$ satisfy
-                the statement. That is $P((e_1 + e_2))$ and $P((e_1 - e_2))$.
+    Let $e_1, e_2 \in \varepsilon$. Assume $H(e):$ $P(e_1)$ and $P(e_2)$.
+    That is, $s_1(e_1) = 3(s_2(e_1) - 1)$ and $s_2(e_2) = 3(s_2(e_2) - 1)$.
 
-                \bigskip
+    \bigskip
 
-                In each of the combination, the total number of variables of $e$
-                is the sum of the number of variables in $e_1$ and $e_2$, and the
-                total number of parenthesis and operators in $e$ is the sum of
-                operators and parenthesis in $e_1$ and $e_2$ plus 3.
+    I need to prove all possible combinations of $e_1$ and $e_2$ satisfy
+    the statement. That is $P((e_1 + e_2))$ and $P((e_1 - e_2))$.
 
-                \bigskip
+    \bigskip
 
-                Then, using these facts, we have
+    In each of the combination, the total number of variables of $e$
+    is the sum of the number of variables in $e_1$ and $e_2$, and the
+    total number of parenthesis and operators in $e$ is the sum of
+    operators and parenthesis in $e_1$ and $e_2$ plus 3.
 
-                \bigskip
+    \bigskip
 
-                \begin{align}
-                    s_2(e) &= s_2(e_1) + s_2(e_2)\\
-                    s_1(e) &= s_1(e_1) + s_1(e_2) + 3
-                \end{align}
+    Then, using these facts, we have
 
-            \end{mdframed}
-        \end{enumerate}
+    \bigskip
 
-    \end{mdframed}
+    \begin{align}
+        s_2(e) &= s_2(e_1) + s_2(e_2)\\
+        s_1(e) &= s_1(e_1) + s_1(e_2) + 3
+    \end{align}
+
+    \bigskip
+
+    Thus, we can calculate
+
+    \begin{align}
+        s_1(e) &= s_1(e_1) + s_1(e_2) + 3 & [\text{By 5}]\\
+        &= 3(s_2(e_1) - 1) + 3(s_2(e_2) - 1) + 3 & [\text{By I.H}]\\
+        &= 3(s_2(e_1) + s_2(e_2)) - 6 + 3 & [\text{By I.H}]\\
+        &= 3s_2(e) - 3 & [\text{By 4}]\\
+        &= 3(s_2(e) - 1)
+    \end{align}
+
+    \end{proof}
+
+    % \bigskip
+
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
+
+    %     \bigskip
+
+    %     Define $P(e):S_1(e) = 3(s_2(e) - 1)$
+
+    %     \bigskip
+
+    %     I will use structural induction to prove $\forall e \in \varepsilon,\:P(e)$.
+
+    %     \bigskip
+
+    %     \begin{enumerate}[1.]
+    %         \item Basis
+
+    %         \begin{mdframed}
+    %         \underline{\textbf{Basis:}}
+
+    %         \bigskip
+
+    %         Let $\{x,y,z\} \in \varepsilon$.
+
+    %         \bigskip
+
+    %         In this step, there are following cases to consider: $e = x$, $e = y$, and $e = z$.
+
+    %         \bigskip
+
+    %         In each of the cases, we have $s_1(e) = 0$ and $s_2(e) = 1$.
+
+    %         \bigskip
+
+    %         Thus,
+
+    %         \begin{align}
+    %             s_1(e) = 0 &= 3(0)\\
+    %             &= 3(1-1)\\
+    %             &= 3(s_2(e) - 1)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         So, , $P(e)$ holds.
+    %         \end{mdframed}
+    %         \item Inductive Step
+
+    %         \begin{mdframed}
+
+    %             \underline{\textbf{Inductive Step:}}
+
+    %             \bigskip
+
+    %             Let $e_1, e_2 \in \varepsilon$. Assume $H(e):$ $P(e_1)$ and $P(e_2)$.
+    %             That is, $s_1(e_1) = 3(s_2(e_1) - 1)$ and $s_2(e_2) = 3(s_2(e_2) - 1)$.
+
+    %             \bigskip
+
+    %             I need to prove all possible combinations of $e_1$ and $e_2$ satisfy
+    %             the statement. That is $P((e_1 + e_2))$ and $P((e_1 - e_2))$.
+
+    %             \bigskip
+
+    %             In each of the combination, the total number of variables of $e$
+    %             is the sum of the number of variables in $e_1$ and $e_2$, and the
+    %             total number of parenthesis and operators in $e$ is the sum of
+    %             operators and parenthesis in $e_1$ and $e_2$ plus 3.
+
+    %             \bigskip
+
+    %             Then, using these facts, we have
+
+    %             \bigskip
+
+    %             \begin{align}
+    %                 s_2(e) &= s_2(e_1) + s_2(e_2)\\
+    %                 s_1(e) &= s_1(e_1) + s_1(e_2) + 3
+    %             \end{align}
+
+    %             \bigskip
+
+    %             Thus, we can calculate
+
+    %             \begin{align}
+    %                 s_1(e) &= s_1(e_1) + s_1(e_2) + 3 & [\text{By 5}]\\
+    %                 &= 3(s_2(e_1) - 1) + 3(s_2(e_2) - 1) + 3 & [\text{By I.H}]\\
+    %                 &= 3(s_2(e_1) + s_2(e_2)) - 6 + 3 & [\text{By I.H}]\\
+    %                 &= 3s_2(e) - 3 & [\text{By 4}]\\
+    %                 &= 3(s_2(e) - 1)
+    %             \end{align}
+
+    %         \end{mdframed}
+    %     \end{enumerate}
+
+    % \end{mdframed}
 \end{itemize}
 
 \end{document}
