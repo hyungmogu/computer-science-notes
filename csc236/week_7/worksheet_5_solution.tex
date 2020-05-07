@@ -337,16 +337,28 @@
 
         \bigskip
 
-        In this part, since $R(2) = R(2)$, we can conclude $R(2) \leq R(2)$.
-
-        \bigskip
-
-        So, since $R(1) \leq R(2)$ and $R(2) \leq R(2)$ are true, we can conclude
-        $P(2)$ holds.
+        In this part, $R(2) = R(2)$, so we can conclude $R(2) \leq R(2)$.
 
         \end{mdframed}
 
         \item Case ($n > 2$)
+
+        \begin{itemize}
+            \item Show that only $R(n-1) \leq R(n)$ needs proving
+            \item Show $R(n)$ holds, starting from $R(n-1)$
+
+            \begin{mdframed}
+            \begin{align}
+                R(n-1) &= (n-1) + R(\lceil (n-1)/3 \rceil) & [\text{By def.}]\\
+                &\leq n + R(\lceil (n-1)/3 \rceil) \\
+                &\leq n + R(\lceil n/3 \rceil) & [\text{By I.H, Since $1 \leq \lceil (n-1)/3 \rceil \leq \lceil n/3 \rceil < n$}]\\
+                &= R(n)
+            \end{align}
+
+            Thus, $P(n)$ holds.
+            \end{mdframed}
+        \end{itemize}
+
     \end{enumerate}
 
     \end{mdframed}
