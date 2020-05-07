@@ -73,7 +73,7 @@
             \bigskip
 
             In this step, there are following cases to consider: $e = x$, $e = y$, and $e = z$.
-
+ ㅇ
             \bigskip
 
             In each of the cases, we have $s_1(e) = 0$ and $s_2(e) = 1$.
@@ -93,6 +93,36 @@
             So, , $P(e)$ holds.
             \end{mdframed}
             \item Inductive Step
+
+            \begin{mdframed}
+
+                Let $e_1, e_2 \in \varepsilon$. Assume $H(e):$ $P(e_1)$ and $P(e_2)$.
+                That is, $s_1(e_1) = 3(s_2(e_1) - 1)$ and $s_2(e_2) = 3(s_2(e_2) - 1)$.
+
+                \bigskip
+
+                I need to prove all possible combinations of $e_1$ and $e_2$ satisfy
+                the statement. That is $P((e_1 + e_2))$ and $P((e_1 - e_2))$.
+
+                \bigskip
+
+                In each of the combination, the total number of variables of $e$
+                is the sum of the number of variables in $e_1$ and $e_2$, and the
+                total number of parenthesis and operators in $e$ is the sum of
+                operators and parenthesis in $e_1$ and $e_2$ plus 3.
+
+                \bigskip
+
+                Then, using these facts, we have
+
+                \bigskip
+
+                \begin{align}
+                    s_2(e) &= s_2(e_1) + s_2(e_2)\\
+                    s_1(e) &= s_1(e_1) + s_1(e_2) + 3
+                \end{align}
+
+            \end{mdframed}
         \end{enumerate}
 
     \end{mdframed}
