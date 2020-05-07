@@ -277,8 +277,6 @@
     \bigskip
 
     I will prove $\forall n \in \mathbb{N}^+, P(n)$ using complete induction.
-    I will assume without proof, that if $n$ is a natural number greater than 1,
-    then $n > \lceil n/3 \rceil \geq 1$.
 
     \bigskip
 
@@ -345,15 +343,29 @@
 
         \begin{itemize}
             \item Show that only $R(n-1) \leq R(n)$ needs proving
+
+            \begin{mdframed}
+            Since $n > 2$, $1 \leq n - 1 < n$, so we know $P(n-1)$ holds.
+
+            \bigskip
+
+            Then, it is suffice to prove $R(n-1) \leq R(n)$.
+
+            \end{mdframed}
+
             \item Show $R(n)$ holds, starting from $R(n-1)$
 
             \begin{mdframed}
+            Starting from $R(n-1)$, we have
+
             \begin{align}
                 R(n-1) &= (n-1) + R(\lceil (n-1)/3 \rceil) & [\text{By def.}]\\
                 &\leq n + R(\lceil (n-1)/3 \rceil) \\
                 &\leq n + R(\lceil n/3 \rceil) & [\text{By I.H, Since $1 \leq \lceil (n-1)/3 \rceil \leq \lceil n/3 \rceil < n$}]\\
                 &= R(n)
             \end{align}
+
+            \bigskip
 
             Thus, $P(n)$ holds.
             \end{mdframed}
