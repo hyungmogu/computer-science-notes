@@ -69,13 +69,21 @@
         \item Inductive Step
 
         \begin{mdframed}
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
         Let $n \in \mathbb{N}$. Assume $H(n): \bigwedge_{i=0}^{n-1} P(i)$. I will
-        show $P(n)$ follows.
+        show $P(n)$ follows. That is $f(n) \leq 3^n$.
         \end{mdframed}
 
         \item Base Case ($n = 0$)
 
         \begin{mdframed}
+        \underline{\textbf{Base Case ($n = 0$):}}
+
+        \bigskip
+
         Let $n = 0$.
 
         \bigskip
@@ -96,7 +104,58 @@
         \end{mdframed}
 
         \item Base Case ($n = 1$)
+
+        \begin{mdframed}
+
+        \underline{\textbf{Base Case ($n = 1$):}}
+
+        \bigskip
+
+        Let $n = 1$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            f(n) &= 3 & [\text{By def.}]\\
+            &= 3^1\\
+            &\leq 3^1\\
+            &= 3^n
+        \end{align}
+
+        \bigskip
+
+        Thus, $P(n)$ follows.
+
+        \end{mdframed}
         \item Case ($n > 1$)
+
+        \begin{mdframed}
+            \underline{\textbf{Case ($n > 1$):}}
+
+            \bigskip
+
+            Let $n \in \mathbb{N} \setminus \{0\}$.
+
+            \bigskip
+
+            Then, we have
+
+            \begin{align}
+                f(n) &= 2(f(n-2) + f(n-1)) + 1 & [\text{By def., since $1 < n$}]\\
+                &\leq 2(3^{n-2} + 3^{n-1}) + 1 & [\text{By I.H, since $1 \leq n-2 < n-1 < n$}]\\
+                &= 2 \cdot 3^{n-2}(1 + 3) + 1\\
+                &= 8 \cdot 3^{n-2} + 1 \\
+                &\leq 8 \cdot 3^{n-2} + 3^{n-2} & [\text{Since $1 < n$ and $0 \leq 3^{n-2}$}]\\
+                &= 9 \cdot 3^{n-2}\\
+                &= 3^n
+            \end{align}
+
+            \bigskip
+
+            Thus, $P(n)$ follows.
+        \end{mdframed}
     \end{itemize}
 
 \end{mdframed}
