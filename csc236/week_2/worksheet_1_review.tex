@@ -101,6 +101,62 @@
 
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \underline{\textbf{Base Case ($n = 7$):}}
+
+        \bigskip
+
+        Let $n = 7$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            4^n &= 16384\\
+            &\geq 12011\\
+            &= 5(7)^4 + 6\\
+            &= 5n^4 + 6
+        \end{align}
+
+        \bigskip
+
+        So, $H(n)$ is verified.
+
+        \bigskip
+
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N} \color{red}\setminus \{0,1,2,3,4,5,6\}\color{black}$. Assume $H(n)$.
+
+        \bigskip
+
+        I need to show $H(n+1)$ follows. That is $4^{n+1} \geq (5n^4 + 6)$.
+
+        \bigskip
+
+        Starting from $4^{n+1}$, we have
+
+        \begin{align}
+            4^{n+1} &= 4^n + 4^n + 4^n + 4^n\\
+            &\geq (5n^4 + 6) + (5n^4 + 6) + (5n^4 + 6) + (5n^4 + 6 & [\text{By I.H}]\\
+            &= 5(n^4 + n^4 + n^4 + n^4) + 24\\
+            &= 5(n^4 + n \cdot n^3 + n^2 \cdot n^2 + n^3 \cdot n) + 24\\
+            &> 5(n^4 + 7 \cdot n^3 + 7^2 \cdot n^2 + 7^3 \cdot n) + 24 & [\text{Since $n \geq 7$}]\\
+            &> 5(n^4 + 4 \cdot n^3 + 6 \cdot n^2 + 4 \cdot n) + 6\\
+            &> 5(n+1)^4 + 6
+        \end{align}
+
+    \end{mdframed}
+
     % \bigskip
 
     % \begin{mdframed}
