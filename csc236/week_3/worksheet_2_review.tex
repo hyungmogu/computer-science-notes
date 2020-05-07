@@ -49,4 +49,56 @@
 
 \section*{Question 3}
 
+\begin{itemize}
+    \item
+\end{itemize}
+
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Rough Works:}}
+
+    \bigskip
+
+    For convenience, define $P(n): f(n) \leq 3^n$. I will use complete induction to
+    prove that $\forall n \in \mathbb{N}$, $P(n)$.
+
+    \bigskip
+
+    \begin{itemize}
+        \item Inductive Step
+
+        \begin{mdframed}
+        Let $n \in \mathbb{N}$. Assume $H(n): \bigwedge_{i=0}^{n-1} P(i)$. I will
+        show $P(n)$ follows.
+        \end{mdframed}
+
+        \item Base Case ($n = 0$)
+
+        \begin{mdframed}
+        Let $n = 0$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            f(n) &= 1 & [\text{By def.}]\\
+            &= 3^0\\
+            &\leq 3^0\\
+            &= 3^n
+        \end{align}
+
+        \bigskip
+
+        Thus, $P(n)$ follows.
+
+        \end{mdframed}
+
+        \item Base Case ($n = 1$)
+        \item Case ($n > 1$)
+    \end{itemize}
+
+\end{mdframed}
+
 \end{document}
