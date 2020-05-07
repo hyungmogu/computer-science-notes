@@ -262,36 +262,23 @@
 
     \bigskip
 
-    \begin{mdframed}
+    \begin{proof}
+        Define $P(k)$ as
 
-    \underline{\textbf{Rough Works:}}
+        \begin{center}
+            $P(k):$ $\bigwedge\limits_{m=1}^{m=k} R(m) \leq R(k)$
+        \end{center}
 
-    \bigskip
+        \bigskip
 
-    Define $P(k)$ as
+        I will prove $\forall n \in \mathbb{N}^+, P(n)$ using complete induction.
 
-    \begin{center}
-        $P(k):$ $\bigwedge\limits_{m=1}^{m=k} R(m) \leq R(k)$
-    \end{center}
+        \bigskip
 
-    \bigskip
+        \underline{\textbf{Base Case ($n = 1$):}}
 
-    I will prove $\forall n \in \mathbb{N}^+, P(n)$ using complete induction.
+        \bigskip
 
-    \bigskip
-
-    \begin{enumerate}[1.]
-        \item Inductive Step
-
-        \begin{mdframed}
-        Let $n \in \mathbb{N}$. Assume $n \geq 1$. Assume $H(n):\bigwedge\limits_{i=1}^{n-1} P(i)$.
-        I will prove that $P(n)$ follows.
-
-        \end{mdframed}
-
-        \item Base Case ($n = 1$)
-
-        \begin{mdframed}
         Let $n = 1$.
 
         \bigskip
@@ -302,11 +289,12 @@
 
         So, $P(1)$ follows.
 
-        \end{mdframed}
+        \bigskip
 
-        \item Base Case ($n = 2$)
+        \underline{\textbf{Base Case ($n = 2$):}}
 
-        \begin{mdframed}
+        \bigskip
+
         Let $n = 2$.
 
         \bigskip
@@ -337,43 +325,173 @@
 
         In this part, $R(2) = R(2)$, so we can conclude $R(2) \leq R(2)$.
 
-        \end{mdframed}
+        \bigskip
 
-        \item Case ($n > 2$)
+        \underline{\textbf{Case ($n > 2$):}}
 
-        \begin{itemize}
-            \item Show that only $R(n-1) \leq R(n)$ needs proving
+        \bigskip
 
-            \begin{mdframed}
-            Since $n > 2$, $1 \leq n - 1 < n$, so we know $P(n-1)$ holds.
+        Since $n > 2$, $1 \leq n - 1 < n$, so we know $P(n-1)$ holds.
 
-            \bigskip
+        \bigskip
 
-            Then, it is suffice to prove $R(n-1) \leq R(n)$.
+        Then, it is suffice to prove $R(n-1) \leq R(n)$.
 
-            \end{mdframed}
+        \bigskip
 
-            \item Show $R(n)$ holds, starting from $R(n-1)$
+        Starting from $R(n-1)$, we have
 
-            \begin{mdframed}
-            Starting from $R(n-1)$, we have
+        \begin{align}
+            R(n-1) &= (n-1) + R(\lceil (n-1)/3 \rceil) & [\text{By def.}]\\
+            &\leq n + R(\lceil (n-1)/3 \rceil) \\
+            &\leq n + R(\lceil n/3 \rceil) & [\text{By I.H, since $1 \leq \lceil (n-1)/3 \rceil \leq \lceil n/3 \rceil < n$}]\\
+            &= R(n)
+        \end{align}
+    \end{proof}
 
-            \begin{align}
-                R(n-1) &= (n-1) + R(\lceil (n-1)/3 \rceil) & [\text{By def.}]\\
-                &\leq n + R(\lceil (n-1)/3 \rceil) \\
-                &\leq n + R(\lceil n/3 \rceil) & [\text{By I.H, Since $1 \leq \lceil (n-1)/3 \rceil \leq \lceil n/3 \rceil < n$}]\\
-                &= R(n)
-            \end{align}
+    % \begin{mdframed}
 
-            \bigskip
+    % \underline{\textbf{Rough Works:}}
 
-            Thus, $P(n)$ holds.
-            \end{mdframed}
-        \end{itemize}
+    % \bigskip
 
-    \end{enumerate}
+    % Define $P(k)$ as
 
-    \end{mdframed}
+    % \begin{center}
+    %     $P(k):$ $\bigwedge\limits_{m=1}^{m=k} R(m) \leq R(k)$
+    % \end{center}
+
+    % \bigskip
+
+    % I will prove $\forall n \in \mathbb{N}^+, P(n)$ using complete induction.
+
+    % \bigskip
+
+    % \begin{enumerate}[1.]
+    %     \item Inductive Step
+
+    %     \begin{mdframed}
+    %     Let $n \in \mathbb{N}$. Assume $n \geq 1$. Assume $H(n):\bigwedge\limits_{i=1}^{n-1} P(i)$.
+    %     I will prove that $P(n)$ follows.
+
+    %     \end{mdframed}
+
+    %     \item Base Case ($n = 1$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case ($n = 1$):}}
+
+    %     \bigskip
+
+    %     Let $n = 1$.
+
+    %     \bigskip
+
+    %     Then, $\bigwedge\limits_{m=1}^{m=1} R(m) = R(1)$.
+
+    %     \bigskip
+
+    %     So, $P(1)$ follows.
+
+    %     \end{mdframed}
+
+    %     \item Base Case ($n = 2$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case ($n = 2$):}}
+
+    %     \bigskip
+
+    %     Let $n = 2$.
+
+    %     \bigskip
+
+    %     I need to show $P(2)$ holds. That is, $R(1) \leq R(2)$ and $R(2) \leq R(2)$.
+
+    %     \bigskip
+
+    %     I will do so in parts.
+
+    %     \bigskip
+
+    %     \textbf{Part 1 ($R(1) \leq R(2)$):}
+
+    %     \bigskip
+
+    %     In this part, $R(1) = 0$ and $R(2) = 2 + R(\lceil 2/3 \rceil) = 2 + R(1) = 2$.
+
+    %     \bigskip
+
+    %     Since $0 \leq 2$, we can conclude $R(1) \leq R(2)$.
+
+    %     \bigskip
+
+    %     \textbf{Part 2 ($R(2) \leq R(2)$):}
+
+    %     \bigskip
+
+    %     In this part, $R(2) = R(2)$, so we can conclude $R(2) \leq R(2)$.
+
+    %     \end{mdframed}
+
+    %     \item Case ($n > 2$)
+
+    %     \begin{itemize}
+    %         \item Show that only $R(n-1) \leq R(n)$ needs proving
+
+    %         \begin{mdframed}
+    %         Since $n > 2$, $1 \leq n - 1 < n$, so we know $P(n-1)$ holds.
+
+    %         \bigskip
+
+    %         Then, it is suffice to prove $R(n-1) \leq R(n)$.
+
+    %         \end{mdframed}
+
+    %         \item Show $R(n)$ holds, starting from $R(n-1)$
+
+    %         \begin{mdframed}
+    %         Starting from $R(n-1)$, we have
+
+    %         \begin{align}
+    %             R(n-1) &= (n-1) + R(\lceil (n-1)/3 \rceil) & [\text{By def.}]\\
+    %             &\leq n + R(\lceil (n-1)/3 \rceil) \\
+    %             &\leq n + R(\lceil n/3 \rceil) & [\text{By I.H, Since $1 \leq \lceil (n-1)/3 \rceil \leq \lceil n/3 \rceil < n$}]\\
+    %             &= R(n)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Thus, $P(n)$ holds.
+    %         \end{mdframed}
+    %     \end{itemize}
+
+    %     \begin{mdframed}
+    %         \underline{\textbf{Case ($n > 2$):}}
+
+    %         \bigskip
+
+    %         Since $n > 2$, $1 \leq n - 1 < n$, so we know $P(n-1)$ holds.
+
+    %         \bigskip
+
+    %         Then, it is suffice to prove $R(n-1) \leq R(n)$.
+
+    %         \bigskip
+
+    %         Starting from $R(n-1)$, we have
+
+    %         \begin{align}
+    %             R(n-1) &= (n-1) + R(\lceil (n-1)/3 \rceil) & [\text{By def.}]\\
+    %             &\leq n + R(\lceil (n-1)/3 \rceil) \\
+    %             &\leq n + R(\lceil n/3 \rceil) & [\text{By I.H, since $1 \leq \lceil (n-1)/3 \rceil \leq \lceil n/3 \rceil < n$}]\\
+    %             &= R(n)
+    %         \end{align}
+    %     \end{mdframed}
+
+    % \end{enumerate}
+
+    % \end{mdframed}
 
 \end{enumerate}
 
