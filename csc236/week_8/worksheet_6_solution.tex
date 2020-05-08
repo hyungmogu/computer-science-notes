@@ -51,17 +51,72 @@
 \begin{itemize}
     \item
 
+\end{itemize}
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Rough Work:}}
+
+    \bigskip
+
+    Assume that for all $k \in \mathbb{N}$, $R(3^k) = k3^k$.
+
+    \begin{enumerate}[1.]
+        \item Prove that $R \in \mathcal{O}(n \log n)$
 
         \bigskip
 
-        \begin{enumerate}[1.]
-            \item Prove $R \in \mathcal{O}(n lg n)$
-            \item Prove $R \in \Omega(n lg n)$
-        \end{enumerate}
+        Define $n^* = 3^{\lceil \log_3 n \rceil}$. Then, we have,
 
-    \end{mdframed}
+        \begin{align}
+            \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil \Rightarrow n^*/3 < n \leq n^*
+        \end{align}
+
+        I will also use the assumption (proved last week) that $R$ is non-decreasing.
+
+        \bigskip
+
+        Let $d = 6$. Then $d \in \mathbb{R}^+$. Let $B = 3$. Then $B \in \mathbb{N}^+$. Let
+        $n$ be an arbitrary natural number no smaller than $B$. Then,
+
+        \begin{mdframed}
+
+        \end{mdframed}
+
+        So $R \in \mathcal{O}(n \log n)$, since $\log_3 n$ differs from $\lg n$ by a constant factor.
+
+        \item Prove $R \in \Omega(n \log n)$
+
+        \begin{mdframed}
+
+        \end{mdframed}
+    \end{enumerate}
+
+\end{mdframed}
+
+\bigskip
+
+\underline{\textbf{Notes:}}
+
+\bigskip
+
+\begin{itemize}
+    \item
+    $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+
+    or
+
+    $g \in \Theta(f):\:\exists c_1,c_2,n_1 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_1
+    \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)$, where $f,g:\:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \item
+    $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+    \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \item
+
+    $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+    \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
 \end{itemize}
 \end{document}
