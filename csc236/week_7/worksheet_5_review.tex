@@ -174,21 +174,72 @@
 
         \bigskip
 
-        For convenience, define $P(k): \bigwedge\limits_{i=1}^{n=k}R(i) \leq R(k)$.
+        For convenience, define $P(n): \bigwedge\limits_{i=1}^{i=n} R(i) \leq R(n)$.
 
         \bigskip
 
         I will use complete induction to prove that $\forall n \in \mathbb{N},
-        n > 0 \Rightarrow P(n)$.
+        0 < n \Rightarrow P(n)$.
 
         \bigskip
 
         \begin{enumerate}[1.]
             \item Inductive Step
+
+            \begin{mdframed}
+            Let $n \in \mathbb{N} \setminus \{0\}$. Assume $\bigwedge\limits_{i=1}^{i=n-1} P(i)$.
+            I will show that $P(n)$ follows.
+            \end{mdframed}
+
             \item Base Case ($n = 1$)
+
+            \begin{mdframed}
+            Let $n = 1$.
+
+            \bigskip
+
+            Then, $\bigwedge\limits_{i=1}^{i=n} R(i) = R(n)$.
+
+            \bigskip
+
+            Thus, $P(n)$ follows in this step.
+
+            \end{mdframed}
+
             \item Base Case ($n = 2$)
 
             \begin{mdframed}
+            Let $n = 2$.
+
+            \bigskip
+
+            In this step, I need to prove $P(n)$. That is, $R(1) \leq R(2)$ and
+            $R(2) \leq R(2)$.
+
+            \bigskip
+
+            I will do so in part.
+
+            \bigskip
+
+            \textbf{Part 1 (Proving $R(1) \leq R(2)$):}
+
+            \bigskip
+
+            In this part, the definition tells us $R(1) = 1$ and $R(2) = 2 +
+            3R(\lceil 2/3 \rceil) = 2 + 3R(1) = 2$.
+
+            \bigskip
+
+            Since $R(1) = 1 < R(2) = 2$, we can conclude $R(1) \leq R(2)$ holds.
+
+            \bigskip
+
+            \textbf{Part 2 (Proving $R(2) \leq R(2)$):}
+
+            \bigskip
+
+            In this part, since $R(2) = R(2)$, $R(2) \leq R(2)$ holds.
 
             \end{mdframed}
 
