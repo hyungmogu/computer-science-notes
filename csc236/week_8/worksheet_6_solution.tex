@@ -91,8 +91,7 @@
         \begin{mdframed}
         \begin{align}
         R(n) &\leq R(n^*)  & [\text{Since $n < n^*$, and $R$ is non-decreasing}]\\
-        &= k3^k & [\text{By assumption}]\\
-        &\leq n^* \log_3 n^* & [\text{By replacing $n^*$ for $3^k$}]\\
+        &= n^* \log_3 n^* & [\text{By assumption, and replacing $n^*$ for $3^k$}]\\
         &\leq 3n \log_3 3n  & [\text{Since $n^*/3 < n \leq n^* \Rightarrow n^* < 3n < 3n^*$}]\\
         &\leq 3n(\log_3 n + 1)\\
         &\leq 3n(\log_3 n + \log_3 n) & [\text{Since $n \geq 3 \Rightarrow \log_3 n \geq 1$}]\\
@@ -124,7 +123,9 @@
         $n$ be an arbitrary natural number no smaller than $B$. Then,
 
         \begin{align}
-        R(n) &\geq R(n^*/3) & [\text{Since $n^*/3 < n$, and $R$ is non-decreasing}]
+        R(n) &\geq R(n^*/3) & [\text{Since $n^*/3 < n$, and $R$ is non-decreasing}]\\
+        &= (n^*/3) \cdot \log_3 (n^*/3) & [\text{By assumption, and replacing $n^*$ for $3^k$}]\\
+        &= (n/9) \cdot \log_3 (n/9)
         \end{align}
 
         \end{mdframed}
