@@ -63,7 +63,7 @@
     Assume that for all $k \in \mathbb{N}$, $R(3^k) = k3^k$.
 
     \begin{enumerate}[1.]
-        \item Prove that $R \in \mathcal{O}(n \lg n)$
+        \item Prove that $R \in \mathcal{O}(n \lg n)$.
 
         \bigskip
 
@@ -85,7 +85,13 @@
         R(n) &\leq R(n*)\\
         &= k3^k & [\text{By assumption}]\\
         &\leq n^* \log_3 n^* & [\text{By replacing $n^*$ for $3^k$}]\\
-        &\leq 3n \log_3 3n  & [\text{Since $n^*/3 < n \leq n^* \Rightarrow n^* < 3n < 3n^*$}]
+        &\leq 3n \log_3 3n  & [\text{Since $n^*/3 < n \leq n^* \Rightarrow n^* < 3n < 3n^*$}]\\
+        &\leq 3n(\log_3 n + 1)\\
+        &\leq 3n(\log_3 n + \log_3 n) & [\text{Since $n \geq 3 \Rightarrow \log_3 n \geq 1$}]\\
+        &= 6n \log_3 n\\
+        &\leq (6n \lg n)/\lg 3 & [\text{By change of basis to $\lg$}]\\
+        &< 6n \lg n\\
+        &= dn \lg n & [\text{Since $d = 6$}]
         \end{align}
 
         \end{mdframed}
