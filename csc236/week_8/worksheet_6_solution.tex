@@ -62,6 +62,14 @@
 
     Assume that for all $k \in \mathbb{N}$, $R(3^k) = k3^k$.
 
+    \bigskip
+
+    I need to prove $R \in \mathcal{O}(n \lg n)$ and $R \in \Omega(n \lg n)$.
+
+    \bigskip
+
+    I will do so in parts.
+
     \begin{enumerate}[1.]
         \item Prove that $R \in \mathcal{O}(n \lg n)$.
 
@@ -82,7 +90,7 @@
 
         \begin{mdframed}
         \begin{align}
-        R(n) &\leq R(n*)\\
+        R(n) &\leq R(n^*)  & [\text{Since $n < n^*$, and $R$ is non-decreasing}]\\
         &= k3^k & [\text{By assumption}]\\
         &\leq n^* \log_3 n^* & [\text{By replacing $n^*$ for $3^k$}]\\
         &\leq 3n \log_3 3n  & [\text{Since $n^*/3 < n \leq n^* \Rightarrow n^* < 3n < 3n^*$}]\\
@@ -98,9 +106,26 @@
 
         So $R \in \mathcal{O}(n \lg n)$, since $\log_3 n$ differs from $\lg n$ by a constant factor.
 
-        \item Prove $R \in \Omega(n \log n)$
+        \item Prove that $R \in \Omega(n \log n)$
 
         \begin{mdframed}
+
+        Define $n^* = 3^{\lceil \log_3 n \rceil}$. Then, we have,
+
+        \begin{align}
+            \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil \Rightarrow n^*/3 < n \leq n^*
+        \end{align}
+
+        I will also use the assumption (proved last week) that $R$ is non-decreasing.
+
+        \bigskip
+
+        Let $d = \underline{\hspace{1cm}}$. Then $d \in \mathbb{R}^+$. Let $B = 3$. Then $B \in \mathbb{N}^+$. Let
+        $n$ be an arbitrary natural number no smaller than $B$. Then,
+
+        \begin{align}
+        R(n) &\geq R(n^*/3) & [\text{Since $n^*/3 < n$, and $R$ is non-decreasing}]
+        \end{align}
 
         \end{mdframed}
     \end{enumerate}
