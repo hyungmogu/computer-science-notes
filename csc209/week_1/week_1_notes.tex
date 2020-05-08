@@ -175,12 +175,74 @@
         Warm
         \end{lstlisting}
         \item \textit{sed}
-        \item \textit{echo}
-        \item \textit{cat}
-        \item \textit{cat}
+        \begin{itemize}
+            \item Collapses adjacent identucal lines
+            \item \textit{s} in \textit{s/\textless FROM \textgreater/ \textless TO \textgreater} means subtitution
+        \end{itemize}
+
+        \bigskip
+
+        \begin{lstlisting}
+        >>> cat sample3.txt
+        Hello
+        Hello
+        >>> sed 's/Hello/hi' sample3.txt
+        hi
+        hi
+        \end{lstlisting}
+
         \item \textit{diff}
+        \begin{itemize}
+            \item Compares two files in a text-oriented way
+        \end{itemize}
+
+        \begin{lstlisting}
+        diff -c sample4_1.txt sample4_2.txt
+        *** sample4_1.txt       2020-05-08 14:16:47.000000000 +0900
+        --- sample4_2.txt       2020-05-08 14:16:59.000000000 +0900
+        ***************
+        *** 1 ****
+        ! Hello beautiful world
+        \ No newline at end of file
+        --- 1 ----
+        ! Hello wonderful world.
+        \ No newline at end of file
+        \end{lstlisting}
+
         \item \textit{comm}
+        \begin{itemize}
+            \item Compares two files in a text-oriented way
+        \end{itemize}
+
+        \begin{lstlisting}
+        comm sample6_1.txt sample6_2.txt
+        001 Fred Flintstone
+                002 80
+        002 Wilma Flintstone
+                003 90
+        003 Betty Rubble
+                004 75
+        004 Barney Rubble
+                005 0
+        005 Pebbles Flintstone
+        006 Bam-Bam Rubble      007 68%
+        \end{lstlisting}
+
+
         \item \textit{join}
+        \begin{itemize}
+            \item Performs database join of two files
+
+        \end{itemize}
+
+        \begin{lstlisting}
+        >>> join sample6_1.txt sample6_2.txt
+        002 Wilma Flintstone 80
+        003 Betty Rubble 90
+        004 Barney Rubble 75
+        005 Pebbles Flintstone 0
+        \end{lstlisting}
+
     \end{enumerate}
 \end{itemize}
 
