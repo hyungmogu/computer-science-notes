@@ -63,7 +63,7 @@
     Assume that for all $k \in \mathbb{N}$, $R(3^k) = k3^k$.
 
     \begin{enumerate}[1.]
-        \item Prove that $R \in \mathcal{O}(n \log n)$
+        \item Prove that $R \in \mathcal{O}(n \lg n)$
 
         \bigskip
 
@@ -81,10 +81,16 @@
         $n$ be an arbitrary natural number no smaller than $B$. Then,
 
         \begin{mdframed}
+        \begin{align}
+        R(n) &\leq R(n*)\\
+        &= k3^k & [\text{By assumption}]\\
+        &\leq n^* \log_3 n^* & [\text{By replacing $n^*$ for $3^k$}]\\
+        &\leq 3n \log_3 3n  & [\text{Since $n^*/3 < n \leq n^* \Rightarrow n^* < 3n < 3n^*$}]
+        \end{align}
 
         \end{mdframed}
 
-        So $R \in \mathcal{O}(n \log n)$, since $\log_3 n$ differs from $\lg n$ by a constant factor.
+        So $R \in \mathcal{O}(n \lg n)$, since $\log_3 n$ differs from $\lg n$ by a constant factor.
 
         \item Prove $R \in \Omega(n \log n)$
 
