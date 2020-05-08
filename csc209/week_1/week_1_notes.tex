@@ -92,6 +92,8 @@
 \end{itemize}
 \end{itemize}
 
+\bigskip
+
 \section*{Software Tools Part 1 of 2}
 \begin{itemize}
     \item Software Tool Principles
@@ -108,4 +110,78 @@
         \item Use regular expressions for all pattern matching
     \end{enumerate}
 \end{itemize}
+
+\bigskip
+
+\section*{Software Tools Part 2 of 2}
+\begin{itemize}
+    \item Software Tools in Unix
+    \begin{enumerate}[1.]
+        \item \textit{grep}
+        \begin{itemize}
+        \item outputs lines which match a pattern
+
+        \begin{lstlisting}
+        >>> grep '1' sample.txt
+        1
+        10
+        \end{lstlisting}
+        \end{itemize}
+
+        \item \textit{head, tail}
+        \begin{itemize}
+        \item Returns the first or last $n$ lines of file
+
+        \begin{lstlisting}
+        >>> head -10 sample.txt
+        1
+        2
+        3
+        4
+        5
+        \end{lstlisting}
+
+        \end{itemize}
+
+        \item \textit{sort}
+        \begin{itemize}
+            \item Sorts the input
+            \item \textit{-n} does numeric sorting in file
+        \begin{lstlisting}
+        >>> sort -10 sample.txt
+        1
+        10
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        \end{lstlisting}
+
+        \end{itemize}
+        \item \textit{uniq}
+        \begin{itemize}
+            \item Collapses adjacent identucal lines
+        \end{itemize}
+        \begin{lstlisting}
+        >>> uniq sample2.txt
+        Hot
+        Cold
+        Hot
+        Cold
+        Warm
+        \end{lstlisting}
+        \item \textit{sed}
+        \item \textit{echo}
+        \item \textit{cat}
+        \item \textit{cat}
+        \item \textit{diff}
+        \item \textit{comm}
+        \item \textit{join}
+    \end{enumerate}
+\end{itemize}
+
 \end{document}
