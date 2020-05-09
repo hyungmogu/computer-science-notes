@@ -57,11 +57,69 @@
     \bigskip
 
     \begin{itemize}
-        \item Find the value of $k$. And the non-recursive cost of function.
+        \item Find the value of $k$. And conclude the non-recursive cost of function.
+
+        \bigskip
+
+        First, I need to find the value of $k$.
+
+        \begin{mdframed}
+        The definition tells us $k$ is the non-recursive cost.
+
+        \bigskip
+
+        Since the non-recursive part of call occurs when $len(s) < 2$ and it
+        returns the input as output, it has cost of 1.
+        \end{mdframed}
+
         \item Find the value of $b$.
+
+        \bigskip
+
+        Second, we need to find the value of $b$.
+
+        \bigskip
+
+        \begin{mdframed}
+        The definition tells us $b$ is the number of almost-equal parts the input
+        is divided into.
+
+        \bigskip
+
+        Since the input $s$ is divided into three roughly equal parts, we can conclude $b = 3$.
+        \end{mdframed}
+
         \item Find the value of $a$.
+
+        \bigskip
+
+        Third, we need to find the value of $a$.
+
+        \bigskip
+
+        \begin{mdframed}
+        The definition tells us $a$ is the number of recursive calls.
+
+        \bigskip
+
+        Since the recursive calls in this problem are $r(s_1)$, $r(s_2)$ and $r(s_3)$,
+        there are three of them, so $a = 3$.
+        \end{mdframed}
+
         \item Find the value of $f$.
+
+        \bigskip
+
+        Fourth, we need to find the value of $f$.
+
+        \bigskip
+
+        \begin{mdframed}
+
+        \end{mdframed}
+
         \item Use master's theorem to evaluate asymptotic time complexity of function r.
+        \item Compare its time complexity to using loop
     \end{itemize}
     \end{mdframed}
 
