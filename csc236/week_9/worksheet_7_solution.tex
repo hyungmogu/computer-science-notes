@@ -50,6 +50,46 @@
 \section*{Question 1}
 \begin{itemize}
     \item
+
+\end{itemize}
+
+\bigskip
+
+\underline{\textbf{Notes:}}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    \underline{\textbf{Divide and Conquer:}} Partitions problem into $b$ roughly
+    equal subproblems, solve, and recombine:
+
+    \bigskip
+
+    \begin{align}
+        T(n) &= \begin{cases}
+        k & \text{if $n \leq B$}\\
+        a_1T(\lceil n/b \rceil) + a_2T(\lfloor n/b \rfloor) + f(n) & \text{if $n > B$}
+        \end{cases}
+    \end{align}
+
+    \bigskip
+
+    where $b,k > 0$, $a_1,a_2 \geq 0$, and $a = a_1 + a_2 > 0$. $f(n)$ is the
+    cost of slptting and recombining.
+
+    \bigskip
+
+    If $f \in \Theta(n^d)$, then
+
+    \begin{align}
+        T(n) &\in \begin{cases}
+        \Theta(n^d) & \text{if $a \leq b^d$}\\
+        \Theta(n^d\log_b n) & \text{if $a = b^d$}\\
+        \Theta(n^{\log_b a}) & \text{if $a > b^d$}
+        \end{cases}
+    \end{align}
 \end{itemize}
 
 \end{document}
