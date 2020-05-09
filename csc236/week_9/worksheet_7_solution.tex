@@ -51,85 +51,199 @@
 \begin{itemize}
     \item
 
-    \begin{mdframed}
-    \underline{\textbf{Rough Works:}}
+    First, I need to find the value of $k$.
 
     \bigskip
 
-    \begin{itemize}
-        \item Find the value of $k$. And conclude the non-recursive cost of function.
+    The definition tells us $k$ is the non-recursive cost.
 
-        \bigskip
+    \bigskip
 
-        First, I need to find the value of $k$.
+    Since the non-recursive part of call occurs when $len(s) < 2$ and it
+    returns the input as output, it has cost of 1.
 
-        \begin{mdframed}
-        The definition tells us $k$ is the non-recursive cost.
+    \bigskip
 
-        \bigskip
+    Second, I need to find the value of $b$.
 
-        Since the non-recursive part of call occurs when $len(s) < 2$ and it
-        returns the input as output, it has cost of 1.
-        \end{mdframed}
+    \bigskip
 
-        \item Find the value of $b$.
+    The definition tells us $b$ is the number of almost-equal parts the input
+    is divided into.
 
-        \bigskip
+    \bigskip
 
-        Second, I need to find the value of $b$.
+    Since the input $s$ is divided into three roughly equal parts, we can conclude $b = 3$.
 
-        \bigskip
+    \bigskip
 
-        \begin{mdframed}
-        The definition tells us $b$ is the number of almost-equal parts the input
-        is divided into.
+    Third, I need to find the value of $a$.
 
-        \bigskip
+    \bigskip
 
-        Since the input $s$ is divided into three roughly equal parts, we can conclude $b = 3$.
-        \end{mdframed}
+    The definition tells us $a$ is the number of recursive calls.
 
-        \item Find the value of $a$.
+    \bigskip
 
-        \bigskip
+    Since the recursive calls in this problem are $r(s_1)$, $r(s_2)$ and $r(s_3)$,
+    there are three of them, so $a = 3$.
 
-        Third, I need to find the value of $a$.
+    \bigskip
 
-        \bigskip
+    Fourth, I need to find the value of $f$.
 
-        \begin{mdframed}
-        The definition tells us $a$ is the number of recursive calls.
+    \bigskip
 
-        \bigskip
+    The definition tells us $f$ is the cost of splitting and recombining
 
-        Since the recursive calls in this problem are $r(s_1)$, $r(s_2)$ and $r(s_3)$,
-        there are three of them, so $a = 3$.
-        \end{mdframed}
+    \bigskip
 
-        \item Find the value of $f$.
+    Since the cost of splitting and recombining is $\text{len($s_3$)} + \text{len($s_2$)} + \text{len($s_1$)} = n$,
+    the value of $f$ is $n$.
 
-        \bigskip
+    \bigskip
 
-        Fourth, I need to find the value of $f$.
+    Fifth, I need to evaluate asymptotic time complexity of function $r$ using master's theorem.
 
-        \bigskip
+    \bigskip
 
-        \begin{mdframed}
-        The definition tells us $f$ is the cost of splitting and recombining
+    Since $f \in \Theta(n^d)$ where $d = 1$ and $a = 3 = 3^d = b^d$, the
+    master's theorem tells us $r(s) \in \Theta(\text{len($s$)}\log_3 \text{len($s$)})$.
 
-        Since the cost of splitting and recombining is $\text{len($s_3$)} + \text{len($s_2$)} + \text{len($s_1$)} = n$,
-        the value of $f$ is $n$.
-        \end{mdframed}
+    \bigskip
 
-        \item Use master's theorem to evaluate asymptotic time complexity of function r.
+    Finally, I need to compare its time complexity to copying the string
+    elements in reverse order, using loop.
 
-        \begin{mdframed}
-        Since $f \in \Theta(n^d)$ where $d = 1$ and $a = 3 = 3^d = b^d$, the
-        master's theorem tells us $r(s) \in \Theta(\text{len($s$)}\log_3 \text{len($s$)})$.
-        \end{mdframed}
-        \item Compare its time complexity to using loop
-    \end{itemize}
-    \end{mdframed}
+    \bigskip
+
+    In comparison to $\Theta(\text{len($s$)}\log_3 \text{len($s$)})$ by
+    divide and conquer method, copying the string elements has cost of $\Theta(n)$.
+
+    % \begin{mdframed}
+    % \underline{\textbf{Rough Works:}}
+
+    % \bigskip
+
+    % \begin{itemize}
+    %     \item Find the value of $k$. And conclude the non-recursive cost of function.
+
+    %     \bigskip
+
+    %     First, I need to find the value of $k$.
+
+    %     \begin{mdframed}
+    %     First, I need to find the value of $k$.
+
+    %     \bigskip
+
+    %     The definition tells us $k$ is the non-recursive cost.
+
+    %     \bigskip
+
+    %     Since the non-recursive part of call occurs when $len(s) < 2$ and it
+    %     returns the input as output, it has cost of 1.
+    %     \end{mdframed}
+
+    %     \item Find the value of $b$.
+
+    %     \bigskip
+
+    %     Second, I need to find the value of $b$.
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Second, I need to find the value of $b$.
+
+    %     \bigskip
+
+    %     The definition tells us $b$ is the number of almost-equal parts the input
+    %     is divided into.
+
+    %     \bigskip
+
+    %     Since the input $s$ is divided into three roughly equal parts, we can conclude $b = 3$.
+    %     \end{mdframed}
+
+    %     \item Find the value of $a$.
+
+    %     \bigskip
+
+    %     Third, I need to find the value of $a$.
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Third, I need to find the value of $a$.
+
+    %     \bigskip
+
+    %     The definition tells us $a$ is the number of recursive calls.
+
+    %     \bigskip
+
+    %     Since the recursive calls in this problem are $r(s_1)$, $r(s_2)$ and $r(s_3)$,
+    %     there are three of them, so $a = 3$.
+    %     \end{mdframed}
+
+    %     \item Find the value of $f$.
+
+    %     \bigskip
+
+    %     Fourth, I need to find the value of $f$.
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Fourth, I need to find the value of $f$.
+
+    %     \bigskip
+
+    %     The definition tells us $f$ is the cost of splitting and recombining
+
+    %     \bigskip
+
+    %     Since the cost of splitting and recombining is $\text{len($s_3$)} + \text{len($s_2$)} + \text{len($s_1$)} = n$,
+    %     the value of $f$ is $n$.
+    %     \end{mdframed}
+
+    %     \item Use master's theorem to evaluate asymptotic time complexity of function r.
+
+    %     \bigskip
+
+    %     Fifth, I need to evaluate asymptotic time complexity of function $r$ using master's theorem.
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Fifth, I need to evaluate asymptotic time complexity of function $r$ using master's theorem.
+
+    %     \bigskip
+
+    %     Since $f \in \Theta(n^d)$ where $d = 1$ and $a = 3 = 3^d = b^d$, the
+    %     master's theorem tells us $r(s) \in \Theta(\text{len($s$)}\log_3 \text{len($s$)})$.
+    %     \end{mdframed}
+    %     \item Compare its time complexity to using loop
+
+    %     \bigskip
+
+    %     Finally, I need to compare its time complexity to copying the string
+    %     elements in reverse order, using loop.
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Finally, I need to compare its time complexity to copying the string
+    %     elements in reverse order, using loop.
+
+    %     \bigskip
+
+    %     In comparison to $\Theta(\text{len($s$)}\log_3 \text{len($s$)})$ by
+    %     divide and conquer method, copying the string elements has cost of $\Theta(n)$.
+    %     \end{mdframed}
+    % \end{itemize}
+    % \end{mdframed}
 
 \end{itemize}
 
