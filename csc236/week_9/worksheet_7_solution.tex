@@ -422,4 +422,32 @@
     in recurrence $T(n)$.
 \end{itemize}
 
+\bigskip
+
+\section*{Question 3}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    The algorithm divides ``problem'' into 2 roughly equal parts, calls function
+    recursively 1 time, i.e \textit{return $bis(f,a,(a+b)/2,\gamma,\delta)$},
+    takes time proportional to $n = \lceil \vert b -a \vert \rceil/\gamma$ for
+    the splitting.
+
+    \bigskip
+
+    Thus, $a = 1$, $b = 2$, $f = n$, $n \in \mathcal{O}(n = n^1 = n^d)$.
+
+    \bigskip
+
+    Since $a < b = b^1 = b^d$, the master's theorem tells us the time complexity
+    of $bis$ is $\Theta(n)$
+\end{itemize}
+
+\bigskip
+
+\underline{\textbf{Notes}}
+
 \end{document}
