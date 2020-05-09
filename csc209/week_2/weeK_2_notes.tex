@@ -48,5 +48,42 @@
 \maketitle
 
 \section*{Shell Programming 1 of 6}
+\begin{itemize}
+    \item \textit{*.\textless EXTENSION\textgreater}
+    \begin{itemize}
+    \item returns all items under the extension
+
+    \begin{lstlisting}[language=bash]
+    # computer-science-notes folder
+    >>> echo *.pdf
+    common_mistakes_in_proofs.pdf sample.pdf
+    \end{lstlisting}
+
+    \end{itemize}
+    \item \textit{read}
+    \begin{itemize}
+    \item store values in variable interactively``
+
+    \begin{lstlisting}[language=bash]
+    >>> read x y
+    >>> hello world 2
+    >>> echo $x
+    hello
+    >>> echo $y
+    world 2
+    \end{lstlisting}
+
+    \end{itemize}
+    \item \textit{``}
+    \begin{itemize}
+    \item store commands in variable
+
+    \begin{lstlisting}[language=bash]
+    >>> i = `expr 4 + 1`
+    >>> echo $i
+    5
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
 
 \end{document}
