@@ -50,108 +50,220 @@
 \section*{Question 1}
 \begin{itemize}
     \item
-    \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
 
-        \bigskip
+    \begin{proof}
 
-        Assume that $\forall k \in \mathbb{N}$, $R(3^k)=k3^k$.
+    Assume that $\forall k \in \mathbb{N}$, $R(3^k)=k3^k$.
 
-        \bigskip
+    \bigskip
 
-        I need to prove $R \in \Theta(n \lg n)$. That is, $R \in \mathcal{O}(n \lg n)$
-        and $R \in \Omega(n \lg n)$.
+    I need to prove $R \in \Theta(n \lg n)$. That is, $R \in \mathcal{O}(n \lg n)$
+    and $R \in \Omega(n \lg n)$.
 
-        \bigskip
+    \bigskip
 
-        I will do so in parts.
+    I will do so in parts.
 
-        \begin{enumerate}[1.]
-            \item Part 1 (Proving $R \in \mathcal{O}(n \lg n)$)
+    \bigskip
 
-            \begin{mdframed}
+    \underline{\textbf{Part 1 (Proving $R \in \mathcal{O}(n \lg n)$):}}
 
-            Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
-            Then, we have
+    \bigskip
 
-            \begin{align}
-                \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil
-            \end{align}
+    Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
+    Then, we have
 
-            \bigskip
+    \begin{align}
+        \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil \Rightarrow n^*/3 < n \leq n^*
+    \end{align}
 
-            I will also use the fact proved in week 7 tutorial exercise that
-            $R$ is non-decreasing.
+    \bigskip
 
-            \bigskip
+    I will also use the fact proved in week 7 tutorial exercise that
+    $R$ is non-decreasing.
 
-            Let $d = 6$. Then, $d \in \mathbb{R}^+$. Let $B = 3$. Then, $B \in \mathbb{R}^+$.
-            Assume $n \geq B$.
+    \bigskip
 
-            \bigskip
+    Let $d = 6$. Then, $d \in \mathbb{R}^+$. Let $B = 3$. Then, $B \in \mathbb{R}^+$.
+    Assume $n \geq B$.
 
-            I need to show $R(n) \leq dn\lg n$.
+    \bigskip
 
-            \bigskip
+    I need to show $R(n) \leq dn\lg n$.
 
-            Starting from $R(n)$, we have
+    \bigskip
 
-            \begin{align}
-                R(n) &\leq R(n^*) & [\text{Since $n \leq n^*$ and $R$ is non-decreasing}]\\
-                &= n^* \log_3 n^* & [\text{By replacing $3^k$ for $n^*$}]\\
-                &\leq 3n \log_3 3n & [\text{Since $n \leq n^* \Rightarrow 3n \leq 3n^*$}]\\
-                &= 3n(\log_3 n + 1)\\
-                &= 3n(\log_3 n + \log_3 n) & [\text{Since $n \leq B = 3 \Rightarrow \log_3 n \leq 1$}]\\
-                &\leq 6n\log_3 n\\
-                &\leq dn\log_3 n & [\text{Since $d = 6$}]\\
-                &\leq dn\lg n
-            \end{align}
+    And indeed, we have
 
-            \end{mdframed}
+    \begin{align}
+        R(n) &\leq R(n^*) & [\text{Since $n \leq n^*$ and $R$ is non-decreasing}]\\
+        &= n^* \log_3 n^* & [\text{By replacing $3^k$ for $n^*$}]\\
+        &\leq 3n \log_3 3n & [\text{Since $n \leq n^* \Rightarrow 3n \leq 3n^*$}]\\
+        &= 3n(\log_3 n + 1)\\
+        &= 3n(\log_3 n + \log_3 n) & [\text{Since $n \leq B = 3 \Rightarrow \log_3 n \leq 1$}]\\
+        &\leq 6n\log_3 n\\
+        &\leq dn\log_3 n & [\text{Since $d = 6$}]\\
+        &\leq dn\lg n
+    \end{align}
 
-            \item Part 2 (Proving $R \in \Omega(n \lg n)$)
+    \bigskip
 
-            \begin{mdframed}
-            Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
-            Then, we have
+    \underline{\textbf{Part 2 (Proving $R \in \Omega(n \lg n)$):}}
 
-            \begin{align}
-                \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil
-            \end{align}
+    \bigskip
 
-            \bigskip
+    Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
+    Then, we have
 
-            I will also use the fact proved in week 7 tutorial exercise that
-            $R$ is non-decreasing.
+    \begin{align}
+        \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil \Rightarrow n^*/3 < n \leq n^*
+    \end{align}
 
-            \bigskip
+    \bigskip
 
-            Let $d = 1/(6\lg 3)$. Then, $d \in \mathbb{R}^+$. Let $B = 9$. Then, $B \in \mathbb{R}^+$.
-            Assume $n \geq B$.
+    I will also use the fact proved in week 7 tutorial exercise that
+    $R$ is non-decreasing.
 
-            \bigskip
+    \bigskip
 
-            I need to show $R(n) \geq dn\lg n$.
+    Let $d = 1/(6\lg 3)$. Then, $d \in \mathbb{R}^+$. Let $B = 9$. Then, $B \in \mathbb{R}^+$.
+    Assume $n \geq B$.
 
-            \bigskip
+    \bigskip
 
-            Starting from $R(n)$, we have
+    I need to show $R(n) \geq dn\lg n$.
 
-            \begin{align}
-                R(n)&\geq R(n^/3) & [\text{Since $n^*/3 < n$ and $R$ is non-decreasing}]\\
-                &= (n^*/3)\log_3 (n^*/3) & [\text{By replacing $3^k$ for $n^*$}]\\
-                &= (n/3)\log_3 (n/3) & [\text{Since $n < n^* \Rightarrow (n/3) \leq (n^*/3)$}]\\
-                &= (n/3)(\log_3 n - 1)\\
-                &\geq (\log_3 n - (\log_3 n)/2)& [\text{Since $n \geq B = 9 \Rightarrow (\log_3 n)/2 \geq 1$}]\\
-                &= (n\log_3 n)/6\\
-                &= (n\lg n)/(6\lg 3)\\
-                &= dn\lg n
-            \end{align}
+    \bigskip
 
-            \end{mdframed}
-        \end{enumerate}
+    And indeed, we have
 
-    \end{mdframed}
+    \begin{align}
+        R(n)&\geq R(n^/3) & [\text{Since $n^*/3 < n$ and $R$ is non-decreasing}]\\
+        &= (n^*/3)\log_3 (n^*/3) & [\text{By replacing $3^k$ for $n^*$}]\\
+        &= (n/3)\log_3 (n/3) & [\text{Since $n < n^* \Rightarrow (n/3) \leq (n^*/3)$}]\\
+        &= (n/3)(\log_3 n - 1)\\
+        &\geq (\log_3 n - (\log_3 n)/2)& [\text{Since $n \geq B = 9 \Rightarrow (\log_3 n)/2 \geq 1$}]\\
+        &= (n\log_3 n)/6\\
+        &= (n\lg n)/(6\lg 3)\\
+        &= dn\lg n
+    \end{align}
+
+    \end{proof}
+
+
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Work:}}
+
+    %     \bigskip
+
+    %     Assume that $\forall k \in \mathbb{N}$, $R(3^k)=k3^k$.
+
+    %     \bigskip
+
+    %     I need to prove $R \in \Theta(n \lg n)$. That is, $R \in \mathcal{O}(n \lg n)$
+    %     and $R \in \Omega(n \lg n)$.
+
+    %     \bigskip
+
+    %     I will do so in parts.
+
+    %     \bigskip
+
+    %     \begin{enumerate}[1.]
+    %         \item Part 1 (Proving $R \in \mathcal{O}(n \lg n)$)
+
+    %         \begin{mdframed}
+
+    %         \underline{\textbf{Part 1 (Proving $R \in \mathcal{O}(n \lg n)$):}}
+
+    %         \bigskip
+
+    %         Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
+    %         Then, we have
+
+    %         \begin{align}
+    %             \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil
+    %         \end{align}
+
+    %         \bigskip
+
+    %         I will also use the fact proved in week 7 tutorial exercise that
+    %         $R$ is non-decreasing.
+
+    %         \bigskip
+
+    %         Let $d = 6$. Then, $d \in \mathbb{R}^+$. Let $B = 3$. Then, $B \in \mathbb{R}^+$.
+    %         Assume $n \geq B$.
+
+    %         \bigskip
+
+    %         I need to show $R(n) \leq dn\lg n$.
+
+    %         \bigskip
+
+    %         And indeed, we have
+
+    %         \begin{align}
+    %             R(n) &\leq R(n^*) & [\text{Since $n \leq n^*$ and $R$ is non-decreasing}]\\
+    %             &= n^* \log_3 n^* & [\text{By replacing $3^k$ for $n^*$}]\\
+    %             &\leq 3n \log_3 3n & [\text{Since $n \leq n^* \Rightarrow 3n \leq 3n^*$}]\\
+    %             &= 3n(\log_3 n + 1)\\
+    %             &= 3n(\log_3 n + \log_3 n) & [\text{Since $n \leq B = 3 \Rightarrow \log_3 n \leq 1$}]\\
+    %             &\leq 6n\log_3 n\\
+    %             &\leq dn\log_3 n & [\text{Since $d = 6$}]\\
+    %             &\leq dn\lg n
+    %         \end{align}
+
+    %         \end{mdframed}
+
+    %         \item Part 2 (Proving $R \in \Omega(n \lg n)$)
+
+    %         \begin{mdframed}
+
+    %         \underline{\textbf{Part 2 (Proving $R \in \Omega(n \lg n)$):}}
+
+    %         \bigskip
+
+    %         Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
+    %         Then, we have
+
+    %         \begin{align}
+    %             \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil
+    %         \end{align}
+
+    %         \bigskip
+
+    %         I will also use the fact proved in week 7 tutorial exercise that
+    %         $R$ is non-decreasing.
+
+    %         \bigskip
+
+    %         Let $d = 1/(6\lg 3)$. Then, $d \in \mathbb{R}^+$. Let $B = 9$. Then, $B \in \mathbb{R}^+$.
+    %         Assume $n \geq B$.
+
+    %         \bigskip
+
+    %         I need to show $R(n) \geq dn\lg n$.
+
+    %         \bigskip
+
+    %         And indeed, we have
+
+    %         \begin{align}
+    %             R(n)&\geq R(n^/3) & [\text{Since $n^*/3 < n$ and $R$ is non-decreasing}]\\
+    %             &= (n^*/3)\log_3 (n^*/3) & [\text{By replacing $3^k$ for $n^*$}]\\
+    %             &= (n/3)\log_3 (n/3) & [\text{Since $n < n^* \Rightarrow (n/3) \leq (n^*/3)$}]\\
+    %             &= (n/3)(\log_3 n - 1)\\
+    %             &\geq (\log_3 n - (\log_3 n)/2)& [\text{Since $n \geq B = 9 \Rightarrow (\log_3 n)/2 \geq 1$}]\\
+    %             &= (n\log_3 n)/6\\
+    %             &= (n\lg n)/(6\lg 3)\\
+    %             &= dn\lg n
+    %         \end{align}
+
+    %         \end{mdframed}
+    %     \end{enumerate}
+
+    % \end{mdframed}
 
 \end{itemize}
 
