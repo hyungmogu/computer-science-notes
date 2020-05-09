@@ -359,12 +359,8 @@
     \item
 
     \bigskip
-
-    \begin{mdframed}
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
-
+    \begin{proof}
+    \setcounter{equation}{0}
     Define $P(n):$ Postage of exactly $n$ cents can be made using only 3-cent
     and 4-cent stamps
 
@@ -374,85 +370,192 @@
 
     \bigskip
 
-    \begin{enumerate}[1.]
-        \item Inductive Step
+    \underline{\textbf{Base Case ($n = 7$):}}
 
-        \begin{mdframed}
-        Let $n \in \mathbb{N}$. Assume $H(n): \bigwedge\limits_{i=0}^{n-1} P(i)$. I will show
-        $P(n)$ follows.
-        \end{mdframed}
+    \bigskip
 
-        \item Base Case ($n = 6$)
+    Let $n = 7$.
 
-        \begin{mdframed}
-        Let $n = 6$.
+    \bigskip
 
-        \bigskip
+    Since $n = 7$ can be made using 1 3-cent stamp and 1 4-cent stamp, $P(n)$
+    follows in this step.
 
-        Since $n = 6$ can be made using 2 3-cent stamps, $P(n)$ follows in this step.
-        \end{mdframed}
+    \bigskip
 
-        \item Base Case ($n = 7$)
+    \underline{\textbf{Base Case ($n = 8$):}}
 
-        \begin{mdframed}
-        Let $n = 7$.
+    \bigskip
 
-        \bigskip
+    Let $n = 8$.
 
-        Since $n = 7$ can be made using 1 3-cent stamp and 1 4-cent stamp, $P(n)$
-        follows in this step.
+    \bigskip
 
-        \end{mdframed}
+    Since $n = 8$ can be made using 2 4-cent stamps, $P(n)$
+    follows in this step.
 
-        \item Base Case ($n = 8$)
+    \bigskip
 
-        \begin{mdframed}
-        Let $n = 8$.
+    \underline{\textbf{Base Case ($n = 9$):}}
 
-        \bigskip
+    \bigskip
 
-        Since $n = 8$ can be made using 2 4-cent stamps, $P(n)$
-        follows in this step.
+    Let $n = 9$.
 
-        \end{mdframed}
+    \bigskip
 
-        \item Base Case ($n = 9$)
+    Since $n = 9$ can be made using 3 3-cent stamps, $P(n)$
+    follows in this step.
 
-        \begin{mdframed}
-        Let $n = 9$.
+    \bigskip
 
-        \bigskip
+    \underline{\textbf{Case ($n < 9$):}}
 
-        Since $n = 9$ can be made using 3 3-cent stamps, $P(n)$
-        follows in this step.
+    \bigskip
 
-        \end{mdframed}
+    I need to show $\exists d,e \in \mathbb{N}$, $n = d \cdot 3 + e \cdot 4$.
 
-        \item Case ($n < 9$)
+    \bigskip
 
-        I need to show $\exists d,e \in \mathbb{N}$, $n = d \cdot 3 + e \cdot 4$.
+    Since $n > 9$, $6 \leq n - 4 < n$, so $P(n-4)$ is true. That is,
+    postage of $n-4$ cents can be made using 4-cents stamps and 3-cents stamps.
+    In other words, $\exists d',e' \in \mathbb{N}$, $n-4 = d' \cdot 3 + e' \cdot 4$.
 
-        \bigskip
+    \bigskip
 
-        Since $n > 9$, $6 \leq n - 4 < n$, so $P(n-4)$ is true. That is,
-        postage of $n-4$ cents can be made using postage of 4-cents and 3-cents.
-        In other words, $\exists d',e' \in \mathbb{N}$, $n-4 = d' \cdot 3 + e' \cdot 4$.
+    Thus, we have
 
-        \bigskip
+    \begin{align}
+        n-4+4 &= d' \cdot 3 + e' \cdot 4 + 4\\
+        n &= d' \cdot 3 + (e'+1) \cdot 4
+    \end{align}
 
-        Thus, we have
+    \bigskip
 
-        \begin{align}
-            n-4+4 &= d' \cdot 3 + e' \cdot 4 + 4\\
-            n &= d' \cdot 3 + (e'+1) \cdot 4
-        \end{align}
+    So, by choosing $d = d'$ and $e = e' + 1$, $P(n)$ follows from $H(n)$ in this step.
 
-        \bigskip
+    \end{proof}
 
-        So, by choosing $d = d'$ and $e = e' + 1$, $P(n)$ follows from $H(n)$ in this step.
+    \bigskip
 
-    \end{enumerate}
-    \end{mdframed}
+    % \begin{mdframed}
+    % \underline{\textbf{Rough Work:}}
+
+    % \bigskip
+
+    % Define $P(n):$ Postage of exactly $n$ cents can be made using only 3-cent
+    % and 4-cent stamps
+
+    % \bigskip
+
+    % I will use complete induction to prove that $\forall n \in \mathbb{N}$, $n \geq 6 \Rightarrow P(n)$.
+
+    % \bigskip
+
+    % \begin{enumerate}[1.]
+    %     \item Inductive Step
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Inductive Step:}}
+
+    %     \bigskip
+
+    %     Let $n \in \mathbb{N}$. Assume $H(n): \bigwedge\limits_{i=0}^{n-1} P(i)$. I will show
+    %     $P(n)$ follows.
+    %     \end{mdframed}
+
+    %     \item Base Case ($n = 6$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case ($n = 6$):}}
+
+    %     \bigskip
+
+    %     Let $n = 6$.
+
+    %     \bigskip
+
+    %     Since $n = 6$ can be made using 2 3-cent stamps, $P(n)$ follows in this step.
+    %     \end{mdframed}
+
+    %     \item Base Case ($n = 7$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case ($n = 7$):}}
+
+    %     \bigskip
+
+    %     Let $n = 7$.
+
+    %     \bigskip
+
+    %     Since $n = 7$ can be made using 1 3-cent stamp and 1 4-cent stamp, $P(n)$
+    %     follows in this step.
+
+    %     \end{mdframed}
+
+    %     \item Base Case ($n = 8$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case ($n = 8$):}}
+
+    %     \bigskip
+
+    %     Let $n = 8$.
+
+    %     \bigskip
+
+    %     Since $n = 8$ can be made using 2 4-cent stamps, $P(n)$
+    %     follows in this step.
+
+    %     \end{mdframed}
+
+    %     \item Base Case ($n = 9$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case ($n = 9$):}}
+
+    %     \bigskip
+
+    %     Let $n = 9$.
+
+    %     \bigskip
+
+    %     Since $n = 9$ can be made using 3 3-cent stamps, $P(n)$
+    %     follows in this step.
+
+    %     \end{mdframed}
+
+    %     \item Case ($n < 9$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Case ($n < 9$):}}
+
+    %     \bigskip
+
+    %     I need to show $\exists d,e \in \mathbb{N}$, $n = d \cdot 3 + e \cdot 4$.
+
+    %     \bigskip
+
+    %     Since $n > 9$, $6 \leq n - 4 < n$, so $P(n-4)$ is true. That is,
+    %     postage of $n-4$ cents can be made using 4-cents stamps and 3-cents stamps.
+    %     In other words, $\exists d',e' \in \mathbb{N}$, $n-4 = d' \cdot 3 + e' \cdot 4$.
+
+    %     \bigskip
+
+    %     Thus, we have
+
+    %     \begin{align}
+    %         n-4+4 &= d' \cdot 3 + e' \cdot 4 + 4\\
+    %         n &= d' \cdot 3 + (e'+1) \cdot 4
+    %     \end{align}
+
+    %     \bigskip
+
+    %     So, by choosing $d = d'$ and $e = e' + 1$, $P(n)$ follows from $H(n)$ in this step.
+    %     \end{mdframed}
+    % \end{enumerate}
+    % \end{mdframed}
 \end{itemize}
 
 
