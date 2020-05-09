@@ -364,6 +364,50 @@
 
     So, since $a < b = b^1 = b^d$, the master's theorem tells us the alogirhtmic
     time complexity of a ternary version of merge sort is $\Theta(n)$.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \setcounter{equation}{0}
+        \bigskip
+        \color{red}
+        A ternary version of merge sort works as follows
+
+        \begin{enumerate}[a.]
+            \item If $n < 3$, then the function terminatees, and a constant time is taken.
+            \item If $n \geq 3$, then the input $A$ is divided into roughly
+            3 equal parts: $A_1,A_2,A_3$.
+            \item Then, the recursion is performed on each of $A_1$, $A_2$ and $A_3$
+            \item Time proportional to $n = \text{len}(A)$ is taken to divide, sort, and
+            recombine the result
+            \item The final sorted segments are merged at the end to re-form $A$
+            and return as output.
+        \end{enumerate}
+        \color{black}
+
+        \bigskip
+
+        Thus, I know the algorithm divides the ``problem'' into 3 equal parts, calls
+        the function recursively \color{red}3 times\color{black}\:on those input,
+        takes time proportional to \color{red}$n = \text{len}(A)$\color{black}\:to
+        split and later recombine the problem.
+
+        \bigskip
+
+        Thus, $b = 3$, $a = \color{red}3\color{black}$, $f = n$, and
+        $n \in \mathcal{O}(n = n^1 = n^d)$.
+
+        \bigskip
+
+        Since $a \color{red}=\color{black} b = b^1 = b^d$, the master's
+        theorem tells us the alogirhtmic time complexity of a ternary version of
+        merge sort is \color{red}$\Theta(n\log_3 n)$\color{black}.
+
+    \end{mdframed}
 \end{itemize}
 
 \end{document}
