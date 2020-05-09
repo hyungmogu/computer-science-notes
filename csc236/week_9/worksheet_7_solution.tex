@@ -340,7 +340,7 @@
     \setcounter{equation}{0}
     \bigskip
 
-    The recurrence of master's theorem in ternary version is
+    The recurrence of a ternary version of merge sort is
 
     \begin{align}
         T(n) = \begin{cases}
@@ -358,17 +358,12 @@
 
     \bigskip
 
-    Thus, $b = 3$, $a = 2$, $f = n$.
-\end{itemize}
-
-\bigskip
-
-\begin{mdframed}
-    \underline{\textbf{Rough Works:}}
+    Thus, $b = 3$, $a = 2$, $f = n$, and $n \in \mathcal{O}(n = n^1 = n^d)$.
 
     \bigskip
 
-
-\end{mdframed}
+    So, since $a < b = b^1 = b^d$, the master's theorem tells us the alogirhtmic
+    time complexity of a ternary version of merge sort is $\Theta(n)$.
+\end{itemize}
 
 \end{document}
