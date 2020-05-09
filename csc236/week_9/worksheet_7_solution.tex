@@ -51,6 +51,20 @@
 \begin{itemize}
     \item
 
+    \begin{mdframed}
+    \underline{\textbf{Rough Works:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Find the value of $k$. And the non-recursive cost of function.
+        \item Find the value of $b$.
+        \item Find the value of $a$.
+        \item Find the value of $f$.
+        \item Use master's theorem to evaluate asymptotic time complexity of function r.
+    \end{itemize}
+    \end{mdframed}
+
 \end{itemize}
 
 \bigskip
@@ -74,6 +88,13 @@
         \end{cases}
     \end{align}
 
+    \begin{align}
+        T(n) &= \begin{cases}
+        k & \text{if $n \leq B$}\\
+        aT(n/b) + f(n) & \text{if $n > B$}
+        \end{cases}
+    \end{align}
+
     \bigskip
 
     where $b,k > 0$, $a_1,a_2 \geq 0$, and $a = a_1 + a_2 > 0$. $f(n)$ is the
@@ -93,6 +114,8 @@
     $a_1:$ number of recursive calls to ceiling
 
     $a_2:$ number of recursive calls to floor
+
+    $a:$ number of recursive calls
 
     $f:$ cost of splittig and later recombining (should be $n^d$ for master theorem)
     \end{mdframed}
