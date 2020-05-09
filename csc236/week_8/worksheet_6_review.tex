@@ -150,6 +150,32 @@
 
     \end{proof}
 
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Realized that $\lceil \log_3 n \rceil$ in $3^{\lceil \log_3 n \rceil}$
+        represents the number of iteration it takes until termination
+        \item Noticed the following part in proof represents the import of properties
+
+        \begin{mdframed}
+        Define $n^* = 3^{\lceil \log_3 n \rceil}$.
+        Then, we have
+
+        \begin{align}
+            \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil
+        \end{align}
+
+        \bigskip
+
+        I will also use the fact proved in week 7 tutorial exercise that
+        $R$ is non-decreasing.
+        \end{mdframed}
+    \end{itemize}
+
 
     % \begin{mdframed}
     %     \underline{\textbf{Rough Work:}}
