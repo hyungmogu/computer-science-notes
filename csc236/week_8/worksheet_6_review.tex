@@ -48,5 +48,49 @@
 \maketitle
 
 \section*{Question 1}
+\begin{itemize}
+    \item
+    \begin{mdframed}
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        Assume that $\forall k \in \mathbb{N}$, $R(3^k)=k3^k$.
+
+        \bigskip
+
+        I need to prove $R \in \Theta(n \lg n)$. That is, $R \in \mathcal{O}(n \lg n)$
+        and $R \in \Omega(n \lg n)$.
+
+        \bigskip
+
+        I will do so in parts.
+
+        \begin{enumerate}[1.]
+            \item Part 1 (Proving $R \in \mathcal{O}(n \lg n)$)
+
+            \begin{mdframed}
+
+            Let $n \in \mathbb{N}$. Define $n^* = 3^{\lceil \log_3 n \rceil}$.
+            Then, we have
+
+            \begin{align}
+                \lceil \log_3 n \rceil - 1 < \log_3 n \leq \lceil \log_3 n \rceil
+            \end{align}
+
+            \bigskip
+
+            I will also use the fact proved in week 7 tutorial exercise that
+            $R$ is non-decreasing.
+
+
+            \end{mdframed}
+
+            \item Part 2 (Proving $R \in \Omega(n \lg n)$)
+        \end{enumerate}
+
+    \end{mdframed}
+
+\end{itemize}
 
 \end{document}
