@@ -76,7 +76,7 @@
 
         \bigskip
 
-        Second, we need to find the value of $b$.
+        Second, I need to find the value of $b$.
 
         \bigskip
 
@@ -93,7 +93,7 @@
 
         \bigskip
 
-        Third, we need to find the value of $a$.
+        Third, I need to find the value of $a$.
 
         \bigskip
 
@@ -110,15 +110,23 @@
 
         \bigskip
 
-        Fourth, we need to find the value of $f$.
+        Fourth, I need to find the value of $f$.
 
         \bigskip
 
         \begin{mdframed}
+        The definition tells us $f$ is the cost of splitting and recombining
 
+        Since the cost of splitting and recombining is $\text{len($s_3$)} + \text{len($s_2$)} + \text{len($s_1$)} = n$,
+        the value of $f$ is $n$.
         \end{mdframed}
 
         \item Use master's theorem to evaluate asymptotic time complexity of function r.
+
+        \begin{mdframed}
+        Since $f \in \Theta(n^d)$ where $d = 1$ and $a = 3 = 3^d = b^d$, the
+        master's theorem tells us $r(s) \in \Theta(\text{len($s$)}\log_3 \text{len($s$)})$.
+        \end{mdframed}
         \item Compare its time complexity to using loop
     \end{itemize}
     \end{mdframed}
