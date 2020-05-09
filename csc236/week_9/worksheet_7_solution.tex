@@ -81,6 +81,28 @@
 
     \bigskip
 
+    \begin{mdframed}
+    \underline{\textbf{Note:}}
+
+    \bigskip
+
+    $k:$ non-recursive cost, when $n < b$
+
+    $b:$ number of almost-equal parts we divide problem into
+
+    $a_1:$ number of recursive calls to ceiling
+
+    $a_2:$ number of recursive calls to floor
+
+    $f:$ cost of splittig and later recombining (should be $n^d$ for master theorem)
+    \end{mdframed}
+
+    \item
+
+    \underline{\textbf{Divide and Conquer Master Theorem:}}
+
+    \bigskip
+
     If $f \in \Theta(n^d)$, then
 
     \begin{align}
@@ -90,6 +112,18 @@
         \Theta(n^{\log_b a}) & \text{if $a > b^d$}
         \end{cases}
     \end{align}
+
+    \item The master theorem is for master method.
+    \item The master method provides a cookbook method for solving recurrences
+    of the form
+
+    \begin{align}
+        T(n) &= aT(n/b) + f(n)
+    \end{align}
+
+    \bigskip
+
+    where $a \geq 1$ and $b > 1$.
 \end{itemize}
 
 \end{document}
