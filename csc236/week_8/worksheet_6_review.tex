@@ -83,6 +83,29 @@
             I will also use the fact proved in week 7 tutorial exercise that
             $R$ is non-decreasing.
 
+            \bigskip
+
+            Let $d = 6$. Then, $d \in \mathbb{R}^+$. Let $B = 3$. Then, $B \in \mathbb{R}^+$.
+            Assume $n \geq B$.
+
+            \bigskip
+
+            I need to show $R(n) \leq dn\lg n$.
+
+            \bigskip
+
+            Starting from $R(n)$, we have
+
+            \begin{align}
+                R(n) &\leq R(n^*) & [\text{Since $n \leq n^*$ and $R$ is non-decreasing}]\\
+                &= n^* \log_3 n^* & [\text{By replacing $3^k$ for $n^*$}]\\
+                &\leq 3n \log_3 3n & [\text{Since $n \leq n^* \Rightarrow 3n \leq 3n^*$}]\\
+                &= 3n(\log_3 n + 1)\\
+                &= 3n(\log_3 n + \log_3 n) & [\text{Since $n \leq B = 3 \Rightarrow \log_3 n \leq 1$}]\\
+                &\leq 6n\log_3 n\\
+                &\leq dn\log_3 n & [\text{Since $d = 6$}]\\
+                &\leq dn\lg n
+            \end{align}
 
             \end{mdframed}
 
