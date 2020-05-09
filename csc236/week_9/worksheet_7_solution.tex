@@ -329,4 +329,46 @@
     where $a \geq 1$ and $b > 1$.
 \end{itemize}
 
+\bigskip
+
+\section*{Question 2}
+
+\bigskip
+
+\begin{itemize}
+    \item
+    \setcounter{equation}{0}
+    \bigskip
+
+    The recurrence of master's theorem in ternary version is
+
+    \begin{align}
+        T(n) = \begin{cases}
+        c    & \text{if $n = 1$}\\
+        T(\lceil n/3 \rceil) + T(\lfloor n/3 \rfloor) + n & \text{if $n > 1$}
+        \end{cases}
+    \end{align}
+
+    \bigskip
+
+    Thus, I know the algorithm divides the ``problem'' into 3 equal parts, calls
+    the function recursively on those input once on the ceiling and once on the floor with
+    the total of 2, takes time proportional to $n$ to split and later recombine
+    the problem.
+
+    \bigskip
+
+    Thus, $b = 3$, $a = 2$, $f = n$.
+\end{itemize}
+
+\bigskip
+
+\begin{mdframed}
+    \underline{\textbf{Rough Works:}}
+
+    \bigskip
+
+
+\end{mdframed}
+
 \end{document}
