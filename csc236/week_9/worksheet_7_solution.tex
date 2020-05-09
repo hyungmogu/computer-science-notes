@@ -444,10 +444,27 @@
 
     Since $a < b = b^1 = b^d$, the master's theorem tells us the time complexity
     of $bis$ is $\Theta(n)$
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        The algorithm divides ``problem'' into 2 roughly equal parts, calls function
+        recursively 1 time, i.e \textit{return $bis(f,a,(a+b)/2,\gamma,\delta)$},
+        \color{red}and the function performs 1 recursive call\color{black}.
+
+        \bigskip
+
+        Thus, $a = 1$, $b = 2$, $f = n$, $n \in \mathcal{O}(\color{red}1 = n^0\color{black} = n^d)$.
+
+        \bigskip
+
+        Since $a = \color{red}b^0 = b^d\color{black}$, the master's theorem tells
+        us the time complexity of $bis$ is \color{red}$\Theta(\lg n)$\color{black}.
+    \end{mdframed}
 \end{itemize}
-
-\bigskip
-
-\underline{\textbf{Notes}}
 
 \end{document}
