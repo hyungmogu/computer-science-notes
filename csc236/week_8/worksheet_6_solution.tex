@@ -524,6 +524,44 @@
 \bigskip
 
 \begin{itemize}
+    \item Noticed professor used `I will use identities: ...' to import discovered properties
+    and rules from previous exercises and lectures.
+
+    \begin{mdframed}
+    I will use identities:
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor n/2 \rfloor &= \sum\limits_{i=1}^{i=k} 2^ib_i\\
+        b_0 &= n \mod 2
+    \end{align}
+
+    \end{mdframed}
+
+    \item Noticed that in $P(n)$
+
+    \bigskip
+
+    ``\textit{$n$ is a natural number'}' - is precondition
+
+    \bigskip
+
+    \begin{mdframed}
+    Define $P(n):$ ``If $n$ is a natural number ...
+    \end{mdframed}
+
+    \bigskip
+
+    ``\textit{returns binary string representing $n$ with no leading zeros,
+    except if $n$ is 0}'' - is postcondition.
+
+    \bigskip
+
+    \begin{mdframed}
+    Define $P(n):$ ``... then \textit{decimal\_to\_binary($n$)}''
+    terminates and returns binary string representing $n$ with no leading zeros,
+    except if $n$ is 0.
+    \end{mdframed}
+
     \item \textbf{Correct:} A program is correct if it produces output on every acceptable input
     \item \textbf{Precondition} and \textbf{Postcondition} are assertions involving some of the variables of the program
     \begin{itemize}
