@@ -175,15 +175,32 @@
 \bigskip
 
 \begin{itemize}
+    \item Quoting in Sh
+    \begin{itemize}
+        \item Double quotes supress the interpretation of everything except for
+
+        \begin{enumerate}[1.]
+        \item Dollar sign
+        \item Backquote
+        \item Backslash
+        \end{enumerate}
+
+        \item Single quote suppresses interpretation of everything
+    \end{itemize}
+
     \item Switch
+    \begin{itemize}
+        \item `*' acts as a wild card like regex
+        \item `*' is also used as else
+    \end{itemize}
 
     \begin{lstlisting}[language=bash]
     >>> cat switch_example.sh
-    array=("hello" "goddbye" 2)
+    array=("hello" "hello there" "goddbye" 2)
     for i in "${array[@]}"
     do
         case $i in
-            hello)
+            hello*)
                 echo 'hello there'
                 ;;
             goodbye)
@@ -199,6 +216,31 @@
     see you later
     it's a pleasure to meet you
     \end{lstlisting}
+
+    \item \textit{seq}
+
+    \begin{itemize}
+    \item works like \textit{range} in python
+
+    \begin{lstlisting}[language=bash]
+    >>> seq 1 4
+    1
+    2
+    3
+    4
+    >>> cat seq_example.sh
+    for i in `seq 1 4`
+    do
+        echo $i;
+    done
+    >>> sh seq_example.sh
+    1
+    2
+    3
+    4
+    \end{lstlisting}
+
+    \end{itemize}
 \end{itemize}
 
 

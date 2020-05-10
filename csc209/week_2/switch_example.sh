@@ -1,8 +1,8 @@
-array=("hello" "goodbye" 2)
+array=("hello" "hello world" "goodbye" 2)
 for i in "${array[@]}"
 do
     case $i in
-        hello)
+        hello*)
             echo "hello there"
             ;;
         goodbye)
