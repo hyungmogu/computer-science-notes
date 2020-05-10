@@ -86,4 +86,45 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Shell Programming 2 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{test}
+    \begin{itemize}
+    \item checks file types and compares values
+    \item used in if and while statement to check condition
+    \item \textbf{test \textless EXPRESSION \textgreater} is equivalent to
+    \textbf{[ EXPRESSION ]}
+
+    \begin{lstlisting}[language=bash]
+    >>> test 2 -lt 3
+    >>> echo $?
+    0
+    \end{lstlisting}
+
+    \item has the following numeric comparison operators
+    \begin{enumerate}[1.]
+    \item \textbf{-lt:} less than
+    \item \textbf{-gt:} greater than
+    \item \textbf{-eq:} equal to
+    \item \textbf{-ne:} not equal
+    \item \textbf{-le:} less than
+    \item \textbf{-ge:} greater than
+    \end{enumerate}
+
+    \item has the following file testing operators
+    \begin{enumerate}[1.]
+    \item \textbf{-f file:} file exists and is a plain file
+    \item \textbf{-d file:} file exists and is a directory
+    \item \textbf{-s file:} file exists and is a plain file of non-zero size
+    \end{enumerate}
+
+    \end{itemize}
+
+\end{itemize}
+
 \end{document}
