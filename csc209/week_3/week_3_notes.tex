@@ -57,18 +57,25 @@
 \bigskip
 
 \begin{itemize}
+    \item I/O redirection
     \item File Descriptors
     \begin{itemize}
-    \item works with I/O redirection
     \item \textbf{0:} Standard Input
     \item \textbf{1:} Standard Output
     \begin{itemize}
     \item Channels all output
-    \item \textit{1\textgreater} is the same as \textit{\textgreater}
 
     \begin{lstlisting}[language=bash]
+    cat sample.txt
+    hello!
+    hi!
+    it's a pleasure to meet you
     >>> cat sample.txt> output.log
     >>> cat sample.txt1> output.log # identical
+    >>> cat output.log
+    hello!
+    hi!
+    it's a pleasure to meet you
     \end{lstlisting}
     \end{itemize}
 
@@ -82,7 +89,24 @@
     \end{itemize}
 
     \end{itemize}
-    \item I/O redirection
+    \item \textit{\$\#}
+    \begin{itemize}
+    \item Returns number of command line arguements
+
+    \begin{lstlisting}[language=bash]
+    >>> cat arg_number_check_example.sh
+    if [ $# -ne 2 ]
+    then
+        echo usage: arg_number_check_example.sh x y >& 2
+        exit 1
+    fi
+
+    expr $1 + $2
+    >>> arg_number_check_example.sh 2
+    usage: arg_number_check_example.sh x y
+    \end{lstlisting}
+
+    \end{itemize}
     \item \textit{\$@}
     \item \textit{\$\{x\}}
 \end{itemize}
