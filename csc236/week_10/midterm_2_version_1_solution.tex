@@ -54,6 +54,7 @@
     \begin{mdframed}
     \underline{\textbf{Rough Works:}}
     \bigskip
+
     Let $n, q \in \mathbb{N}$. Let $r \in \{0,1\}$
 
     \bigskip
@@ -62,14 +63,29 @@
 
     \bigskip
 
-    I need to use repeated subtitution to find a conjector for a closed form for
-    $T(2q + r)$.
+    I need to find a closed form for $T(2q + r)$, using repeated subtitution.
 
     \begin{enumerate}[1.]
         \item Find $T(2q + r)$ in closed form
 
         \begin{mdframed}
+        Starting from $T(n)$, we have
 
+        \begin{align}
+            T(n) &= n + T(n-2) & [\text{By def. since $n > 2$}]\\
+            T(2q+r) &= 2q+r + T(2q+r-2) & [\text{By replacing $n$ for $2q + r$}]\\
+            &= 2q+r + T(2(q-1)+r)\\
+            &\vdots\\
+            &= \sum\limits_{i=0}^{i=q-1} (2(q-i) + r) + T(r) & [\text{After $q-1$ repeatitions}]\\
+            &= 2\sum\limits_{i=0}^{i=q-1} (q-i) + \sum\limits_{i=0}^{i=q-1} r + T(r)\\
+            &= 2\sum\limits_{i=0}^{i=q-1} (q-i) + \sum\limits_{i=0}^{i=q-1} r & [\text{Since $T(r) = 0$}]\\
+            &= 2\sum\limits_{i'=1}^{i=q} i' + \sum\limits_{i=0}^{i=q-1} r\\
+            &= 2\sum\limits_{i'=1}^{i'=q} i' + \sum\limits_{i=0}^{i=q-1} r\\
+            &= 2\sum\limits_{i'=1}^{i'=q} i' + \sum\limits_{i=0}^{i=q-1} r\\
+            &= 2(q(q+1))/2 + \sum\limits_{i=0}^{i=q-1} r &[\text{By using $\sum\limits_{i=1}^{i=n} i =(n(n+1))/2$}]\\
+            &= q(q+1) + rq\\
+            &= q(q+1+r)
+        \end{align}
         \end{mdframed}
     \end{enumerate}
 
