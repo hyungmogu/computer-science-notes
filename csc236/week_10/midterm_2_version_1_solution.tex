@@ -295,7 +295,50 @@
         \end{mdframed}
 
         \item Base Case($n < 2$)
+
+        \bigskip
+
+        \begin{mdframed}
+
+        Assume $n < 2$.
+
+        \bigskip
+
+        Then, all $T(n)$ and $T(n-1)$ are 0 by definition.
+
+        \bigskip
+
+        So, $T(n-1) \leq T(n)$.
+
+        \bigskip
+
+        Thus, $H(n)$ follows in this step.
+
+        \end{mdframed}
+
         \item Case ($n \geq 2$)
+
+        \begin{mdframed}
+
+        Assume $n \geq 2$.
+
+        \bigskip
+
+        Since $n \geq 2$, $0 \leq n-1 < n$, so, $H(n-1)$ holds by induction hypothesis.
+
+        \bigskip
+
+        Thus, by transitivity of $\leq$, it is sufficient to only show $T(n-1) \leq T(n)$.
+
+        \bigskip
+
+        Starting with $T(n-1)$, we have
+
+        \begin{align}
+        T(n-1) &=
+        \end{align}
+
+        \end{mdframed}
     \end{enumerate}
     \end{mdframed}
 \end{itemize}
