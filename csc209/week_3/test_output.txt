@@ -1,0 +1,2 @@
+usage: arg_number_check_example.sh x y
+5

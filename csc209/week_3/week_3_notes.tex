@@ -58,6 +58,19 @@
 
 \begin{itemize}
     \item I/O redirection
+    \begin{itemize}
+    \item \textbf{\textgreater\textgreater:} appends line to file\
+    \item \textbf{2\textgreater\&1:} redirects \textit{stderr} to the same file as \textit{stdout}
+
+    \begin{lstlisting}[language=bash]
+    >>> sh arg_number_check_example.sh > test_output.txt 2>&1
+    >>> sh arg_number_check_example.sh 2 3 >> test_output.txt 2>&1
+    >>> cat test_output.txt
+    usage: arg_number_check_example.sh x y
+    5
+    \end{lstlisting}
+
+    \end{itemize}
     \item File Descriptors
     \begin{itemize}
     \item \textbf{0:} Standard Input
@@ -107,6 +120,7 @@
     \end{lstlisting}
 
     \end{itemize}
+    \item \textit{\$*}
     \item \textit{\$@}
     \item \textit{\$\{x\}}
 \end{itemize}
