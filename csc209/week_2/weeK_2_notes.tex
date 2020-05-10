@@ -97,13 +97,22 @@
     \begin{itemize}
     \item checks file types and compares values
     \item used in if and while statement to check condition
+
+    \begin{lstlisting}[language=bash]
+    >>> cat
+    >>> echo $?
+    0
+    \end{lstlisting}
+
     \item \textbf{test \textless EXPRESSION \textgreater} is equivalent to
     \textbf{[ EXPRESSION ]}
 
     \begin{lstlisting}[language=bash]
-    >>> test 2 -lt 3
-    >>> echo $?
-    0
+    >>> if [ 0 -eq 0 ]
+    if> then
+    then> echo 'hello'
+    then> fi
+    hello
     \end{lstlisting}
 
     \item has the following numeric comparison operators
@@ -116,6 +125,12 @@
     \item \textbf{-ge:} greater than
     \end{enumerate}
 
+    \begin{lstlisting}[language=bash]
+    >>> test 2 -lt 3
+    >>> echo $?
+    0
+    \end{lstlisting}
+
     \item has the following file testing operators
     \begin{enumerate}[1.]
     \item \textbf{-f file:} file exists and is a plain file
@@ -123,6 +138,27 @@
     \item \textbf{-s file:} file exists and is a plain file of non-zero size
     \end{enumerate}
 
+    \begin{lstlisting}[language=bash]
+    >>> echo 'hello world' > sample.txt
+    >>> test -s sample.txt
+    >>> echo $?
+    0
+    \end{lstlisting}
+
+    \end{itemize}
+
+    \item \textit{if}
+
+    \begin{itemize}
+    \item \textbf{\&\&:} chains multiple if conditions
+
+    \begin{lstlisting}[language=bash]
+    >>> if [ 0 -eq 0 ] && [ 1 -eq 1 ]
+    if> then
+    then> echo 'hello'
+    then> fi
+    hello
+    \end{lstlisting}
     \end{itemize}
 
 \end{itemize}
