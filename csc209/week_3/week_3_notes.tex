@@ -71,6 +71,12 @@
     \item \textbf{\textgreater\textgreater:} appends line to file\
     \item \textbf{2\textgreater\&1:} redirects \textit{stderr} to the same file as \textit{stdout}
 
+    \begin{lstlisting}[language=bash]
+    >>> cat hello > output.txt 2>&1
+    >>> cat output.txt
+    cat: hello: No such file or directory
+    \end{lstlisting}
+
     \end{itemize}
     \item File Descriptors
     \begin{itemize}
@@ -106,6 +112,7 @@
     \item \textit{\$\#}
     \begin{itemize}
     \item Returns number of command line arguements
+    \end{itemize}
 
     \begin{lstlisting}[language=bash]
     >>> cat arg_number_check_example.sh
@@ -120,7 +127,6 @@
     usage: arg_number_check_example.sh x y
     \end{lstlisting}
 
-    \end{itemize}
     \item \textit{\$*}
     \begin{itemize}
     \item Means all command line arguements
@@ -146,6 +152,24 @@
     \end{lstlisting}
 
     \item \textit{\$\{x\}}
+    \begin{itemize}
+    \item Works like template literal in javascript
+    \item Works with arguements as well!
+    \item Is useful when using in loop
+    \end{itemize}
+
+    \begin{lstlisting}[language=bash]
+    >>> cat dolloar_curly_x_example.sh
+    a="hello"
+    cat ${a}2
+    >>> sh dolloar_curly_x_example.sh
+    cat: hello2: No such file or directory
+    \end{lstlisting}
+    \begin{lstlisting}[language=bash]
+    >>> x = "hello"
+    >>> sed -n ${x}p file
+    sed: 1: "hellop": extra characters at the end of h command
+    \end{lstlisting}
 \end{itemize}
 
 \end{document}
