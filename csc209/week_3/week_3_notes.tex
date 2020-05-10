@@ -54,4 +54,37 @@
 
 \section*{Shell Programming 4 of 6}
 
+\bigskip
+
+\begin{itemize}
+    \item File Descriptors
+    \begin{itemize}
+    \item works with I/O redirection
+    \item \textbf{0:} Standard Input
+    \item \textbf{1:} Standard Output
+    \begin{itemize}
+    \item Channels all output
+    \item \textit{1\textgreater} is the same as \textit{\textgreater}
+
+    \begin{lstlisting}[language=bash]
+    >>> cat sample.txt> output.log
+    >>> cat sample.txt1> output.log # identical
+    \end{lstlisting}
+    \end{itemize}
+
+    \item \textbf{2:} Standard Error
+    \begin{itemize}
+    \item Channels all error output
+
+    \begin{lstlisting}[language=bash]
+    >>> cat 2> error.log
+    \end{lstlisting}
+    \end{itemize}
+
+    \end{itemize}
+    \item I/O redirection
+    \item \textit{\$@}
+    \item \textit{\$\{x\}}
+\end{itemize}
+
 \end{document}
