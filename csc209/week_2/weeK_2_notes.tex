@@ -42,6 +42,11 @@
 
 \lstset{style=mystyle}
 
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{Hyungmo Gu} % Left side of header.
+\rhead{CSC209 Week 2 Notes}
+
 \begin{document}
 \title{CSC209 Week 2 Notes}
 \author{Hyungmo Gu}
@@ -162,5 +167,40 @@
     \end{itemize}
 
 \end{itemize}
+
+\bigskip
+
+\section*{Shell Programming 3 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Switch
+
+    \begin{lstlisting}[language=bash]
+    >>> cat switch_example.sh
+    array=("hello" "goddbye" 2)
+    for i in "${array[@]}"
+    do
+        case $i in
+            hello)
+                echo 'hello there'
+                ;;
+            goodbye)
+                echo 'see you later'
+                ;;
+            *)
+                echo "it's a pleasure to meet you"
+                ;;
+        esac
+    done
+    >>> sh switch_example.sh
+    hello there
+    see you later
+    it's a pleasure to meet you
+    \end{lstlisting}
+\end{itemize}
+
+
 
 \end{document}
