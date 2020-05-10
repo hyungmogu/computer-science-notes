@@ -59,16 +59,17 @@
 \begin{itemize}
     \item I/O redirection
     \begin{itemize}
+    \item \textbf{\textless:} sends \textit{stdin} from file to variable or command
+    \begin{lstlisting}[language=bash]
+    >>> var=`<sample.txt`
+    >>> echo $var
+    hello!
+    hi!
+    it's a pleasure to meet you
+    \end{lstlisting}
+
     \item \textbf{\textgreater\textgreater:} appends line to file\
     \item \textbf{2\textgreater\&1:} redirects \textit{stderr} to the same file as \textit{stdout}
-
-    \begin{lstlisting}[language=bash]
-    >>> sh arg_number_check_example.sh > test_output.txt 2>&1
-    >>> sh arg_number_check_example.sh 2 3 >> test_output.txt 2>&1
-    >>> cat test_output.txt
-    usage: arg_number_check_example.sh x y
-    5
-    \end{lstlisting}
 
     \end{itemize}
     \item File Descriptors
@@ -121,7 +122,29 @@
 
     \end{itemize}
     \item \textit{\$*}
+    \begin{itemize}
+    \item Means all command line arguements
+    \item all arguements passed are treated as one
+    \end{itemize}
+
+    \begin{lstlisting}[language=bash]
+    >>> sh dollar_star_example.sh hello world hi
+    cat: hello world hi: No such file or directory
+    \end{lstlisting}
+
     \item \textit{\$@}
+    \begin{itemize}
+    \item Also means all command line arguements
+    \item each arguement sparated a space is treated independently
+    \item Works like for loop
+    \end{itemize}
+    \begin{lstlisting}[language=bash]
+    >>> sh dollar_at_example.sh hello world hi
+    cat: hello: No such file or directory
+    cat: world: No such file or directory
+    cat: hi: No such file or directory
+    \end{lstlisting}
+
     \item \textit{\$\{x\}}
 \end{itemize}
 
