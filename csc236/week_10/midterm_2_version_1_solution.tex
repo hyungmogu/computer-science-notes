@@ -123,65 +123,150 @@
 
     \item
 
-    \begin{mdframed}
-        \underline{\textbf{Rough Works:}}
+    \begin{proof}
+    \setcounter{equation}{0}
 
-        \bigskip
+    For convenience, define $H(q): q(q + r + 1) = T(2q+r)$.
 
-        For convenience, define $H(q): q(q + r + 1) = T(2q+r)$.
+    \bigskip
 
-        \bigskip
+    I will use simple induction to prove $\forall q \in \mathbb{N}$, $H(q)$.
 
-        I will use simple induction to prove that $\forall q \in \mathbb{N}$, $H(q)$.
+    \bigskip
 
-        \bigskip
+    \underline{\textbf{Base Case ($q = 0$):}}
 
-        \begin{enumerate}[1.]
-            \item Base Case ($q = 0$)
+    \bigskip
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($q = 0$):}}
+    Let $q = 0$.
 
-            \bigskip
+    \bigskip
 
-            Let $q = 0$.
+    Then,
 
-            \bigskip
+    \begin{align}
+        q(q + r + 1) &= 0\\
+        &= T(2\cdot 0 + r) & [\text{By def.}]\\
+        &= T(2q + r)
+    \end{align}
 
-            Then,
+    \bigskip
 
-            \begin{align}
-                q(q + r + 1) &= 0\\
-                &= T(2\cdot 0 + r) & [\textbf{By def.}]\\
-                &= T(2q + r)
-            \end{align}
+    Thus, $T(2q+r)$ verifies in this step.
 
-            \bigskip
+    \bigskip
 
-            Thus, $T(2q+r)$ verifies in this step.
-            \end{mdframed}
+    \underline{\textbf{Inductive Step:}}
 
-            \item Inductive Step
+    \bigskip
 
-            \begin{mdframed}
-            \underline{\textbf{Base Case ($q = 0$):}}
+    Let $q \in \mathbb{N}$. Assume $H(q)$.
 
-            \bigskip
+    \bigskip
 
-            Let $q \in \mathbb{N}$. Assume $H(q)$.
+    I need to show $H(q+1)$ follows. That is, $(q+1)\Bigl[ (q+1) + r + 1 \Bigr] = T(2(q+1) + r)$.
 
-            \bigskip
+    \bigskip
 
-            I need to show $H(q+1)$ follows. That is, $(q+1)\Bigl[ (q+1) + r + 1 \Bigr] = T(2(q+1) + r)$.
+    Starting with $(q+1)\Bigl[ (q+1) + r + 1 \Bigr]$, we have
 
-            \bigskip
+    \bigskip
 
-            Starting with $(q+1)\Bigl[ (q+1) + r + 1 \Bigr]$, we have
 
-            \end{mdframed}
-        \end{enumerate}
+    \begin{align}
+        (q+1)\Bigl[ (q+1) + r + 1 \Bigr] &= (q+1)(q+1) + (q+1)r + (q+1)\\
+        &= q^2 + 2q + 1 + (qr+r) + (q+1)\\
+        &= (q^2 + qr + q) + (2q + r + 2)\\
+        &= q(q + r + 1) + (2(q+1) + r)\\
+        &= T(2q+r) + 2(q+1) + r & [\text{By I.H}]\\
+        &= T(2(q+1) + r) & [\text{By def.}]
+    \end{align}
 
-    \end{mdframed}
+    \bigskip
+
+    Thus, $H(q+1)$ follows from $H(q)$ in this step.
+
+    \end{proof}
+
+    \bigskip
+
+    % \begin{mdframed}
+    %     \underline{\textbf{Rough Works:}}
+
+    %     \bigskip
+    %     \setcounter{equation}{0}
+
+    %     For convenience, define $H(q): q(q + r + 1) = T(2q+r)$.
+
+    %     \bigskip
+
+    %     I will use simple induction to prove $\forall q \in \mathbb{N}$, $H(q)$.
+
+    %     \bigskip
+
+    %     \begin{enumerate}[1.]
+    %         \item Base Case ($q = 0$)
+
+    %         \begin{mdframed}
+    %         \underline{\textbf{Base Case ($q = 0$):}}
+
+    %         \bigskip
+
+    %         Let $q = 0$.
+
+    %         \bigskip
+
+    %         Then,
+
+    %         \begin{align}
+    %             q(q + r + 1) &= 0\\
+    %             &= T(2\cdot 0 + r) & [\textbf{By def.}]\\
+    %             &= T(2q + r)
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Thus, $T(2q+r)$ verifies in this step.
+    %         \end{mdframed}
+
+    %         \item Inductive Step
+
+    %         \begin{mdframed}
+    %         \underline{\textbf{Inductive Step:}}
+
+    %         \bigskip
+
+    %         Let $q \in \mathbb{N}$. Assume $H(q)$.
+
+    %         \bigskip
+
+    %         I need to show $H(q+1)$ follows. That is, $(q+1)\Bigl[ (q+1) + r + 1 \Bigr] = T(2(q+1) + r)$.
+
+    %         \bigskip
+
+    %         Starting with $(q+1)\Bigl[ (q+1) + r + 1 \Bigr]$, we have
+
+    %         \bigskip
+
+
+    %         \begin{align}
+    %             (q+1)\Bigl[ (q+1) + r + 1 \Bigr] &= (q+1)(q+1) + (q+1)r + (q+1)\\
+    %             &= q^2 + 2q + 1 + (qr+r) + (q+1)\\
+    %             &= (q^2 + qr + q) + (2q + r + 2)\\
+    %             &= q(q + r + 1) + (2(q+1) + r)\\
+    %             &= T(2q+r) + 2(q+1) + r & [\text{By I.H}]\\
+    %             &= T(2(q+1) + r) & [\text{By def.}]
+    %         \end{align}
+
+    %         \bigskip
+
+    %         Thus, $H(q+1)$ follows from $H(q)$ in this step.
+
+    %         \end{mdframed}
+
+    %     \end{enumerate}
+
+    % \end{mdframed}
 \end{itemize}
 
 \end{document}
