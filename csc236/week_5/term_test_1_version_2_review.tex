@@ -394,6 +394,41 @@
 
     Then,
 
+    \begin{align}
+        x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4 &\Rightarrow x_0 = 27w_0^4 - 3y_0^4 + 9z_0^4\\
+        &\Rightarrow x \mid x_0^4\\
+        &\Rightarrow 3 \mid x_0 & [\text{By hint, since 3 is prime}]\\[1em]
+        \text{Let $x_1 \in \mathbb{N}^+$, $x_0 = 3x_1$} &\Rightarrow 3^4x_1^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+        &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - 3^4x_1^4\\
+        &\Rightarrow y_0^4 = 9w_0^4 - 3z_0^4 - 3^3x_1^4\\
+        &\Rightarrow 3 \mid y_0^4\\
+        &\Rightarrow 3 \mid y_0 & [\text{By hint, since 3 is prime}]\\[1em]
+        \text{Let $y_1 \in \mathbb{N}^+$, $y_0 = 3y_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 9z_0^4 = 27w_0^4\\
+        &\Rightarrow 9z_0^4 = 27w_0^4 - 3^5y_1^4 - 3^4x_1^4\\
+        &\Rightarrow z_0^4 = 3w_0^4 - 3^3y_1^4 - 3^2x_1^4\\
+        &\Rightarrow 3 \mid z_0^4\\
+        &\Rightarrow 3 \mid z_0 & [\text{By hint, since 3 is prime}]\\[1em]
+        \text{Let $z_1 \in \mathbb{N}^+$, $z_0 = 3z_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 27w_0^4\\
+        &\Rightarrow 3x_1^4 + 3^2y_1^4 + 3^3z_1^4 = w_0^4\\
+        &\Rightarrow 3 \mid w_0^4\\
+        &\Rightarrow 3 \mid w_0 & [\text{By hint, since 3 is prime}]\\[1em]
+        \text{Let $z_1 \in \mathbb{N}^+$, $z_0 = 3z_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 27w_0^4\\
+        &\Rightarrow 3x_1^4 + 3^2y_1^4 + 3^3z_1^4 = w_0^4\\
+        &\Rightarrow 3 \mid w_0^4\\
+        &\Rightarrow 3 \mid w_0 & [\text{By hint, since 3 is prime}]\\[1em]
+        \text{Let $w_1 \in \mathbb{N}^+$, $w_0 = 3w_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 3^7w_1^4\\
+        &\Rightarrow x_1^4 + 3y_1^4 + 3^2z_1^4 = 3^3w_1^4\\
+        &\Rightarrow x_1 \in X
+    \end{align}
+
+    \bigskip
+
+    Then, since $x_0$ is the smallest element in $X$, but $x_1 < x_0$ and $x_1 \in X$,
+    this leads to contradiction.
+
+    \bigskip
+
+    Thus, the assumption is false, and $P(x,y,z,w)$ holds.
 
     \end{mdframed}
 \end{itemize}
