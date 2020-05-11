@@ -269,54 +269,30 @@
     % \end{mdframed}
 
     \item
-
-    Define for convenience
-
-    \begin{align}
-        H(n): \bigwedge\limits_{i=0}^{n-1} T(n) - T(i) \geq 0
-    \end{align}
-
-    \bigskip
-
-    I will use complete induction to prove that $\forall n \in \mathbb{N}, H(n)$.
-
-    \bigskip
-
-
-
-    \begin{mdframed}
-    \underline{\textbf{Rough Works:}}
-
-    \bigskip
     \setcounter{equation}{0}
 
-    Define for convenience
+    \begin{proof}
+        Define for convenience
 
-    \begin{align}
-        H(n): \bigwedge\limits_{i=0}^{n-1} T(n) - T(i) \geq 0
-    \end{align}
+        \begin{align}
+            H(n): \bigwedge\limits_{i=0}^{n-1} T(n) - T(i) \geq 0
+        \end{align}
 
-    \bigskip
+        \bigskip
 
-    I will use complete induction to prove that $\forall n \in \mathbb{N}, H(n)$.
+        I will use complete induction to prove that $\forall n \in \mathbb{N}, H(n)$.
 
-    \begin{enumerate}[1.]
-        \item Inductive Step
+        \bigskip
 
-        \begin{mdframed}
         \underline{\textbf{Inductive Step:}}
 
         \bigskip
 
         Let $n \in \mathbb{N}$. Assume $\bigwedge\limits_{i=0}^{n-1}H(i)$. I will
         show $H(n)$ follows.
-        \end{mdframed}
-
-        \item Base Case($n < 2$)
 
         \bigskip
 
-        \begin{mdframed}
         \underline{\textbf{Base Case($n < 2$):}}
 
         \bigskip
@@ -333,13 +309,10 @@
 
         \bigskip
 
-        Thus, $H(n)$ follows in this step.
+        Thus, $C(n)$ follows in this step.
 
-        \end{mdframed}
+        \bigskip
 
-        \item Case ($n \geq 2$)
-
-        \begin{mdframed}
         \underline{\textbf{Case ($n \geq 2$):}}
 
         \bigskip
@@ -348,26 +321,103 @@
 
         \bigskip
 
-        Since $n \geq 2$, $0 \leq n-1 < n$, so, $H(n-1)$ holds by induction hypothesis.
-
-        \bigskip
-
-        Thus, by transitivity of $\leq$, it is sufficient to only show $T(n-1) \leq T(n)$.
-
-        \bigskip
-
-        Starting with $T(n-1)$, we have
+        Then,
 
         \begin{align}
-        T(n) - T(n-1) &= n + T(n-2) - \Bigl[(n-1) + T(n-3) \Bigr] & [\text{By def.}]\\
+        \begin{split}
+        T(n) - T(n-1) &= n + T(n-2)\\
+        &- \Bigl[(n-1) + T(n-3) \Bigr]
+        \end{split} & [\text{By def.}]\\
         &= 1 + T(n-2) - T(n-3)\\
         &\geq 1 & [\text{By I.H, since $0 \leq n-2 < n$}]\\
         &> 0
         \end{align}
 
-        \end{mdframed}
-    \end{enumerate}
-    \end{mdframed}
+        \bigskip
+
+        Thus, $C(n)$ follows from $H(n)$ in this step.
+    \end{proof}
+
+    % \begin{mdframed}
+    % \underline{\textbf{Rough Works:}}
+
+    % \bigskip
+    % \setcounter{equation}{0}
+
+    % Define for convenience
+
+    % \begin{align}
+    %     C(n): \bigwedge\limits_{i=0}^{n-1} T(n) - T(i) \geq 0
+    % \end{align}
+
+    % \bigskip
+
+    % I will use complete induction to prove that $\forall n \in \mathbb{N}, C(n)$.
+
+    % \begin{enumerate}[1.]
+    %     \item Inductive Step
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Inductive Step:}}
+
+    %     \bigskip
+
+    %     Let $n \in \mathbb{N}$. Assume $H(n):\bigwedge\limits_{i=0}^{n-1}C(i)$. I will
+    %     show $C(n)$ follows.
+    %     \end{mdframed}
+
+    %     \item Base Case($n < 2$)
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Base Case($n < 2$):}}
+
+    %     \bigskip
+
+    %     Assume $n < 2$.
+
+    %     \bigskip
+
+    %     Then, all $T(n)$ and $T(n-1)$ are 0 by definition.
+
+    %     \bigskip
+
+    %     So, $T(n) - T(n-1) \geq 0$.
+
+    %     \bigskip
+
+    %     Thus, $C(n)$ follows in this step.
+
+    %     \end{mdframed}
+
+    %     \item Case ($n \geq 2$)
+
+    %     \begin{mdframed}
+    %     \underline{\textbf{Case ($n \geq 2$):}}
+
+    %     \bigskip
+
+    %     Assume $n \geq 2$.
+
+    %    \bigskip
+
+    %    Then,
+
+    %     \begin{align}
+    %     T(n) - T(n-1) &= n + T(n-2) - \Bigl[(n-1) + T(n-3) \Bigr] & [\text{By def.}]\\
+    %     &= 1 + T(n-2) - T(n-3)\\
+    %     &\geq 1 & [\text{By I.H, since $0 \leq n-2 < n$}]\\
+    %     &> 0
+    %     \end{align}
+
+    %     \bigskip
+
+    %     Thus, $C(n)$ follows from $H(n)$ in this step.
+
+    %     \end{mdframed}
+    % \end{enumerate}
+    % \end{mdframed}
 \end{itemize}
 
 \end{document}
