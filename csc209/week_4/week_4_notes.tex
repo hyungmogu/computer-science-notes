@@ -71,4 +71,26 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Introduction to arrays in C 2 of 3}
+
+\bigskip
+\begin{itemize}
+    \item C doesn't check if an array access is within the bounds of array
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        float daytime_high[4] = {1,2,3};
+        daytime_high[5] = 999;
+    }
+    \end{lstlisting}
+
+    \item \textit{daytime\_high[5] = 999} replaces value stored at the memory location.
+
+\end{itemize}
+\begin{itemiz
+
 \end{document}
