@@ -338,6 +338,107 @@
         Thus, $C(n)$ follows from $H(n)$ in this step.
     \end{proof}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \setcounter{equation}{0}
+
+    \begin{proof}
+        Define for convenience
+
+        \begin{align}
+            H(n): \color{red}\bigwedge\limits_{i=1}^{n-1}\color{black} T(n) - T(i) \geq 0
+        \end{align}
+
+        \bigskip
+
+        I will use complete induction to prove that $\forall n \in \mathbb{N}, H(n)$.
+
+        \bigskip
+
+        \underline{\textbf{Inductive Step:}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $\color{red}\bigwedge\limits_{i=1}^{n-1}\color{black}H(i)$. I will
+        show $H(n)$ follows.
+
+        \bigskip
+
+        \underline{\textbf{Base Case($n < 2$):}}
+
+        \bigskip
+
+        Assume $n < 2$.
+
+        \bigskip
+
+        Then, all $T(n)$ and $T(n-1)$ are 0 by definition.
+
+        \bigskip
+
+        So, $T(n) - T(n-1) \geq 0$.
+
+        \bigskip
+
+        Thus, $C(n)$ follows in this step.
+
+        \bigskip
+
+        \color{red}
+        \underline{\textbf{Case ($n = 2$):}}
+
+        \bigskip
+
+        Let $n = 2$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            T(n) - T(n-1) &= (2 + T(1)) - (1 + T(0)) & [\text{By def.}]\\
+            &= 1 & [\text{Since T(1) = T(0) = 0 by def.}]\\
+            &> 0
+        \end{align}
+
+        \bigskip
+
+        Thus, $C(n)$ follows in this step.
+
+        \color{black}
+        \bigskip
+
+        \underline{\textbf{Case (\color{red}$n > 2$\color{black}):}}
+
+        \bigskip
+
+        Assume \color{red}$n > 2$\color{black}.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+        \begin{split}
+        T(n) - T(n-1) &= n + T(n-2)\\
+        &- \Bigl[(n-1) + T(n-3) \Bigr]
+        \end{split} & [\text{By def.}]\\
+        &= 1 + T(n-2) - T(n-3)\\
+        &\geq 1 & [\text{By I.H, since $0 \leq n-3 < n-2 < n$}]\\
+        &> 0
+        \end{align}
+
+        \bigskip
+
+        Thus, $C(n)$ follows from $H(n)$ in this step.
+    \end{proof}
+
+
+    \end{mdframed}
+
     % \begin{mdframed}
     % \underline{\textbf{Rough Works:}}
 
