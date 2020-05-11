@@ -549,9 +549,54 @@
 
     \begin{enumerate}[1.]
         \item Inductive Step
-        \item Base Case ($n = 0$)
-        \item Base Case ($n = 1$)
-        \item Case ($n > 1$)
+
+        \begin{mdframed}
+        Let $n \in \mathbb{N}$. Assume $H(n): \bigwedge\limits_{i=0}^{i=n-1} P(i)$.
+        I will prove $P(n)$ follows. That is, the function \textit{reversi(a\_list)} terminates
+        and returns \textit{a\_list} of size $n$ in reverse order.
+        \end{mdframed}
+
+        \item Base Case ($n < 1$)
+
+        \begin{mdframed}
+        Let $n < 1$.
+
+        \bigskip
+
+        Then, the if part of the \textit{reversi(a\_list)} activates.
+
+        \bigskip
+
+        Then, by code, $\textit{a\_list[:]} = []$ is returned, which is $\textit{a\_list[::-1]}$
+
+        \bigskip
+
+        Thus, $P(n)$ follows in this step.
+        \end{mdframed}
+
+        \item Case ($n \geq 1$)
+
+        \begin{mdframed}
+        Assume $n \geq 1$.
+
+        \bigskip
+
+        Then, the else part of the \textit{reversi(a\_list)} activates.
+
+        \bigskip
+
+        Then, since \textit{reversi(a\_list[1:])} has length $n-1$ and $0 \leq n -1 < n$,
+        \textit{reversi(a\_list[1:])} is a list with elements in reverse order.
+
+        \bigskip
+
+        Then, since $\textit{reversi(a\_list[1:])} + [\textit{a\_list[0]}]$
+        adds element \textit{a\_list[0]} at the the end of list, \textit{a\_list[::-1]} follows.
+
+        \bigskip
+
+        Thus, $P(n)$ follows from $H(n)$ in this step.
+        \end{mdframed}
     \end{enumerate}
 
 
