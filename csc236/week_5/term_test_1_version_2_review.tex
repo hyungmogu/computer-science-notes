@@ -498,4 +498,62 @@
     % \end{mdframed}
 \end{itemize}
 
+\bigskip
+
+\section*{Question 3}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    \begin{mdframed}
+    \underline{\textbf{Rough Works:}}
+
+    \bigskip
+
+    For convenience, define $P(t):$ left($t$) is odd.
+
+    \bigskip
+
+    I will use structural induction to prove that $\forall t \in \mathcal{T}, P(t)$.
+
+    \bigskip
+
+    \underline{\textbf{Base Case:}}
+
+    \bigskip
+
+    Let $t = `()'$.
+
+    \bigskip
+
+    Then, $\text{left($t$)} = 1$, which is odd.
+
+    \bigskip
+
+    Thus, $P(t)$ holds in this step.
+
+    \bigskip
+
+    \underline{\textbf{Inductive Step:}}
+
+    \bigskip
+
+    Let $t_1, t_2 \in \mathcal{T}$ be arbitrary elements. Assume $P(t_1)$ and $P(t_2)$.
+    That is $\text{left($t_1$)}$ and $\text{left($t_2$)}$ are odd. In other words,
+    $\exists k_1,k_2 \in \mathbb{Z}$, $\text{left($t_1$)} = 2k_1 + 1$ and
+    $\text{left($t_2$)} = 2k_1 + 1$. Let $(t_1t_2)$ be parenthesized concatenation
+    of string in $\mathcal{T}$.
+
+    \bigskip
+
+    I need to show $P((t_1t_2))$ follows. That is, $\text{left($(t_1t_2)$)}$ is odd.
+    In other words, $\exists k \in \mathbb{Z}$, $\text{left($(t_1t_2)$)} = 2k + 1$.
+
+    \bigskip
+
+    \end{mdframed}
+\end{itemize}
+
 \end{document}
