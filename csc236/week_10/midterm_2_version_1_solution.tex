@@ -679,5 +679,29 @@
     % \end{mdframed}
 \end{itemize}
 
+\bigskip
+
+\underline{\textbf{Notes:}}
+
+\bigskip
+
+\begin{itemize}
+    \item Noticed the proof feels like the following
+
+    \begin{mdframed}
+    \begin{align}
+        T(n) - T(n-1) &= (2 + T(1)) - (1 + T(0)) & [\text{By def.}]\\
+        &= 1 & [\text{Since T(1) = T(0) = 0 by def.}]\\
+        &> 0
+    \end{align}
+    \end{mdframed}
+
+    \bigskip
+
+    where the since part the statement is in parenthesis, and the statement
+    after comma is the expression on the left.
+\end{itemize}
+
+
 
 \end{document}
