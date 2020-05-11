@@ -356,11 +356,7 @@
 \begin{itemize}
     \item
 
-    \begin{mdframed}
-    \underline{\textbf{Rough Works:}}
-
-    \bigskip
-
+    \begin{proof}
     Define for convenience
 
     \begin{center}
@@ -412,10 +408,6 @@
         &\Rightarrow 3x_1^4 + 3^2y_1^4 + 3^3z_1^4 = w_0^4\\
         &\Rightarrow 3 \mid w_0^4\\
         &\Rightarrow 3 \mid w_0 & [\text{By hint, since 3 is prime}]\\[1em]
-        \text{Let $z_1 \in \mathbb{N}^+$, $z_0 = 3z_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 27w_0^4\\
-        &\Rightarrow 3x_1^4 + 3^2y_1^4 + 3^3z_1^4 = w_0^4\\
-        &\Rightarrow 3 \mid w_0^4\\
-        &\Rightarrow 3 \mid w_0 & [\text{By hint, since 3 is prime}]\\[1em]
         \text{Let $w_1 \in \mathbb{N}^+$, $w_0 = 3w_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 3^7w_1^4\\
         &\Rightarrow x_1^4 + 3y_1^4 + 3^2z_1^4 = 3^3w_1^4\\
         &\Rightarrow x_1 \in X
@@ -423,14 +415,87 @@
 
     \bigskip
 
-    Then, since $x_0$ is the smallest element in $X$, but $x_1 < x_0$ and $x_1 \in X$,
+    Then, since $x_1 < x_0$ and $x_1 \in X$, but $x_0$ is be the smallest element in $X$,
     this leads to contradiction.
 
     \bigskip
 
     Thus, the assumption is false, and $P(x,y,z,w)$ holds.
+    \end{proof}
 
-    \end{mdframed}
+    \bigskip
+
+    % \begin{mdframed}
+    % \underline{\textbf{Rough Works:}}
+
+    % \bigskip
+
+    % Define for convenience
+
+    % \begin{center}
+    %     $P(x,y,z,w):$ There are no positive integers $x,y,z,w$ such that $x^4 + 3y^4 + 9z^4 = 27w^4$.
+    % \end{center}
+
+    % \bigskip
+
+    % I will prove $P(x,y,z,w)$ by contradiction.
+
+    % \bigskip
+
+    % Assume $\neg P(x,y,z,w)$. That is, $\exists x,y,z,w \in \mathbb{N}^+$,
+    % $x^4 + 3y^4 + 9z^4 = 27w^4$.
+
+    % \bigskip
+
+    % Then, $X = \{x \in \mathbb{N}^+ \mid \exists y,z,w \in \mathbb{N}^+, x^4+3y^4+9z^4 = 27w^4\}$
+    % is not empty.
+
+    % \bigskip
+
+    % Then, by the principle of well-ordering, $X$ has smallest element.
+
+    % \bigskip
+
+    % Let $x_0 \in X$ be its smallest element, and let $y_0,z_0,w_0 \in \mathbb{N}^+,
+    % x_0^4+3y_0^4+9z_0^4 = 27w_0^4$.
+
+    % \bigskip
+
+    % Then,
+
+    % \begin{align}
+    %     x_0^4 + 3y_0^4 + 9z_0^4 = 27w_0^4 &\Rightarrow x_0 = 27w_0^4 - 3y_0^4 + 9z_0^4\\
+    %     &\Rightarrow x \mid x_0^4\\
+    %     &\Rightarrow 3 \mid x_0 & [\text{By hint, since 3 is prime}]\\[1em]
+    %     \text{Let $x_1 \in \mathbb{N}^+$, $x_0 = 3x_1$} &\Rightarrow 3^4x_1^4 + 3y_0^4 + 9z_0^4 = 27w_0^4\\
+    %     &\Rightarrow 3y_0^4 = 27w_0^4 - 9z_0^4 - 3^4x_1^4\\
+    %     &\Rightarrow y_0^4 = 9w_0^4 - 3z_0^4 - 3^3x_1^4\\
+    %     &\Rightarrow 3 \mid y_0^4\\
+    %     &\Rightarrow 3 \mid y_0 & [\text{By hint, since 3 is prime}]\\[1em]
+    %     \text{Let $y_1 \in \mathbb{N}^+$, $y_0 = 3y_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 9z_0^4 = 27w_0^4\\
+    %     &\Rightarrow 9z_0^4 = 27w_0^4 - 3^5y_1^4 - 3^4x_1^4\\
+    %     &\Rightarrow z_0^4 = 3w_0^4 - 3^3y_1^4 - 3^2x_1^4\\
+    %     &\Rightarrow 3 \mid z_0^4\\
+    %     &\Rightarrow 3 \mid z_0 & [\text{By hint, since 3 is prime}]\\[1em]
+    %     \text{Let $z_1 \in \mathbb{N}^+$, $z_0 = 3z_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 27w_0^4\\
+    %     &\Rightarrow 3x_1^4 + 3^2y_1^4 + 3^3z_1^4 = w_0^4\\
+    %     &\Rightarrow 3 \mid w_0^4\\
+    %     &\Rightarrow 3 \mid w_0 & [\text{By hint, since 3 is prime}]\\[1em]
+    %     \text{Let $w_1 \in \mathbb{N}^+$, $w_0 = 3w_1$} &\Rightarrow 3^4x_1^4 + 3^5y_1^4 + 3^6z_1^4 = 3^7w_1^4\\
+    %     &\Rightarrow x_1^4 + 3y_1^4 + 3^2z_1^4 = 3^3w_1^4\\
+    %     &\Rightarrow x_1 \in X
+    % \end{align}
+
+    % \bigskip
+
+    % Then, since $x_1 < x_0$ and $x_1 \in X$, but $x_0$ is be the smallest element in $X$,
+    % this leads to contradiction.
+
+    % \bigskip
+
+    % Thus, the assumption is false, and $P(x,y,z,w)$ holds.
+
+    % \end{mdframed}
 \end{itemize}
 
 \end{document}
