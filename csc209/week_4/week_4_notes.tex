@@ -104,4 +104,74 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Introduction to arrays in C 3 of 3}
+
+\bigskip
+\begin{itemize}
+    \item Iterating Over Arrays
+
+    \begin{itemize}
+    \item For loop
+
+    \begin{itemize}
+    \item `\textless` is used over `\textless=' for the end condition,i.e. $i$
+    \textless 4 in for ($i = 0$; $i$ \textless 4; $i$++).
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        float daytime_high[4] = {16.0, 12.8, 14.6, 19.1};
+
+        float average_temp = 0;
+
+        int i;
+        for (i = 0; i < 4; i++) {
+            printf("Adding element %d with value %f.\n", index, daytime_high[i]);
+            average_temp += daytime_high[i];
+        }
+
+        average_temp = average_temp / 4;
+        printf("average %f\n", average_temp);
+
+        return 0;
+    }
+    \end{lstlisting}
+    \end{itemize}
+
+    \item Constants
+
+    \begin{itemize}
+    \item Combines multiple repeating values into one
+    \item Used to increase maintainability and readibility
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #define DAYS 4 // <-- HERE!!
+
+    int main() {
+        float daytime_high[DAYS] = {16.0, 12.8, 14.6, 19.1};
+
+        float average_temp = 0;
+
+        int i;
+        for (i = 0; i < DAYS; i++) {
+            printf("Adding element %d with value %f.\n", index, daytime_high[i]);
+            average_temp += daytime_high[i];
+        }
+
+        average_temp = average_temp / DAY;
+        printf("average %f\n", average_temp);
+
+        return 0;
+    }
+    \end{lstlisting}
+    \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
 \end{document}
