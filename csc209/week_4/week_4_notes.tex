@@ -77,8 +77,11 @@
 
 \bigskip
 \begin{itemize}
-    \item C doesn't check if an array access is within the bounds of array
+    \item Accessing Array Elements
 
+    \begin{itemize}
+    \item C doesn't check if an array access is within the bounds of array
+    \item Overwrites memory location if exists
     \begin{lstlisting}[language=c]
     #include <stdio.h>
 
@@ -88,9 +91,17 @@
     }
     \end{lstlisting}
 
-    \item \textit{daytime\_high[5] = 999} replaces value stored at the memory location.
+    \item Segmentation fault occurs if suitable memory location doesn't exist.
 
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        int daytime_high[4] = {1,2,3};
+        daytime_high[3000] = 999;
+    }
+    \end{lstlisting}
+    \end{itemize}
 \end{itemize}
-\begin{itemiz
 
 \end{document}
