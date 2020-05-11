@@ -507,10 +507,8 @@
 \begin{itemize}
     \item
 
-    \begin{mdframed}
-    \underline{\textbf{Rough Works:}}
-
-    \bigskip
+    \begin{proof}
+    \setcounter{equation}{0}
 
     For convenience, define $P(t):$ left($t$) is odd.
 
@@ -520,7 +518,7 @@
 
     \bigskip
 
-    \underline{\textbf{Base Case:}}
+    \underline{\textbf{Basis:}}
 
     \bigskip
 
@@ -532,7 +530,7 @@
 
     \bigskip
 
-    Thus, $P(t)$ holds in this step.
+    Thus, $P(t)$ follows in this step.
 
     \bigskip
 
@@ -543,8 +541,8 @@
     Let $t_1, t_2 \in \mathcal{T}$ be arbitrary elements. Assume $P(t_1)$ and $P(t_2)$.
     That is $\text{left($t_1$)}$ and $\text{left($t_2$)}$ are odd. In other words,
     $\exists k_1,k_2 \in \mathbb{Z}$, $\text{left($t_1$)} = 2k_1 + 1$ and
-    $\text{left($t_2$)} = 2k_1 + 1$. Let $(t_1t_2)$ be parenthesized concatenation
-    of string in $\mathcal{T}$.
+    $\text{left($t_2$)} = 2k_2 + 1$. Let $(t_1t_2)$ be parenthesized concatenated
+    string in $\mathcal{T}$.
 
     \bigskip
 
@@ -553,7 +551,91 @@
 
     \bigskip
 
-    \end{mdframed}
+    Let $k = k_1 + k_2 + 1$.
+
+    \bigskip
+
+    Then, starting from $\text{left($(t_1t_2)$)}$, we have
+
+    \begin{align}
+        \text{left($(t_1t_2)$)} &= \text{left($(t_1)$)} + \text{left($(t_2)$)} + 1 & [\text{Adding initial `(' plus $t_1t_2$ to left\_count}]\\
+        &=  (2k_1 + 1) + (2k_2 + 1) + 1 & [\text{By header}]\\
+        &=  2(k_1 + k_2 + 1) + 1\\
+        &= 2k + 1 & [\text{Since $k = k_1 + k_2 + 1$}]
+    \end{align}
+
+    \bigskip
+
+    Thus, $P((t_1t_2))$ follows in this step.
+    \end{proof}
+
+    \bigskip
+
+    % \begin{mdframed}
+    % \underline{\textbf{Rough Works:}}
+
+    % \bigskip
+    % \setcounter{equation}{0}
+
+    % For convenience, define $P(t):$ left($t$) is odd.
+
+    % \bigskip
+
+    % I will use structural induction to prove that $\forall t \in \mathcal{T}, P(t)$.
+
+    % \bigskip
+
+    % \underline{\textbf{Basis:}}
+
+    % \bigskip
+
+    % Let $t = `()'$.
+
+    % \bigskip
+
+    % Then, $\text{left($t$)} = 1$, which is odd.
+
+    % \bigskip
+
+    % Thus, $P(t)$ follows in this step.
+
+    % \bigskip
+
+    % \underline{\textbf{Inductive Step:}}
+
+    % \bigskip
+
+    % Let $t_1, t_2 \in \mathcal{T}$ be arbitrary elements. Assume $P(t_1)$ and $P(t_2)$.
+    % That is $\text{left($t_1$)}$ and $\text{left($t_2$)}$ are odd. In other words,
+    % $\exists k_1,k_2 \in \mathbb{Z}$, $\text{left($t_1$)} = 2k_1 + 1$ and
+    % $\text{left($t_2$)} = 2k_2 + 1$. Let $(t_1t_2)$ be parenthesized concatenated
+    % string in $\mathcal{T}$.
+
+    % \bigskip
+
+    % I need to show $P((t_1t_2))$ follows. That is, $\text{left($(t_1t_2)$)}$ is odd.
+    % In other words, $\exists k \in \mathbb{Z}$, $\text{left($(t_1t_2)$)} = 2k + 1$.
+
+    % \bigskip
+
+    % Let $k = k_1 + k_2 + 1$.
+
+    % \bigskip
+
+    % Then, starting from $\text{left($(t_1t_2)$)}$, we have
+
+    % \begin{align}
+    %     \text{left($(t_1t_2)$)} &= \text{left($(t_1)$)} + \text{left($(t_2)$)} + 1 & [\text{Adding initial `(' plus $t_1t_2$ to left\_count}]\\
+    %     &=  (2k_1 + 1) + (2k_2 + 1) + 1 & [\text{By header}]\\
+    %     &=  2(k_1 + k_2 + 1) + 1\\
+    %     &= 2k + 1 & [\text{Since $k = k_1 + k_2 + 1$}]
+    % \end{align}
+
+    % \bigskip
+
+    % Thus, $P((t_1t_2))$ follows in this step.
+
+    % \end{mdframed}
 \end{itemize}
 
 \end{document}
