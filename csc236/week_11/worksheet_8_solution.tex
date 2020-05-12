@@ -221,7 +221,45 @@
         \begin{enumerate}[1.]
         \item $L = \{w \mid w\:\text{has at most seventeen 0's}\}$
         \item $L = \{w \mid w\:\text{has equal number of 0's and 1's}\}$
+        \item $L = \{x \in \{a,b\}^* \mid \text{the number of as in $x$ is even}\}$
+        \begin{itemize}
+            \item * in $\{a,b\}^*$ means all possible combinations
+            \item i.e. $\{a,b,aa,ab,ba,bb,aaa,baa,aba,\cdots\}$
+        \end{itemize}
         \end{enumerate}
+    \end{itemize}
+    \item Tabular DFAs
+    \begin{itemize}
+        \item Example
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/worksheet_8_notes_15.png}
+        \end{center}
+
+        \bigskip
+
+        \begin{center}
+        $\delta =$ \begin{tabular}{|c|c|c|}
+        \hline
+         & 0 & 1\\
+        \hline
+        $^*q_0$ & $q_1$ & $q_0$\\
+        $q_1$ & $q_3$ & $q_2$\\
+        $q_2$ & $q_3$ & $q_0$\\
+        $q_3$ & $q_3$ & $q_3$\\
+        \hline
+        \end{tabular}
+
+        \bigskip
+
+        Note: $^*$ means it's an accepting state
+        \end{center}
+
+    \end{itemize}
+
+    \item Desining DFA which Accepts Language
+    \begin{itemize}
+        \item
     \end{itemize}
 \end{itemize}
 
