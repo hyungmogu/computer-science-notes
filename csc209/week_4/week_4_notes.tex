@@ -230,7 +230,7 @@
 \begin{itemize}
     \item Assigning to Deferenced Pointers
     \begin{itemize}
-    \item $TYPE*$ is a type (but is a pointer)
+    \item \textbf{Syntax:} $TYPE* POINTER\_NAME$
     \item \textbf{$\text{TYPE *\textless POINTER\_NAME \textgreater} = \text{VARIABLE\_NAME}$}
     \begin{itemize}
         \item Stores memory location of variable to pointer
@@ -271,6 +271,39 @@
     }
     \end{lstlisting}
 
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section*{Pointers in C 3 of 7}
+
+\bigskip
+
+\begin{itemize}
+    \item Pointers as Parameters to Functions
+    \begin{itemize}
+        \item \textbf{Syntax:} ... \textless FUNCTION\_TYPE \textgreater(\textless TYPE \textgreater *\textless VARIABLE\_NAME \textgreater)
+        \item Passes variable to function by reference
+        \item Changing values of variable inside function affects the variable
+        outside of function
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    void apply_late_penalty(char *grade_ptr) {
+        if (*grade_ptr != 'F') {
+            (*grade_ptr)++;
+        }
+    }
+
+    int main() {
+        char grade_moe = 'B';
+        apply_late_penalty(&grade_moe)
+
+        return 0;
+    }
+    \end{lstlisting}
     \end{itemize}
 \end{itemize}
 
