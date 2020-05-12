@@ -65,10 +65,10 @@
     \Sigma &= \{a,b\}\\
     \delta &= \begin{tabular}{|c|c|c|}
     \hline
-    & E & O\\
+      & a & b\\
     \hline
-    a & O & E\\
-    b & E & O\\
+    $^*$E & O & E\\
+    O & E & O\\
     \hline
     \end{tabular}\\
     q_0 &= E\\
@@ -86,7 +86,32 @@ Draw Diagram
 \end{mdframed}
 
 \item Build $L_2$
+
 \end{enumerate}
+
+\begin{align*}
+    Q &= \{0,1,2\}\\
+    \Sigma &= \{a,b\}\\
+    \delta &= \begin{tabular}{|c|c|c|}
+    \hline
+          & a & b\\
+    \hline
+    $^*$0 & 1 & 1\\
+    1     & 2 & 2\\
+    2     & 0 & 0\\
+    \hline
+    \end{tabular}\\
+    q_0 &= 0\\
+    F &= \{0\}
+\end{align*}
+
+\bigskip
+
+Draw Diagram
+
+\begin{center}
+\includegraphics[width=0.7 \linewidth]{images/worksheet_8_solution_2.png}
+\end{center}
 
 \end{mdframed}
 
