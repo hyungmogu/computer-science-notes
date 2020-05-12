@@ -82,18 +82,27 @@
     \end{enumerate}
 
     \item Definitions and Syntax
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/worksheet_8_notes_6.png}
+    \end{center}
     \begin{itemize}
         \item $DFSA$ $M$ is a quintuple $M = (Q,\Sigma, q_0, F, \delta)$, where
         \begin{itemize}
             \item $Q:$ a finite set of \textbf{states}.
             \begin{itemize}
-                \item Represents status of system,
+                \item Represents status of system
+                \item Is represented by a black circle, i.e. s,q
+
+                \begin{center}
+                \includegraphics[width=2cm]{images/worksheet_8_notes_8.png}
+                \end{center}
+
                 \item i.e. automatic sliding door at walmart has two states: either close or open
                 \item i.e. traffic light has three states: red, yellow, green
             \end{itemize}
             \item $\Sigma:$ a finite non-empty alphabet
             \begin{itemize}
-                \item is set of symbols in each transition
+                \item is set of symbols in each transition, i.e. a, b, c
 
                 \begin{center}
                 \includegraphics[width=0.3 \linewidth]{images/worksheet_8_notes_3.png}
@@ -109,13 +118,28 @@
                 \includegraphics[width=0.4 \linewidth]{images/worksheet_8_notes_4.png}
                 \end{center}
             \end{itemize}
-            \item $F \subseteq Q:$ the set of accepting states
+            \item $F \subseteq Q:$ the set of accepting or final states
             \begin{itemize}
                 \item Is represented by a double circle
+
+                \begin{center}
+                \includegraphics[width=2cm]{images/worksheet_8_notes_5.png}
+                \end{center}
+
                 \item Multiple accepting states may exists
                 \item Purpose: When processing ends, the output is either \textit{accept} or \textit{reject}
             \end{itemize}
         \end{itemize}
+    \end{itemize}
+
+    \item Simple Example
+
+    \begin{itemize}
+        \item
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/worksheet_8_notes_9.png}
+        \end{center}
     \end{itemize}
 \end{itemize}
 
