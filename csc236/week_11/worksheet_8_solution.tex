@@ -140,8 +140,103 @@
         F &= \{(E,0)\}
     \end{align*}
 
-\end{itemize}
+    \bigskip
 
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \underline{\textbf{Part 1 (Building $L_1$ and $L_2$):}}
+
+    \bigskip
+
+    \textbf{$L_1$:}
+
+    \bigskip
+
+    \begin{align*}
+        Q &= \{E,O\}\\
+        \Sigma &= \{a,b\}\\
+        \delta &= \begin{tabular}{|c|c|c|}
+        \hline
+          & a & b\\
+        \hline
+        $^*$E & O & E\\
+        O & E & O\\
+        \hline
+        \end{tabular}\\
+        q_0 &= E\\
+        F &= \{E\}
+    \end{align*}
+
+    \bigskip
+
+    Draw Diagram
+
+    \begin{center}
+    \includegraphics[width=0.7 \linewidth]{images/worksheet_8_solution_1.png}
+    \end{center}
+
+    \bigskip
+
+    \textbf{$L_2$:}
+
+    \bigskip
+
+    \begin{align*}
+        Q &= \{0,1,2\}\\
+        \Sigma &= \{a,b\}\\
+        \delta &= \begin{tabular}{|c|c|c|}
+        \hline
+              & a & b\\
+        \hline
+        $^*$0 & 1 & 1\\
+        1     & 2 & 2\\
+        2     & 0 & 0\\
+        \hline
+        \end{tabular}\\
+        q_0 &= 0\\
+        F &= \{0\}
+    \end{align*}
+
+    \bigskip
+
+    Draw Diagram
+
+    \begin{center}
+    \includegraphics[width=0.7 \linewidth]{images/worksheet_8_solution_2.png}
+    \end{center}
+
+    \bigskip
+
+    \underline{\textbf{Part 1 (Building $L_1 \cap L_2$):}}
+
+    \bigskip
+
+    \begin{align*}
+        Q &= \{(E,0),(E,1),(E,2),(O,0),(O,1),(O,2)\}\\
+        \Sigma &= \{a,b\}\\
+        \delta &= \begin{tabular}{|c|c|c|}
+        \hline
+            & a & b\\
+        \hline
+        $^*$(E,0) & \color{red}(O,1)\color{black} & \color{red}(E,1)\color{black}\\
+        (E,1)     & \color{red}(O,2)\color{black} & \color{red}(E,2)\color{black}\\
+        (E,2)     & \color{red}(O,0)\color{black} & \color{red}(E,0)\color{black}\\
+        (O,0)     & \color{red}(E,1)\color{black} & \color{red}(O,1)\color{black}\\
+        (O,1)     & \color{red}(E,2)\color{black} & \color{red}(O,2)\color{black}\\
+        (O,2)     & \color{red}(E,0)\color{black} & \color{red}(O,0)\color{black}\\
+        \hline
+        \end{tabular}\\
+        q_0 &= (E,0)\\
+        F &= \{(E,0)\}
+    \end{align*}
+
+    \end{mdframed}
+
+
+\end{itemize}
 % \bigskip
 
 % \begin{mdframed}
