@@ -86,9 +86,35 @@
         \item $DFSA$ $M$ is a quintuple $M = (Q,\Sigma, q_0, F, \delta)$, where
         \begin{itemize}
             \item $Q:$ a finite set of \textbf{states}.
+            \begin{itemize}
+                \item Represents status of system,
+                \item i.e. automatic sliding door at walmart has two states: either close or open
+                \item i.e. traffic light has three states: red, yellow, green
+            \end{itemize}
             \item $\Sigma:$ a finite non-empty alphabet
+            \begin{itemize}
+                \item is set of symbols in each transition
+
+                \begin{center}
+                \includegraphics[width=0.3 \linewidth]{images/worksheet_8_notes_3.png}
+                \end{center}
+            \end{itemize}
+
             \item $q_0 \in Q:$ the start or initial state
+            \item $\delta: Q \times \sigma \to Q:$ a transition function
+            \begin{itemize}
+                \item is a connection between two states.
+                \item is represented by an arrow
+                \begin{center}
+                \includegraphics[width=0.4 \linewidth]{images/worksheet_8_notes_4.png}
+                \end{center}
+            \end{itemize}
             \item $F \subseteq Q:$ the set of accepting states
+            \begin{itemize}
+                \item Is represented by a double circle
+                \item Multiple accepting states may exists
+                \item Purpose: When processing ends, the output is either \textit{accept} or \textit{reject}
+            \end{itemize}
         \end{itemize}
     \end{itemize}
 \end{itemize}
