@@ -174,4 +174,51 @@
 
 \end{itemize}
 
+\bigskip
+
+\section*{Pointers in C 1 of 7}
+
+\bigskip
+
+\begin{itemize}
+    \item Address in C
+    \begin{itemize}
+    \item \textbf{\& \textless VARIABLE\_NAME \textgreater}
+    \item Returns memory location of variable
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #define DAYS 4
+
+    int main() {
+        int i;
+        i = 5;
+        printf("Value of i: %d\n", i);
+        printf("Address of i: %p\n", &i);
+    }
+    \end{lstlisting}
+
+    \end{itemize}
+    \item Pointer
+    \begin{itemize}
+    \item \textbf{\textless TYPE \textgreater* \textless VARIABLE\_NAME \textgreater}
+    \item Is used to store memory addresses
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #define DAYS 4
+
+    int main() {
+        int *pt;
+        pt = &i;
+
+        printf("value of pt: %p\n", pt);
+        printf("Address of pt: %p\n", &pt);
+
+        printf("Value pointed to by pt: %d\n", *pt);
+    }
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
