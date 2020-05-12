@@ -221,4 +221,57 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Pointers in C 2 of 7}
+
+\bigskip
+
+\begin{itemize}
+    \item Assigning to Deferenced Pointers
+    \begin{itemize}
+    \item $TYPE*$ is a type (but is a pointer)
+    \item \textbf{$\text{TYPE *\textless POINTER\_NAME \textgreater} = \text{VARIABLE\_NAME}$}
+    \begin{itemize}
+        \item Stores memory location of variable to pointer
+        \item is the same as
+
+    \begin{lstlisting}[language=c]
+    <TYPE> *<POINTER_NAME>;
+    <POINTER_NAME> = VARIABLE_NAME
+    \end{lstlisting}
+
+    \end{itemize}
+
+    \item \textbf{*\textless POINTER\_NAME \textgreater = VALUE}
+    \begin{itemize}
+        \item changes the value pointed by pointer
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #define DAYS 4
+
+    int main() {
+        int i = 7;
+        int *pt;
+        pt = &i; // <- stores memory location of i, i.e. 0x7ffeeab32a28
+        *pt = 9; // <- changes the value of i to 9
+
+        printf("Value of i: %d\n", i);
+        printf("Address of i: %p\n", &i);
+
+        printf("pt points to %d\n", *pt);
+
+        return 0;
+    }
+    \end{lstlisting}
+
+    \end{itemize}
+\end{itemize}
+
 \end{document}
