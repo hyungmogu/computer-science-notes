@@ -45,7 +45,7 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.4pt}
 \lhead{Hyungmo Gu} % Left side of header.
-\rhead{CSC209 Week 2 Notes}
+\rhead{CSC209 Week 4 Notes}
 
 \begin{document}
 \title{CSC209 Week 4 Notes}
@@ -304,6 +304,56 @@
         return 0;
     }
     \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section*{Pointers in C 4 of 7}
+
+\bigskip
+
+\begin{itemize}
+    \item Passing Arrays as Parameters
+    \begin{itemize}
+        \item \textbf{Syntax:} ... \textless FUNCTION\_TYPE \textgreater(\textless TYPE \textgreater *\textless ARRAY\_VARIABLE\_NAME \textgreater)
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int sum(int *A, int size) {
+        ...
+    }
+
+    int main() {
+        ...
+        printf("total is %d\n", sum(scores, 4));
+
+        return 0;
+    }
+    \end{lstlisting}
+        \item Passes first element of array to function by reference
+        \item Size of array needs to be passed indenpendently.
+        \begin{itemize}
+            \item \textit{sizeof} measures size of pointer value, not the array
+        \end{itemize}
+        \item Array elements are also passed by reference
+
+        \begin{lstlisting}[language=c]
+        #include <stdio.h>
+
+        void change(int *A) {
+            A[0] = 50;
+        }
+
+        int main() {
+            int scores[4] = {4,5,-1,12};
+            ...
+            change(scores);
+            printf("First element in array has value %d\n", scores[0]); // <- returns 50, instead of 4
+            return 0;
+        }
+        \end{lstlisting}
     \end{itemize}
 \end{itemize}
 
