@@ -597,10 +597,58 @@
 
     \begin{enumerate}[1.]
         \item Basis Case
+
+        \bigskip
+
+        $\vert \epsilon \vert = 0$, an even number, and $\delta^*(E,\epsilon) = E$
+        so the implication in the first line of the invariant is true in this case.
+        Also since $\vert \epsilon \vert$ is not odd, the implication in the second
+        line of the invariant is vacuously true. So $P(\epsilon)$ holds.
+
         \item Inductive Step
+
+        \bigskip
+
+        Let $s \in \Sigma^*$ and assume $P(s)$. I will show that $P(sa)$ and $P(sb)$
+        follow. There are two cases to consider:
+
         \begin{enumerate}[1.]
             \item Case $sa$
+
+            \bigskip
+
+            Then,
+
+            \begin{align}
+            \delta^*(E,sa) = \delta(\delta^*(E,s),a) &= \begin{cases}
+                \delta(E,a) & \text{if $s$ has even number of $as$}\\
+                \delta(O,a) & \text{if $s$ has odd number of $as$}\\
+            \end{cases} & [\text{By $P(s)$}]\\
+            &= \begin{cases}
+                O & \text{if $sa$ has odd number of $as$}\\
+                E & \text{if $sa$ has even number of $as$}\\
+            \end{cases} & [\text{One more $a$}]
+            \end{align}
+
             \item Case $sb$ (Let's first start with this)
+
+            \begin{mdframed}
+            Then,
+
+            \bigskip
+
+            \begin{align}
+            \delta^*(E,sb) = \delta(\delta^*(E,s),b) &= \begin{cases}
+                \delta(E,b) & \text{if $s$ has even number of $as$}\\
+                \delta(O,b) & \text{if $s$ has odd number of $as$}\\
+            \end{cases} & [\text{By $P(s)$}]\\
+            &= \begin{cases}
+                E & \text{if $sb$ has odd number of $as$}\\
+                O & \text{if $sb$ has even number of $as$}\\
+            \end{cases} & [\text{One more $b$}]
+            \end{align}
+
+            \end{mdframed}
         \end{enumerate}
     \end{enumerate}
     \end{mdframed}
