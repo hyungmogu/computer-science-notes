@@ -57,14 +57,57 @@
 \bigskip
 
 \begin{itemize}
-    \item \textbf{Syntax:} *fopen(const char *filename, const char *mode)
-    \item the import file should be in the same folder as `a.out' (default)
-    \item Mode Strings
-    \begin{enumerate}[1.]
-        \item \textit{r} - File opened for reading
-        \item \textit{w} - File opened for writing
-        \item \textit{a} - File opened for appending
-    \end{enumerate}
+    \item Opening file
+    \begin{itemize}
+        \item \textbf{Syntax:} *fopen(const char *filename, const char *mode)
+        \item the import file should be in the same folder as `a.out' (default)
+        \item Mode Strings
+        \begin{enumerate}[1.]
+            \item \textit{r} - File opened for reading
+            \item \textit{w} - File opened for writing
+            \item \textit{a} - File opened for appending
+        \end{enumerate}
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        FILE *sample_file;
+
+        sample_file = fopen("example_sources/sample.txt", "r");
+        if (sample_file == NULL) {
+            fprintf(stderr, "Error opening file \n");
+            return 1;
+        }
+
+        ...
+
+        return 0;
+    }
+    \end{lstlisting}
+    \end{itemize}
+    \item Closing file
+    \begin{itemize}
+        \item \textbf{Syntax:} fclose(FILE *filename)
+        \item returns 0 if close successful
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        FILE *sample_file;
+
+        ...
+
+        if (fclose(sample_file) != 0) {
+            fprintf(stderr, "fclose failed\n");
+            return 1;
+        }
+
+        return 0;
+    }
+    \end{lstlisting}
+    \end{itemize}
 \end{itemize}
 
 \end{document}
