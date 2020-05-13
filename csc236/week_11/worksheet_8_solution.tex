@@ -574,7 +574,7 @@
     \begin{mdframed}
     First, define $\Sigma^*$ as the smallest set such that
     \begin{enumerate}
-        \item $\epsilon \in \Sigma^*$
+        \item $\varepsilon \in \Sigma^*$
         \item $s \in \Sigma^* \Rightarrow sa \in \Sigma^* \land sb \in \Sigma^*$
     \end{enumerate}
 
@@ -600,10 +600,10 @@
 
         \bigskip
 
-        $\vert \epsilon \vert = 0$, an even number, and $\delta^*(E,\epsilon) = E$
+        $\vert \varepsilon \vert = 0$, an even number, and $\delta^*(E,\varepsilon) = E$
         so the implication in the first line of the invariant is true in this case.
-        Also since $\vert \epsilon \vert$ is not odd, the implication in the second
-        line of the invariant is vacuously true. So $P(\epsilon)$ holds.
+        Also since $\vert \varepsilon \vert$ is not odd, the implication in the second
+        line of the invariant is vacuously true. So $P(\varepsilon)$ holds.
 
         \item Inductive Step
 
@@ -688,6 +688,33 @@
         \item Basis Case (Let's give this a shot)
 
         \begin{mdframed}
+        I need to prove $P(\varepsilon)$ holds.
+
+        \bigskip
+
+        Let $\varepsilon \in \Sigma^*$.
+
+        \bigskip
+
+        Then, since $\vert \varepsilon \vert = 0$, $\delta^*(0,\varepsilon) = 0$.
+
+        \bigskip
+
+        So, the implication of the first line is true in this case.
+
+        \bigskip
+
+        Also, since $\vert \varepsilon \vert \not\equiv 1 \mod 3$, the implication
+        of second line is vacuously true in this case.
+
+        \bigskip
+
+        Also, since $\vert \varepsilon \vert \not\equiv 2 \mod 3$, the implication
+        of third line is vacuously true in this case.
+
+        \bigskip
+
+        Thus, $P(\varepsilon)$ holds.
 
         \end{mdframed}
 
