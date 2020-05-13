@@ -1,3 +1,5 @@
-The first line in the file
-The integer is 50
-The small float is 0.125000
+Score: 1
+Score: 3
+Score: 5
+Score: 7
+Score: 9
