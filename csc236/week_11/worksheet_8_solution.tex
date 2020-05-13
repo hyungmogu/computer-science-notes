@@ -551,4 +551,63 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Question 2}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+\end{itemize}
+
+\bigskip
+
+\underline{\textbf{Rough Works:}}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item Prove that $M_1$ accepts $L_1$
+
+    \begin{mdframed}
+    First, define $\Sigma^*$ as the smallest set such that
+    \begin{enumerate}
+        \item $\epsilon \in \Sigma^*$
+        \item $s \in \Sigma^* \Rightarrow sa \in \Sigma^* \land sb \in \Sigma^*$
+    \end{enumerate}
+
+    \bigskip
+
+    I will prove that $M_1$ accepts $L_1$.
+
+    \bigskip
+
+    Define $P(s)$ as:
+
+    \begin{align}
+        P(s):\delta^*(E,s) &= \begin{cases}
+            E & \text{if $s$ has an even number of $as$}\\
+            O & \text{if $s$ has an even number of $as$}
+        \end{cases}
+    \end{align}
+
+    I will prove $\forall s \in \Sigma^*$, $P(s)$ by structural induction.
+
+    \begin{enumerate}[1.]
+        \item Basis Case
+        \item Inductive Step
+        \begin{enumerate}[1.]
+            \item Case $sa$
+            \item Case $sb$ (Let's first start with this)
+        \end{enumerate}
+    \end{enumerate}
+    \end{mdframed}
+
+    \item Prove that $M_2$ accepts $L_2$
+    \item Prove that $M_{1\land2}$ accepts $L_1 \cap L_2$
+    \end{enumerate}
+
+
 \end{document}
