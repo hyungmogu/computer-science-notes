@@ -366,14 +366,40 @@
 \begin{itemize}
     \item Pointer Arithmetic
     \begin{itemize}
-        \item $\textbf{int*}$
+        \item Moves the memory location by $x$ amount, where $x$ is int.
+        \item \textbf{General Formula:} $p = p + (\text{sizeof(type)} \cdot n)$, given
+
+    \begin{lstlisting}[language=c]
+    type k;
+    type *p = &k;
+
+    int n;
+    p = p + n;
+    \end{lstlisting}
+
+        \bigskip
+
+        \item Example
         \begin{itemize}
-            \item $\text{int*}+1:$ increases memory size by 4
+            \item $\text{int* var1}+1:$ increases memory size by 4
+            \item $\text{char* var2}+1:$ increases memory size by 3
         \end{itemize}
-        \item $\textbf{char*}$
-        \begin{itemize}
-            \item $\text{char*}+1:$ increases memory size by 4
-        \end{itemize}
+    \end{itemize}
+    \item Pointer Arithmetic in Array
+    \begin{itemize}
+        \item Moves the memory location by $x$ amount, where $x$ is int.
+        \item \textbf{General Formula:} $p[k] == p + k$, given
+
+    \begin{lstlisting}[language=c]
+    int n = //Arbitrary positive int value;
+    type A[n];
+    type *p = &A;
+
+    int k = //Arbitrary int value with size less than n;
+    print(*p);
+    print(*(p+k));
+    \end{lstlisting}
+
     \end{itemize}
 \end{itemize}
 
