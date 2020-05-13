@@ -649,12 +649,87 @@
             \end{align}
 
             \end{mdframed}
+
+            \bigskip
+
+            So $P(sa)$ and $P(sb)$ follow.
+
+            \bigskip
+
+            The first line of the invariant ensures that all strings with an even number
+            $as$ are accepted. The contrapositive of the second line of the invariant
+            ensures that any string that does not drive the machine to state $O$ does
+            not have an odd number of $as$, in other words all strings that drive
+            the machine to state $E$ have an even number of $as$. So $M_1$ accepts $L_1$.
+
         \end{enumerate}
     \end{enumerate}
     \end{mdframed}
 
     \item Prove that $M_2$ accepts $L_2$
+
+    \bigskip
+
+    Define $P(s)$ as:
+
+    \begin{align}
+        P(s): \delta^*(0,s) = \begin{cases}
+            0 & \text{if $\vert s \vert \equiv 0 \mod (3)$}\\
+            1 & \text{if $\vert s \vert \equiv 1 \mod (3)$}\\
+            2 & \text{if $\vert s \vert \equiv 2 \mod (3)$}\\
+        \end{cases}
+    \end{align}
+
+    I prove $\forall s \in \Sigma^*$, $P(s)$ by structural induction.
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Basis Case (Let's give this a shot)
+
+        \begin{mdframed}
+
+        \end{mdframed}
+
+        \item Inductive Step (Let's also try this)
+
+        \begin{mdframed}
+
+        \end{mdframed}
+
+    \end{enumerate}
+
     \item Prove that $M_{1\land2}$ accepts $L_1 \cap L_2$
+
+    \bigskip
+
+    Denote the states for $M_1$ as $Q_1$, the states for $M_2$ as $Q_2$, their
+    respective transition functions as $\delta_1$ and $\delta_2$, and the transition
+    function for $M_{1\land 2}$ and the transition function for $M_{1\land 2}$ as $\delta_{1 \land 2}$.
+    Inspection of $\delta_{1 \land 2}$ shows that if $(q_1,q_2,c) \in Q_1 \times Q_2 \times \Sigma$,
+    then $\delta_{1\land 2}((q_1,q_2),c) = (\delta_1(q_1,c),\delta_2(q_2,c))$. Thus,
+    the following invariant follows by simplying taking conjunctions of the invariants
+    of the component machines, for any $s \in \Sigma^*$.
+
+    \begin{align}
+        P(s):\delta^*((E,0),s) &= \begin{cases}
+            (E,0) & \text{if $s$ has an even number of $as \land \vert s \vert \equiv 0 \mod 3$}\\
+            (E,1) & \text{if $s$ has an even number of $as \land \vert s \vert \equiv 1 \mod 3$}\\
+            (E,2) & \text{if $s$ has an even number of $as \land \vert s \vert \equiv 2 \mod 3$}\\
+            (O,0) & \text{if $s$ has an even number of $as \land \vert s \vert \equiv 0 \mod 3$}\\
+            (O,1) & \text{if $s$ has an even number of $as \land \vert s \vert \equiv 1 \mod 3$}\\
+            (O,2) & \text{if $s$ has an even number of $as \land \vert s \vert \equiv 2 \mod 3$}\\
+        \end{cases}
+    \end{align}
+
+    \bigskip
+
+    The implication on the first line ensures that all strings with an even number
+    of $as$ and a length that is a multiple of 3 end up in state $(e,0)$. The
+    contrapositive of the implications on the other lines ensure that nay string that does
+    not derive the machine to one of those 5 states must have an even number of $as$
+    and a length that is a multiple of 3. Hence $M_{1 \land 2}$ accepts
+    $L_1 \cap L_2$.
     \end{enumerate}
 
 
