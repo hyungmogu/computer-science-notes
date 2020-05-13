@@ -438,4 +438,132 @@
     \end{itemize}
 \end{itemize}
 
+
+\bigskip
+
+\section*{Strings in C 2 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Initializing Strings and String Literals
+    \begin{itemize}
+        \item There are two ways
+        \begin{enumerate}[1.]
+            \item Using array
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        char text[20] = {'h','e','l','l','o','\0'};
+
+        printf("%s\n", text);
+        return 0;
+    }
+    \end{lstlisting}
+
+            \begin{itemize}
+                \item The following is how array looks like after initialization
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/work_5_notes_string_part_2_1.png}
+                \end{center}
+
+            \end{itemize}
+
+            \item Using array of chosen size and double quoted string
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        char text[20] = "hello";
+
+        printf("%s\n", text);
+        return 0;
+    }
+    \end{lstlisting}
+
+            \begin{itemize}
+                \item The following is how array looks like after initialization
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/work_5_notes_string_part_2_1.png}
+                \end{center}
+
+                \item Note: char text[5] = "hello"; causes error, since `$\backslash0$'
+                is not included.
+            \end{itemize}
+
+            \item Using array of unchosen size and double quoted string
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        char text[] = "hello";
+
+        printf("%s\n", text);
+        return 0;
+    }
+    \end{lstlisting}
+
+            \begin{itemize}
+                \item Here, the size of string is just enough for characters plus `$\backslash0$'.
+            \end{itemize}
+
+            \item Using pointers
+
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    int main() {
+        char *text = "hello";
+
+        printf("%s\n", text);
+        return 0;
+    }
+    \end{lstlisting}
+
+        \end{enumerate}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section*{Strings in C 3 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Size and Length
+    \begin{itemize}
+        \item strlen
+        \begin{itemize}
+            \item \textbf{Syntax:} size\_t strlen(const char $^*s$)
+            \item is from c-string library, i.e. `\textless string.h \textgreater`
+            \item is the recommended way to determine the length of string
+        \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={strings\_example\_3.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    int main() {
+        char weekday[10] = "Monday";
+        printf("Length of string: %lu\n", strlen(weekday)); // <- Returns 6
+        ...
+        return 0;
+    }
+    \end{lstlisting}
+
+        \item sizeof
+        \begin{itemize}
+            \item returns total size of array
+            \item not a good way to measure the length of string
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
