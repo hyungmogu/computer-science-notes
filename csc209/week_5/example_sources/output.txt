@@ -1,0 +1,3 @@
+The first line in the file
+The integer is 50
+The small float is 0.125000

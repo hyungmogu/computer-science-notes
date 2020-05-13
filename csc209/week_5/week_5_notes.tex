@@ -219,4 +219,62 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section*{Files in C 4 of 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Writing to Files
+    \begin{itemize}
+        \item \textbf{Syntax:} output\_file = fopen(const char *filename, "w")
+        \begin{itemize}
+            \item \textit{w} overwrites existing file
+            \item \textit{a} appends output to the end of file
+        \end{itemize}
+
+        \begin{lstlisting}[language=c]
+        #include <stdio.h>
+
+        int main() {
+            FILE *output_file;
+            int error;
+            int total = 50;
+            float small_number = 0.125;
+
+            output_file = fopen("example_sources/output.txt", "w");
+            if (output_file == NULL) {
+                perror("Error opening file\n");
+                return 1;
+            }
+
+            fprintf(output_file, "The first line in the file\n");
+            fprintf(output_file, "The integer is %d\n", total);
+            fprintf(output_file, "The small float is %f\n", small_number);
+
+            ...
+
+            return 0;
+        }
+        \end{lstlisting}
+
+        \item NOTE: the output stream is first stored in memory controlled by OS
+        before to disk
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_5_notes_part_4_1.png}
+        \end{center}
+
+        \begin{itemize}
+            \item OS periodically writes content from memory to disk
+            \item Abnormal computer shutdown $\to$ some data may be lost
+        \end{itemize}
+    \end{itemize}
+
+    \begin{lstlisting}[language=c]
+
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
