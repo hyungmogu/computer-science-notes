@@ -566,4 +566,50 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Strings in C 4 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Copying Strings
+    \begin{itemize}
+        \item strncpy
+        \begin{itemize}
+            \item \textbf{Syntax:} char *strncpy(char *s1, const char *s2, int n);
+            \item \textbf{strncpy:} is a function from c-string library
+            \item \textbf{s1:} is destination
+            \item \textbf{s2:} is source
+            \item \textbf{n} is max number of characters to be copied from source
+            \item $n$ is determined based on the string of lesser size
+
+        \begin{lstlisting}[language=c,caption={strings\_example\_4.c}]
+        #include <stdio.h>
+        #include <string.h>
+
+        int main() {
+            char s1[5];
+            char s2[32] = "University of";
+            strncpy(s1,s2, sizeof(s1));
+            s1[4] = '\0';
+            printf("%s\n", s1);
+            printf("%s\n", s2);
+            return 0;
+        }
+        \end{lstlisting}
+
+            \begin{itemize}
+                \item Note: `$\backslash0$' is added at the end of s1 to ensure the
+                copied string is safe.
+            \end{itemize}
+        \end{itemize}
+        \item strcpy
+        \begin{itemize}
+            \item Don't do it.
+            \item This is not safe.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
