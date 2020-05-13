@@ -557,21 +557,16 @@
 
 \bigskip
 
-\begin{itemize}
-    \item
-
-\end{itemize}
-
-\bigskip
-
-\underline{\textbf{Rough Works:}}
+\setcounter{equation}{0}
+\underline{\textbf{Partial Solution:}}
 
 \bigskip
 
 \begin{enumerate}[1.]
     \item Prove that $M_1$ accepts $L_1$
 
-    \begin{mdframed}
+    \bigskip
+
     First, define $\Sigma^*$ as the smallest set such that
     \begin{enumerate}
         \item $\varepsilon \in \Sigma^*$
@@ -664,7 +659,6 @@
 
         \end{enumerate}
     \end{enumerate}
-    \end{mdframed}
 
     \item Prove that $M_2$ accepts $L_2$
 
@@ -745,6 +739,20 @@
             \bigskip
 
             Thus, $P(s@)$ follows.
+
+            \bigskip
+
+            The first line of the invariant ensures that all strings with length
+            equivalent to $0 \mod 3$ or multiples of 3 are accepted. The contrapositive
+            of the second line of the invariant ensures that any string that does
+            not drive the machine to state 1 does not have length equivalent to
+            $1 \mod 3$. The contrapositive of the third line of the invariant
+            ensures that any string that does not drive the machine to state 2 does
+            not have length equivalent to $2 \mod 3$.
+
+            \bigskip
+
+            So, $M_2$ accepts $L_2$.
         \end{mdframed}
 
     \end{enumerate}
