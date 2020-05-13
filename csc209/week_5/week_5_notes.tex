@@ -110,4 +110,69 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Files in C 2 of 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Reading from Files
+    \begin{itemize}
+        \item \textbf{Syntax:} char *fgets(char *s, int n, FILE *stream)
+        \item Reads data line by line
+        \begin{enumerate}[1.]
+            \item \textit{char *s} is a pointer to memory where text can be stored
+            \begin{itemize}
+                \item Note new var can be created here, like for loop (i.e. for(i=0; i < 1; i++)).
+                \item On success, fgets returns \textit{s}
+                \item On failure, fgets returns NULL
+            \end{itemize}
+            \item \textit{int n} is the maximum upper number of characters fgets allowed to put in \textit{s}
+        \end{enumerate}
+    \end{itemize}
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    #define LINE_LENGTH 80
+
+    int main() {
+        FILE *sample_file;
+        int error;
+        char line[LINE_LENGTH + 1];
+
+        sample_file = fopen("example_sources/sample.txt", "r");
+
+        while (fgets(line, LINE_LENGTH + 1, sample_file) != NULL) {
+            printf("%s", line);
+        }
+
+        ...
+        return 0;
+    }
+    \end{lstlisting}
+
+    \item Reading from Input
+    \begin{itemize}
+        \item \textbf{Syntax:} fgets(line, LINE\_LENGTH + 1, stdin)
+        \item Notice \textit{stdin} is the standard input, like input in Python
+    \end{itemize}
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    #define LINE_LENGTH 80
+
+    int main() {
+        char line[LINE_LENGTH + 1];
+
+        while (fgets(line, LINE_LENGTH + 1, stdin) != NULL) {
+            printf("%s", line);
+        }
+
+        return 0;
+    }
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
