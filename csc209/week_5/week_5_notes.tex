@@ -175,4 +175,48 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section*{Files in C 3 of 5}
+
+\bigskip
+
+\begin{itemize}
+    \item The scanf function
+    \begin{itemize}
+        \item returns successfully read items
+        \item number of read items depends on format
+        \item \textbf{Syntax:} int fscanf(FILE *stream, const char *format, type *s,  type *n)
+    \end{itemize}
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    #define LINE_LENGTH 80
+
+    int main() {
+        FILE *sample_file;
+        int error, score, total;
+
+        sample_file = fopen("example_sources/sample.txt", "r");
+        if (sample_file == NULL) {
+            perror("Error opening file\n");
+            return 1;
+        }
+
+        while (fscanf(sample_file, "%d %d", &score, &total) == 2) { //<- ==2 means each fscan must return 2 values, one for each col.
+            printf("Score: %d, Total: %d.\n", score, total);
+        }
+
+        error = fclose(sample_file);
+        if (error != 0) {
+            perror("fclose failed on input file\n");
+            return 1;
+        }
+
+        return 0;
+    }
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
