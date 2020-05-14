@@ -144,4 +144,50 @@
 
 \end{itemize}
 
+
+\bigskip
+
+\section*{Struct 3 of 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Pointer to Structs
+    \begin{itemize}
+        \item \textit{(*p).student\_name} is hard to define, and read
+        \item \textit{p-\textgreater student\_name} is the same as above, but easier to read.
+        \begin{itemize}
+            \item This is called \textbf{syntactic sugar}
+        \end{itemize}
+    \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={struct\_example\_3.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    struct student {
+        char first_name[20];
+        char last_name[20];
+        int year;
+        float gpa;
+
+    };
+
+    int main(void) {
+        struct student s;
+        struct student *p;
+
+        ...
+
+        (*p).gpa = 3.0;
+        p->year = 3; //<- HERE!!
+
+        strcpy(p->first_name, "Hello");
+
+        ...
+        return 0;
+    }
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
