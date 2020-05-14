@@ -455,47 +455,117 @@
 
     \item
 
+    \setcounter{equation}{0}
+
+    I need to find the reg. expressions for $L = \{x \in \Sigma \mid x\:\text{ has
+    at least one 1 and at least one 0}\}$. That is, regex expressions for $\{x \in
+    \Sigma \mid x\:\text{ has at least one 1 followed by at least one 0}\}$ plus
+    $\{x \in \Sigma \mid x\:\text{ has at least one 0 followed by at least one 1}\}$.
+
     \bigskip
 
-    \underline{\textbf{Rough Works}}
+    First, I need to find reg. expressions for
+
+    \begin{align}
+    \{x \in \Sigma \mid x\:\text{ has at least one 1 followed by at least one 0}\}
+    \end{align}
 
     \bigskip
 
-    \begin{enumerate}[1.]
-        \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has at least one 1 followed by at least one 0}\}$
+    Since the reg expressions for $x$ with at least one 1 is $(0 + 1)^*1(0 + 1)^*$
+    and the reg expressions for $x$ with at least one 0 is $(0 + 1)^*0(0 + 1)^*$,
+    we have
 
-        \begin{mdframed}
-        Since the reg expressions for $x$ with at least one 1 is $(0 + 1)^*1(0 + 1)^*$
-        and the reg expressions for $x$ with at least one 0 is $(0 + 1)^*0(0 + 1)^*$,
-        we have
+    \begin{align}
+        (0+1)^*1(0+1)^*0(0+1)^*
+    \end{align}
 
-        \begin{align}
-            (0+1)^*1(0+1)^*0(0+1)^*
-        \end{align}
-        \end{mdframed}
+    \bigskip
 
-        \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has at least one 0 followed by at least one 1}\}$
+    Second, I need to find reg. expressions for
 
+    \begin{align}
+    \{x \in \Sigma \mid x\:\text{ has at least one 0 followed by at least one 1}\}
+    \end{align}
 
-        \begin{mdframed}
-        Using the facts provided above, we have
+    \bigskip
 
-        \begin{align}
-            (0+1)^*0(0+1)^*1(0+1)^*
-        \end{align}
-        \end{mdframed}
+    Using the facts provided above, we have
 
-        \item Conclude
+    \begin{align}
+        (0+1)^*0(0+1)^*1(0+1)^*
+    \end{align}
 
-        \begin{mdframed}
-        Thus, by combining the two, we have
+    \bigskip
 
-        \begin{align}
-            (0+1)^*1(0+1)^*0(0+1)^* + (0+1)^*0(0+1)^*1(0+1)^*
-        \end{align}
-        \end{mdframed}
+    Thus, by combining the two, we can conclude
 
-    \end{enumerate}
+    \begin{align}
+        (0+1)^*1(0+1)^*0(0+1)^* + (0+1)^*0(0+1)^*1(0+1)^*
+    \end{align}
+
+    % \underline{\textbf{Rough Works}}
+
+    % \bigskip
+
+    % I need to find the reg. expressions for $L = \{x \in \Sigma \mid x\:\text{ has at least one 1 and at least one 0}\}$.
+    % That is, regex expressions for $\{x \in \Sigma \mid x\:\text{ has at least one 1 followed by at least one 0}\}$ plus
+    % $\{x \in \Sigma \mid x\:\text{ has at least one 0 followed by at least one 1}\}$
+
+    % \begin{enumerate}[1.]
+    %     \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{ has at least one 1 followed by at least one 0}\}$
+
+    %     \bigskip
+
+    %     First, I need to find reg. expressions for
+
+    %     \begin{align}
+    %     \{x \in \Sigma \mid x\:\text{ has at least one 1 followed by at least one 0}\}
+    %     \end{align}
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Since the reg expressions for $x$ with at least one 1 is $(0 + 1)^*1(0 + 1)^*$
+    %     and the reg expressions for $x$ with at least one 0 is $(0 + 1)^*0(0 + 1)^*$,
+    %     we have
+
+    %     \begin{align}
+    %         (0+1)^*1(0+1)^*0(0+1)^*
+    %     \end{align}
+    %     \end{mdframed}
+
+    %     \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{ has at least one 0 followed by at least one 1}\}$
+
+    %     \bigskip
+
+    %     Second, I need to find reg. expressions for
+
+    %     \begin{align}
+    %     \{x \in \Sigma \mid x\:\text{ has at least one 0 followed by at least one 1}\}
+    %     \end{align}
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+    %     Using the facts provided above, we have
+
+    %     \begin{align}
+    %         (0+1)^*0(0+1)^*1(0+1)^*
+    %     \end{align}
+    %     \end{mdframed}
+
+    %     \item Conclude
+
+    %     \begin{mdframed}
+    %     Thus, by combining the two, we can conclude
+
+    %     \begin{align}
+    %         (0+1)^*1(0+1)^*0(0+1)^* + (0+1)^*0(0+1)^*1(0+1)^*
+    %     \end{align}
+    %     \end{mdframed}
+
+    % \end{enumerate}
 \end{enumerate}
 
 \end{document}
