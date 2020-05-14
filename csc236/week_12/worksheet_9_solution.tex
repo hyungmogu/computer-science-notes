@@ -61,22 +61,105 @@
     \bigskip
 
     \begin{itemize}
-        \item
+        \item Regular Expression
+        \begin{itemize}
+            \item Quick Guide
 
-        Gvien the following example
+            \begin{align}
+                (0+1)((01)^*0)
+            \end{align}
 
-        \begin{align}
-            (0+1)((01)^*0)
-        \end{align}
+            \bigskip
 
-        \bigskip
+            The expression implies that
 
-        The expression implies that
+            \bigskip
 
+            \begin{enumerate}[1.]
+                \item Starts with 0 \textbf{or} 1
+                \begin{itemize}
+                    \item indicated by (0 + 1)
+                \end{itemize}
+                \item Are then followed by \textbf{one or more repeatitions} of 01
+                \begin{itemize}
+                    \item indicated by $(01)^*$
+                \end{itemize}
+                \item Ends with 0
+                \begin{itemize}
+                    \item indicated by the final 0
+                \end{itemize}
+            \end{enumerate}
+        \end{itemize}
+
+        \item Examples
         \begin{enumerate}[1.]
-            \item starts with 0 or 1 (indicated by the expression (0 + 1))
-            \item \textit{are then followed by one or more repeatitions of} 01 (indicated by the expression $(01)^*$)
-            \item \textit{ends with} 0 (indicated by the final expression 0)
+            \item $L = \{w \in \{a,b\}^* \mid w\:\text{has an a} \}$
+
+            \bigskip
+
+            \begin{mdframed}
+                \underline{\textbf{Answer:}}
+
+                \begin{align}
+                (a+b)^*a(a+b)^*
+                \end{align}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Means there is one or more repeatitions of $a$ or $b$ at front
+                    \item Means there is $a$ in the middle
+                    \item Means there is one or more repeatitions of $a$ or $b$ at end
+                \end{itemize}
+            \end{mdframed}
+
+            \item $L = \{w \in \{a,b\}^* \mid w\:\text{has at lest two $a$s}\}$
+
+            \bigskip
+
+            \begin{mdframed}
+                \underline{\textbf{Answer:}}
+
+                \begin{align}
+                (a+b)^*a(a+b)^*a(a+b)^*
+                \end{align}
+            \end{mdframed}
+
+            \item $L = \{w \in \{a,b\}^* \mid w\:\text{has at lest two $a$s}\}$
+
+            \bigskip
+
+            \begin{mdframed}
+                \underline{\textbf{Answer:}}
+
+                \begin{align}
+                (a+b)^*a(a+b)^*a(a+b)^*
+                \end{align}
+            \end{mdframed}
+
+
+            \item $L = \{w \in \{a,b\}^* \mid \vert w \vert \geq 2\}$
+
+            \bigskip
+
+            \begin{mdframed}
+                \underline{\textbf{Answer:}}
+
+                \begin{align}
+                (0+1)(0+1)(0+1)^*
+                \end{align}
+
+                \bigskip
+
+                In this example,
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Two characters are created (indicated by $(0+1)(0+1)$)
+                    \item And more :D!! (indicated by$(0+1)^*$)
+                \end{itemize}
+            \end{mdframed}
         \end{enumerate}
     \end{itemize}
 \end{enumerate}
