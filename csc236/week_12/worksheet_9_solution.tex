@@ -54,6 +54,17 @@
 \begin{enumerate}[a.]
     \item
 
+    \setcounter{equation}{0}
+
+    I need to evalulate the reg. expressions for
+
+    \begin{align*}
+        L = \{x \in \Sigma \mid x \text{has even number of 1s or an odd number of 0s}\}
+    \end{align*}
+
+    \bigskip
+
+    I will do so in parts.
 
     \bigskip
 
@@ -61,7 +72,7 @@
 
     \bigskip
 
-    First, I will find the reg. expressions for even number of 1's.
+    In this part, I will find the reg. expressions for even number of 1's.
 
     \bigskip
 
@@ -110,10 +121,10 @@
     \bigskip
 
     Using the pattern, I can conclude that the regular expression for
-    odd number of 0s is
+    even number of 1s is
 
     \begin{align}
-        1^*(01^*)^*
+        (0^*10^*1)^*0^*
     \end{align}
 
 
@@ -121,163 +132,230 @@
 
     \bigskip
 
-    Second, I will find the reg. expressions for odd number of 0's.
+    In this part, I will find the reg. expressions for odd number of 0's.
 
     \bigskip
 
-
-
-    \underline{\textbf{Rough Works:}}
+    I will do so by finding patterns in series of small examples.
 
     \bigskip
 
-    \begin{enumerate}[1.]
-        \item Find regular expression for even number of 1's
+    Starting with $L = \{x \in \Sigma \mid x\:\text{has 1 number of 0s}\}$,
+    it's reg. expressions is
 
-        \bigskip
+    \begin{align}
+        1^*01^*
+    \end{align}
 
-        First, I will find the reg. expressions for even number of 1's.
+    \bigskip
 
-        \bigskip
+    Now for  $L = \{x \in \Sigma \mid x\:\text{has 3 number of 0s}\}$,
+    it's reg. expressions is
 
-        I will do so by finding patterns in series of small examples.
+    \bigskip
 
-        \bigskip
+    \begin{align}
+        1^*01^*01^*01^*
+    \end{align}
 
-        \begin{itemize}
-            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 0 number of 1s}\}$
+    \bigskip
 
-            \bigskip
+    Now for $L = \{x \in \Sigma \mid x\:\text{has 5 number of 0s}\}$,
+    it's reg. expressions is
 
-            Starting with $L = \{x \in \Sigma \mid x\:\text{has 0 number of 1s}\}$,
-            it's reg. expressions is
+    \bigskip
 
-            \begin{mdframed}
-            \begin{align}
-                0^*
-            \end{align}
-            \end{mdframed}
+    \begin{align}
+        1^*01^*01^*01^*01^*01^*
+    \end{align}
 
-            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 2 number of 1s}\}$
+    \bigskip
 
-            \bigskip
+    From above, I see a pattern that
 
-            Now for $L = \{x \in \Sigma \mid x\:\text{has 2 number of 1s}\}$,
-            it's reg. expressions is
+    \begin{align}
+        1^*(01^*)(01^*)(01^*)(01^*)(01^*)
+    \end{align}
 
-            \begin{mdframed}
-                \begin{align}
-                    0^*10^*10^*
-                \end{align}
-            \end{mdframed}
+    \bigskip
 
-            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 4 number of 1s}\}$
+    Using the pattern, I can conclude that the regular expression for
+    odd number of 0s is
 
-            \bigskip
+    \begin{align}
+        1^*(01^*)^*
+    \end{align}
 
-            Now for $L = \{x \in \Sigma \mid x\:\text{has 4 number of 1s}\}$,
-            it's reg. expressions is
+    \bigskip
 
-            \begin{mdframed}
-                \begin{align}
-                    0^*10^*10^*10^*10^*
-                \end{align}
-            \end{mdframed}
+    Thus, by combining the two parts with union, we have
 
-            \item Hey I see a pattern!!
-            \begin{mdframed}
-                From above, I see a pattern that
+    \begin{align}
+    (0^*10^*1)^*0^* + 1^*(01^*)^*
+    \end{align}
 
-                \begin{align}
-                    (0^*10^*1)(0^*10^*1)0^*
-                \end{align}
-            \end{mdframed}
-            \item Conclude :)
+    % \underline{\textbf{Rough Works:}}
 
-            \begin{mdframed}
-                Using the pattern, I can conclude that the regular expression for
-                even number of 1s is
+    % \bigskip
 
-                \begin{align}
-                    (0^*10^*1)^*0^*
-                \end{align}
-            \end{mdframed}
-        \end{itemize}
-        \item Find regular expression for odd number of 0's
-        \begin{itemize}
-            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 1 number of 0s}\}$
+    % \begin{enumerate}[1.]
+    %     \item Find regular expression for even number of 1's
 
-            \bigskip
+    %     \bigskip
 
-            Starting with $L = \{x \in \Sigma \mid x\:\text{has 1 number of 0s}\}$,
-            it's reg. expressions is
+    %     In this part, I will find the reg. expressions for even number of 1's.
 
-            \begin{mdframed}
-                \begin{align}
-                    1^*01^*
-                \end{align}
-            \end{mdframed}
+    %     \bigskip
 
-            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 3 number of 0s}\}$
+    %     I will do so by finding patterns in series of small examples.
 
-            \bigskip
+    %     \bigskip
 
-            Now for  $L = \{x \in \Sigma \mid x\:\text{has 3 number of 0s}\}$,
-            it's reg. expressions is
+    %     \begin{itemize}
+    %         \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 0 number of 1s}\}$
 
-            \bigskip
+    %         \bigskip
 
-            \begin{mdframed}
-                \begin{align}
-                    1^*01^*01^*01^*
-                \end{align}
-            \end{mdframed}
+    %         Starting with $L = \{x \in \Sigma \mid x\:\text{has 0 number of 1s}\}$,
+    %         it's reg. expressions is
 
-            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 5 number of 0s}\}$
+    %         \begin{mdframed}
+    %         \begin{align}
+    %             0^*
+    %         \end{align}
+    %         \end{mdframed}
 
-            \bigskip
+    %         \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 2 number of 1s}\}$
 
-            Now for $L = \{x \in \Sigma \mid x\:\text{has 5 number of 0s}\}$,
-            it's reg. expressions is
+    %         \bigskip
 
-            \bigskip
+    %         Now for $L = \{x \in \Sigma \mid x\:\text{has 2 number of 1s}\}$,
+    %         it's reg. expressions is
 
-            \begin{mdframed}
-                \begin{align}
-                    1^*01^*01^*01^*01^*01^*
-                \end{align}
-            \end{mdframed}
+    %         \begin{mdframed}
+    %             \begin{align}
+    %                 0^*10^*10^*
+    %             \end{align}
+    %         \end{mdframed}
 
-            \item Hey I see a pattern!!
-            \begin{mdframed}
-                From above, I see a pattern that
+    %         \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 4 number of 1s}\}$
 
-                \begin{align}
-                    1^*(01^*)^*
-                \end{align}
-            \end{mdframed}
-            \item Conclude :)
+    %         \bigskip
 
-            \begin{mdframed}
-                Using the pattern, I can conclude that the regular expression for
-                odd number of 0s is
+    %         Now for $L = \{x \in \Sigma \mid x\:\text{has 4 number of 1s}\}$,
+    %         it's reg. expressions is
 
-                \begin{align}
-                    1^*(01^*)^*
-                \end{align}
-            \end{mdframed}
-        \end{itemize}
-        \item Combine 1 and 2 using +
+    %         \begin{mdframed}
+    %             \begin{align}
+    %                 0^*10^*10^*10^*10^*
+    %             \end{align}
+    %         \end{mdframed}
 
-        \begin{mdframed}
-            So, by combining the two with union, we have
+    %         \item Hey I see a pattern!!
+    %         \begin{mdframed}
+    %             From above, I see a pattern that
 
-            \begin{align}
-            (0^*10^*1)^*0^* + 1^*(01^*)^*
-            \end{align}
+    %             \begin{align}
+    %                 (0^*10^*1)(0^*10^*1)0^*
+    %             \end{align}
+    %         \end{mdframed}
+    %         \item Conclude :)
 
-        \end{mdframed}
-    \end{enumerate}
+    %         \begin{mdframed}
+    %             Using the pattern, I can conclude that the regular expression for
+    %             even number of 1s is
+
+    %             \begin{align}
+    %                 (0^*10^*1)^*0^*
+    %             \end{align}
+    %         \end{mdframed}
+    %     \end{itemize}
+    %     \item Find regular expression for odd number of 0's
+
+    %     \bigskip
+
+    %     In this part, I will find the reg. expressions for odd number of 0's.
+
+    %     \bigskip
+
+    %     I will do so by finding patterns in series of small examples.
+
+    %     \bigskip
+
+    %     \begin{itemize}
+    %         \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 1 number of 0s}\}$
+
+    %         \bigskip
+
+    %         Starting with $L = \{x \in \Sigma \mid x\:\text{has 1 number of 0s}\}$,
+    %         it's reg. expressions is
+
+    %         \begin{mdframed}
+    %             \begin{align}
+    %                 1^*01^*
+    %             \end{align}
+    %         \end{mdframed}
+
+    %         \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 3 number of 0s}\}$
+
+    %         \bigskip
+
+    %         Now for  $L = \{x \in \Sigma \mid x\:\text{has 3 number of 0s}\}$,
+    %         it's reg. expressions is
+
+    %         \bigskip
+
+    %         \begin{mdframed}
+    %             \begin{align}
+    %                 1^*01^*01^*01^*
+    %             \end{align}
+    %         \end{mdframed}
+
+    %         \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 5 number of 0s}\}$
+
+    %         \bigskip
+
+    %         Now for $L = \{x \in \Sigma \mid x\:\text{has 5 number of 0s}\}$,
+    %         it's reg. expressions is
+
+    %         \bigskip
+
+    %         \begin{mdframed}
+    %             \begin{align}
+    %                 1^*01^*01^*01^*01^*01^*
+    %             \end{align}
+    %         \end{mdframed}
+
+    %         \item Hey I see a pattern!!
+    %         \begin{mdframed}
+    %             From above, I see a pattern that
+
+    %             \begin{align}
+    %                 1^*(01^*)^*
+    %             \end{align}
+    %         \end{mdframed}
+    %         \item Conclude :)
+
+    %         \begin{mdframed}
+    %             Using the pattern, I can conclude that the regular expression for
+    %             odd number of 0s is
+
+    %             \begin{align}
+    %                 1^*(01^*)^*
+    %             \end{align}
+    %         \end{mdframed}
+    %     \end{itemize}
+    %     \item Combine 1 and 2 using +
+
+    %     \begin{mdframed}
+    %         So, by combining the two with union, we have
+
+    %         \begin{align}
+    %         (0^*10^*1)^*0^* + 1^*(01^*)^*
+    %         \end{align}
+
+    %     \end{mdframed}
+    % \end{enumerate}
 
     \bigskip
 
