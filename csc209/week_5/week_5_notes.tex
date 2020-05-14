@@ -612,4 +612,62 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Strings in C 5 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Concatenating Strings
+    \begin{itemize}
+        \item strncat
+        \begin{itemize}
+            \item \textbf{Syntax:} char *strncat(char *s1, const char *s2, int n);
+            \begin{itemize}
+                \item \textbf{s1:} is the destination
+                \item \textbf{s2:} is the source
+                \item \textbf{n:} is the max number of characters without null terminator
+                to be copied from \textit{s2} to \textit{s1}.
+
+                \bigskip
+
+                This is usually \textit{sizeof(s1)}
+            \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={strings\_example\_5.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    int main() {
+        char s1[30];
+        char s2[14] = "University of";
+        char s3[15] = "C Programming";
+
+        strncpy(s1,s2, sizeof(s1));
+        s1[sizeof(s1)-1] = '\0';
+        strncat(s1, s3, sizeof(s1) - strlen(s1) -1); // -1 is for \0.
+        printf("%s\n", s1);
+        printf("%s\n", s2);
+        printf("%s\n", s1);
+        return 0;
+    }
+    \end{lstlisting}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Note: \textit{sizeof(s1) - strlen(s1) -1} is the remaining space
+            in \textit{s1} excluding the null character.
+        \end{itemize}
+
+        \end{itemize}
+        \item strcat
+        \begin{itemize}
+            \item This is not safe.
+            \item Don't use it. No No!!
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
