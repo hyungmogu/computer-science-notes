@@ -97,6 +97,7 @@
         return 0;
     }
     \end{lstlisting}
+\end{itemize}
 
 \bigskip
 
@@ -141,9 +142,6 @@
 
     \end{itemize}
 \end{itemize}
-
-\end{itemize}
-
 
 \bigskip
 
@@ -231,6 +229,36 @@
 
     ...
 
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section*{Dynamic memory allocation (malloc()) 2 of 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Allocating Memory on heap
+    \begin{itemize}
+        \item \textbf{Syntax:} *heap\_array = malloc(n * sizeof(type))
+
+    \begin{lstlisting}[language=c,caption={dynamic\_mem\_example\_2.c}]
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int *squares(int max_val) {
+        int *result = malloc(max_val * sizeof(int)); // <- HERE :)
+
+        for (int i = 0; i < max_val; i++){
+            result[i] = (i+1)*(i+1);
+        }
+
+        return result;
+    }
+
+    ...
     \end{lstlisting}
     \end{itemize}
 \end{itemize}
