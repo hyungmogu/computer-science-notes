@@ -263,4 +263,36 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Dynamic memory allocation (malloc()) 3 of 5}
+
+\bigskip
+
+
+\begin{itemize}
+    \item Freeing Dynamically Allocated Memory
+    \begin{itemize}
+        \item \textbf{Syntax:} void free(void *ptr)
+
+    \begin{lstlisting}[language=c,caption={dynamic\_mem\_example\_2.c}]
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int play_with_memory() {
+        int i;
+        int *pt = malloc(sizeof(int));
+
+        i = 15;
+        *pt = 15;
+
+        free(pt); // <- Here :)
+
+        return 0;
+    }
+    ...
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
