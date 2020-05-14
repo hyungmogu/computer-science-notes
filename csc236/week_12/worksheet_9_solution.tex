@@ -54,6 +54,64 @@
 \begin{enumerate}[a.]
     \item
 
+
+    \bigskip
+
+    \underline{\textbf{Rough Works:}}
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Find regular expression for even number of 1's
+
+        \begin{itemize}
+            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 0 number of 1s}\}$
+
+            \begin{mdframed}
+            \begin{align}
+                0^*
+            \end{align}
+            \end{mdframed}
+
+            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 2 number of 1s}\}$
+
+            \begin{mdframed}
+                \begin{align}
+                    0^*10^*10^*
+                \end{align}
+            \end{mdframed}
+
+            \item Find reg. expressions for $L = \{x \in \Sigma \mid x\:\text{has 4 number of 1s}\}$
+
+            \begin{mdframed}
+                \begin{align}
+                    0^*10^*10^*10^*10^*
+                \end{align}
+            \end{mdframed}
+
+            \item Hey I see a pattern!!
+            \begin{mdframed}
+                From above, I see a pattern that
+
+                \begin{align}
+                    (0^*10^*1)(0^*10^*1)0^*
+                \end{align}
+            \end{mdframed}
+            \item Conclude :)
+
+            \begin{mdframed}
+                Using the pattern, I can conclude that the regular expression for
+                even number of 1s is
+
+                \begin{align}
+                    (0^*10^*1)^*0^*
+                \end{align}
+            \end{mdframed}
+        \end{itemize}
+        \item Find regular expression for odd number of 0's
+        \item Combine 1 and 2 using +
+    \end{enumerate}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -93,7 +151,7 @@
 
         \item Examples
         \begin{enumerate}[1.]
-            \item $L = \{w \in \{a,b\}^* \mid w\:\text{has an a} \}$
+            \item $L = \{w \in \{a,b\}^* \mid w\:\text{has an $a$} \}$
 
             \bigskip
 
@@ -109,7 +167,7 @@
                 \begin{itemize}
                     \item Means there is one or more repeatitions of $a$ or $b$ at front
                     \item Means there is $a$ in the middle
-                    \item Means there is one or more repeatitions of $a$ or $b$ at end
+                    \item Means there is zero or more repeatitions of $a$ or $b$ at end
                 \end{itemize}
             \end{mdframed}
 
@@ -124,19 +182,6 @@
                 (a+b)^*a(a+b)^*a(a+b)^*
                 \end{align}
             \end{mdframed}
-
-            \item $L = \{w \in \{a,b\}^* \mid w\:\text{has at lest two $a$s}\}$
-
-            \bigskip
-
-            \begin{mdframed}
-                \underline{\textbf{Answer:}}
-
-                \begin{align}
-                (a+b)^*a(a+b)^*a(a+b)^*
-                \end{align}
-            \end{mdframed}
-
 
             \item $L = \{w \in \{a,b\}^* \mid \vert w \vert \geq 2\}$
 
