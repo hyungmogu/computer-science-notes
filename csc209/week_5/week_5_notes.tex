@@ -687,6 +687,7 @@
                 \item \textbf{s:} is the string to search in
                 \item \textbf{c:} is the character to search for
             \end{itemize}
+            \item returns the index of first matching character
     \begin{lstlisting}[language=c,caption={strings\_example\_6.c}]
     #include <stdio.h>
     #include <string.h>
@@ -694,7 +695,13 @@
     int main() {
         char s1[30] = "University of C Programming";
         ...
-        p = strchr(s1, 'v');
+        p1 = strchr(s1, 'v');
+
+        if (p1 == NULL) {
+            printf("Character not found\n");
+        } else {
+            printf("Character found at index %d\n", (int)(p1 - s1)); // <- returns index 3
+        }
         ...
         return 0;
     }
@@ -703,11 +710,38 @@
         \bigskip
 
         \begin{itemize}
-            \item Note: \textit{p - s1} is pointer arithematic that finds the index
+            \item Note: \textit{p1 - s1} is pointer arithematic that finds the index
             of character in string.
-            \item Note: \textit{p - s1} is long int.
+            \item Note: \textit{p1 - s1} is long int.
         \end{itemize}
         \end{itemize}
+
+        \item strstr
+
+        \begin{itemize}
+            \item \textbf{Syntax:} char *strstr(const char *s1, const char *s2)
+            \item returns the index of the first character of matching string in \textit{s1}.
+        \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={strings\_example\_6.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    int main() {
+        char s1[30] = "University of C Programming";
+        char *p1, *p2;
+        ...
+        p2 = strstr(s1, "Prog");
+        ...
+        if (p2 == NULL) {
+            printf("String not found\n");
+        } else {
+            printf("String found at index %d\n", (int)(p2 - s1)); // <- Returns index 16
+        }
+        return 0;
+    }
+    \end{lstlisting}
+
     \end{itemize}
 \end{itemize}
 
