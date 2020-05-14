@@ -54,4 +54,49 @@
 
 \section*{Struct 1 of 3}
 
+\bigskip
+
+\begin{itemize}
+    \item Introducing Structs
+    \begin{itemize}
+        \item \textbf{struct/structures} is like dictionary in Python or object in Javascript
+        \item there are differences between array and structure
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_6_structs_1_1.png}
+        \end{center}
+
+        \item items in struct is called \textbf{member}
+        \item items in array is called \textbf{element}
+    \end{itemize}
+
+    \bigskip
+
+    \begin{lstlisting}[language=c,caption={struct\_example\_1.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    int main() {
+        struct student {
+            char first_name[20];
+            char last_name[20];
+            int year;
+            float gpa;
+        };
+
+        struct student good_student;
+
+        strcpy(good_student.first_name, "Jo");
+        strcpy(good_student.last_name, "Smith");
+        good_student.year = 2;
+        good_student.gpa = 3.2;
+
+        printf("Name: %s %s\n", good_student.first_name, good_student.last_name);
+        printf("Year %d. GPA %.2f\n", good_student.year, good_student.gpa);
+
+        return 0;
+    }
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
