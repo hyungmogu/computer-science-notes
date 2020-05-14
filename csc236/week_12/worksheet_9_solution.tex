@@ -566,6 +566,44 @@
     %     \end{mdframed}
 
     % \end{enumerate}
+
+    \item
+
+    \setcounter{equation}{0}
+
+    I need to find reg. expressions for
+
+    \begin{align*}
+    \{x \in \Sigma \mid \text{every 1 in $x$ is immediately preceded and followed by a 0}\}
+    \end{align*}
+
+    \bigskip
+
+    An example expresion of the above is
+
+    \bigskip
+
+    \begin{align}
+        0^*0100^*0100^*0100^*
+    \end{align}
+
+    \bigskip
+
+    From above, we can see the following pattern
+
+    \bigskip
+
+    \begin{align}
+        (0^*010)(0^*010)(0^*010)0^*
+    \end{align}
+
+    \bigskip
+
+    Thus, we have
+
+    \begin{align}
+    (0^*010)^*0^*
+    \end{align}
 \end{enumerate}
 
 \end{document}
