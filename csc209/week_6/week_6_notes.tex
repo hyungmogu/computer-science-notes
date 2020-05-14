@@ -190,4 +190,49 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section*{Dynamic memory allocation (malloc()) 1 of 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Introduction
+    \begin{itemize}
+        \item Heap and Static Memory
+            \begin{itemize}
+            \item \textbf{Heap memory:} Memory space controlled by programmer.
+            \begin{itemize}
+                \item Programmer \underline{must} clear memory after use
+            \end{itemize}
+            \item \textbf{Static memory:} Memory space controlled by computer
+        \end{itemize}
+
+        \item Malloc
+        \begin{itemize}
+            \item Allocates heap memory
+            \item Is in \textit{stdlib} package
+            \item \textbf{Syntax:} void *malloc(size\_t size);
+            \begin{itemize}
+                \item returns pointer
+                \item \textit{size\_t} is int
+            \end{itemize}
+        \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={dynamic\_mem\_example\_1.c}]
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int *set_i_heap() {
+        int *j_pt = malloc(sizeof(int)); // <-HERE!!
+        *j_pt = 5;
+        return j_pt;
+    }
+
+    ...
+
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
