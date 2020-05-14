@@ -97,6 +97,51 @@
         return 0;
     }
     \end{lstlisting}
+
+\bigskip
+
+\section*{Struct 2 of 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Using Structs in Functions
+    \begin{itemize}
+        \item Array pass function by \textbf{reference} (of the pointer of first element).
+        \begin{itemize}
+            \item Changing value inside affects outside
+        \end{itemize}
+        \item Struct pass function by \textbf{value} like int and string.
+
+        \begin{itemize}
+            \item Changing value in function doesn't affect value outside
+            \item Pointer used to pass by \textbf{reference}
+
+    \begin{lstlisting}[language=c,caption={struct\_example\_2.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    struct student {
+        ...
+    };
+
+    void change(struct student *s) { // <- passes by reference
+        ...
+    };
+
+    int main(void) {
+        struct student good_student;
+        ...
+        change(&good_student); // <- to pass function by reference (This is too cool!!!)
+        ...
+        return 0;
+    }
+    \end{lstlisting}
+        \end{itemize}
+
+    \end{itemize}
+\end{itemize}
+
 \end{itemize}
 
 \end{document}
