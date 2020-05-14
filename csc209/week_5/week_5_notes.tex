@@ -671,4 +671,44 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Strings in C 6 of 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Searching with strings
+    \begin{itemize}
+        \item strchr
+        \begin{itemize}
+            \item \textbf{Syntax:} char *strchr(const char *s, int c)
+            \begin{itemize}
+                \item \textbf{s:} is the string to search in
+                \item \textbf{c:} is the character to search for
+            \end{itemize}
+    \begin{lstlisting}[language=c,caption={strings\_example\_6.c}]
+    #include <stdio.h>
+    #include <string.h>
+
+    int main() {
+        char s1[30] = "University of C Programming";
+        ...
+        p = strchr(s1, 'v');
+        ...
+        return 0;
+    }
+    \end{lstlisting}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Note: \textit{p - s1} is pointer arithematic that finds the index
+            of character in string.
+            \item Note: \textit{p - s1} is long int.
+        \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
