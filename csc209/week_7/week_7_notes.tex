@@ -63,9 +63,58 @@
     \begin{center}
     \includegraphics[width=\linewidth]{images/week_7_notes_1.png}
     \end{center}
+    \item ls and Contents of Inodes (File Attributes)
 
-    \item Device Files
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/week_7_notes_2.png}
+    \end{center}
+
+    \bigskip
+
+    \begin{itemize}
+        \item \textbf{Permission of Modes:} The permissions assigned to the file
+        for the owner, the group and all
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/week_7_notes_3.png}
+        \end{center}
+
+        \bigskip
+
+        Here,
+
+        \begin{itemize}
+            \item \textbf{r} means read
+            \item \textbf{w} means write
+            \item \textbf{x} means executable
+        \end{itemize}
+
+        \item \textbf{Number of Links:} Number of Symlinks associated to this file
+        \item \textbf{Owner:} the owner of the file
+        \item \textbf{Group:} associated group for the file
+        \item \textbf{Size:} the size of the file in bytes
+        \item \textbf{Modification Date:} the date file was last modified
+        \item \textbf{File Name:} Name associated to this file
+    \end{itemize}
+
     \item Symlinks
+    \begin{itemize}
+        \item \textbf{Syntax:} ln -s \textless Source \textgreater \textless Destination \textgreater
+        \item is like shortcut in Windows
+        \item can cross filesystems across different users, i.e. $\backslash$moegu to $\backslash$mylove
+
+    \begin{lstlisting}[language=bash]
+    >>> echo hello > symlink_example_source.txt
+    >>> ln -s symlink_example_source.txt symlink_example_link.txt
+    >>> cat symlink_example_link.txt # <- symlinked file
+    hello
+    \end{lstlisting}
+
+    \end{itemize}
+    \item Other notes
+    \begin{itemize}
+        \item Max size of single file is 2GB
+    \end{itemize}
 \end{itemize}
 
 \end{document}
