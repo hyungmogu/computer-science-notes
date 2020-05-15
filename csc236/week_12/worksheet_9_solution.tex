@@ -611,84 +611,102 @@
 
 \section*{Question 2}
 
-\begin{itemize}
-\item
+\begin{enumerate}[a.]
+    \item
 
-\textbf{Negation:} $\exists r_1,r_2,r_3 \in \mathcal{R}\varepsilon$, $(r_1r_2
-\equiv r_2r_1)\land (r_1 \not\equiv \varepsilon \not\equiv r_2)
-\land (r_1 \not\equiv \emptyset \not\equiv r_2) \land (r_1 \not\equiv r_2)$
+    \textbf{Negation:} $\exists r_1,r_2,r_3 \in \mathcal{R}\varepsilon$, $(r_1r_2
+    \equiv r_2r_1)\land (r_1 \not\equiv \varepsilon \not\equiv r_2)
+    \land (r_1 \not\equiv \emptyset \not\equiv r_2) \land (r_1 \not\equiv r_2)$
 
-\bigskip
+    \bigskip
 
-Let $r_1 = 1$ and $r_2 = 1^*$.
+    Let $r_1 = 1$ and $r_2 = 1^*$.
 
-\bigskip
+    \bigskip
 
-Then, $r_1r_2 \equiv r_2r_1$ and $r_1 \not\equiv \varepsilon \not\equiv r_2$ and
-$r_1 \not\equiv \emptyset \not\equiv r_2$, but $r_1 \not\equiv r_2$.
+    Then, $r_1r_2 \equiv r_2r_1$ and $r_1 \not\equiv \varepsilon \not\equiv r_2$ and
+    $r_1 \not\equiv \emptyset \not\equiv r_2$, but $r_1 \not\equiv r_2$.
 
-\bigskip
+    \bigskip
 
-So, by counter-example, the statement is false.
+    So, by counter-example, the statement is false.
 
-% \bigskip
+    % \bigskip
 
-% \underline{\textbf{Rough Works:}}
+    % \underline{\textbf{Rough Works:}}
 
-% \bigskip
+    % \bigskip
 
-% \textbf{Negation:} $\exists r_1,r_2,r_3 \in \mathcal{R}\varepsilon$, $(r_1r_2
-% \equiv r_2r_1)\land (r_1 \not\equiv \varepsilon \not\equiv r_2)
-% \land (r_1 \not\equiv \emptyset \not\equiv r_2) \land (r_1 \not\equiv r_2)$
+    % \textbf{Negation:} $\exists r_1,r_2,r_3 \in \mathcal{R}\varepsilon$, $(r_1r_2
+    % \equiv r_2r_1)\land (r_1 \not\equiv \varepsilon \not\equiv r_2)
+    % \land (r_1 \not\equiv \emptyset \not\equiv r_2) \land (r_1 \not\equiv r_2)$
 
-% \bigskip
+    % \bigskip
 
-% Let $r_1 = 1$ and $r_2 = 1^*$.
+    % Let $r_1 = 1$ and $r_2 = 1^*$.
 
-% \bigskip
+    % \bigskip
 
-% Then, $r_1r_2 \equiv r_2r_1$ and $r_1 \not\equiv \varepsilon \not\equiv r_2$ and
-% $r_1 \not\equiv \emptyset \not\equiv r_2$, but $r_1 \not\equiv r_2$.
+    % Then, $r_1r_2 \equiv r_2r_1$ and $r_1 \not\equiv \varepsilon \not\equiv r_2$ and
+    % $r_1 \not\equiv \emptyset \not\equiv r_2$, but $r_1 \not\equiv r_2$.
 
-% \bigskip
+    % \bigskip
 
-% So, by counter-example, the statement is false.
+    % So, by counter-example, the statement is false.
 
-\bigskip
+    \bigskip
 
-\underline{\textbf{Notes:}}
+    \underline{\textbf{Notes:}}
 
-\bigskip
+    \bigskip
 
-\begin{itemize}
-    \item Equivalence ($\equiv$) in Regular Expressions
     \begin{itemize}
-        \item Two regular expressions $\mathcal{R}$ and $\mathcal{S}$ are
-        equivalent, written $R \equiv S$, if they denote the same language,
-        i.e. $\mathcal{L}(\mathcal{R}) \equiv \mathcal{L}(\mathcal{S})$
-
+        \item Equivalence ($\equiv$) in Regular Expressions
         \begin{itemize}
-            \item Example, $(0^*1^*) \equiv (0 + 1)^*$
+            \item Two regular expressions $\mathcal{R}$ and $\mathcal{S}$ are
+            equivalent, written $R \equiv S$, if they denote the same language,
+            i.e. $\mathcal{L}(\mathcal{R}) \equiv \mathcal{L}(\mathcal{S})$
+
+            \begin{itemize}
+                \item Example, $(0^*1^*) \equiv (0 + 1)^*$
+            \end{itemize}
+
+            \item For all regular expressions $\mathcal{R}$, $\mathcal{S}$, $\mathcal{T}$,
+            the following euivalences hold.
+
+            \begin{itemize}
+                \item \textbf{Commutativity of union:} $(\mathcal{R} + \mathcal{S}) \equiv (\mathcal{S} + \mathcal{R})$
+                \item \textbf{Associativity of union:} $((\mathcal{R} + \mathcal{S}) + \mathcal{T}) \equiv (\mathcal{R})+ (\mathcal{S} + \mathcal{T})$
+                \item \textbf{Associativity of concatenation:} $((\mathcal{R}\mathcal{S})\mathcal{T}) \equiv (\mathcal{R}(\mathcal{S}\mathcal{T}))$
+                \item \textbf{Left distributivity:} $(\mathcal{R}(\mathcal{S} + \mathcal{T})) \equiv ((\mathcal{R}\mathcal{S})(\mathcal{R}\mathcal{T}))$
+                \item \textbf{Right distributivity:} $((\mathcal{S} + \mathcal{T})\mathcal{R}) \equiv ((\mathcal{S}\mathcal{R})(\mathcal{T}\mathcal{R}))$
+                \item \textbf{Identity for union:} $(\mathcal{R} + \emptyset) \equiv \mathcal{R}$
+                \item \textbf{Identity for concatenation:} $(\mathcal{R}\epsilon) \equiv R$ and $(\epsilon \mathcal{R}) \equiv \mathcal{R}$
+                \item \textbf{Annihilator for concatenation:} $(\emptyset \mathcal{R}) \equiv \emptyset$ and $(\mathcal{R} \emptyset) \equiv \emptyset$
+                \item \textbf{Idempotence of Kleene star:} $R^{**} \equiv R^*$
+            \end{itemize}
         \end{itemize}
 
-        \item For all regular expressions $\mathcal{R}$, $\mathcal{S}$, $\mathcal{T}$,
-        the following euivalences hold.
-
-        \begin{itemize}
-            \item \textbf{Commutativity of union:} $(\mathcal{R} + \mathcal{S}) \equiv (\mathcal{S} + \mathcal{R})$
-            \item \textbf{Associativity of union:} $((\mathcal{R} + \mathcal{S}) + \mathcal{T}) \equiv (\mathcal{R})+ (\mathcal{S} + \mathcal{T})$
-            \item \textbf{Associativity of concatenation:} $((\mathcal{R}\mathcal{S})\mathcal{T}) \equiv (\mathcal{R}(\mathcal{S}\mathcal{T}))$
-            \item \textbf{Left distributivity:} $(\mathcal{R}(\mathcal{S} + \mathcal{T})) \equiv ((\mathcal{R}\mathcal{S})(\mathcal{R}\mathcal{T}))$
-            \item \textbf{Right distributivity:} $((\mathcal{S} + \mathcal{T})\mathcal{R}) \equiv ((\mathcal{S}\mathcal{R})(\mathcal{T}\mathcal{R}))$
-            \item \textbf{Identity for union:} $(\mathcal{R} + \emptyset) \equiv \mathcal{R}$
-            \item \textbf{Identity for concatenation:} $(\mathcal{R}\epsilon) \equiv R$ and $(\epsilon \mathcal{R}) \equiv \mathcal{R}$
-            \item \textbf{Annihilator for concatenation:} $(\emptyset \mathcal{R}) \equiv \emptyset$ and $(\mathcal{R} \emptyset) \equiv \emptyset$
-            \item \textbf{Idempotence of Kleene star:} $R^{**} \equiv R^*$
-        \end{itemize}
     \end{itemize}
-\end{itemize}
 
-\end{itemize}
+    \item
 
+    \bigskip
+
+    \textbf{Negation:} $(r_1r_2 \equiv r_1r_3) \land (r_1 \not\equiv \emptyset) \land (r_2 \not\equiv r_3)$
+
+    \bigskip
+
+    Let $r_1 = 1^*$, $r_2 = \varepsilon$, $r_3 = 1^*$.
+
+    \bigskip
+
+    Then, $r_1r_2 \equiv r_1r_3$ and $r_1 \not\equiv \emptyset$, but $r_2 \not\equiv r_3$.
+
+    \bigskip
+
+    So, by counter-example, the statement is false.
+
+    \end{enumerate}
 
 \end{document}
