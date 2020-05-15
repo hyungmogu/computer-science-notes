@@ -630,7 +630,24 @@
         \begin{itemize}
             \item Example, $(0^*1^*) \equiv (0 + 1)^*$
         \end{itemize}
+
+        \item For all regular expressions $\mathcal{R}$, $\mathcal{S}$, $\mathcal{T}$,
+        the following euivalences hold.
+
+        \begin{itemize}
+            \item \textbf{Commutativity of union:} $(\mathcal{R} + \mathcal{S}) \equiv (\mathcal{S} + \mathcal{R})$
+            \item \textbf{Associativity of union:} $((\mathcal{R} + \mathcal{S}) + \mathcal{T}) \equiv (\mathcal{R})+ (\mathcal{S} + \mathcal{T})$
+            \item \textbf{Associativity of concatenation:} $((\mathcal{R}\mathcal{S})\mathcal{T}) \equiv (\mathcal{R}(\mathcal{S}\mathcal{T}))$
+            \item \textbf{Left distributivity:} $(\mathcal{R}(\mathcal{S} + \mathcal{T})) \equiv ((\mathcal{R}\mathcal{S})(\mathcal{R}\mathcal{T}))$
+            \item \textbf{Right distributivity:} $((\mathcal{S} + \mathcal{T})\mathcal{R}) \equiv ((\mathcal{S}\mathcal{R})(\mathcal{T}\mathcal{R}))$
+            \item \textbf{Identity for union:} $(\mathcal{R} + \emptyset) \equiv \mathcal{R}$
+            \item \textbf{Identity for concatenation:} $(\mathcal{R}\epsilon) \equiv R$ and $(\epsilon \mathcal{R}) \equiv \mathcal{R}$
+            \item \textbf{Annihilator for concatenation:} $(\emptyset \mathcal{R}) \equiv \emptyset$ and $(\mathcal{R} \emptyset) \equiv \emptyset$
+            \item \textbf{Idempotence of Kleene star:} $R^{**} \equiv R^*$
+        \end{itemize}
     \end{itemize}
+
+    \item
 \end{itemize}
 
 \end{itemize}
