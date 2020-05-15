@@ -31,7 +31,13 @@ int main() {
         if ((pid = wait(&status)) == -1) {
             perror("wait");
         } else {
-            printf("Child %d terminated with %d\n", pid, status);
+            if (WIFEXITED(status)) {
+                printf("Child %d terminated with %d\n", pid, WEXITSTATUS(status));
+            } else if (WIFSIGNALED(status)) {
+                printf("Child %d terminated with signal %d\n", pid, WTERMSIG(status));
+            } else {
+                printf("Shouldn't get here");
+            }
         }
     }
     printf("[%d] Parent about to terminate\n", getpid());

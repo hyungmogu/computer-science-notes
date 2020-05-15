@@ -152,7 +152,7 @@
 
         \bigskip
 
-    \begin{lstlisting}[language=c]
+    \begin{lstlisting}[language=c,caption={process\_example\_1.c}]
     #include <stdio.h>
     #include <unistd.h> // <- fork imported here
 
@@ -255,6 +255,40 @@
         \item Returns code when child exits
     \end{itemize}
     \item WTERMSIG
+    \begin{itemize}
+        \item \textbf{Syntax:} int WTERMSIG (int status)
+        \item Returns non-zero value if the child process terminated due to a signal,
+        i.e. abort()
+    \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={process\_example\_3.c}]
+    #include <stdio.h>
+    #include <unistd.h>
+    #include <stdlib.h>
+    #include <signal.h>
+
+    int main() {
+        ...
+
+        for(i = 0; i < 5; i++) {
+            pid_t pid;
+            int status;
+            if ((pid = wait(&status)) == -1) { // <- wait called here
+                perror("wait");
+            } else {
+                if (WIFEXITED(status)) { // <- processes ended normally
+                    printf("Child %d terminated with %d\n", pid, WEXITSTATUS(status));
+                } else if (WIFSIGNALED(status)) { // <- child exited due to signal
+                    printf("Child %d terminated with signal %d\n", pid, WTERMSIG(status));
+                } else {
+                    printf("Shouldn't get here");
+                }
+            }
+        }
+        printf("[%d] Parent about to terminate\n", getpid());
+        return 0;
+    }
+    \end{lstlisting}
 \end{itemize}
 
 
