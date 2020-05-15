@@ -79,6 +79,29 @@
         \begin{itemize}
             \item is a data structure used by computer operating system to
             store all information about process.
+            \item Code, Global, Heap and Stack together are called the \textbf{State of Program}
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_8_notes_1_3.png}
+            \end{center}
+
+            \begin{itemize}
+                \item \textbf{Code:} is program code
+                \item \textbf{Stack:} tells which function is being executed, and hold
+                values of local variables
+                \item \textbf{Heap and Globals:} holds current value for other variables in the program
+            \end{itemize}
+
+            \item is also known as \textbf{process descriptor}
+            \begin{enumerate}[1.]
+                \item When a process is created (initialized or installed), the
+                operating system creates a corresponding process control block.
+                \item Information in a process lbock is updated during the
+                transition of process states
+                \item When the process terminates, its PCB is returned to the pool
+                from which new PCBs are drawn
+                \item Each process has a single PCB
+            \end{enumerate}
+
         \end{itemize}
 
         \item Top
@@ -93,8 +116,13 @@
         \end{itemize}
 
         \item Three-state Process Management Model
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_4.png}
+        \end{center}
 
         \begin{itemize}
+            \item Works with PCB
+            \item Works simultaneously on multiple processors
             \item A program is in either one of three states:
             \begin{itemize}
                 \item \textbf{Running:} The process that is currently being executed
