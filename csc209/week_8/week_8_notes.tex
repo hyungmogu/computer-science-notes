@@ -134,5 +134,51 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Processes 2 of 8}
+
+\bigskip
+
+\begin{itemize}
+    \item Creating Processes with Fork
+    \begin{itemize}
+        \item fork()
+        \begin{itemize}
+            \item is a part of \textit{unistd.h} library.
+            \item creates a new process, which is called child process, which runs
+            \item starts executing after fork() is called
+        \end{itemize}
+
+        \bigskip
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <unistd.h> // <- fork imported here
+
+    int main() {
+        int i;
+        pid_t result;
+
+        i = 5;
+        printf("%d\n", i);
+
+        result = fork(); // <- Here is the fork :)
+
+        if (result > 0) {
+            i = i + 2;
+        } else if (result == 0) {
+            i = i - 2;
+        } else {
+            perror("fork");
+        }
+
+        printf("%d\n", i);
+        return 0;
+    }
+    \end{lstlisting}
+
+    \end{itemize}
+\end{itemize}
 
 \end{document}
