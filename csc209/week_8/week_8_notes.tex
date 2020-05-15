@@ -192,7 +192,7 @@
     \begin{itemize}
         \item Parent and child processes don't occur in order
         \item Child processes not in order since they are running concurrently
-        \item Key queston: How to make the parent to wait before child finishes?
+        \item Key Queston: How to make the parent to wait before child finishes?
     \begin{lstlisting}[language=c]
     // Output of process_example_2.c
     // Run by typing gcc -Wall process_example_2.c
@@ -227,5 +227,35 @@
     \end{lstlisting}
     \end{itemize}
 \end{itemize}
+
+\bigskip
+
+\section*{Processes 4 of 8}
+
+\bigskip
+
+\begin{itemize}
+    \item wait
+    \begin{itemize}
+        \item \textbf{Syntax:} pid\_t\ wait(int *wstatus)
+        \item is a part of \textit{sys/wait.h} library.
+        \item blocks the calling process until one of its child processes exists
+        or a signal is received.
+        \item parent continues its execution after wait call
+    \end{itemize}
+    \item WIFEXITED
+    \begin{itemize}
+        \item \textbf{Syntax:} int WIFEXITED (int status)
+        \item Checks if child exited normally
+        \item Returns non-zero if true
+    \end{itemize}
+    \item WIFEXITSTATUS(status)
+    \begin{itemize}
+        \item \textbf{Syntax:} int WIFEXITSTATUS (int status)
+        \item Returns code when child exits
+    \end{itemize}
+    \item WTERMSIG
+\end{itemize}
+
 
 \end{document}
