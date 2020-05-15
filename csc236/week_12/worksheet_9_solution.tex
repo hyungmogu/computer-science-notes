@@ -707,6 +707,44 @@
 
     So, by counter-example, the statement is false.
 
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Learned I forgot to consider $\varepsilon$ when exploring counter-examples :(
+
+        \bigskip
+
+        $r_1 = 0$
+
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+                                & 0 & $0^*$ & 1 & $1^*$ & $(1+\varepsilon)$ & $(1+\varepsilon)^*$ & $(0+\varepsilon)$ & $(0+\varepsilon)^*$ & $\varepsilon$\\
+            \hline
+            0                   & x & x & x & x & x & x & & & \\
+            \hline
+            $0^*$               & x & x & x & x & x & x & & & \\
+            \hline
+            1                   & x & x & x & x & x & x & & & \\
+            \hline
+            $1^*$               & x & x & x & x & x & x & & & \\
+            \hline
+            $(1+\varepsilon)$   & x & x & x & x & x & x & & & \\
+            \hline
+            $(1+\varepsilon)^*$ & x & x & x & x & x & x & & & \\
+            \hline
+            $(0+\varepsilon)$   & & & & & & & x & & \\
+            \hline
+            $(0+\varepsilon)^*$ & & & & & & & & x & \\
+            \hline
+            $\varepsilon$       & & & & & & & & & x \\
+            \hline
+        \end{tabular}
+    \end{itemize}
+
     \end{enumerate}
 
 \end{document}
