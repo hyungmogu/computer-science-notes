@@ -73,21 +73,35 @@
         \item Process
         \begin{itemize}
             \item Running instance of program
-            \item When program is ready for
         \end{itemize}
 
-        \item State of Program
+        \item Process Control Block (PCB)
         \begin{itemize}
-            \item
+            \item is a data structure used by computer operating system to
+            store all information about process.
         \end{itemize}
 
         \item Top
+
+        \begin{itemize}
+            \item is a basic unix command useful for observing current state of
+            Unix System.
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_8_notes_1_2.png}
+            \end{center}
+        \end{itemize}
+
         \item Three-state Process Management Model
 
         \begin{itemize}
-            \item Running
-            \item Ready
-            \item Blocked
+            \item A program is in either one of three states:
+            \begin{itemize}
+                \item \textbf{Running:} The process that is currently being executed
+                \item \textbf{Ready:} A process that is queuing and prepare to execute when given the opportunity
+                \item \textbf{Blocked:} A process that cannot execute until some event occurs,
+                i.e. waking up from sleep
+            \end{itemize}
         \end{itemize}
     \end{itemize}
 \end{itemize}
