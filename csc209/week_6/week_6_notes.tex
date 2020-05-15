@@ -273,9 +273,11 @@
 \begin{itemize}
     \item Freeing Dynamically Allocated Memory
     \begin{itemize}
+        \item tells memory management the memory location is okay to be replaced.
+        \item doesn't remove memory from memory location
         \item \textbf{Syntax:} void free(void *ptr)
 
-    \begin{lstlisting}[language=c,caption={dynamic\_mem\_example\_2.c}]
+    \begin{lstlisting}[language=c,caption={dynamic\_mem\_example\_3.c}]
     #include <stdio.h>
     #include <stdlib.h>
 
@@ -294,5 +296,55 @@
     \end{lstlisting}
     \end{itemize}
 \end{itemize}
+
+
+\bigskip
+
+\section*{Dynamic memory allocation (malloc()) 4 of 5}
+
+\bigskip
+
+
+\begin{itemize}
+    \item Returning an Address with a Pointer
+    \begin{itemize}
+        \item **
+        \begin{itemize}
+        \item Is called \textbf{double pointer}
+        \item First pointer used to store the address of variable
+        \item Second pointer used to store the address of the first pointer
+        \item Used to return something inside function to outside by reference
+        \begin{itemize}
+            \item can be thought like using duc-taped 2 1m rulers to fetch something 2m away.
+        \end{itemize}
+    \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={dynamic\_mem\_example\_4.c}]
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    void helper(int **arr_double_p) { // <- 3. Double pointer. Another duc-taping.
+        *arr_double_p = malloc(sizeof(int) * 3); // 4. <- the other end of 2 1m rulers
+
+        int *arr = *arr_double_p;
+
+        arr[0] = 0;
+        arr[1] = 21;
+        arr[2] = 23;
+    }
+
+    int main() {
+        int *data; // <- 1. Firs of 2 1m rulers
+        helper(&data); // <- 2. Note how memory address of pointer is passed. Think of this as ductaping
+
+        printf("middle value: %d\n", data[1]);
+
+        free(data);
+        return 0;
+    }
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
 
 \end{document}
