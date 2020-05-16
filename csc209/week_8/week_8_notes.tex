@@ -238,10 +238,10 @@
     \item wait
     \begin{itemize}
         \item \textbf{Syntax:} pid\_t\ wait(int *wstatus)
-        \item is a part of \textit{sys/wait.h} library.
-        \item blocks the calling process until one of its child processes exists
+        \item Is a part of \textit{sys/wait.h} library.
+        \item Blocks the calling process until one of its child processes exists
         or a signal is received.
-        \item parent continues its execution after wait call
+        \item Parent continues its execution after wait call
     \end{itemize}
     \item WIFEXITED
     \begin{itemize}
@@ -289,6 +289,39 @@
         return 0;
     }
     \end{lstlisting}
+\end{itemize}
+
+\bigskip
+
+\section*{Processes 6 of 8}
+
+\bigskip
+
+\begin{itemize}
+    \item Running Different Programs
+    \begin{itemize}
+        \item execl
+        \begin{itemize}
+            \item \textbf{Syntax:} int execl(const char *filepath, [const char *arg1, const char *arg2], NULL)
+            \item is a part of \textit{unistd.h} library
+            \item Requires \textit{NULL} as final arguement
+            \item Code doesn't return to main if excel is successful
+            \item Code returns to main if excel is unsuccessful
+        \end{itemize}
+    \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={process\_example\_4.c}]
+    #include <stdio.h>
+    #include <unistd.h>
+
+    int main() {
+        printf("About to call excel. My PID is %d\n", getpid());
+        execl("./hello.out", NULL); // <- searches for .out
+        perror("exec");
+        return 1;
+    }
+    \end{lstlisting}
+
 \end{itemize}
 
 
