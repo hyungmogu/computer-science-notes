@@ -301,9 +301,13 @@
     \item Hexadecimal Numbers
     \begin{itemize}
         \item Starts with `0x' at front
+        \begin{itemize}
+            \item `0x` is for uncapitalized letters, i.e. `0XFFFF`
+            \item `0X' is for capitalized letters, i.e. 0xffff
+        \end{itemize}
         \item Uses 10 symbols `$0,1,2,3,4,5,6,7,8,9$' and 6 extras `$A = 10, B = 11, C = 12, D = 13, E = 14, F = 15$'.
         \begin{itemize}
-            \item i.e. $FFFF =  15 \cdot 16^0 + 15 \cdot 16^1 + 15 \cdot 16^2 + 15 \cdot 16^3 + 15 \cdot 16^4 = 65535$
+            \item i.e. $0xFFFF =  15 \cdot 16^0 + 15 \cdot 16^1 + 15 \cdot 16^2 + 15 \cdot 16^3 + 15 \cdot 16^4 = 65535$
         \end{itemize}
     \end{itemize}
     \item The Shift Operators
@@ -354,5 +358,38 @@ so, 7 >> 1 = 3
 \end{lstlisting}
     \end{itemize}
 \end{itemize}
+
+\bigskip
+
+\section*{Bit Manipulation 3 of 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Bit Flags
+    \begin{itemize}
+        \item Bit flags are boolean variables represented using 0 and 1
+        \begin{itemize}
+            \item bool variables consume 1 byte (8 bits)
+            \item 0 or 1 consume 1 bit
+            \item Bit Flags are clean and fast :)
+        \end{itemize}
+        \item Use of Bit Flags
+        \begin{itemize}
+            \item Embedded Software Programming
+            \item Graphics card
+        \end{itemize}
+        \item Example
+        \begin{enumerate}[1.]
+            \item chmod and unix file system
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_9_notes_3_1.png}
+            \end{center}
+
+        \end{enumerate}
+    \end{itemize}
+\end{itemize}
+
 
 \end{document}
