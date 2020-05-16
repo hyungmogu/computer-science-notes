@@ -372,7 +372,6 @@ so, 7 >> 1 = 3
         \begin{itemize}
             \item bool variables consume 1 byte (8 bits)
             \item 0 or 1 consume 1 bit
-            \item Bit Flags are clean and fast :)
         \end{itemize}
         \item Use of Bit Flags
         \begin{itemize}
@@ -385,9 +384,66 @@ so, 7 >> 1 = 3
 
             \begin{center}
             \includegraphics[width=\linewidth]{images/week_9_notes_3_1.png}
+            \includegraphics[width=0.4\linewidth]{images/week_9_notes_3_2.png}
             \end{center}
 
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item Setting read-only permission to a file to owner
+    \begin{lstlisting}[language=c]
+    r--------
+    100000000 // <- Binary
+    [4]  [0]  [0]   // <- Octal
+
+    chmod 400 <file>
+    \end{lstlisting}
+            \item Setting read and write only permissions to a file
+    \begin{lstlisting}[language=c]
+    rw-rw-rw-
+    110110110 // <- Binary
+    [4+2=6] [4+2=6] [4+2=6]  // <- Octal
+
+    chmod 666 <file>
+    \end{lstlisting}
+
+            \item Setting all permissions to a file
+    \begin{lstlisting}[language=c]
+    rwxrwxrwx
+    110110110 // <- Binary
+    [4+2+1=7] [4+2+1=7] [4+2+1=7]  // <- Octal
+
+    chmod 777 <file>
+    \end{lstlisting}
+            \end{enumerate}
         \end{enumerate}
+
+    \end{itemize}
+
+    \item Octal Bit Flags in C
+    \begin{itemize}
+        \item Are written with preecding 0
+
+        \begin{center}
+        \includegraphics[width=0.6\linewidth]{images/week_9_notes_3_3.png}
+        \end{center}
+
+\begin{lstlisting}[language=c]
+#include <stdio.h>
+#include <unistd.h>
+#include <stdio.h>
+
+#define S_IRUSR 0000400 //R for owner
+#define S_IRGRP 0000400 //R for group
+#define S_IROTH 0000400 //R for others
+
+int main () {
+    mode_t mode = S_IRUSR | S_IRGRP | S_IROTH; // Example 1
+    mode_t mode = 0400 | 040 | 004; // Example 2 (<- Notice bitwise or is used)
+    mode_t mode = 0444; // Example 3
+    return(0);
+}
+\end{lstlisting}
     \end{itemize}
 \end{itemize}
 
