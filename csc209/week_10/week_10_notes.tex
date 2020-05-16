@@ -84,4 +84,34 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Select 1 of 2}
+
+\bigskip
+
+\begin{itemize}
+    \item The problem with Blocking Reads
+    \begin{itemize}
+        \item \textit{read} waits until a pipe is non-empty, and reads one at a time
+        \item suppose there are multiple-children with \textit{write}, then there may be
+        \begin{enumerate}[1.]
+            \item One child with empty pipe
+            \item One child with filling contents, i.e. `hello', `hi there!'
+        \end{enumerate}
+        \item Parent waits for empty pipe, causing blocking
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_10_notes_2_1.png}
+        \end{center}
+        \item \textit{select} $\leftarrow$ \underline{solution}
+        \begin{itemize}
+            \item monitors file descriptors, waiting until one or more of the file
+            descriptors become ready
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
 \end{document}
