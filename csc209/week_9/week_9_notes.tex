@@ -461,21 +461,107 @@ int main () {
     \begin{itemize}
         \item Reduces usage of space
         \begin{itemize}
-            \item Adding element $\to$ Bitwise OR
-
-    \begin{lstlisting}[language=c]
-
-    \end{lstlisting}
-
-            \item Removing element $\to$ Bitwise AND
+        \item Traditional array uses 32 bits per slot
+        \item Bit array uses 1 bits per slot
         \end{itemize}
     \end{itemize}
     \item Bit Masking
     \begin{itemize}
         \item is a technique to add/remove specific element in bit array
-        \item Adding element to Bit Array
-        \item Removing element to Bit Array
+        \item \textbf{Adding element} $\to$ Bitwise OR
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_9_notes_4_1.png}
+        \end{center}
+        \item \textbf{Removing element} $\to$ Bitwise AND
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_9_notes_4_2.png}
+        \end{center}
+
+        \item General Rule
+        \begin{enumerate}[1.]
+            \item Create Bit array
+
+    \begin{lstlisting}[language=c]
+    #define N 4
+
+    unsigned bit_array[N];
+    \end{lstlisting}
+            \item Determine target position $k$ of element in unsigned array
+    \begin{lstlisting}[language=c]
+    int i = k/N;
+    \end{lstlisting}
+            \item Determine which bit in element to modify
+
+    \begin{lstlisting}[language=c]
+    int pos = k%N;
+    \end{lstlisting}
+
+            \item Complete by performing Bitwise OR/AND
+
+    \begin{lstlisting}[language=c]
+    flag = 1 << pos; // <- ~(1 << pos) if performing Bitwise AND
+    bit_array[i] = bit_array[i] | flag;
+    \end{lstlisting}
+
+        \item More details: http://www.mathcs.emory.edu/~cheung/Courses/255/Syllabus/1-C-intro/bit-array.html
+        \end{enumerate}
     \end{itemize}
+
+    \begin{lstlisting}[language=c,caption={bit\_manipulation\_example\_4.c}]
+    #include <stdio.h>
+    #include <unistd.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <sys/types.h>
+    #include <stdio.h>
+
+    #define INTSIZE 32
+    #define N 4
+
+    typedef struct bits {
+        unsigned int field[N];
+    } Bitarray;
+
+    int setzero(Bitarray *b) {
+        return (memset(b, 0, sizeof(Bitarray)) == NULL);
+    }
+
+    void set(unsigned int value, Bitarray *b) {
+        int index = value / INTSIZE;
+        b->field[index] |= 1 << (value % INTSIZE);
+    }
+
+
+    void unset(unsigned int value, Bitarray *b) {
+        int index = value / INTSIZE;
+        b->field[index] &= ~(1 << (value % INTSIZE));
+    }
+
+    int ifset(unsigned int value, Bitarray *b) {
+        int index = value / INTSIZE;
+        return (1 << (value % INTSIZE) & b->field[index]);
+    }
+
+
+    int main () {
+        Bitarray a1;
+        setzero(&a1);
+
+        // Add 1, 16, 32, 65 to the set
+        set(1, &a1);
+        set(16, &a1);
+        set(32, &a1);
+        set(65, &a1);
+
+        // expecting: [0x00010002, 0x00000001, 0x000000010, 0]
+        printf("%x %x %x %x\n",
+            a1.field[0], a1.field[1], a1.field[2], a1.field[3]);
+    }
+
+    \end{lstlisting}
+
 \end{itemize}
 
 \end{document}
