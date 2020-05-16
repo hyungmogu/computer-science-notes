@@ -96,4 +96,56 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section*{Signals 2 of 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Signals Handling
+    \begin{itemize}
+        \item sigaction
+        \begin{itemize}
+            \item \textbf{Syntax:} int sigaction(int signum, const struct sigaction *act,
+            NULL);
+            \item Is a part of \textit{signal.h} library
+            \item Is used to change the action taken by a process on receipt of
+            a specific signal
+            \item Works like try and catch in Python
+            \item Don't worry about NULL :). Not knowing won't bite.
+        \end{itemize}
+
+        \bigskip
+
+    \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <signal.h>
+
+    void handler(int);
+
+    int main () {
+        struct sigaction newact;
+        newact.sa_handler = handler; // <- like catch statement in python
+        newact.sa_flags = 0;
+        sigemptyset(&newact.sa_mask);
+        return(0);
+    }
+
+    void handler(int code) {
+        fprintf(stderr, "Signal %d caught\n", code);
+    }
+    \end{lstlisting}
+
+        \begin{itemize}
+            \item Use \textit{CTRL + Z} to terminate
+            \item \textit{kill -KILL \textless PID \textgreater} and \textit{kill -QUIT \textless PID \textgreater}
+            are two guarenteed ways to terminate a program.
+        \end{itemize}
+
+    \end{itemize}
+\end{itemize}
+
+
 \end{document}
