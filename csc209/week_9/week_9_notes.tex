@@ -163,11 +163,175 @@
         \item Bitwise Operators in C
         \begin{itemize}
             \item \textbf{\&:} AND
+
+            \bigskip
+
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & b & a \& b\\
+                    \hline
+                    0 & 0  & 0 \\
+                    0 & 1  & 1 \\
+                    1 & 0  & 0 \\
+                    1 & 1  & 1 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    0   1   0   0   //<- this is 4
+    --------------
+    0   1   0   0   //<- this is 4
+
+    so, 7 & 4 = 4
+    \end{lstlisting}
+
             \item \textbf{$\mid$:} OR
+
+            \bigskip
+
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & b & a $\mid$ b\\
+                    \hline
+                    0 & 0  & 0 \\
+                    0 & 1  & 1 \\
+                    1 & 0  & 1 \\
+                    1 & 1  & 1 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    0   1   0   0   //<- this is 4
+    --------------
+    0   1   1   1   //<- this is 7
+
+    so, 7 | 4 = 4
+    \end{lstlisting}
+
+
             \item \textbf{~:} NOT
-            \item \textbf{\textless\textless:} LEFT SHIFT
-            \item \textbf{\textgreater\textgreater:} RIGHT SHIFT
+
+            \bigskip
+
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & $\sim$ a\\
+                    \hline
+                    0 & 1\\
+                    1 & 0\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    --------------
+    1   0   0   0   //<- this is 8
+
+    so, ~ 7 = 8
+    \end{lstlisting}
+
             \item \textbf{\^:} XOR
+
+            \bigskip
+
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & b & a \^{} b\\
+                    \hline
+                    0 & 0  & 0 \\
+                    0 & 1  & 1 \\
+                    1 & 0  & 1 \\
+                    1 & 1  & 0 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    0   1   0   0   //<- this is 4
+    --------------
+    0   0   1   1   //<- this is 3
+
+    so, 7 ^ 4 = 3
+    \end{lstlisting}
+
+            \item \textbf{\textless\textless $n$:} LEFT SHIFT
+
+            \begin{itemize}
+                \item Shifts all bits to left by $n$
+            \end{itemize}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    i = 7
+    j = i << 1
+
+    0   1   1   1   //<- this is 7
+    --------------
+    1   1   1   0   //<- this is 14
+
+    so, 7 << 1 = 14
+    \end{lstlisting}
+
+            \item \textbf{\textgreater\textgreater $n$:} RIGHT SHIFT
+            \begin{itemize}
+                \item Shifts all bits to right by $n$
+            \end{itemize}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    i = 7
+    j = i >> 1
+
+    0   1   1   1   //<- this is 7
+    --------------
+    0   0   1   1   //<- this is 3
+
+    so, 7 >> 1 = 3
+    \end{lstlisting}
         \end{itemize}
     \end{itemize}
 \end{itemize}
