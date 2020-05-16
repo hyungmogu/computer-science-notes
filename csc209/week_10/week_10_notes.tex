@@ -112,6 +112,35 @@
     \end{itemize}
 \end{itemize}
 
+
 \bigskip
+
+\section*{Select 2 of 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Select
+    \begin{itemize}
+        \item monitors file descriptors, waiting until one or more of the file
+        descriptors become ready
+        \item \textbf{Syntax:} int select(numfd, read\_fds, NULL, NULL, NULL);
+        \begin{itemize}
+            \item \textbf{numfd:} specifies how many descriptors should be examined
+            \item \textbf{read\_fds:} points to a bit mask that specifies the file descriptors to check for reading
+            \item No need to worry about NULL for now :).
+        \end{itemize}
+        \item The following macros are used
+        \begin{itemize}
+            \item \textbf{FD\_SET(\textit{fd}, \textit{\&fdset}):} Sets the bit for the file descriptor \textit{fd} in the file descriptor set \textit{fdset}
+            \item \textbf{FD\_ZERO (\textit{\&fdset}):} Initializes the file descriptor set \textit{fdset} to have zero bits
+            \item \textbf{FD\_ISSET(\textit{fd}, \textit{\&fdset}):} Returns a non-zero value if the bit for the file descriptor \textit{fd}
+            is set in the file descriptor set pointed by \textit{fdset}, and 0 otherwise
+        \end{itemize}
+    \end{itemize}
+    \begin{itemize}
+        \item
+    \end{itemize}
+\end{itemize}
 
 \end{document}
