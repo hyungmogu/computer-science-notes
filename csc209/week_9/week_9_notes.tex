@@ -287,52 +287,71 @@
 
     so, 7 ^ 4 = 3
     \end{lstlisting}
-
-            \item \textbf{\textless\textless $n$:} LEFT SHIFT
-
-            \begin{itemize}
-                \item Shifts all bits to left by $n$
-            \end{itemize}
-
-            \bigskip
-
-            \textbf{Example:}
-
-            \bigskip
-
-    \begin{lstlisting}[language=c]
-    i = 7
-    j = i << 1
-
-    0   1   1   1   //<- this is 7
-    --------------
-    1   1   1   0   //<- this is 14
-
-    so, 7 << 1 = 14
-    \end{lstlisting}
-
-            \item \textbf{\textgreater\textgreater $n$:} RIGHT SHIFT
-            \begin{itemize}
-                \item Shifts all bits to right by $n$
-            \end{itemize}
-
-            \bigskip
-
-            \textbf{Example:}
-
-            \bigskip
-
-    \begin{lstlisting}[language=c]
-    i = 7
-    j = i >> 1
-
-    0   1   1   1   //<- this is 7
-    --------------
-    0   0   1   1   //<- this is 3
-
-    so, 7 >> 1 = 3
-    \end{lstlisting}
         \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section*{Bit Manipulation 2 of 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Hexadecimal Numbers
+    \begin{itemize}
+        \item Starts with `0x' at front
+        \item Uses 10 symbols `$0,1,2,3,4,5,6,7,8,9$' and 6 extras `$A = 10, B = 11, C = 12, D = 13, E = 14, F = 15$'.
+        \begin{itemize}
+            \item i.e. $FFFF =  15 \cdot 16^0 + 15 \cdot 16^1 + 15 \cdot 16^2 + 15 \cdot 16^3 + 15 \cdot 16^4 = 65535$
+        \end{itemize}
+    \end{itemize}
+    \item The Shift Operators
+    \begin{itemize}
+        \item \textbf{\textless\textless $n$:} LEFT SHIFT
+
+        \begin{itemize}
+            \item Shifts all bits to left by $n$
+        \end{itemize}
+
+        \bigskip
+
+        \textbf{Example:}
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+i = 7
+j = i << 1
+
+0   1   1   1   //<- this is 7
+--------------
+1   1   1   0   //<- this is 14
+
+so, 7 << 1 = 14
+\end{lstlisting}
+
+        \item \textbf{\textgreater\textgreater $n$:} RIGHT SHIFT
+        \begin{itemize}
+            \item Shifts all bits to right by $n$
+        \end{itemize}
+
+        \bigskip
+
+        \textbf{Example:}
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+i = 7
+j = i >> 1
+
+0   1   1   1   //<- this is 7
+--------------
+0   0   1   1   //<- this is 3
+
+so, 7 >> 1 = 3
+\end{lstlisting}
     \end{itemize}
 \end{itemize}
 
