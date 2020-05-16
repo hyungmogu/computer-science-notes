@@ -57,7 +57,43 @@
 \bigskip
 
 \begin{itemize}
-    \item
+    \item Introduction to Signals
+    \begin{itemize}
+        \item Signals
+        \begin{itemize}
+            \item are mechanisms that allow process or the os to interrupt
+        currently running process and notify that an event has occured
+        \end{itemize}
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_9_notes_1_1.png}
+        \end{center}
+
+        \item How it Works
+
+        \begin{enumerate}[1.]
+            \item Using hotkey
+            \begin{itemize}
+                \item i.e. \textit{CTRL + C} in terminal sends SIGINT
+                \item i.e. \textit{CTRL + Z} in terminal sends SIGSTOP
+            \end{itemize}
+
+            \item Using kill command
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_9_notes_1_2.png}
+            \end{center}
+
+    \begin{lstlisting}[language=bash]
+    >>>./signals_example_1.out # <- This is done in separate terminal
+    >>> ps aux | grep ./signals_example_1.out
+    >>> kill -STOP <PID>
+    >>> kill -CONT <PID>
+    >>> kill -INT <PID>
+    \end{lstlisting}
+
+        \end{enumerate}
+    \end{itemize}
 \end{itemize}
 
 \end{document}
