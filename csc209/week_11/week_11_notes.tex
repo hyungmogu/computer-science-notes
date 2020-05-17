@@ -190,20 +190,56 @@
 
 \bigskip
 
-\section*{}
+\section*{Shell Programming 6 of 6}
 
 \bigskip
 
 \begin{itemize}
-    \item \textbf{\&:} Allows the program to run simultaneously
+    \item Shell operators Continued
+    \begin{itemize}
+        \item \textbf{;:} Allows the program to run sequentially
+        \begin{lstlisting}[language=bash]
+        prog1; prog2 #<- prog2 runs after prog1 ends
+        \end{lstlisting}
+
+        \item \textbf{\&:} Allows the program to run simultaneously
+
+        \begin{lstlisting}[language=bash]
+        prog1 & prog2; #<- prog1 and prog2 runs in parallel
+        prog1 & # <- prog1 runs in background, and cursor is returned immediately
+        \end{lstlisting}
+
+        \item \textbf{\$!:} Gets the PID of latest program that's running in the background process
+        \begin{itemize}
+            \item Don't use it more than a line! It's hard to read and error prone.
+        \end{itemize}
+
+        \begin{lstlisting}[language=bash]
+        prog1 &
+        pid1=$!
+        prog2 &
+        pid2=$!
+        \end{lstlisting}
+
+        \item \textbf{\#!:}
+        \begin{itemize}
+            \item Don't use it more than a line! It's hard to read and error prone.
+        \end{itemize}
+    \end{itemize}
+
+    \item Default executable
+    \begin{itemize}
+        \item when file without extension is executed, shell recognizes it as
+        a shell script, and bash program is run.
+    \end{itemize}
 
     \begin{lstlisting}[language=bash]
-    prog1 & prog2; #<- prog1 and prog2 runs in parallel
-    prog1 & # <- prog1 runs in background, and cursor is returned immediately
+    >>> ./hello
+    zsh: permission denied: ./hello
+    >>> chmod +x hello
+    >>> ./hello
+    ./hello: line 1: hello: command not found
     \end{lstlisting}
-
-    \item \textbf{\#!:} Is PID of latest program that's running in the background
-
 \end{itemize}
 
 \end{document}
