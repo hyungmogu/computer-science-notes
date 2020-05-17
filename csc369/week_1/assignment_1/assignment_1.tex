@@ -334,4 +334,125 @@
 
 \section{General Information}
 
+\bigskip
+
+\begin{enumerate}[1.]
+    \item You must use the starter code provided, which gives you detailed
+    instructions on what you need to implement. Please make sure to implement all
+    the parts indicated using detailed TODO comments. Please make sure to first do
+    the tutorial which will help you write a simple kernel module and show you how
+    to use printk statements for debugging. See the tutorial notes as well.
+    \item Your assignment will be tested on a virtual machine on CDF. You can access
+    this virtual machine from your CDF account, or you can download the provided
+    virtual machine disk image and install it on your personal computer through
+    a virtualization solution (for example, free software include VMWare Player,
+    VirtualBox, etc.)
+    \item We strongly recommend that you do NOT use the virtual machine for
+    development, but rather only for testing and debugging. While working
+    on this assignment, it is quite likely you will crash the kernel and although
+    you can kill and restart the VM, there will be no guarantee that your code
+    will still be there (the VM tools on CDF won't guarantee you safe snapshots).
+    To prevent your hard work from possible data corruption make sure to at least
+    back up your code periodically (e.g., by scp-ing it back to your CDF account).
+\end{enumerate}
+
+\section{Setup VM On Your Own Machine}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    Note: Your assignment has to ultimately be tested on a CDF machine. However,
+    if you wish to develop it and test it first on your own machine, using
+    virtualization software (*do not test your assignment directly on your
+    computer!*), then we will provide some basic instructions on how to do so.
+    Since VirtualBox is one of the most portable (as well as free) virtualization
+    software, here and here are some basic guidelines on how to install the VM
+    image in VirtualBox on your computer (of course, many tutorials can be found
+    online as well, so feel free to consult other sources if something does not
+    work well for your own machine).
+\end{itemize}
+
+
+\section{Implementation Details}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    \begin{enumerate}[1.]
+
+    \item Since the number of system calls is rather small (~300), and for performance reasons, you must maintain the system call information in an array. Each array element will contain information, as described in the mytable struct:
+
+    \begin{lstlisting}{language=c}
+    typedef struct {
+        asmlinkage long (*f)(struct pt\_regs);
+        int intercepted;
+        int monitored;
+        int listcount;
+        struct list\_head my\_list;
+    } mytable;
+    \end{lstlisting}
+    \item You must use a linked list for storing information about the monitored processes; using an array of fixed size is entirely inadequate (because the search time will be the same as a linked list, the implementation complexity will be the same, but the size of the array will limit the number of entries).
+    \item The system call table is exported by the void* sys\_call\_table[NR\_syscalls], present in one of the kernel source files from the VM image on CDF. If you wish to configure your own kernel image and re-compile it, you can modify the source code by adding the following two lines in the /usr/src/linux-source-2.6.32/arch/x86/kernel/i386\_ksyms\_32.c file:
+
+    \begin{lstlisting}{language=c}
+        extern void* sys_call_table[];
+        EXPORT_SYMBOL(sys_call_table);
+    \end{lstlisting}
+
+    then recompile the kernel. Again, our virtual machine image already has these changes in place.
+    \item Since the 2.6 kernel is preemptive, you must protect access to shared data. You will be using spinlocks for this purpose. The use of spinlocks is fairly simple and you have been shown some examples in one of the tutorials.
+    \item You must use the system call number 0 for MY\_CUSTOM\_SYSCALL. Do not attempt to use a different existing system call number, as that may result in the kernel misbehaving (to say the least). Remember that lots of services running in your OS make use of these system calls.
+    \item Logging the system call will be done using the \textit{log\_message} macro, defined in the interceptor.h header file.
+    \item For testing, you can use the provided tester programs. After you compile a test program (the provided Makefile only compiles your interceptor module, not any tester!), remember to run the tester using sudo privileges in the VM.
+    To facilitate your testing, you should first try to implement the commands to intercept and release system calls. When you are ready to test these, use the \textit{test\_intercept.c} tester.
+    Once all tests pass, you can proceed to implementing the monitoring commands. To test all commands (both related to intercepting and to monitoring), you can use the \textit{test\_full.c} tester.
+    \end{enumerate}
+
+    \bigskip
+
+    \section{Testing Your Code}
+
+    \bigskip
+
+    \begin{itemize}
+        \item
+
+        To help you test your code, we have provided two testers, which you will also find in your repositories. To encourage you to test as you go, we are providing you with two testers:
+
+        \begin{itemize}
+            \item \textit{test\_intercept.c} - tests if your intercept and de-intercept commands work correctly. You should first implement these and make sure the tester passes all cases.
+            \item \textit{test\_full.c} - tests if all commands (including intercept, release, and both monitoring commands) work properly. This is a superset of the first tester, and you should only use once your code passes the first tester.
+        \end{itemize}
+
+        \bigskip
+
+        The tester loads your module and tests some basic functionality. It is by no means a comprehensive tool to ensure
+        your code works for every corner case. To ensure that your code works correctly in all possible scenarios, you should
+        add more test cases by modifying the testers (see code comments in main). However, please do not submit your own
+        tester files, because they will not be marked. The tester will also not catch synchronization bugs, except for
+        blatant deadlocks. It is your responsibility to ensure that your code is not likely to run into synchonization
+        problems. Finally, when testing, you will likely see the tester crash on various tests, due to bugs in your module.
+        During your debugging, please feel free to go in each tester, and comment out some of the system calls being tested,
+        if you wish to debug each test case in isolation.
+    \end{itemize}
+
+    \section{Other Useful Tips}
+
+    \bigskip
+
+    \begin{itemize}
+        \item \ul{Again, run tests ONLY in the virtual machine, NOT native computer, unless you hate your laptop.}
+        \item Once more, we strongly recommend that you do NOT use the virtual machine for development, but rather only for testing and debugging. Since it is quite likely you will crash the kernel and there will be no guarantee that your code will be intact. To prevent your hard work from possible data corruption make sure to at least back up your code periodically.
+        \item Reading and understanding code is as important as (if not more important than) writing code.
+        \item The comments in the starter code have a lot of information, make sure to read them carefully.
+        \item Remember that when we de-intercept a syscall, the original system call must be restored in the system call table. For that you must properly store the original system call before replacing it.
+        \item For debugging, learn how to use the \textit{printk} function, which prints messages to kernel log. See tutorial notes as well.
+    Use dmesg command to check the kernel log.
+    \end{itemize}
+\end{itemize}
+
 \end{document}
