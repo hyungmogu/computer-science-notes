@@ -49,7 +49,7 @@
 \rhead{CSC369 Assignment 1}
 
 \begin{document}
-\title{CSC369 Assignment 1 - Hijacking System Calls and Monitoring Process}
+\title{CSC369 Assignment 1 - Hijacking system calls and Monitoring Process}
 \maketitle
 
 \section{Overview}
@@ -62,8 +62,8 @@
 
     \bigskip
 
-    Here is what ``hijacking (intercepting) a system call'' means. You will implement
-    a new system call named my\_syscall, which will allow you to send commands from
+    Here is what ``\hl{hijacking (intercepting) a system call}'' means. You will implement
+    a new \hl{system calls} named my\_syscall, which will allow you to send commands from
     userspace, to intercept another pre-existing system call (like read, write, o
     pen, etc.). After a system call is intercepted, the intercepted system call
     would log a message first before continuing performing what it was supposed to do.
@@ -132,7 +132,7 @@
 \begin{itemize}
     \item
 
-    The goal of this assignment is to learn more about \hl{system calls} and to use
+    The goal of this assignment is to learn more about system calls and to use
     \hl{synchronization mechanisms}. For this assignment you will be writing a very
     basic \hl{kernel module} that intercepts system calls and monitors processes on
     demand.
@@ -286,27 +286,50 @@
 
     \begin{enumerate}[A.]
     \item For each of the commands, check that the arguments are valid (-EINVAL):
-    The syscall number must be valid: not negative, not > NR_syscalls (the last syscall number in the table), and not MY_CUSTOM_SYSCALL itself (for obvious reasons).
-    The pid must be valid for the monitoring commands. It cannot be a negative integer, and it must be an existing pid (except for the case when it's 0, indicating that we want to start/stop monitoring for all pids).
-    If a pid belongs to a valid process, then the following call is not NULL:
-        pid_task(find_vpid(pid), PIDTYPE_PID)
+    \begin{itemize}
+        \item The syscall number must be valid: not negative, not \textgreater  NR\_syscalls (the last syscall number in the table), and not MY\_CUSTOM\_SYSCALL itself (for obvious reasons).
+        \item The pid must be valid for the monitoring commands. It cannot be a negative integer, and it must be an existing pid (except for the case when it's 0, indicating that we want to start/stop monitoring for all pids).
+        \item  a pid belongs to a valid process, then the following call is not NULL:
+        pid\_task(find\_vpid(pid), PIDTYPE\_PID)
+    \end{itemize}
     \item Check that the called has the right permissions (-EPERM):
-    For the first two commands, we must be root (see the current_uid() macro), to be able to intercept or release system calls.
-    For the last two commands, the following logic applies:
-    Is the calling process root? if so, all is good, no doubts about permissions.
-    If it is not, then check if the pid requested is owned by the calling process
-    Also, if pid is 0 and the calling process is not root, then access is denied (monitoring all pids should only be allowed for a superuser, for obvious reasons).
+    \begin{itemize}
+        \item For the first two commands, we must be root (see the current\_uid() macro), to be able to intercept or release system calls.
+        \item For the last two commands, the following logic applies:
+    \begin{itemize}
+        \item Is the calling process root? if so, all is good, no doubts about permissions.
+        \item If it is not, then check if the pid requested is owned by the calling process
+        \item Also, if pid is 0 and the calling process is not root, then access is denied (monitoring all pids should only be allowed for a superuser, for obvious reasons).
+    \end{itemize}
+    \end{itemize}
     \item Check for correct context of commands (-EINVAL):
     Cannot de-intercept a system call that has not been intercepted yet.
-    Cannot stop monitoring for a pid that is not being monitored, or if the system call has not been intercepted yet. If the system call has not been intercepted yet, a command to start monitoring a pid for that syscall is also invalid.
+    Cannot stop monitoring for a pid that is not being monitored, or \color{red}if
+    the system call has not been intercepted yet. If the system call has not been
+    intercepted yet, a command to start monitoring a pid for that syscall is also
+    invalid\color{black}.
     \item Check for -EBUSY conditions:
     \begin{itemize}
         \item If intercepting a system call that is already intercepted.
         \item If monitoring a pid that is already being monitored.
     \end{itemize}
     \item If a pid cannot be added to a monitored list, due to no memory being available, an -ENOMEM error code should be returned. The starter code provides a set of functions that enable operation with kernel lists.
-    What if a stop monitoring request comes in for a specific PID (let's call it P), for a syscall that monitors all PIDs? Is that an error or should we treat this as a special case? The answer is the latter, it should be treated as a special case, do not return an error code. If we already monitor all PIDs for a syscall, then you might have to think of a solution to make sure that you can keep monitoring all the PIDs in the system, except for P. Please keep in mind that some processes that will be monitored may not have even started their execution. Also, please keep in mind that we might have other stop monitoring requests for the same syscall, in which case, you might have to think of how to use the list of monitored pids in a smart way. One possibility is turning the list of monitored pids into a "blacklist" (keeping track of the pids that are not being monitored).
     \end{enumerate}
+
+    \bigskip
+
+    What if a stop monitoring request comes in for a specific PID (let's call it P),
+    for a syscall that monitors all PIDs? Is that an error or should we treat
+    this as a special case? The answer is the latter, it should be treated as a
+    special case, do not return an error code. If we already monitor all PIDs for
+    a syscall, then you might have to think of a solution to make sure that you
+    can keep monitoring all the PIDs in the system, except for P. Please keep in
+    mind that some processes that will be monitored may not have even started
+    their execution. Also, please keep in mind that we might have other stop
+    monitoring requests for the same syscall, in which case, you might have to
+    think of how to use the list of monitored pids in a smart way. One possibility
+    is turning the list of monitored pids into a "blacklist" (keeping track of the
+    pids that are not being monitored).
 \end{itemize}
 
 \section{General Information}
