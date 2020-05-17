@@ -3,9 +3,12 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <sys/wait.h>
 
 // equivalent to sort < file1 | uniq
+void sort_by_parent(int *fd);
+void uniq_by_child(int *fd);
 
 int main() {
     int fd[2], r;
@@ -30,33 +33,34 @@ int main() {
 }
 
 void sort_by_parent(int *fd) {
-    int file = open("file1", O_RDONLY);
+    int filedes = open("file1.txt", O_RDONLY);
 
     // reconfigure so all input from file1 are redirected to stdin
-    if (dup2(file), fileno(stdin) == -1) {
-        perror("dup2");
+    if (dup2(filedes, fileno(stdin)) == -1) {
+        perror("dup2.1");
         exit(1);
     }
 
-    // reconfigure so all output from write part of pipe is redirected to stdout
-    if (dup2(fd[1], fileno(stdout))) {
-        perror("dup2");
+    // reconfigure so all output from stdout is redirected to write part of pipe
+    // this is to sent to uniq
+    if (dup2(fd[1], fileno(stdout)) == -1) {
+        perror("dup2.2");
         exit(1);
     }
 
     // close read part of pipe
     if (close(fd[0]) == -1) {
-        perror("close");
+        perror("close1");
     }
 
     // close write since it's redirected to stdout
     if (close(fd[1]) == -1) {
-        perror("close");
+        perror("close2");
     }
 
     // close file since it won't be used directly
-    if (close(file) == -1) {
-        perror("close");
+    if (close(filedes) == -1) {
+        perror("close3");
     }
 
     // executes terminal's sort
@@ -79,6 +83,6 @@ void uniq_by_child(int *fd) {
         perror("close");
     }
 
-    excel("/usr/bin/uniq", "uniq", (char*) 0); // <- execute file from file path, and return 0 if successful
+    execl("/usr/bin/uniq", "uniq", (char*) 0); // <- execute file from file path, and return 0 if successful
     fprintf(stderr, "ERROR: exec should not return\n"); // <- run if uniq not run
 }
