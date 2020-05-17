@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[utf]{kotex}
+\usepackage{soul}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{Hyungmo Gu}
+\rhead{CSC369 Assignment 1}
+
+\begin{document}
+\title{CSC369 Assignment 1 - Hijacking System Calls and Monitoring Process}
+\maketitle
+
+\section{Overview}
+
+\begin{itemize}
+    \item
+
+    In this assignment, you will achieve the goal of hijacking (intercepting)
+    system calls by writing and installing a very basic kernel module to the Linux kernel.
+
+    \bigskip
+
+    Here is what ``hijacking (intercepting) a system call'' means. You will implement
+    a new system call named my\_syscall, which will allow you to send commands from
+    userspace, to intercept another pre-existing system call (like read, write, o
+    pen, etc.). After a system call is intercepted, the intercepted system call
+    would log a message first before continuing performing what it was supposed to do.
+
+    \bigskip
+
+    For example, if we call my\_syscall with command REQUEST\_SYSCALL\_INTERCEPT
+    and target system call number \_\_NR\_mkdir (which is the macro representing the
+    system call mkdir) as parameters, then the mkdir system call would be intercepted;
+    then, when another process calls mkdir, mkdir would log some message (e.g.,
+    "muhahaha") first, then perform what it was supposed to do (i.e., make a directory).
+
+    \bigskip
+
+    But wait, that's not the whole story yet. Actually we don't want mkdir to log
+    a message whenever any process calls it. Instead, we only want mkdir to log
+    a message when a certain set of processes (PIDs) are calling mkdir. In other
+    words, we want to monitor a set of PIDs for the system call mkdir. Therefore,
+    you will need to keep track, for each intercepted system call, of the list of
+    monitored PIDs. Our new system call will support two additional commands to add/remove
+    PIDs to/from the list.
+
+    \bigskip
+
+    When we want to stop hijacking a system call (let's say mkdir but it can be any
+    of the previously hijacked system calls), we can invoke the interceptor
+    (my\_syscall), with a REQUEST\_SYSCALL\_RELEASE command as an argument and the
+    system call number that we want to release. This will stop intercepting the
+    target system call mkdir, and the behaviour of mkdir should go back to normal
+    like nothing happened.
+\end{itemize}
+
+\section{Checklist}
+
+\begin{itemize}
+    \item
+\end{itemize}
+
+\section{Goal}
+
+\section{Requirements}
+
+\section{Error Conditions}
+
+\section{General Information}
+
+\end{document}
