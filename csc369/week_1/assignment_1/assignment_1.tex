@@ -100,13 +100,214 @@
 
 \begin{itemize}
     \item
+
+    Here is a checklist that should help get you started, and to make sure that you won't forget the important things:
+
+    \begin{enumerate}[1.]
+        \item Get your starter code
+        \item Test that you have access to the VM in the CDF labs (instructions below).
+        \item Download the disk image for the virtual machine here (gzipped).
+              On the host computer (your laptop or a lab computer), use a virtual machine software (VirtualBox or VMware) to create a virtual machine using the the disk image you downloaded (instructions to follow below).
+        \item Read and understand the existing code in the starter code. This is an important step of this assignment, and you should not start writing your own code before you have a good understanding of the starter code.
+        \item Implement the new kernel module by completing source file "interceptor.c". Sections that need to be completed are marked with the TODO tag). Do NOT modify the header file "interceptor.h".
+        \item Make sure to test as you go. You should first make sure that the commands to intercept and de-intercept work well, before attempting to implement the monitoring commands.
+        \item Testing and debugging (must be done in the virtual machine):
+        \begin{enumerate}
+            \item Check out your code inside the virtual machine.
+            \item Type make to compile your kernel module. Make sure there is no error or warning.
+            \item Implement the intercept and release commands.
+            \item Compile the test\_intercept.c program using gcc.
+            \item Test your code using sudo ./test\_intercept, and make sure that all tests pass.
+            \item Implement the monitoring/un-monitoring commands.
+            \item Compile the\ test\_full.c program using gcc.
+            \item Test your code using sudo ./test\_full, and make sure that all tests pass.
+        \end{enumerate}
+        \item Submit your code on time. See "Submission" for more details.
+        \item Congratulations! You now have some great hands-on experience with the Linux kernel! You can now be proud of having programmed a Linux kernel module. You know what else are commonly implemented as kernel modules? Device drivers! Although they are more complex, you now technically have the basis to try to write one. Isn't that cool?
+    \end{enumerate}
 \end{itemize}
 
 \section{Goal}
 
+\begin{itemize}
+    \item
+
+    The goal of this assignment is to learn more about \hl{system calls} and to use
+    \hl{synchronization mechanisms}. For this assignment you will be writing a very
+    basic \hl{kernel module} that intercepts system calls and monitors processes on
+    demand.
+
+\end{itemize}
+
 \section{Requirements}
 
+\begin{itemize}
+    \item
+
+    In order to be able to issue our own hijacking commands from userspace, we
+    need a new system call that takes as parameters the command, the system call
+    number (to be intercepted), and (for monitoring) a pid.
+
+    \bigskip
+
+    Instead of adding a new system call, which can be tricky, our new system call
+    my\_syscall will be installed in place of an unused system call in the system
+    call table. We will connect my\_syscall to the entry number MY\_CUSTOM\_SYSCALL
+    (in effect, entry 0 which is mostly unused). The new system call my\_syscall,
+    defined as follows: int my\_syscall(int cmd, int syscall, int pid); will serve
+    as an interceptor and will receive the following commands from userspace:
+
+    \bigskip
+
+    \begin{itemize}
+        \item \textbf{REQUEST\_SYSCALL\_INTERCEPT:} intercept the system call syscall
+        \item \textbf{REQUEST\_SYSCALL\_RELEASE:} de-intercept the system call syscall
+        \item \textbf{REQUEST\_START\_MONITORING:} start monitoring process pid for
+        system call syscall, i.e., add pid to the syscall's list of monitored PIDs.
+        A special case is that if pid is 0 then all processes are monitored for
+        syscall, but only root has the permission to issue this command (see the
+        comments for my\_syscall in the starter code for more details).
+        \item \textbf{REQUEST\_STOP\_MONITORING:} stop monitoring process pid for
+        system call syscall, i.e., remove pid from the syscall's list of
+        monitored PIDs.
+    \end{itemize}
+
+    \bigskip
+
+    \textbf{Kernel module operation}
+
+    \bigskip
+
+    Your kernel module must, upon initialization, replace the system call table
+    entry for the MY\_CUSTOM\_SYSCALL number, with the my\_syscall function. When
+    the module is released, it must restore this system call to its original routine.
+
+    \bigskip
+
+    As a result, when your kernel module is loaded, any subsequent invocations of
+    the system call number MY\_CUSTOM\_SYSCALL from userspace, will issue four
+    types of commands, to intercept or release a given system call, and to start
+    and stop monitoring a pid for a specific syscall. You must implement the my\_syscall
+    function accordingly.
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+    \item \textbf{REQUEST\_SYSCALL\_INTERCEPT and REQUEST\_SYSCALL\_RELEASE}
+    \bigskip
+
+    When an intercept command is issued, the corresponding entry in the system
+    call table will be replaced with a generic interceptor function (discussed later)
+    and the original system call will be saved. When a REQUEST\_SYSCALL\_RELEASE
+    command is issued, the original saved system call is restored in the system
+    call table in its corresponding position.
+
+    \item \textbf{2. REQUEST\_START\_MONITORING and REQUEST\_STOP\_MONITORING}
+
+    \bigskip
+
+    Monitoring a process consists of the module logging into userspace some information
+    about the process and the system call: the system call number, the parameters of
+    the system call, and the pid of the process.
+
+    \bigskip
+
+    When a REQUEST\_START\_MONITORING command comes through our custom system call,
+    the kernel module must record internally that the pid passed as a parameter
+    should be monitored for the syscall number (passed as a parameter as well).
+    The monitoring can be done for a specific pid, or for all pids (in which case
+    the pid parameter for my\_syscall will be 0).
+
+    \bigskip
+
+    Ok, but I still don't understand, what does it mean to monitor a pid? And
+    what does the generic interceptor function do?
+
+    \bigskip
+
+    Let's start with the monitoring. We have established that once the user issues
+    a monitoring command, the kernel module records internally that pid should be
+    monitored whenever it issues system call number syscall (it will be placed in
+    a monitored list - see details in starter code).
+
+    \bigskip
+
+    We have also established that the generic interceptor function is what each
+    intercepted system call will reach. In other words, whenever we reach the
+    generic interceptor, we know that the system call is being intercepted
+    (otherwise we would not reach this). If the pid of the process issuing the system
+    call is being monitored, that means that we must print some information to a log.
+    The log message will simply contain the system call number and the arguments,
+    as well as the calling process's pid.
+
+    \bigskip
+
+    We have provided you in the starter code with a \textit{log\_message} macro,
+    which takes care of sending a message to the system log. You can check the
+    log using the \textit{dmesg} command.
+
+    \bigskip
+
+    As you might expect, regardless if a pid is monitored or not, the generic
+    interceptor must eventually (once it's done logging, if applicable), call the
+    original system call to allow normal operation of all processes in the system.
+
+    \bigskip
+
+    Alright, but what if a process exits before the user can issue a system call to stop monitoring it?
+
+    \bigskip
+
+    Good question! When your kernel module initializes, you should also \hl{hijack} the
+    \textit{exit\_group} system call (with number \textit{\_\_NR\_exit\_group}), by
+    replacing it in the \hl{system call table} with your own custom function
+    \textit{my\_exit\_group}. Of course, make sure to save the original
+    \textit{exit\_group} function, and to restore it when your kernel module is unloaded.
+
+    \bigskip
+
+    Implementing the \textit{my\_exit\_group} function should be simple: \ul{all you
+    have to do is to remove the pid of the exiting process from all kernel module's
+    internal bookkeeping on monitored processes, then call the original \textit{exit\_group} function}.
+    \end{enumerate}
+\end{itemize}
+
 \section{Error Conditions}
+
+\begin{itemize}
+    \item
+
+    You must make sure to check any possible misuse of the commands. In case of
+    a misuse, you should return a proper error code (e.g., -EINVAL, -EPERM, google
+    "Linux error code" for more information on error codes). Here is a list of
+    things you should keep in mind:
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+    \item For each of the commands, check that the arguments are valid (-EINVAL):
+    The syscall number must be valid: not negative, not > NR_syscalls (the last syscall number in the table), and not MY_CUSTOM_SYSCALL itself (for obvious reasons).
+    The pid must be valid for the monitoring commands. It cannot be a negative integer, and it must be an existing pid (except for the case when it's 0, indicating that we want to start/stop monitoring for all pids).
+    If a pid belongs to a valid process, then the following call is not NULL:
+        pid_task(find_vpid(pid), PIDTYPE_PID)
+    \item Check that the called has the right permissions (-EPERM):
+    For the first two commands, we must be root (see the current_uid() macro), to be able to intercept or release system calls.
+    For the last two commands, the following logic applies:
+    Is the calling process root? if so, all is good, no doubts about permissions.
+    If it is not, then check if the pid requested is owned by the calling process
+    Also, if pid is 0 and the calling process is not root, then access is denied (monitoring all pids should only be allowed for a superuser, for obvious reasons).
+    \item Check for correct context of commands (-EINVAL):
+    Cannot de-intercept a system call that has not been intercepted yet.
+    Cannot stop monitoring for a pid that is not being monitored, or if the system call has not been intercepted yet. If the system call has not been intercepted yet, a command to start monitoring a pid for that syscall is also invalid.
+    \item Check for -EBUSY conditions:
+    \begin{itemize}
+        \item If intercepting a system call that is already intercepted.
+        \item If monitoring a pid that is already being monitored.
+    \end{itemize}
+    \item If a pid cannot be added to a monitored list, due to no memory being available, an -ENOMEM error code should be returned. The starter code provides a set of functions that enable operation with kernel lists.
+    What if a stop monitoring request comes in for a specific PID (let's call it P), for a syscall that monitors all PIDs? Is that an error or should we treat this as a special case? The answer is the latter, it should be treated as a special case, do not return an error code. If we already monitor all PIDs for a syscall, then you might have to think of a solution to make sure that you can keep monitoring all the PIDs in the system, except for P. Please keep in mind that some processes that will be monitored may not have even started their execution. Also, please keep in mind that we might have other stop monitoring requests for the same syscall, in which case, you might have to think of how to use the list of monitored pids in a smart way. One possibility is turning the list of monitored pids into a "blacklist" (keeping track of the pids that are not being monitored).
+    \end{enumerate}
+\end{itemize}
 
 \section{General Information}
 
