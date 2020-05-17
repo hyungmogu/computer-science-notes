@@ -92,7 +92,7 @@
     #include <sys/stat.h>
     #include <fcntl.h>
     #include <unistd.h>
-    #include <sys/wait.h>
+    #include <sys/wait.h>dd
 
     // equivalent to sort < file1 | uniq
     void sort_by_parent(int *fd);
@@ -186,6 +186,24 @@
     \end{lstlisting}
 
     \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section*{}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{\&:} Allows the program to run simultaneously
+
+    \begin{lstlisting}[language=bash]
+    prog1 & prog2; #<- prog1 and prog2 runs in parallel
+    prog1 & # <- prog1 runs in background, and cursor is returned immediately
+    \end{lstlisting}
+
+    \item \textbf{\#!:} Is PID of latest program that's running in the background
+
 \end{itemize}
 
 \end{document}
