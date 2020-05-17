@@ -15,6 +15,7 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage[utf]{kotex}
+\usepackage{hyperref}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -82,12 +83,12 @@
     \bigskip
 
     \begin{itemize}
-        \item all hardware devices are connected through common \textbf{bus} and are
+        \item All hardware devices are connected through common \textbf{bus} and are
         loaded to memory for execution.
         \item \textbf{Synchronization:} to ensure orderly acces to the shared memory
     \end{itemize}
 
-    \item Storge Hierarchy
+    \item Storge Hierarchy / Storage Structure
 
     \bigskip
 
@@ -100,8 +101,19 @@
         \item \textbf{Non-volatile $\to$} Retains contents even when power is removed
     \end{itemize}
 
-    \item Storage Structure
-    \item Caching
+    \item Caching / Cache Memory
+
+    \begin{itemize}
+        \item is also called \textbf{Static Random Access Memory (SRAM)}
+        \item Hides performance differences when large access-time gap exsists
+        between two levels
+        \begin{itemize}
+            \item Quad-quare requesting RAM for information
+
+
+        \end{itemize}
+        \item More can be found \href{https://www.youtube.com/watch?v=Zr8WKIOIKsk}{here}
+    \end{itemize}
     \item Concurrency
     \item Aside: C Programming \& Memory
 \end{itemize}
