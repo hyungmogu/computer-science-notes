@@ -296,12 +296,41 @@ print("Hi World!") //<- Line 2
             \item Parent executes with children in parallel
             \item Parent waits until some or all of its children are terminated
         \end{enumerate}
-        \item More can be found \href{https://www.youtube.com/watch?v=Zr8WKIOIKsk}{here}
+        \item More can be found \href{https://www.youtube.com/watch?v=pSW9d3Oaie8}{here}
     \end{itemize}
-    \item fork()
-    \item Duplicating Address Processes
-    \item Divergence
-    \item
+    \item Linux Tree
+    \begin{itemize}
+        \item
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_1_notes_1_10.png}
+        \end{center}
+
+        \bigskip
+
+        There are two possibilities of in terms of the address space of the new
+        process
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Child process is the duplicate of the parent process
+            \item Child process has \underline{new program} loaded onto it
+            \begin{itemize}
+                \item i.e. Unix Shell
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/week_1_notes_1_11.png}
+                \end{center}
+
+            \end{itemize}
+        \end{enumerate}
+
+    \end{itemize}
+    \item Threads
+    \item Thread Scheduling
+    \item Cooperating Process
+    \item Interprocess Communicator
 \end{itemize}
 
 \end{document}
