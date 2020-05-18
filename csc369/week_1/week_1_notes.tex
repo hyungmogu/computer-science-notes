@@ -201,12 +201,6 @@ print("Hi World!") //<- Line 2
         \end{enumerate}
     \end{itemize}
 
-    \item Process States \& State Changes
-
-    \begin{center}
-    \includegraphics[width=0.8\linewidth]{images/week_1_notes_1_5.png}
-    \end{center}
-
     \item State Queues
 
     \begin{itemize}
@@ -220,7 +214,12 @@ print("Hi World!") //<- Line 2
             \end{center}
 
             \item Here, processes in queue are \underline{switched} so frequently that
-            user can interact with each program while running
+            user can interact with each program simultaneously while running
+
+            \begin{itemize}
+                \item i.e, listening to music, typing and downloading a picture
+                of a cute puppy all at the same time
+            \end{itemize}
 
         \end{itemize}
         \item Has one state queue for each process state
@@ -234,7 +233,28 @@ print("Hi World!") //<- Line 2
     \end{itemize}
 
     \item PCBs And State Queues
+
+    \begin{itemize}
+        \item Process created $\to$ OS allocates PCB $\to$ Initializes it $\to$
+        Places it on Ready Queue
+        \item Process terminated $\to$ PCB deallocated
+    \end{itemize}
+
     \item Context Switch
+
+    \begin{itemize}
+        \item Switches the CPU to another process \underline{on interrupt}, saving the
+        state of the old process and loading the saved state of the new process
+        \underline{until done}
+        \begin{itemize}
+            \item i.e. Loading a music in Google Music Player
+        \end{itemize}
+        \item Previous process resumes executing when done
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_1_notes_1_8.png}
+        \end{center}
+    \end{itemize}
     \item Operations on Processes
     \item Process Creation
     \item fork()
