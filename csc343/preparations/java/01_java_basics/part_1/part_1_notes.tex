@@ -45,14 +45,115 @@
 
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.4pt}
-\lhead{Hyungmo Gu}
+\lhead{Team Treehouse}
 \rhead{Java Basics Part 1 Notes}
 
 \begin{document}
 \title{Java Basics Part 1 Notes}
-\author{Hyungmo Gu}
+\author{Team Treehouse}
 \maketitle
 
 \section{Introuction to Your Tools}
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Single line comments in Java begins with the following characters
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item `**'
+        \item ??
+        \item //
+        \item $\backslash\backslash$
+        \item None of the above
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    The command line tool that is used to compile your program is
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item java
+        \item compile
+        \item ls
+        \item javac
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} D
+
+    \item Single line comments in Java begin with the following characters
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item java
+        \item compile
+        \item ls
+        \item javac
+    \end{enumerate}
+
+    \item
+
+    Java is a compiled language
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item Yes
+        \item No
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+\end{enumerate}
+
+\bigskip
+
+\section{Strings and Variables}
+
+\bigskip
+
+\begin{itemize}
+    \item strings
+    \begin{itemize}
+        \item Are written in double quotes or single quotes
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/part_1_1.png}
+        \end{center}
+
+        \item Are printed using \textit{console.printf()}
+        \begin{itemize}
+            \item i.e.
+
+        \begin{lstlisting}[language=java]
+        public class Introductions {
+            public static void main(String[] args) {
+                Console console = System.console();
+                String firstName = "Ben";
+                console.printf("Hello, my name is %s\n", firstName);
+                console.printf("Craig is learning how to write Java\n");
+            }
+        }
+        \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
+\end{itemize}
 
 \end{document}
