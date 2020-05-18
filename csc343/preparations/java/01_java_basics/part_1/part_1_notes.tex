@@ -166,4 +166,43 @@
     \item Solution included in \textit{exercise\_1.java}
 \end{itemize}
 
+\bigskip
+
+\section{Receiving Input}
+
+\bigskip
+
+\begin{itemize}
+    \item readline
+    \begin{itemize}
+        \item Receives input from user's end
+        \item is in \textit{Console} object
+        \item Is like \textit{stdin} in C or \textit{input} in Python
+
+    \begin{lstlisting}[language=java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            Console console = System.console();
+            String firstName = console.readLine("What is your name?   "); // <- Here :)
+            console.printf("Hello, my name is %s\n", firstName);
+            console.printf("Craig is learning how to write Java\n");
+        }
+    }
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.java}
+\end{itemize}
+
+
 \end{document}
