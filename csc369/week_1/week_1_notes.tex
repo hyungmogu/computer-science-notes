@@ -332,9 +332,15 @@ print("Hi World!") //<- Line 2
         \item Thread
         \begin{itemize}
             \item Is Basic unit of execution / CPU utilization
-            \item Is bound to a single process
-            \item Has same code, data (address space), previleges, and resources
-            (files sockets, etc)
+            \item Is bound to a \underline{single process}
+            \item Is composed of
+            \begin{enumerate}[1.]
+                \item Thread ID
+                \item Program counter
+                \item Register set
+                \item Stack
+            \end{enumerate}
+            \item multiple threads $\to$ Can process more tha one task at a time $\to$ Faster
             \item Key idea: separate the concept of process from its exeuction state
 
             \begin{itemize}
@@ -346,6 +352,8 @@ print("Hi World!") //<- Line 2
         \item Process
         \begin{itemize}
             \item is program under execution
+            \item Has same code, data (address space), previleges, and resources
+            (files sockets, etc) shared by threads
             \item is container in which threads execute
             \item is like 찐빵, or egg shell with only egg whites
         \end{itemize}
@@ -353,9 +361,36 @@ print("Hi World!") //<- Line 2
         \begin{center}
         \includegraphics[width=0.8\linewidth]{images/week_1_notes_1_12.png}
         \end{center}
+
+        \item More can be found \href{https://www.youtube.com/watch?v=LOfGJcVnvAk}{here}
     \end{itemize}
     \item Cooperating Process
+
+    \begin{itemize}
+        \item \textbf{Independent:} if it cannot affect or be affected by the other
+        processes executing in the system
+        \begin{itemize}
+            \item Independent process $\to$ No data sharing
+        \end{itemize}
+        \item \textbf{Cooperating} if is not independent
+        \begin{itemize}
+            \item i.e. Threads
+            \item Cooperating Process $\to$ communicates and actions synchronized
+        \end{itemize}
+    \end{itemize}
     \item Interprocess Communicator
+    \begin{itemize}
+        \item Allows communication between cooperating processes
+        \item Are done via
+        \begin{enumerate}[1.]
+            \item Shared memory (i.e. fork())
+            \item Message passing
+            \begin{itemize}
+                \item send(P, msg) - Send msg to process P
+                \item receive(Q, msg) - Receive msg from process Q
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
 \end{itemize}
 
 \end{document}
