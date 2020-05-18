@@ -259,10 +259,6 @@ print("Hi World!") //<- Line 2
     \begin{itemize}
         \item Process can have multiple new processes during the course of
         execution, or alone
-        \begin{itemize}
-            \item Child process $\to$ New Process
-            \item Parent Process $\to$ Creating Process
-        \end{itemize}
         \item Process execute concurrently and must be created and deleted
         dynamically
 
@@ -274,7 +270,7 @@ print("Hi World!") //<- Line 2
             \end{center}
         \end{itemize}
 
-        \item Done via two operations
+        \item Has two types of operations
         \begin{itemize}
             \item Process Creation
             \item Process Termination
@@ -282,13 +278,25 @@ print("Hi World!") //<- Line 2
     \end{itemize}
     \item Process Creation
     \begin{itemize}
-        \item Occurs during
+        \item Is an operation that creates new processes by another process
+        \begin{itemize}
+            \item Child process $\to$ New Process
+            \item Parent Process $\to$ Creating Process
+        \end{itemize}
+        \item Is achieved through \textbf{fork()} system call
+        \item Occurs in
         \begin{enumerate}[1.]
             \item System Initialization
             \item A running process
             \item A user request
             \item Initialization of a bath job
         \end{enumerate}
+        \item Two possibilities exist on creation:
+        \begin{enumerate}[1.]
+            \item Parent executes with children in parallel
+            \item Parent waits until some or all of its children are terminated
+        \end{enumerate}
+        \item More can be found \href{https://www.youtube.com/watch?v=Zr8WKIOIKsk}{here}
     \end{itemize}
     \item fork()
     \item Duplicating Address Processes
