@@ -328,6 +328,26 @@ print("Hi World!") //<- Line 2
 
     \end{itemize}
     \item Threads
+    \begin{itemize}
+        \item Process
+        \begin{itemize}
+            \item is program under execution
+        \end{itemize}
+        \item Thread
+        \begin{itemize}
+            \item Is Basic unit of execution / CPU utilization
+            \item Is bound to a single process
+            \item Has same code, data (address space), previleges, and resources
+            (files sockets, etc)
+            \item Key idea: separate the concept of process from its exeuction state
+
+            \begin{itemize}
+                \item Process: Address space, privileges, resources, etc.
+                \item Execution State (thread / thread of control): PC, SP, registers
+            \end{itemize}
+            \item It's like 앙꼬만 있는 찐빵, or eggs with only yorks.
+        \end{itemize}
+    \end{itemize}
     \item Thread Scheduling
     \item Cooperating Process
     \item Interprocess Communicator
