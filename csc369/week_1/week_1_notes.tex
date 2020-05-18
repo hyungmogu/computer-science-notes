@@ -196,15 +196,43 @@ print("Hi World!") //<- Line 2
             \begin{itemize}
                 \item Is list of input output devices assigned to this process
                 \item Is used during execution
+                \item i.e. Sound, Mouse, Keyboard
             \end{itemize}
         \end{enumerate}
     \end{itemize}
 
     \item Process States \& State Changes
-    \begin{itemize}
-        \item
-    \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_1_notes_1_5.png}
+    \end{center}
+
     \item State Queues
+
+    \begin{itemize}
+        \item Is a part of \textbf{process scheduling}
+        \begin{itemize}
+            \item keeps CPU busy at all times to deliver minimum response time
+            for all programs
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_1_notes_1_6.png}
+            \end{center}
+
+            \item Here, processes in queue are \underline{switched} so frequently that
+            user can interact with each program while running
+
+        \end{itemize}
+        \item Has one state queue for each process state
+        \begin{itemize}
+            \item Job Queue, Ready Queue, Waiting Queue, Blocking Queue
+        \end{itemize}
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_1_notes_1_7.png}
+        \end{center}
+    \end{itemize}
+
     \item PCBs And State Queues
     \item Context Switch
     \item Operations on Processes
