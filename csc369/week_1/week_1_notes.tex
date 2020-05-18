@@ -256,7 +256,40 @@ print("Hi World!") //<- Line 2
         \end{center}
     \end{itemize}
     \item Operations on Processes
+    \begin{itemize}
+        \item Process can have multiple new processes during the course of
+        execution, or alone
+        \begin{itemize}
+            \item Child process $\to$ New Process
+            \item Parent Process $\to$ Creating Process
+        \end{itemize}
+        \item Process execute concurrently and must be created and deleted
+        dynamically
+
+        \begin{itemize}
+            \item Wow, CPU is a master juggler
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_1_notes_1_9.png}
+            \end{center}
+        \end{itemize}
+
+        \item Done via two operations
+        \begin{itemize}
+            \item Process Creation
+            \item Process Termination
+        \end{itemize}
+    \end{itemize}
     \item Process Creation
+    \begin{itemize}
+        \item Occurs during
+        \begin{enumerate}[1.]
+            \item System Initialization
+            \item A running process
+            \item A user request
+            \item Initialization of a bath job
+        \end{enumerate}
+    \end{itemize}
     \item fork()
     \item Duplicating Address Processes
     \item Divergence
