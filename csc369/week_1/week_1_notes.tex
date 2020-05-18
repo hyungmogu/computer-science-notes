@@ -163,10 +163,47 @@
         \end{itemize}
     \end{itemize}
 
-    \item Process Data Structure
-    \item Process Control Block
-    \item Linux PCB
+    \item Process Data Structure (PCB)
+    \begin{itemize}
+        \item Is called Process Control Block
+        \item Is OS data structur representing each process
+        \item Generally includes
+        \begin{enumerate}
+            \item Process State
+            \begin{itemize}
+                \item(Ready, running, blocked)
+            \end{itemize}
+            \item Program Counter
+            \begin{itemize}
+                \item Is an address that indicates the line of code
+                that has to be executed next
+                \item i.e. the next line of code i need to execute is line 2 :)
+
+\begin{lstlisting}[language=c]
+print("Hello World");
+print("Hi World!") //<- Line 2
+\end{lstlisting}
+
+            \end{itemize}
+            \item CPU Register \textit{**Need to come back}
+            \item CPU Scheduling Information
+            \begin{itemize}
+                \item Priority of process
+                \item Higher the priority $\to$ executed first
+            \end{itemize}
+            \item Memory Management \textit{**Need to come back}
+            \item I/O Status Information
+            \begin{itemize}
+                \item Is list of input output devices assigned to this process
+                \item Is used during execution
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+
     \item Process States \& State Changes
+    \begin{itemize}
+        \item
+    \end{itemize}
     \item State Queues
     \item PCBs And State Queues
     \item Context Switch
