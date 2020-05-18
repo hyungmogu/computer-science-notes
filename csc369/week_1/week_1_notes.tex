@@ -105,6 +105,7 @@
 
     \begin{itemize}
         \item Is also called \textbf{Static Random Access Memory (SRAM)}
+        \item Is more costly
         \item Hides performance differences when large access-time gap exsists
         between two levels
         \begin{itemize}
@@ -118,7 +119,27 @@
         \item More can be found \href{https://www.youtube.com/watch?v=Zr8WKIOIKsk}{here}
     \end{itemize}
     \item Concurrency
-    \item Aside: C Programming \& Memory
+    \begin{itemize}
+        \item Is execution of several instruction sequences at same time
+        \begin{itemize}
+            \item i.e, CPU and device controllers
+        \end{itemize}
+        \item \textbf{Interrupt:} are signals sent to the CPU by external devices,
+        (usually I/O devices)
+        \begin{itemize}
+            \item It's like telling `Hey CPU, please stop this process, and do $y$
+            instead, since this is more important'
+            \item i.e. Network Packet has arrived, Disk I/O comeplete
+            occured
+        \end{itemize}
+        \item \textbf{System Call:} are interrupt signals sent by software
+        \begin{itemize}
+            \item Is a programmatic way of a program requesting for service to
+            kernel of operating system
+            \item i.e. Accessing a hard-disk drive
+        \end{itemize}
+        \item IMPORTANT: An operating system is an \underline{event-driven} program.
+    \end{itemize}
 \end{itemize}
 
 \end{document}
