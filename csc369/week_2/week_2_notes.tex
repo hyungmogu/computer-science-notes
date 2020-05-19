@@ -78,7 +78,6 @@
             \begin{itemize}
                 \item kernel = code of the operating system
                 \item kernel is in HDD
-                \item bootstrap program finds and loads it RAM
             \end{itemize}
             \item Bootstrap program is in ROM
         \end{itemize}
@@ -88,11 +87,6 @@
             \item is called \textbf{read-only-memory}
             \item Is also called \textbf{BIOS chip} (Basic Input/Output System)
             \item is non-volatile
-            \item Knows how to access simple hardware devices
-            \begin{itemize}
-                \item i.e. Disk, keyboard, display
-            \end{itemize}
-
             \item is stored in motherboard
 
             \begin{center}
@@ -117,8 +111,37 @@
         \end{itemize}
     \end{itemize}
 
-    \item Memory Layout
     \item Requesting OS Services
+    \begin{itemize}
+        \item Some services offered by OS are:
+        \begin{itemize}
+            \item Program execution
+            \begin{itemize}
+                \item Loading program to memory and executing program
+            \end{itemize}
+            \item I/O operations
+            \begin{itemize}
+                \item Keyboard, mouse, speaker
+            \end{itemize}
+            \item File system manipulation
+            \begin{itemize}
+                \item Reading and writing files and directories to HDD
+            \end{itemize}
+
+            \item Error Detection
+            \begin{itemize}
+                \item Error that pops when printer ink is empty
+            \end{itemize}
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/week_2_notes_1_5.png}
+            \end{center}
+        \end{itemize}
+
+        \item Operating system and user programs are isolated
+
+        \item How do they communicate?
+    \end{itemize}
     \item Boundary Crossings
     \item System Calls for Process Management
     \item System Calls for File Management
