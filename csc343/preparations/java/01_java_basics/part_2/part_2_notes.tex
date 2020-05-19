@@ -55,4 +55,26 @@
 
 \section{Multiple Strings}
 
+\bigskip
+
+\begin{itemize}
+    \item Multiple variables can be put in single formatted Strings.
+    \item \textbf{Syntax:} console.printf("\%s ... \%s ... ", VAR1, VAR2, ...)
+    \bigskip
+
+    \begin{lstlisting}[language=java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            Console console = System.console();
+            String name = console.readLine("Enter name:   "); // <- Let's write 'Moe' here
+            String adjective = console.readLine("Enter adjective:   ");
+            console.printf("%s is very %s\n", name, adjective); // <- and 'glad to be with his love' here :)
+        }
+    }
+    \end{lstlisting}
+
+\end{itemize}
+
 \end{document}
