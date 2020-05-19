@@ -212,7 +212,6 @@
 
     \item System Calls for File Management
 
-
     \begin{itemize}
         \item Major system calls
 
@@ -235,7 +234,7 @@
         \end{tabular}
     \end{itemize}
 
-    \item Systemm Call Interface
+    \item System Call Interface
     \begin{itemize}
         \item Interface
         \begin{itemize}
@@ -246,7 +245,6 @@
         \begin{itemize}
             \item Is the point where user mode and kernel mode meet and interact
 
-
             \begin{figure}[h!]
             \includegraphics[width=\linewidth]{images/week_2_notes_1_9.png}
             \caption{Now, there really is a party going on here :)}
@@ -255,6 +253,27 @@
             \item Most of the system call interface are hidden from the programmer
             by API
         \end{itemize}
+        \item User Mode
+        \begin{itemize}
+            \item Cannot directly access memory and other hardwares
+            \item Is safe
+            \item Crash $\to$ doesn't halt entire system
+        \end{itemize}
+        \item Kernel Mode
+        \begin{itemize}
+            \item Does have access to memory and other hardwares
+            \item Is a previleged mode
+            \item Is not safe
+            \item Crash $\to$ halts entire system
+            \begin{itemize}
+                \item i.e. The Blue Screen of Death \textgreater :)
+            \end{itemize}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_2_notes_1_12.png}
+            \end{center}
+        \end{itemize}
+
     \end{itemize}
     \item System Call Operation
 
