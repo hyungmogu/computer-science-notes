@@ -146,12 +146,6 @@
 
     \bigskip
 
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/week_2_notes_1_7.png}
-    \end{center}
-
-    \bigskip
-
     \begin{itemize}
         \item Boundary
         \begin{itemize}
@@ -161,6 +155,11 @@
         \item Boundary Corssings
         \begin{itemize}
             \item Is the communication that occurs between a program and kernel
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_2_notes_1_7.png}
+            \end{center}
+
             \item Communication occurs by sending data from one program into kernel,
             and then back
         \end{itemize}
@@ -168,6 +167,53 @@
     \end{itemize}
 
     \item System Calls for Process Management
+
+    \begin{itemize}
+        \item Major system calls
+
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Call} & \textbf{Description}\\
+            \hline
+            pid = fork() & Create a child process identical to the parent\\
+            \hline
+            pid = waitpid(pid, \&statloc, options) & Wait for a child to terminate\\
+            \hline
+            s = execve(name argv, environp) & Replace a process' core image\\
+            \hline
+            exit(status) & Terminate process execution and return status\\
+            \hline
+        \end{tabular}
+    \end{itemize}
+
+    \bigskip
+
+    \begin{mdframed}
+        \begin{itemize}
+            \item Wait, System Calls?
+
+            \bigskip
+
+            \textbf{System Calls} are interrupt signals sent by software
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_2_notes_1_8.png}
+            \end{center}
+
+            \begin{itemize}
+                \item Is a programmatic way of a program requesting for service to
+                kernel of operating system
+                \item It's like `Hey CPU, could you stop doing some operations for a
+                moment and do $y$ instead? It's really important'
+
+                \item i.e. Accessing a hard-disk drive
+            \end{itemize}
+
+        \end{itemize}
+    \end{mdframed}
+
+    \item System Calls for File Management
+
 
     \begin{itemize}
         \item Major system calls
@@ -191,27 +237,28 @@
         \end{tabular}
     \end{itemize}
 
-    \bigskip
-
-    \begin{mdframed}
+    \item Systemm Call Interface
+    \begin{itemize}
+        \item Interface
         \begin{itemize}
-            \item Wait, System Calls?
+            \item Is a point where two systems, subjects, organizations, etc.
+            meet and interact. (Definition)
+        \end{itemize}
+        \item System Call Interface
+        \begin{itemize}
+            \item Is the point where user mode and kernel mode meet and interact
 
-            \bigskip
 
-            \textbf{System Calls} are interrupt signals sent by software
-            \begin{itemize}
-                \item Is a programmatic way of a program requesting for service to
-                kernel of operating system
-                \item It's like `Hey CPU, could you stop doing some operations for a
-                moment and do $y$ instead? It's really important'
-                \item i.e. Accessing a hard-disk drive
-            \end{itemize}
+            \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{images/week_2_notes_1_9.png}
+            \caption{Now, there really is a party going on here :)}
+            \end{figure}
+
 
         \end{itemize}
-    \end{mdframed}
+    \end{itemize}
+    \item System Call Operation
 
-    \item System Calls for File Management
 
 \end{itemize}
 
