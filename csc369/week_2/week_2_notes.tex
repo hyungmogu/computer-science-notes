@@ -170,7 +170,25 @@
     \item System Calls for Process Management
 
     \begin{itemize}
-        \item
+        \item Major system calls
+
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Call} & \textbf{Description}\\
+            \hline
+            fd = open(file, how, ...) & Open a file for reading, writing, or both\\
+            \hline
+            s = close(fd) & Close an open file\\
+            \hline
+            n = read(fd, buffer, nbytes) & Read data from a file into a buffer\\
+            \hline
+            n = write(fd, buffer, nbytes) & Write data from a buffer into a file\\
+            \hline
+            position = lseek(fd, offset, whence) & Move the file pointer\\
+            \hline
+            s = stat(name, \&buf) & get a file's status information\\
+            \hline
+        \end{tabular}
     \end{itemize}
 
     \bigskip
@@ -186,7 +204,7 @@
                 \item Is a programmatic way of a program requesting for service to
                 kernel of operating system
                 \item It's like `Hey CPU, could you stop doing some operations for a
-                moment and do $y$ instead? It's really quick and important'
+                moment and do $y$ instead? It's really important'
                 \item i.e. Accessing a hard-disk drive
             \end{itemize}
 
