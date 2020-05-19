@@ -85,4 +85,93 @@
     \item Solution included in \textit{exercise\_1.java}
 \end{itemize}
 
+\section{Errors}
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    You will make mistakes
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item True
+        \item Yes
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A, B
+
+    \item
+
+    You will learn from your mistakes ;)
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item True
+        \item Yes
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A, B
+
+    \item The Java compiler will tell you about syntax errors, such as `cannot
+    find symbol`.
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+\end{enumerate}
+
+\section{Coding the Prototype}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    \begin{lstlisting}[language=java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            Console console = System.console();
+            String name = console.readLine("Enter name:   ");
+            String adjective = console.readLine("Enter an adjective:   ");
+            String noun = console.readLine("Enter a noun:   ");
+            String adverb = console.readLine("Enter an adverb:   ");
+            String verb = console.readLine("Enter a verb ending in -ing:   ");
+
+            console.printf("Your TreeStory:\n------------------\n");
+            console.printf("% is a %s %s", name, adjective, noun);
+            console.printf("They are always %s %s\n", adverb, verb);
+        }
+    }
+    \end{lstlisting}
+
+\end{itemize}
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.java}
+\end{itemize}
+
 \end{document}
