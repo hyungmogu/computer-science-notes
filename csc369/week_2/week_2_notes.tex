@@ -203,10 +203,8 @@
             \begin{itemize}
                 \item Is a programmatic way of a program requesting for service to
                 kernel of operating system
-                \item It's like `Hey CPU, could you stop doing some operations for a
-                moment and do $y$ instead? It's really important'
-
-                \item i.e. Accessing a hard-disk drive
+                \item It's like `Hey OS, could you do $y$? It's really important'
+                \item i.e. Fetching a file in hard-disk drive
             \end{itemize}
 
         \end{itemize}
@@ -254,11 +252,22 @@
             \caption{Now, there really is a party going on here :)}
             \end{figure}
 
-
+            \item Most of the system call interface are hidden from the programmer
+            by API
         \end{itemize}
     \end{itemize}
     \item System Call Operation
 
+    \begin{itemize}
+        \item Register is a local storage device present in CPU
+        \item Register may include the address of the memory location instead of real data
+        \item CPU takes data that has to be processed from register
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/week_2_notes_1_11.png}
+        \end{center}
+
+    \end{itemize}
 
 \end{itemize}
 
