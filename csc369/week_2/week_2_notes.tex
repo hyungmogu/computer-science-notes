@@ -353,12 +353,28 @@
             \item Then,
 
             \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_3.png}
+            \includegraphics[width=\linewidth]{images/week_2_notes_2_3.png}
             \end{center}
         \end{itemize}
     \end{itemize}
-    \item Interleaved Schedules
     \item What Went Wrong
+    \begin{itemize}
+        \item Two concurrent threads manipulated a \textit{shared resource} (the account)
+        without synchronization.
+        \item \textit{Race condition} occured
+        \begin{itemize}
+            \item Outcome depends on the order in which accesses taking place
+        \end{itemize}
+        \item Fix $\to$ Mutual Excusion
+        \begin{itemize}
+            \item Allow resource be manipulated only one thread at a time
+        \end{itemize}
+    \end{itemize}
+
+    \item Mutual Exclusion
+    \begin{itemize}
+        \item
+    \end{itemize}
 \end{itemize}
 
 \end{document}
