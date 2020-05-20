@@ -307,12 +307,56 @@
         \end{itemize}
         \item Cooperating Process
         \begin{itemize}
-            \item is s not independent
+            \item is not independent
             \item must be able to communicate and synchronize actions
+            \item i.e. One child process outputs `abc', another child process outputs "CBA",
+            and parent combines together to outputs `CBAabc' :)
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_1.png}
+            \end{center}
+
         \end{itemize}
     \end{itemize}
     \item Interprocess Communication
-    \item Motivating Example
+    \begin{itemize}
+        \item Cooperating processes need to exchange information using
+        either
+        \begin{itemize}
+            \item Shared memory (e.g. fork())
+            \item Message sharing
+        \end{itemize}
+
+        \item Message passing models
+        \begin{itemize}
+            \item Send(P, msg) - Send msg to process P
+            \item Receive(Q, msg) - Receive msg from process Q
+        \end{itemize}
+    \end{itemize}
+    \item Motivating Example (importance of communication in cooperating process)
+    \begin{itemize}
+        \item ATM machine
+        \begin{itemize}
+            \item Suppose the bank has following functions
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_2.png}
+            \end{center}
+
+            \item And suppose Moe deposits \$100 and my love withdraws \$100 on two
+            different ATM machines using the same account.
+
+
+            \item Without communication, procceses become interleaved
+            \item Then,
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_3.png}
+            \end{center}
+        \end{itemize}
+    \end{itemize}
     \item Interleaved Schedules
     \item What Went Wrong
 \end{itemize}
