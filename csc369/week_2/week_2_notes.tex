@@ -441,6 +441,30 @@
             \end{itemize}
         \end{enumerate}
     \end{itemize}
+
+    \item Critical Section Requirements
+    \begin{itemize}
+        \item Mutual Exclusion
+        \begin{itemize}
+            \item If one thread is in the CS, then no other is
+        \end{itemize}
+        \item Progress
+        \begin{itemize}
+            \item If no thread is in the CS, and some threads want to enter CS,
+            it should be able to enter in a
+        \end{itemize}
+        \item Bounded Waiting (No Starvation)
+        \begin{itemize}
+            \item If some thread $T$ is waiting on the CS, then there is a limit
+            on the number of times other threads can enter CS before this thread is
+            denied access
+        \end{itemize}
+        \item Performance
+        \begin{itemize}
+            \item The overhead of entering and exiting the CS is small with respect
+            to the work being done with it
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 \end{document}
