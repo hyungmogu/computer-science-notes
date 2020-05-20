@@ -445,43 +445,60 @@
 
     \item Critical Section Requirements
 
+    \begin{enumerate}[1.]
+        \item Mutual Exclusion
+        \begin{itemize}
+            \item If one thread is in the CS, then no other is
+        \end{itemize}
+        \item Progress
+        \begin{itemize}
+            \item If no thread is in the CS, and some threads want to enter CS,
+            it should be able to enter in definite time
+        \end{itemize}
+        \item Bounded Waiting (No Starvation)
+        \begin{itemize}
+            \item Means no process should wait for a resource for infinite amount of time.
+        \end{itemize}
+        \item Performance
+        \begin{itemize}
+            \item The overhead of entering and exiting the CS is small with respect
+            to the work being done with it
+        \end{itemize}
+    \end{enumerate}
+
+    \item 2-Thread Solutions: 1st Try
+
     \begin{center}
-    \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_9.png}
+    \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_10.png}
     \end{center}
 
     \begin{itemize}
-        \item Ensures mutual exclusion
-        \item A good solution must satisfy:
-        \begin{enumerate}[1.]
-            \item Mutual Exclusion
-            \begin{itemize}
-                \item If one thread is in the CS, then no other is
-            \end{itemize}
-            \item Progress
-            \begin{itemize}
-                \item If no thread is in the CS, and some threads want to enter CS,
-                it should be able to enter in definite time
-            \end{itemize}
-            \item Bounded Waiting (No Starvation)
-            \begin{itemize}
-                \item Means no process should wait for a resource for infinite amount of time.
-            \end{itemize}
-            \item Performance
-            \begin{itemize}
-                \item The overhead of entering and exiting the CS is small with respect
-                to the work being done with it
-            \end{itemize}
-        \end{enumerate}
 
-    \end{itemize}
-    \item 2-Thread Solutions: 1st Try
-    \begin{itemize}
-        \item
 
-        \begin{center}
-        \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_10.png}
-        \end{center}
+        \item Let the threads share an integer variable \textit{turn}
+        initialized to 0 (or 1)
+        \item If \textit{turn = i}, thread $T_i$ is allowed into its CS
+
+        \bigskip
+
+        \begin{itemize}
+            \item [GOOD] Mutual Exclusion is satisfied
+            \begin{itemize}
+                \item CS can be entered only one thread at a time
+            \end{itemize}
+            \item [BAD] Progress is not satisfied
+            \begin{itemize}
+                \item A thread may not be able to enter CS, even after another
+                thread has left the region
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/week_2_notes_2_11.png}
+    \end{center}
+
+    \item 2-Thread Solutions: 2nd Try
 
     \item Peterson's Algorithm
 
