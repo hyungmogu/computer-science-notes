@@ -369,11 +369,46 @@
         \begin{itemize}
             \item Allow resource be manipulated only one thread at a time
         \end{itemize}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=0.4\linewidth]{images/week_2_notes_2_4.png}
+        \end{center}
     \end{itemize}
 
     \item Mutual Exclusion
     \begin{itemize}
-        \item
+        \item Is a program object that prevents simultaneous access to a shared
+        resource
+        \item So, for this problem
+        \begin{itemize}
+            \item Given
+
+            \begin{itemize}
+                \item A set of $n$ threads, $T_0, T_1, ... , T_n$
+                \item A set of resources shared between threads
+                \item A segment of code which acceses the shared resource, called
+                the \textit{critical section}
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/week_2_notes_2_5.png}
+                \end{center}
+            \end{itemize}e
+
+            \item We want to ensure that
+
+            \begin{itemize}
+                \item Only one thread at a time can execute in the critical section
+                \item All other threads are forced to wait on entry
+                \item When a thread leaves the CS, another can enter
+
+
+                \begin{center}
+                \includegraphics[width=0.5\linewidth]{images/week_2_notes_2_6.png}
+                \end{center}
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
