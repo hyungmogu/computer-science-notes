@@ -394,7 +394,7 @@
                 \begin{center}
                 \includegraphics[width=0.7\linewidth]{images/week_2_notes_2_5.png}
                 \end{center}
-            \end{itemize}e
+            \end{itemize}
 
             \item We want to ensure that
 
@@ -409,6 +409,37 @@
                 \end{center}
             \end{itemize}
         \end{itemize}
+    \end{itemize}
+
+    \item Aside: What program data is shared between threads?
+    \begin{itemize}
+        \item Shared
+        \begin{enumerate}[1.]
+            \item Local Variables
+            \begin{itemize}
+                \item Are stored in their own private stack
+            \end{itemize}
+        \end{enumerate}
+        \item Not Shared
+        \begin{enumerate}[1.]
+            \item Global Variables
+            \begin{itemize}
+                \item Are stored in Static Data segment, accessible by any thread
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_7.png}
+                \end{center}
+
+            \end{itemize}
+            \item Dynamic Objects and other heap objects
+            \begin{itemize}
+                \item Allocated from heap with malloc/free or new/delete
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_8.png}
+                \end{center}
+            \end{itemize}
+        \end{enumerate}
     \end{itemize}
 \end{itemize}
 
