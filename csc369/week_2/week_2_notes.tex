@@ -365,7 +365,7 @@
         \begin{itemize}
             \item Outcome depends on the order in which accesses taking place
         \end{itemize}
-        \item Fix $\to$ Mutual Excusion
+        \item Fix $\to$ Mutual Exclusion
         \begin{itemize}
             \item Allow resource be manipulated only one thread at a time
         \end{itemize}
@@ -377,9 +377,10 @@
         \end{center}
     \end{itemize}
 
-    \item Mutual Exclusion
+    \item The Plan - Mutual Exclusion
     \begin{itemize}
         \item Is a program object that prevents simultaneous access to a shared
+        \item Is used to avoid the \textit{race condition}
         resource
         \item So, for this problem
         \begin{itemize}
@@ -443,28 +444,43 @@
     \end{itemize}
 
     \item Critical Section Requirements
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_9.png}
+    \end{center}
+
     \begin{itemize}
-        \item Mutual Exclusion
-        \begin{itemize}
-            \item If one thread is in the CS, then no other is
-        \end{itemize}
-        \item Progress
-        \begin{itemize}
-            \item If no thread is in the CS, and some threads want to enter CS,
-            it should be able to enter in a
-        \end{itemize}
-        \item Bounded Waiting (No Starvation)
-        \begin{itemize}
-            \item If some thread $T$ is waiting on the CS, then there is a limit
-            on the number of times other threads can enter CS before this thread is
-            denied access
-        \end{itemize}
-        \item Performance
-        \begin{itemize}
-            \item The overhead of entering and exiting the CS is small with respect
-            to the work being done with it
-        \end{itemize}
+        \item Ensures mutual exclusion
+        \item A good solution must satisfy:
+        \begin{enumerate}[1.]
+            \item Mutual Exclusion
+            \begin{itemize}
+                \item If one thread is in the CS, then no other is
+            \end{itemize}
+            \item Progress
+            \begin{itemize}
+                \item If no thread is in the CS, and some threads want to enter CS,
+                it should be able to enter in definite time
+            \end{itemize}
+            \item Bounded Waiting (No Starvation)
+            \begin{itemize}
+                \item Means no process should wait for a resource for infinite amount of time.
+            \end{itemize}
+            \item Performance
+            \begin{itemize}
+                \item The overhead of entering and exiting the CS is small with respect
+                to the work being done with it
+            \end{itemize}
+        \end{enumerate}
+
     \end{itemize}
+
+    \item Peterson's Algorithm
+
+    \begin{itemize}
+        \item
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}
