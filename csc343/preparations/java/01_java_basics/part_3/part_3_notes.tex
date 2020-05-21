@@ -190,4 +190,141 @@
     \end{lstlisting}
 \end{itemize}
 
+\section{Censoring Words - Using Logical ORs}
+
+\bigskip
+
+\begin{itemize}
+    \item `||' symbol is used
+
+    \begin{lstlisting}[language=Java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            ...
+
+            String noun = console.readLine("Enter noun:   ");
+
+            if (noun.equalsIgnoreCase("Dork") || // <- Here :)
+                noun.equalsIgnoreCase("Jerk")) {
+                console.printf("The language is not allowed. Exiting\n");
+                System.exit(0);
+            }
+
+            ...
+        }
+    }
+    \end{lstlisting}
+\end{itemize}
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Assuming that Sara has taken the Java and Python tracks, what is the value
+    of isFamiliar below:
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    boolean isFamiliar = (
+        learnedJava ||
+        learnedPython ||
+        learnedRuby
+    );
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \item True
+        \item Yes
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    Assuming age is set to 42, what is the value stored in the boolean answer:
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    boolean answer = (age < 40 || age > 50);
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item Carlos is just getting started and he has completed the HTML and CSS courses. What answer is stored in the
+    boolean isQualified below:
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    boolean isQualified = (
+        learnedHTML &&
+        learnedJavaScript &&
+        learnedCSS
+    );
+    \end{lstlisting}
+
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item If Bob is 50, has 3 children, and works for a software company, what
+    is the answer to this logical statement:
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    age > 30 || children < 3 || isEmployed
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item Assuming that count below is set to 90, what is stored in the boolean
+    answer:
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    boolean answer = (count > 30 && count < 120);
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+\end{enumerate}
+
 \end{document}
