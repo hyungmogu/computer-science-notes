@@ -70,4 +70,166 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    String someWords = "These are words";
+    someWords.______("words");
+    \end{lstlisting}
+
+    \bigskip
+
+    \textbf{Answer:}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    String someWords = "These are words";
+    someWords.contains("words");
+    \end{lstlisting}
+
+    \item
+
+    The boolean datatype is used to store:
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item numbers
+        \item text
+        \item true or false values
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    What operator do we use to ensure that both of these conditions are met:
+
+    \begin{lstlisting}[language=Java]
+    boolean isRefreshed = true;
+    boolean isReadyToGetStarted = true;
+    boolean shouldContinue = isRefreshed______isReadyToGetStarted;
+    \end{lstlisting}
+
+    \bigskip
+
+    \textbf{Answer:}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    boolean isRefreshed = true;
+    boolean isReadyToGetStarted = true;
+    boolean shouldContinue = isRefreshed && isReadyToGetStarted;
+    \end{lstlisting}
+
+
+    \item Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    int weightOfCraigsKid = 50;
+    int weightMonty = 130;
+    if (weightMonty ______ weightOfCraigsKid) {
+        console.printf("Whoa that's a huge dog!");
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \textbf{Answer:}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    int weightOfCraigsKid = 50;
+    int weightMonty = 130;
+    if (weightMonty > weightOfCraigsKid) {
+        console.printf("Whoa that's a huge dog!");
+    }
+    \end{lstlisting}
+
+    \item To define a new variable to store a name it would look something like
+    this:
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item String firstName = "Bob";
+        \item "Bob" = first.name
+        \item firstName = "Bob";
+        \item first\_name = 'Bob'
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item The boolean datatype is used to store:
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item numbers
+        \item text
+        \item true or false values
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+\end{enumerate}
+
+\bigskip
+
+\section{Creating Classes}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+    \begin{lstlisting}[language=Java,caption={lesson\_3/PezDispenser.java}]
+    class PezDispenser {  // <- 1. Class is created in a separate and matching file :)
+        String characterName = "Yoda";
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java,caption={lesson\_3/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+
+            System.out.println("We are making a new PEZ dispenser");
+
+            PezDispenser dispenser = new PezDispenser(); // <- 2. And is used here :)
+
+            System.out.printf("The dispenser is %s", dispenser.characterName);
+            ...
+        }
+    }
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
