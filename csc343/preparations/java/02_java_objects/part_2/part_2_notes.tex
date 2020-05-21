@@ -55,4 +55,43 @@
 
 \bigskip
 
+\section{constants}
+
+\bigskip
+
+\begin{itemize}
+    \item Can be done using \textit{static} keyword
+    \item Allows variables and methods to be exponsed without instantiation
+
+    \begin{lstlisting}[language=Java,caption={lesson\_1/PezDispenser.java}]
+    public class PezDispenser {
+        public static final int MAX_PEZ = 12; // <- 1. static declared here :)
+        ...
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_1/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+            ...
+            System.out.printf("FUN FACT: There are %d PEZ allowed in every dispenser\n", PezDispenser.MAX_PEZ); // 2. <- And is used here :)
+            ...
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
 \end{document}
