@@ -318,7 +318,7 @@
 
 \bigskip
 
-\begin{lstlisting}[language=Java,caption={lesson\_7/PezDispenser.java}]
+    \begin{lstlisting}[language=Java,caption={lesson\_7/PezDispenser.java}]
     public class PezDispenser {
         private String characterName = "Yoda";
 
@@ -344,5 +344,60 @@
         }
     }
     \end{lstlisting}
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.java}
+\end{itemize}
+
+\bigskip
+
+\section{Constructors}
+
+\bigskip
+
+\begin{itemize}
+    \item is a method that will run when class is instantiated.
+    \item is created by writing a method with the same name as class
+    \item \textit{this} is like \textit{self} in python
+\end{itemize}
+
+
+    \begin{lstlisting}[language=Java,caption={lesson\_9/PezDispenser.java}]
+    public class PezDispenser {
+        private String characterName = "Yoda";
+
+        public PezDispenser(String characterName) {
+            this.characterName = characterName;
+        }
+
+        public String getCharacterName() {
+            return characterName;
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java,caption={lesson\_9/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+
+            System.out.println("We are making a new PEZ dispenser");
+
+            PezDispenser dispenser = new PezDispenser("Yoda");
+
+            System.out.printf("The dispenser is %s", dispenser.getCharacterName()); // <- 2. And is used here
+        }
+    }
+    \end{lstlisting}
+
 
 \end{document}
