@@ -60,7 +60,7 @@
 \begin{itemize}
     \item  \textit{System.exit(...);}
     \begin{itemize}
-        \item causes the program to exit
+        \item Causes the program to exit
         \item \textit{System.exit(0)} $\to$ means program exited intentionally
         \item \textit{System.exit(1)} $\to$ means program exited abnormally
     \end{itemize}
@@ -89,6 +89,7 @@
 
 \end{itemize}
 
+\bigskip
 
 \section{Exercise 1}
 
@@ -98,6 +99,7 @@
     \item Solution included in \textit{exercise\_1.java}
 \end{itemize}
 
+\bigskip
 
 \section{Parsing Integers}
 
@@ -132,6 +134,18 @@
     \end{lstlisting}
     \end{itemize}
 \end{itemize}
+
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.java}
+\end{itemize}
+
+\bigskip
 
 \section{Censoring Words - Using String Equality}
 
@@ -190,6 +204,18 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.java}
+\end{itemize}
+
+\bigskip
+
 \section{Censoring Words - Using Logical ORs}
 
 \bigskip
@@ -217,6 +243,8 @@
     }
     \end{lstlisting}
 \end{itemize}
+
+\bigskip
 
 \section{Quiz 1}
 
@@ -326,5 +354,48 @@
     \textbf{Answer:} A
 
 \end{enumerate}
+
+\bigskip
+
+\section{Looping Until the Value Passes}
+
+\bigskip
+
+\begin{itemize}
+    \item Is done using \textit{do while} loop
+
+    \begin{lstlisting}[language=Java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            ...
+
+            String noun;
+
+            do { // <- Here :)
+                noun = console.readLine("Enter a noun:   ");
+                if (noun.equalsIgnoreCase("Dork") ||
+                    noun.equalsIgnoreCase("Jerk")) {
+                    console.printf("The language is not allowed. Try again\n");
+                }
+            } while(noun.equalsIgnoreCase("Dork") || noun.equalsIgnoreCase("Jerk"))
+
+
+            ...
+        }
+    }
+    \end{lstlisting}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_4.java}
+\end{itemize}
 
 \end{document}
