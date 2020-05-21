@@ -230,6 +230,17 @@
         }
     }
     \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
 \end{itemize}
 
 \bigskip
@@ -345,6 +356,17 @@
     }
     \end{lstlisting}
 
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+
 \bigskip
 
 \section{Exercise 3}
@@ -399,6 +421,17 @@
     }
     \end{lstlisting}
 
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+
 \bigskip
 
 \section{Exercise 4}
@@ -408,5 +441,97 @@
 \begin{itemize}
     \item Solution included in \textit{exercise\_4.java}
 \end{itemize}
+
+\bigskip
+
+\section{Final}
+
+\bigskip
+
+\begin{itemize}
+    \item Value can only be set once
+    \item Doesn't allow anymore assignments afterwards
+
+    \begin{lstlisting}[language=Java,caption={lesson\_11/PezDispenser.java}]
+    public class PezDispenser {
+        final private String characterName; // <- Here :)
+
+        public PezDispenser(String characterName) {
+            this.characterName = characterName;
+        }
+
+        public String getCharacterName() {
+            return characterName;
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Which keyword do you use to ensure that variables once assigned cannot be
+    re-assigned?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item final
+        \item protected
+        \item double
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    What is a reason you might want to use the **final** keyword?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item To end the class completely
+        \item To express that this is the last time the variable should ever be used
+        \item To express that a value cannot be changed once assigned
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    You can declare a final variable and later initialize it.
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+\end{enumerate}
 
 \end{document}
