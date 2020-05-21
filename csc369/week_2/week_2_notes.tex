@@ -527,13 +527,32 @@
             \item Messages
             \item Monitors
         \end{enumerate}
+        \item
         \item Will be mentioned in detail in week 3 notes
     \end{itemize}
 
     \item Synchronization Hardware
+    \item Atomic Instructions: Test-and-Set Lock (TSL)
     \begin{itemize}
-        \item
+        \item Is a synchronization mechanism
+        \begin{itemize}
+            \item no other processes can begin until first is finished
+        \end{itemize}
+        \item Uses two variables
+        \begin{itemize}
+            \item \textit{Lock == 0} $\Rightarrow$ Nobody is using the lock
+            \item \textit{Lock == 1} $\Rightarrow$ Lock is in use
+        \end{itemize}
+        \item Hardware executes the code with lock \textbf{atomically}
+        \begin{itemize}
+            \item \textbf{atomic} means without interruption
+        \end{itemize}
+        \item It's like a door lock used in portable bathroom.
+        \begin{itemize}
+            \item The person is urgent and he has to get it done no matter what.
+        \end{itemize}
     \end{itemize}
+    \item A Lock implementation
+    \item Using Lock
 \end{itemize}
-
 \end{document}
