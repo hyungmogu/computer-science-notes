@@ -53,4 +53,51 @@
 \author{Team Treehouse}
 \maketitle
 
+\section{Reviewing our Feedback}
+
+\bigskip
+
+\begin{itemize}
+    \item  \textit{System.exit(...);}
+    \begin{itemize}
+        \item causes the program to exit
+        \item \textit{System.exit(0)} $\to$ means program exited intentionally
+        \item \textit{System.exit(1)} $\to$ means program exited abnormally
+    \end{itemize}
+
+    \bigskip
+
+    \begin{lstlisting}{language=java}
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            Console console = System.console();
+
+            int age = 13;
+            if (age < 13) {
+                console.printf("Sorry. You must be 13 years to use this program");
+                System.exit(0);
+            }
+
+            String name = console.readLine("Enter name:   "); // <- Let's write 'Moe' here
+            String adjective = console.readLine("Enter adjective:   "); // <- and 'glad to be with his love' here :)
+            console.printf("%s is very %s\n", name, adjective);
+        }
+    }
+    \end{lstlisting}
+
+\end{itemize}
+
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.java}
+\end{itemize}
+
+
+
 \end{document}
