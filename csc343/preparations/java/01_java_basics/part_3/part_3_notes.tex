@@ -67,7 +67,7 @@
 
     \bigskip
 
-    \begin{lstlisting}{language=java}
+    \begin{lstlisting}[language=Java]
     import java.io.Console;
 
     public class Introductions {
@@ -99,5 +99,95 @@
 \end{itemize}
 
 
+\section{Parsing Integers}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{Integer.parseInt(...)}
+    \begin{itemize}
+        \item Extracts integer from string
+        \item Is also called \textbf{typecasting}
+
+    \begin{lstlisting}[language=Java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            Console console = System.console();
+
+            String ageString = console.readLine("How old are you?  ");
+
+            int age = 13;
+            if (Integer.ParseInt(ageString) < 13) { // <- Here :)
+                console.printf("Sorry. You must be 13 years to use this program");
+                System.exit(0);
+            }
+
+            String name = console.readLine("Enter name:   "); // <- Let's write 'Moe' here
+            String adjective = console.readLine("Enter adjective:   "); // <- and 'glad to be with his love' here :)
+            console.printf("%s is very %s\n", name, adjective);
+        }
+    }
+    \end{lstlisting}
+    \end{itemize}
+\end{itemize}
+
+\section{Censoring Words - Using String Equality}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{STRING\_VAR.equals('...')}
+    \begin{itemize}
+        \item Checks if value in \textit{STRING\_VAR1} is equal to parameter
+        value
+    \end{itemize}
+    \begin{lstlisting}[language=Java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            ...
+
+            String noun = console.readLine("Enter noun:   ");
+
+            if (noun.equals("Dork")) { // <- Here :)
+                console.printf("The language is not allowed. Exiting\n");
+                System.exit(0);
+            }
+
+            ...
+        }
+    }
+    \end{lstlisting}
+    \item \textit{STRING\_VAR.equalsIgnoreCase('...')}
+    \begin{itemize}
+        \item Checks if value in \textit{STRING\_VAR1} is equal to parameter
+        \item Case is ignored
+        value
+    \end{itemize}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    import java.io.Console;
+
+    public class Introductions {
+        public static void main(String[] args) {
+            ...
+
+            String noun = console.readLine("Enter noun:   ");
+
+            if (noun.equalsIgnoreCase("Dork")) { // <- Here :)
+                console.printf("The language is not allowed. Exiting\n");
+                System.exit(0);
+            }
+
+            ...
+        }
+    }
+    \end{lstlisting}
+\end{itemize}
 
 \end{document}
