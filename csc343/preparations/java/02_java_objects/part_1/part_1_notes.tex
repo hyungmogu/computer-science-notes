@@ -232,4 +232,117 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.java}
+\end{itemize}
+
+\bigskip
+
+\section{Access Modifiers}
+
+\bigskip
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/part_1_notes_1.png}
+\end{center}
+
+\begin{itemize}
+    \item Determines who is intended to access the information
+    \item Adding access modifiers to attributes and methods in class is called
+    \textbf{Encapsulation}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_5/PezDispenser.java}]
+    class PezDispenser {
+        private String characterName = "Yoda"; // <- 1. attribute is turned private
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java,caption={lesson\_5/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+
+            System.out.println("We are making a new PEZ dispenser");
+
+            PezDispenser dispenser = new PezDispenser();
+
+            System.out.printf("The dispenser is %s", dispenser.characterName); // <- 2. and it can't be accessed outside of class
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.java}
+\end{itemize}
+
+\bigskip
+
+\section{Methods}
+
+\bigskip
+
+\begin{itemize}
+    \item is a collection of statements that are grouped together to perform an
+    operation
+    \item is like \textit{verb}
+    \item \textit{ACCESS\_MODIFIER DATA\_TYPE get\textless ATTRIBUTE\_NAME \textgreater}
+    is called \textbf{getter}
+\end{itemize}
+
+\bigskip
+
+\begin{lstlisting}[language=Java,caption={lesson\_7/PezDispenser.java}]
+    public class PezDispenser {
+        private String characterName = "Yoda";
+
+        public String getCharacterName() { // <- 1. Getter method added here
+            return characterName;
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java,caption={lesson\_7/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+
+            System.out.println("We are making a new PEZ dispenser");
+
+            PezDispenser dispenser = new PezDispenser();
+
+            System.out.printf("The dispenser is %s", dispenser.getCharacterName()); // <- 2. And is used here
+        }
+    }
+    \end{lstlisting}
+
 \end{document}
