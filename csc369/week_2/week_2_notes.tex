@@ -556,8 +556,27 @@
     \end{itemize}
     \item A Lock implementation
     \begin{itemize}
-        \item
+        \item Uses two methods
+        \begin{enumerate}[1.]
+            \item acquire
+    \begin{lstlisting}[language=c]
+    void acquire(boolean *lock) {
+        while(text_and_set(lock)); //<- note the semicolon here :)
+    }
+    \end{lstlisting}
+
+            \item release
+    \begin{lstlisting}[language=c]
+    void release(boolean *lock) {
+        *lock = false;
+    }
+    \end{lstlisting}
+        \end{enumerate}
     \end{itemize}
     \item Using Lock
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_2_notes_2_14.png}
+    \end{center}
 \end{itemize}
 \end{document}
