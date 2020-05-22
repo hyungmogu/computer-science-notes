@@ -229,7 +229,80 @@
 \bigskip
 
 \begin{itemize}
-    \item
+    \item \textit{INT\_VARIABLE--:} Decrements the value in variable by 1
+    \item \textit{INT\_VARIABLE++:} Increments the value in variable by 1
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java,caption={lesson\_7/PezDispenser.java}]
+    public class PezDispenser {
+        ...
+        public boolean dispense() { // <- 1. This little guy here :)
+            boolean wasDispensed = false;
+            if (!this.isEmpty()) {
+                this.pezCount--; // <- 2. With decrement count here
+                wasDispensed = true;
+            }
+
+            return wasDispensed;
+
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java,caption={lesson\_7/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+            ...
+            while (dispenser.dispense()) {
+                System.out.println("Chomp!"); // <- 3. This will print as long as .dispensed() returns true
+            }
+
+            if (dispenser.isEmpty()) {
+                System.out.println("Ate all the PEZ");
+            }
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{lstlisting}[language=bash]
+    >>> javac Example.java && java Example
+    We are making a new PEZ dispenser
+
+    FUN FACT: There are 12 PEZ allowed in every dispenser
+    Dispenser is emptyThe dispenser is Yoda
+    Filling the dispenser with delicious PEZ...
+    The current count of delicious PEZ is 12
+    Dispenser is full
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Ate all the PEZ
+    \end{lstlisting}
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
 \end{itemize}
 
 \end{document}
