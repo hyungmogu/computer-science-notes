@@ -60,6 +60,7 @@
 \bigskip
 
 \begin{itemize}
+    \item Are named \textit{IN\_CAPITALIZED\_SNAKE\_CASE}
     \item Can be done using \textit{static} keyword
     \item Allows variables and methods to be exponsed without instantiation
 
@@ -91,6 +92,49 @@
     \begin{itemize}
         \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
         in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Filling the Dispenser}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{void} keyword means nothing is returned at the end of a method
+
+    \begin{lstlisting}[language=Java,caption={lesson\_3/PezDispenser.java}]
+    public class PezDispenser {
+        public void fill() { // <- This little guy here :)
+            this.pezCount = MAX_PEZ;
+            System.out.printf("The current count of delicious PEZ is %d\n", this.pezCount);
+        }
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_3/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+            ...
+            dispenser.fill(); // <- 2. Is used like this
+
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+        \item Always start with private methods, and turn to public when needed.
     \end{itemize}
 \end{itemize}
 
