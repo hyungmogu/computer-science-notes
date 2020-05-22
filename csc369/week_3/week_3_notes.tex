@@ -90,6 +90,7 @@
         \item Works like a signal
         \begin{itemize}
             \item Uses a non-negative integer variable that is shared between threads
+            [\textit{Note: Need to come back later}]
             \item Has two ``\textbf{atomic}'' operations
             \begin{enumerate}[1.]
                 \item \textbf{Wait} (Also called P, or decrement)
@@ -97,6 +98,18 @@
             \end{enumerate}
         \end{itemize}
     \end{itemize}
+
+    \item Types of Semaphores
+    \begin{enumerate}[1.]
+        \item Counting Semaphore
+        \begin{itemize}
+            \item \textit{count = N} $\Rightarrow$ Max number of resources
+            \item \textit{count} $\uparrow$ when resource added
+            \item \textit{count} $\downarrow$ when resource used
+            \item \textit{count = 0} $\Rightarrow$ No resources available $\Rightarrow$ \textbf{Wait} until \textit{count \textgreater 0}
+        \end{itemize}
+        \item Mutex Semaphore
+    \end{enumerate}
 \end{itemize}
 
 \bigskip
