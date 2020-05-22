@@ -86,8 +86,7 @@
     \item Semaphore
     \begin{itemize}
         \item Developed by Dijkstra in 1962.
-        \item Provides synchronization
-        \item Works like a signal
+        \item is a signal
         \begin{itemize}
             \item Uses a non-negative integer variable that is shared between threads
             [\textit{Note: Need to come back later}]
@@ -96,6 +95,11 @@
                 \item \textbf{Wait} (Also called P, or decrement)
                 \item \textbf{Signal} (Also called V, or increment)
             \end{enumerate}
+        \end{itemize}
+        \item Is easy to understand
+        \item Is difficult to use
+        \begin{itemize}
+            \item Creates a lot of buggy codes
         \end{itemize}
     \end{itemize}
 
@@ -116,22 +120,38 @@
 
         \item Binary Semaphore
         \begin{itemize}
-            \item Works like a lock
+            \item \textit{count = 1} $\Rightarrow$ Unlocked / Available
             \begin{itemize}
-                \item Locked $\Rightarrow$ A Thread can go in
-                \item Unlocked $\Rightarrow$ Other threads must wait
+                \item A thread can go in
             \end{itemize}
-            \item \textit{SEMAPHORE\_VAR = 1} $\Rightarrow$ Unlocked / Available
-            \item \textit{SEMAPHORE\_VAR = 0} $\Rightarrow$ Locked / Unavailable $\Rightarrow$ \textbf{Wait} until\\
-            \textit{SEMAPHORE\_VAR \textgreater 0}
+            \item \textit{count = 0} $\Rightarrow$ Locked / Unavailable $\Rightarrow$ \textbf{Wait} until
+            \textit{count \textgreater 0}
+            \begin{itemize}
+                \item Other threads must wait
+            \end{itemize}
             \item It's like the security at airport, or the portable bathroom from
             week 1 notes
-
-            \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/week_3_notes_1_5.png}
-            \end{center}
         \end{itemize}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_3_notes_1_5.png}
+        \end{center}
     \end{enumerate}
+    \item Using Binary Semaphores
+    \item Atomicity of wait() and signal()
+    \item Read-write problem
+    \item Reader's operation
+    \item Writer's operation
+    \item Reader's and Writer's Operation
+    \item Notes on Readers/Writers
+    \item Monitors
+    \begin{itemize}
+        \item Is solution to semaphore
+        \begin{itemize}
+            \item Is easier to implement
+            \item Creates less bugs
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 \bigskip
