@@ -317,4 +317,170 @@
 
 \bigskip
 
+\section{Method Overloading}
+
+\bigskip
+
+\begin{itemize}
+    \item Is a feature that llows a class to have more than one \underline{method
+    with the same name}, if their arguement lists are different.
+
+
+    \begin{lstlisting}[language=Java,caption={lesson\_9/PezDispenser.java}]
+    public class PezDispenser {
+        public void fill() { // <- 1. This little guy here
+            this.fill(MAX_PEZ);
+        }
+
+        public void fill(int pezAmount) { // 2. And this little guy here :)
+            this.pezCount = pezAmount;
+            System.out.printf("The current count of delicious PEZ is %d\n", this.pezCount);
+        }
+
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_9/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+            ...
+            while (dispenser.dispense()) {
+                System.out.println("Chomp!"); // <- 3. This will print as long as .dispensed() returns true
+            }
+
+            if (dispenser.isEmpty()) {
+                System.out.println("Ate all the PEZ");
+            }
+        }
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=bash,caption={Terminal}]
+    >>> javac Example.java && java Example
+    We are making a new PEZ dispenser
+
+    FUN FACT: There are 12 PEZ allowed in every dispenser
+    Dispenser is emptyThe dispenser is Yoda
+    Filling the dispenser with delicious PEZ...
+    The current count of delicious PEZ is 12
+    Dispenser is full
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Chomp!
+    Ate all the PEZ
+    The current count of delicious PEZ is 2
+    Chomp!!
+    Chomp!!
+    \end{lstlisting}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_5.java}
+\end{itemize}
+
+\bigskip
+
+\section{Exceptions}
+
+\bigskip
+
+\begin{itemize}
+    \item Exception can be raised by using \textit{throw}
+    \item Like python, \textit{try} and \textit{catch} exists.
+
+
+    \begin{lstlisting}[language=Java,caption={lesson\_9/PezDispenser.java}]
+
+    public class PezDispenser {
+        ...
+        public void fill(int pezAmount) {
+            int newAmount = pezCount + pezAmount;
+            if (newAmount > MAX_PEZ) { // <- 1. This little guy here
+                throw new IllegalArgumentException("Too many Pez");
+            }
+
+            this.pezCount = pezAmount;
+            System.out.printf("The current count of delicious PEZ is %d\n", this.pezCount);
+        }
+
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_9/Example.java}]
+    import java.io.Console;
+
+    public class Example {
+        public static void main(String[] args) {
+
+            ...
+
+            try {
+                dispenser.fill(400);
+                System.out.println("This will never happen");
+            } catch(IllegalArgumentException iae) {  // <- 2. causes this exception to throw :)
+                System.out.println("Whoa there!!");
+                System.out.printf("The error was %s\n", iae.getMessage()); // 3. <- giving this message
+            }
+        }
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=bash,caption={Terminal}]
+    >>> javac Example.java && java Example
+    ...
+    Whoa there!!
+    The error was Too many Pez
+    \end{lstlisting}
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+            in terminal
+        \end{itemize}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 6}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_6.java}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 7}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_7.java}
+\end{itemize}
+
+
 \end{document}
