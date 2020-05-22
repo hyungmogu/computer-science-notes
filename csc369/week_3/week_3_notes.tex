@@ -114,9 +114,22 @@
         \includegraphics[width=0.8\linewidth]{images/week_3_notes_1_4.png}
         \end{center}
 
-        \item Mutex (Binary) Semaphore
+        \item Binary Semaphore
         \begin{itemize}
-            \item works like a lock
+            \item Works like a lock
+            \begin{itemize}
+                \item Locked $\Rightarrow$ A Thread can go in
+                \item Unlocked $\Rightarrow$ Other threads must wait
+            \end{itemize}
+            \item \textit{SEMAPHORE\_VAR = 1} $\Rightarrow$ Unlocked / Available
+            \item \textit{SEMAPHORE\_VAR = 0} $\Rightarrow$ Locked / Unavailable $\Rightarrow$ \textbf{Wait} until\\
+            \textit{SEMAPHORE\_VAR \textgreater 0}
+            \item It's like the security at airport, or the portable bathroom from
+            week 1 notes
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/week_3_notes_1_5.png}
+            \end{center}
         \end{itemize}
     \end{enumerate}
 \end{itemize}
