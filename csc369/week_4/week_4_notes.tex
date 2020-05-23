@@ -91,11 +91,15 @@
         \item Chooses the process with the shortest processing time
         \item Need to know processing time in advance
         \item Is applied in batch environments where short jobs are given preference $^{[1]}$
-        \item Is NOT ideal method in a shared system where the required CPU time $^{[1]}$
-        is not known
+        \item Is NOT ideal method in a shared system where the required CPU time
+        is not known $^{[1]}$
     \end{itemize}
 
     \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_4_notes_1_2.png}
+    \end{center}
 
     \underline{\textbf{References}}
 
@@ -104,6 +108,29 @@
     \end{enumerate}
 
     \item Scheduling Algorithms: Round Robin
+    \begin{itemize}
+        \item Is oldest, simplest scheduling algorithm $^{[1]}$
+        \begin{itemize}
+            \item Each task gets equal share of CPU time
+        \end{itemize}
+        \item Is clock-driven $^{[1]}$
+        \begin{itemize}
+            \item e.g. After 100ms, current task is saved and pushed to last, and
+            upcoming task is given prority
+        \end{itemize}
+        \item Is pre-emptive $^{[1]}$
+        \item Is starvation-free $^{[2]}$
+        \item Is mostly used for scheduling algorithms in multitasking. $^{[1]}$
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
+        \item Wikipedia: Round-robin Scheduling, \href{https://en.wikipedia.org/wiki/Round-robin_scheduling}{link}
+    \end{enumerate}
     \item Priority Inversion
     \item Scheduling Algorithms: Multi-Level Queue Scheduling
     \item Feed Back Scheduling
