@@ -292,7 +292,6 @@
     \end{itemize}
 \end{itemize}
 
-
 \bigskip
 
 \section{Exercise 2}
@@ -354,5 +353,44 @@
 \begin{itemize}
     \item Solution included in \textit{exercise\_3.java}
 \end{itemize}
+
+\bigskip
+
+\section{Remaining Tries}
+
+\bigskip
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/part_3_notes_6.png}
+\end{center}
+
+\begin{itemize}
+    \item \textit{STRING\_VAR.length()}: Returns the length of string
+    \begin{itemize}
+        \item Is similar to \textit{len} in Python
+    \end{itemize}
+\end{itemize}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_11/Game.java}]
+    public class Game {
+        ...
+        public int getRemainingTries() {
+            return MAX_MISSES - this.misses.length(); // <- This little guy here :)
+        }
+        ...
+    }
+    \end{lstlisting}
+
+\bigskip
+
+\section{Exercise 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_4.java}
+\end{itemize}
+
+\bigskip
 
 \end{document}
