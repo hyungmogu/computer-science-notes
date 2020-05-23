@@ -66,11 +66,33 @@
     % \item Scheduling Goals
     \item Scheduling Algorithms: FCFS
     \begin{itemize}
-        \item FCFS means \textit{First Come First Serve} $^{[1]}$
+        \item FCFS means \textbf{First Come First Serve} $^{[1]}$
         \item Is the easiest and most simple CPU scheduling algorithm $^{[1]}$
         \item Offers non-preemptive and pre-emptive scheduling algorithm $^{[1]}$
         \item Is easy to implement and use $^{[1]}$
         \item Is poor in performance, and wait time is high $^{[1]}$
+    \end{itemize}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_4_notes_1_1.png}
+    \end{center}
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
+    \end{enumerate}
+
+    \item Scheduling Algorithms: Shortest-Job-First
+    \begin{itemize}
+        \item Is also called \textbf{Shortest Remaining Time}
+        \item Chooses the process with the shortest processing time
+        \item Need to know processing time in advance
+        \item Is applied in batch environments where short jobs are given preference $^{[1]}$
+        \item Is NOT ideal method in a shared system where the required CPU time $^{[1]}$
+        is not known
     \end{itemize}
 
     \bigskip
@@ -81,7 +103,6 @@
         \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
     \end{enumerate}
 
-    \item Scheduling Algorithms: Shortest-Job-First
     \item Scheduling Algorithms: Round Robin
     \item Priority Inversion
     \item Scheduling Algorithms: Multi-Level Queue Scheduling
