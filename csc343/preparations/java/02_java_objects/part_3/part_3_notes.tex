@@ -79,4 +79,104 @@
     \end{center}
 \end{itemize}
 
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    The set of software development practices we talked about exploring is called
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item CS
+        \item Bubble Sort
+        \item Agile
+        \item Brogramming
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    An MVP can be created by
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item defining the minimum requirements to prove that the product is working as hypothesized.
+        \item taking existing code and refactoring it so it is smaller and more compact
+        \item minimizing the number of people working on the project so that the knowledge is with one person only
+        \item coming up with every possible roadblock and feature that might occur and map it out on a Gantt chart
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    An MVP in our context stands for
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item Mostly Verbatim Process
+        \item Most Valuable Player
+        \item Minimum Viable Product
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+\end{enumerate}
+
+\bigskip
+
+\section{Getting Started}
+
+\bigskip
+
+\begin{itemize}
+    \item Separation of concerns heavily considered
+    \begin{itemize}
+        \item The Goal is to make the code as reusable as possible, i.e. The same game
+        logic should be applicable in desktop, website, phone in medium other than
+        console
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/part_3_notes_4.png}
+        \end{center}
+
+    \end{itemize}
+
+    \begin{lstlisting}[language=Java,caption={Game.java}]
+    public class Game {
+        private String answer;
+
+        public Game(String answer) {
+            this.answer = answer;
+        }
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={Hangman.java}]
+    public class Hangman {
+
+        public static void main(string[] args) {
+            Game game = new Game("treehouse");
+        }
+
+    }
+    \end{lstlisting}
+\end{itemize}
+
+
 \end{document}
