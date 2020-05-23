@@ -292,4 +292,67 @@
     \end{itemize}
 \end{itemize}
 
+
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.java}
+\end{itemize}
+
+\bigskip
+
+\section{Current Progress}
+
+\bigskip
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/part_3_notes_5.png}
+\end{center}
+
+\begin{itemize}
+    \item \textit{STRING\_VAR.toCharArray():} Turns string into a char array
+    \begin{itemize}
+        \item Is very similar to python's \textit{[x for x in STRING\_VAR]}
+    \end{itemize}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_09/Game.java}]
+        public class Game {
+            public String getCurrentProgress() {
+                String progress = "";
+
+                for (char letter : this.answer.toCharArray()) {  // 1. <- This little guy here :)
+                    ...
+                }
+
+                return progress;
+            }
+        }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.java}
+\end{itemize}
+
 \end{document}
