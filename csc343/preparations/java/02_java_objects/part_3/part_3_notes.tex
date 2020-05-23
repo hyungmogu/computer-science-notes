@@ -157,7 +157,7 @@
 
     \end{itemize}
 
-    \begin{lstlisting}[language=Java,caption={Game.java}]
+    \begin{lstlisting}[language=Java,caption={lesson\_03/Game.java}]
     public class Game {
         private String answer;
 
@@ -167,7 +167,7 @@
     }
     \end{lstlisting}
 
-    \begin{lstlisting}[language=Java,caption={Hangman.java}]
+    \begin{lstlisting}[language=Java,caption={lesson\_03/Hangman.java}]
     public class Hangman {
 
         public static void main(string[] args) {
@@ -218,6 +218,78 @@
 
 \end{enumerate}
 
+\bigskip
 
+\section{Storing Guesses}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{STRING\_VAR.indexOf(VAL)}: tells the index of beginning value
+    of \textit{VAL} in string
+\end{itemize}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_05/Game.java}]
+    public class Game {
+        private String answer;
+        private String hits;
+        private String misses;
+
+        public Game(String answer) {
+            this.answer = answer;
+            this.hits = "";
+            this.misses = "";
+        }
+
+        public boolean applyGuess(char letter) {
+            boolean isHit = answer.indexOf(letter) != -1; // <- this guy here :)
+            if (isHit) {
+                hits += letter;
+            } else {
+                misses += letter;
+            }
+
+            return isHit;
+        }
+    }
+    \end{lstlisting}
+
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.java}
+\end{itemize}
+
+\bigskip
+
+\section{Prompting for Guesses}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{Scanner}
+    \begin{itemize}
+        \item Is similar to \textit{stdin} in \textit{C}
+        \item Lives in \textit{java.util} package
+
+    \begin{lstlisting}[language=Java,caption={lesson\_07/Prompter.java}]
+    import java.util.Scanner;
+
+    public class Prompter {
+        ...
+
+        public boolean promptForGuess() {
+            Scanner scanner = new Scanner(System.in); // <- This little guy here :)
+            ...
+        }
+    }
+    \end{lstlisting}
+
+    \end{itemize}
+\end{itemize}
 
 \end{document}
