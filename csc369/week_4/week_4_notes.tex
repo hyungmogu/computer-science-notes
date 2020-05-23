@@ -136,7 +136,30 @@
         \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
         \item Wikipedia: Round-robin Scheduling, \href{https://en.wikipedia.org/wiki/Round-robin_scheduling}{link}
     \end{enumerate}
-    \item Priority Inversion
+    \item Scheduling Algorithms: Priority Scheduling
+
+    \begin{itemize}
+        \item Is a method of scheduling process based on priority $^{[1]}$
+        \begin{itemize}
+            \item Priority $p$ is associated with each process
+            \item Highest priority job is selected from Ready state
+            \item Priority can be based on memory requirements, time requirements, etc $^{[1]}$
+        \end{itemize}
+        \item Can be tricky
+        \begin{itemize}
+            \item Low priority task may never run
+            \item Low priority task may prevent high priority task from making progress
+            by holding resource (priority inversion)
+        \end{itemize}
+    \end{itemize}
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
+    \end{enumerate}
+
+    % \item Priority Inversion
     \item Scheduling Algorithms: Multi-Level Queue Scheduling
     \item Feed Back Scheduling
     \item Linux 2.6 CPU Scheduling
