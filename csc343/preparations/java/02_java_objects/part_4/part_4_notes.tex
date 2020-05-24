@@ -62,7 +62,53 @@
 \end{center}
 
 \begin{itemize}
-    \item
+    \item \textit{throw new EXCEPTION\_NAME} used to raise exception
+    \item \textit{try} and \textit{catch} used to handle expections
+
+    \begin{lstlisting}[language=Java,caption={lesson\_01/Game.java}]
+    public class Game {
+        ...
+        public boolean applyGuess(char letter) {
+            if (misses.indexOf(letter) != -1 || hits.indexOf(letter) != -1) {
+                throw new IllegalArgumentException(letter + " has already been guessed"); // <- this little guy here :)
+            }
+
+            ...
+        }
+
+        ...
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_01/Prompter.java}]
+    import java.util.Scanner;
+
+    public class Prompter {
+        ...
+        public boolean promptForGuess() {
+            ...
+            boolean isHit = false;
+            try { // <- And this little guy here :)
+                isHit = game.applyGuess(guess);
+            } catch (IllegalArgumentException iae) {
+                System.out.println(iae.getMessage());
+            }
+
+            return isHit;
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
 \end{itemize}
 
 \end{document}
