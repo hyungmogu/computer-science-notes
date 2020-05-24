@@ -162,6 +162,7 @@
     % \item Priority Inversion
     \item Scheduling Algorithms: Multi-Level Queue Scheduling
     \begin{itemize}
+        \item Permanently assigns processes to a queue $^{[2]}$
         \item Each queue have its separate scheduling algorithms $^{[1]}$
         \item Sets priorities for each queue $^{[1]}$
     \end{itemize}
@@ -176,9 +177,35 @@
 
     \begin{enumerate}[1)]
         \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
+        \item Wikipedia: Multilevel feedback queue, \href{https://en.wikipedia.org/wiki/Multilevel_feedback_queue}{link}
     \end{enumerate}
-    \item Feed Back Scheduling
-    \item Linux 2.6 CPU Scheduling
+
+    \item Feedback Scheduling
+    \begin{itemize}
+        \item Is also called \textbf{Multi-level Feedback Queue} $^{[1]}$
+        \item Meets the following design requirements for multinode systems $^{[1]}$
+        \begin{enumerate}[1.]
+            \item Give preference to short jobs
+            \item Give preference to I/O bound processes
+            \item Separate processes into categories based on their need for the
+            processor
+        \end{enumerate}
+        \item Allows a process to move between queues $^{[1]}$
+        \begin{itemize}
+            \item e.g. Process in high-priority queue using too much CPU time $\to$ Lower-priority queues
+        \end{itemize}
+        \item e.g. Current Mac OS and Microsoft :)!! $^{[1]}$
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Multilevel feedback queue, \href{https://en.wikipedia.org/wiki/Multilevel_feedback_queue}{link}
+    \end{enumerate}
+
+    % \item Linux 2.6 CPU Scheduling
 \end{itemize}
 
 \end{document}
