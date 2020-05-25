@@ -172,6 +172,71 @@
 
 \begin{itemize}
     \item
+
+    \begin{lstlisting}[language=Java,caption={lesson\_04/Game.java}]
+    public class Game {
+        ...
+        public boolean applyGuess(String letters) { // <- this little devil here :)
+            if (letters.length() == 0) { // <- 1. notice checks for empty string. If so, raise error
+                throw new IllegalArgumentException("No letter found. Please try again.");
+            }
+
+            char firstLetter = letters.charAt(0);
+            return this.applyGuess(firstLetter);
+        }
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java,caption={lesson\_04/Prompter.java}]
+    public class Prompter {
+        ...
+
+        public boolean promptForGuess() {
+            ...
+            try {
+                isHit = game.applyGuess(guessInput); // <- 2. charAt() is removed
+                isAcceptable = true;
+            } catch (IllegalArgumentException iae) {
+                System.out.println(iae.getMessage());
+            }
+            ...
+        }
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Determining if the Game is Won}
+
+\bigskip
+
+\begin{itemize}
+    \item
+
+
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        in terminal
+    \end{itemize}
 \end{itemize}
 
 

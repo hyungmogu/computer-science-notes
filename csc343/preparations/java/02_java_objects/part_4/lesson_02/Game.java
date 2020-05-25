@@ -14,7 +14,7 @@ public class Game {
         if (! Character.isLetter(letter)) {
             throw new IllegalArgumentException("A letter is Required");
         }
-        letter = Character.toLowercase(letter);
+        letter = Character.toLowerCase(letter);
 
         if (misses.indexOf(letter) != -1 || hits.indexOf(letter) != -1) {
             throw new IllegalArgumentException(letter + "has already been guessed");
