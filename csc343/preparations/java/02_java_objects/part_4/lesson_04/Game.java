@@ -64,4 +64,8 @@ public class Game {
 
         return progress;
     }
+
+    public boolean isWon() {
+        return this.getCurrentProgress().indexOf("-") == -1;
+    }
 }

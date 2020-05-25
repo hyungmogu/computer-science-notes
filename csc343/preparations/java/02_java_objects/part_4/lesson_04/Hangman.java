@@ -8,9 +8,14 @@ public class Hangman {
         prompter.displayProgress();
 
         while (game.getRemainingTries() > 0) {
-            boolean isHit = prompter.promptForGuess();
+            prompter.promptForGuess();
             prompter.displayProgress();
+
+            if (game.isWon()) {
+                break;
+            }
         }
+        prompter.displayOutcome();
     }
 
 }

@@ -31,4 +31,13 @@ public class Prompter {
                         game.getRemainingTries(),
                         game.getCurrentProgress());
     }
+
+    public void displayOutcome() {
+        if (!this.game.isWon()) {
+            System.out.println("Sorry. Please try again :'(");
+            return;
+        }
+
+        System.out.println("You win :). Hurray!!");
+    }
 }
