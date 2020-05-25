@@ -106,7 +106,7 @@
     \bigskip
 
     \begin{itemize}
-        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        \item Files can be compiled and displayed by typing \textit{javac Hangman.java \&\& java Hangman}
         in terminal
     \end{itemize}
 \end{itemize}
@@ -145,7 +145,7 @@
     \bigskip
 
     \begin{itemize}
-        \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+        \item Files can be compiled and displayed by typing \textit{javac Hangman.java \&\& java Hangman}
         in terminal
     \end{itemize}
 \end{itemize}
@@ -177,7 +177,7 @@
 \bigskip
 
 \begin{itemize}
-    \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+    \item Files can be compiled and displayed by typing \textit{javac Hangman.java \&\& java Hangman}
     in terminal
 \end{itemize}
 
@@ -198,7 +198,7 @@
 \bigskip
 
 \begin{itemize}
-    \item Files can be compiled and displayed by typing \textit{javac Example.java \&\& java Example}
+    \item Files can be compiled and displayed by typing \textit{javac Hangman.java \&\& java Hangman}
     in terminal
 \end{itemize}
 
@@ -227,9 +227,9 @@
     \end{lstlisting}
 
     \begin{enumerate}[A.]
-        \item >    \&\&   !
-        \item ==    ||    !
-        \item !=    ||        @
+        \item \textgreater,\&\&,!
+        \item =,||,!
+        \item !=,||,@
     \end{enumerate}
 
     \bigskip
@@ -253,5 +253,60 @@
     \textbf{Answer:} C
 
 \end{enumerate}
+
+\bigskip
+
+\section{Arrays and Command Line Arguments}
+
+\bigskip
+
+\begin{itemize}
+    \item \textit{string[] args:} represent arguments passed in commandline
+
+
+    \begin{lstlisting}[language=Bash]
+    >>> java Hangman corgi # <- 'corgi' is stored in args[0]
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+
+    \begin{lstlisting}[language=Java,caption={lesson\_07/Hangman.java}]
+    public class Hangman {
+
+        public static void main(String[] args) { // <- this guy here :)
+
+            if (args.length == 0) {
+                System.out.println("Usage: java Hangman <answer>");
+                System.err.println("Answer is required");
+                System.exit(1);
+            }
+            Game game = new Game(args[0]);
+            ...
+        }
+
+    }
+    \end{lstlisting}
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Hangman.java \&\& java Hangman \textless answer \textgreater}
+        in terminal
+        \begin{itemize}
+            \item i.e. javac Hangman.java \&\& java Hangman corgi
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Wrapping Up}
+
+\bigskip
 
 \end{document}

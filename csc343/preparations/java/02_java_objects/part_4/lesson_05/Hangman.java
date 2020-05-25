@@ -10,7 +10,12 @@ public class Hangman {
         while (game.getRemainingTries() > 0) {
             prompter.promptForGuess();
             prompter.displayProgress();
+
+            if (game.isWon()) {
+                break;
+            }
         }
+        prompter.displayOutcome();
     }
 
 }
