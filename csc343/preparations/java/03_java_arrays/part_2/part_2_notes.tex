@@ -58,7 +58,7 @@
 \bigskip
 
 \begin{itemize}
-    \item \textbf{Syntax:} \textit{for (DATA\_TYPE ITER\_VAR : ARR\_VAR) {...}}
+    \item \textbf{Syntax:} \textit{for (DATA\_TYPE ITER\_VAR : ARR\_VAR) \{...\}}
     \begin{itemize}
         \item \textit{:} Means `in', like python
     \end{itemize}
@@ -69,12 +69,97 @@
 
     \bigskip
 
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore.java}]
+    String[] classmates = {"Ben", "Johnny", "Pasan"};
+    for (String classmate : classmates) {
+        System.out.printf("%s is my class friend\n", classmate);
+    }
+    \end{lstlisting}
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Explore.java \&\& java Explore}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    The reason you can use an array in an enhanced for loop is because
+
+    \begin{enumerate}[A.]
+        \item arrays are special. They are the only type of object you can use in an enhanced for loop.
+        \item they are contiguous.
+        \item arrays are iterable. Any object that is considered iterable can be used.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    The code below can be read as:
+
     \begin{lstlisting}[language=Java]
-    String[] friends = {"Ben", "Johnny", "Pasan"};
-    for (String friend : friends) {
-        System.out.printf("%s is my class friend", friend)
+    String[] flavors = {"vanilla", "chocolate", "strawberry"};
+    for (String flavor : flavors) {
+        // ...
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item For each flavor in the flavors array...
+        \item Flavors should be reduced to a single value
+        \item Once flavor is set, concatenate ...
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+\end{enumerate}
+
+\bigskip
+
+\section{Ye Olde Unenhanced For Loop}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} \textit{for (int i = 0; i \textless ARR\_VAR.length; i++) {...}}
+
+    \begin{lstlisting}[language=Java, caption={lesson\_03/Explore.java}]
+    String[] classmates = {"Ben", "Johnny", "Pasan"};
+    for (int i = 0; i < classmates.length; i++) {
+        String classmate = classmate[i];
+        System.out.printf("%s is my class friend", classmate);
     }
     \end{lstlisting}
 \end{itemize}
+
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.java}
+\end{itemize}
+
+\bigskip
 
 \end{document}
