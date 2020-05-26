@@ -73,6 +73,87 @@
     \begin{lstlisting}[language=Java]
     String[] friends = new String[3];
     \end{lstlisting}
+
+    \item Defeault values
+    \begin{itemize}
+        \item \textit{byte}: 0
+        \item \textit{short}: 0
+        \item \textit{int}: 0
+        \item \textit{long}: 0L
+        \item \textit{float}: 0.0f
+        \item \textit{double}: 0.0d
+        \item \textit{char}: '\u0000'
+        \item \textit{String} (or any object): null
+        \item \textit{boolean}: false
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Which of the following statements would create an array named planets with 9
+    String elements?
+
+    \begin{enumerate}[A.]
+        \item String planets = new Array(9);
+        \item String[] planets = new String[9];
+        \item Array[] planets = new String[9];
+        \item String[] planets = new String(9);
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    When you create a String array like this:
+
+    \begin{lstlisting}[language=Java]
+    String[] goldenGirls = new String[4];
+    \end{lstlisting}
+
+    What will the values be initialized to?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item ""
+        \item null
+        \item 0
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+\end{enumerate}
+
+\bigskip
+
+\section{Accessing Items}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} \textit{ARR\_VAR\_NAME[INDEX]}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java]
+    String[] friends = {"Pasan", "Johnathan", null};
+    System.out.println(friends[0] + " is my classmate");
+    \end{lstlisting}
 \end{itemize}
 
 \end{document}
