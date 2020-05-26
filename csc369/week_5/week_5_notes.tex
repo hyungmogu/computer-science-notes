@@ -252,10 +252,23 @@
     % \item Example Address Translation
     % \item Page Table Entres (PTE)
     % \item Page Lookups Overview
-    \item TLBS
+    \item Translation Lookaside Buffer (TLBS)
     \begin{itemize}
-        \item
+        \item Is a memory cache that is used to reduce the time taken to access
+        a user memory location $^{[1]}$
+        \item Stores the recent translations of virtual memory to physical memory $^{[1]}$
+        \item Resides in between the different levels of multi-level cache, i.e. L1, L2, L3 cache $^{[1]}$
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Translation Lookaside Buffer, \href{https://en.wikipedia.org/wiki/Translation_lookaside_buffer}{link}
+    \end{enumerate}
     % \item Managing TLBS
     % \item Summary So far: Paging
     % \item How Much Space Does a Page Table Take Up?
