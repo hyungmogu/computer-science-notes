@@ -122,7 +122,7 @@
             \item Is easy to implement
             \item Requires lesser indirect computational power
         \end{itemize}
-        \item Disadvantages:
+        \item Disadvantages: $^{[1]}$
         \begin{itemize}
             \item Memory is wasted if process is smaller than partition (\textbf{Internal Fragmentation})
             \item Programmer must deal with programs larger than partition
@@ -145,6 +145,34 @@
     % \item Placement with Fixed Partitions
     % \item Placement Example (Queue per Partition)
     \item Dynamic Partitioning
+    \begin{itemize}
+        \item Allevates problems caused by fixed partitioning $^{[1]}$
+        \item Partitions vary in length and number over time
+        \item When a process is brought into memory, a partition of exact the
+        right size is created to hold it
+        \item Advantages $^{[1]}$
+        \begin{itemize}
+            \item No internal fragmentation
+            \begin{itemize}
+                \item There will be no unused space left in the partition
+            \end{itemize}
+            \item No restriction on degree of multiprogramming
+            \begin{itemize}
+                \item More proccesses in memory due to absence of internal
+                fragmentation
+                \item Processes can be loaded until memory is empty
+            \end{itemize}
+        \end{itemize}
+        \item Disadvantages
+    \end{itemize}
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item GeeksForGeeks: Variable (or dynamic) Partitioning in Operating System, \href{https://www.geeksforgeeks.org/variable-or-dynamic-partitioning-in-operating-system/}{link}
+    \end{enumerate}
     % \item More Dynamic Partitioning
     % \item Heap Management
     % \item Tracking Memory Allocation
