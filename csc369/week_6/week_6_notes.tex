@@ -60,15 +60,62 @@
 \bigskip
 
 \begin{itemize}
-    % \item Recap
+    \item Recap
+    \begin{itemize}
+        \item Solves \textbf{internal fragmentation} and \textbf{external fragmentation}
+        \item Stores and retrieves data from \textbf{secondary storage} for use
+        in \textbf{main memory} $^{[1]}$
+        \begin{itemize}
+            \item Secondary storage $\to$ Hard Drive
+            \item Main memory $\to$ RAM
+        \end{itemize}
+        \item Is an important part of \textbf{virtual memory} management in modern
+        OS $^{[1]}$
+        \item Partitions memory into equal, fixed-size chunks
+        \begin{itemize}
+            \item Are called \textbf{page frames} or \textbf{frames}
+        \end{itemize}
+        \item Divide processes' memory into chunks of the same size
+        \begin{itemize}
+            \item These are called \textbf{pages}
+        \end{itemize}
+    \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_6_notes_1_1.png}
+    \end{center}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Paging, \href{https://en.wikipedia.org/wiki/Paging}{link}
+        \item JavaTPoint: Paging with Example, \href{https://www.javatpoint.com/os-paging-with-example}{link}
+    \end{enumerate}
     % \item Page Lookups Overview
     % \item TLBs
-    % \item Summary so far: Paging
+    \item Summary so far: Paging
+    \begin{itemize}
+        \item Is the process in which we convert the entire process in to equal
+        sized \textbf{pages} $^{[1]}$
+    \end{itemize}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item GeeksForGeeks: Two Level Paging and Multi Level Paging in OS, \href{https://www.geeksforgeeks.org/two-level-paging-and-multi-level-paging-in-os/}{link}
+    \end{enumerate}
     % \item How much space does a page table take up?
     % \item Managing Page Tables
     % \item Motivation: Two-Level Page Tables
     % \item Multilevel Page Tables
     \item Two-Level Page Tables
+    \begin{itemize}
+        \item
+    \end{itemize}
     % \item Two-Level Paging Example
     % \item Pentium Address Translation
     \item Inverted Page Tables (Read the book)
@@ -104,8 +151,8 @@
     % \item Working Set Problems
     \item Page Fault Frequench(PFF)
     \item Thrashing
-    \item Windows XP Paging Policy
-    \item Linux Paging
+    % \item Windows XP Paging Policy
+    % \item Linux Paging
 \end{itemize}
 
 \end{document}
