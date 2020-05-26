@@ -124,7 +124,7 @@
         \end{itemize}
         \item Disadvantages: $^{[1]}$
         \begin{itemize}
-            \item Memory is wasted if process is smaller than partition (\textbf{Internal Fragmentation})
+            \item Creates a gap if process is smaller than partition (\textbf{Internal Fragmentation})
             \item Programmer must deal with programs larger than partition
         \end{itemize}
     \end{itemize}
@@ -152,6 +152,7 @@
         \begin{itemize}
             \item I.e. moving process 3 right beneath process 1
             \item Is called \textbf{compaction}
+            \item Processes \underline{must} be \textbf{relocatable}
         \end{itemize}
 
         \begin{center}
@@ -162,7 +163,7 @@
         \begin{itemize}
             \item No \textbf{internal fragmentation}
             \begin{itemize}
-                \item There will be No unused space left in the partition
+                \item There will be no unused space left in the partition
 
                 \begin{center}
                 \includegraphics[width=0.7\linewidth]{images/week_5_notes_1_3.png}
@@ -172,7 +173,7 @@
             \begin{itemize}
                 \item More proccesses in memory due to absence of internal
                 fragmentation
-                \item Processes can be loaded until memory is empty
+                \item Processes can be loaded until RAM is empty
             \end{itemize}
             \item No limitation on the size of process
             \begin{itemize}
@@ -183,7 +184,7 @@
         \begin{itemize}
             \item As processes come and go `holes' are created
             \begin{itemize}
-                \item Is called \textbf{External Fragmentation}
+                \item Is called \textbf{external fragmentation}
             \end{itemize}
         \end{itemize}
     \end{itemize}
@@ -203,6 +204,31 @@
     % \item Comparing Placement Algorithms
     % \item Problems with Paging
     \item Paging
+    \begin{itemize}
+        \item Solves \textbf{internal fragmentation} and \textbf{external fragmentation}
+        \item Stores and retrieves data from \textbf{secondary storage} for use
+        in \textbf{main memory} $^{[1]}$
+        \begin{itemize}
+            \item Secondary storage $\to$ Hard Drive
+            \item Main memory $\to$ RAM
+        \end{itemize}
+        \item Is an important part of \textbf{virtual memory} management in modern
+        OS $^{[1]}$
+        \item Partitions memory into equal, fixed-size chunks
+        \begin{itemize}
+            \item Are called \textbf{page frames} or \textbf{frames}
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Paging, \href{https://en.wikipedia.org/wiki/Paging}{link}
+    \end{enumerate}
     % \item Example of Paging
     \item Address Translation
     % \item Address Translation: Partitioning Schemes
