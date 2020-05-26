@@ -193,7 +193,112 @@
     \begin{itemize}
         \item Files can be compiled and displayed by typing \textit{javac Explore.java \&\& java Explore}
         in terminal
-        \item
+        \item \textit{scoreBoards[0]} alone prints its memory location, like C :)
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Quiz 2}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Considering the following code:
+
+    \begin{lstlisting}[language=Java]
+    String[][] bradys = {
+        {"Mike", "Carol", "Alice"},
+        {"Bobby", "Peter", "Greg"},
+        {"Cindy", "Jan", "Marsha"}
+    };
+    \end{lstlisting}
+
+    What is the value at bradys[2][2]
+
+    \begin{enumerate}[A.]
+        \item Marsha
+        \item Greg
+        \item Peter
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    Considering the following code:
+
+    \begin{lstlisting}[language=Java]
+    String[][] bradys = {
+        {"Mike", "Carol", "Alice"},
+        {"Bobby", "Peter", "Greg"},
+        {"Cindy", "Jan", "Marsha"}
+    };
+    \end{lstlisting}
+
+    How would you reference Alice
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item bradys(0, 2)
+        \item bradys[2][0]
+        \item bradys[0][2]
+        \item bradys[1][3]
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+\end{enumerate}
+
+\bigskip
+
+\section{Looping Over 2D Arrays}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:}
+
+    \textit{for(int i = 0; i \textless ARR\_VAR.length; i++) \{}
+
+    \textit{    for(int j = 0; j \textless ARR\_VAR[i].length; j++) \{...\}}
+
+    \textit{\}}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java, caption={lesson\_07/Explore.java}]
+    int[][] scoreBoards = {
+        {1,2,4,2,6,5,4},
+        {2,3,5,1,1,2,3},
+        {4,4,2,1,2,2,1}
+    };
+
+    for (int i = 0; i < scoreBoards.length; i++) {
+        for (int j = 0; j < scoreBoards[i].length; j++) {
+            System.out.println(scoreBoards[i][j]);
+        }
+    }
+    \end{lstlisting}
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Explore.java \&\& java Explore}
+        in terminal
     \end{itemize}
 \end{itemize}
 
