@@ -97,28 +97,49 @@
     \end{enumerate}
     % \item Page Lookups Overview
     % \item TLBs
-    \item Summary so far: Paging
+    % \item Summary so far: Paging
+    \item Summary so far: Page Table
     \begin{itemize}
-        \item Is the process in which we convert the entire process in to equal
-        sized \textbf{pages} $^{[1]}$
+        \item Is the data structure used by a virtual memory system in computer
+        operating system to store the mapping between virtual addresses and physical
+        addresses.
     \end{itemize}
 
     \bigskip
 
     \begin{enumerate}[1)]
-        \item GeeksForGeeks: Two Level Paging and Multi Level Paging in OS, \href{https://www.geeksforgeeks.org/two-level-paging-and-multi-level-paging-in-os/}{link}
+        \item Wikipedia: Page Table, \href{https://en.wikipedia.org/wiki/Page_table}{link}
     \end{enumerate}
     % \item How much space does a page table take up?
     % \item Managing Page Tables
     % \item Motivation: Two-Level Page Tables
-    % \item Multilevel Page Tables
-    \item Two-Level Page Tables
-    \begin{itemize}
-        \item
-    \end{itemize}
+    \item Multilevel Page Tables
+    % \item Two-Level Page Tables
     % \item Two-Level Paging Example
     % \item Pentium Address Translation
     \item Inverted Page Tables (Read the book)
+    \begin{itemize}
+        \item Is an alternate to ever-increasing levels in page hierarchy $^{[1]}$
+        \item Advantages $^{[1]}$
+        \begin{itemize}
+            \item Saves a lot of space (when the virtual address is much larger
+            than the physical memory)
+        \end{itemize}
+        \item Disadvantages $^{[1]}$
+        \begin{itemize}
+            \item Increased difficulty of virtual to physical translation
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Tanebaum AS, Boss H. 2015. Modern Operating Systems. 4th Edition. New Jersy: Pearson Education, Inc.
+    \end{enumerate}
     % \item Efficient Translations
     % \item Page Allocation \& Eviction
     % \item Recap: Paging
