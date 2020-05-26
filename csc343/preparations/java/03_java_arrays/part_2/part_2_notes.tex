@@ -302,4 +302,59 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+
+
+\bigskip
+
+\section{Quiz 3}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Please fill in the correct answer in each blank provided below.
+
+
+    \begin{lstlisting}[language=Java]
+    char[][] boggle = {
+            {'C', 'A', 'T'},
+            {'D', 'R', 'I'},
+            {'L', 'O', 'G'}
+    };
+
+    System.out.printf("-------------%n");
+    for (int ____  = 0; ____ < boggle.length; ____++) {
+      for (int ____ = 0; ____ < boggle[____].length; ____++) {
+        System.out.printf("| %s ", boggle[____][____]);
+       }
+       System.out.printf("|%n-------------%n");
+    }
+    \end{lstlisting}
+
+    \bigskip
+
+    \textbf{Answer:}
+
+    \begin{lstlisting}[language=Java]
+    char[][] boggle = {
+            {'C', 'A', 'T'},
+            {'D', 'R', 'I'},
+            {'L', 'O', 'G'}
+    };
+
+    System.out.printf("-------------%n");
+    for (int i  = 0; i < boggle.length; i++) {
+        for (int j = 0; j < boggle[i].length; j++) {
+        System.out.printf("| %s ", boggle[i][j]);
+        }
+        System.out.printf("|%n-------------%n");
+    }
+    \end{lstlisting}
+\end{enumerate}
+
+
+
 \end{document}
