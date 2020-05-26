@@ -88,8 +88,8 @@
 
     \item Memory Management
     \begin{itemize}
-        \item Is the process of controlling and coordinating computer memory,
-        by assigning portions known as \textbf{blocks} to various programs $^{[1]}$
+        \item Is the process of controlling and coordinating computer memory
+        \item Assings portions known as \textbf{blocks} to various programs $^{[1]}$
     \end{itemize}
 
     \underline{\textbf{Refernces:}}
@@ -147,23 +147,45 @@
     \item Dynamic Partitioning
     \begin{itemize}
         \item Allevates problems caused by fixed partitioning $^{[1]}$
-        \item Partitions vary in length and number over time
-        \item When a process is brought into memory, a partition of exact the
-        right size is created to hold it
+        \item A partition of exact the right size is created for a process
+        \item OS may move processes around to create larger chunks of space
+        \begin{itemize}
+            \item I.e. moving process 3 right beneath process 1
+            \item Is called \textbf{compaction}
+        \end{itemize}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_5_notes_1_2.png}
+        \end{center}
+
         \item Advantages $^{[1]}$
         \begin{itemize}
-            \item No internal fragmentation
+            \item No \textbf{internal fragmentation}
             \begin{itemize}
-                \item There will be no unused space left in the partition
+                \item There will be No unused space left in the partition
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/week_5_notes_1_3.png}
+                \end{center}
             \end{itemize}
-            \item No restriction on degree of multiprogramming
+            \item No restriction on degree of multiprogramming $^{[1]}$
             \begin{itemize}
                 \item More proccesses in memory due to absence of internal
                 fragmentation
                 \item Processes can be loaded until memory is empty
             \end{itemize}
+            \item No limitation on the size of process
+            \begin{itemize}
+                \item Process size not limited to the size of partition
+            \end{itemize}
         \end{itemize}
         \item Disadvantages
+        \begin{itemize}
+            \item As processes come and go `holes' are created
+            \begin{itemize}
+                \item Is called \textbf{External Fragmentation}
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 
     \underline{\textbf{Refernces:}}
