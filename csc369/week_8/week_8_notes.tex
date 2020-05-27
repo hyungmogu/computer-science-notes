@@ -187,18 +187,26 @@
             \item Is directory entry containing "true" path to the file
             \item Is a shortcut that reference to a file instead of inode value $^{[2]}$
         \end{itemize}
+
+        \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_4.png}
+            \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_5.png}
+            \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_6.png}
+        \end{center}
+
         \item \textbf{Hard Link:}
         \begin{itemize}
             \item Is a direct reference to a file via its inode $^{[2]}$
             \item Is second directory entry identical to first
         \end{itemize}
-    \end{itemize}
 
-    \begin{center}
-    \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_4.png}
-    \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_5.png}
-    \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_6.png}
-    \end{center}
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_10.png}
+        \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_11.png}
+        \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_12.png}
+        \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_13.png}
+        \end{center}
+    \end{itemize}
 
     \bigskip
 
@@ -240,7 +248,30 @@
     % \item Disk Layout Strategies
     % \item Contiguous Allocation
     % \item Linked Allocation
-    % \item Indexed Allocation: Unix Inodes
+    \item Indexed Allocation: Unix Inodes
+    \begin{itemize}
+        \item Each inode contains 15 block pointers
+        \begin{itemize}
+            \item First 12 are direct block pointers
+            \begin{itemize}
+                \item Stops here if files are small
+            \end{itemize}
+            \item Then single, double and triple indirect
+        \end{itemize}
+    \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_8.png}
+    \end{center}
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Inode Pointer Structure, \href{https://en.wikipedia.org/wiki/Inode_pointer_structure}{link}
+        \item Udacity (2015). \textit{Inode Structure} [online]. Available at: \href{https://www.youtube.com/watch?v=tMVj22EWg6A}{link} (Accessed May 28th, 2020)
+    \end{enumerate}
     \item Unix Inodes and Path Search
     \begin{itemize}
         \item Unix Inodes
@@ -248,7 +279,7 @@
             \item Is what we see on typing `ls -li' command in terminal
 
             \begin{center}
-            \includegraphics[width=\linewidth]{images/week_8_notes_1_8.png}
+            \includegraphics[width=\linewidth]{images/week_8_notes_1_9.png}
             \end{center}
             \item Describes where on the disk the blocks for a file are placed
             \item inode information is loaded to main memory $^{[1]}$
@@ -271,7 +302,7 @@
     \item File Buffer Cache
     \begin{itemize}
         \item Reads information from disk only once and then stores retrieved file blocks
-        in memory until no longer needed $^{[1]}$
+        in memory until no longer needed $^{[]}$
         \begin{itemize}
             \item Because reading from disk is slow
             \item Is common to read same part of disk multiple times
