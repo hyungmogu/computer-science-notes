@@ -53,4 +53,29 @@
 \author{Team Treehouse}
 \maketitle
 
+\section{Adding and Removing Items Means Copying}
+
+\bigskip
+
+\begin{itemize}
+    \item Adding / Removing elements $\to$ new array must be declared and copy into it
+    \item Adding
+    \begin{itemize}
+        \item \textbf{Syntax:} System.arraycopy(Object src, int srcPos, Object, dest, int destPos, int length);
+        \begin{itemize}
+            \item \textbf{src:} Is the source array
+            \item \textbf{srcPos:} Is the starting position of the source array
+            \item \textbf{dest:} Is the destination array
+        \end{itemize}
+    \end{itemize}
+
+    \begin{lstlisting}[language=Java, caption={lesson\_07/Explore.java}]
+    String[] classmates = {"Ben", "Johnny", "Pasan"};
+    String[] classmatesAndMe = new String[4];
+
+    System.arraycopy(classmates, 0, classmatesAndMe, 0, classmates.length);
+
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
