@@ -3,13 +3,8 @@ import java.util.Comparator;
 
 public class Explore {
     public static void main(String[] args) {
-        Arrays.toString(pickLunchSpots("Cafeteria", "Home", "Outside"));
+        System.out.println(Arrays.toString(Scratch.pickLunchSpots("Cafeteria", "Home", "Outside")));
 
         // Returns ["Ben", "Pasan", "Johnny"]
     }
-}
-
-
-public String pickLunchSpots(String... spots) {
-    return spots;
 }
