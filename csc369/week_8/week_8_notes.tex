@@ -169,6 +169,11 @@
     % \item Possible Directory Implementations
     % \item File Links
     \item Symbolic vs Hard Links
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/week_8_notes_1_3.png}
+    \end{center}
+
     \begin{itemize}
         \item \textbf{Inode}
         \begin{itemize}
@@ -177,10 +182,15 @@
             \item Contains disk block location of the object's data $^{[1]}$
             \item Is a numerical equivalent of a full address $^{[2]}$
         \end{itemize}
-        \item \textbf{Symbolic Link}
-        \item \textbf{Hard Link}
+        \item \textbf{Symbolic Link:}
         \begin{itemize}
-            \item
+            \item Is directory entry containing "true" path to the file
+            \item Is a shortcut that reference to a file instead of inode value $^{[2]}$
+        \end{itemize}
+        \item \textbf{Hard Link:}
+        \begin{itemize}
+            \item Is a direct reference to a file via its inode $^{[2]}$
+            \item Is second directory entry identical to first
         \end{itemize}
     \end{itemize}
 
@@ -192,7 +202,7 @@
 
     \begin{enumerate}[1)]
         \item Wikipedia: inode, \href{https://en.wikipedia.org/wiki/Inode}{link}
-        \item Kumar, S. (2010). \textit{File structures} [PowerPoint Slides]. Slide Share \href{https://www.slideshare.net/shyamujaco/file-structures}{link}
+        \item Andrew. (2018, January 16). \textit{Hard links and Symbolic links — A comparison}. Medium. \href{https://medium.com/@307/hard-links-and-symbolic-links-a-comparison-7f2b56864cdd}{link}
     \end{enumerate}
     % \item Issues with Acyclic Graphs
     % \item File Sharing
