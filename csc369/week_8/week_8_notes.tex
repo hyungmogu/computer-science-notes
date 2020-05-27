@@ -245,13 +245,33 @@
     \begin{itemize}
         \item Unix Inodes
         \begin{itemize}
+            \item Is what we see on typing `ls -li' command in terminal
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/week_8_notes_1_8.png}
+            \end{center}
+
             \item Describes where on the disk the blocks for a file are placed
             \begin{itemize}
                 \item It's like a full address
             \end{itemize}
-            \item Are not directories
+            \item inode information is loaded to main memory $^{[1]}$
+            \begin{itemize}
+                \item Only for the corresponding files that are open
+                \item NOT all are loaded
+            \end{itemize}
         \end{itemize}
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Tanebaum AS, Boss H. 2015. Modern Operating Systems. 4th Edition. New Jersy: Pearson Education, Inc.
+    \end{enumerate}
     \item File Buffer Cache
     % \item Caching Writes
     % \item Read Ahead
