@@ -250,11 +250,7 @@
             \begin{center}
             \includegraphics[width=\linewidth]{images/week_8_notes_1_8.png}
             \end{center}
-
             \item Describes where on the disk the blocks for a file are placed
-            \begin{itemize}
-                \item It's like a full address
-            \end{itemize}
             \item inode information is loaded to main memory $^{[1]}$
             \begin{itemize}
                 \item Only for the corresponding files that are open
@@ -273,6 +269,35 @@
         \item Tanebaum AS, Boss H. 2015. Modern Operating Systems. 4th Edition. New Jersy: Pearson Education, Inc.
     \end{enumerate}
     \item File Buffer Cache
+    \begin{itemize}
+        \item Reads information from disk only once and then stores retrieved file blocks
+        in memory until no longer needed $^{[1]}$
+        \begin{itemize}
+            \item Because reading from disk is slow
+            \item Is common to read same part of disk multiple times
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item Reading email message, read the message for an edit, and
+                read the message again when copying to folder
+            \end{enumerate}
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Linux System Administrators Guide: Chapter 6. Memory Management, \href{https://www.tldp.org/LDP/sag/html/buffer-cache.html}{link}
+    \end{enumerate}
     % \item Caching Writes
     % \item Read Ahead
 \end{itemize}
