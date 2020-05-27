@@ -61,21 +61,145 @@
     \item Adding / Removing elements $\to$ new array must be declared and copy into it
     \item Adding
     \begin{itemize}
-        \item \textbf{Syntax:} System.arraycopy(Object src, int srcPos, Object, dest, int destPos, int length);
+        \item \textbf{Syntax:} \textit{System.arraycopy(Object src, int srcPos, Object, dest, int destPos, int length);}
         \begin{itemize}
             \item \textbf{src:} Is the source array
             \item \textbf{srcPos:} Is the starting position of the source array
             \item \textbf{dest:} Is the destination array
+            \item \textbf{destPos:} Is the starting position in the destination data
+            \item \textbf{length:} Is the number of array elements to be copied
         \end{itemize}
     \end{itemize}
 
-    \begin{lstlisting}[language=Java, caption={lesson\_07/Explore.java}]
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore.java}]
     String[] classmates = {"Ben", "Johnny", "Pasan"};
     String[] classmatesAndMe = new String[4];
 
     System.arraycopy(classmates, 0, classmatesAndMe, 0, classmates.length);
 
+    // Returns [Ben, Johnny, Pasan, null]
+    \end{lstlisting}
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Explore.java \&\& java Explore}
+        in terminal
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Quiz 2}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Since you can add elements to an array by making a new array and copying values into it, how do you suppose you go
+    about removing items?
+
+    \begin{enumerate}[A.]
+        \item You still make a new copy, one element smaller than the current one, and simply don't copy over the value that you want to remove.
+        \item I've given up all hope.
+        \item You call the method deleteItemAt and pass the index you want deleted.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    Why can you not simply just add an item to an array?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item Polymorphism doesn't allow for growth of objects that are statically typed.
+        \item The interface does provide an proper method that allows for this. It is due to method access levels.
+        \item An array's length is immutable and it requires elements to be located in a contiguous order in memory.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+\end{enumerate}
+
+\bigskip
+
+\section{Sorting}
+
+\bigskip
+
+
+\begin{itemize}
+    \item \textbf{Syntax:} \textit{Arrays.sort(DATA\_TYPE[] arr, int from\_index, int to\_index)}
+    \item \textbf{Syntax 2:} \textit{Arrays.sort(DATA\_TYPE[] arr, Comparator c)}
+    \begin{itemize}
+        \item Comparator is like \textit{lambda} in python
+        \item \textit{Arrays.sort} is in \textit{java.util.Arrays}
+        \item \textit{Comparator} is in \textit{java.util.Comparator}
+    \end{itemize}
+
+    \begin{lstlisting}[language=Java, caption={lesson\_03/Explore.java}]
+    import java.util.Arrays;
+    import java.util.Comparator;
+
+    public class Explore {
+        public static void main(String[] args) {
+            String[] classmates = {"Ben", "Johnny", "Pasan"};
+
+            Arrays.sort(classmates, Comparator.comparing(String::length)); // <- sorts based on length of string
+            System.out.println(Arrays.toString(classmates));
+
+            // Returns ["Ben", "Pasan", "Johnny"]
+        }
+    }
     \end{lstlisting}
 \end{itemize}
+
+\bigskip
+
+\section{Quiz 3}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Assume that you have a class representing Planet. It has a method named\\
+    \textit{getDistanceInAstromicalUnits} that helps figure out the distance from the Sun.
+
+    \bigskip
+
+    Instances of the Planet class are created and placed in an Planet[] array named
+    planets.
+
+    \bigskip
+
+    Which code snippet would allow you to sort the planets array by distance?
+
+    \begin{enumerate}[A.]
+        \item Arrays.sort(planets);
+        \item Planet.sortBy(getAstronomicalUnits());
+        \item Arrays.sort(planets, Comparator.comparing(Planet::getDistanceInAstronomicalUnits));
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+\end{enumerate}
 
 \end{document}
