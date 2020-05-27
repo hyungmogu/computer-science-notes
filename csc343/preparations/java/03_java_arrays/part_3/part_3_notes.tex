@@ -221,11 +221,35 @@
     \item \textbf{Syntax:} \textit{METHOD\_NAME(DATA\_TYPE ... ARG\_VAR\_NAME)}
     \begin{itemize}
         \item Functions like \textit{args} in python
+        \item Can pass zero to many more of arguments of the same data type
         \item Combines arguements of same data type into an array
     \end{itemize}
 
-    \begin{lstlisting}[language=Java, caption={lesson\_05/Explore.java}]
+    \bigskip
 
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java, caption={lesson\_05/Scratch.java}]
+    public class Scratch {
+        public static String[] pickLunchSpots(String... spots) { // <- This guy here :)
+            return spots;
+        }
+    }
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=Java, caption={lesson\_05/Explore.java}]
+    import java.util.Arrays;
+    import java.util.Comparator;
+
+    public class Explore {
+        public static void main(String[] args) {
+            System.out.println(Arrays.toString(Scratch.pickLunchSpots("Cafeteria", "Home", "Outside")));
+
+            // Returns [Cafeteria, Home, Outside]
+        }
+    }
     \end{lstlisting}
 
     \bigskip
@@ -239,5 +263,71 @@
         in terminal
     \end{itemize}
 \end{itemize}
+
+\bigskip
+
+\section{i \textless videos.length}
+
+\bigskip
+
+\bigskip
+
+\section{Quiz 3}
+
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    How does the java.util.Arrays sort method, sort by default?
+
+    \begin{enumerate}[A.]
+        \item By using each object's compareTo method.
+        \item By using the time of object creation.
+        \item By using an advanced algorithm involving mutexes.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    What does this method declaration imply?
+
+    \begin{lstlisting}[language=Java]
+        public String mailMerge(String template, String... values)
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \item You should call it with an interface that implements array methods.
+        \item You should pass a String template and zero to many more String arguments.
+        \item You can call the method and values is a required argument
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    What does this method signature imply?
+
+    \begin{lstlisting}[language=Java]
+        public String[] split(String pattern);
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \itemThe method split accepts varargs
+        \itemThe method split returns an array of Strings.
+        \itemThe method split returns a String.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+\end{enumerate}
 
 \end{document}
