@@ -65,14 +65,22 @@
         \item Is equivalent to `\textit{\^REGEX\_EXPRESSION\$}'
         \item Can be used to validate something
 
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
     \begin{lstlisting}[language=Java, caption={demo/Explore1.java}]
     Console console = System.console();
     String zipCode = "90210";
     if (zipCode.matches("^\\d{5}(-\\d{4})?$")) {
-    System.out.printf("%s is a valid zip code%n", zipCode); // <- returns 90210 is a valid zip code
+    System.out.printf("%s is a valid zip code%n", zipCode);
     } else {
     System.out.printf("%s is NOT a valid zip code%n", zipCode);
     }
+
+    // Returns '90210 is a valid zip code'
     \end{lstlisting}
 
     \end{itemize}
@@ -80,11 +88,77 @@
     \item \textit{STRING\_VAR.split(...)}
     \begin{itemize}
         \item Splits string by the regex pattern
+        \item $\backslash$ W+ means NOT words
+        \item (...)? means optional, i.e. can be included, but it's okay if its
+        not included
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/image_1.png}
+        \end{center}
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
 
     \begin{lstlisting}[language=Java, caption={demo/Explore2.java}]
+    String skills = "JavaScript, HTML, CSS, and Java";
+    for (String skill : skills.split("\\W+(and\\W+)?")) {
+        System.out.printf("Skill : %s \n", skill);
+    }
+
+    // Returns
+    // Skill : JavaScript
+    // Skill : HTML
+    // Skill : CSS
+    // Skill : Java
     \end{lstlisting}
 
     \end{itemize}
+
+    \item
+
+    \textit{Pattern pattern = Pattern.compile(REGEX\_PATTERN);}
+
+    \textit{Matcher matcher = pattern.matcher(STRING\_VAR)}
+
+    \begin{itemize}
+        \item Returns all words matching pattern
+        \item Note: (...) means a group
+    \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/image_2.png}
+    \end{center}
+
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=Java, caption={demo/Explore3.java}]
+    String script = "Procrastination is surely not the destination, should we talk about shiny things?";
+
+    Pattern pattern = Pattern.compile("(\\w*(sh|ti|su)\\w*)",
+                                        Pattern.CASE_INSENSITIVE);
+    Matcher matcher = pattern.matcher(script);
+
+    while (matcher.find()) {
+        System.out.printf("%s is a shushy word because of %s \n",
+                            matcher.group(1), // <- returns value of outer parenthesis
+                            matcher.group(2)); // <- returns value of inner parenthesis
+    }
+
+    // Returns
+    // Procrastination is a shushy word because of ti
+    // surely is a shushy word because of su
+    // destination is a shushy word because of ti
+    // should is a shushy word because of sh
+    // shiny is a shushy word because of sh
+    \end{lstlisting}
 
 \end{itemize}
 
