@@ -168,10 +168,34 @@
         \end{itemize}
         \item Solution $\to$ \textbf{Logical Block Addressing} (modern drives)
     \end{itemize}
+
     \item Logical Block Addressing
     \begin{itemize}
-        \item
+        \item Is a common scheme used for specifying the location of blocks of data
+        on computer storage device $^{[1]}$
+        \item Is implemented in most hard disk drives after 1996 $^{[1]}$
+        \item Hides disk parameters from the OS
+        \item Exposes storage as linear array of blocks
+        \begin{itemize}
+            \item Maps blocks to cylinder/surface/track/sector
+            \item Each block size is \underline{512 bytes}
+        \end{itemize}
     \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_9_notes_1_8.png}
+    \end{center}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Logical Block Addressing, \href{https://en.wikipedia.org/wiki/Logical_block_addressing}{link}
+    \end{enumerate}
+
     \item Disk Scheduling
     % \item Back to Files and Directories
     % \item Disk Layout Strategies
