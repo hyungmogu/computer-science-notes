@@ -53,4 +53,49 @@
 \author{Team Treehouse}
 \maketitle
 
+\begin{itemize}
+    \item Objects references use double equal to check if they point to the same
+    object in memory
+
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore.java}]
+    Object firstObject = new Object();
+    Object secondObject = new Object();
+
+    System.out.println(firstObject == secondObject); // <- Returns false
+
+    Object thirdObject = firstObject;
+
+    System.out.println(firstObject == thirdObject); // <- Returns true
+    \end{lstlisting}
+
+    \item String Literals are actually referring to the same object
+
+    \begin{lstlisting}[language=Java]
+    String firstObject = "String";
+    String secondObject = "String";
+
+    System.out.println(firstObject == secondObject); // <- Returns true
+    \end{lstlisting}
+
+    \item String object that contains the same characters but point to different
+    objects cannot use double equals
+
+    \begin{lstlisting}[language=Java]
+    String firstObject = "String";
+    String secondObject = new String("String");
+
+    System.out.println(firstObject == secondObject); // <- Returns false
+    \end{lstlisting}
+
+    \item String Interning adds to the same pool where string literals live, so
+    it returns the same reference
+
+    \begin{lstlisting}[language=Java]
+    String firstObject = "String";
+    String secondObject = new String("String").intern();
+
+    System.out.println(firstObject == secondObject); // <- Returns true
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
