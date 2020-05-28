@@ -57,7 +57,7 @@
     \item Objects references use double equal to check if they point to the same
     object in memory
 
-    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore.java}]
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore1.java}]
     Object firstObject = new Object();
     Object secondObject = new Object();
 
@@ -70,7 +70,7 @@
 
     \item String Literals are actually referring to the same object
 
-    \begin{lstlisting}[language=Java]
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore2.java}]
     String firstObject = "String";
     String secondObject = "String";
 
@@ -80,7 +80,7 @@
     \item String object that contains the same characters but point to different
     objects cannot use double equals
 
-    \begin{lstlisting}[language=Java]
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore3.java}]
     String firstObject = "String";
     String secondObject = new String("String");
 
@@ -90,12 +90,30 @@
     \item String Interning adds to the same pool where string literals live, so
     it returns the same reference
 
-    \begin{lstlisting}[language=Java]
+    \begin{lstlisting}[language=Java, caption={lesson\_01/Explore4.java}]
     String firstObject = "String";
     String secondObject = new String("String").intern();
 
     System.out.println(firstObject == secondObject); // <- Returns true
     \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Files can be compiled and displayed by typing \textit{javac Explore\textless NUMBER \textgreater.java \&\& java Explore\textless NUMBER \textgreater}
+        in terminal
+
+        \bigskip
+
+        i.e.
+
+        javac Explore1.java \&\& java Explore1
+
+    \end{itemize}
 \end{itemize}
 
 \end{document}
