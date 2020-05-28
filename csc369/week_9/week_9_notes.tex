@@ -148,7 +148,30 @@
     % \item OS design principles
     % \item Disks are messy
     \item OS $\leftrightarrow$ disk interaction
+    \begin{itemize}
+        \item The traditional method (Extended CHS, or Extended Cylinder, Head, Sector)
+        \begin{itemize}
+            \item Specifying disk requests requires a lot of info
+            \begin{itemize}
+                \item Cylinder \#, Surface \#, Track \#, Sector \#, transfer size $\cdots$
+            \end{itemize}
+
+            \item Modern disks are even more complicated
+            \begin{itemize}
+                \item Not all tracks have the same number of sectors
+                \item Sectors are remapped
+            \end{itemize}
+            \item Older disks require OS to specify all of this
+            \begin{itemize}
+                \item The OS needs to know all disk parameters
+            \end{itemize}
+        \end{itemize}
+        \item Solution $\to$ \textbf{Logical Block Addressing} (modern drives)
+    \end{itemize}
     \item Logical Block Addressing
+    \begin{itemize}
+        \item
+    \end{itemize}
     \item Disk Scheduling
     % \item Back to Files and Directories
     % \item Disk Layout Strategies
