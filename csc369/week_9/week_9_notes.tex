@@ -149,8 +149,9 @@
     % \item Disks are messy
     \item OS $\leftrightarrow$ disk interaction
     \begin{itemize}
-        \item The traditional method (Extended CHS, or Extended Cylinder, Head, Sector)
+        \item The old way
         \begin{itemize}
+            \item Is called \textbf{Extended CHS} (Extended Cylinder, Head, Sector)
             \item Specifying disk requests requires a lot of info
             \begin{itemize}
                 \item Cylinder \#, Surface \#, Track \#, Sector \#, transfer size $\cdots$
@@ -166,7 +167,10 @@
                 \item The OS needs to know all disk parameters
             \end{itemize}
         \end{itemize}
-        \item Solution $\to$ \textbf{Logical Block Addressing} (modern drives)
+        \item Now
+        \begin{itemize}
+            \item \textbf{Logical Block Addressing}
+        \end{itemize}
     \end{itemize}
 
     \item Logical Block Addressing
@@ -197,6 +201,25 @@
     \end{enumerate}
 
     \item Disk Scheduling
+    \begin{itemize}
+        \item Is also known as I/O scheduling $^{[1]}$
+        \item Is done by operating systems $^{[1]}$
+        \item Is important because $^{[1]}$
+        \begin{itemize}
+            \item Hard drives are one of the slowest parts of the computer system
+            and thus need to be accessed in an efficient manner
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Geeks for Geeks: Disk Scheduling Algorithms, \href{https://www.geeksforgeeks.org/disk-scheduling-algorithms/}{link}
+    \end{enumerate}
     % \item Back to Files and Directories
     % \item Disk Layout Strategies
     % \item Indexed Allocation: Unix Inodes
