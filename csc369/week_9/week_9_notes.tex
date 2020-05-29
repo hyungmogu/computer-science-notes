@@ -283,13 +283,17 @@
     \begin{enumerate}[1)]
         \item Ousterhout J. (1991). \textit{The Design and Implementation of a Log-Structured File System}. \href{https://people.eecs.berkeley.edu/~brewer/cs262/LFS.pdf}{link}
     \end{enumerate}
-    \item NFTS (Windows)
+    \item NTFS (Windows)
     \begin{itemize}
         \item Is an acronym for \textbf{NT File System}
         \item Was first introduced in 1993, as part of Windows NT 3.1 Release $^{[1]}$
         \item Replaces traditional FAT (File Allocation Table) file system
         \item Is used in Windows NT, Windows 2000 and above $^{[1]}$
     \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_9_notes_1_11.png}
+    \end{center}
 
     \bigskip
 
@@ -301,6 +305,26 @@
         \item Datto : What Is NTFS and How Does It Work?, \href{https://www.datto.com/library/what-is-ntfs-and-how-does-it-work}{link}
     \end{enumerate}
     \item MFT Record
+    \begin{itemize}
+        \item Is also called \textbf{Master File Table Record} $^{[1]}$
+        \item Contains records about every other file and directory in NTFS volume $^{[1]}$
+        \item Is a table of metadata like inodes but more flexible
+    \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/week_9_notes_1_12.png}
+    \end{center}
+
+    \bigskip
+
+    \underline{\textbf{Refernces:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Webopedia : MFT - Master File Table, \href{https://www.webopedia.com/TERM/M/MFT.html}{link}
+        \item Santa Clara University : COEN 252 Computer Forensics, \href{http://www.cse.scu.edu/~tschwarz/coen252_07Fall/Lectures/NTFS.html}{link}
+    \end{enumerate}
     % \item MFT Record for a Small Directory
     % \item Better I/O performance through parallelism
 \end{itemize}
