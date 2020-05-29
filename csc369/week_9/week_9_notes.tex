@@ -226,8 +226,7 @@
     % \item Unix Inodes and Path Search
     \item File System Implementation
     \begin{itemize}
-        \item \textbf{Master Block} determines location of root directory
-        (aka partition control block, superblock)
+        \item \textbf{Master Block / Super Block} determines location of root directory
         \item \textbf{Free map / Bitmap} determines which blocks are free, allocated
         \item Remaining disk blocks used to store files (and dirs)
 
@@ -254,10 +253,16 @@
             \end{center}
         \end{itemize}
     \end{mdframed}
-    \item Original Unix File System
+    % \item Original Unix File System
     % \item Data and Inode Placement
-    \item FFS
-    \item Cylinder Groups
+    \item FFS (Fast File System)
+    \begin{itemize}
+        \item Is an improvement made to original Unix File System
+        \item Is done in early-mid 80s
+        \item Improved disk utilization and decreased response time
+        \item Uses \textbf{Cylinder Groups}
+    \end{itemize}
+    % \item Cylinder Groups
     % \item Space Allocation in Cylinder Groups
     % \item More FFS Solutions
     % \item FFS: Consistency I ssues
