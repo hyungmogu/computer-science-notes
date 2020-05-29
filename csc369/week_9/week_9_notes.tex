@@ -225,6 +225,12 @@
     % \item Indexed Allocation: Unix Inodes
     % \item Unix Inodes and Path Search
     \item File System Implementation
+    \begin{itemize}
+        \item \textbf{Master Block} determines location of root directory
+        (aka partition control block, superblock)
+        \item \textbf{Free map / Bitmap} determines which blocks are free, allocated
+        \item Remaining disk blocks used to store files (and dirs)
+    \end{itemize}
     \item Original Unix File System
     % \item Data and Inode Placement
     \item FFS
