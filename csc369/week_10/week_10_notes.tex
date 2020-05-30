@@ -88,17 +88,51 @@
     % \item Deadlock Continued
     \item Conditions for Deadlock
     \begin{itemize}
-        \item Neccesary Condition
+        \item Neccesary and Sufficient Conditions
         \begin{enumerate}[1.]
             \item Mutual Exclusion
             \item Hold and wait
             \item No preemption
-        \end{enumerate}
-        \item Sufficient Condition
-        \begin{itemize}
             \item Circular wait
-        \end{itemize}
+        \end{enumerate}
     \end{itemize}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Aside}}
+
+        \bigskip
+
+        \begin{enumerate}
+            \item Wait. Necessary condition? $^{[1]}$
+            \begin{itemize}
+                \item We say $N$ is a necessary condition for $S$ if we don't have $N$,
+                we won't have $S$.
+            \end{itemize}
+            \item Wait. Sufficient condition? $^{[1]}$
+            \begin{itemize}
+                \item We say $S$ is a necessary condition for $N$ if we have $S$,
+                then we know that $N$ must follow, i.e. $S \Rightarrow N$
+            \end{itemize}
+            \item Hold on. How about necessary and sufficient condition? $^{[2]}$
+            \begin{itemize}
+                \item Is when necessary and sufficient conditions are put together
+                similar to if and only if
+            \end{itemize}
+        \end{enumerate}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Fayetteville State University: Necessary and Sufficient Conditions, \href{http://faculty.uncfsu.edu/jyoung/necessary_and_sufficient_conditions.htm}{link}
+    \end{enumerate}
     % \item One More Condition
     \item Solutions
     % \item Deadlock Prevention
