@@ -91,9 +91,25 @@
         \item Neccesary and Sufficient Conditions
         \begin{enumerate}[1.]
             \item Mutual Exclusion
+            \begin{itemize}
+                \item Only one process may use a resource at a time
+            \end{itemize}
             \item Hold and wait
+            \begin{itemize}
+                \item A process may hold allocated resources while awaitng
+                assignment of others
+            \end{itemize}
             \item No preemption
+            \begin{itemize}
+                \item No Resource can be forcibly removed from a process holding
+                it
+            \end{itemize}
             \item Circular wait
+            \begin{itemize}
+                \item Each process must be waiting for a resource which is being
+                held by another process, which in turn is waiting for the first
+                process to release the resource $^{[3]}$
+            \end{itemize}
         \end{enumerate}
     \end{itemize}
 
@@ -118,7 +134,11 @@
             \item Hold on. How about necessary and sufficient condition? $^{[2]}$
             \begin{itemize}
                 \item Is when necessary and sufficient conditions are put together
-                similar to if and only if
+                similar to if and only if $^{[2]}$
+
+                \begin{center}
+                    \includegraphics[width=0.8\linewidth]{images/week_10_notes_1_2.png}
+                \end{center}
             \end{itemize}
         \end{enumerate}
 
@@ -132,9 +152,14 @@
 
     \begin{enumerate}[1)]
         \item Fayetteville State University: Necessary and Sufficient Conditions, \href{http://faculty.uncfsu.edu/jyoung/necessary_and_sufficient_conditions.htm}{link}
+        \item Wikipedia: Necessity and Sufficiency, \href{https://en.wikipedia.org/wiki/Necessity_and_sufficiency}{link}
+        \item Wikipedia: Deadlock, \href{https://en.wikipedia.org/wiki/Deadlock#Necessary_conditions}{link}
     \end{enumerate}
     % \item One More Condition
     \item Solutions
+    \begin{itemize}
+        \item
+    \end{itemize}
     % \item Deadlock Prevention
     % \item Preventing Hold and Wait
     % \item Preventing No-Preemption
