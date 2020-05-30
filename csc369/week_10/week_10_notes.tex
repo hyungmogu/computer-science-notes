@@ -158,8 +158,33 @@
     % \item One More Condition
     \item Solutions
     \begin{itemize}
-        \item
+        \item Prevention
+        \begin{itemize}
+            \item Ensures that at least one of the necessary conditions to deadlock
+            will never occur $^{[1]}$
+        \end{itemize}
+        \item Avoidance
+        \begin{itemize}
+            \item Ensures that the system will not enter an unsafe mode $^{[1]}$
+        \end{itemize}
+        \item Detection and Recovery
+        \begin{itemize}
+            \item Ensures that the system recovers from deadlock if a deadlock has
+            occured in the system. $^{[2]}$
+        \end{itemize}
+        \item Do Nothing!
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item pediaa: What is the Difference Between Deadlock Prevention and Deadlock Avoidance, \href{https://pediaa.com/what-is-the-difference-between-deadlock-prevention-and-deadlock-avoidance/}{link}
+        \item Geeks for Geeks: Recovery from Deadlock in Operating System, \href{https://www.geeksforgeeks.org/recovery-from-deadlock-in-operating-system/?ref=rp}{link}
+    \end{enumerate}
     % \item Deadlock Prevention
     % \item Preventing Hold and Wait
     % \item Preventing No-Preemption
