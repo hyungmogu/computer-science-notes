@@ -240,11 +240,11 @@
         \end{itemize}
     \end{itemize}
 
-    \item Why would atomicity fail?
-    \item Definitions for Transactions
-    \item How to ensure atomicity in the face of failures?
-    \item Write-ahead logging
-    \item Problems with logging
+    % \item Why would atomicity fail?
+    % \item Definitions for Transactions
+    % \item How to ensure atomicity in the face of failures?
+    % \item Write-ahead logging
+    % \item Problems with logging
     % \item Concurrent Transactions
     % \item Conflicting Operations
     % \item Conflict Serializability
@@ -254,7 +254,23 @@
     % \item Timestamp Protocols
     % \item Timestamp Ordering
     \item Deadlock and Starvation
-    \item Communication Deadlocks
+    \begin{itemize}
+        \item A set of threads is in a \textbf{deadlocked} state when every process in the
+        set is waiting for an event that can be caused only by another proess in the
+        set.
+
+        \begin{center}
+            \includegraphics[width=\linewidth]{images/week_10_notes_1_4.png}
+        \end{center}
+
+        \item A thread is suffering \textbf{starvation} if it is waiting indefinitely
+        because other threads are in some way preferred
+    \end{itemize}
+
+    \bigskip
+
+
+    % \item Communication Deadlocks
     \item Livelock
 \end{itemize}
 
