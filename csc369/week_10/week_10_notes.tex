@@ -219,6 +219,9 @@
         \item University of Chicago: Deadlock Avoidance, \href{https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/7_Deadlocks.html}{link}
     \end{enumerate}
     \item Unsafe States \& Algorithm
+    \begin{itemize}
+        \item An \textbf{unsafe} state is one which is not safe
+    \end{itemize}
     % \item Restrictions on Avoidance
     % \item Deadlock Detection \& Recovery
     % \item Draw Resource Alloc Graph
@@ -227,6 +230,16 @@
     % \item Reality Check
     % \item Why does the Ostrich Algorithm Work?
     \item What is Atomicity?
+    \begin{itemize}
+        \item \textbf{atomic} means without interruption (from week 2 notes)
+        \item e.g. Using outdoor ATM machine (Single account)
+        \begin{itemize}
+            \item Only one person can use the machine.
+            \item Others need to wait in line
+            \item None can interrupt the transaction
+        \end{itemize}
+    \end{itemize}
+
     \item Why would atomicity fail?
     \item Definitions for Transactions
     \item How to ensure atomicity in the face of failures?
