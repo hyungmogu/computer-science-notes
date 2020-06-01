@@ -213,9 +213,39 @@
     \item Stack \& Buffer Overflow Attacks
     \begin{itemize}
         \item Happens when a program writes more data to a buffer located on the
-        stacj than what is actually allocated $^{[1]}$
+        stack than what is actually allocated $^{[1]}$
         \item Is most common means of gaining unauthorized access to a system
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=c]
+    #include <string.h>
+
+    void foo(char *bar)
+    {
+        char c[12]; // <- Overflow with value more than 12 characters in length
+
+        strcpy(c, bar);  // no bounds checking
+    }
+
+    int main(int argc, char **argv)
+    {
+        foo(argv[1]);
+        return 0;
+    }
+    \end{lstlisting}
+
+    \bigskip
+
     \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/week_11_notes_1_5.png}
+    \end{center}
 
     \bigskip
 
