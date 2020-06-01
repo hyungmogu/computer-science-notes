@@ -153,11 +153,63 @@
         \end{itemize}
         \item Networks
         \begin{itemize}
-            \item
+            \item Data treveling over unsecured communication lines, across multiple
+            administrative domains
+            \item e.g. Sending password data through HTTP, and not HTTPS (Data is sent without encryption)
         \end{itemize}
     \end{itemize}
     % \item Intrusion Detection
     \item Malicious Software (Malware)
+    \begin{itemize}
+        \item \textbf{Trap Doors}
+        \begin{itemize}
+            \item Is a program containing secret entry point that allows attacker
+            to bypass security
+        \end{itemize}
+        \item \textbf{Logic Bombs}
+        \begin{itemize}
+            \item Is a peiece of code intentionally inserted into a software system
+            that will set off a malicious function when specified conditions are met $^{[1]}$
+            \item e.g. Viruses that activate on certain dates $^{[1]}$
+        \end{itemize}
+        \item \textbf{Trojan Horses}
+        \begin{itemize}
+            \item Misleads user of its true intent $^{[2]}$
+            \item Tricks users into running it
+            \item Gives full access to a stranger
+            \item e.g. Fake Mac flash player $^{[3]}$
+        \end{itemize}
+
+        \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/week_11_notes_1_4.png}
+        \end{center}
+        \item \textbf{Viruses}
+        \begin{center}
+            \item Is a program that can ``infect'' other programs by copying itself
+            onto them
+        \end{center}
+        \item \textbf{Worms}
+        \begin{itemize}
+            \item Is a program that spreads via network connections
+            \item Relies on security failures on the target computer $^{[4]}$
+            \item Uses infected machine as a host to scan and infect other computers $^{[4]}$
+            \item Does not need to attach to another program like viruses
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia: Logic Bomb, \href{https://en.wikipedia.org/wiki/Logic_bomb}{link}
+        \item Wikipedia: Trojan Horse, \href{https://en.wikipedia.org/wiki/Trojan_horse_(computing)}{link}
+        \item Hongkiat: 10 Deadliest Computer Viruses of All Time, \href{https://www.hongkiat.com/blog/famous-malicious-computer-viruses/}{link}
+        \item Wikipedia: Computer worm, \href{https://en.wikipedia.org/wiki/Computer_worm}{link}
+    \end{enumerate}
+
     \item Stack \& Buffer Overflow Attacks
     % \item Stack Attack
     % \item Trusted Computing Base (TCB)
