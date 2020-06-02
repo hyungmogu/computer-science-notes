@@ -195,7 +195,7 @@ These disks were each created and formatted in the same way (on an ubuntu virtua
 
 \bigskip
 
-\begin{lstlisting}[language=Java,caption={lesson\_01/Prompter.java}]
+\begin{lstlisting}[language=C]
 % dd if=/dev/zero of=~/DISKNAME.img bs=1024 count=128
 % mke2fs -N 32 DISKNAME.img
 % sudo mount -o loop ~/DISKNAME.img /home/reid/mntpoint
@@ -238,26 +238,47 @@ specification, or on corrupted disk images.
 Other tips:
 
 \begin{itemize}
-    \item Inode and disk block numbering starts at 1 instead of 0.
-    \item The root inode is inode number 2 (at index 1)
+    \item \hl{Inode} and disk block numbering starts at 1 instead of 0.
+    \item The root \hl{inode} is inode number 2 (at index 1)
     \item The first 11 inodes are reserved.
     \item There is always a lost+found directory in the root directory.
-    \item Disk sectors are 512 bytes. (This is relevant for the i\_blocks field of the inode.)
+    \item Disk sectors are 512 bytes. (This is relevant for the \textit{i\_blocks}
+    field of the \hl{inode}.)
     \item You should be able to handle directories that require more than one block.
     \item You should be able to handle a file that needs a single indirection
-    \item Although you can construct your own structs from the information in the documentation above, you are welcome to use the ext2.h file that I used for the test code. I took out a bunch of components that we aren't using, but there are still quite a few fields that are irrelevant for our purposes.
+    \item Although you can construct your own structs from the information in the
+    documentation above, you are welcome to use the \textit{ext2.h} file that I used for
+    the test code. I took out a bunch of components that we aren't using, but
+    there are still quite a few fields that are irrelevant for our purposes.
 \end{itemize}
 
 \bigskip
 
-However, you will probably also want to explore the disk images to get an intuitive sense of how they are structured. (The next three exercises will also help you explore the disk images and get started on the assignment.)
+However, you will probably also want to explore the disk images to get an intuitive
+sense of how they are structured. (The next three exercises will also help you
+explore the disk images and get started on the assignment.)
 
-There are two good ways to interface with these images. The first way is to interact with it like a user by mounting the file system so that you can use standard commands (mkdir, cp, rm, ln) to interact with it. Details of how to do this are below. The second way is to interact with the disk as if it is a flat binary file. Use xxd to create hex dumps, diff to look for differences between the dumps, and your favorite text editor to view the diffs. For example (YMMV):
+\bigskip
 
+There are two good ways to interface with these images. The first way is to interact
+with it like a user by mounting the file system so that you can use standard
+commands (mkdir, cp, rm, ln) to interact with it. Details of how to do this are
+below. The second way is to interact with the disk as if it is a flat binary file.
+Use xxd to create hex dumps, diff to look for differences between the dumps, and
+your favorite text editor to view the diffs. For example (YMMV):
+
+\bigskip
+
+\begin{lstlisting}[language=C]
 % diff <(xxd emptydisk.img) <(xxd onefile.img) > empty-onefile.diff
 % vimdiff empty-onefile.diff
-You should be able to use a combination of these techniques to understand how files are placed on disk and how they are removed. For example, you can create a new disk image, use mount to place files of various sizes on it, unmount it, and then use xxd and diff to see how the image differs from the other images you have.
+\end{lstlisting}
 
+You should be able to use a combination of these techniques to understand how
+files are placed on disk and how they are removed. For example, you can create
+a new disk image, use mount to place files of various sizes on it, unmount it,
+and then use xxd and diff to see how the image differs from the other images
+you have.
 
 \bigskip
 
@@ -265,6 +286,48 @@ You should be able to use a combination of these techniques to understand how fi
 
 \bigskip
 
-\section{Submission}
+If you have root access on a Linux machine (or Linux virtual machine), you can
+use mount to mount the disk into your file system and to peruse its contents.
+(Note: this requires sudo, so you will need to do this on a machine (or virtual
+machine) that you administer.
+
+\bigskip
+
+On CDF, you can use a tool called FUSE that allows you to mount a file system at
+user-level (from your regular account). It may not work on an \hl{NFS} mounted file
+system, so this will only work on the CDF workstations.
+
+\bigskip
+
+Note: \textless CDFID \textgreater should be replaced with your own CDF user id below.
+
+
+\begin{lstlisting}[language=bash]
+# create a directory in /tmp and go there
+mkdir -m 700 /tmp/<CDFID>-csc369h
+cd /tmp/<CDFID>-csc369h
+
+# to create your own disk image
+dd if=/dev/zero of=DISKNAME.img bs=1024 count=128
+/sbin/mke2fs -N 32 -F DISKNAME.img
+
+# create a mount point and mount the image
+# CWD is /tmp/<CDFID>-csc369h
+mkdir mnt
+fuseext2 -o rw+ DISKNAME.img mnt
+
+# check to see if it is mounted
+df -hl
+
+# now you can use the mounted file system, for example
+mkdir mnt/test
+
+# unmount the image
+fusermount -u mnt
+\end{lstlisting}
+
+\bigskip
+
+You can use the same strategy to mount one of the images provided above.
 
 \end{document}
