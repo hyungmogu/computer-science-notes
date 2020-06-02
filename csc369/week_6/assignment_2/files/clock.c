@@ -18,7 +18,7 @@ extern struct frame *coremap;
  */
 
 int clock_evict() {
-	
+
 	return 0;
 }
 
@@ -32,7 +32,7 @@ void clock_ref(pgtbl_entry_t *p) {
 }
 
 /* Initialize any data structures needed for this replacement
- * algorithm. 
+ * algorithm.
  */
 void clock_init() {
 }
