@@ -85,8 +85,11 @@ you haven't done so already: \href{http://pages.cs.wisc.edu/~remzi/OSTEP/vm-pagi
 
 \bigskip
 
-\noindent You will find the starter code HERE. It is your responsibility this time to add
-the code in your repository and make sure that you submit all the necessary files!
+\noindent You will find the starter code \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a2/starter.zip}{HERE}.
+It is your responsibility this time to add the code in your repository and make
+sure that you submit all the necessary files!
+
+\bigskip
 
 \noindent Note that you may be generating some large trace files and must NOT commit any of
 the trace files that you generate to your repository or you will run into serious
@@ -134,8 +137,8 @@ it works but you should not have to modify it..
 
 \bigskip
 
-\noindent The simulator is executed as ./sim -f <tracefile> -m <memory size> -s <swapfile size>
--a <replacement algorithm> where memory size and swapfile size are the number of
+\noindent The simulator is executed as \textit{./sim -f \textless tracefile\textgreater  -m \textless memory size\textgreater  -s \textless swapfile size\textgreater
+-a \textless replacement algorithm\textgreater}  where memory size and swapfile size are the number of
 frames of simulated physical memory and the number of pages that can be stored in
 the swapfile, respectively. The swapfile size should be as large as the number of
 unique virtual pages in the trace, which you should be able to determine easily.
@@ -162,16 +165,21 @@ There are four main data structures that are used:
     \textit{PAGE\_SHIFT} bits (12 in our implementation) used for status (we only
     have 4 status bits, but you can add more if you find it useful). Thus, for a
     given physical frame number (e.g. 7), remember to shift it over to leave room
-    for the \hl{status bits} (e.g., 7 << \textit{PAGE\_SHIFT}) when storing into
+    for the \hl{status bits} (e.g., 7 \textless \textless \textit{PAGE\_SHIFT}) when storing into
     the pte and to shift it back when retrieving a frame number from a \hl{pte}
-    (e.g., \textit{p->frame >> PAGE\_SHIFT}).
+    (e.g., \textit{p-\textgreater frame \textgreater \textgreater PAGE\_SHIFT}).
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/assignment_2_1.png}
+    \end{center}
+
 
     \item \textit{swap.c}: The swapfile functions are all implemented in this
     file, along with \hl{bitmap} functions to track free and used space in the swap
     file, and to move virtual pages between the swapfile and (simulated)
     \hl{physical memory}. The \textit{swap\_pagein} and \textit{swap\_pageout}
     functions take a frame number and a swap offset as arguments. Be careful not
-    to pass the frame field from a page table entry (pte\_t) directly, since that
+    to pass the frame field from a \hl{page table} entry (\hl{pte\_t}) directly, since that
     would include the extra status bits. The simulator code creates a temporary
     file in the current directory where it is executed to use as the swapfile,
     and removes this file as part of the cleanup when it completes. It does not,
@@ -186,11 +194,41 @@ There are four main data structures that are used:
 and comments in this file -- it should be clear where implementation work is
 needed and what it needs to do. The rand replacement algorithm is already implemented
 for you, so you can test your translation and paging functionality independently
-of implementing the replacement algorithms.
+of implementing the \hl{replacement algorithms}.
 
 \subsection{Task 2}
 
 \bigskip
+
+\noindent Using the starter code, implement each of the four different page replacement
+algorithms: \hl{FIFO}, exact \hl{LRU}, \hl{CLOCK} (with one ref-bit), \hl{OPT}.
+
+\bigskip
+
+\noindent You will find that you want to add fields to the struct frame for the different
+page replacement algorithms. You can add them in \textit{pagetable.h}, but please label
+them clearly.
+
+\bigskip
+
+\noindent Once you're done implementing the algorithms, run all three programs from the
+provided traceprogs, plus a fourth program of your choosing with interesting memory
+reference behaviour, using each of your algorithms (include rand as well). For each
+algorithm, run the programs on memory sizes 50, 100, 150, and 200. Use the data
+from these runs to create a set of tables that include the following columns.
+ (Please label your columns in the following order,)
+
+\bigskip
+
+\begin{itemize}
+    \item Hit rate
+    \item Hit count
+    \item Miss count
+    \item Overall eviction count
+    \item Clean eviction count
+    \item Dirty eviction count
+\end{itemize}
+
 
 \subsection{Write up}
 
