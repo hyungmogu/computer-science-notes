@@ -118,4 +118,50 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Categorizing Your Output with 'AS'}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} SELECT \textit{COLUMN\_NAME} \textbf{AS} \textit{ALIAS} FROM \textit{TABLE\_NAME};
+    \item `AS' is used to relabel a column to another
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT username AS Username, first_name AS "First Name" FROM users;
+    SELECT title AS Title, year AS "Year Released" FROM movies;
+    SELECT name AS Name, description AS Description, price AS "Current Price" FROM products;
+    SELECT name Name, description Description, price "Current Price" FROM products;
+    \end{lstlisting}
+\end{itemize}
+
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.sql}
+\end{itemize}
+
+
 \end{document}
