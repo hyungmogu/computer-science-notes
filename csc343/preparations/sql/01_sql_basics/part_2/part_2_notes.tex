@@ -92,4 +92,30 @@
     \item Solution included in \textit{exercise\_1.sql}
 \end{itemize}
 
+\bigskip
+
+\section{Retrieving Specific Columns of Information}
+
+\bigskip
+
+\begin{itemize}
+    \item SELECT with columns
+    \begin{itemize}
+        \item \textbf{Syntax:} SELECT \textit{COLUMN\_NAME1, COLUMN\_NAME2, ...} FROM \textit{TABLE\_NAME};
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT first_name, last_name FROM customers;
+    SELECT name, description, price FROM products;
+    SELECT title, author, isbn, year_released FROM books;
+    SELECT name, species, legs FROM pets;
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
