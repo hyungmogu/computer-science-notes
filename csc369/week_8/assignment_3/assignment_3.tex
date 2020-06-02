@@ -59,7 +59,7 @@
 \bigskip
 
 \noindent In this assignment, you will explore the implementation of a particular file
-system, ext2, and will write tools to modify \hl{ext2}-format virtual disks. To do
+system, \hl{ext2}, and will write tools to modify \hl{ext2}-format virtual disks. To do
 this work, you will need to be comfortable working with binary data and will
 need to learn about the \hl{ext2 filesystem}.
 
@@ -76,8 +76,9 @@ marks lost in another section of the assignment.
 \bigskip
 
 Your task is to write five programs (in C) that operate on an ext2 formatted
-virtual disk. The executables must be named ext2\_ls, ext2\_cp, ext2\_mkdir, ext2\_ln,
-and ext2\_rm and must take the specified arguments.
+virtual disk. The executables must be named \textit{ext2\_ls}, \textit{ext2\_cp},
+\textit{ext2\_mkdir}, \textit{ext2\_ln}, and \textit{ext2\_rm} and must take the
+specified arguments.
 
 \bigskip
 
@@ -106,7 +107,7 @@ and ext2\_rm and must take the specified arguments.
     should return the appropriate error (ENOENT). Please read the specifications
     of ext2 carefully, some things you will not need to worry about (like permissions,
     gid, uid, etc.), while setting other information in the inodes may be important
-    (e.g., i\_dtime).
+    (e.g., \textit{i\_dtime}).
 
     \item \textbf{ext2\_mkdir:} This program takes two command line arguments.
     The first is the name of an ext2 formatted virtual disk. The second is an
@@ -148,10 +149,10 @@ and ext2\_rm and must take the specified arguments.
     Bonus(5\% extra): Implement an additional "-r" flag (after the disk image argument),
     which allows removing directories as well. In this case, you will have to recursively
     remove all the contents of the directory specified in the last argument. If "-r" is
-    used with a regular file or link, then it should be ignored (the ext2\_rm
+    used with a regular file or link, then it should be ignored (the \textit{ext2\_rm}
     operation should be carried out as if the flag had not been entered). If you
-    decide to do the bonus, make sure first that your ext2\_rm works, then create
-    a new copy of it and rename it to ext2\_rm\_bonus.c, and implement the
+    decide to do the bonus, make sure first that your \textit{ext2\_rm} works, then create
+    a new copy of it and rename it to \textit{ext2\_rm\_bonus.c}, and implement the
     additional functionality in this separate source file.
 \end{itemize}
 
@@ -170,6 +171,81 @@ that opens a specific directory entry and writes to it.
 \bigskip
 
 \section{Learning about System}
+
+\bigskip
+
+Here are several sample virtual disk images:
+
+\bigskip
+
+\begin{itemize}
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/emptydisk.img}{emptydisk:} An empty virtual disk.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/onefile.img}{onefile:} A single text file has been added to emptydisk.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/deletedfile.img}{deletedfile:} The file from onefile has been removed.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/hardlink.img}{onedirectory:} A single directory containing a text file has been added to emptydisk.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/hardlink.img}{hardlink:} A hard link to the textfile in onedirectory was added.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/deleteddirectory.img}{deleteddirectory:} A recursive remove was used to remove the directory and file from onedirectory.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/twolevel.img}{twolevel:} The root directory contains a directory called level1 and a file called afile. level1 contains a directory called level2, and level2 contains a file called bfile.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/largefile.img}{largefile:} A file larger than 13KB (13440 bytes) is in the root directory. This file requires the single indirect block in the inode.
+\end{itemize}
+
+\bigskip
+
+These disks were each created and formatted in the same way (on an ubuntu virtual machine):
+
+\bigskip
+
+\begin{lstlisting}[language=Java,caption={lesson\_01/Prompter.java}]
+% dd if=/dev/zero of=~/DISKNAME.img bs=1024 count=128
+% mke2fs -N 32 DISKNAME.img
+% sudo mount -o loop ~/DISKNAME.img /home/reid/mntpoint
+% cd /home/reid/mntpoint
+% ...... normal linux commands to add/remove files/directories/links .....
+% cd ~
+% umount /home/reid/mntpoint
+\end{lstlisting}
+
+\bigskip
+
+Since we are creating images with mke2fs, the disks are formatted with the \href{https://en.wikipedia.org/wiki/Ext2}{ext2
+file system}. You may wish to read about this system before doing some exploration.
+The \href{http://en.wikipedia.org/wiki/Ext2}{wikipedia page for ext2} provides a
+good overview, but the \href{http://wiki.osdev.org/Ext2}{Ext2 wiki} and Dave
+Poirer's \href{http://www.nongnu.org/ext2-doc/index.html}{Second Extended File System}
+article provide more detail on how the system places data onto a disk. It's a good
+reference to keep on hand as you explore.
+
+\bigskip
+
+We are restricting ourselves to some simple parameters, so you can make the
+following assumptions when you write your code:
+
+\bigskip
+
+A disk is 128 blocks where the block size is 1024 bytes.
+There is only one block group.
+There are 32 inodes.
+You do not have to worry about permissions or modified time fields in the inodes. You should set the type (in i_mode), i_size, i_links_count, i_blocks(disk sectors), and the i_block array.
+We will not test your code on anything other than disk images that follow this specification, or on corrupted disk images.
+
+Other tips:
+
+Inode and disk block numbering starts at 1 instead of 0.
+The root inode is inode number 2 (at index 1)
+The first 11 inodes are reserved.
+There is always a lost+found directory in the root directory.
+Disk sectors are 512 bytes. (This is relevant for the i_blocks field of the inode.)
+You should be able to handle directories that require more than one block.
+You should be able to handle a file that needs a single indirection
+Although you can construct your own structs from the information in the documentation above, you are welcome to use the ext2.h file that I used for the test code. I took out a bunch of components that we aren't using, but there are still quite a few fields that are irrelevant for our purposes.
+However, you will probably also want to explore the disk images to get an intuitive sense of how they are structured. (The next three exercises will also help you explore the disk images and get started on the assignment.)
+
+There are two good ways to interface with these images. The first way is to interact with it like a user by mounting the file system so that you can use standard commands (mkdir, cp, rm, ln) to interact with it. Details of how to do this are below. The second way is to interact with the disk as if it is a flat binary file. Use xxd to create hex dumps, diff to look for differences between the dumps, and your favorite text editor to view the diffs. For example (YMMV):
+
+% diff <(xxd emptydisk.img) <(xxd onefile.img) > empty-onefile.diff
+% vimdiff empty-onefile.diff
+You should be able to use a combination of these techniques to understand how files are placed on disk and how they are removed. For example, you can create a new disk image, use mount to place files of various sizes on it, unmount it, and then use xxd and diff to see how the image differs from the other images you have.
+
 
 \bigskip
 
