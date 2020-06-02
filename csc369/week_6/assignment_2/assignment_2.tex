@@ -16,6 +16,7 @@
 \usepackage{booktabs}
 \usepackage[utf]{kotex}
 \usepackage{soul}
+\usepackage{hyperref}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -51,5 +52,28 @@
 \begin{document}
 \title{CSC369 Assignment 2 - Page Tables and Replacement Algorithms}
 \maketitle
+
+\bigskip
+
+\section{Introduction}
+
+\bigskip
+
+For this assignment, we're going back to the realm of user mode programming.
+Specifically, you will have to simulate the operation of page tables and page
+replacement. As I keep saying: the way to gain a solid understanding of the theory
+is by applying it in practice.
+
+\bigskip
+
+\noindent You have two tasks in this assignment, which will be based on a \hl{virtual memory}
+simulator. The first task is to implement \hl{virtual-to-physical address translation}
+and hl{demand paging} using a \hl{two-level page table}. The second task is to implement
+four different page replacement algorithms: \hl{FIFO}, \hl{Clock}, \hl{exact LRU}, and \hl{OPT}.
+
+\bigskip
+
+\noindent Before you start work, you should complete the set of readings about memory, if
+you haven't done so already: \href{http://pages.cs.wisc.edu/~remzi/OSTEP/vm-paging.pdf}{link}
 
 \end{document}
