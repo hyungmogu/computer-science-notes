@@ -140,7 +140,7 @@ specified arguments.
     does not exist or if it is a directory, then your program should return the
     appropriate error. Once again, please read the specifications of ext2
     carefully, to figure out what needs to actually happen when a file or link
-    is removed (e.g., no need to zero out data blocks, must set i\_dtime in the
+    is removed (e.g., no need to zero out data blocks, must set \textit{i\_dtime} in the
     inode, removing a directory entry need not shift the directory entries after
     the one being deleted, etc.).
 
@@ -222,22 +222,34 @@ following assumptions when you write your code:
 
 \bigskip
 
-A disk is 128 blocks where the block size is 1024 bytes.
-There is only one block group.
-There are 32 inodes.
-You do not have to worry about permissions or modified time fields in the inodes. You should set the type (in i_mode), i_size, i_links_count, i_blocks(disk sectors), and the i_block array.
-We will not test your code on anything other than disk images that follow this specification, or on corrupted disk images.
+\begin{itemize}
+    \item A disk is 128 blocks where the block size is 1024 bytes.
+    \item There is only one block group.
+    \item There are 32 inodes.
+    \item You do not have to worry about permissions or modified time fields in
+    the \hl{inodes}. You should set the type (in \textit{i\_mode}), \textit{i\_size},
+    \textit{i\_links\_count}, \textit{i\_blocks(disk sectors)}, and the \textit{i\_block}
+    array.
+\end{itemize}
+
+We will not test your code on anything other than disk images that follow this
+specification, or on corrupted disk images.
 
 Other tips:
 
-Inode and disk block numbering starts at 1 instead of 0.
-The root inode is inode number 2 (at index 1)
-The first 11 inodes are reserved.
-There is always a lost+found directory in the root directory.
-Disk sectors are 512 bytes. (This is relevant for the i_blocks field of the inode.)
-You should be able to handle directories that require more than one block.
-You should be able to handle a file that needs a single indirection
-Although you can construct your own structs from the information in the documentation above, you are welcome to use the ext2.h file that I used for the test code. I took out a bunch of components that we aren't using, but there are still quite a few fields that are irrelevant for our purposes.
+\begin{itemize}
+    \item Inode and disk block numbering starts at 1 instead of 0.
+    \item The root inode is inode number 2 (at index 1)
+    \item The first 11 inodes are reserved.
+    \item There is always a lost+found directory in the root directory.
+    \item Disk sectors are 512 bytes. (This is relevant for the i\_blocks field of the inode.)
+    \item You should be able to handle directories that require more than one block.
+    \item You should be able to handle a file that needs a single indirection
+    \item Although you can construct your own structs from the information in the documentation above, you are welcome to use the ext2.h file that I used for the test code. I took out a bunch of components that we aren't using, but there are still quite a few fields that are irrelevant for our purposes.
+\end{itemize}
+
+\bigskip
+
 However, you will probably also want to explore the disk images to get an intuitive sense of how they are structured. (The next three exercises will also help you explore the disk images and get started on the assignment.)
 
 There are two good ways to interface with these images. The first way is to interact with it like a user by mounting the file system so that you can use standard commands (mkdir, cp, rm, ln) to interact with it. Details of how to do this are below. The second way is to interact with the disk as if it is a flat binary file. Use xxd to create hex dumps, diff to look for differences between the dumps, and your favorite text editor to view the diffs. For example (YMMV):
