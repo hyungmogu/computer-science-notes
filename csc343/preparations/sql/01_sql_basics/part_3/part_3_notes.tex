@@ -60,7 +60,7 @@
 \bigskip
 
 \begin{itemize}
-    \item WHERE operator
+    \item WHERE clause
     \begin{itemize}
         \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{condition};
         \item \textbf{Syntax (Condition):} \textit{Columns} \textit{Operator} \textit{Value}
@@ -70,6 +70,33 @@
     \begin{itemize}
         \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} = \textit{value};
     \end{itemize}
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM contacts WHERE first_name = "Andrew";
+    SELECT first_name, email FROM users WHERE last_name = "Chalkley";
+    SELECT name AS "Product Name" FROM products WHERE stock_count = 0;
+    SELECT title "Book Title" FROM books WHERE year_published = 1999;
+    \end{lstlisting}
+
+    \item Inequality Operator
+    \begin{itemize}
+        \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} != \textit{value};
+    \end{itemize}
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM contacts WHERE first_name != "Kenneth";
+    SELECT first_name, email FROM users WHERE last_name != "L:one";
+    SELECT name AS "Product Name" FROM products WHERE stock_count != 0;
+    SELECT title "Book Title" FROM books WHERE year_published != 2015;
+    \end{lstlisting}
+
+    \item Greater than/ Less than Operator
+    \begin{itemize}
+        \item \textbf{Syntax (less than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} < \textit{value};
+        \item \textbf{Syntax (greater than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} > \textit{value};
+    \end{itemize}
+
+    \item Cheat Sheet: \href{https://github.com/treehouse/cheatsheets/blob/master/sql_basics/cheatsheet.md}{Link}
 \end{itemize}
 
 \end{document}

@@ -8,4 +8,15 @@ Write a SQL query that retrieves the first and last names only where the usernam
 is equal to 'wig_lady'.
 """
 
+SELECT first_name, last_name FROM users WHERE username = "wig_lady";
 
+
+"""
+===== Challenge Task 2 of 3 =====
+
+In the products table we have the columns id, name, description and price.
+
+Find all products that don't have the price of 9.99. Include all columns.
+"""
+
+SELECT * FROM products WHERE price != 9.99;
