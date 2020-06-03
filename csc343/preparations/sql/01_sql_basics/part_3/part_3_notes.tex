@@ -358,6 +358,13 @@
     \begin{itemize}
         \item Is used inside of \textit{WHERE} clause to match a pattern
         \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} LIKE \textit{pattern};
+        \item Can be used to make search \underline{case insensitive}
+
+    \begin{lstlisting}[language=SQL]
+    SELECT title FROM books WHERE title LIKE "Harry Potter";
+    // returns items like 'Harry potter', 'harry potter'
+
+    \end{lstlisting}
     \end{itemize}
     \item LIKE operator with wild card \%
     \begin{itemize}
@@ -367,14 +374,33 @@
 
 
     \begin{lstlisting}[language=SQL]
-    SELECT * FROM movies WHERE release_year BETWEEN 2000 AND 2010;
+    SELECT title FROM books WHERE title LIKE "Harry Potter%Fire";
+    // returns items like 'Harry Potter and Dragon Fire', 'Harry Potter and Fire', 'Harry Potter Rising Fire'
+
+    SELECT title FROM movies WHERE title LIKE "Alien%";
+    // Returns items like 'Alien attack', 'Alien', "Alienate"
 
 
-    SELECT name, description FROM products WHERE price BETWEEN 9.99 AND 19.99;
+    SELECT * FROM contacts WHERE first_name LIKE "%drew";
+    // Returns items like 'tigerdrew', 'mountaindrew', 'morning drew', 'andrew'
 
 
-    SELECT name, appointment_date FROM appointments WHERE appointment_date BETWEEN "2015-01-01" AND "2015-01-07";
+    SELECT * FROM books WHERE title LIKE "%Brief History%";
+    // Returns items like 'Canadian Brief History Channel', 'Brief History'
     \end{lstlisting}
 \end{itemize}
+
+\bigskip
+
+\section{Exercise 7}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_7.sql}
+\end{itemize}
+
+\bigskip
+
 
 \end{document}
