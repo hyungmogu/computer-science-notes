@@ -300,4 +300,41 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_5.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Searching Within a Range of Values}
+
+\bigskip
+
+\begin{itemize}
+    \item Returns results between \textit{lesser value} and \textit{greater value}
+    \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} BETWEEN \textit{lesser value} AND \textit{greater value};
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+        SELECT * FROM movies WHERE release_year BETWEEN 2000 AND 2010;
+
+
+        SELECT name, description FROM products WHERE price BETWEEN 9.99 AND 19.99;
+
+
+        SELECT name, appointment_date FROM appointments WHERE appointment_date BETWEEN "2015-01-01" AND "2015-01-07";
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
