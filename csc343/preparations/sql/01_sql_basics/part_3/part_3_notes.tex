@@ -73,8 +73,14 @@
 
     \begin{lstlisting}[language=SQL]
     SELECT * FROM contacts WHERE first_name = "Andrew";
+
+
     SELECT first_name, email FROM users WHERE last_name = "Chalkley";
+
+
     SELECT name AS "Product Name" FROM products WHERE stock_count = 0;
+
+
     SELECT title "Book Title" FROM books WHERE year_published = 1999;
     \end{lstlisting}
 
@@ -85,18 +91,74 @@
 
     \begin{lstlisting}[language=SQL]
     SELECT * FROM contacts WHERE first_name != "Kenneth";
+
+
     SELECT first_name, email FROM users WHERE last_name != "L:one";
+
+
     SELECT name AS "Product Name" FROM products WHERE stock_count != 0;
+
+
     SELECT title "Book Title" FROM books WHERE year_published != 2015;
     \end{lstlisting}
 
     \item Greater than/ Less than Operator
     \begin{itemize}
-        \item \textbf{Syntax (less than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} < \textit{value};
-        \item \textbf{Syntax (greater than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} > \textit{value};
+        \item \textbf{Syntax (less than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $<$ \textit{value};
+        \item \textbf{Syntax (greater than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $>$ \textit{value};
     \end{itemize}
 
     \item Cheat Sheet: \href{https://github.com/treehouse/cheatsheets/blob/master/sql_basics/cheatsheet.md}{Link}
 \end{itemize}
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Filtering by Comparing Values}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax (Less than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $<$ \textit{value};
+    \item \textbf{Syntax (Less than or equal):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $<=$ \textit{value};
+    \item \textbf{Syntax (Greater than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $>$ \textit{value};
+    \item \textbf{Syntax (Greater than or equal):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $>=$ \textit{value};
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT first_name, last_name FROM users WHERE date_of_birth < '1998-12-01';
+
+
+    SELECT title AS "Book Title", author AS Author FROM books WHERE year_released <= 2015;
+
+
+    SELECT name, description FROM products WHERE price > 9.99;
+
+
+    SELECT title FROM movies WHERE release_year >= 2000;
+    \end{lstlisting}
+\end{itemize}
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
 
 \end{document}

@@ -20,3 +20,15 @@ Find all products that don't have the price of 9.99. Include all columns.
 """
 
 SELECT * FROM products WHERE price != 9.99;
+
+
+"""
+===== Challenge Task 3 of 3 =====
+
+In the products table we have the columns id, name, description and price.
+
+Find all products that don't have the price of 9.99. Include all columns.
+"""
+
+
+SELECT username FROM users WHERE last_name = 'Chalkley';
