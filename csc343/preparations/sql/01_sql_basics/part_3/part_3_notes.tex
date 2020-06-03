@@ -184,8 +184,8 @@
 \begin{itemize}
     \item Is used when filtering with multiple conditions
     \item Can be done using \textit{AND} and/or \textit{OR} operator
-    \item \textbf{Syntax (AND):} SELECT <columns> FROM <table> WHERE <condition 1> AND <condition 2> ...;
-    \item \textbf{Syntax (OR):} SELECT <columns> FROM <table> WHERE <condition 1> OR <condition 2> ...;
+    \item \textbf{Syntax (AND):} SELECT \textit{columns} FROM \textit{table name} WHERE <condition 1> AND <condition 2> ...;
+    \item \textbf{Syntax (OR):} SELECT \textit{columns} FROM \textit{table name} WHERE <condition 1> OR <condition 2> ...;
 
     \bigskip
 
@@ -263,5 +263,41 @@
 \end{itemize}
 
 \bigskip
+
+\section{Searching Within a Set of Values}
+
+\bigskip
+
+\begin{itemize}
+    \item Returns results with matching sets of values in a columns
+    \item Is similar to Python's \textit{x in [Value1, value2, ....]}
+    \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} IN (\textit{value 1}, \textit{value 2}, ...);
+    \item \textbf{Syntax (Negation):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} NOT IN (\textit{value 1}, \textit{value 2}, ...);
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name FROM islands WHERE id IN (4, 8, 15, 16, 23, 42);
+
+
+    SELECT * FROM products WHERE category IN ("eBooks", "Books", "Comics");
+
+
+    SELECT title FROM courses WHERE topic IN ("JavaScript", "Databases", "CSS");
+
+
+    SELECT * FROM campaigns WHERE medium IN ("email", "blog", "ppc");
+
+
+    SELECT * FROM products WHERE category NOT IN ("Electronics");
+
+
+    SELECT title FROM courses WHERE topic NOT IN ("SQL", "NoSQL");
+    \end{lstlisting}
+\end{itemize}
 
 \end{document}
