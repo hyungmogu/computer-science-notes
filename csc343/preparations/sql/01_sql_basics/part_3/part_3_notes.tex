@@ -445,4 +445,50 @@
 
 \bigskip
 
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Which keyword could you use to rewrite this query in a shorter form?
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT <columns> FROM <table> WHERE <column 1> = <value 1> OR <column 1> = <value 2> OR <column 1> = <value 3>;
+    \end{lstlisting}
+
+    \begin{enumerate}[A.]
+        \item ALL
+        \item BETWEEN
+        \item IN
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    I want to categorize products by price on a website. Cheap is defined by the
+    prices from 0.01 and 9.99. Enter the missing keywords.
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name, description FROM products WHERE price ____  0.01 ____ 9.99;
+    \end{lstlisting}
+
+    \bigskip
+
+    \textbf{Answer:} BETWEEN, AND
+
+\end{enumerate}
+
 \end{document}
