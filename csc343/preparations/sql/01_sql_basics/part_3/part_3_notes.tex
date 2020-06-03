@@ -349,4 +349,32 @@
 
 \bigskip
 
+\section{Finding Data that Matches a Pattern}
+
+\bigskip
+
+\begin{itemize}
+    \item LIKE operator
+    \begin{itemize}
+        \item Is used inside of \textit{WHERE} clause to match a pattern
+        \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} LIKE \textit{pattern};
+    \end{itemize}
+    \item LIKE operator with wild card \%
+    \begin{itemize}
+        \item Works to match zero or more unspecified characters
+        \item works the same as `\*' in regex
+    \end{itemize}
+
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM movies WHERE release_year BETWEEN 2000 AND 2010;
+
+
+    SELECT name, description FROM products WHERE price BETWEEN 9.99 AND 19.99;
+
+
+    SELECT name, appointment_date FROM appointments WHERE appointment_date BETWEEN "2015-01-01" AND "2015-01-07";
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
