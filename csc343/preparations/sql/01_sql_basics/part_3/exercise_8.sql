@@ -12,3 +12,18 @@ and ask them for their number.
 
 SELECT * FROM phone_book WHERE phone IS NULL;
 
+
+"""
+===== Challenge Task 2 of 2 =====
+
+We're still using the phone_book, with the columns id, first_name, last_name and
+phone.
+
+Imagine we're implementing the autocomplete feature for a search facility on the
+phone where a user can start typing a last name and suggestions will appear.
+Write a query to retrieve all values from the last name column where the last
+name value is present. Only retrieve the last_name column.
+"""
+
+
+SELECT last_name FROM phone_book WHERE last_name IS NOT NULL;
