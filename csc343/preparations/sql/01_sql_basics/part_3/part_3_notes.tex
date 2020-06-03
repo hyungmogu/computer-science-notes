@@ -194,16 +194,16 @@
     \bigskip
 
     \begin{lstlisting}[language=SQL]
-        SELECT username FROM users WHERE last_name = "Chalkley" AND first_name = "Andrew";
+    SELECT username FROM users WHERE last_name = "Chalkley" AND first_name = "Andrew";
 
 
-        SELECT * FROM products WHERE category = "Games Consoles" AND price < 400;
+    SELECT * FROM products WHERE category = "Games Consoles" AND price < 400;
 
 
-        SELECT * FROM movies WHERE title = "The Matrix" OR title = "The Matrix Reloaded" OR title = "The Matrix Revolutions";
+    SELECT * FROM movies WHERE title = "The Matrix" OR title = "The Matrix Reloaded" OR title = "The Matrix Revolutions";
 
 
-        SELECT country FROM countries WHERE population < 1000000 OR population > 100000000;
+    SELECT country FROM countries WHERE population < 1000000 OR population > 100000000;
     \end{lstlisting}
 \end{itemize}
 
@@ -215,6 +215,51 @@
 
 \begin{itemize}
     \item Solution included in \textit{exercise\_3.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Filtering By Dates}
+
+\bigskip
+
+\begin{itemize}
+    \item Is done using comparison operators (same as part 3).
+    \item \textbf{Syntax (Less than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $<$ \textit{value};
+    \item \textbf{Syntax (Less than or equal):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $<=$ \textit{value};
+    \item \textbf{Syntax (Greater than):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $>$ \textit{value};
+    \item \textbf{Syntax (Greater than or equal):} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} $>=$ \textit{value};
+
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT first_name, last_name FROM users WHERE date_of_birth < '1998-12-01';
+
+
+    SELECT title AS "Book Title", author AS Author FROM books WHERE year_released <= 2015;
+
+
+    SELECT name, description FROM products WHERE price > 9.99;
+
+
+    SELECT title FROM movies WHERE release_year >= 2000;
+    \end{lstlisting}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_4.sql}
 \end{itemize}
 
 \bigskip
