@@ -22,3 +22,17 @@ Find all results where the away team's score is lower than 10.
 
 
 SELECT * FROM results WHERE away_score < 10;
+
+
+
+"""
+===== Challenge Task 3 of 3 =====
+
+We're back using the e-commerce database. I only have 10.99 left in my bank account. Write a query that will return all
+products from the products table that I can afford.
+
+The columns in the products are id, name, description and price.
+"""
+
+SELECT * FROM products WHERE price <= 10.99;
+

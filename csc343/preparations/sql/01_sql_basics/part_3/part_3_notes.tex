@@ -71,6 +71,12 @@
         \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} = \textit{value};
     \end{itemize}
 
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
     \begin{lstlisting}[language=SQL]
     SELECT * FROM contacts WHERE first_name = "Andrew";
 
@@ -88,6 +94,12 @@
     \begin{itemize}
         \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE \textit{column name} != \textit{value};
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
 
     \begin{lstlisting}[language=SQL]
     SELECT * FROM contacts WHERE first_name != "Kenneth";
@@ -110,6 +122,8 @@
 
     \item Cheat Sheet: \href{https://github.com/treehouse/cheatsheets/blob/master/sql_basics/cheatsheet.md}{Link}
 \end{itemize}
+
+\bigskip
 
 \section{Exercise 1}
 
@@ -151,12 +165,56 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
 \section{Exercise 2}
 
 \bigskip
 
 \begin{itemize}
     \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Filtering on More than One Condition}
+
+\bigskip
+
+\begin{itemize}
+    \item Is used when filtering with multiple conditions
+    \item Can be done using \textit{AND} and/or \textit{OR} operator
+    \item \textbf{Syntax (AND):} SELECT <columns> FROM <table> WHERE <condition 1> AND <condition 2> ...;
+    \item \textbf{Syntax (OR):} SELECT <columns> FROM <table> WHERE <condition 1> OR <condition 2> ...;
+
+    \bigskip
+
+    \underline{\textbf{Examples:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+        SELECT username FROM users WHERE last_name = "Chalkley" AND first_name = "Andrew";
+
+
+        SELECT * FROM products WHERE category = "Games Consoles" AND price < 400;
+
+
+        SELECT * FROM movies WHERE title = "The Matrix" OR title = "The Matrix Reloaded" OR title = "The Matrix Revolutions";
+
+
+        SELECT country FROM countries WHERE population < 1000000 OR population > 100000000;
+    \end{lstlisting}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.sql}
 \end{itemize}
 
 \bigskip
