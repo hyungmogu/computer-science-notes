@@ -57,6 +57,8 @@
 
 \section{Intro to Transactions}
 
+\bigskip
+
 \begin{itemize}
     \item Transaction
     \begin{itemize}
@@ -75,5 +77,112 @@
         \end{itemize}
     \end{itemize}
 \end{itemize}
+
+\bigskip
+
+\section{Rolling Back from Transactions}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} ROLLBACK;
+    \begin{itemize}
+        \item Resets the state of database to before the beginning of transaction
+        \item Is useful when an error / power outage occurs in the middle of transaction
+        \item Or spelling mistakes
+    \end{itemize}
+\end{itemize}
+
+
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Which of these is the correct way to start a transaction?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item TRANSACTION BEGIN;
+        \item BEGIN;
+        \item START;
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    The BEGIN; or the BEGIN TRANSACTION; statement does what?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item Reverses any changes since the before the statement.
+        \item Turns autocommit mode on.
+        \item Turns autocommit mode off.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    What following statement reverts changes since a transaction began
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item UNDO;
+        \item COMMIT;
+        \item REVERT;
+        \item ROLLBACK;
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} D
+
+    \item
+
+    If my computer crashed in the middle of a transaction, what state would my database be in?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item It would have some of my statements persisted.
+        \item It would be in the same state before the transaction.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    What does the COMMIT; statement do?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item Reverts any changes.
+        \item Turns autocommit mode off;
+        \item Commits all changes since the transaction began and turns autocommit mode on.
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+\end{enumerate}
+
+
 
 \end{document}
