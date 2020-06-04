@@ -132,9 +132,7 @@
 \begin{itemize}
     \item LIMIT
     \begin{itemize}
-        \item \textbf{Syntax (SQLite, PostgreSQL, MySQL):} SELECT \textit{columns name} FROM \textit{table name} LIMIT \textit{\# of rows};
-        \item \textbf{Syntax (MS SQL):} SELECT TOP \textit{\# of rows} \textit{columns} FROM \textit{table};
-        \item \textbf{Syntax (Oracle):} SELECT <columns> FROM \textit{table name} WHERE ROWNUM $<=$ \textit{\# of rows};
+        \item \textbf{Syntax (SQLite, PostgreSQL, MySQL):} SELECT \textit{columns name} FROM \textit{table name} ... LIMIT \textit{\# of rows};
         \item Must be placed at the end
     \end{itemize}
 \end{itemize}
@@ -147,6 +145,33 @@
 
 \begin{itemize}
     \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Paging Thrugh Results}
+
+\bigskip
+
+\begin{itemize}
+    \item OFFSET
+    \begin{itemize}
+        \item \textbf{Syntax 1 (SQLite, PostgreSQL, MySQL):} SELECT <columns> FROM \textit{table name} LIMIT \textit{\# of rows} OFFSET \textit{skipped rows};
+        \item \textbf{Syntax 2 (SQLite, PostgreSQL, MySQL):} SELECT <columns> FROM \textit{table name} LIMIT \textit{skipped rows}, \textit{\# of rows};
+        \item Is based on number of rows, and NOT by pages (i.e. LIMIT 10 OFFSET 10 is on page 2)
+        \item Is useful when creating multi-page reports, blog archive, or listing search results
+    \end{itemize}
+\end{itemize}
+
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.sql}
 \end{itemize}
 
 \bigskip

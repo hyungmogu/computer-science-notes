@@ -21,3 +21,4 @@ Find the earliest Science Fiction book in our library. Only one result should be
 returned. All columns should be selected.
 """
 
+SELECT * FROM books WHERE genre = 'Science Fiction' ORDER BY first_published ASC LIMIT 1;
