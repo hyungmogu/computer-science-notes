@@ -94,5 +94,38 @@
 
 \end{itemize}
 
+\bigskip
+
+\section{Single vs Double Quotes}
+
+\bigskip
+
+\begin{itemize}
+    \item Exists difference in use
+    \item Single Quote $\to$ for string literlas (e.g. 'lbs')
+    \item Double Quote $\to$ for column aliases (e.g. "Max Weight")
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT maximum_weight || 'lbs' AS "Max Weight" FROM ELEVATOR_DATA;
+    \end{lstlisting}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
 
 \end{document}
