@@ -116,35 +116,42 @@
         \item \textbf{Syntax:}
 
         \bigskip
-    \textit{INSERT INTO \textit{table name} (\textit{column name 1}, \textit{column name 2}, ...)}
-
-    \textit{VALUES}
-
-
-    \t\t\textit{(\textit{value 1}, \textit{value 2}, ...),}
-
-
-            (\textit{value 1}, \textit{value 2}, ...),
-
-
-            (\textit{value 1}, \textit{value 2}, ...);
-
 
     \begin{lstlisting}[language=SQL]
-    INSERT INTO users VALUES  (1, "chalkers", "Andrew", "Chalkley");
+
+    \textit{INSERT INTO <table name> (<column name 1>, <column name 2>, ...)}
+    VALUES
+            (<value name 1>, <value name 2>, ...),
+            (<value name 1>, <value name 2>, ...),
+            (<value name 1>, <value name 2>, ...);
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=SQL]
+    INSERT INTO users (username, first_name, last_name)
+        VALUES
+                      ("chalkers", "Andrew", "Chalkley"),
+                      ("ScRiPtKiDdIe", "Kenneth", "Love");
 
 
-    INSERT INTO users VALUES  (2, "ScRiPtKiDdIe", "Kenneth", "Love");
-
-
-    INSERT INTO movies VALUES (3, "Starman", "Science Fiction", 1984);
-
-
-    INSERT INTO movies VALUES (4, "Moulin Rouge!", "Musical", 2001);
+    INSERT INTO movies (title, genre, year_released)
+         VALUES
+                       ("Starman", "Science Fiction", 1984),
+                       ("Moulin Rouge!", "Musical", 2001);
     \end{lstlisting}
 
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
+\bigskip
 
 \end{document}
