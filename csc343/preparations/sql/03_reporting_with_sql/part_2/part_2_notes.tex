@@ -61,8 +61,38 @@
 
 \begin{itemize}
     \item Prsents data differently through manipulation
-    \item \textbf{Use Syanta:} \textit{function name}(\textit{value or column})
+    \item \textbf{Syntax:} \textit{function name}(\textit{value or column})
     \item e.g. LENGTH(), UPPER("Andrew Chalkley"), SUM()
 \end{itemize}
+
+\bigskip
+
+\section{Adding Text Columns Together}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Snytax:} SELECT \textit{value or column} \textbar \textbar \textit{value or column} \textbar \textbar \textit{value or column}  FROM \textit{table name};
+    \item \textbar \textbar $\to$ concat operator
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT first_name || " " || last_name AS "Full Name",
+            email AS "Email", phone AS "Phone"
+            FROM customers;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/part_2_notes_1.png}
+    \end{center}
+
+\end{itemize}
+
 
 \end{document}
