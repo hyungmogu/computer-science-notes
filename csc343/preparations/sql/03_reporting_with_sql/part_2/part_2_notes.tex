@@ -127,5 +127,42 @@
     \item Solution included in \textit{exercise\_1.sql}
 \end{itemize}
 
+\bigskip
+
+\section{Finding the Length of Text}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} SELECT LENGTH(\textit{value or column}) FROM \textit{table name};
+    \item Returns length of a value or value in each row of a column
+    \item Can also be used in WHERE
+    \begin{itemize}
+        \item \textbf{Syntax:} SELECT \textit{columns} FROM \textit{table name} WHERE LENGTH(\textit{column name}) \textit{operator} \textit{value};
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT username, LENGTH(username) AS "length" from customers ORDER BY length DESC LIMIT 1;
+
+
+    SELECT username FROM customers WHERE LENGTH(username) < 7;
+
+
+    SELECT username LENGTH(username) AS "length" FROM customers WHERE length < 7;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/part_2_notes_2.png}
+    \end{center}
+
+\end{itemize}
 
 \end{document}
