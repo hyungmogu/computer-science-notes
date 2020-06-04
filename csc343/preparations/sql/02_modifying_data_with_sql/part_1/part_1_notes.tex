@@ -53,5 +53,98 @@
 \author{Team Treehouse}
 \maketitle
 
+\bigskip
+
+\section{Introduction to CRUD}
+
+\bigskip
+
+\section{Adding a Row to a Table}
+
+\bigskip
+
+\begin{itemize}
+    \item Adding rows of information into a table (in the order of columns)
+    \begin{itemize}
+        \item \textbf{Syntax:} INSERT INTO \textit{table name} VALUES (\textit{value 1}, \textit{value 2}, ...);
+
+    \begin{lstlisting}[language=SQL]
+    INSERT INTO users VALUES  (1, "chalkers", "Andrew", "Chalkley");
+
+
+    INSERT INTO users VALUES  (2, "ScRiPtKiDdIe", "Kenneth", "Love");
+
+
+    INSERT INTO movies VALUES (3, "Starman", "Science Fiction", 1984);
+
+
+    INSERT INTO movies VALUES (4, "Moulin Rouge!", "Musical", 2001);
+    \end{lstlisting}
+
+    \end{itemize}
+
+    \item Adding rows of information into a table (independent of the order of columns)
+    \begin{itemize}
+        \item \textbf{Syntax:} INSERT INTO \textit{table name} (\textit{column name 1}, \textit{column name 2}) VALUES (\textit{value 1}, \textit{value 2});
+        \item \textbf{Syntax \# 2:} INSERT INTO \textit{table name} (\textit{column name 2}, \textit{column name 1}) VALUES (\textit{value 2}, \textit{value 1});
+
+    \begin{lstlisting}[language=SQL]
+    INSERT INTO users (username, first_name, last_name) VALUES ("chalkers", "Andrew", "Chalkley");
+
+
+    INSERT INTO users (first_name, last_name, username) VALUES  ("Kenneth", "Love", "ScRiPtKiDdIe");
+
+
+    INSERT INTO movies (title, genre, year_released) VALUES ("Starman", "Science Fiction", 1984);
+
+
+    INSERT INTO movies (title, year_released, genre) VALUES ("Moulin Rouge!", 2001,  "Musical");
+    \end{lstlisting}
+
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Adding Multiple Rows to a Table}
+
+\bigskip
+
+\begin{itemize}
+    \item Adding multiple rows rows of information into a table (in the order of columns)
+    \begin{itemize}
+        \item \textbf{Syntax:}
+
+        \bigskip
+    \textit{INSERT INTO \textit{table name} (\textit{column name 1}, \textit{column name 2}, ...)}
+
+    \textit{VALUES}
+
+
+    \t\t\textit{(\textit{value 1}, \textit{value 2}, ...),}
+
+
+            (\textit{value 1}, \textit{value 2}, ...),
+
+
+            (\textit{value 1}, \textit{value 2}, ...);
+
+
+    \begin{lstlisting}[language=SQL]
+    INSERT INTO users VALUES  (1, "chalkers", "Andrew", "Chalkley");
+
+
+    INSERT INTO users VALUES  (2, "ScRiPtKiDdIe", "Kenneth", "Love");
+
+
+    INSERT INTO movies VALUES (3, "Starman", "Science Fiction", 1984);
+
+
+    INSERT INTO movies VALUES (4, "Moulin Rouge!", "Musical", 2001);
+    \end{lstlisting}
+
+    \end{itemize}
+\end{itemize}
+
 
 \end{document}
