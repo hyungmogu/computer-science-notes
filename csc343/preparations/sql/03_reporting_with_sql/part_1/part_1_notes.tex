@@ -115,7 +115,7 @@
 
 \bigskip
 
-\section{Exercise 1}
+\section{Limiting the Number of Results}
 
 \bigskip
 
@@ -124,5 +124,19 @@
 \end{itemize}
 
 \bigskip
+
+\section{Retrieving Results in a Particular Order}
+
+\bigskip
+
+\begin{itemize}
+    \item LIMIT
+    \begin{itemize}
+        \item \textbf{Syntax (SQLite, PostgreSQL, MySQL):} SELECT \textit{columns name} FROM \textit{table name} LIMIT \textit{\# of rows};
+        \item \textbf{Syntax (MS SQL):} SELECT TOP \textit{\# of rows} \textit{columns} FROM \textit{table};
+        \item \textbf{Syntax (Oracle):} SELECT <columns> FROM \textit{table name} WHERE ROWNUM $<=$ \textit{\# of rows};
+        \item Must be placed at the end
+    \end{itemize}
+\end{itemize}
 
 \end{document}
