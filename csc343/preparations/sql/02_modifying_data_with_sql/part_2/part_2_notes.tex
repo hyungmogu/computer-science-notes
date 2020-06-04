@@ -55,4 +55,25 @@
 
 \bigskip
 
+\section{Updating All Rows in a Table}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} UDPATE \textit{table name} SET \textit{column 1 name} = \textit{value 1 name}, \textit{column 2 name} = \textit{value 2 name};
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE users SET password = "thisisabadidea";
+
+
+    UPDATE products SET price = 2.99;
+
+
+    UPDATE users SET first_name = "Anony", last_name = "Moose";
+
+
+    UPDATE products SET stock_count = 0, price = 0;
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
