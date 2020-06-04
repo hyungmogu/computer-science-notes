@@ -53,4 +53,27 @@
 \author{Team Treehouse}
 \maketitle
 
+\bigskip
+
+\section{Intro to Transactions}
+
+\begin{itemize}
+    \item Transaction
+    \begin{itemize}
+        \item \textbf{Syntax:} BEGIN TRANSACTION; or BEGIN;
+        \begin{itemize}
+            \item Turns off autocommit and begins a transaction
+        \end{itemize}
+        \item \textbf{Syntax:} COMMIT;
+        \begin{itemize}
+            \item Sallves all results of the statements at the begininng of transaction to disk
+        \end{itemize}
+        \item Makes a batch of process atomic
+        \begin{itemize}
+            \item All are processed before being committed
+            \item If power loss occurs during processing, no data is saved to database
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
