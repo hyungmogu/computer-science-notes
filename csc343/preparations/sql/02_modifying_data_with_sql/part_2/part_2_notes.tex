@@ -100,4 +100,163 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Review and Practice}
+
+
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    Fill in the missing keywords for the following UPDATE statement.
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE users SET password = "thisisabadidea" WHERE id = 3;
+
+
+    UPDATE blog_posts SET view_count = 1923 WHERE title = "SQL is Awesome";
+
+
+    UPDATE users SET entry_url = "/home", last_login = "2016-01-05" WHERE id = 329;
+
+
+    UPDATE products SET status = "SOLD OUT", availability = "In 1 Week" WHERE stock_count = 0;
+    \end{lstlisting}
+
+
+    \item
+
+    \begin{center}
+    \includegraphics[width=0.8 \linewidth]{images/part_2_notes_1.png}
+    \end{center}
+
+    After issuing the following statement, what would you expect the contents of the table to be?
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE games SET platform="Cross-Platform";
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item
+
+        \begin{tabular}{|c|c|c|}
+        \hline
+        id  &	name    &	platform\\
+        \hline
+        1   &	Destiny &	Playstation 4\\
+        \hline
+        2   &	Halo 5  &	Xbox One\\
+        \hline
+        \end{tabular}
+
+        \item
+
+        \begin{tabular}{|c|c|c|}
+        \hline
+        id  &	name    &   platform\\
+        \hline
+        1   & 	Destiny &	Cross-Platform\\
+        \hline
+        2   &	Halo 5  &	Xbox One\\
+        \hline
+        \end{tabular}
+
+        \item
+
+        \begin{tabular}{|c|c|c|}
+        \hline
+        id  &	name    &	platform\\
+        \hline
+        1   &	Destiny &	Cross-Platform\\
+        \hline
+        2   &	Halo 5  &	Cross-Platform\\
+        \hline
+        \end{tabular}
+
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    \begin{center}
+    \includegraphics[width=0.8 \linewidth]{images/part_2_notes_2.png}
+    \end{center}
+
+    \bigskip
+
+    Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    Finish the following statement to replace NULL values with the value of "Cross-Platform".
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE games SET platform = "Cross-Plaform" WHERE id \_\_\_ (1,4);
+    \end{lstlisting}
+
+    \bigskip
+
+    What is the missing operator?
+
+    \bigskip
+
+    \textbf{Answer:} IN
+
+
+    \item
+
+    Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    Fill in the missing keywords for the following UPDATE statement.
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE shows SET title \_\_\_  "Friends";
+    \end{lstlisting}
+
+    \bigskip
+
+    What is the missing operator?
+
+    \bigskip
+
+    \textbf{Answer:} =
+
+
+\end{enumerate}
+
 \end{document}
