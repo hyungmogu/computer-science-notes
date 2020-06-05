@@ -53,4 +53,63 @@
 \author{Team Treehouse}
 \maketitle
 
+\bigskip
+
+\section{Differences Between Databases}
+
+\bigskip
+
+\section{Creating Up-to-the-minute Reports}
+
+\bigskip
+
+\begin{itemize}
+    \item Writing Today's date
+    \begin{itemize}
+        \item SQLite
+        \begin{itemize}
+            \item \textbf{Syntax (Current Date):} DATE("now")
+            \item \textbf{Syntax (Current Time):} TIME("now")
+            \item \textbf{Syntax (Current Date Time):} DATETIME("NOW")
+        \end{itemize}
+        \item MySQL
+        \item \begin{itemize}
+            \item \textbf{Syntax (Current Date):} CURDATE()
+            \item \textbf{Syntax (Current Time):} CURTIME()
+            \item \textbf{Syntax (Current Date Time):} NOW()
+        \end{itemize}
+        \item Oracle and PostgreSQL
+        \item \begin{itemize}
+            \item \textbf{Syntax (Current Date):} CURRENT\_DATE
+            \item \textbf{Syntax (Current Time):} CURRENT\_TIME
+            \item \textbf{Syntax (Current Date Time):} CURRENT\_TIMESTAMP
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Exmaple:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM orders WHERE status = "placed" AND ordered_on = DATE("now");
+    \end{lstlisting}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
+\bigskip
+
+
+
 \end{document}
