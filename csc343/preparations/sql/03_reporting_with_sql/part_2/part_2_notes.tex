@@ -310,18 +310,145 @@
         \item awesome
         \item Awesome
         \item AWESOME
-
     \end{enumerate}
 
     \textbf{Answer:} D
 
     \item
 
+    \begin{center}
+    \includegraphics[width=0.8 \linewidth]{images/part_2_notes_4.png}
+    \end{center}
 
+    \bigskip
+
+    What will the following SQL statement generate?
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT first, "..." || SUBSTR(last, 2, 3) || "..." FROM people;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item
+        Andrew	...al...
+
+        Lauren	...al...
+
+        Rachel	...nk...
+
+        Imogen	...ev...
+
+        \item
+        Andrew	...hal...
+
+        Lauren	...hal...
+
+        Rachel	...ink...
+
+        Imogen	...tev...
+
+        \item
+        Andrew	...Cha...
+
+        Lauren	...Cha...
+
+        Rachel	...Hin...
+
+        Imogen	...Ste...
+
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    \begin{center}
+    \includegraphics[width=0.8 \linewidth]{images/part_2_notes_5.png}
+    \end{center}
+
+    \bigskip
+
+    What will the following query generate?
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT REPLACE(email, "@", "<at>") FROM people;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item
+        andrew@teamtreehouse.com
+
+        alena@teamtreehouse.com
+
+        carling@teamtreehouse.com
+
+        \item
+        andrew<at>teamtreehouse.com
+
+        alena<at>teamtreehouse.com
+
+        carling<at>teamtreehouse.com
+
+        \item
+        <at>
+
+        <at>
+
+        <at>
+
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+
+    \item
+
+    You can use the LENGTH() in the WHERE clause.
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+    \item
+
+    What output would you expect from the following statement?
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT "Portland" || ", " || "OR";
+    \end{lstlisting}
+
+
+    \begin{enumerate}[A.]
+        \item Portland,OR
+        \item Portland OR
+        \item Portland, OR
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
 
 \end{enumerate}
-
-
-
 
 \end{document}
