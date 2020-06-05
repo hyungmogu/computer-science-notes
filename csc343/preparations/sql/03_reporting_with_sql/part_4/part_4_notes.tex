@@ -159,5 +159,69 @@
 
 \bigskip
 
+\section{Formatting Dates For Reporting}
+
+\bigskip
+
+\begin{itemize}
+    \item From datetime string to date string
+    \begin{itemize}
+        \item \textbf{Syntax:} DATE(\textit{datetime string}) $\to$ \textit{date string}
+    \end{itemize}
+    \item From datetime string to time string
+    \begin{itemize}
+        \item \textbf{Syntax:} TIME(\textit{datetime string}) $\to$ \textit{date string}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    DATE("2015-04-01 23:12:01") # "2015-04-01"
+
+
+    TIME("2015-04-01 23:12:01") # "23:12:01"
+    \end{lstlisting}
+
+
+    \item STRFTIME()
+    \begin{itemize}
+        \item Formats date string / time string / datetime string into human readible format
+        \item \textbf{Syntax:} STRFTIME(\textit{format string}, \textit{time string}, \textit{modifier})
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    STRFTIME("%d/%m/%Y", "2015-04-01 23:12:01") # 01/04/2015
+
+
+    STRFTIME("%d/%m/%Y", "2015-04-01 23:12:01", "+1 year") # 01/04/2016
+
+
+    SELECT *, STRFTIME("%d/%m/%Y", ordered_on) AS UK_date FROM orders;
+    \end{lstlisting}
+\end{itemize}
+
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.sql}
+\end{itemize}
+
+\bigskip
+
 
 \end{document}
