@@ -141,4 +141,59 @@
 
 \bigskip
 
+\section{Getting the Grand Total}
+
+\bigskip
+
+\begin{itemize}
+    \item SUM
+    \begin{itemize}
+        \item \textbf{Syntax:} SELECT SUM(\textit{numeric column}) FROM \textit{table name};
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT SUM(cost) AS total_spend, user_id FROM orders GROUP BY user_id;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/part_3_notes_2.png}
+    \end{center}
+
+    \end{itemize}
+    \item SUM with GROUP BY and WHERE
+    \begin{itemize}
+        \item Not possible, but there is an alternative, HAVING
+        \item \textbf{Syntax:} SELECT SUM(\textit{numeric column name}) AS \textit{alias} FROM \textit{table name}
+        GROUP BY \textit{another column name} HAVING \textit{alias} \textit{operator} \textit{value};
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+
+    \begin{lstlisting}[language=SQL]
+    SELECT SUM(cost) AS total_spend, user_id FROM orders
+        GROUP BY user_id
+        HAVING total_spend > 250
+        ORDER BY total_spend DESC;
+    \end{lstlisting}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/part_3_notes_3.png}
+        \end{center}
+
+    \end{itemize}
+\end{itemize}
+
 \end{document}
