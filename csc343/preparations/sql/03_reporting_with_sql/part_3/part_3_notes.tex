@@ -208,4 +208,70 @@
 
 \bigskip
 
+\section{Calculating Averages}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} SELECT AVG(<numeric column>) FROM <table>;
+    \item \textbf{Syntax (with Group By):} SELECT AVG(<numeric column>) FROM <table> GROUP BY <other column>;
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT AVG(cost) AS "average", user_id FROM orders GROUP BY user_id;
+    \end{lstlisting}
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_4.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Getting Maximum and Minimum Values}
+
+\bigskip
+
+\begin{itemize}
+    \item MAX
+    \begin{itemize}
+        \item \textbf{Syntax 1:} SELECT MAX(\textit{numeric column name}) FROM \textit{table name};
+        \item \textbf{Syntax 2:} SELECT MAX(\textit{numeric column name}) FROM \textit{table name} GROUP BY \textit{other column name};
+        \item Grabs the maximum value in a given column of a table
+    \end{itemize}
+    \item MIN
+    \begin{itemize}
+        \item SELECT MIN(\textit{numeric column name}) FROM \textit{table name};
+        \item SELECT MIN(\textit{numeric column name}) FROM \textit{table name} GROUP BY \textit{other column name};
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT AVG(cost) AS average, MAX(cost) AS Maximum, MIN(cost) AS Minimum, user_id,
+        FROM orders GROUP BY user_id;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/part_3_notes_4.png}
+    \end{center}
+\end{itemize}
+
 \end{document}
