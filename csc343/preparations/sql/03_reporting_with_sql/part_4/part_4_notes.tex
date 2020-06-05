@@ -110,6 +110,54 @@
 
 \bigskip
 
+\section{Calculating Dates}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax 1:} DATE(\textit{time string})
+    \begin{itemize}
+        \item NOTE: the only recognized time string format is `YYYY-MM-DD'
+    \end{itemize}
+    \item \textbf{Syntax 2:} DATE(\textit{time string}, \textit{modifier}, ...)
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    DATE("2016-02-01", "-7 days") # 2016-01-25
+
+
+    DATE("2016-02-01", "+7 days") # 2016-02-08
+
+
+    DATE("2016-02-01", "+7 months") # 2016-09-01
+
+
+    DATE("2016-02-01", "+7 years") # 2023-02-01
+
+
+    SELECT COUNT(*) FROM orders WHERE ordered_on
+        BETWEEN DATE("now", "-7 days")
+        AND DATE("now", "-1 day");
+    \end{lstlisting}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
 
 
 \end{document}
