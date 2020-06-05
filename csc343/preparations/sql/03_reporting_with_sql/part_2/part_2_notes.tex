@@ -258,7 +258,70 @@
 
 \begin{itemize}
     \item \textbf{Syntax:} SELECT REPLACE(\textit{original value or column name}, \textit{target string}, \textit{replacement string}) FROM \textit{table name};
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT street, city REPLACE(state, "California", "CA") zip FROM addresses
+        WHERE REPLACE(state, "California", "CA") = "CA";
+    \end{lstlisting}
 \end{itemize}
+
+\bigskip
+
+\section{Exericse 5}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_5.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Practice Session}
+
+
+\bigskip
+
+\section{Quiz 1}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    Functions can be joined together. They are applied from inside out.
+
+    \begin{lstlisting}[language=SQL]
+    SELECT UPPER(LOWER("AWESOME"));
+    \end{lstlisting}
+
+    What do you think the result of this will be?
+
+    \bigskip
+
+    \begin{enumerate}[A.]
+        \item AwesomE
+        \item awesome
+        \item Awesome
+        \item AWESOME
+
+    \end{enumerate}
+
+    \textbf{Answer:} D
+
+    \item
+
+
+
+\end{enumerate}
+
+
 
 
 \end{document}
