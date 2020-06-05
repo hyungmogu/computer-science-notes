@@ -106,7 +106,39 @@
 
 \begin{itemize}
     \item \textbf{Syntax:} SELECT COUNT(\textit{column name}) FROM \textit{table name} GROUP BY \textit{column name with common value};
-    \item is almost like using distinct
+    \item is almost like using keyword distinct
+    \begin{itemize}
+        \item SELECT COUNT(DISTINCT \textit{column name}) FROM \textit{table};
+    \end{itemize}
+    \item but, group by allows to add additional columns
+
+    \bigskip
+
+    \underline{\textbf{Exxample:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT category, COUNT(*) AS product_count FROM products GROUP BY category;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/part_3_notes_1.png}
+    \end{center}
 \end{itemize}
+
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
 
 \end{document}
