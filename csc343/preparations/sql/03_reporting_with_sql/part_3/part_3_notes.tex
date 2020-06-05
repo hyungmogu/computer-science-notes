@@ -53,4 +53,60 @@
 \author{Team Treehouse}
 \maketitle
 
+\bigskip
+
+\section{Counting Results}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax 1:} SELECT COUNT(\textit{column name}) FROM \textit{table name};
+    \begin{itemize}
+        \item Counts all non-null values
+    \end{itemize}
+    \item \textbf{Syntax 2:} SELECT COUNT(*) FROM \textit{table name};
+    \begin{itemize}
+        \item counts all rows in a table
+    \end{itemize}
+    \item \textbf{Syntax 2:} SELECT COUNT(DISTINCT \textit{column name}) FROM \textit{table};
+    \begin{itemize}
+        \item Counts all items with distinct value in a column
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT COUNT(DISTINCT category) FROM products;
+
+
+    SELECT COUNT(*) FROM customers ORDER BY id DESC LIMIT 1;
+    \end{lstlisting}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Counting Groups of Rows}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax:} SELECT COUNT(\textit{column name}) FROM \textit{table name} GROUP BY \textit{column name with common value};
+    \item is almost like using distinct
+\end{itemize}
+
 \end{document}
