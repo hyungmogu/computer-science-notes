@@ -165,4 +165,89 @@
 
 \end{itemize}
 
+\bigskip
+
+\section{Exercise 2}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_2.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Changing the Case of Text Columns}
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Syntax (Upper):} SELECT UPPER(\textit{value or column}) FROM \textit{table name};
+    \item \textbf{Syntax (Lower):} SELECT LOWER(\textit{value or column}) FROM \textit{table name};
+    \item Returns values in a column in upper or lower case
+    \item Search can be made case insensitive
+    \begin{itemize}
+        \item SELECT \textit{column} FROM \textit{table name} WHERE LOWER(\textit{column name}) = \textit{value in lowercase};
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM customers WHERE LOWER(email) = "andrew@teamtreehouse.com";
+    \end{lstlisting}
+
+\end{itemize}
+
+\bigskip
+
+\section{Exercise 3}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_3.sql}
+\end{itemize}
+
+\bigskip
+
+\section{Creating Excerpts From Text}
+
+\bigskip
+
+\begin{itemize}
+    \item SUBSTR
+    \begin{itemize}
+        \item \textbf{Syntax:} SELECT SUBSTR( \textit{value or column}, \textit{start}, \textit{length}) FROM \textit{table name};
+        \item Allows to create ellipsis
+        \begin{itemize}
+            \item Prevents website from being overloaded with details
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name SUBSTR(description, 1, 50) || "..." AS short_description, price FROM products;
+    \end{lstlisting}
+
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Exericse 4}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_4.sql}
+\end{itemize}
+
 \end{document}
