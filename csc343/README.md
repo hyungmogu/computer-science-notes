@@ -12,3 +12,6 @@
 
 
 2. https://github.com/githubsng/CSC343-Intro-to-Databases
+
+
+3. http://infolab.stanford.edu/~ullman/fcdb/aut07/index.html
