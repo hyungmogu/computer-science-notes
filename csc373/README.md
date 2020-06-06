@@ -11,3 +11,7 @@
 
 2. MIT 6.6006
     - https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/
+
+
+3. CLRS Solutions
+    - https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html
