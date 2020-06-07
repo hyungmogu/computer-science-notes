@@ -77,6 +77,11 @@
 
 \begin{itemize}
     \item Stacks data vertically
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/part_5_notes_2.png}
+    \end{center}
+
     \item has to have matching number of columns
 
     \bigskip
@@ -86,8 +91,15 @@
     \bigskip
 
     \begin{lstlisting}[language=SQL]
-    SELECT * FROM orders WHERE status = "placed" AND ordered_on = DATE("now");
+    SELECT MakeID, MakeName FROM Make UNION SELECT ForeignMakeID, MakeName FROM ForeignMake;
     \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/part_5_notes_1.png}
+    \end{center}
+
 \end{itemize}
 
 \end{document}
