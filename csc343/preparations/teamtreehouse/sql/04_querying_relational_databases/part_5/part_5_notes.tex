@@ -100,6 +100,33 @@
     \includegraphics[width=0.8\linewidth]{images/part_5_notes_1.png}
     \end{center}
 
+    \bigskip
+
+    \underline{\textbf{Example 2:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT MakeID, MakeName FROM Make
+        WHERE MakeName < "D"
+    UNION
+    SELECT ForeignMakeID, MakeName FROM ForeignMake
+        WHERE MakeName < "D"
+        ORDER BY MakeName;
+    \end{lstlisting}
+
 \end{itemize}
+
+\bigskip
+
+\section{Union All Operations}
+
+\bigskip
+
+
+\begin{itemize}
+    \item Is the same as union but does not eliminate duplicates
+\end{itemize}
+
 
 \end{document}
