@@ -189,8 +189,26 @@
 
 \bigskip
 
+\begin{center}
+\includegraphics[width=0.8\linewidth]{images/part_5_notes_6.png}
+\end{center}
+
+
 \begin{itemize}
-    \item
+    \item \textbf{Syntax:} \textit{Query 1} EXCEPT \textit{Query 2}
+    \item SQL accounts for all columns considered
+    \item Except uses the same format as INTERSET but outputs only the records
+    that are not in the latter table
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT ForeignMakeID, MakeName FROM ForeignMake EXCEPT SELECT MakeID, MakeName FROM Make; // shows only forien made goods
+    \end{lstlisting}
 \end{itemize}
 
 
