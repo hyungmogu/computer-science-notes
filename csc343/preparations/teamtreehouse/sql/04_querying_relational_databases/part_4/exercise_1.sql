@@ -42,3 +42,36 @@ the SalesRep and Sale tables in one result set.
 
 SELECT FirstName, LastName, SaleAmount FROM SalesRep AS sr
 	INNER JOIN Sale as s ON sr.SalesRepID = s.SalesRepID;
+
+
+"""
+===== Challenge Task 4 of 5 =====
+
+In a car database there is a Sale table with columns, SaleID, CarID, CustomerID,
+LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep
+table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber,
+StreetAddress, City, State and ZipCode.
+
+Show the First and Last Name of each sales rep along with SaleAmount from both
+the SalesRep and Sale tables in one result set.
+"""
+
+SELECT md.ModelName, cr.VIN FROM Model AS md
+	LEFT OUTER JOIN Car as cr ON md.ModelID = cr.ModelID;
+
+
+"""
+===== Challenge Task 5 of 5 =====
+
+In a car database there is a Sale table with columns, SaleID, CarID, CustomerID,
+LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep
+table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber,
+StreetAddress, City, State and ZipCode.
+
+Show all SaleDate, SaleAmount, and SalesRep First and Last name from Sale and
+SalesRep. Make sure that all Sales appear in results even if there is no
+SalesRep associated to the sale.
+"""
+
+SELECT SaleDate, SaleAmount, FirstName, LastName FROM Sale AS s
+    LEFT OUTER JOIN SalesRep AS sr ON s.SalesRepID = sr.SalesRepID;

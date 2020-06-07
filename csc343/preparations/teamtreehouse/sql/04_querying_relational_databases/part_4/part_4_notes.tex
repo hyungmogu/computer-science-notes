@@ -164,7 +164,7 @@
         \bigskip
 
     \begin{lstlisting}[language=SQL]
-    SELECT mk.MakeName = md.ModelName FROM make AS mk
+    SELECT mk.MakeName, md.ModelName FROM make AS mk
     LEFT OUTER JOIN model AS md ON mk.MakeId = md.MakeId;
     \end{lstlisting}
 
@@ -337,5 +337,14 @@
 \section{Review and Practice}
 
 \bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
+
 
 \end{document}
