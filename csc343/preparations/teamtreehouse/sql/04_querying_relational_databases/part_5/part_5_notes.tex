@@ -53,4 +53,41 @@
 \author{Team Treehouse}
 \maketitle
 
+\bigskip
+
+\section{What are Set Operations?}
+
+\bigskip
+
+\begin{itemize}
+    \item Combine or limit results using two or more datasets
+    \item has 4 set operations
+    \begin{itemize}
+        \item UNION / UNION ALL
+        \item INTERSET
+        \item EXCEPT
+    \end{itemize}
+\end{itemize}
+
+\bigskip
+
+\section{Union Operations}
+
+\bigskip
+
+\begin{itemize}
+    \item Stacks data vertically
+    \item has to have matching number of columns
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM orders WHERE status = "placed" AND ordered_on = DATE("now");
+    \end{lstlisting}
+\end{itemize}
+
 \end{document}
