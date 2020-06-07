@@ -79,6 +79,23 @@
     \item Is used for joining one to many relationships
     \item \textbf{Syntax:} SELECT \textit{columns name} FROM \textit{table 1 (many) name}
     INNER JOIN \textit{table 2 (one) name} ON \textit{table 1 name}.\textit{column name} = \textit{table 1 name}.\textit{column name};
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT mk.MakeName = md.ModelName FROM make AS mk
+    INNER JOIN model AS md ON mk.MakeId = md.MakeId;
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/part_4_notes_2.png}
+    \end{center}
 \end{itemize}
 
 
