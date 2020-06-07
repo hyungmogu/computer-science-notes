@@ -122,13 +122,15 @@
     \item There are three types
     \begin{itemize}
         \item Left Outer Join
-        \begin{itemize}
-            \item
-        \end{itemize}
-
         \begin{center}
         \includegraphics[width=0.6\linewidth]{images/part_4_notes_5.png}
         \end{center}
+
+        \begin{itemize}
+            \item \textbf{Syntax:} SELECT \textit{columns name} FROM \textit{table 1 name}
+            LEFT OUTER JOIN \textit{table name 2} ON \textit{table 1 name}.\textit{column name} = \textit{table 1 name}.\textit{column name};
+            \item joins tables with all columns from table 1 returned
+        \end{itemize}
 
         \bigskip
 
@@ -138,11 +140,41 @@
         \includegraphics[width=0.6\linewidth]{images/part_4_notes_6.png}
         \end{center}
 
-        \item Full Outer Join
+        \begin{itemize}
+            \item \textbf{Syntax:} SELECT \textit{columns name} FROM \textit{table 1 name}
+            RIGHT OUTER JOIN \textit{table name 2} ON \textit{table 1 name}.\textit{column name} = \textit{table 1 name}.\textit{column name};
+            \item joins tables with all columns from table 2 returned
+        \end{itemize}
 
+        \item Full Outer Join
         \begin{center}
         \includegraphics[width=0.6\linewidth]{images/part_4_notes_7.png}
         \end{center}
+
+        \begin{itemize}
+            \item \textbf{Syntax:} SELECT \textit{columns name} FROM \textit{table 1 name}
+            FULL OUTER JOIN \textit{table name 2} ON \textit{table 1 name}.\textit{column name} = \textit{table 1 name}.\textit{column name};
+            \item joins tables with all columns from both tables returned
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT mk.MakeName = md.ModelName FROM make AS mk
+    LEFT OUTER JOIN model AS md ON mk.MakeId = md.MakeId;
+    \end{lstlisting}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/part_4_notes_8.png}
+        \end{center}
+
+
     \end{itemize}
 \end{itemize}
 
