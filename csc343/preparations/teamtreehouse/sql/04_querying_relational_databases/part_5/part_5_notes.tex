@@ -83,6 +83,7 @@
     \end{center}
 
     \item has to have matching number of columns
+    \item \textbf{Syntax:} \textit{query 1} UNION \textit{query 2}
 
     \bigskip
 
@@ -123,9 +124,21 @@
 
 \bigskip
 
-
 \begin{itemize}
     \item Is the same as union but does not eliminate duplicates
+    \item \textbf{Syntax:} \textit{query 1} UNION ALL \textit{query 2}
+\end{itemize}
+
+\bigskip
+
+\section{Intersect}
+
+\bigskip
+
+\begin{itemize}
+    \item Only returns results that exist in both
+    \item Intersection is based on supplied columns
+    \item \textbf{Syntax:} \textit{query 1} INTERSECT \textit{query 2}
 \end{itemize}
 
 
