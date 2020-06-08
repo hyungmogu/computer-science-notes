@@ -140,5 +140,60 @@
 \end{itemize}
 
 
+\bigskip
+
+\section{Using Multiple CTEs in a Query}
+
+\bigskip
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/part_1_notes_1.png}
+\end{center}
+
+\begin{itemize}
+    \item can only reference earlier WITH expression
+    \item cannot reference latter WITH expressions
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    WITH
+    all_sales AS (
+        SELECT Orders.Id AS OrderId, Orders.EmployeeId,
+        SUM(OrderDetails.UnitPrice * OrderDetails.Quantity) AS invoice_total
+        FROM Orders
+        JOIN OrderDetails ON Orders.id = OrderDetails.OrderId
+        GROUP BY Orders.ID
+    ),
+    revenue_by_employee AS (
+        SELECT EmployeeId, SUM(invoice_total) AS total_revenue
+        FROM all_sales //<- From Earlier WITH
+        GROUP BY EmployeeID
+    ),
+    sales_by_employee AS (
+        SELECT EmployeeId, COUNT(*) AS sales_count
+        FROM all_sales //<- From Earlier WITH
+        GROUP BY EmployeeID
+    )
+    SELECT
+    Employees.Id,
+    Employees.LastName,
+    revenue_by_employee.total_revenue,
+    sales_by_employee.sales_count,
+    revenue_by_employee.total_revenue/sales_by_employee.sales_count AS
+                                                    avg_revenue_per_sale
+    FROM revenue_by_employee
+    JOIN sales_by_employee ON revenue_by_employee.EmployeeId = sales_by_employee.EmployeeId
+    JOIN Employees ON revenue_by_employee.EmployeeId = Employees.Id
+    ORDER BY total_revenue DESC
+    \end{lstlisting}
+
+\end{itemize}
+
+
 
 \end{document}
