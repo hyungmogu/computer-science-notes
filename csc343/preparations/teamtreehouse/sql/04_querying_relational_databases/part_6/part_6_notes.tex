@@ -138,7 +138,8 @@
 
 
 \begin{itemize}
-    \item
+    \item Note: Always work on subqueries before working more complex query
+    \item \textbf{Derived table} or \textbf{temporary table} can also be used in JOINS
 
     \begin{lstlisting}[language=SQL]
     // ===== create subqueries =======
@@ -156,16 +157,119 @@
 
     SELECT sr.LastName FROM SalesRep AS sr
         LEFT OUTER JOIN (
-
-
-
+            SELECT SalesRepID, SUM(SaleAmount) AS StLouisAmount
+            FROM Sale AS s WHERE s.LocationID = 1
+            GROUP BY SalesRepID;
         ) As Loc1
 
-        LEFT OUTER JOIN () AS Loc2
+        LEFT OUTER JOIN (
+            SELECT SalesRepID, SUM(SaleAmount) AS ColumbiaAmount
+            FROM Sale AS s WHERE s.LocationID = 2
+            GROUP BY SalesRepID;
+        ) AS Loc2
+
+
+    // ===== Finish by adding join criteria ======
+
+    SELECT sr.LastName, Loc1.StLouisAmount, Loc2.ColumbiaAmount FROM SalesRep AS sr
+        LEFT OUTER JOIN (
+            SELECT SalesRepID, SUM(SaleAmount) AS StLouisAmount
+            FROM Sale AS s WHERE s.LocationID = 1
+            GROUP BY SalesRepID;
+        ) As Loc1 ON sr.SalesRepID = Loc1.SalesRepID
+
+        LEFT OUTER JOIN (
+            SELECT SalesRepID, SUM(SaleAmount) AS ColumbiaAmount
+            FROM Sale AS s WHERE s.LocationID = 2
+            GROUP BY SalesRepID;
+        ) AS Loc2 ON sr.SalesRepID = Loc2.SalesRepID
 
 
     \end{lstlisting}
 \end{itemize}
+
+\bigskip
+
+\section{Subqueries Review}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item
+
+    When using a subquery to filter your outer query, you use what SQL keyword?
+
+    \begin{enumerate}[A.]
+        \item AS
+        \item IN
+        \item OF
+        \item ON
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    Why must a derived table be aliased?
+
+    \begin{enumerate}[A.]
+        \item The database wouldn’t be able to tell which user is running the query otherwise.
+        \item Being a temporary object, it has no other name and thus the database wouldn’t be able to reference its resulting data set.
+        \item They do not need to be aliased.
+
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    When creating derived / temporary tables, your subquery belongs in which
+    section of the query:
+
+    \begin{enumerate}[A.]
+        \item WHERE
+        \item GROUP BY
+        \item FROM
+        \item SELECT
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    When using a subquery to create a derived table, you can only select ONE
+    column in the Subquery.
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+
+    \item
+
+    When using IN with a subquery, you can only select ONE column in the Subquery.
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} A
+
+\end{enumerate}
 
 
 \end{document}
