@@ -76,7 +76,96 @@
 \bigskip
 
 \begin{itemize}
-    \item
+    \item \textbf{Syntax:} SELECT \textit{columns name} FROM \textit{table 1 name}
+    WHERE \textit{Column 1 name} IN (SELECT \textit{Column 1 Name} FROM \textit{table 2 name}
+    WHERE \textit{Search Criteria})
+
+    \item \textbf{Syntax 2:} SELECT \textit{columns name} FROM \textit{table 1 name}
+    WHERE \textit{Column 1 name} NOT IN (SELECT \textit{Column 1 Name} FROM \textit{table 2 name}
+    WHERE \textit{Search Criteria})
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM Sale WHERE CarID NOT IN (SELECT CarID FROM Car WHERE ModelYear = 2015);
+    \end{lstlisting}
 \end{itemize}
+
+\bigskip
+
+\section{Using a Subquery to Create a Temporary Table (Part 1)}
+
+\bigskip
+
+
+\begin{itemize}
+    \item Temporary table is also called a \textbf{derived table}
+    \item Is used in INNER JOIN and OUTER JOIN
+    \item \textbf{Syntax:}
+
+    SELECT \textit{Columns Name}
+
+    FROM \textit{Table name}
+
+    \textit{INNER / OUTER} JOIN
+
+    (SELECT \textit{columns name} FROM \textit{table name} WHERE \textit{Search Criteria}) AS \textit{Alias}
+
+    ON \textit{Join Criteria};
+
+    \bigskip
+
+    \underline{\textbf{Example:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM Sale AS s
+        INNER JOIN (SELECT CarID FROM Car WHERE ModelYear = 2015) AS t
+        ON s.CarID = t.CarID;
+    \end{lstlisting}
+\end{itemize}
+
+\bigskip
+
+\section{Using a Subquery to Create a Temporary Table (Part 2)}
+
+\bigskip
+
+
+\begin{itemize}
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    // ===== create subqueries =======
+
+    SELECT SalesRepID, SUM(SaleAmount) AS StLouisAmount
+    FROM Sales AS s WHERE s.LocationID = 1
+    GROUP BY SalesRepID;
+
+
+    SELECT SalesRepID, SUM(SaleAmount) AS ColumbiaAmount
+    FROM Sales AS s WHERE s.LocationID = 2
+    GROUP BY SalesRepID;
+
+    // ===== Add to main query ======
+
+    SELECT sr.LastName FROM SalesRep AS sr
+        LEFT OUTER JOIN (
+
+
+
+        ) As Loc1
+
+        LEFT OUTER JOIN () AS Loc2
+
+
+    \end{lstlisting}
+\end{itemize}
+
 
 \end{document}
