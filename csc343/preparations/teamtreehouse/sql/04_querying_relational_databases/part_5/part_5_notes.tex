@@ -156,7 +156,7 @@
 
     \begin{lstlisting}[language=SQL]
     SELECT MakeName FROM Make
-        INTERSET
+        INTERSECT
     SELECT MakeName FROM  ForeignMake ORDER BY MakeName DESC;
     \end{lstlisting}
 
@@ -211,5 +211,104 @@
     \end{lstlisting}
 \end{itemize}
 
+\bigskip
+
+\section{Set Operations Reivew}
+
+\bigskip
+
+
+\begin{enumerate}[1.]
+    \item
+
+    Which Set Operation is used to find and return values that exist in two
+    different data sets?
+
+    \begin{enumerate}[A.]
+        \item EXCEPT
+        \item UNION
+        \item INTERSECT
+        \item UNION ALL
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+
+    \item
+
+    Which Operator eliminates duplicates while combining multiple data sets into
+    one result set?
+
+    \begin{enumerate}[A.]
+        \item EXCEPT
+        \item UNION ALL
+        \item MERGE
+        \item UNION
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} D
+
+    \item
+
+    It is valid to have fewer columns in the query that comes after the UNION
+    operation.
+
+    \begin{enumerate}[A.]
+        \item True
+        \item False
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    Which of the following is NOT a SQL Set Operation?
+
+    \begin{enumerate}[A.]
+        \item UNION
+        \item INTERSECT
+        \item EXCEPT
+        \item CONJOIN
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} D
+
+    \item
+
+    Which Set Operation is used to return only the results that are NOT in another
+    table?
+
+    \begin{enumerate}[A.]
+        \item UNION ALL
+        \item INTERSECT
+        \item EXCEPT
+        \item UNION
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} C
+\end{enumerate}
+
+\bigskip
+
+\section{Review and Practice}
+
+\bigskip
+
+\section{Exercise 1}
+
+\bigskip
+
+\begin{itemize}
+    \item Solution included in \textit{exercise\_1.sql}
+\end{itemize}
 
 \end{document}
