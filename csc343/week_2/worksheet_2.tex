@@ -56,12 +56,54 @@
 This does not reflect the course material. Please take it only as a reference.
 
 \begin{enumerate}[1.]
+    \item \textbf{Exercise 2.4.1:} This exercise builds upon the products schema of
+    Exercise 2.3.1. Recall that the database schema consists of four relations, whose
+    schemas are:
+
+    \begin{lstlisting}
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    Some sample data for the relation Product is shown in Fig. 2.20. Sample data
+    for the outer three relations is shown in Fig. 2.21. Manufactureres and model
+    numbers have been ``Sanitized'', but the data is typical of products on sale
+    at the beginning of 2007.
+
+    \bigskip
+
+    Write expressions of relational algebra to answer the following queries. You
+    may use the linear notation of Section 2.4.13 if you wish. For the data of Figs. 2.20
+    and 2.21, show the result of your query. However, your answer should work for
+    arbitrary data, not just the data of these figures
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item What PC models have a speed of at least 3.00?
+        \item Which manufacturers make laptops with a hard disk of at least 100GB?
+        \item Find the model number and price of all products (of any type) made by manufacturer B..
+        \item Find the model nubmers of all color laser printers
+        \item Find those maufactueres that sell Laptops, but not PC's.
+        \item Find those hard-disk sizes that occur in two or more PC's.
+    \end{enumerate}
+
     \item \textbf{Exercise 2.4.2:} Draw expression trees for each of your expressions
     of Exercise 2.4.1
 
     \item \textbf{Exercise 2.4.3:} This exercise builds upon Exercise 2.3.2 concerning
     World War II capital ships. Recall it involves the following relations:
 
+    \begin{lstlisting}
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
 
     Figures 2.22 and 2.23 give some same data for these four relations. Note that unlike
     the data for Exercise 2.4.1, there are some ``dangling tuples'' in this data,
@@ -94,10 +136,10 @@ This does not reflect the course material. Please take it only as a reference.
     \end{enumerate}
 
     \begin{center}
-    \includegraphics[width=0.75\linewidth]{images/worksheet_2_1.png}
-    \includegraphics[width=0.75\linewidth]{images/worksheet_2_2.png}
-    \includegraphics[width=0.75\linewidth]{images/worksheet_2_3.png}
-    \includegraphics[width=0.75\linewidth]{images/worksheet_2_4.png}
+    \includegraphics[width=0.\linewidth]{images/worksheet_2_1.png}
+    \includegraphics[width=0.\linewidth]{images/worksheet_2_2.png}
+    \includegraphics[width=0.\linewidth]{images/worksheet_2_3.png}
+    \includegraphics[width=0.\linewidth]{images/worksheet_2_4.png}
     \end{center}
 
     \item \textbf{Exercise 2.4.4:} Draw expression trees for each of your expressions of
