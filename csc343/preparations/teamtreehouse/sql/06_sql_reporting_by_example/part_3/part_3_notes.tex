@@ -82,89 +82,67 @@
 \begin{enumerate}[1.]
     \item
 
-    What should be added to this query to only return 1 row per employee?
-
-    \bigskip
-
-    SELECT \_\_\_  FIRST\_NAME, LAST\_NAME
-
-    FROM EMPLOYEES JOIN ...
-
-    \bigskip
-
-    \textbf{Answer:} DISTINCT
-
-    \item
-
-    If I'm making a database of houses in my neighborhood, what would make a good
-    primary key?
+    The EMPLOYEES table has 267 rows and the JOBS table has 28 rows. How many ROWS
+    does the following query return?
 
     \bigskip
 
     \begin{enumerate}[A.]
-        \item the current owner's first and last name
-        \item the floor plan
-        \item the last sale price
-        \item the address
-    \end{enumerate}
-
-    \bigskip
-
-    \textbf{Answer:} D
-
-    \item
-
-    Write a query to figure out the highest employee salary. The column is 'SALARY'.
-
-    SELECT \_\_\_ FROM EMPLOYEES;
-
-    \bigskip
-
-    \textbf{Answer:} MAX(SALARY)
-
-    \item
-
-    What does this return:
-
-    \bigskip
-
-    SELECT NULL = NULL;
-
-    \bigskip
-
-    \begin{enumerate}[A.]
-        \item True (or 1)
-        \item False (or 0)
-        \item Null
-        \item None of the above
-
-    \end{enumerate}
-
-    \bigskip
-
-    \textbf{Answer:} C
-
-    \item
-
-    What does this return:
-
-    \bigskip
-
-    When a table contains a column that refers to another table's primary key,
-    that column is called:
-
-    \bigskip
-
-    \begin{enumerate}[A.]
-        \item referral key
-        \item foreign key
-        \item major key
-        \item secondary key
+        \item 0
+        \item It could be anything from 0 to 267
+        \item More than 267
+        \item 267
     \end{enumerate}
 
     \bigskip
 
     \textbf{Answer:} B
+
+    \item
+
+    The EMPLOYEES table has 23 columns and the JOBS table has 4. How many COLUMNS
+    does the following query have?
+
+    \bigskip
+
+    SELECT $\ast$
+
+    FROM EMPLOYEES
+
+    JOIN JOBS ON EMPLOYEES.JOB\_ID = JOBS.ID;
+
+    \begin{enumerate}[A.]
+        \item 0
+        \item 27
+        \item 92
+        \item 6
+    \end{enumerate}
+
+    \bigskip
+
+    \textbf{Answer:} B
+
+    \item
+
+    Please fill in the correct answer in each blank provided below.
+
+    \bigskip
+
+    Write a query to figure out how many employees are in each job role.
+
+    \bigskip
+
+    SELECT JOBS.ROLE, COUNT(1)
+
+    FROM EMPLOYEES
+
+    JOIN JOBS ON EMPLOYEES.JOB\_ID = JOBS.ID
+
+    \_\_\_ ;
+
+    \bigskip
+
+    \textbf{Answer:}
 \end{enumerate}
 
 
