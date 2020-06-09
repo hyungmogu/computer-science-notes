@@ -77,6 +77,20 @@
             \end{itemize}
         \end{mdframed}
 
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item \textbf{Attributes:} are the columns of a relation
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/worksheet_1_solution_1.png}
+            \end{center}
+        \end{itemize}
+
         \item The tuples of each relation
 
         \begin{mdframed}
@@ -85,8 +99,18 @@
             \bigskip
 
             \begin{itemize}
-                \item Accounts: \textit{acctNo}, \textit{type}, \textit{balance}
-                \item Customers: \textit{firstName}, \textit{lastName}, \textit{idNo}, \textit{account}
+                \item Accounts
+                \begin{enumerate}[1.]
+                    \item 12345, savings, 12000
+                    \item 23456, checkings, 1000
+                    \item 34567, savings, 25
+                \end{enumerate}
+                \item Customers
+                \begin{enumerate}[1.]
+                    \item Robbie, Banks, 901-222, 12345
+                    \item Lena, Hand, 805-333, 12345
+                    \item Lena, Hand, 805-333, 23456
+                \end{enumerate}
             \end{itemize}
         \end{mdframed}
 
@@ -100,12 +124,50 @@
             \item A tuple has \underline{one \textbf{component}} for each attribute
 
             \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/worksheet_1_solution_1.png}
+            \includegraphics[width=0.8\linewidth]{images/worksheet_1_solution_2.png}
             \end{center}
         \end{itemize}
 
         \item The components of one tuple from each relation
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \begin{enumerate}[1.]
+                \item Accounts
+                \begin{itemize}
+                    \item 12345
+                \end{itemize}
+                \item Customers
+                \begin{itemize}
+                    \item Robbie
+                \end{itemize}
+            \end{enumerate}
+
+        \end{mdframed}
         \item The database schema
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \begin{enumerate}[1.]
+                \item Accounts(acctNo, type, balance)
+                \item Customers(firstName, lastName, idNo, account)
+            \end{enumerate}
+        \end{mdframed}
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \begin{itemize}
+            \item \textbf{Schema:} Is the name of relation and the set of attributes
+            for a relation
+
+            \begin{itemize}
+                \item e.g. Movies(title, year, length, genre)
+            \end{itemize}
+        \end{itemize}
+
         \item A suitable domain for each attribute
         \item Another equivalent way to present each relation
     \end{enumerate}
