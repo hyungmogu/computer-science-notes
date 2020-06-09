@@ -299,7 +299,7 @@
     \end{lstlisting}
 
     The \textbf{Product} relation gives the manufacturer, model number and type
-    (PC< laptop, or printer) of various products. We assume for convenience that
+    (PC, laptop, or printer) of various products. We assume for convenience that
     model numbers are unique over all manufactuers and product types; that assumption is
     not relaistic, and a real database would include a code for the manufacturer
     as part of the model number. The PC relation gives for each model number that
@@ -316,6 +316,23 @@
 
     \begin{enumerate}[a)]
         \item A suitable schema for relation \textbf{Product}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Product (
+        maker CHAR(100),
+        model INT,
+        type CHAR(7)
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
+
+
         \item A suitable schema for relation \textbf{Laptop}
         \item A suitable schema for relation \textbf{Printer}
         \item An alteration to your \textbf{Printer} schema from (d) to delete
