@@ -289,6 +289,58 @@
     subqueries only. More precisely, write an equivalent SQL expression where no
     \textbf{FROM} cluase has more than one relation in its list.
 
+
+    \item \textbf{Exercise 6.3.5} Write the following queries without using the intersection
+    or difference operators
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item The intersection query of Fig. 6.5
+        \item The difference query of Example 6.17
+    \end{enumerate}
+
+    \item \textbf{Exercise 6.3.7} For these relations from our running move database
+    schema
+
+    \begin{lstlisting}[language=SQL]
+    StarsIn(movieTitle, movieYear, starName)
+    MovieStar(name, address, gender, birthdate)
+    MovieExec(name, address. cert\#, netWorth)
+    Studio(name, address, pressC\#)
+    \end{lstlisting}
+
+    \bigskip
+
+    describe the tuples that would appear in the following SQL expressions:
+
+    \begin{enumerate}[a)]
+        \item Studio \textbf{CROSS JOIN MovieExec}
+        \item StarsIn \textbf{NATURAL FULL OUTER JOIN MovieStar}
+        \item StarsIn \textbf{FULL OUTER JOIN MovieStar ON name = starName;}
+    \end{enumerate}
+
+    \item \textbf{Exercise 6.3.8} Using the database schema
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    write a SQL query that will produce information about all products - \textbf{PC}'s
+    laptops, and printers - including their manufacturer if available, and whatever
+    information about that product is relevant (i.e. found in the relation
+    for that type of product)
+
+    \item
+
+    \item
+
+
 \end{enumerate}
 
 \bigskip
