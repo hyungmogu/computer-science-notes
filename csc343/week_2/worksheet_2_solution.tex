@@ -104,9 +104,21 @@
         \begin{itemize}
             \item Project
             \begin{itemize}
-                \item Picks certain columns
-                \item Is indicated by $\pi$
                 \item \textbf{Syntax:} $\pi_{A_1, A_2, \cdots, A_n}$(Rel)
+                \begin{itemize}
+                    \item $A_1,\cdots,A_n$ represents attributes
+                \end{itemize}
+                \item Picks certain columns
+                \item e.g
+
+                \bigskip
+
+                What are the titles and years of movies made by Fox that
+                are at least 100 minutes long?
+
+                \begin{align*}
+                    \pi_{title,year}(\sigma_{length \geq 100 \textbf{ AND } studioName=`\textbf{Fox}'})(\text{Movies})
+                \end{align*}
             \end{itemize}
         \end{itemize}
 
