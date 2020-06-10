@@ -477,7 +477,7 @@
 
     \begin{lstlisting}[language=SQL]
     CREATE TABLE Classes (
-        class CHAR(100),
+        class CHAR(100) PRIMARY KEY,
         type CHAR(2),
         country CHAR(50),
         numGuns INT,
@@ -489,14 +489,54 @@
         \end{mdframed}
 
         \item A suitable schema for relation \textbf{Ships}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Ship (
+        name CHAR(255) PRIMARY KEY,
+        class CHAR(100),
+        launched DATE
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
+
         \item A suitable schema for relation \textbf{Battles}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Battles (
+        name CHAR(255) PRIMARY KEY,
+        date DATE
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
+
         \item A suitable schema for relation \textbf{Outcomes}
+
+
         \item An alteration to your \textbf{Classes} relation from (a) to delete
         the attribute \textbf{bore}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
 
     \begin{lstlisting}[language=SQL]
     ALTER TABLE Classes DROP bore;
     \end{lstlisting}
+
+        \end{mdframed}
 
         \item An alteration to your \textbf{Ships} relation from (b) to include
         attribute \textbf{yard} giving the shipard where the ship was built.
