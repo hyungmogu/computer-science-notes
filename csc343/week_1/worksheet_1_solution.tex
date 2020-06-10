@@ -391,11 +391,43 @@
 
         \item An alteration to your \textbf{Printer} schema from (d) to delete
         the attribute \textbf{color}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Printer DROP color;
+    \end{lstlisting}
+
+        \end{mdframed}
+
+
         \item An alternation to your \textbf{Laptop} schema from (c) to add the
         attribute \textbf{od} (optical-disk, e.g. cd or dvd). Let the default value
         for this attribute be `\textbf{none}' if the laptop does not have an optical
         disk.
-    \end{enumerate}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Laptop ADD od CHAR(3) DEFAULT 'none';
+    \end{lstlisting}
+
+        \end{mdframed}
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \begin{itemize}
+            \item
+        \end{itemize}
+        \end{enumerate}
 
     \item \textbf{Exericse 2.3.2} This exercise introduces another running example,
     concerning World War II capital ships. It involves the following relations:
