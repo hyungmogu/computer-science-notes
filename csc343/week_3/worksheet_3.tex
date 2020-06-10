@@ -336,10 +336,24 @@
     information about that product is relevant (i.e. found in the relation
     for that type of product)
 
-    \item
+    \item \textbf{Exercise 6.3.9} Using the two relations
 
-    \item
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    \end{lstlisting}
 
+    \bigskip
+
+    from our database schema Exercise 2.4.3 write a SQL query that will produce
+    all available information about ships, including that information available in
+    the \textbf{Classes} relation. You need not produce information about classes
+    if there are no ships of that class mentioned in \textbf{Ships}.
+
+    \item \textbf{Exercise 6.3.10} Repeat Exercise 6.3.9 but also include in the
+    result, for any class $C$ that is not mentioned in \textbf{Ships}, information
+    about the ship that has the same name $C$ as its class. You may assume that there
+    is a ship with the class name, even if it doesn't appear in \textbf{Ships}.
 
 \end{enumerate}
 
