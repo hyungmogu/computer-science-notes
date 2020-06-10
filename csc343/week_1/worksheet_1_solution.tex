@@ -425,7 +425,17 @@
         \underline{\textbf{Notes:}}
 
         \begin{itemize}
-            \item
+            \item DEFAULT
+            \begin{itemize}
+                \item e.g. gender CHAR(1) DEFAULT '?'
+                \item e.g.2 birthdate DATE DEFAULT DATE '0000-00-00'
+            \end{itemize}
+            \item ALTER
+            \begin{itemize}
+                \item adds or drops attributes from table
+                \item \textbf{SYNTAX (ADD):} ALTER TABLE \textit{table name} ADD \textit{attribute name} \textit{type} \textit{options}
+                \item \textbf{SYNTAX (DROP):} ALTER TABLE \textit{table name} DROP \textit{attribute name}
+            \end{itemize}
         \end{itemize}
         \end{enumerate}
 
