@@ -325,7 +325,7 @@
     \begin{lstlisting}[language=SQL]
     CREATE TABLE Product (
         maker CHAR(100),
-        model INT UNIQUE,
+        model INT PRIMARY KEY,
         type CHAR(7)
     );
     \end{lstlisting}
@@ -341,10 +341,13 @@
             \bigskip
 
     \begin{lstlisting}[language=SQL]
-    CREATE TABLE Product (
-        maker CHAR(100),
-        model INT UNIQUE,
-        type CHAR(7)
+    CREATE TABLE Laptop (
+        model INT PRIMARY KEY,
+        speed FLOAT(3),
+        ram INT,
+        hd INT,
+        screen FLOAT(3),
+        price FLOAT(7)
     );
     \end{lstlisting}
 
