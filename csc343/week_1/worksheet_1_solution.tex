@@ -332,6 +332,24 @@
 
         \end{mdframed}
 
+        \item A suitable schema for relation \textbf{PC}
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE PC (
+        model INT PRIMARY KEY,
+        speed FLOAT(3),
+        ram INT,
+        hd INT,
+        price FLOAT(7)
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
+
 
         \item A suitable schema for relation \textbf{Laptop}
 
@@ -355,6 +373,21 @@
 
         \item A suitable schema for relation \textbf{Printer}
 
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Printer (
+        model INT PRIMARY KEY,
+        color BOOL,
+        type CHAR(7),
+        price FLOAT(7)
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
 
         \item An alteration to your \textbf{Printer} schema from (d) to delete
         the attribute \textbf{color}
