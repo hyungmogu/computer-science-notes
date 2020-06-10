@@ -141,8 +141,44 @@
         \item Find the class name and country for all classes with at least 10 guns.
         \item Find the names of all ships launched prior to 1918, but call the resulting
         column \textbf{shipName}
-
+        \item Find the names of ships sunk in battle and the name of the battle
+        in which they are sunk
+        \item Find all ships that have the same name as their class
+        \item Find the name of all ships that begin with the letter ``R''
+        \item Find the names of all ships whose name consists of three or more words
+        (e.g King George V)
     \end{enumerate}
+
+    \item \textbf{Exercise 6.1.5:} Let a and b be integer-valued attributes that
+    may be \textit{NULL} in some tuples. For each of the following conditions
+    (as may appear in a WHERE clause), describe exactly the set of $(a, b)$ tuples
+    that satisfy the condition, including the case where $a$ and/or $b$ is \textit{NULL}.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item $a = 10$ OR $b = 20$
+        \item $a = 10$ AND $b = 20$
+        \item $a < 10$ OR $a >= 10$
+        \item $a = b$
+        \item $a <= b$
+    \end{enumerate}
+
+    \item
+
+    \item \textbf{Exercise 6.1.5:} In Example 6.10 we discussed the query
+
+    \begin{lstlisting}[language=SQL]
+    SELECT *
+    FROM Movies
+    WHERE length <= 120 OR length > 120;
+    \end{lstlisting}
+
+    \bigskip
+
+    which behaves unintuitively when the \textbf{length} of a movie is \textit{NULL}.
+    Find a simpler, equivalent query, one with a single condition in the \textbf{WHERE} clause
+    (no \textbf{AND} or \textbf{OR} of conditions)
 
 \end{enumerate}
 
