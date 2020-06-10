@@ -87,6 +87,38 @@
         string \textit{Malibu} as a part of their address)
     \end{enumerate}
 
+    \item \textbf{Exercise 6.1.3:} Write the following queries in SQL. They refer
+    to the database schema of Exercise 2.4.1:
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model type)
+    PC(model, speed, ram, hd ,price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    Show the result of your queries using the data from Exercise 2.4.1
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Find the model number, speed and hard-disk size for all PC's whose
+        price is under \$1000
+        \item Do the same as (a), but rename the \textbf{speed} column \textbf{gigahertz}
+        and the \textbf{hd} column \textbf{gigabytes}.
+        \item Find the manufacturerers of printers
+        \item Find the model number, memory size, and screen size for laptops costing
+        more than \$1500.
+        \item Find all the tuples in the \textbf{Printer} relation for color printers.
+        Remember that \textbf{color} is a bollean-valued attribute.
+        \item Find the model nuber and hard-disk size for those PC's that have a
+        speed of 3.2 and a price less than \$2000.
+    \end{enumerate}
+
 \end{enumerate}
 
 \bigskip
