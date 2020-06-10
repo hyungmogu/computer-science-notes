@@ -232,6 +232,62 @@
         and RAM. A pair should be listed only once; e.g. list (i,j) but not (j, i).
     \end{enumerate}
 
+    \item \textbf{Exercise 6.3.1:} Write the following queries, based on the database schema
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.1. You should use at least one subquery in each of your answers
+    and write each query in two significantly different ways (e.g. using different
+    sets of the operators \textbf{EXIST}, \textbf{IN}, \textbf{ALL}, and \textbf{ANY})
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Find the makers of \textbf{PC}'s with a speed of at least 3.0.
+        \item Find the printers with the highest price
+        \item Find the laptops whose speed is slower than that of any \textbf{PC}
+        \item Find the model number of the item (PC, laptop, or printer) with the
+        highest price
+        \item Find the maker of the color printer with the lowest price
+    \end{enumerate}
+
+    \item \textbf{Exercise 6.3.2:} Write the following queries, based on the database
+    schema
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.3. You should use at least one subquery in each of your answers
+    and write each query in two significantly different ways (e.g. using different
+    set of the operators \textbf{EXIST}, \textbf{IN}, \textbf{ALL}, and \textbf{ANY})
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Find the countries whose ships had the largest number of guns
+        \item Find the classes of ships at least one of which was sunk in a battle
+        \item Find the names of the ships with a 16-inch bore
+        \item Find the battles in which ships of the Kongo class participated
+    \end{enumerate}
+
+    \item \textbf{Exercise 6.3.4} Consider expression $\pi_L (R_1 \bowtie R_2 \bowtie
+    \cdots \bowtie R_n)$ of relational algebra, where $L$ is a list of attributes all
+    of which belong to $R_1$. Show that this expression can be written in SQL using
+    subqueries only. More precisely, write an equivalent SQL expression where no
+    \textbf{FROM} cluase has more than one relation in its list.
 
 \end{enumerate}
 
