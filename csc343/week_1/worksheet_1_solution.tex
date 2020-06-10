@@ -325,7 +325,7 @@
     \begin{lstlisting}[language=SQL]
     CREATE TABLE Product (
         maker CHAR(100),
-        model INT,
+        model INT UNIQUE,
         type CHAR(7)
     );
     \end{lstlisting}
@@ -334,7 +334,25 @@
 
 
         \item A suitable schema for relation \textbf{Laptop}
+
+        \begin{mdframed}
+            \underline{\textbf{Answer:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Product (
+        maker CHAR(100),
+        model INT UNIQUE,
+        type CHAR(7)
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
+
         \item A suitable schema for relation \textbf{Printer}
+
+
         \item An alteration to your \textbf{Printer} schema from (d) to delete
         the attribute \textbf{color}
         \item An alternation to your \textbf{Laptop} schema from (c) to add the
