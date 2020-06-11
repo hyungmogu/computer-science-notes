@@ -204,6 +204,42 @@
                     \pi_{cName}(\text{College}) \cup \pi_{sName} (\text{Student})
                 \end{align*}
             \end{itemize}
+
+
+            \item Difference Operator
+            \begin{itemize}
+                \item \textbf{Syntax:} $R - S$
+                \item Is also called the \textit{difference} of $R$ and $S$
+                \item is the set of elements that are in $R$ but not in $S$.
+                \item Is like \textbf{EXCEPT} keyword in SQL
+                \item e.g.
+
+                \bigskip
+
+                IDs and names of students who didn't apply anywhere
+
+                \begin{align*}
+                    \pi_{sID} (\text{Student}) - \pi_{sID}(\text{Apply})
+                \end{align*}
+            \end{itemize}
+
+            \item Intersection Operator
+            \begin{itemize}
+                \item \textbf{Syntax:} $R \cap S$
+                \item Is also canned the \textit{intersection} of $R$ and $S$
+                \item Is the set of elements that are in both $R$ and $S$
+                \item e.g.
+
+                \bigskip
+
+                Names that are both a college name and a student name
+
+                \bigskip
+
+                \begin{align*}
+                    \pi_{cName} (\text{College}) - \pi_{sName}(\text{Student})
+                \end{align*}
+            \end{itemize}
         \end{itemize}
 
 
