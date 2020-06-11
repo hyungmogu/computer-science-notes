@@ -120,6 +120,26 @@
                     \pi_{title,year}(\sigma_{length \geq 100 \textbf{ AND } studioName=`\textbf{Fox}'})(\text{Movies})
                 \end{align*}
             \end{itemize}
+
+            \item Cross-Product / Cartesian Product
+            \begin{itemize}
+                \item Combines two relations
+                \item \textbf{Syntax:} Relation 1 $\times$ Relation 2
+                \item e.g. Names and GPAs of students with $HS > 1000$ who applied
+                to CS and were rejected
+
+                \bigskip
+
+                $ \pi_{sName, GPA}(\sigma_{Student.sID = Apply.sID \textbf{ AND }
+                HS > 1000 \textbf{ AND } major = `cs' \textbf{ AND } dec = `R'})$(Student $\times$ Apply)
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/worksheet_2_solution_4.png}
+                \end{center}
+
+            \end{itemize}
         \end{itemize}
 
 
