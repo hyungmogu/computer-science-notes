@@ -145,10 +145,41 @@
                 \item Enforce equality on all attributes with the same name
                 \item Eliminiate one copy of duplicate attributes
                 \item Is symbolized by $\bowtie$
+                \item \textbf{Syntax:} $\text{Relation 1} \bowtie \text{Relation 2}$
+                \item e.g.
+
+                \bigskip
+
+                Names and GPAs of students with $HS > 1000$ who applied to CS and were
+                rejected.
+
+                \bigskip
+
+                \begin{align*}
+                    \pi_{sName,GPA} (\sigma_{HS > 1000 \textbf{ AND } major = `cs' \textbf{ AND } dec = `R'}\text{(Student $\bowtie$ Apply)})
+                \end{align*}
+
 
                 \begin{center}
                 \includegraphics[width=\linewidth]{images/worksheet_2_solution_5.png}
                 \end{center}
+
+                \item e.g.2.
+
+                \bigskip
+
+                Names and GPAs of students with $HS > 1000$ who applied to CS
+                at college with $enr > 20,000$ and were rejected
+
+                \bigskip
+
+                \begin{align*}
+                    \begin{split}
+                        &\pi_{sName,GPA} (\\
+                        &\sigma_{HS > 1000 \textbf{ AND } enr > 20000 \textbf{ AND } major = `cs' \textbf{ AND } dec = `R'}\text{(Student $\bowtie$ (Apply $\bowtie$ College))}\\
+                        &)
+                    \end{split}
+                \end{align*}
             \end{itemize}
         \end{itemize}
 
