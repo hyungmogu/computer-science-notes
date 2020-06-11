@@ -293,11 +293,48 @@
 
         \bigskip
 
-        Manufacturers $F$ and $G$ product laptops but not PCs
+        Manufacturers $F$ and $G$ produce laptops but not PCs
 
         \begin{center}
         \includegraphics[width=\linewidth]{images/worksheet_2_solution_10.png}
         \end{center}
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            \color{red}
+
+            \textbf{Relational Algebra:}
+
+            \bigskip
+
+            $\color{red}\pi_{maker}(\sigma_{type = `\text{laptop}' \textbf{ AND } type <> `\text{PC}'}(\text{Product}))$
+
+            \bigskip
+
+            \textbf{Query Result:}
+
+            \bigskip
+
+            \begin{tabular}{|c|}
+                \hline
+                maker\\
+                \hline
+                F\\
+                \hline
+                G\\
+                \hline
+            \end{tabular}
+            \color{black}
+
+            \bigskip
+
+            Manufacturers $F$ and $G$ produce laptops but not PCs
+        \end{mdframed}
 
         \item $\pi_{hd}(\sigma_{hd = hd2}(\pi_{hd}(PC) \times \rho_{\pi_{hd}(PC)(hd2)}(\pi_{hd}(PC))))$
 
