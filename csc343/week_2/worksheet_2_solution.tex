@@ -278,6 +278,65 @@
         \includegraphics[width=\linewidth]{images/worksheet_2_solution_8.png}
         \end{center}
 
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            \color{red}
+
+            \textbf{Relational Algebra:}
+
+            \bigskip
+
+            \color{black}
+
+            \begin{align}
+                \begin{split}
+                &\pi_{model,price}(\sigma_{maker=`\text{B}'}(\\
+                &\text{Product} \bowtie (\pi_{model,price}(\text{Laptop}) \cup \pi_{model,price}(\text{PC}) \cup \pi_{model,price}(\text{Printer})\\
+                &))
+                \end{split}
+            \end{align}
+
+            \color{red}
+
+            \bigskip
+
+            \textbf{Query Result:}
+
+            \bigskip
+
+            \begin{tabular}{|c|c|}
+                \hline
+                model   &   price\\
+                \hline
+                1004    &   649\\
+                \hline
+                1005    &   630\\
+                \hline
+                1006    &   1049\\
+                \hline
+                2007    &   1429\\
+                \hline
+            \end{tabular}
+            \color{black}
+
+            \bigskip
+
+            The price and model number of all products made by manufacturer B are
+
+            \begin{enumerate}[1.]
+                \item model 1004, price 649
+                \item model 1005, price 630
+                \item model 1006, price 1049
+                \item model 2007, price 1429
+            \end{enumerate}
+        \end{mdframed}
+
+
 
         \item $\pi_{model} (\sigma_{color = \text{true} \textbf{ AND } type=`\text{laser}'}(\text{Printer}))$
 
