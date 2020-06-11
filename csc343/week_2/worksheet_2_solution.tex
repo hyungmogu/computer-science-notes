@@ -289,6 +289,47 @@
         \includegraphics[width=0.4\linewidth]{images/worksheet_2_solution_9.png}
         \end{center}
 
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            \color{red}
+
+            \textbf{Relational Algebra:}
+
+            \bigskip
+
+            \color{black}
+
+            $\pi_{model} (\sigma_{color = \text{true} \textbf{ AND } type=`\text{laser}'}(\text{Printer}))$
+
+            \color{red}
+
+            \bigskip
+
+            \textbf{Query Result:}
+
+            \bigskip
+
+            \begin{tabular}{|c|}
+                \hline
+                model\\
+                \hline
+                3003\\
+                \hline
+                3007\\
+                \hline
+            \end{tabular}
+            \color{black}
+
+            \bigskip
+
+            Model 3003, and 3007 are color laster printers
+        \end{mdframed}
+
         \item $\pi_{maker}(\text{Product} \bowtie (\pi_{model} (\text{Laptops}) - \pi_{model} (\text{PC})))$
 
         \bigskip
