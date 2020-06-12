@@ -782,6 +782,7 @@
 
         \bigskip
 
+        \resizebox{\textwidth}{!}{%
         \begin{tabular}{|c|c|c|c|c|c|c|c|}
             \hline
             name    &   class   &   launched    &   type    &   country &   numGuns   &   bore  &   displacement\\
@@ -828,8 +829,54 @@
             \hline
             Yamato  &   Yamato    &   1941    &   bb  &   Japan   &   9   &   18  &   65000\\
             \hline
-        \end{tabular}
+        \end{tabular}}
 
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            $Classes \bowtie_{displacement > 35,000} Ships$
+
+            \bigskip
+
+            \textbf{Query Result:}
+
+            \bigskip
+
+            \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                name    &   class   &   launched    &   type    &   country &   numGuns   &   bore  &   displacement\\
+                \hline
+                Iowa    &   Iowa    &   1943    &   bb  &   USA &   9   &   16  &   46000\\
+                \hline
+                Missouri    &   Iowa    &   1944    &   bb  &   USA &   9   &   16  &   46000\\
+                \hline
+                New Jersey  &   Iowa    &   1943    &   bb  &   USA &   9   &   16  &   46000\\
+                \hline
+                Wisconsin   &   Iowa    &   1944    &   bb  &   USA &   9   &   16  &   46000\\
+                \hline
+                Haruna  &   Kongo   &   1915    &   bc  &   Japan   &   8   &   14  &   32000\\
+                \hline
+                Hiei  &   Kongo   &   1914    &   bc  &   Japan   &   8   &   14  &   32000\\
+                \hline
+                Kirishima  &   Kongo   &   1915    &   bc  &   Japan   &   8   &   14  &   32000\\
+                \hline
+                North Carolina  &   North Carolina    &   1941    &   bb  &   USA &   9   &   16  &   37000\\
+                \hline
+                Washington  &   North Carolina    &   1941    &   bb  &   USA &   9   &   16  &   37000\\
+                \hline
+                Washington  &   North Carolina    &   1941    &   bb  &   USA &   9   &   16  &   37000\\
+                \hline
+                Yamato  &   Yamato    &   1941    &   bb  &   Japan   &   9   &   18  &   65000\\
+                \hline
+            \end{tabular}}
+
+        \end{mdframed}
     \end{enumerate}
 
 \end{enumerate}
