@@ -1105,6 +1105,31 @@
 
     \end{enumerate}
 
+    \item
+
+    One difference exists in the number of attributes.
+
+    \bigskip
+
+    The definition of natural join (i.e. $\bowtie$) tells us a copy of duplicate attributes
+    is eliminated.
+
+    \bigskip
+
+    Since $R$ and $S$ both have attribute $A$, the result $R \bowtie S$ would have one
+    attribute of $A$.
+
+    \bigskip
+
+    On the other hand, the definition of theta join tells us $R \bowtie_C S$ is equivalent form
+    of $\sigma_C(R \times S)$.
+
+    \bigskip
+
+    Since we know cross product doesn't eliminate duplicate attributes, the result
+    $\sigma_{\text{R.A} = \text{S.A}}(R \times S)$ would have 2 attributes of $A$.
+
+
 \end{enumerate}
 
 \end{document}
