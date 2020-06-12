@@ -887,6 +887,28 @@
 
         \item
 
+        \textbf{Relational Algebra:}
+
+        \bigskip
+
+        $\pi_{name,displacement,numGuns}(\text{Classes} \bowtie_{battle=`\text{Guadalcanal}} (\rho_{ship \to name} (\text{Outcomes} \bowtie \text{Ships})))$
+
+        \bigskip
+
+        \textbf{Query Result:}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|}
+            \hline
+            name    &   displacement    &   numGuns\\
+            \hline
+            Kirishima   &   32000   &   8\\
+            \hline
+            Washington   &   37000   &   9\\
+            \hline
+        \end{tabular}
+
         \item
 
         \textbf{Relational Algebra:}
@@ -981,7 +1003,7 @@
 
         \bigskip
 
-        $\pi_{country}(\sigma_{type = `bb'} (\text{Classes})) \cap \pi_{country}(\sigma_{type = `bc'}(\text{Classes}))$
+        $\pi_{country}(\sigma_{type = `\text{bb}'} (\text{Classes})) \cap \pi_{country}(\sigma_{type = `\text{bc}'}(\text{Classes}))$
 
         \bigskip
 
@@ -996,6 +1018,7 @@
             Japan\\
             \hline
             Gt. Britain\\
+            \hline
         \end{tabular}
 
     \end{enumerate}
