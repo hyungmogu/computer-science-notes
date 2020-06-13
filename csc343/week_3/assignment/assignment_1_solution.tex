@@ -16,6 +16,7 @@
 \usepackage{booktabs}
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
+\usepackage{soul}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -93,6 +94,28 @@
 
         On the other hand, since \textit{pid} in Post is the only primary key,
         it's value must be non-repeating.
+    \end{mdframed}
+
+    \item Can the database represent multiple comments from the same user on one post?
+
+    \bigskip
+
+    \begin{mdframed}
+        Yes.
+
+        \bigskip
+
+        The PRIMARY KEY of Comment(\ul{pid, commenter, when}, text)
+        depends on \ul{pid, commenter, when}.
+
+        \bigskip
+
+        By definition of PRIMARY KEY, the entry with the same pid, commenter, and when cannot exist.
+
+        \bigskip
+
+        Since pid and commenter are the same in this case, as long as when is different,
+        the PRIMARY KEY condition will remain valid.
     \end{mdframed}
 \end{enumerate}
 
