@@ -62,6 +62,38 @@
     \begin{mdframed}
     Means there is no result in a query where user follow himself/herself
     \end{mdframed}
+
+    \item Would it be a good idea to define the Follows relation like this? Follows()\underline{follower}, \underline{followed}, start)
+
+    \bigskip
+
+    \begin{mdframed}
+    Omitted for now
+    \end{mdframed}
+
+    \item Can the database represent a single post that has multiple comments?
+
+    \bigskip
+
+    \begin{mdframed}
+        Yes.
+
+        \bigskip
+
+        Create two relations Comment(\underline{pid, commenter, when}, text) and
+        Post(\underline{pid}, uid, when, location, caption). Set \textit{pid} in
+        comment to be the \text{pid} of Post.
+
+        \bigskip
+
+        Since primary key of Comment is \textit{pid, commenter, when}, comments
+        can have multiple entires with the same \textit{pid}.
+
+        \bigskip
+
+        On the other hand, since \textit{pid} in Post is the only primary key,
+        it's value must be non-repeating.
+    \end{mdframed}
 \end{enumerate}
 
 \section*{Part 1}
