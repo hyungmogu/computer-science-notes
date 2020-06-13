@@ -180,6 +180,30 @@
     And indeed it is so in Post relation.
 
     \end{mdframed}
+
+    \item  Can the database represent that the same user makes the same comment on
+    two different posts?
+
+    \bigskip
+
+    \begin{mdframed}
+
+    Yes.
+
+    \bigskip
+
+    The problem tells us the comment is made by the same user on two different posts,
+    so the value of \textit{pid} is different and \textit{commenter} is the same.
+
+    \bigskip
+
+    Since the PRIMARY KEY of Comment relation tells us an entry cannot be created when
+    \textit{pid, commenter}, and \textit{when} are the same, this doesn't create an issue.
+
+    \bigskip
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \section*{Part 1}
