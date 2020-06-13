@@ -117,6 +117,28 @@
         Since pid and commenter are the same in this case, as long as when is different,
         the PRIMARY KEY condition will remain valid.
     \end{mdframed}
+
+    \item How does the schema allow \textit{any} number of photos or videos to be
+    inclyded in one story, but restrict the user to having only one profile photo?
+
+    \bigskip
+
+    \begin{mdframed}
+
+    The user is restricted to having one profile photo since the attribute
+    \textit{photo} contains only the URL of user photo.
+
+    \bigskip
+
+    On the other hand, a story is allowed to have multiple videos or photos, since
+    its list of video and photo urls are defined in relation SIncludes, and it's PRIMARY KEY
+    depends on two attributes \textit{sid} and \textit{url}.
+
+    \bigskip
+
+    So, as long as there are no entries in SIncludes with the repeating value of
+    \textit{url}, a story can have as many photos and video urls.
+    \end{mdframed}
 \end{enumerate}
 
 \section*{Part 1}
