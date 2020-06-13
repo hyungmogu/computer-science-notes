@@ -139,6 +139,28 @@
     So, as long as there are no entries in SIncludes with the repeating value of
     \textit{url}, a story can have as many photos and video urls.
     \end{mdframed}
+
+    \item Can the database represent that a user likes the same post more than once?
+    (If not, how would you change the schema to allow this?)
+
+    \bigskip
+
+    \begin{mdframed}
+
+        No.
+
+        \bigskip
+
+        To like the same post by one person more than once, the matching values of
+        the attributes \textit{liker} and \textit{pid} need to appear more than once in
+        Relation Likes.
+
+        \bigskip
+
+        Since, \textit{pid} and \textit{liker} are together set as PRIMARY KEY, this
+        is not allowed.
+
+    \end{mdframed}
 \end{enumerate}
 
 \section*{Part 1}
