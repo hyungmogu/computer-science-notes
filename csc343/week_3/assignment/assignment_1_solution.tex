@@ -17,6 +17,7 @@
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
 \usepackage{soul}
+\usepackage{mathtools}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -262,6 +263,30 @@
             \includegraphics[width=\linewidth]{../images/assignment_1_solution_1.png}
             \end{center}
         \end{itemize}
+
+        \item e.g. Report the user name of every student who has never worked with
+        anyone, but has indeed submitted at least one file for at least one assignment
+
+        \bigskip
+
+        \begin{align*}
+            \begin{split}
+            had\_groupmates(username) &\coloneqq\\
+            &\Pi_{M1.username}(\sigma_{M1.gID=M2.gID \land M1.username \neq M2.username}\\
+            &(\rho_{M1}Membership \times \rho_{M2}Membership))
+            \end{split}\\[1em]
+            \begin{split}
+            no\_groupmates(username) &\coloneqq \Pi_{username}(USER - had\_groupmates)
+            \end{split}\\[1em]
+            \begin{split}
+            submitted\_some\_files(username) &\coloneqq \Pi_{username}(Submission)
+            \end{split}\\[1em]
+            \begin{split}
+            \textbf{Answer(username)} &\coloneqq no\_groupmates \cap submitted\_some\_files
+        \end{split}\\
+        \end{align*}
+
+
     \end{enumerate}
 
     \bigskip
