@@ -72,7 +72,7 @@
     \begin{enumerate}[a)]
         \item SELECT address FROM Studio WHERE name = 'MGM';
         \item SELECT birthdate FROM MovieStar WHERE name = 'Sandra Bullock';
-        \item SELECT StarName FROM StarsIn WHERE movieYear = 1980, movieTitle LIKE '\%Love\%';
+        \item SELECT starName FROM StarsIn WHERE movieYear = 1980, movieTitle LIKE '\%Love\%';
 
         \bigskip
 
@@ -81,9 +81,10 @@
 
             \bigskip
 
-            SELECT StarName FROM StarsIn WHERE movieYear = 1980 \color{red}AND\color{black}\:movieTitle LIKE '\%Love\%';
+            SELECT starName FROM StarsIn WHERE movieYear = 1980 \color{red}AND\color{black}\:movieTitle LIKE '\%Love\%';
         \end{mdframed}
         \item SELECT name FROM MovieExec WHERE netWorth $>=$ 10000000;
+        \item SELECT name FROM MovieStar WHERE gender='male' OR address LIKE '\%Malibu\%';
     \end{enumerate}
 \end{enumerate}
 
