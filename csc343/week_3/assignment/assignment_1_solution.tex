@@ -239,16 +239,16 @@
     \bigskip
 
     \begin{itemize}
-        \item Find all users who liked a post
+        \item Find all users who liked a post of a user
 
         \begin{mdframed}
-        $\textbf{liked\_posts(uid)} \coloneqq \rho_{\text{liker}->\text{uid}}(Post \bowtie Likes)$
+        $\textbf{liked\_posts(uid)} \coloneqq \Pi_{likers, uid}(Post \bowtie Likes)$
         \end{mdframed}
 
-        \item Find all users who never liked a post
+        \item Find all users who never liked a post of a user
 
         \begin{mdframed}
-        $\textbf{never\_liked(uid)} \coloneqq \Pi_{uid}(User) - \Pi_{uid}(\rho_{\text{liker}->\text{uid}}(Likes))$
+        $\textbf{had\_not\_liked\_posts(uid)} \coloneqq \rho_{u2.uid \to likers}(\sigma_{u1.uid \neq u2.uid}(\rho_{u1}(User) \times \rho_{u2}(User))) - \text{likers\_posts(uid)}$
         \end{mdframed}
 
         \item Find all users who liked a post of a user they do not follow
