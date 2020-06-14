@@ -263,6 +263,13 @@
         $\textbf{never\_viewed\_or\_liked(uid)} \coloneqq \text{never\_liked\_post(uid)} \cup \text{never\_viewed\_story(uid)}$
         \end{mdframed}
 
+
+        \item Find all users not followed
+
+        \begin{mdframed}
+        $\textbf{not\_followed(uid)} \coloneqq \Pi_{followers, followed, start}(\sigma_{\substack{User.uid = Follows.followed \land\\ User.uid != Follows.follower}}(Follows)) - Follows$
+        \end{mdframed}
+
         \item Find all users who liked a post they do not follow
 
         \begin{mdframed}
