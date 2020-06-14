@@ -248,7 +248,7 @@
         \item Find all users who never liked a post of a user
 
         \begin{mdframed}
-        $\textbf{dislikers\_posts(uid, liker)} \coloneqq \Pi_{liker, uid}(\rho_{u2.uid \to liker}(\sigma_{u1.uid \neq u2.uid}(\\\rho_{u1}(User) \times \rho_{u2}(User))) - \text{likers\_posts(uid)})$
+        $\textbf{dislikers\_posts(uid, liker)} \coloneqq \Pi_{liker, uid}(\rho_{u2.uid \to liker}(\sigma_{u1.uid \neq u2.uid}(\\\rho_{u1}(User) \times \rho_{u2}(User))) - \text{likers\_posts(uid, liker)})$
         \end{mdframed}
 
         \item Find all users who liked a post of a user they do not follow
@@ -261,6 +261,24 @@
 
         \begin{mdframed}
         $\textbf{dislikers\_posts\_not\_follow(uid, liker)} \coloneqq \text{dislikers\_posts(liker, uid)} -\\ \Pi_{liker, uid}(\rho_{followers \to liker, followed \to uid}(Follows))$
+        \end{mdframed}
+
+        \item Find all users who viewed a story of a user
+
+        \begin{mdframed}
+        $\textbf{viewers\_stories(uid, viewerid)} \coloneqq \Pi_{uid, viewerid}(Story \bowtie Saw)$
+        \end{mdframed}
+
+        \item Find all users who never viewed a story of a user
+
+        \begin{mdframed}
+        $\textbf{no\_viewers\_stories(uid, viewerid)} \coloneqq \Pi_{uid, viewerid}(\rho_{u2.uid \to viewerid}(\sigma_{u1.uid \neq u2.uid}(\\\rho_{u1}(User) \times \rho_{u2}(User))) - \text{viewers\_stories(uid, viewerid)})$
+        \end{mdframed}
+
+        \item Find all users who never viewed a story of a user they do not follow
+
+        \begin{mdframed}
+        $\textbf{no\_viewers\_stories\_not\_follow(uid, viewerid)} \coloneqq \\\text{no\_viewers\_stories(uid, viewerid)} \\- \Pi_{liker, uid}(\rho_{followers \to liker, followed \to uid}(Follows))$
         \end{mdframed}
 
         \item Find all users who never liked or viewed a post or a story they
