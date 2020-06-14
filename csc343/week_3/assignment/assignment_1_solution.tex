@@ -242,32 +242,13 @@
         \item Find all users who liked a post
 
         \begin{mdframed}
-        $\textbf{liked\_post(uid)} \coloneqq \Pi_{uid}(\rho_{\text{liker}->\text{uid}}(Likes))$
+        $\textbf{liked\_posts(uid)} \coloneqq \rho_{\text{liker}->\text{uid}}(Post \bowtie Likes)$
         \end{mdframed}
 
         \item Find all users who never liked a post
 
         \begin{mdframed}
         $\textbf{never\_liked(uid)} \coloneqq \Pi_{uid}(User) - \Pi_{uid}(\rho_{\text{liker}->\text{uid}}(Likes))$
-        \end{mdframed}
-
-        \item Find all users who never viewed a story
-
-        \begin{mdframed}
-        $\textbf{never\_viewed(uid)} \coloneqq \Pi_{uid}(User) - \Pi_{uid}(\rho_{\text{viewerid}->\text{uid}}(Saw))$
-        \end{mdframed}
-
-        \item Find all users who never liked or viewed a post or a story
-
-        \begin{mdframed}
-        $\textbf{never\_viewed\_or\_liked(uid)} \coloneqq \text{never\_liked\_post(uid)} \cup \text{never\_viewed\_story(uid)}$
-        \end{mdframed}
-
-
-        \item Find all users not followed
-
-        \begin{mdframed}
-        $\textbf{not\_follow(uid)} \coloneqq \Pi_{followers, followed, start}(\sigma_{\substack{User.uid = Follows.followed \land\\ User.uid \neq Follows.follower}}(Follows)) - Follows$
         \end{mdframed}
 
         \item Find all users who liked a post of a user they do not follow
