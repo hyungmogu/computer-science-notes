@@ -396,14 +396,16 @@ s
 
     \bigskip
 
-    \underline{\textbf{Notes:}}
+    \underline{\textbf{Rough Work:}}
 
     \bigskip
 
     \begin{itemize}
-        \item Simple example
+        \item Reduced example
         \begin{enumerate} [a)]
-            \item
+            \item Find every hastag that has been mentioned in at least \underline{two}
+            post captions on every day of 2017. You may assume that there is at least
+            one post on each day of year.
 
             \bigskip
 
@@ -422,7 +424,16 @@ s
                 3   &   Hello\\
                 \hline
             \end{tabular}
+
+            \bigskip
+
+            $\textbf{Answer(pid, tag)} \coloneqq \Pi_{tag}(\sigma_{\substack{h1.pid \neq h2.pid \land \\ h1.tag = h2.tag}} (\rho_{h1}(Hashtag) \times \rho_{h2}(Hashtag)))$
+
         \end{enumerate}
+
+        \item
+
+
 
     \end{itemize}
 
