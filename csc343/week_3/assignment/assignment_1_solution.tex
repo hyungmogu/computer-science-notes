@@ -278,14 +278,20 @@
         \item Find all users who never viewed a story of a user they do not follow
 
         \begin{mdframed}
-        $\textbf{no\_viewers\_stories\_not\_follow(uid, viewerid)} \coloneqq \\\text{no\_viewers\_stories(uid, viewerid)} \\- \Pi_{liker, uid}(\rho_{followers \to liker, followed \to uid}(Follows))$
+        $\textbf{no\_viewers\_stories\_not\_follow(uid, viewerid)} \coloneqq \\\text{no\_viewers\_stories(uid, viewerid)} - \Pi_{liker, uid}(\rho_{followers \to liker, followed \to uid}(Follows))$
         \end{mdframed}
 
-        \item Find all users who never liked or viewed a post or a story they
+        \item Find all users who never liked or viewed a post or a story of a user they
         do not follow
 
         \begin{mdframed}
-        $\textbf{dislikers\_posts\_not\_follow(uid, liker)} \coloneqq \text{dislikers\_posts(liker, uid)} -\\ \Pi_{liker, uid}(\rho_{followers \to liker, followed \to uid}(Follows))$
+        $\textbf{dislikers\_no\_viewers\_not\_follow(uid, viewerid)} \coloneqq \\ \text{no\_viewers\_stories\_not\_follow(uid, viewerid)} \cup \\ \rho_{liker \to viewerid}(\text{dislikers\_posts\_not\_follow(uid, liker)})$
+        \end{mdframed}
+
+        \item Report their user id and ``about'' information
+
+        \begin{mdframed}
+        $\textbf{Answer1(uid, about)} \coloneqq \\ \Pi_{uid}$
         \end{mdframed}
     \end{itemize}
 
