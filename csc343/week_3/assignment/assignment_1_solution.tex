@@ -238,13 +238,42 @@
 
     \bigskip
 
-    \begin{enumerate}[1.]
+    \begin{itemize}
         \item Find all users who liked a post
 
         \begin{mdframed}
-
+        $\textbf{liked\_post(uid)} \coloneqq \Pi_{uid}(\rho_{\text{liker}->\text{uid}}(Likes))$
         \end{mdframed}
-    \end{enumerate}
+
+        \item Find all users who never liked a post
+
+        \begin{mdframed}
+        $\textbf{never\_liked(uid)} \coloneqq \Pi_{uid}(User) - \Pi_{uid}(\rho_{\text{liker}->\text{uid}}(Likes))$
+        \end{mdframed}
+
+        \item Find all users who never viewed a story
+
+        \begin{mdframed}
+        $\textbf{never\_viewed(uid)} \coloneqq \Pi_{uid}(User) - \Pi_{uid}(\rho_{\text{viewerid}->\text{uid}}(Saw))$
+        \end{mdframed}
+
+        \item Find all users who never liked or viewed a post or a story
+
+        \begin{mdframed}
+        $\textbf{never\_viewed\_or\_liked(uid)} \coloneqq \text{never\_liked\_post(uid)} \cup \text{never\_viewed\_story(uid)}$
+        \end{mdframed}
+
+        \item Find all users who liked a post they do not follow
+
+        \begin{mdframed}
+        \end{mdframed}
+
+        \item Find all users who never liked or viewed a post or a story they
+        do not follow
+
+        \begin{mdframed}
+        \end{mdframed}
+    \end{itemize}
 
     \bigskip
 
@@ -252,7 +281,16 @@
 
     \bigskip
 
-    \begin{enumerate}[1.]
+    \begin{itemize}
+        \item Renaming
+        \begin{itemize}
+            \item \textbf{Syntax (Attribute renaming):} $\rho_{\text{oldName} \to \text{newName}}$
+            \item e.g.
+
+            \bigskip
+
+            $\rho_{\text{Father} \to \text{Parent}}(\text{Paternity})$
+        \end{itemize}
         \item Linear Notation for Algebraic Expressions
         \begin{itemize}
             \item Invents names for the temporary relations
@@ -285,9 +323,7 @@
             \textbf{Answer(username)} &\coloneqq no\_groupmates \cap submitted\_some\_files
         \end{split}\\
         \end{align*}
-
-
-    \end{enumerate}
+    \end{itemize}
 
     \bigskip
 
