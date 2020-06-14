@@ -347,7 +347,7 @@
     \underline{\textbf{Notes:}}
 
     \bigskip
-s
+
     \begin{itemize}
         \item Renaming
         \begin{itemize}
@@ -394,6 +394,9 @@ s
 
     \item
 
+    $\textbf{Answer(tag)} \coloneqq \Pi_{h1.tag}(\sigma_{\substack{h1.pid \neq h2.pid \land
+    \\ h1.pid \neq h3.pid \land \\ h2.pid \neq h3.pid \land \\ h1.tag = h2.tag \land \\ h1.tag = h3.tag \land \\ h2.tag = h3.tag}} (\rho_{h1}(Hashtag) \times \rho_{h2}(Hashtag) \times \rho_{h3}(Hashtag)))$
+
     \bigskip
 
     \underline{\textbf{Rough Work:}}
@@ -427,7 +430,7 @@ s
 
             \bigskip
 
-            $\textbf{Answer(pid, tag)} \coloneqq \Pi_{tag}(\sigma_{\substack{h1.pid \neq h2.pid \land \\ h1.tag = h2.tag}} (\rho_{h1}(Hashtag) \times \rho_{h2}(Hashtag)))$
+            $\textbf{Answer(h1.tag)} \coloneqq \Pi_{tag}(\sigma_{\substack{h1.pid \neq h2.pid \land \\ h1.tag = h2.tag}} (\rho_{h1}(Hashtag) \times \rho_{h2}(Hashtag)))$
 
         \end{enumerate}
 
