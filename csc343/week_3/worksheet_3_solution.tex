@@ -282,8 +282,11 @@
     \item
 
     \begin{enumerate}
-        \item SELECT StarsIn.name FROM StarsIn, MovieStar WHERE \\
-        StarsIn.name = MovieStar.name AND MovieStar.gender = 'male';
+        \item SELECT StarsIn.starName FROM StarsIn, MovieStar WHERE \\
+        StarsIn.starName = MovieStar.name AND MovieStar.gender = 'male';
+
+        \item SELECT StarsIn.starName FROM Movies, StarsIn WHERE \\
+        StarsIn.movieTitle = Movies.title AND Movies.studioName = 'MGM';
     \end{enumerate}
 \end{enumerate}
 
