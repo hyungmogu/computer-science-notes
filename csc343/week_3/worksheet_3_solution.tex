@@ -142,7 +142,7 @@
 
         There are three cases to consider
 
-        \begin{enumerate}[1.]
+        \begin{enumerate}[i.]
             \item $a < 10$
 
             \bigskip
@@ -206,12 +206,39 @@
             $(MAX\_INT, -MAX\_INT), (MAX\_INT,-MAX\_INT + 1), \\
             \cdots (MAX\_INT,0), \cdots, (MAX\_INT,MAX\_INT - 1), \\
             (MAX\_INT,MAX\_INT), (MAX\_INT, NULL)$
+
             \item $a < 10$ AND $a >= 10$
 
             \bigskip
 
-            In this case, the result is NULL. So, no $(a,b)$ tuples match this condition.
+            This case is not considered. No $(a,b)$ tuples match this condition.
         \end{enumerate}
+
+        \item
+
+        \bigskip
+
+        In this case the set of $(a,b)$ tuples that satisfy this condition is
+
+        \bigskip
+
+        $(-MAX\_INT, -MAX\_INT), (-MAX\_INT + 1,-MAX\_INT + 1), \\
+        \cdots (0,0), \cdots, (MAX\_INT - 1,MAX\_INT - 1),\\
+        (MAX\_INT,MAX\_INT)$
+
+        \bigskip
+
+        Here, $a = NULL$ and $b = NULL$ not considered, since $NULL \neq NULL$.
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item NULL = NULL is NULL.
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
