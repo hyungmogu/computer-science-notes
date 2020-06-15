@@ -478,7 +478,18 @@
         \end{itemize}
     \end{itemize}
 
+    \item
 
+    \begin{enumerate}[a)]
+
+        \item
+    \begin{lstlisting}[language=SQL]
+    SELECT country FROM Classes WHERE
+    numGuns >= ANY (
+        SELECT numGuns FROM Classes
+    )
+    \end{lstlisting}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
