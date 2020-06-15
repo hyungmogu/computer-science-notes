@@ -500,6 +500,26 @@
     );
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name FROM Ships WHERE EXISTS (
+        SELECT * FROM Outcome WHERE
+        Ships.name = Outcomes.ship AND
+        Outcome.result = 'sunk'
+    );
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name FROM Ships WHERE EXISTS (
+        SELECT name FROM Ships, Classes WHERE
+            Ships.class = Classes.class AND
+            Classes.bore = 16
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
