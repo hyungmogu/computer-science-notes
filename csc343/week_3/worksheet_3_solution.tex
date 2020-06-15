@@ -347,6 +347,16 @@
         PC.speed >= 3.0
     );
     \end{lstlisting}
+
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT p1.model FROM Printer AS p1 WHERE \\
+    p1.price >= ALL (
+        SELECT p2.price FROM Printer AS p2
+    )
+    \end{lstlisting}
     \end{enumerate}
 
     \underline{\textbf{Notes:}}
