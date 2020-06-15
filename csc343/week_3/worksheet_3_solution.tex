@@ -137,6 +137,81 @@
 
         Given $a = 10$ AND $b = 20$, the only set of $(a,b)$ tuple that satisfy the
         condition is $(10, 20)$.
+
+        \item
+
+        There are three cases to consider
+
+        \begin{enumerate}[1.]
+            \item $a < 10$
+
+            \bigskip
+
+            In this case, the set of $(a,b)$ tuples that satisfy the condition is:
+
+            \bigskip
+
+            $(9, -MAX\_INT), (9,-MAX\_INT + 1), \cdots (9,0), \cdots, (9,MAX\_INT - 1), \\
+            (9,MAX\_INT), (9, NULL)$
+
+            \bigskip
+
+            $(8, -MAX\_INT), (8,-MAX\_INT + 1), \cdots (8,0), \cdots, (8,MAX\_INT - 1), \\
+            (8,MAX\_INT), (8, NULL)$
+
+            \bigskip
+
+            $\cdots$
+
+            \bigskip
+
+            $(-MAX\_INT + 1, -MAX\_INT), (-MAX\_INT + 1,-MAX\_INT + 1), \\
+            \cdots (-MAX\_INT + 1,0), \cdots, (-MAX\_INT + 1,MAX\_INT - 1), \\
+            (-MAX\_INT + 1,MAX\_INT), (-MAX\_INT + 1, NULL)$
+
+            \bigskip
+
+            $(-MAX\_INT + 1, -MAX\_INT), (-MAX\_INT + 1,-MAX\_INT + 1), \\
+            \cdots (-MAX\_INT + 1,0), \cdots, (-MAX\_INT + 1,MAX\_INT - 1), \\
+            (-MAX\_INT + 1,MAX\_INT), (-MAX\_INT + 1, NULL)$
+
+            \item $a >= 10$
+
+            \bigskip
+
+            In this case, the set of $(a,b)$ tuples that satisfy the condition is:
+
+            \bigskip
+
+            $(10, -MAX\_INT), (10,-MAX\_INT + 1), \cdots (10,0), \cdots, (10,MAX\_INT - 1), \\
+            (10,MAX\_INT), (10, NULL)$
+
+            \bigskip
+
+            $(11, -MAX\_INT), (11,-MAX\_INT + 1), \cdots (11,0), \cdots, (11,MAX\_INT - 1), \\
+            (11,MAX\_INT), (11, NULL)$
+
+            \bigskip
+
+            $\cdots$
+
+            \bigskip
+
+            $(MAX\_INT - 1, -MAX\_INT), (MAX\_INT - 1,-MAX\_INT + 1), \\
+            \cdots (MAX\_INT - 1,0), \cdots, (MAX\_INT - 1,MAX\_INT - 1), \\
+            (MAX\_INT - 1,MAX\_INT), (MAX\_INT - 1, NULL)$
+
+            \bigskip
+
+            $(MAX\_INT, -MAX\_INT), (MAX\_INT,-MAX\_INT + 1), \\
+            \cdots (MAX\_INT,0), \cdots, (MAX\_INT,MAX\_INT - 1), \\
+            (MAX\_INT,MAX\_INT), (MAX\_INT, NULL)$
+            \item $a < 10$ AND $a >= 10$
+
+            \bigskip
+
+            In this case, the result is NULL. So, no $(a,b)$ tuples match this condition.
+        \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 
