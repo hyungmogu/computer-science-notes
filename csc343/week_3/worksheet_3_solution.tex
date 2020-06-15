@@ -316,6 +316,10 @@
         (SELECT model, price FROM Laptop INNER JOIN Product ON \\
             Laptop.model = Product.model WHERE maker = 'B') \\
 
+        \item
+
+        (SELECT maker FROM Product WHERE type='laptop') - \\
+        (SELECT maker FROM Product WHERE type='pc')
     \end{enumerate}
 \end{enumerate}
 
