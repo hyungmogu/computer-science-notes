@@ -228,7 +228,7 @@
 
         \bigskip
 
-        Here, $a = NULL$ and $b = NULL$ not considered, since $NULL \neq NULL$.
+        Here, the case $a = NULL$ and $b = NULL$ is not considered, since $NULL \neq NULL$.
 
         \bigskip
 
@@ -239,6 +239,40 @@
         \begin{itemize}
             \item NULL = NULL is NULL.
         \end{itemize}
+
+        \item
+
+        \bigskip
+
+        In this case, the set of $(a,b)$ tuples that satisfy this condition is
+
+        \bigskip
+
+        $(-MAX\_INT, -MAX\_INT), (-MAX\_INT,-MAX\_INT + 1), \\
+        \cdots, (-MAX\_INT,MAX\_INT - 1),\\
+        (-MAX\_INT,MAX\_INT)$,
+
+        \bigskip
+
+        $(-MAX\_INT + 1, -MAX\_INT + 1), (-MAX\_INT + 1,-MAX\_INT + 2), \\
+        \cdots, (-MAX\_INT + 1,MAX\_INT - 1),\\
+        (-MAX\_INT + 1,MAX\_INT)$,
+
+        \bigskip
+
+        $\cdots$
+
+        \bigskip
+
+        $(MAX\_INT - 1, MAX\_INT - 1), (MAX\_INT - 1,MAX\_INT)$,
+
+        \bigskip
+
+        $(MAX\_INT, MAX\_INT)$
+
+        \bigskip
+
+        Here, the case $a = NULL$ OR $b = NULL$ is not considered, since $a \nleq b$.
     \end{enumerate}
 \end{enumerate}
 
