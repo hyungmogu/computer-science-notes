@@ -109,6 +109,30 @@
         \item SELECT name FROM Ships WHERE name LIKE 'R\%';
         \item SELECT name FROM ships WHERE name LIKE '\% \% \%';
     \end{enumerate}
+
+    \item \textbf{Exercise 6.1.5}:
+    \begin{enumerate}[a)]
+        \item Given $a = 10$, the sets of tuples that satisfy the condition is
+
+        \bigskip
+
+        $(10, -MAX\_INT), (10,-MAX\_INT + 1), \cdots (10,0), \cdots, (10,MAX\_INT - 1), \\
+        (10,MAX\_INT), (10, NULL)$
+
+        \bigskip
+
+        Given $b = 20$, the sets of tuples that satisfy the condition is
+
+        \bigskip
+
+        $(-MAX\_INT, 20), (-MAX\_INT + 1, 20), \cdots (0, 20), \cdots, (MAX\_INT - 1, 20), \\
+        (MAX\_INT, 20), (NULL, 20)$
+
+        \bigskip
+
+        Given $a = 10$ and $b = 20$, the set of tuple that satisfy the condition
+        is $(10, 20)$
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
