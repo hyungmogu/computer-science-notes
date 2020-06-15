@@ -320,6 +320,11 @@
 
         (SELECT maker FROM Product WHERE type='laptop') - \\
         (SELECT maker FROM Product WHERE type='pc')
+
+        \item
+
+        SELECT pc1.hd FROM PC AS pc1, PC AS pc2 WHERE \\
+        pc1.model $!=$ pc2.model AND pc1.hd = pc2.hd;
     \end{enumerate}
 \end{enumerate}
 
