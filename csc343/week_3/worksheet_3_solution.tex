@@ -367,6 +367,21 @@
     )
     \end{lstlisting}
 
+        \begin{mdframed}
+
+    \begin{lstlisting}[language=SQL]
+    SELECT l1.model FROM Laptop AS l1 WHERE
+    speed <= ALL (                          //correction: >= changed to <=
+        SELECT l2.speed FROM Laptop AS l2
+    )
+    \end{lstlisting}
+
+        \end{mdframed}
+
+        \item
+
+
+
     \end{enumerate}
 
     \underline{\textbf{Notes:}}
