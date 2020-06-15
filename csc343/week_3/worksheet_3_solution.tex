@@ -369,6 +369,8 @@
 
         \begin{mdframed}
 
+        \underline{\textbf{Correct Solution:}}
+
     \begin{lstlisting}[language=SQL]
     SELECT l1.model FROM Laptop AS l1 WHERE
     speed <= ALL (                          //correction: >= changed to <=
@@ -380,6 +382,17 @@
 
         \item
 
+    \begin{lstlisting}[language=SQL]
+    SELECT model FROM (
+        (SELECT model, price FROM PC)
+        UNION
+        (SELECT model, price FROM Laptop)
+        UNION
+        (SELECT model, price FROM Printer)
+    ) AS ModelPrice WHERE price >= ANY (
+        SELECT price FROM ModelPrice
+    )
+    \end{lstlisting}
 
 
     \end{enumerate}
