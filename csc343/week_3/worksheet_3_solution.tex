@@ -287,6 +287,9 @@
 
         \item SELECT StarsIn.starName FROM Movies, StarsIn WHERE \\
         StarsIn.movieTitle = Movies.title AND Movies.studioName = 'MGM';
+
+        \item SELECT M2.title FROM Movies AS M1, Movies AS M2 WHERE\\
+        M1.title = "Gone With the Wind" AND M2.length $>$ M1.length;
     \end{enumerate}
 \end{enumerate}
 
