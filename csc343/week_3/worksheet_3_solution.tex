@@ -303,6 +303,8 @@
     \begin{enumerate}[a)]
         \item SELECT Product.maker, Laptop.speed FROM Product, Laptops WHERE\\
         Product.type = 'laptop' AND Laptop.hd $>=$ 30;
+        \item (SELECT model, price FROM PC INNER JOIN Product ON PC.model = Product.model
+        WHERE maker = 'B')
     \end{enumerate}
 \end{enumerate}
 
