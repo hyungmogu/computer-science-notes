@@ -338,6 +338,17 @@
 
     \item
 
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT maker FROM Product WHERE model IN (
+        SELECT model FROM PC WHERE product.model = PC.model AND
+        PC.speed >= 3.0
+    );
+    \end{lstlisting}
+    \end{enumerate}
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -353,7 +364,7 @@
     SELECT SupplierName
     FROM Suppliers
     WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
-    \end{lstlisting}r
+    \end{lstlisting}
 
         \end{itemize}
 
@@ -363,6 +374,20 @@
             \item $s$ NOT IN $R$ true if and only if $s$ has no value in $R$.
         \end{itemize}
 
+    \begin{lstlisting}[language=SQL]
+    SELECT name
+    FROM MovieExec
+    WHERE cert# IN
+        (SELECT producerC#
+        FROM Movies
+        WHERE (title, year) IN
+            (SELECT movieTitle movieYear
+            FROM StarsIn
+            WHERE starName = 'Harrison Ford'
+            )
+        );
+    \end{lstlisting}
+
         \item $s >$ ANY $R$
         \begin{itemize}
             \item is true if and only if $s$ is greater than at least one value in
@@ -371,7 +396,8 @@
 
         \item $s >$ ALL $R$
         \begin{itemize}
-            \item
+            \item is true if and only if $s$ is greater than at least one value in unary
+            relation $R$.
         \end{itemize}
     \end{itemize}
 \end{enumerate}
