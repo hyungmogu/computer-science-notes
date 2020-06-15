@@ -353,8 +353,25 @@
     SELECT SupplierName
     FROM Suppliers
     WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
-    \end{lstlisting}
+    \end{lstlisting}r
 
+        \end{itemize}
+
+        \item $s$ IN $R$
+        \begin{itemize}
+            \item is true if and only if $s$ is equal to one of the values in $R$.
+            \item $s$ NOT IN $R$ true if and only if $s$ has no value in $R$.
+        \end{itemize}
+
+        \item $s >$ ANY $R$
+        \begin{itemize}
+            \item is true if and only if $s$ is greater than at least one value in
+            unary relation $R$.
+        \end{itemize}
+
+        \item $s >$ ALL $R$
+        \begin{itemize}
+            \item
         \end{itemize}
     \end{itemize}
 \end{enumerate}
