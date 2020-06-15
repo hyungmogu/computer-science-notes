@@ -338,6 +338,11 @@
 
     \item
 
+    The second part of problem (i.e. Writing each query in different ways) will
+    be done during review :).
+
+    \bigskip
+
     \begin{enumerate}[a)]
         \item
 
@@ -394,6 +399,30 @@
     )
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT model FROM (
+        (SELECT model, price FROM PC)
+        UNION
+        (SELECT model, price FROM Laptop)
+        UNION
+        (SELECT model, price FROM Printer)
+    ) AS ModelPrice WHERE price >= ANY (
+        SELECT price FROM ModelPrice
+    )
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT maker FROM Product, Printer WHERE
+    Product.model = Printer.model AND
+    Printer.color = TRUE AND
+    Printer.price <= ANY (
+        SELECT price FROM Printer
+    );
+    \end{lstlisting}
 
     \end{enumerate}
 
@@ -448,6 +477,8 @@
             relation $R$.
         \end{itemize}
     \end{itemize}
+
+
 \end{enumerate}
 
 \end{document}
