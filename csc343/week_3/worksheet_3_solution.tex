@@ -352,11 +352,21 @@
         \item
 
     \begin{lstlisting}[language=SQL]
-    SELECT p1.model FROM Printer AS p1 WHERE \\
+    SELECT p1.model FROM Printer AS p1 WHERE
     p1.price >= ALL (
         SELECT p2.price FROM Printer AS p2
     )
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT l1.model FROM Laptop AS l1 WHERE
+    speed >= ALL (
+        SELECT l2.speed FROM Laptop AS l2
+    )
+    \end{lstlisting}
+
     \end{enumerate}
 
     \underline{\textbf{Notes:}}
