@@ -487,8 +487,19 @@
     SELECT country FROM Classes WHERE
     numGuns >= ANY (
         SELECT numGuns FROM Classes
-    )
+    );
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name FROM Ships WHERE EXISTS (
+        SELECT * FROM Outcome WHERE
+        Ships.name = Outcomes.ship AND
+        Outcome.result = 'sunk'
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
