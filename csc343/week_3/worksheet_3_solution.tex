@@ -335,6 +335,28 @@
         pc2.speed $=$ pc1.speed;
 
     \end{enumerate}
+
+    \item
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item EXISTS
+        \begin{itemize}
+            \item EXISTS $R$ is a condition that is true if and only if relation $R$ is not empty
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT SupplierName
+    FROM Suppliers
+    WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
+    \end{lstlisting}
+
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
