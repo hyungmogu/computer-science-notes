@@ -504,19 +504,21 @@
 
     \begin{lstlisting}[language=SQL]
     SELECT name FROM Ships WHERE EXISTS (
-        SELECT * FROM Outcome WHERE
-        Ships.name = Outcomes.ship AND
-        Outcome.result = 'sunk'
+        SELECT name FROM Ships, Classes WHERE
+            Ships.class = Classes.class AND
+            Classes.bore = 16
     );
     \end{lstlisting}
 
         \item
 
     \begin{lstlisting}[language=SQL]
-    SELECT name FROM Ships WHERE EXISTS (
-        SELECT name FROM Ships, Classes WHERE
-            Ships.class = Classes.class AND
-            Classes.bore = 16
+    SELECT battle FROM Outcomes WHERE EXISTS (
+        WHERE EXISTS (
+            SELECT * FROm Ships WHERE
+            Outcomes.ship = Ships.name AND
+            Ships.class = 'Kongo'
+        )
     );
     \end{lstlisting}
 
