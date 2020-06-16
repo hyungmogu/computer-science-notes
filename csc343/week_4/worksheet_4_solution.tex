@@ -89,9 +89,61 @@
     \item \textbf{Exercise 6.4.1:} Write each of the quires in Exercise 2.4.1 in SQL,
     making sure that duplicates are eliminated
 
-    \item \textbf{Exercise 6.4.2} Write each of the queries in Exercise 2.4.3 in
+    \item \textbf{Exercise 6.4.2:} Write each of the queries in Exercise 2.4.3 in
     SQL, making sure duplicates are eliminated
 
+    \item \textbf{Exercise 6.4.6:} Write the following queires, based on the database
+    schema
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}]
+
+    \begin{enumerate}[a)]
+        \item Find the avergage speed of PC's
+        \item Find the average speed of laptops costing over \$1000
+        \item Find the average price of PC's made by manufacturer ``A''
+        \item Find the average price of PC's and laptops made by manufacturer ``D''
+        \item Find, for each different speed, the average price of a PC
+        \item Find for each manufacturer, the average screen size of its laptop
+        \item Find the manufacturers that make at least three different models of PC
+        \item Find for each manufacturer who sells PC's the maximum price of a PC
+        \item Find, for each speed of PC above 2.0, the average price.
+    \end{enumerate}
+
+    \item Write the following queires, based on the database schema
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Find the number of battleship classes
+        \item Find the average number of guns of battleship classes
+        \item Find the average number of guns of battleships. Note the difference
+        between b) and c); do we weight a class by the number of ships of that class
+        or not?
+        \item Find for each class the year in which the first ship of that class was
+        launched
+        \item Find for each class the number of ships of that class sunk in battle
+    \end{enumerate}
+
+    \item \textbf{Exercise 6.4.8:} In Example 5.10, we gave an example of the query:
+    ``find, for each star who has appeared in at least three movies, the earliest year
+    in they appeared.'' We wrote this query as a $\gamma$ operation. Write it in SQL.
+
+    \item \textbf{Exercise 6.4.9:} The $\gamma$ operator of extended relational algebra
+    does not have a feature that corresponds to the \textbf{HAVING} clause of SQL.
+    Is it possible to mimic a SQL query with a \textbf{HAVING} clause in relational
+    algebra?
 \end{enumerate}
 
 \end{document}
