@@ -566,6 +566,18 @@
 
         \item
 
+        In this case, the resulting operation would have the following attributes
+
+        \bigskip
+
+        (StarsIn.movieTitle, StarsIn.moveYear, StarsIn.starName,\\
+        MovieStar.name, MovieStar.addresss, MovieStar.gender,\\
+        MovieStar.birthDate)
+
+        \bigskip
+
+        with atrribute values of MovieStar returning null when StarsIn values
+        are present, and vice versa
 
         \bigskip
 
@@ -576,9 +588,28 @@
         \begin{itemize}
             \item \textbf{Outerjoins:}
             \begin{itemize}
-                \item Is equivalent form of Natural Join but with missing values
-                returning null
+                \item Is equivalent form of Natural Join but with missing values in rows
+                (i.e. dangling tuples) returning null
 
+                \item \textbf{Syntax:} \textit{Relation 1} NATURAL FULL OUTER JOIN \textit{Relation 2}
+                \item FULL OUTER JOIN VS NATURAL FULL OUTER JOIN
+                \begin{itemize}
+                    \item FULL OUTER JOIN
+                    \begin{itemize}
+                        \item Allows to explicitly define the keys for the join condition
+                    \end{itemize}
+
+                    \item NATURAL FULL OUTER JOIN
+                    \begin{itemize}
+                        \item Database engine chooses the keys based on common names
+                    \end{itemize}
+                \end{itemize}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/worksheet_3_solution_2.png}
+                \end{center}
 
             \end{itemize}
         \end{itemize}
