@@ -666,7 +666,14 @@
     \item
 
     \begin{lstlisting}[language=SQL]
-    SELECT * FROM Ships NATURAL LEFT OUTER JOIN Classes
+    SELECT * FROM Ships NATURAL LEFT OUTER JOIN Classes;
+    \end{lstlisting}
+
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM Ships NATURAL FULL OUTER JOIN Classes
+    WHERE ship = class;
     \end{lstlisting}
 
 \end{enumerate}
