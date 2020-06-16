@@ -530,20 +530,40 @@
 
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
 
-    \underline{\textbf{Notes:}}
+        \item
 
-    \bigskip
+        Cross join would result in the following attributes
 
-    \begin{itemize}
-        \item \textbf{Cross Join:}
+        \bigskip
+
+        (Studio.name, Studio.address, Studio.pressC\#, MovieExec.name, \\
+        MovieExec.address, MovieExec.cert\#, MovieExec.networth)
+
+        \bigskip
+
+        With its tuples containing all possible combinations of values
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
         \begin{itemize}
-            \item Is equivalent form of $R \times S$
-            \item Creates all possible combinations of values while keeping \underline{all}
-            all columns.
+            \item \textbf{Cross Join:}
+            \begin{itemize}
+                \item Is equivalent form of $R \times S$
+                \item Creates all possible combinations of values while keeping \underline{all}
+                all columns.
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/worksheet_3_solution_1.png}
+                \end{center}
+            \end{itemize}
         \end{itemize}
-    \end{itemize}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
