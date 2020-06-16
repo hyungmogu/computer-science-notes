@@ -662,6 +662,13 @@
     Product AS pr ON Printer.model = Product.model)
     \end{lstlisting}
     \end{mdframed}
+
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT * FROM Ships NATURAL LEFT OUTER JOIN Classes
+    \end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
