@@ -168,7 +168,48 @@
         manufacturer, speed, RAM, and hard disk, a 17-inch screen, a model number
         110 greater, and a price \$500 more.
         \item Delete all PC's with less than 100 gigabytes of hard disk
+        \item Delete all laptops made by a manufacturer that doesn't make printers
+        \item Manufacturer $A$ buys manufacturer $B$. Change all products made by
+        $B$ so they are now made by $A$.
+        \item For each PC, double the amount of RAM and add 60 gigabytes to the
+        amount of hard disk (Remember that several attributes can be changed by
+        one UPDATE statement)
+        \item For each laptop made by manufactuerer $B$, add one inch to the screen
+        size and subtract \$100 from the price.
     \end{enumerate}
+
+    \item \textbf{Exercise 6.5.2:} Write the following database modifications, based
+    on the database schema.
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    of Exercise 2.4.3. Describe the effect of the modifications on the data of that
+    exercise.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item The two British battleships of the Nelson class - Nelson and Rodney -
+        were both launched in 1927, had 16-inch guns, and a displacement of 34,000
+        tones. Insert these facts into the database
+        \item Two of the three battleships of the Italian Vittorio Veneto class
+        Vittorio Veneto and Italia - were launched in 1940; the third ship of that
+        class, Roma, was launched in 1942. Each had nine 15-inch guns and a displacement
+        of 41,000 tons. Insert these facdts into the database.
+        \item Delete from \textbf{Ships} all ships sunk in battle
+        \item Modify the \textbf{Classes} relation so that gun bores are measured
+        in centimeters (one inch = 2.5 centimeters) and displacements are measured in
+        metric tons (one metric ton = 1.1 tons).
+        \item Delete all classes with fewer than three ships
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
