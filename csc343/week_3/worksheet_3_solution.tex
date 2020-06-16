@@ -634,9 +634,14 @@
     \item
 
     \begin{lstlisting}[language=SQL]
-    SELECT p.model, p.color. p.type AS printType, p.price, pr.maker, pr.type FROM
+    SELECT * FROM
+    (SELECT * FROM PC NATURAL LEFT OUTER JOIN Product)
+    NATURAL FULL OUTER JOIN
+    (SELECT * FROM Laptop NATURAL LEFT OUTER JOIN Product)
+    NATURAL FULL OUTER JOIN
+    (SELECT p.model, p.color. p.type AS printType, p.price, pr.maker, pr.type FROM
     Printer AS p LEFT FULL OUTER JOIN
-    Product AS pr ON Printer.model = Product.model;
+    Product AS pr ON Printer.model = Product.model)
     \end{lstlisting}
 \end{enumerate}
 
