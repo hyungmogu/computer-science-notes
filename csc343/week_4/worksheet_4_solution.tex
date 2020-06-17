@@ -16,7 +16,6 @@
 \usepackage{booktabs}
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
-\usepackage{accents}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -53,12 +52,13 @@
 \title{CSC343 Worksheet 4 Solution}
 \maketitle
 
+\bigskip
 \begin{enumerate}[1.]
     \item
     \begin{enumerate}[a)]
-        \item [(1,0,1),(5,4,9),(1,0,1),(6,4,16),(7,9,16)]
-        \item [(1,0),(3,3),(3,4),(4,3),(1,1),(4,3)]
-        \item [(0,1),(0,1),(2,3),(2,4),(3,4)]
+        \item $[(1,0,1),(5,4,9),(1,0,1),(6,4,16),(7,9,16)]$
+        \item $[(1,0),(3,3),(3,4),(4,3),(1,1),(4,3)]$
+        \item $[(0,1),(0,1),(2,3),(2,4),(3,4)]$
 
         \bigskip
 
@@ -79,8 +79,8 @@
             \end{itemize}
         \end{itemize}
 
-        \item [(0,1),(0,2),(2,4),(2,5),(3,4),(3,4)]
-        \item [(0,1),(2,4),(2,5),(3,4),(0,2)]
+        \item $[(0,1),(0,2),(2,4),(2,5),(3,4),(3,4)]$
+        \item $[(0,1),(2,4),(2,5),(3,4),(0,2)]$
 
         \bigskip
 
@@ -103,6 +103,44 @@
             \end{itemize}
         \end{itemize}
 
+        \item
+
+        $[(0,2),(2,7),(3,4)]$
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item $\gamma_L(R)$ is an operator that groups a relation and/or aggregate
+            some columns.
+
+            \begin{itemize}
+                \item L in $\gamma_L(R)$ is either
+                \begin{enumerate}[1.]
+                    \item \textbf{Grouping attribute} or an attribute by which R will be grouped.
+                    \item \textbf{Aggregated attribute} or an attribute where an aggregation operator
+                    is applied to.
+                \end{enumerate}
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            $\gamma_{starName, MIN(year) \to minYear, COUNT(title) \to ctTitle}$(StarsIn)
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/worksheet_4_solution_1.png}
+            \end{center}
+
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
