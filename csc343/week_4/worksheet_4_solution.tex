@@ -222,6 +222,12 @@
         );
         \end{lstlisting}
         \item SELECT model FROM Printer WHERE color;
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    (SELECT DISTINCT makers FROM Products WHERE type='laptops') -
+    (SELECT DISTINCT makers FROM Products WHERE type='pc');
+    \end{lstlisting}
     \end{enumerate}
 
 
