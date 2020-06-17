@@ -277,6 +277,16 @@
     (SELECT countries FROM Classes WHERE type='bc');
     \end{lstlisting}
 
+    \item
+
+    Current attempt:
+
+    \begin{lstlisting}[language=SQL]
+    (SELECT Table1.name FROM Outcomes AS Table1 INNER JOIN Ships ON Outcomes.ship = Ships.name)
+    \end{lstlisting}
+
+    Took too much time. Omitted for now.
+
     \end{enumerate}
 \end{enumerate}
 
