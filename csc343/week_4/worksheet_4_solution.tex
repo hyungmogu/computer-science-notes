@@ -334,6 +334,7 @@
     \begin{enumerate}[a)]
         \item SELECT COUNT(class) FROM Classes;
         \item SELECT class, AVG(numGuns) FROM Classes GROUP BY class;
+        \item SELECT AVG(numGuns) FROM Classes HAVING type='bb';
     \end{enumerate}
 \end{enumerate}
 
