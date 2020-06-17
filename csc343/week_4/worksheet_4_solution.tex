@@ -252,6 +252,14 @@
         SELECT * FROM Ships INNER JOIN Outcomes ON Ships.name = Outcome.ship
     );
     \end{lstlisting}
+
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    (SELECT name FROM Ships)
+    UNION
+    (SELECT ship AS name FROM Outcomes);
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
