@@ -260,6 +260,15 @@
     UNION
     (SELECT ship AS name FROM Outcomes);
     \end{lstlisting}
+
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT class, COUNT(class) FROM Ships
+    GROUP BY Class
+    HAVING COUNT(class) = 1;
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
