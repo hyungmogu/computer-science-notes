@@ -242,9 +242,10 @@
     \item
 
     \begin{enumerate}[a)]
-        \item  SELECT class, country FROM classes WHERE bore $>=$ 16;
-        \item  SELECT * FROM Ships WHERE launched $<$ 1921;
-        \item  SELECT * FROM Outcomes WHERE result='sunk';
+        \item SELECT class, country FROM classes WHERE bore $>=$ 16;
+        \item SELECT * FROM Ships WHERE launched $<$ 1921;
+        \item SELECT * FROM Outcomes WHERE result='sunk';
+        \item SELECT * FROM Classes NATURAL JOIN Ships WHERE displacement $>$ 35000;
     \end{enumerate}
 \end{enumerate}
 
