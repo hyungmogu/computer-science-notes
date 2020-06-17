@@ -314,6 +314,12 @@
     COUNT(model) >= 3;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT maker, MAX(price) FROM PC
+    NATURAL JOIN Products GROUP BY maker;
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
