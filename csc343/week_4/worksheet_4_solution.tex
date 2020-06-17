@@ -320,6 +320,13 @@
     SELECT maker, MAX(price) FROM PC
     NATURAL JOIN Products GROUP BY maker;
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT speed, AVG(price) FROM PC GROUP BY speed
+    HAVING speed > 2.0;
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
