@@ -295,6 +295,15 @@
         \item SELECT AVG(speed) FROM PC;
         \item SELECT AVG(speed) FROM Laptop HAVING price > 1000;
         \item SELECT AVG(price) FROM PC NATURAL JOIN Product HAVING maker = 'A';
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT AVG(price) FROM (
+        (SELECT model, price FROM PC NATURAL JOIN Product WHERE maker = 'D')
+        UNION
+        (SELECT model, price FROM Laptop NATURAL JOIN Product WHERE maker = 'D')
+    );
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
