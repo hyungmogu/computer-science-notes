@@ -210,6 +210,17 @@
         \item SELECT model FROM PC WHERE speed > 3.0;
         \item SELECT DISTINCT maker FROM Products NATURAL JOIN Laptops
         WHERE hd $>=$ 100;
+        \item
+
+        \begin{lstlisting}[language=SQL]
+        SELECT model, price FROM (
+            (SELECT model, price FROM PC NATURAL JOIN Products)
+            UNION
+            (SELECT model, price FROM Laptop NATURAL JOIN Products)
+            UNION
+            (SELECT model, price FROM Printer INNER JOIN Products ON Printer.model = Product.model)
+        );
+        \end{lstlisting}
     \end{enumerate}
 
 
