@@ -228,6 +228,15 @@
     (SELECT DISTINCT makers FROM Products WHERE type='laptops') -
     (SELECT DISTINCT makers FROM Products WHERE type='pc');
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT hd FROM PC WHERE EXISTS (
+        SELECT hd, COUNT(model) FROM PC GROUP BY hd
+        HAVING COUNT(model) > 2
+    );
+    \end{lstlisting}
     \end{enumerate}
 
 
