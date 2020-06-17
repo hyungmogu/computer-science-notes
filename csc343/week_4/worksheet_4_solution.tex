@@ -354,6 +354,13 @@
 
         \item SELECT AVG(numGuns) FROM Classes HAVING type='bb';
         \item SELECT class, MIN(launched) FROM Ships GROUP BY class;
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT class, COUNT(Ships.name) FROM Ships INNER JOIN Outcomes
+    GROUP BY class ON Ships.name = Outcomes.ship
+    HAVING result='sunk';
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
