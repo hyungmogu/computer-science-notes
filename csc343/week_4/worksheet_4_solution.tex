@@ -246,6 +246,12 @@
         \item SELECT * FROM Ships WHERE launched $<$ 1921;
         \item SELECT * FROM Outcomes WHERE result='sunk';
         \item SELECT * FROM Classes NATURAL JOIN Ships WHERE displacement $>$ 35000;
+        \item
+    \begin{lstlisting}[language=SQL]
+    SELECT name, displacement, numGuns FROM Classes NATURAL JOIN (
+        SELECT * FROM Ships INNER JOIN Outcomes ON Ships.name = Outcome.ship
+    );
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
