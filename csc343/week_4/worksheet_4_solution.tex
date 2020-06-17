@@ -304,9 +304,9 @@
         (SELECT model, price FROM Laptop NATURAL JOIN Product WHERE maker = 'D')
     );
     \end{lstlisting}
-        \item   SELECT speed, AVG(price) FROM PC GROUP BY speed;
-
-
+        \item SELECT speed, AVG(price) FROM PC GROUP BY speed;
+        \item SELECT maker, AVG(screen) FROM Laptop NATURAL JOIN Product GROUP BY
+        maker;
     \end{enumerate}
 \end{enumerate}
 
