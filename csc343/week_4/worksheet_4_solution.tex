@@ -269,6 +269,14 @@
     HAVING COUNT(class) = 1;
     \end{lstlisting}
 
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    (SELECT countries FROM Classes WHERE type='bb')
+    INTERSECT
+    (SELECT countries FROM Classes WHERE type='bc');
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
