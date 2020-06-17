@@ -333,6 +333,14 @@
 
     \begin{enumerate}[a)]
         \item SELECT COUNT(class) FROM Classes;
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            SELECT COUNT(class) FROM Classes \color{red}HAVING type='bb'\color{black};
+        \end{mdframed}
         \item SELECT class, AVG(numGuns) FROM Classes GROUP BY class;
         \item SELECT AVG(numGuns) FROM Classes HAVING type='bb';
     \end{enumerate}
