@@ -16,6 +16,7 @@
 \usepackage{booktabs}
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
+\usepackage{accents}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -145,6 +146,33 @@
         \item $[(0, 1.5), (2, 4.5), (3,4)]$
         \item $[(0,1),(0,1),(2,3),(2,4),(3,4)]$
         \item $\gamma_{A, MAX(C)}([(2,3,4),(2,3,4)]) \to [(2,4)]$
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item $\accentset{\circ}{\bowtie}$ is an outerjoin operator
+            \begin{itemize}
+                \item $\accentset{\circ}{\bowtie}_L$ means Natural Left Outer Join
+                \item $\accentset{\circ}{\bowtie}_R$ means Natural Right Outer Join
+                \item $\accentset{\circ}{\bowtie}$ means Natural Full Outer Join
+                \item $\bot$ means null
+            \end{itemize}
+
+
+            \item e.g. $U \accentset{\circ}{\bowtie} V$
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/worksheet_4_solution_2.png}
+            \end{center}
+
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
