@@ -420,8 +420,21 @@
         WHERE studioName NOT IN
             (SELECT name FROM Studio);
     \end{lstlisting}
-
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    // SQL statement 1
+    INSERT INTO Laptop(model, speed, ram, hd, screen, price)
+        SELECT DISTINCT model + 110, speed, ram, hd, 17 AS screen, price + 500
+        FROM PC;
+
+    // SQL statement 2
+    INSERT INTO Product(maker, model, type)
+        SELECT DISTINCT maker, model + 110, 'laptop' AS type
+        FROM Product WHERE type='pc';
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
