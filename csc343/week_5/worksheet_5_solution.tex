@@ -547,6 +547,16 @@
     );
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Product (
+        maker CHAR(30),
+        model INT PRIMARY KEY,
+        type VARCHAR(255) CHECK (type IN ('pc', 'laptop', 'printer'))
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
