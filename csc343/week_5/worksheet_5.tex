@@ -293,9 +293,82 @@
         \begin{center}
         \includegraphics[width=0.7\linewidth]{images/worksheet_5_1.png}
         \end{center}
+
+        \item A manufacturer of a PC must also make a laptop with at least as great a processor speed.
+        \item If a laptop has a larger main memory than a PC, then the laptop must also have a higher price than the PC.
+        \item If the relation \textbf{Product} mentions a model and its type, then this model must appear in the relation appropriate to that type.
     \end{enumerate}
 
+    \item \textbf{Exercise 7.4.2:} Write the following as assertions. The
+    database schema is from the battleships example of Exercise 2.4.3.
 
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item No class may have more than 2 ships.
+        \item No country may have both battleships and battlecruisers.
+        \item No ship with more than 9 guns may be in a battle with a ship having fewer than 9 guns that was sunk.
+        \item No ship may be launched before the ship that bears the name of the first ship’s class.
+        \item For every class, there is a ship with the name of that class.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.4.3:} The assertion of Exercise 7.11 can be written as two tuplebased
+    constraints. Show how to do so.
+
+    \item \textbf{Exercise 7.5.1:} Write the triggers analogous to Fig. 7.6 for the insertion and
+    deletion events on \textbf{MovieExec}.
+
+    \item \textbf{Exercise 7.5.2:} Write the following as triggers. In each case, disallow or
+    undo the modification if it does not satisfy the stated constraint. The database
+    schema is from the 'PC' example of Exercise 2.4.1:
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item When updating the price of a PC, check that there is no lower priced PC with the same speed.
+        \item When inserting a new printer, check that the model number exists in Product.
+        \item When making any modification to the Laptop relation, check that the average price of laptops for each manufacturer is at least \$1500.
+        \item When updating the RAM or hard disk of any PC, check that the updated PC has at least 100 times as much hard disk as RAM.
+        \item When inserting a new PC, laptop, or printer, make sure that the model number did not previously appear in any of PC, Laptop, or P rin te r.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.5.3:} Write the following as triggers. In each case, disallow or
+    undo the modification if it does not satisfy the stated constraint. The database
+    schema is from the battleships example of Exercise 2.4.3.
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item When a new class is inserted into \textbf{Classes}, also insert a ship with the name of that class and a NULL launch date.
+        \item When a new class is inserted with a displacement greater than 35,000 tons, allow the insertion, but change the displacement to 35,000.
+        \item If a tuple is inserted into \textbf{Outcomes}, check that the ship and battle are listed in \textbf{Ships} and \textbf{Battles} , respectively, and if not, insert tuples into one or both of these relations, with NULL components where necessary.
+        \item When there is an insertion into \textbf{Ships} or an update of the c la s s attribute of \textbf{Ships}, check that no country has more than 20 ships.
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
