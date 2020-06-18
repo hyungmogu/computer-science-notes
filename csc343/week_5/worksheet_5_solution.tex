@@ -344,7 +344,7 @@
         type CHAR(2),
         country CHAR(255),
         numGuns INT,
-        bore FLOAT(3),
+        bore INT,
         displacement INT
     );
 
@@ -688,6 +688,24 @@
         CHECK (screen < 15 AND (hd >= 40 OR price < 1000))
     );
     \end{lstlisting}
+    \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        \begin{lstlisting}[language=SQL]
+        CREATE TABLE Classes (
+            class CHAR(255) PRIMARY KEY,
+            type CHAR(2),
+            country CHAR(255),
+            numGuns INT,
+            bore INT,
+            displacement INT,
+            CHECK (bore <= 16)
+        );
+        \end{lstlisting}
 
     \end{enumerate}
 
