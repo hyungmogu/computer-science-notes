@@ -574,6 +574,17 @@
     SET bore= bore * 2.5, displacement = displacement / 1.1;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    DELETE FROM Classes
+    WHERE class=(
+        SELECT class FROM Ships
+        GROUP BY class
+        HAVING COUNT(class) < 3
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
