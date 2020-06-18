@@ -59,6 +59,15 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE MovieExec (
+        name CHAR(30),
+        address VARCHAR(255),
+        cert# INT PRIMARY KEY,
+        FOREIGN KEY (cert#) REFERENCES Movies(producerC#)
+    );
+    \end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Example:}}
