@@ -584,17 +584,30 @@
         name CHAR(255) PRIMARY KEY,
         address VARCHAR(255),
         gender CHAR(1),
-        birthdate DATE CHECK (NOT strftime('%Y', birthdate) > ANY (
+        birthdate DATE,
+        CHECK (strftime('%Y', birthdate) <= (
             SELECT movieYear FROM StarsIn WHERE starName = name
         ))
     );
 
     CREATE TABLE StarsIn (
         movieTitle VARCHAR(255) PRIMARY KEY,
-        movieYear INT PRIMARY KEY CHECK (movieYear >= ALL (
+        movieYear INT PRIMARY KEY,
+        starName VARCHAR(255) PRIMARY KEY,
+        CHECK (movieYear >= (
             SELECT strftime('%Y', birthdate) FROM MovieStar WHERE starName = name
-        )),
-        starName VARCHAR(255) PRIMARY KEY
+        ))
+    );
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Studio (
+        name CHAR(255) PRIMARY KEY,
+        address VARCHAR(255),
+        presC# INT,
+        UNIQUE KEY (address)
     );
     \end{lstlisting}
     \end{enumerate}
