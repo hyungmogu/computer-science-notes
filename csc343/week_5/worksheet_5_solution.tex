@@ -421,6 +421,31 @@
     );
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Ships (
+        name CHAR(255) PRIMARY KEY,
+        class CHAR(255),
+        launched DATE,
+        FOREIGN KEY (class) REFERENCES Classes(class)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+    );
+
+    CREATE TABLE Outcome (
+        ship CHAR(255),
+        battle CHAR(255),
+        result CHAR(7),
+        PRIMARY KEY (ship, battle, result),
+        FOREIGN KEY (battle) REFERENCES Battles(name),
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+        FOREIGN KEY (ship) REFERENCES Ships(name),
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+    );
+    \end{lstlisting}
 
     \end{enumerate}
 
