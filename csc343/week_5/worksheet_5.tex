@@ -78,6 +78,53 @@
         \item A star appearing in Stars ln must also appear in MovieStar. Handle violations by deleting violating tuples.
     \end{enumerate}
 
+    \item \textbf{Exercise 7.1.2:} We would like to declare the constraint that every movie in
+    the relation Movie must appear with at least one star in StarsIn. Can we do
+    so with a foreign-key constraint? Why or why not?
+
+    \item \textbf{Exercise 7.1.3:} Suggest suitable keys and foreign keys for the relations of the
+    PC database:
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.1. Modify your SQL schema from Exercise 2.3.1 to include
+    declarations of these keys.
+
+    \item \textbf{Exercise 7.1.4:} Suggest suitable keys for the relations of the battleships
+    database
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.3. Modify your SQL schema from Exercise 2.3.2 to include
+    declarations of these keys.
+
+    \item \textbf{Exercise 7.1.5:} Exercise 7.1.5: Write the following referential
+    integrity constraints for the battleships database as in Exercise 7.1.4. Use
+    your assumptions about keys from that exercise, and handle all violations by
+    setting the referencing attribute value to NULL
+
+    \begin{enumerate}[a)]
+        \item Every class mentioned in \textbf{Ships} must be mentioned in \textbf{Classes}.
+        \item Every battle mentioned in \textbf{Outcomes} must be mentioned in \textbf{Battles}.
+        \item Every ship mentioned in \textbf{Outcomes} must be mentioned in \textbf{Ships}.
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
