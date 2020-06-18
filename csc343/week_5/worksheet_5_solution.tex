@@ -119,6 +119,40 @@
         producerC# PRIMARY KEY
     );
     \end{lstlisting}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Maintaining Referential Integrity
+            \begin{itemize}
+                \item Three different types of policies exist on Foreign Key
+                \begin{enumerate}[1.]
+                    \item \textit{The Default Policy:} \textit{Reject Violating Modifications.}
+                    \begin{itemize}
+                        \item Is default policy
+                        \item Rejects any modification violating referential integrity constant
+                    \end{itemize}
+                    \item \textit{The Cascade Policy}
+                    \begin{itemize}
+                        \item Changes to the referenced attributes are mimicked at foreign key.
+                        \item e.g. delete a tuple in \textbf{MovieExec}, deletes related
+                        referencing tuple(s) from \textbf{Studio}
+                    \end{itemize}
+                    \item \textit{The Set-Null Policy}
+                    \begin{itemize}
+                        \item When a modification to the referenced relation affects a foreign-key
+                        value, the latter is changed to NULL.
+                        \item This applies to both UPDATE and DELETE
+                    \end{itemize}
+                \end{enumerate}
+            \end{itemize}
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
