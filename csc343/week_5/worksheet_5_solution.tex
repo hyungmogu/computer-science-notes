@@ -804,6 +804,12 @@
     ALTER TABLE Outcomes ADD FOREIGN KEY (battle) REFERENCES Battles(name);
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Outcomes ADD FOREIGN KEY (ship) REFERENCES Ships(name);
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
