@@ -509,6 +509,19 @@
         ...
     );
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+
+    CREATE TALBE Movies (
+        ...
+        studioName VARCHAR(255) CHECK (studioName IN ('Disney', 'Fox', 'MGM', 'Paramount')),
+        ...
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
