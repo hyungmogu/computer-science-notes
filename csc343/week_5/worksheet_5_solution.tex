@@ -634,6 +634,31 @@
         ))
     );
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Studio (
+        name CHAR(30) PRIMARY KEY,
+        address VARCHAR(255),
+        presC# INT REFERENCES MovieExeC(cert#),
+        CHECK (name IN (
+            SELECT studioName FROM Movies
+        ))
+    );
+
+    CREATE TABLE Movies (
+        title CHAR(30) PRIMARY KEY,
+        year INT PRIMARY KEY,
+        length INT,
+        genre VARCHAR(255),
+        studioName VARCHAR(255),
+        producerC# PRIMARY KEY,
+        CHECK (studioName IN (
+            SELECT name FROM Studio
+        ))
+    );
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
