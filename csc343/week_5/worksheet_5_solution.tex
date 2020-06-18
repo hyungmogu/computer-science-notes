@@ -695,17 +695,31 @@
     \begin{enumerate}[a)]
         \item
 
-        \begin{lstlisting}[language=SQL]
-        CREATE TABLE Classes (
-            class CHAR(255) PRIMARY KEY,
-            type CHAR(2),
-            country CHAR(255),
-            numGuns INT,
-            bore INT,
-            displacement INT,
-            CHECK (bore <= 16)
-        );
-        \end{lstlisting}
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Classes (
+        class CHAR(255) PRIMARY KEY,
+        type CHAR(2),
+        country CHAR(255),
+        numGuns INT,
+        bore INT,
+        displacement INT,
+        CHECK (bore <= 16)
+    );
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Classes (
+        class CHAR(255) PRIMARY KEY,
+        type CHAR(2),
+        country CHAR(255),
+        numGuns INT,
+        bore INT,
+        displacement INT,
+        CHECK (numGuns > 9 AND bore <= 14)
+    );
+    \end{lstlisting}
 
     \end{enumerate}
 
