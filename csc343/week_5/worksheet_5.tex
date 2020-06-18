@@ -248,6 +248,54 @@
         \item Require that no two studios have the same address.
     \end{enumerate}
 
+    \item \textbf{Exercise 7.3.2:} Show how to alter the schemas of the “battleships”
+    database:
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    to have the following tuple-based constraints.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item \textbf{Class} and country form a key for relation \textbf{Classes}.
+        \item Require the referential integrity constraint that every battle appearing in \textbf{Outcomes} also appears in \textbf{Battles}.
+        \item Require the referential integrity constraint that every ship appearing in \textbf{Outcomes} appears in \textbf{Ships}.
+        \item Require that no ship has more than 14 guns.
+        \item Disallow a ship being in battle before it is launched.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.4.1:} Write the following assertions. The database schema is from
+    the 'PC' example of Exercise 2.4.1:
+
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item No manufacturer of PC's may also make laptops.
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/worksheet_5_1.png}
+        \end{center}
+    \end{enumerate}
+
+
 \end{enumerate}
 
 \end{document}
