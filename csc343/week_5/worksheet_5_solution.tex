@@ -675,6 +675,20 @@
         CHECK (speed < 2.0 AND price <= 600)
     );
     \end{lstlisting}
+
+        \item
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Laptop (
+        model INT PRIMARY KEY,
+        speed FLOAT,
+        ram INT,
+        hd INT,
+        screen INT,
+        price FLOAT,
+        CHECK (screen < 15 AND (hd >= 40 OR price < 1000))
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
