@@ -520,6 +520,17 @@
         \end{itemize}
 
         \item UPDATE PC SET ram = 2 * ram, hd = 60 + hd;
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE Laptop
+    SET screen = screen + 1, price = price - 100
+    WHERE model IN (
+        SELECT model FROM Product
+        WHERE type='laptop' AND
+        maker = 'B'
+    );
+    \end{lstlisting}
 
     \end{enumerate}
 \end{enumerate}
