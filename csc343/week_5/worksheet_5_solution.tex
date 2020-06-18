@@ -749,6 +749,13 @@
         SELECT cert# IN MovieExec
     ));
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Movies ADD CHECK (NOT (length < 60 OR length > 250));
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
