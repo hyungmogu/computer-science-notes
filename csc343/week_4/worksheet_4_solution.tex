@@ -454,6 +454,12 @@
             \begin{itemize}
                 \item \textbf{Syntax:} DELETE FROM $R$ WHERE $<\text{Condition}>$;
 
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
     \begin{lstlisting}[language=SQL]
     DELETE FROM StarsIn
     WHERE movieTitle = 'The Maltest Falcon' AND
@@ -476,6 +482,37 @@
         )
     )
     \end{lstlisting}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item UPDATE
+            \begin{itemize}
+                \item \textbf{Syntax:} UPDATE $R$ SET $<\text{new-value assignments}>$ WHERE $<\text{condition}>$;
+                \item updates tuples in database
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE MovieExec
+    SET name = 'Pres.' || name
+    WHERE cert# IN (SELECT presC# FROM Studio);
+    \end{lstlisting}
+
+            \end{itemize}
+
+
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
