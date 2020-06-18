@@ -362,6 +362,13 @@
     HAVING result='sunk';
     \end{lstlisting}
     \end{enumerate}
+
+    \item
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name, MIN(movieYear) FROM MovieStar INNER JOIN StarsIn ON
+    StarsIn.starName = MovieStar.name GROUP BY name HAVING COUNT(name) >= 3;
+    \end{lstlisting}
 \end{enumerate}
 
 \end{document}
