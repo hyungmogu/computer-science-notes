@@ -471,7 +471,7 @@
         \bigskip
 
         \begin{itemize}
-            \item CHECK constraints
+            \item CHECK Constraints
             \begin{itemize}
                 \item sets conditions that must hold for every value of an attribute
 
@@ -499,6 +499,16 @@
         \end{itemize}
 
         \item
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+
+    CREATE TALBE Movies (
+        ...
+        length INT CHECK (length > 250 AND length < 60),
+        ...
+    );
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
