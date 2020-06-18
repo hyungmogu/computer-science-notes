@@ -743,6 +743,12 @@
 
     \begin{enumerate}[a)]
         \item ALTER TABLE Movies ADD PRIMARY KEY(title, year);
+        \item
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Movies ADD CHECK (producerC# IN (
+        SELECT cert# IN MovieExec
+    ));
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
