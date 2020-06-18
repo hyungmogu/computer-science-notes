@@ -449,6 +449,46 @@
 
     \end{enumerate}
 
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item CHECK constraints
+            \begin{itemize}
+                \item sets conditions that must hold for every value of an attribute
+
+        \begin{lstlisting}[language=SQL]
+        // Example 1
+        Studio(name, address, pressC#)
+
+
+        CREATE TALBE Studio (
+            ...
+            presC# INT REFERENCES MovieExec(cer#)
+                CHECK (presC# >= 10000)
+        );
+
+        // Example 2
+        MovieStar(name, address, gender, birthdate)
+
+        CREATE TALBE MovieStar (
+            ...
+            gender CHAR(1) CHECK (gender IN ('F', 'M')),
+            ...
+        );
+        \end{lstlisting}
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
