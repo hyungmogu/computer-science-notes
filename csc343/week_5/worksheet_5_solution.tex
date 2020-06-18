@@ -610,6 +610,30 @@
         UNIQUE KEY (address)
     );
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE MovieStar (
+        name CHAR(255) PRIMARY KEY,
+        address VARCHAR(255),
+        gender CHAR(1),
+        birthdate DATE,
+        CHECK (name NOT IN (
+            SELECT name FROM MovieExec
+        ))
+    );
+
+    CREATE TABLE MovieExec (
+        name CHAR(255) PRIMARY KEY,
+        address VARCHAR(255),
+        cert# INT,
+        netWorth INT,
+        CHECK (name NOT IN (
+            SELECT name FROM MovieStar
+        ))
+    );
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
