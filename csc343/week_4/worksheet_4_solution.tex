@@ -462,6 +462,20 @@
     \end{lstlisting}
             \end{itemize}
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    DELETE FROM Product
+    WHERE maker = ALL(
+        (SELECT maker FROM Product WHERE type='laptop')-
+        (
+            (SELECT maker FROM PRODUCT WHERE type='laptop')
+            INTERSECT
+            (SELECT maker FROM PRODUCT WHERE type='printer')
+        )
+    )
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
