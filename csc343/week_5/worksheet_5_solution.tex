@@ -557,6 +557,23 @@
     );
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Product (
+        ...
+        model INT PRIMARY KEY CHECK (type IN (
+            (SELECT model FROM PC)
+            UNION
+            (SELECT model FROM Laptop)
+            UNION
+            (SELECT model FROM Printer)
+        )),
+        ...
+    );
+    \end{lstlisting}
+
+
     \end{enumerate}
 
 \end{enumerate}
