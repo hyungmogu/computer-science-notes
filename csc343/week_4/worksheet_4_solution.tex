@@ -384,6 +384,14 @@
     \begin{enumerate}[a)]
         \item
 
+        INSERT INTO PC(model, speed, ram, hd, price)
+        VALUES (1100, 3.2, 1024, 180, 2499);
+
+        \bigskip
+
+        INSERT INTO Product(maker, model, type)
+        VALUES ('C', 1100, 'pc');
+
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -395,7 +403,23 @@
             \begin{itemize}
                 \item \textbf{Syntax:} INSERT INTO R($A_1,A_2,...,A_n$) VALUES ($v_1,...,v_n$)
                 \item Inserts a tuple with values into relation R
+                \item Values can be from select statement
             \end{itemize}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    \\ Example 1
+    INSERT INTO StarsIn(movieTitle, movieYear, starName)
+    VALUES('The Maltese Fiction', 1942, 'Sydney Greenstreet');
+
+    \\ Example 2
+    INSERT INTO Studio(name)
+        SELECT DISTINCT studioName
+        FROM Movies
+        WHERE studioName NOT IN
+            (SELECT name FROM Studio);
+    \end{lstlisting}
 
         \end{itemize}
     \end{enumerate}
