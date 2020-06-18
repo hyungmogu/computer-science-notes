@@ -536,6 +536,17 @@
         ...
     );
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Printer (
+        ...
+        type VARCHAR(255) CHECK (type IN ('laser', 'ink-jet', 'bubble-jet')),
+        ...
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
