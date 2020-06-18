@@ -557,6 +557,16 @@
     INSERT Ships VALUES ('Italia', 'Vittorio Veneto', 1940);
     INSERT Ships VALUES ('Roma', 'Roma', 1942);
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    DELETE FROM Ships WHERE name = ALL(
+        SELECT ship as name FROM Outcomes
+        WHERE result='sunk'
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
