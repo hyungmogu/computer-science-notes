@@ -369,6 +369,15 @@
     SELECT name, MIN(movieYear) FROM MovieStar INNER JOIN StarsIn ON
     StarsIn.starName = MovieStar.name GROUP BY name HAVING COUNT(name) >= 3;
     \end{lstlisting}
+
+    \item
+
+    Yes. It is possible
+
+    \begin{itemize}
+        \item Rename aggregate columns using $\rho$
+        \item Use $\sigma$ around $\rho(\gamma(\cdots))$
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
