@@ -573,7 +573,30 @@
     );
     \end{lstlisting}
 
+    \end{enumerate}
 
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE MovieStar (
+        name CHAR(255) PRIMARY KEY,
+        address VARCHAR(255),
+        gender CHAR(1),
+        birthdate DATE CHECK (NOT birthdate > ANY (
+            SELECT movieYear FROM StarsIn WHERE starName = name
+        ))
+    );
+
+    CREATE TABLE StarsIn (
+        movieTitle VARCHAR(255) PRIMARY KEY,
+        movieYear INT PRIMARY KEY CHECK (movieYear  ALL (
+            SELECT movieYear FROM StarsIn WHERE starName = name
+        )),
+        starName VARCHAR(255) PRIMARY KEY
+    );
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
