@@ -120,7 +120,16 @@
     );
     \end{lstlisting}
 
-        \item
+        \item No change required. Violation occurs by the default policy.
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE MovieExec (
+        name CHAR(30),
+        address VARCHAR(255),
+        cert# INT PRIMARY KEY,
+        FOREIGN KEY (cert#) REFERENCES Movies(producerC#)
+    );
+    \end{lstlisting}
 
         \bigskip
 
@@ -152,6 +161,25 @@
                     \end{itemize}
                 \end{enumerate}
             \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Movies (
+        title CHAR(30) PRIMARY KEY,
+        year INT PRIMARY KEY,
+        length INT,
+        genre VARCHAR(255),
+        studioName VARCHAR(255),
+        producerC# REFERENCES MovieExec(cert#)
+            ON DELETE SET NULL
+            ON UPDATE CASCADE
+    );
+    \end{lstlisting}
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
