@@ -738,22 +738,12 @@
 
     \end{enumerate}
 
+    \item $gender \neq NULL$
     \item
 
-    \begin{lstlisting}[language=SQL]
-    CREATE TABLE Ships (
-        name CHAR(255) PRIMARY KEY,
-        class CHAR(255),
-        launched INT,
-        CHECK (launched <= (
-            SELECT strftime('%Y', date) FROM Battles
-            INNER JOIN Outcomes ON Battles.name = Outcomes.battle
-            WHERE ship = Ships.name
-        ))
-    );
-    \end{lstlisting}
-
-    \item $gender \neq NULL$
+    \begin{enumerate}[a)]
+        \item ALTER TABLE Movies ADD PRIMARY KEY(title, year);
+    \end{enumerate}
 
 \end{enumerate}
 
