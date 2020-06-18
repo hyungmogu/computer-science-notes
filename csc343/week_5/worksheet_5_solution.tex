@@ -133,6 +133,26 @@
 
         \bigskip
 
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE MovieExec (
+        name CHAR(30),
+        address VARCHAR(255),
+        cert# INT PRIMARY KEY,
+        FOREIGN KEY (cert#) REFERENCES Movies(producerC#)
+            ON UPDATE CASCADE // Correction
+            ON DELETE CASCADE // Correction
+    );
+    \end{lstlisting}
+
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes:}}
 
         \bigskip
@@ -195,6 +215,21 @@
         FOREIGN KEY (title) REFERENCES StarsIn(movieTitle)
     );
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Movies (
+        title CHAR(30) PRIMARY KEY,
+        year INT PRIMARY KEY,
+        length INT,
+        genre VARCHAR(255),
+        studioName VARCHAR(255),
+        producerC# VARCHAR(255)
+        FOREIGN KEY (title) REFERENCES StarsIn(movieTitle)
+    );
+    \end{lstlisting}
+
 
     \end{enumerate}
 \end{enumerate}
