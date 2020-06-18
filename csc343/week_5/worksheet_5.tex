@@ -221,6 +221,33 @@
     gender attribute of \textbf{MovieStar}. What restrictions, if any, do each of these constraints
     enforce if the value of gender is NULL?
 
+    \item \textbf{Exercise 7.3.1:} E xercise 7.3.1: Show how to alter your relation
+    schemas for the movie example:
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+    Starsln(movieTitle, movieYear, starName)
+    MovieStar(name, address, gender, birthdate)
+    MovieExec(name, address, cert#, netWorth)
+    Studio(name, address, presC#)
+    \end{lstlisting}
+
+    \bigskip
+
+    in the following ways.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Make title and year the key for \textbf{Movie}.
+        \item Require the referential integrity constraint that the producer of every movie appear in \textbf{MovieExec}.
+        \item Require that no movie length be less than 60 nor greater than 250.
+        \item Require that no name appear as both a movie star and movie executive (this constraint need not be maintained in the face of deletions).
+        \item Require that no two studios have the same address.
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
