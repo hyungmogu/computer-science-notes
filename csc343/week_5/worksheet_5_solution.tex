@@ -816,6 +816,16 @@
     ALTER TABLE Classes ADD CHECK (NOT (numGuns > 14));
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Classes ADD CHECK (launched <= (
+        SELECT strftime('%Y', date) FROM Battles
+        INNER JOIN Outcomes ON Battles.name = Outcomes.battle
+        WHERE ship = Ships.name
+    ));
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
