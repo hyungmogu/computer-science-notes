@@ -584,15 +584,15 @@
         name CHAR(255) PRIMARY KEY,
         address VARCHAR(255),
         gender CHAR(1),
-        birthdate DATE CHECK (NOT birthdate > ANY (
+        birthdate DATE CHECK (NOT strftime('%Y', birthdate) > ANY (
             SELECT movieYear FROM StarsIn WHERE starName = name
         ))
     );
 
     CREATE TABLE StarsIn (
         movieTitle VARCHAR(255) PRIMARY KEY,
-        movieYear INT PRIMARY KEY CHECK (movieYear  ALL (
-            SELECT movieYear FROM StarsIn WHERE starName = name
+        movieYear INT PRIMARY KEY CHECK (movieYear >= ALL (
+            SELECT strftime('%Y', birthdate) FROM MovieStar WHERE starName = name
         )),
         starName VARCHAR(255) PRIMARY KEY
     );
