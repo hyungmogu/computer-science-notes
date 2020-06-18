@@ -125,6 +125,102 @@
         \item Every ship mentioned in \textbf{Outcomes} must be mentioned in \textbf{Ships}.
     \end{enumerate}
 
+    \item \textbf{Exercise 7.2.1:} Write the following constraints for attributes of the relation
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item The year cannot be before 1915.
+        \item The length cannot be less than 60 nor more than 250.
+        \item The studio name can only be Disney, Fox, MGM, or Paramount.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.2.2:} Write the following constraints on attributes from our example
+    schema
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.1.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item The speed of a laptop must be at least 2.0.
+        \item The only types of printers are laser, ink-jet, and bubble-jet.
+        \item The only types of products are PC’s, laptops, and printers.
+        \item A model of a product must also be the model of a PC, a laptop, or a printer.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.2.3:} Write the following constraints as tuple-based CHECK constraints
+    on one of the relations of our running movies example:
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+    Starsln(movieTitle, movieYear, starName)
+    MovieStar(name, address, gender, birthdate)
+    MovieExec(name, address, cert#, netWorth)
+    Studio(name, address, presC#)
+    \end{lstlisting}
+
+    \bigskip
+
+    If the constraint actually involves two relations, then you should put constraints
+    in both relations so that whichever relation changes, the constraint will be
+    checked on insertions and updates. Assume no deletions; it is not always possible
+    to maintain tuple-based constraints in the face of deletions.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item A star may not appear in a movie made before they were born.
+        \item No two studios may have the same address.
+        \item A name that appears in \textbf{MovieStar} must not also appear in \textbf{MovieExec}.
+        \item A studio name that appears in \textbf{Studio} must also appear in at least one \textbf{Movies} tuple.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.2.4:} Write the following as tuple-based CHECK constraints about
+    our 'PC' schema.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item A PC with a processor speed less than 2.0 must not sell for more than \$600.
+        \item A laptop with a screen size less than 15 inches must have at least a 40 gigabyte hard disk or sell for less than \$1000.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.2.5:} Write the following as tuple-based CHECK constraints about
+    our 'battleships' schema:
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \begin{enumerate}[a)]
+        \item No class of ships may have guns with larger than a 16-inch bore.
+        \item If a class of ships has more than 9 guns, then their bore must be no larger than 14 inches.
+        \item No ship can be in battle before it is launched.
+    \end{enumerate}
+
+    \item \textbf{Exercise 7.2.6:} In Examples 7.6 and 7.8, we introduced constraints on the
+    gender attribute of \textbf{MovieStar}. What restrictions, if any, do each of these constraints
+    enforce if the value of gender is NULL?
+
 \end{enumerate}
 
 \end{document}
