@@ -53,4 +53,51 @@
 \title{CSC343 Worksheet 5 Solution}
 \maketitle
 
+\begin{enumerate}[1.]
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Foreign-key
+            \begin{itemize}
+                \item \textbf{Syntax 1:} FOREIGN KEY ($<\text{attributes}>$) REFERENCES $<\text{table}>$($<\text{attributes}>$)
+                \item \textbf{Syntax 2:} REFERENCES $<\text{table}>$($<\text{attributes}>$)
+                \item Binds an attribute of one relation to an anttribute in another table
+                \item Added when creating table
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    // Example 1
+    CREATE TABLE Studio (
+        name CHAR(30) PRIMARY KEY,
+        address VARCHAR(255),
+        presC# INT REFERENCES MovieExeC(cert#)
+    );
+
+    // Example 2
+    CREATE TABLE Studio (
+        name CHAR(30) PRIMARY KEY,
+        address VARCHAR(255),
+        presC# INT,
+        FOREIGN KEY (presC#) REFERENCES MovieExec(cert#)
+    );
+    \end{lstlisting}
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+
 \end{document}
