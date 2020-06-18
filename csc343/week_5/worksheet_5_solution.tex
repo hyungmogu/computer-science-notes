@@ -810,6 +810,12 @@
     ALTER TABLE Outcomes ADD FOREIGN KEY (ship) REFERENCES Ships(name);
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Classes ADD CHECK (NOT (numGuns > 14));
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
