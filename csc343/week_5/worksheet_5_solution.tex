@@ -454,6 +454,16 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+
+    CREATE TALBE Movies (
+        ...
+        year INT PRIMARY KEY CHECK (year >= 1915),
+        ...
+    );
+    \end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -487,6 +497,8 @@
         \end{lstlisting}
             \end{itemize}
         \end{itemize}
+
+        \item
     \end{enumerate}
 
 \end{enumerate}
