@@ -798,6 +798,12 @@
     ALTER TABLE Classes ADD PRIMARY KEY (class, country);
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE Outcomes ADD FOREIGN KEY (battle) REFERENCES Battles(name);
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
