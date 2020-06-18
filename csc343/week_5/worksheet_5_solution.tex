@@ -229,6 +229,22 @@
     \end{lstlisting}
 
     \end{enumerate}
+
+    \item Yes. Set foreign-key constraint on StarsIn's movietitle to Movie's title.
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Movies (
+        title CHAR(30) PRIMARY KEY,
+        year INT PRIMARY KEY,
+        length INT,
+        genre VARCHAR(255),
+        studioName VARCHAR(255),
+        producerC# VARCHAR(255)
+        FOREIGN KEY (title) REFERENCES StarsIn(movieTitle)
+    );
+    \end{lstlisting}
 \end{enumerate}
 
 \end{document}
