@@ -284,6 +284,58 @@
 
     \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TABLE Product (
+        maker CHAR(30),
+        model INT PRIMARY KEY,
+        type VARCHAR(255)
+    );
+
+    CREATE TABLE PC (
+        model INT PRIMARY KEY,
+        speed FLOAT,
+        ram INT,
+        hd INT,
+        price FLOAT,
+        FOREIGN KEY (model) REFERENCES Product(model)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+    );
+
+    CREATE TABLE Laptop (
+        model INT PRIMARY KEY,
+        speed FLOAT,
+        ram INT,
+        hd INT,
+        screen INT,
+        price FLOAT,
+        FOREIGN KEY (model) REFERENCES Product(model)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+    );
+
+    CREATE TABLE Printer (
+        model INT PRIMARY KEY,
+        color BOOLEAN,
+        type VARCHAR(255),
+        price FLOAT,
+        FOREIGN KEY (model) REFERENCES Product(model)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+    );
+
+    \end{lstlisting}
+
+
+    \end{mdframed}
+
     \item
 
     \begin{lstlisting}[language=SQL]
