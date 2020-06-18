@@ -435,6 +435,28 @@
         SELECT DISTINCT maker, model + 110, 'laptop' AS type
         FROM Product WHERE type='pc';
     \end{lstlisting}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Deletion
+            \begin{itemize}
+                \item \textbf{Syntax:} DELETE FROM $R$ WHERE $<\text{Condition}>$;
+
+    \begin{lstlisting}[language=SQL]
+    DELETE FROM StarsIn
+    WHERE movieTitle = 'The Maltest Falcon' AND
+          movieYeear = 1942 AND
+          starName = 'Sydney Greenstreet';
+    \end{lstlisting}
+            \end{itemize}
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
