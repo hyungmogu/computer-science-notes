@@ -53,4 +53,31 @@
 \title{CSC343 Worksheet 5}
 \maketitle
 
+\begin{enumerate}[1.]
+    \item \textbf{Exercise 7.1.1:} Our running example movie database of Section
+    2.2.8 has keys defined for all its relations.
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+    Starsln(movieTitle, movieYear, starName)
+    MovieStar(name, address, gender, birthdate)
+    MovieExec(name, address, cert#, netWorth)
+    Studio(name, address, presC#)
+    \end{lstlisting}
+
+    \bigskip
+
+    Declare the following referential integrity constraints for the movie database as
+    in Exercise 7.1.1.
+
+    \begin{enumerate}[a)]
+        \item The producer of a movie must be someone mentioned in MovieExec. Modifications to MovieExec that violate this constraint are rejected.
+        \item Repeat (a), but violations result in the producerC\# in Movie being set to NULL.
+        \item Repeat (a), but violations result in the deletion or update of the offending Movie tuple.
+        \item A movie that appears in Stars ln must also appear in Movie. Handle violations by rejecting the modification.
+        \item A star appearing in Stars ln must also appear in MovieStar. Handle violations by deleting violating tuples.
+    \end{enumerate}
+
+\end{enumerate}
+
 \end{document}
