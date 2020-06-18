@@ -756,6 +756,18 @@
     ALTER TABLE Movies ADD CHECK (NOT (length < 60 OR length > 250));
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    ALTER TABLE MovieExec ADD CHECK (name NOT IN (
+        SELECT name FROM MovieStar
+    ));
+
+    ALTER TABLE MovieStar ADD CHECK (name NOT IN (
+        SELECT name FROM MovieExec
+    ));
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
