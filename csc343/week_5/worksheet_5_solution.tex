@@ -219,17 +219,14 @@
         \item
 
     \begin{lstlisting}[language=SQL]
-    CREATE TABLE Movies (
-        title CHAR(30) PRIMARY KEY,
-        year INT PRIMARY KEY,
-        length INT,
-        genre VARCHAR(255),
-        studioName VARCHAR(255),
-        producerC# VARCHAR(255)
-        FOREIGN KEY (title) REFERENCES StarsIn(movieTitle)
+    CREATE TABLE StarsIn (
+        movieTitle CHAR(30) PRIMARY KEY,
+        movieYear INT PRIMARY KEY,
+        starName VARCHAR(255) PRIMARY KEY,
+        FOREIGN KEY (starName) REFERENCES MovieStar(name)
+            ON DELETE CASCADE
     );
     \end{lstlisting}
-
 
     \end{enumerate}
 \end{enumerate}
