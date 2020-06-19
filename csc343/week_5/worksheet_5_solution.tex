@@ -1041,6 +1041,21 @@
 
     \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER NetWorthTrigger
+    AFTER UPDATE OF netWorth ON MovieExec
+    REFERENCING
+        OLD ROW AS OldTuple,
+        NEW ROW AS NewTuple
+    FOR EACH STATEMENT
+    WHEN (5000000 > (SELECT SUM(netWorth) FROM MovieExec))
+    BEGIN
+        DELETE FROM MovieExec
+        WHERE (name, address, cert#, netWorth) IN NewStuff;
+        INSERT INTO MovieExec (SELECT * FROM OldStuff);
+    END;
+    \end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
