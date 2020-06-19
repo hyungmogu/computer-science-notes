@@ -988,6 +988,17 @@
 
         \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION shipMustHaveFirstShipClassNameFirst (
+        NOT EXISTS (
+            SELECT * FROM Ships AS s1
+            WHERE s1.class <> s1.name AND s1.launched <= ALL (
+                SELECT launched FROM Ships AS s2 WHERE s2.class = s1.class
+            )
+        )
+    );
+    \end{lstlisting}
+
         \item
 
     \begin{lstlisting}[language=SQL]
