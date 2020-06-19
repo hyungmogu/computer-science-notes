@@ -1039,6 +1039,45 @@
 
     \end{mdframed}
 
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Trigger
+        \begin{itemize}
+            \item Is also called \textit{event-condition-action} rules
+            \item are only awakened when certain events, specified by the database
+            programmer occur
+            \item If condition is satisfied, the \textit{action} associated with the trigger
+            is performed
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER NetWorthTrigger
+    AFTER UPDATE OF netWorth ON MovieExec
+    REFERENCING
+        OLD ROW AS OldTuple,
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    WHEN (OldTuple.netWorth > NewTuple.netWorth)
+        UPDATE MovieExec
+        SET netWorth = OldTuple.netWorth
+        WHERE cer# = NewTuple.cert#;
+    \end{lstlisting}
+
+        \end{itemize}
+    \end{itemize}
+
 
 \end{enumerate}
 
