@@ -1331,6 +1331,26 @@
         INSERT INTO Ships (NewTuple.class, NewTuple.class, NULL)
     END;
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER limitDisplacement
+    AFTER INSERT ON Classes
+    REFERENCING
+        NEW ROW AS NewTuple
+        NEW TABLE AS NewStuff
+    FOR EACH ROW
+    WHEN (NewTuple.displacement > 35000)
+    BEGIN
+        UPDATE Classes
+        SET displacement = 35000
+        WHERE class = NewTuple.class;
+    END;
+    \end{lstlisting}
+
+
+
     \end{enumerate}
 
 \end{enumerate}
