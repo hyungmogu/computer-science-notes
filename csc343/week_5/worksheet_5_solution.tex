@@ -968,6 +968,42 @@
     );
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION bbAndbcBothCantExist (
+        NOT EXISTS (
+            (
+                SELECT country FROM Classes
+                where type='bb'
+            ) INTERSECT
+            (
+                SELECT country FROM Classes
+                where type='bc'
+            )
+    );
+    \end{lstlisting}
+
+        \item
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION bbAndbcBothCantExist (
+        NOT EXISTS (
+            (
+                SELECT * FROM Classes NATURAL JOIN (
+                    SELECT * FROM Ships INNER JOIN Outcome.ship = Ships.name
+                ) WHERE numGuns > 9
+            ) INTERSECT
+            (
+                SELECT * FROM Classes NATURAL JOIN (
+                    SELECT * FROM Ships INNER JOIN Outcome.ship = Ships.name
+                ) WHERE numGuns > 9 AND result = 'sunk'
+            )
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
