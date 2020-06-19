@@ -1182,6 +1182,33 @@
 
         \end{mdframed}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER CheckAVGPriceTrigger
+    BEFORE UPDATE ON Laptop
+    REFERENCING
+        OLD ROW AS OldTuple
+        NEW ROW AS NewTuple
+        NEW TABLE AS NewStuff
+    FOR EACH STATEMENT
+    WHEN (1500 >= (
+        SELECT AVG(price) FROM NewStuff
+    ))
+    BEGIN
+        UPDATE Laptop SET
+            model=NewTuple.model,
+            speed=NewTuple.speed,
+            ram=NewTuple.ram,
+            hd=NewTuple.hd,
+            screen=NewTuple.screen
+            price=NewTuple.price
+        WHERE model = OldTuple.model;
+    END;
+    \end{lstlisting}
+
+
+
 
     \end{enumerate}
 \end{enumerate}
