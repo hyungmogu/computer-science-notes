@@ -1018,14 +1018,26 @@
     CREATE Table MovieExec (
         ...
         FOREIGN KEY (cert#) REFERENCES Studio(presC#)
-            CHECK (presC# = cert#)
-    );
-
-    CREATE Table Studio (
-        ...
+            CHECK (presC# = cert#),
         CHECK (networth < 10000000)
     );
     \end{lstlisting}
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE Table MovieExec (
+        ...
+        FOREIGN KEY (cert#) REFERENCES Studio(presC#)
+            CHECK (presC# = cert#),
+        CHECK (networth < 10000000)
+    );
+    \end{lstlisting}
+
+    \end{mdframed}
 
 
 \end{enumerate}
