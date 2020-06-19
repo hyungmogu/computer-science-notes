@@ -1093,7 +1093,35 @@
         \end{itemize}
     \end{itemize}
 
+    \item
 
+    \begin{enumerate}[a)]
+        \item
+
+        \begin{lstlisting}[language=SQL]
+        CREATE TRIGGER CheckPriceTrigger
+        AFTER UPDATE OF price ON PC
+        REFERENCING
+            OLD ROW AS OldTuple,
+            OLD TABLE AS OldStuff,
+            NEW ROW AS NewTuple
+        FOR EACH STATEMENT
+        WHEN (NewTuple.price <> OldTuple.price AND
+              NOT NewTuple.speed IN (
+                    SELECT * FROM PC AS pc
+                    WHERE NewTuple.price < pc.price AND
+                    NewTuple.speed = pc.speed
+              ))
+            UPDATE PC
+            SET price = NewTuple.price
+            WHERE model = NewTuple.model;
+        \end{lstlisting}
+
+        \item
+
+
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
