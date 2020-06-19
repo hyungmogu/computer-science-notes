@@ -950,6 +950,24 @@
             )
     );
     \end{lstlisting}
+
+        \item
+
+
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION bbAndbcBothCantExist (
+        NOT EXISTS (
+            (
+                SELECT country FROM Classes
+                where type='bb'
+            ) INTERSECT
+            (
+                SELECT country FROM Classes
+                where type='bc'
+            )
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
