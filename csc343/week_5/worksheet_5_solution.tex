@@ -902,6 +902,34 @@
     ));
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION pcExists (
+        EXISTS (
+            (
+                SELECT * FROM Product
+                WHERE type='pc' AND model IN (SELECT model FROM PC)
+            )
+    );
+
+    CREATE ASSERTION laptopExists (
+        EXISTS (
+            (
+                SELECT * FROM Product
+                WHERE type='laptop' AND model IN (SELECT model FROM Laptop)
+            )
+    );
+
+    CREATE ASSERTION printerExists (
+        EXISTS (
+            (
+                SELECT * FROM Product
+                WHERE type='printer' AND model IN (SELECT model FROM Printer)
+            )
+    );
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
