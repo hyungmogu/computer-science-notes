@@ -1129,7 +1129,7 @@
         OLD ROW AS OldTuple,
         OLD TABLE AS OldStuff,
         NEW ROW AS NewTuple
-    FOR EACH STATEMENT
+    FOR EACH ROW
     WHEN (NewTuple.price <> OldTuple.price AND
             NOT EXISTS (
                 SELECT pc.speed FROM PC AS pc
@@ -1157,20 +1157,31 @@
                 NewTuple;
         \end{lstlisting}
 
-        \item
+        \bigskip
 
-        \begin{lstlisting}[language=SQL]
-        CREATE TRIGGER CheckPriceTrigger
-        BEFORE INSERT ON Printer
-        REFERENCING
-            NEW ROW AS NewTuple
-        FOR EACH ROW
-        WHEN (NewTuple.model IN (
-            SELECT model FROM Product
-        ))
-            INSERT INTO Printer
-                NewTuple;
-        \end{lstlisting}
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER modelExists
+    BEFORE INSERT ON Printer
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH STATEMENT
+    WHEN (NewTuple.model IN (
+        SELECT model FROM Product
+    ))
+    BEGIN
+        INSERT INTO Printer
+            NewTuple;
+    END;
+    \end{lstlisting}
+
+
+        \end{mdframed}
+
 
     \end{enumerate}
 \end{enumerate}
