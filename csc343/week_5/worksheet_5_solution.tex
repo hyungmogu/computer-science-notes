@@ -833,6 +833,16 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION PCnoLaptop CHECK
+        (NOT EXISTS
+            (
+                (SELECT maker FROM Product type='laptop')
+                INTERSECT
+                (SELECT maker FROM Product type='pc')
+            )
+        );
+    \end{lstlisting}
 
         \bigskip
 
@@ -864,6 +874,8 @@
             )
         );
     \end{lstlisting}
+
+                \item
 
             \end{itemize}
         \end{itemize}
