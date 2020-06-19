@@ -1252,8 +1252,65 @@
     WHERE model = OldTuple.model;
     \end{lstlisting}
 
+        \item
 
 
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER checkInsertPC
+    BEFORE INSERT ON PC
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    BEGIN
+    WHEN (NOT NewTuple.model IN (
+        (SELECT model FROM PC)
+        UNION
+        (SELECT model FROM Laptop)
+        UNION
+        (SELECT model FROM Printer)
+    ))
+
+    INSERT INTO PC NewTuple;
+    END;
+
+    /
+
+    CREATE TRIGGER checkInsertLaptop
+    BEFORE INSERT ON Laptop
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    BEGIN
+    WHEN (NOT NewTuple.model IN (
+        (SELECT model FROM PC)
+        UNION
+        (SELECT model FROM Laptop)
+        UNION
+        (SELECT model FROM Printer)
+    ))
+
+    INSERT INTO Laptop NewTuple;
+    END;
+
+    /
+
+    CREATE TRIGGER checkInsertPrinter
+    BEFORE INSERT ON Laptop
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    BEGIN
+    WHEN (NOT NewTuple.model IN (
+        (SELECT model FROM PC)
+        UNION
+        (SELECT model FROM Laptop)
+        UNION
+        (SELECT model FROM Printer)
+    ))
+
+    INSERT INTO Printer NewTuple;
+    END;
+    \end{lstlisting}
 
     \end{enumerate}
 \end{enumerate}
