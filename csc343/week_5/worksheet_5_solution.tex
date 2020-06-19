@@ -930,6 +930,26 @@
     );
     \end{lstlisting}
 
+
+
+    \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION twoShipsCantExist (
+        NOT EXISTS (
+            (
+                SELECT * FROM Classes
+                NATURAL JOIN Ships
+                GROUP BY class
+                HAVING COUNT(name) > 2
+            )
+    );
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
