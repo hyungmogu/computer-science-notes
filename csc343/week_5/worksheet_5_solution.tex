@@ -1313,6 +1313,26 @@
     \end{lstlisting}
 
     \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER addShip
+    AFTER INSERT ON Classes
+    REFERENCING
+        NEW ROW AS NewTuple
+        NEW TABLE AS NewStuff
+    FOR EACH STATEMENT
+    WHEN (NewTuple.class IS NOT NULL)
+    BEGIN
+        INSERT INTO Ships (NewTuple.class, NewTuple.class, NULL)
+    END;
+    \end{lstlisting}
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
