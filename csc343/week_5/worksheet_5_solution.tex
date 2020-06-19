@@ -1207,6 +1207,51 @@
     END;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER CheckAVGPriceTrigger
+    BEFORE UPDATE ON Laptop
+    REFERENCING
+        OLD ROW AS OldTuple
+        NEW ROW AS NewTuple
+        NEW TABLE AS NewStuff
+    FOR EACH STATEMENT
+    WHEN (1500 >= (
+        SELECT AVG(price) FROM NewStuff
+    ))
+    BEGIN
+        UPDATE Laptop SET
+            model=NewTuple.model,
+            speed=NewTuple.speed,
+            ram=NewTuple.ram,
+            hd=NewTuple.hd,
+            screen=NewTuple.screen,
+            price=NewTuple.price
+        WHERE model = OldTuple.model;
+    END;
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER updatingRAM
+    AFTER UPDATE OF hd, ram ON PC
+    REFERENCING
+        OLD ROW AS OldTuple
+        NEW ROW AS NewTuple
+        NEW TABLE AS NewStuff
+    FOR EACH ROW
+    WHEN (100 < (
+        NewTuple.hd / NewTuple.ram
+    ))
+
+    UPDATE PC
+    SET ram=OldTuple.ram,
+        hd=OldTuple.hd
+    WHERE model = OldTuple.model;
+    \end{lstlisting}
+
 
 
 
