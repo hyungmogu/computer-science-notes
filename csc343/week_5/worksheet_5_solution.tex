@@ -874,11 +874,21 @@
             )
         );
     \end{lstlisting}
-
-                \item
-
             \end{itemize}
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE ASSERTION higherPrice (
+        EXISTS (
+            SELECT Laptop.model FROM Laptop, PC
+            WHERE Laptop.ram > PC.ram AND
+                  Laptop.price > PC.price
+        )
+    ));
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
