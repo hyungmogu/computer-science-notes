@@ -1119,7 +1119,18 @@
 
         \item
 
-
+        \begin{lstlisting}[language=SQL]
+        CREATE TRIGGER CheckPriceTrigger
+        BEFORE INSERT ON Printer
+        REFERENCING
+            NEW ROW AS NewTuple
+        FOR EACH STATEMENT
+        WHEN (NewTuple.model IN (
+            SELECT model FROM Product
+        ))
+            INSERT INTO Printer
+                NewTuple;
+        \end{lstlisting}
 
     \end{enumerate}
 \end{enumerate}
