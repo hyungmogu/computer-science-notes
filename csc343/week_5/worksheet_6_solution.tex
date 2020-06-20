@@ -194,6 +194,16 @@
 
         \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER DisneyComediesInsert
+    INSTEAD OF INSERT ON DisneyComedies
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    INSERT INTO Movies(title, year, length, genre, studioName)
+    VALUES(NewTuple.title, NewTuple.year, NewTuple.length, 'comedy', 'Disney');
+    \end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Notes:}}
