@@ -1369,6 +1369,29 @@
     END;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER updateMissingParts
+    AFTER INSERT, UPDATE OF class ON Ships
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    WHEN (20 > (SELECT( MAX(shipCount) FROM
+                    ( SELECT COUNT(name) AS shipCount FROM Ships NATURAL JOIN Classes
+                     GROUP BY country)
+                )
+        )
+    BEGIN
+        IF (NewTuple.ship NOT IN (SELECT name FROM Ships))
+        THEN
+            INSERT INTO Ships (NewTuple.ship, NewTuple.battle, NULL);
+        ELSE
+            INSERT INTO Battles (NewTuple.battle, NULL);
+        ENDIF;
+    END;
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
