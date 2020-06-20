@@ -244,6 +244,48 @@
     combination of indexes, estimate the average cost of an operation. As a function
     of $p_1$, $p_2$, and $p_3$, what is the best choice of indexes?
 
+
+    \item \textbf{Exercise 8.5.1:} Complete Example 8.15 by considering updates to either of
+    the base tables.
+
+    \item \textbf{Exercise 8.5.2:} Suppose the view NewPC of Exercise 8.2.3 were a materialized
+    view. What modifications to the base tables Product and PC would require a
+    modification of the materialized view? How would you implement those modifications
+    incrementally?
+
+    \item \textbf{Exercise 8.5.3:} This exercise explores materialized views that are based on
+    aggregation of data. Suppose we build a materialized view on the base tables
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    \end{lstlisting}
+
+    \bigskip
+
+    from our running battleships exercise, as follows:
+
+    \begin{lstlisting}[language=SQL]
+    CREATE MATERIALIZED VIEW ShipStats AS
+    SELECT country, AVG(displacement), COUNT(*)
+    FROM Classes, Ships
+    WHERE Classes.class = Ships.class
+    GROUP BY country;
+    \end{lstlisting}
+
+    \bigskip
+
+    What modifications to the base tables Classes and Ships would require a
+    modification of the materialized view? How would you implement those modifications
+    incrementally?
+
+    \item \textbf{Exercise 8.5.4:} In Section 8.5.3 we gave conditions under which a materialized
+    view of simple form could be used in the execution of a query of similar form.
+    For the view of Example 8.15, describe all the queries of that form, for which
+    this view could be used.
+
 \end{enumerate}
 
 \end{document}
