@@ -58,6 +58,18 @@
 
     \bigskip
 
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE VIEW RichExec AS
+        SELECT * FROM MovieExec
+        WHERE netWorth >= 10000000;
+    \end{lstlisting}
+    \end{enumerate}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -70,6 +82,19 @@
             \item Exists in RAM
             \item Is created using query
             \item can be used like a relation
+
+            \bigskip
+
+            \underline{\textbf{Notes:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE VIEW ParamountMovies AS
+        SELECT title, year
+        FROM Movies
+        WHERE studioName = 'Paramount';
+    \end{lstlisting}
         \end{itemize}
     \end{itemize}
 \end{enumerate}
