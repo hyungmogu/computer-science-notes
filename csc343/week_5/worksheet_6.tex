@@ -78,6 +78,107 @@
         \item Given a maker, model number, processor speed, RAM size, hard-disk size, and price, check that there is no product with that model. If there is such a model, print an error message for the user. If no such model existed in the database, enter the information about that model into the PC and Product tables.
     \end{itemize}
 
+    \item \textbf{Exercise 6.6.2:} For each of the programs of Exercise 6.6.1,
+    discuss the atomicity problems, if any, that could occur should the system crash
+    in the middle of an execution of the program.
+
+    \item \textbf{Exercise 6.6.3:} Suppose we execute as a transaction T one of the four programs
+    of Exercise 6.6.1, while other transactions that are executions of the same
+    or a different one of the four programs may also be executing at about the same
+    time. What behaviors of transaction T may be observed if all the transactions
+    run with isolation level READ UNCOMMITTED that would not be possible if they
+    all ran with isolation level SERIALIZABLE? Consider separately the case that T
+    is any of the programs (a) through (d) of Exercise 6.6.1.
+
+    \item \textbf{Exercise 8.1.1:} From the following base tables of our running
+    example
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    MovieStar(name, address, gender, birthdate)
+    MovieExec(name, address, cert# , netWorth)
+    Studio(name, address, presC#)
+    \end{lstlisting}
+
+    \bigskip
+
+    Construct the following views
+
+    \bigskip
+
+    \begin{itemize}
+        \item A view RichExec giving the name, address, certificate number and networth of all executives with a net worth of at least \$10,000,000.
+        \item A view StudioPres giving the name, address, and certificate number of all executives who are studio presidents.
+        \item A view ExecutiveStar giving the name, address, gender, birth date, certificat number, and net worth of all individuals who are both executives and stars.
+    \end{itemize}
+
+
+    \item \textbf{Exercise 8.1.2:} Write each of the queries below, using one or more of the
+    views from Exercise 8.1.1 and no base tables.
+
+    \bigskip
+
+    \begin{itemize}
+        \item Find the names of females who are both stars and executives.
+        \item Find the names of those executives who are both studio presidents and worth at least \$10,000,000.
+        \item Find the names of studio presidents who are also stars and are worth at least \$50,000,000.
+    \end{itemize}
+
+    \item \textbf{Exercise 8.2.1:} Which of the views of Exercise 8.1.1 are updatable?
+    \item \textbf{Exercise 8.2.2:} Suppose we create the view:
+
+    \begin{lstlisting}[language=SQL]
+    CREATE VIEW DisneyComedies AS
+    SELECT title ,year, length FROM Movies
+    WHERE studioName = 'Disney' AND genre = 'comedy';
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Is this view updatable?
+        \item Write an instead-of trigger to handle an insertion into this view.
+        \item Write an instead-of trigger to handle an update of the length for a movie (given by title and year) in this view.
+    \end{itemize}
+
+    \item \textbf{Exercise 8.2.3:} Using the base tables
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Product(m aker, model, type)
+    PC(model, speed, ram, hd, price )
+    \end{lstlisting}
+
+    \bigskip
+
+    suppose we create the view
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE VIEW NewPC AS
+    SELECT maker, model, speed, ram, hd, price
+    FROM Product, PC
+    WHERE Product.model = PC.model AND type = 'pc';
+    \end{lstlisting}
+
+    \bigskip
+
+    Notice that we have made a check for consistency: that the model number not
+    only appears in the PC relation, but the ty p e attribute of Product indicates
+    that the product is a PC.
+
+    \bigskip
+
+    \begin{itemize}
+        \item Is this view updatable?
+        \item Write an instead-of trigger to handle an insertion into this view.
+        \item Write an instead-of trigger to handle an update of the price.
+        \item Write an instead-of trigger to handle a deletion of a specified tuple from this view.
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
