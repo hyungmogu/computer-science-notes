@@ -104,6 +104,14 @@
         SELECT * FROM Movies
         INNER JOIN Studio ON cert# = presC#;
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE VIEW ExecutiveStar AS
+        SELECT * FROM MovieExec
+        NATURAL JOIN MovieStar;
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
