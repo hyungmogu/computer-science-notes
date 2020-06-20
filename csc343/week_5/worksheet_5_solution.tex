@@ -1376,6 +1376,7 @@
     AFTER INSERT, UPDATE OF class ON Ships
     REFERENCING
         NEW ROW AS NewTuple
+        OLD ROW AS OldTuple
     FOR EACH ROW
     WHEN (20 > (SELECT( MAX(shipCount) FROM
                     ( SELECT COUNT(name) AS shipCount FROM Ships NATURAL JOIN Classes
@@ -1383,11 +1384,12 @@
                 )
         )
     BEGIN
-        IF (NewTuple.ship NOT IN (SELECT name FROM Ships))
+        IF (UPDATE(class))
         THEN
-            INSERT INTO Ships (NewTuple.ship, NewTuple.battle, NULL);
+            UPDATE Ships SET class = OldTuple.class
+            WHERE name = OldTuple.name;
         ELSE
-            INSERT INTO Battles (NewTuple.battle, NULL);
+            DELETE FROM Ships WHERE name = NewTuple.name;
         ENDIF;
     END;
     \end{lstlisting}
