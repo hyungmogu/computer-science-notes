@@ -66,37 +66,45 @@
         SELECT * FROM MovieExec
         WHERE netWorth >= 10000000;
     \end{lstlisting}
-    \end{enumerate}
 
-    \bigskip
+        \bigskip
 
-    \underline{\textbf{Notes:}}
+        \underline{\textbf{Notes:}}
 
-    \bigskip
+        \bigskip
 
-    \begin{itemize}
-        \item Virtual Views
         \begin{itemize}
-            \item \textbf{Syntax:} CREATE VIEW $<\text{view-name}>$ AS $<\text{view-definition}>$
-            \item Contrasts to database that exists in physical storage
-            \item Exists in RAM
-            \item Is created using query
-            \item can be used like a relation
+            \item Virtual Views
+            \begin{itemize}
+                \item \textbf{Syntax:} CREATE VIEW $<\text{view-name}>$ AS $<\text{view-definition}>$
+                \item Contrasts to database that exists in physical storage
+                \item Exists in RAM
+                \item Is created using query
+                \item can be used like a relation
 
-            \bigskip
+                \bigskip
 
-            \underline{\textbf{Notes:}}
+                \underline{\textbf{Notes:}}
 
-            \bigskip
+                \bigskip
+
+        \begin{lstlisting}[language=SQL]
+        CREATE VIEW ParamountMovies AS
+            SELECT title, year
+            FROM Movies
+            WHERE studioName = 'Paramount';
+        \end{lstlisting}
+            \end{itemize}
+        \end{itemize}
+
+        \item
 
     \begin{lstlisting}[language=SQL]
-    CREATE VIEW ParamountMovies AS
-        SELECT title, year
-        FROM Movies
-        WHERE studioName = 'Paramount';
+    CREATE VIEW StudioPres AS
+        SELECT * FROM Movies
+        INNER JOIN Studio ON cert# = presC#;
     \end{lstlisting}
-        \end{itemize}
-    \end{itemize}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
