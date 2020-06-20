@@ -53,4 +53,31 @@
 \title{CSC343 Worksheet 6}
 \maketitle
 
+\begin{enumerate}[1.]
+    \item \textbf{Exercise 6.6.1:} This and the next exercises involve certain
+    programs that operate on the two relations
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    from our running PC exercise. Sketch the following programs, including SQL
+    statements and work done in a conventional language. Do not forget to issue
+    BEGIN TRANSACTION, COMMIT, and ROLLBACK statements at the proper times
+    and to tell the system your transactions are read-only if they are.
+
+    \bigskip
+
+    \begin{itemize}
+        \item Given a speed and amount of RAM (as arguments of the function), look up the PC ’s with that speed and RAM, printing the model number and price of each.
+        \item Given a model number, delete the tuple for that model from both PC and Product.
+        \item Given a model number, decrease the price of that model PC by \$100.
+        \item Given a maker, model number, processor speed, RAM size, hard-disk size, and price, check that there is no product with that model. If there is such a model, print an error message for the user. If no such model existed in the database, enter the information about that model into the PC and Product tables.
+    \end{itemize}
+
+\end{enumerate}
+
 \end{document}
