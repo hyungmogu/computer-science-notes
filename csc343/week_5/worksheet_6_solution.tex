@@ -237,6 +237,20 @@
             \end{itemize}
         \end{itemize}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER DisneyComediesInsert
+    INSTEAD OF INSERT ON DisneyComedies
+    REFERENCING
+        NEW ROW AS NewTuple
+        OLD ROW AS OldTuple
+    FOR EACH ROW
+    UPDATE Movies
+    SET length=NewTuple.length
+    WHERE title=OldTuple.title AND year=OldTuple.year;
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
