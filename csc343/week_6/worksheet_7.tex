@@ -54,7 +54,59 @@
 \maketitle
 
 \begin{enumerate}[1.]
+    \item \textbf{Exercise 9.3.1:} Write the following embedded SQL queries, based on the
+    database schema
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Product(maker, model, type)
+    PC(model, speed, ram, hd, price)
+    Laptop(model, speed, ram, hd, screen, price)
+    Printer(model, color, type, price)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.1. You may use any host language with which you are familiar,
+    and details of host-language programming may be replaced by clear comments
+    if you wish.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+    \item Ask the user for a price and find the PC whose price is closest to the desired price. Print the maker, model number, and speed of the PC.
+    \item Ask the user for minimum values of the speed, RAM, hard-disk size, and screen size that they will accept. Find all the laptops that satisfy these requirements. Print their specifications (all attributes of Laptop) and their manufacturer.
+    \item Ask the user for a manufacturer. Print the specifications of all products by that manufacturer. T hat is, print the model number, product-type, and all the attributes of whichever relation is appropriate for th at type.
     \item
+    \item Ask the user for a manufacturer, model number, speed, RAM, hard-disk size, and price of a new PC. Check that there is no PC with that model number. Print a warning if so, and otherwise insert the information into tables P roduct and PC.
+    \end{enumerate}
+
+    \bigskip
+
+    \item \textbf{Exercise 9.3.2:} Write the following embedded SQL queries, based on the
+    database schema
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.3.
+
+    \bigskip
+
+    \begin{itemize}
+        \item The firepower of a ship is roughly proportional to the number of guns times the cube of the bore of the guns. Find the class with the largest firepower.
+        \item Ask the user for the name of a battle. Find the countries of the ships involved in the battle. Print the country with the most ships sunk and the country with the most ships damaged.
+        \item Ask the user for the name of a class and the other information required for a tuple of table Classes. Then ask for a list of the names of the ships of that class and their dates launched. However, the user need not give the first name, which will be the name of the class. Insert the information gathered into Classes and Ships.
+        \item Examine the Battles , Outcomes, and Ships relations for ships that were in battle before they were launched. Prompt the user when there is an error found, offering the option to change the date of launch or the date of the battle. Make whichever change is requested.
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
