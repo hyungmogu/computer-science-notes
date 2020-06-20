@@ -179,6 +179,71 @@
         \item Write an instead-of trigger to handle a deletion of a specified tuple from this view.
     \end{itemize}
 
+    \item \textbf{Exercise 8.3.1:} For our running movies example:
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC\#)
+    StarsIn(movieTitle, movieYear, starName)
+    MovieExec(name, address, cert\#, netWorth)
+    Studio(name, address, presC\#)
+    \end{lstlisting}
+
+    \bigskip
+
+    Declare indexes on the following attributes or combination of attributes:
+
+    \bigskip
+
+    \begin{itemize}
+        \item studioName.
+        \item address of MovieExec.
+        \item genre and length.
+    \end{itemize}
+
+    \item \textbf{Exercise 8.4.1:} Suppose that the relation StarsIn discussed in Example 8.14
+    required 100 pages rather than 10, but all other assumptions of that example
+    continued to hold. Give formulas in terms of pi and p? to measure the cost of
+    queries Q\ and Q2 and insertion I, under the four combinations of index/no index
+    discussed there.
+
+    \item \textbf{Exercise 8.4.2:} In this problem, we consider indexes for the relation
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Ships(name, class, launched)
+    \end{lstlisting}
+
+    \bigskip
+
+    from our running battleships exercise. Assume:
+
+    \bigskip
+
+    \begin{enumerate}[i.]
+    \item name is the key.
+    \item The relation Ships is stored over 50 pages.
+    \item The relation is clustered on class so we expect that only one disk access is needed to find the ships of a given class.
+    \item On average, there are 5 ships of a class, and 25 ships launched in any given year.
+    \item With probability p\ the operation on this relation is a query of the form SELECT * FROM Ships WHERE name = n.
+    \item With probability p2 the operation on this relation is a query of the form SELECT * FROM Ships WHERE class = c.
+    \item With probability pz the operation on this relation is a query of the form SELECT * FROM Ships WHERE launched = y.
+    \item With probability 1 — pi — p2 — P3 the operation on this relation is an
+    insertion of a new tuple into Ships.
+    \end{enumerate}
+
+    \bigskip
+
+    You can also make the assumptions about accessing indexes and finding empty space for insertions that were made in Example 8.14.
+
+    \bigskip
+
+    Consider the creation of indexes on name, class , and launched. For each
+    combination of indexes, estimate the average cost of an operation. As a function
+    of $p_1$, $p_2$, and $p_3$, what is the best choice of indexes?
+
 \end{enumerate}
 
 \end{document}
