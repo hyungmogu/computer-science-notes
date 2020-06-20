@@ -1349,7 +1349,25 @@
     END;
     \end{lstlisting}
 
+        \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER updateMissingParts
+    AFTER INSERT ON Outcomes
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    WHEN (NOT (NewTuple.ship IN (SELECT name FROM Ships) OR
+          NewTuple.battle IN (SELECT name FROM Battles))
+    BEGIN
+        IF (NewTuple.ship NOT IN (SELECT name FROM Ships))
+        THEN
+            INSERT INTO Ships (NewTuple.ship, NewTuple.battle, NULL);
+        ELSE
+            INSERT INTO Battles (NewTuple.battle, NULL);
+        ENDIF;
+    END;
+    \end{lstlisting}
 
     \end{enumerate}
 
