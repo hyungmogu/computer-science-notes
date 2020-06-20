@@ -142,6 +142,8 @@
 
     \bigskip
 
+    \textit{RichExec} is updatable.
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -153,6 +155,27 @@
             \item The FROM clause has only one occurence of R
             \item The SELECT clause must include enough attributes
             \item NOT NULL attributes must have default values
+            \begin{itemize}
+                \item A solution to this is by including the attribute without
+                default value in CREATE VIEW
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Movies(title, year, length, genre, studioName, producerC#)
+    Suppose studioName is NOT NULL but has no default value. Then, a fix is:
+
+    CREATE VIEW Paramount AS
+        SELECT studioName, title, year
+        FROM Movies
+        WHERE studioName = 'Paramount';
+    \end{lstlisting}
+
         \end{itemize}
     \end{itemize}
 
