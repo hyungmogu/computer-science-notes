@@ -189,8 +189,44 @@
         \item No. It is not updatable. Since,
 
         \begin{enumerate}[1.]
-            \item studioName is NOT NULL without default value
+            \item studioName attribute in Movies is NOT NULL without default value
         \end{enumerate}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Using Trigger in VIEW
+            \begin{itemize}
+                \item Uses INSTEAD OF in place of BEFORE or AFTER
+                \item When event causes the trigger, the trigger is done instead of the event
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=SQL]
+    CREATE VIEW ParamountMovies AS
+        SELECT title, year
+        FROM Movies
+        WHERE studioName = 'paramount';
+
+    CREATE TRIGGER ParamountInsert
+    INSTEAD OF INSERT ON ParamountMovies
+    REFERENCING NEW ROW AS NewRow
+    FOR EACH ROW
+    INSERT INTO Movies(title, year, studioName)
+    VALUES(NewRow.title, NewRow.year, 'Paramount');
+    \end{lstlisting}
+
+            \end{itemize}
+        \end{itemize}
+
     \end{enumerate}
 
 \end{enumerate}
