@@ -61,6 +61,15 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}[language=SQL]
+    SET TRANSACTION READONLY;
+    BEGIN TRANSACTION;
+        SELECT model, price FROM PC
+        WHERE speed = speed AND
+        ram=ram
+    COMMIT;
+    \end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -73,7 +82,11 @@
                 \item is a collection of one or more operations that must be executed atomically
                 \item COMMIT causes the transaction to end successfully
                 \item ROLLBACK causes the transaction to abort. Any changes are undone
-
+                \item SET TRANSACTION READ ONLY
+                \begin{itemize}
+                    \item tells the database that it will not be modified
+                    \item Must be declared before transaction
+                \end{itemize}
                 \bigskip
 
                 \underline{\textbf{Example:}}
@@ -92,6 +105,12 @@
     INSERT INTO account_changes(account_no,flag,amount,changed_at)
     VALUES(100,'-',1000,datetime('now'));
 
+    COMMIT;
+
+    // Example - SET TRANSACTION READONLY
+    SET TRANSACTION READONLY;
+    BEGIN TRANSACTION;
+        ...
     COMMIT;
     \end{lstlisting}
 
