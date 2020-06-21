@@ -182,7 +182,16 @@
     \begin{itemize}
         \item Isolation Levels
         \begin{itemize}
+            \item SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+            \begin{itemize}
+                \item is the lowest isolation level
+                \item allows to read a transaction that's not yet committed
+                \item transactions are not isolated from each other
+            \end{itemize}
             \item SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+            \begin{itemize}
+                \item
+            \end{itemize}
             \item SET TRANSACTION ISOLATION LEVEL REPEATIBLE READ;
             \item SET TRANSACTION ISOLATIO LEVEL SERIALIZABLE
         \end{itemize}
