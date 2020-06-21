@@ -337,8 +337,48 @@
     WHERE model=NewTuple.model;
     \end{lstlisting}
 
-
     \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Indexes
+            \begin{itemize}
+                \item \textbf{Syntax (Create Index):}
+
+                CREATE INDEX $<\text{index-name}>$ $R(<\text{attributes}>)$
+                \item \textbf{Syntax (Drop Index):}
+
+                DROP INDEX $<\text{index-name}>$
+                \item Used to find tuples in a very large database
+                \item Is efficient
+                \item Can be thought as (key, value) pair in a binary search tree
+                \item e.g. Declaring Index
+
+    \begin{lstlisting}[language=SQL]
+    CREATE INDEX KeyIndex ON Movies(title, year);
+    \end{lstlisting}
+
+                \item e.g. Dropping index
+
+    \begin{lstlisting}[language=SQL]
+    CREATE INDEX KeyIndex ON Movies(title, year);
+    \end{lstlisting}
+
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+
+
 
 \end{enumerate}
 
