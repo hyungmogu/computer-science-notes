@@ -297,6 +297,20 @@
         type='pc';
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER NewPCDelete
+    INSTEAD OF DELETE ON NewPC
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    DELETE FROM PC
+    WHERE model=NewTuple.model;
+
+    DELETE FROM Product
+    WHERE model=NewTuple.model;
+    \end{lstlisting}
 
 
     \end{enumerate}
