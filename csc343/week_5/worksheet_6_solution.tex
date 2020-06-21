@@ -344,6 +344,10 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}[language=SQL]
+    CREATE INDEX studioNameIndex Studio(name)
+    \end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -360,7 +364,9 @@
 
                 DROP INDEX $<\text{index-name}>$
                 \item Used to find tuples in a very large database
-                \item Is efficient
+                \begin{itemize}
+                    \item Is efficient
+                \end{itemize}
                 \item Can be thought as (key, value) pair in a binary search tree
                 \item e.g. Declaring Index
 
