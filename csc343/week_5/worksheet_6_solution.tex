@@ -754,8 +754,15 @@
         \item Updates
 
     \begin{lstlisting}[language=SQL]
-    UPDATE ShipStats
-    SET country='add-country-here'
+    DELETE FROM ShipStats WHERE country = 'name-of-country';
+    INSERT INTO ShipStats
+    VALUES (
+        SELECT country, AVG(displacement), COUNT(*)
+        FROM Classes, Ships
+        WHERE Classes.class = ships.class
+        GROUP BY country
+        HAVING country='name-of-country'
+    )
     \end{lstlisting}
 
         \item Delete
