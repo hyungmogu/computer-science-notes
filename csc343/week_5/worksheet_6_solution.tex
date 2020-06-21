@@ -297,6 +297,31 @@
         type='pc';
     \end{lstlisting}
 
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER NewPCUpdate
+    INSTEAD OF UPDATE ON NewPC
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    UPDATE PC
+    SET model=NewTuple.model
+        speed=NewTuple.speed,
+        ram=NewTuple.ram,
+        hd=NewTuple.hd,
+        price=NewTuple.price;
+
+    UPDATE Product
+    SET maker=NewTuple.maker,
+        model=NewTuple.model,
+        type='pc';
+    \end{lstlisting}
+        \end{mdframed}
+
         \item
 
     \begin{lstlisting}[language=SQL]
