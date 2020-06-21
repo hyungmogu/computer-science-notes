@@ -130,6 +130,19 @@
 
     COMMIT;
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    BEGIN TRANSACTION;
+
+    UPDATE PC
+    SET price=price - 100
+    WHERE model=<model number>
+
+    COMMIT;
+    \end{lstlisting}
+
     \end{enumerate}
 
     \item \textbf{Exercise 8.1.1:}
