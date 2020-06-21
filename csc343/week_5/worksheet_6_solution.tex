@@ -401,13 +401,32 @@
 
     \bigskip
 
+    \begin{tabular}{c|cccc}
+        Action & No Index & Star Index & Movie Index & Both Indexes\\
+        \hline
+        $Q_1$ & 100 & 4 & 100 & 4\\
+        \hline
+        $Q_2$ & 100 & 100 & 4 & 4\\
+        \hline
+        $I$ & 2 & 4 & 4 & 6\\
+        \hline
+        Average & $2 + 100p_1 + 100p_2$ & $4 + 96p_2$ & $4 + 96p_1$ & $6 - 2p_1 - 2p_2$\\
+    \end{tabular}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
 
     \begin{itemize}
-        \item Index should NOT be created when modifications are the frequent
-        choice of action
+        \item Database Tuning
+        \begin{itemize}
+            \item Index sppeds up queries that can use it
+            \item Index should NOT be created when modifications are the frequent
+            choice of action
+        \end{itemize}
+        \item
     \end{itemize}
 
 \end{enumerate}
