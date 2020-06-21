@@ -54,6 +54,52 @@
 \maketitle
 
 \begin{enumerate}[1.]
+    \item \textbf{Exercise 6.6.1:}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Transactions
+            \begin{itemize}
+                \item is a collection of one or more operations that must be executed atomically
+                \item COMMIT causes the transaction to end successfully
+                \item ROLLBACK causes the transaction to abort. Any changes are undone
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=SQL]
+    BEGIN TRANSACTION;
+
+    UPDATE accounts
+    SET balance = balance - 1000
+    WHERE account_no = 100;
+
+    UPDATE accounts
+        SET balance = balance + 1000
+    WHERE account_no = 200;
+
+    INSERT INTO account_changes(account_no,flag,amount,changed_at)
+    VALUES(100,'-',1000,datetime('now'));
+
+    COMMIT;
+    \end{lstlisting}
+
+
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+
     \item \textbf{Exercise 8.1.1:}
 
     \bigskip
@@ -463,7 +509,6 @@
             \item Useful when storing expensive operation like AVG or COUNT
         \end{itemize}
     \end{itemize}
-
 \end{enumerate}
 
 \end{document}
