@@ -190,10 +190,31 @@
             \end{itemize}
             \item SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
             \begin{itemize}
-                \item
+                \item Does not allow to read a transaction that's not yet committed
+                \item Prevents other transactions from reading, updating or deleting while commit
             \end{itemize}
             \item SET TRANSACTION ISOLATION LEVEL REPEATIBLE READ;
+            \begin{itemize}
+                \item Is the higher level of isolation
+                \item Guarentees everything of READ COMMITTED level
+                \item Can read unchanged data in subsequent reads
+            \end{itemize}
             \item SET TRANSACTION ISOLATIO LEVEL SERIALIZABLE
+            \begin{itemize}
+                \item Is the highest level of isolation
+                \item Guarentees everything of READ REPEATIBLE READ;
+                \item No new data can be seen by a subsequent read.
+            \end{itemize}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/worksheet_6_solution_1.png}
+            \end{center}
+
+            \bigskip
+
+            \underline{\textbf{References:}}
         \end{itemize}
     \end{itemize}
 
