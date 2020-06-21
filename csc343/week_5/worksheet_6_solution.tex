@@ -115,10 +115,21 @@
         ...
     COMMIT;
     \end{lstlisting}
-
-
             \end{itemize}
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    BEGIN TRANSACTION;
+    DELETE FROM PC
+    WHERE model=<model number>
+
+    DELETE FROM Product
+    WHERE model=<model number>
+
+    COMMIT;
+    \end{lstlisting}
     \end{enumerate}
 
     \item \textbf{Exercise 8.1.1:}
