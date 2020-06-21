@@ -426,7 +426,39 @@
             \item Index should NOT be created when modifications are the frequent
             choice of action
         \end{itemize}
-        \item
+    \end{itemize}
+
+    \item \textbf{Exercise 8.4.2:}
+
+    Omitted for the time being
+
+    \item \textbf{Exercise 8.5.1:}
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE MovieProd
+    SET name='New Name'
+    WHERE (title, year) IN
+    (
+        SELECT title, year FROM Movies
+        INNER JOIN MovieExecs
+        ON Movies.productC# = MovieExec.cert#
+        WHERE cert# = '4567'
+    );
+    \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Materialized Views
+        \begin{itemize}
+            \item Stores view in physical storage
+        \end{itemize}
     \end{itemize}
 
 \end{enumerate}
