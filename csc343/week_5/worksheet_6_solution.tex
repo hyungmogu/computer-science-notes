@@ -680,6 +680,16 @@
 
     \bigskip
 
+    The following modifications to base tables require the modification of the
+    materialized view
+
+    \begin{itemize}
+        \item PC: Updates(model, speed, ram, hd, price), Delete
+        \item Product: Updates(maker, model, type), Delete
+    \end{itemize}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \begin{itemize}
@@ -689,7 +699,7 @@
     CREATE MATIERLIZED VIEW NewPC AS
         SELECT maker, model, speed, ram, hd, price
         FROM Product, PC
-        WHERE Product.m odel = PC.model AND type = 'pc';
+        WHERE Product.model = PC.model AND type = 'pc';
     \end{lstlisting}
 
     \end{itemize}
