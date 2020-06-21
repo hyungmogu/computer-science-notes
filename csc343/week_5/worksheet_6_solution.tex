@@ -274,8 +274,29 @@
 
     INSERT INTO Product(maker, model, type)
     VALUES (NewTuple.maker, NewTuple.model, 'pc');
-
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER NewPCUpdate
+    INSTEAD OF INSERT ON NewPC
+    REFERENCING
+        NEW ROW AS NewTuple
+    FOR EACH ROW
+    UPDATE PC
+    SET model=NewTuple.model
+        speed=NewTuple.speed,
+        ram=NewTuple.ram,
+        hd=NewTuple.hd,
+        price=NewTuple.price;
+
+    UPDATE Product
+    SET maker=NewTuple.maker,
+        model=NewTuple.model,
+        type='pc';
+    \end{lstlisting}
+
 
 
     \end{enumerate}
