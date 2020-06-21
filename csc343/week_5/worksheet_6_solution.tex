@@ -690,6 +690,29 @@
 
     \bigskip
 
+    Implementing modifications
+
+    \begin{itemize}
+        \item Updates
+
+    \begin{lstlisting}[language=SQL]
+    UPDATE NewPC
+    SET maker='new-maker'
+        model='new-model-number'
+        speed='new-speed'
+        ram='new-ram'
+        hd='new-hd'
+        price='new-price'
+    WHERE model = 'old-model-number';
+    \end{lstlisting}
+
+        \item Delete
+
+    \begin{lstlisting}[language=SQL]
+    DELETE FROM NewPC WHERE model = 'old-model-number'
+    \end{lstlisting}
+    \end{itemize}
+
     \underline{\textbf{Notes:}}
 
     \begin{itemize}
