@@ -260,6 +260,24 @@
     \begin{enumerate}[a)]
         \item No. the view is not updatable. Because for it to be updatable,
         only one relation must exist in FROM
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE TRIGGER NewPCInsert
+    INSTEAD OF INSERT ON NewPC
+    REFERENCING
+        NEW ROW AS NewTuple
+        OLD ROW AS OldTuple
+    FOR EACH ROW
+    INSERT INTO PC(model speed, ram, hd ,price)
+    VALUES (NewTuple.model, NewTuple.speed, NewTuple.ram, NewTuple.hd, NewTuple.price);
+
+    INSERT INTO Product(maker, model, type)
+    VALUES (NewTuple.maker, NewTuple.model, 'pc');
+
+    \end{lstlisting}
+
+
     \end{enumerate}
 
 \end{enumerate}
