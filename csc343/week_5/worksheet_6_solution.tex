@@ -676,6 +676,28 @@
             \item Useful when storing expensive operation like AVG or COUNT
         \end{itemize}
     \end{itemize}
+    \item \textbf{Exercise 8.5.3}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \begin{itemize}
+        \item Materialized view of NewPC
+
+    \begin{lstlisting}[language=SQL]
+    CREATE MATIERLIZED VIEW NewPC AS
+        SELECT maker, model, speed, ram, hd, price
+        FROM Product, PC
+        WHERE Product.m odel = PC.model AND type = 'pc';
+    \end{lstlisting}
+
+    \end{itemize}
+
+    \item \textbf{Exercise 8.5.3}
+
+    \item \textbf{Exercise 8.5.4}
+
 \end{enumerate}
 
 \end{document}
