@@ -143,7 +143,33 @@
     COMMIT;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    BEGIN TRANSACTION;
+
+    IF (<model> IN (
+        SELECT <model> FROM Product
+        NATURAL JOIN PC)
+
+        PRINT 'Error occured';
+    ELSE
+        INSERT INTO PC
+        VALUES (<model>, <speed>, <ram>, <hd>, <price>)
+
+        INSERT INTO Product
+        VALUES (<maker>, <model>, <type>)
+    COMMIT;
+    \end{lstlisting}
+
     \end{enumerate}
+
+    \item \textbf{Exercise 6.6.2:}
+
+    \bigskip
+
+    For all cases, when system crashes, the operations in transaction are aborted
+    and database is reverted back to pre-transaction state.
 
     \item \textbf{Exercise 8.1.1:}
 
