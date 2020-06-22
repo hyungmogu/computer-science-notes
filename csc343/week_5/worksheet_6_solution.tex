@@ -775,6 +775,33 @@
 
     \item \textbf{Exercise 8.5.4}
 
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Rewriting Queries to use Materialized View
+        \begin{itemize}
+            \item Conditions under which we can replace part of the query Q by the
+            view V
+            \begin{enumerate}
+                \item The relations in list $R_v$ all appear in the list $R_Q$
+                \item The condition $C_Q$ is equivalent to $C_V$ AND $C$ for some
+                condition $C$. As a special case, $C_Q$ could be equivalent to $C_V$,
+                in which case the "AND $C$" is unnecessary.
+            \end{enumerate}
+            \item Once the conditions are met, $Q$ can be re-written to $V$ as follows
+            \begin{itemize}
+                \item Replace the list $R_Q$ by $V$ and the relations that are on list $R_Q$
+                but not on $R_V$
+                \item Replace $C_Q$ by $C$. If $C$ is not needed (i.e. $C_V = C_Q$), then
+                there is no WHERE clause
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
