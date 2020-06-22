@@ -304,63 +304,6 @@
         \item
 
     \begin{lstlisting}[language=c]
-    void findLaptops() {
-        EXEC SQL BEGIN DECLARE SECTION;
-            int model;
-            float speed;
-            int ram;
-            int hd;
-            int screen;
-            float price;
-
-            float minSpeed;
-            int minRam;
-            int minHd;
-            float minPrice;
-        EXEC SQL END DECLARE SECTION;
-
-        EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT model, speed, ram, hd, screen, price, maker
-            FROM Product NATURAL JOIN Laptop;
-
-        EXEC SQL OPEN execCursor;
-
-        printf("Enter minimum speed:");
-        scanf("%f", &minSpeed);
-
-        printf("Enter minimum ram:");
-        scanf("%f", &minRam);
-
-        printf("Enter minimum hard-drive space:");
-        scanf("%f", &minHd);
-
-        printf("Enter minimum price:");
-        scanf("%f", &minPrice);
-
-        while(1) {
-            EXEC SQL FETCH FROM execCursor INTO :model,
-                :speed, :ram, :hd, :screen, :price, :maker;
-
-            if (NO_MORE_TUPLES) break;
-
-            if (
-                speed >= minSpeed &&
-                ram >= minRam &&
-                hd >= minHd &&
-                screen >= minScreen
-            ) {
-                printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
-                    model, speed, ram, hd, screen, price, maker);
-            }
-        }
-
-        EXEC SQL CLOSE execCursor;
-    }
-    \end{lstlisting}
-
-        \item
-
-    \begin{lstlisting}[language=c]
     #include <stdbool.h>
     #include <string.h>
     ...
@@ -731,6 +674,20 @@
     }
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=c]
+    void insertClassAndShip() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            char class[100];
+
+        EXEC SQL END DECLARE SECTION;
+
+        printf("Enter name of class:\n");
+        scanf("%s", &class);
+
+    }
+    \end{lstlisting}
 
     \end{enumerate}
 \end{enumerate}
