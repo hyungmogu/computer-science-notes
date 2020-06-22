@@ -65,6 +65,10 @@
     \bigskip
 
     \begin{itemize}
+        \item EXEC SQL
+        \begin{itemize}
+            \item Allows to use SQL statements within a host-language program
+        \end{itemize}
         \item The DECLARE Section
         \begin{itemize}
             \item is used to declare shared variables
@@ -83,12 +87,32 @@
             \bigskip
 
     \begin{lstlisting}[language=SQL]
-    EXEC SQL BEGIN DECLARE SECTION;
-        char studioName[50], studioAddr[256]; // <- c variables
-        char SQLSTATE[6];
-    EXEC SQL END DECLARE SECTION;
-    \end{lstlisting}
+    void getStudio() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            char studioName[50], studioAddr[256]; // <- c variables
+            char SQLSTATE[6];
+        EXEC SQL END DECLARE SECTION;
 
+        EXEC SQL INSERT INTO Studio(name, address)
+                 VALUES (:studioName, :studioAddr);
+    }
+    \end{lstlisting}
+        \end{itemize}
+
+        \item Cursors
+        \begin{itemize}
+            \item Is the most versatile way to connect SQL queries
+            \item \textbf{Syntax:}
+
+            EXEC SQL DECLARE $<\text{cursor name}>$ CURSOR FOR $<\text{query}>$
+
+            \bigskip
+
+            EXEC SQL OPEN $<\text{cursor name}>$;
+
+            ...
+
+            EXEC SQL CLOSE $<\text{cursor name}>$;
         \end{itemize}
     \end{itemize}
 \end{enumerate}
