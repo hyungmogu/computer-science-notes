@@ -360,7 +360,6 @@
 
         \item
 
-
     \begin{lstlisting}[language=c]
     #include <stdbool.h>
     #include <string.h>
@@ -456,6 +455,36 @@
             }
         }
         EXEC SQL CLOSE execCursor;
+    }
+    \end{lstlisting}
+        \item
+        \item
+
+    \begin{lstlisting}[language=c]
+    #include <stdbool.h>
+    #include <string.h>
+    ...
+    void insertNewPC() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            int model;
+            float speed;
+            int ram;
+            int hd;
+            float price;
+            char maker;
+        EXEC SQL END DECLARE SECTION;
+
+        printf("Enter manufacturer:");
+        scanf("%c", &targetMaker);
+
+
+        EXEC SQL DECLARE execCursor CURSOR FOR
+            SELECT model FROM (
+                (SELECT model FROM Product WHERE model=targetModel)
+                UNION
+                (SELECT model FROM PC WHERE model=targetModel)
+            );
+
     }
     \end{lstlisting}
 
