@@ -557,14 +557,16 @@
         scanf("%s", &targetBattle);
 
         EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT country FROM Classes
-            INNER JOIN (
-                SELECT * FROM FROM Ships
-                INNER JOIN (
-                    SELECT * FROM Battles
-                    INNER JOIN Outcomes ON Battle.name = Outcomes.battle;
-                ) AS BattleOutcome ON BattleOutcome.ship = Ships.name;
-            ) AS Temp ON Classes.class = Temp.class;
+            SELECT country, Ships.name, Outcomes.result FROM Classes
+            INNER JOIN Ships ON Classes.class = Ships.class
+            INNER JOIN Outcomes ON Ships.name = Outcomes.ship
+            INNER JOIN Battles ON Battles.name = Outcome.battle;
+            WHERE Battles.name=:targetBattle;
+
+        EXEC SQL OPEN execCursor;
+
+        EXEC SQL CLOSE execCursor;
+
     }
     \end{lstlisting}
 
