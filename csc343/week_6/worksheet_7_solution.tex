@@ -558,7 +558,13 @@
 
         EXEC SQL DECLARE execCursor CURSOR FOR
             SELECT country FROM Classes
-            NATURAL JOIN;
+            INNER JOIN (
+                SELECT * FROM FROM Ships
+                INNER JOIN (
+                    SELECT * FROM Battles
+                    INNER JOIN Outcomes ON Battle.name = Outcomes.battle;
+                ) AS BattleOutcome ON BattleOutcome.ship = Ships.name;
+            ) AS Temp ON Classes.class = Temp.class;
     }
     \end{lstlisting}
 
