@@ -695,13 +695,13 @@
         EXEC SQL END DECLARE SECTION;
 
         printf("Enter name of class:\n");
-        scanf("%s", &class);
+        scanf("%s", class);
 
-        printf("Enter name of type:\n");
-        scanf("%s", &type);
+        printf("Enter name of type ('bb' or 'bc'):\n");
+        scanf("%s", type);
 
         printf("Enter name of country:\n");
-        scanf("%s", &country);
+        scanf("%s", country);
 
         printf("Enter name of numGuns:\n");
         scanf("%d", &numGuns);
@@ -712,11 +712,21 @@
         printf("Enter name of displacement:\n");
         scanf("%d", &displacement);
 
-        printf("Enter name of ship:\n");
-        scanf("%s", &shipName);
+        printf("Enter name of ship (if first ship, skip by pressing ENTER):\n");
+        fgets(shipName, sizeof shipName,stdin);
+
+        if (shipName[0] == '\n') {
+            strncpy(shipName, class, sizeof(class));
+        }
 
         printf("Enter date launched (YYYY-MM-DD):\n");
-        scanf("%s", &dateLaunched);
+        scanf("%s", dateLaunched);
+
+        EXEC SQL INSERT INTO Classes(class, type, country, numGuns, bore, displacement)
+                 VALUES (:class, :type, :country, :numGuns, :bore, :displacement);
+
+        EXEC SQL INSERT INTO Ships(name, class, launched)
+                 VALUES (:shipName, :class, :dateLaunched);
     }
     \end{lstlisting}
 
