@@ -828,23 +828,35 @@
                     $<\text{local declarations}>$
 
                     $<\text{syntax body}>$;
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+        \begin{lstlisting}[language=SQL]
+        CREATE PROCEDURE Move(
+            IN oldAddr VARCHAR(255),
+            IN newAddr VARCHAR(255)
+        )
+        UPDATE MovieStar
+        SET address = newAddr
+        WHERE address = oldAddr;
+        \end{lstlisting}
+
             \end{itemize}
 
-            \bigskip
+            \item List of simple PSM statements
+            \begin{itemize}
+                \item Call-statement
+                \item Return-statement
+                \item Declarations of local variables
+                \item Assignment statements
+                \item Statement groups
+                \item Statement labels
+            \end{itemize}
 
-            \underline{\textbf{Example:}}
-
-            \bigskip
-
-    \begin{lstlisting}[language=SQL]
-    CREATE PROCEDURE Move(
-        IN oldAddr VARCHAR(255),
-        IN newAddr VARCHAR(255)
-    )
-    UPDATE MovieStar
-    SET address = newAddr
-    WHERE address = oldAddr;
-    \end{lstlisting}
         \end{itemize}
 
     \end{enumerate}
