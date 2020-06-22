@@ -444,16 +444,15 @@
 
                 EXEC SQL OPEN printerCursor;
                 while(1) {
-                    EXEC SQL FETCH FROM laptopCursor INTO :speed,
-                        :ram, :hd, :screen, :price;
+                    EXEC SQL FETCH FROM printerCursor INTO :color,
+                        :printType, :price;
 
                     if (NO_MORE_TUPLES) break;
 
-                    printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
-                    model, speed, ram, hd, screen, screen, price, maker, productType);
+                    printf("model=%d, color=%s, price=%.2f, maker=%c, type=%s",
+                    model, color ? "true" : "false", price, maker, type);
                 }
                 EXEC SQL CLOSE printerCursor;
-            }
             }
         }
         EXEC SQL CLOSE execCursor;
