@@ -777,31 +777,63 @@
 
     \bigskip
 
-    Query Q \#1: The address of movie producers whose movie was created in 2019
+    Query Q \#1: The title of all movies created by movie exec 'Max Bialystock'
 
     \bigskip
 
     \begin{lstlisting}[language=SQL]
-    // Example 1
-    SELECT address
-    FROM Studio, Movies, MovieExec
-    WHERE producerC# = cert# year=2019
+    SELECT title
+    FROM Movies, MovieExec
+    WHERE producerC# = cert# name = 'Max Bialystock'
     \end{lstlisting}
 
     \bigskip
 
-    Query Q \#2: The networth of movie producers whose movie was created in 2019
+    Query Q \#2: The title of all movies created in 2019
 
     \bigskip
 
     \begin{lstlisting}[language=SQL]
-    // Example 2
-    SELECT netWorth
-    FROM Studio, Movies, MovieExec
-    WHERE producerC# = cert# year=2019
+    SELECT title
+    FROM Movies, MovieExec
+    WHERE producerC# = cert# year = 2019
     \end{lstlisting}
 
     \bigskip
+
+    Query Q \#3: The name of all producers whose movie was created in 2019
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name
+    FROM Movies, MovieExec
+    WHERE producerC# = cert# year = 2019
+    \end{lstlisting}
+
+    \bigskip
+
+    Query Q \#4: The name of all producers whose movie was created in 2019
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT name
+    FROM Movies, MovieExec
+    WHERE producerC# = cert# year = 2019
+    \end{lstlisting}
+
+    \bigskip
+
+    Query Q \#5: The name of star in movie created by producer 'John Wilks'
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT starName
+    FROM Movies, MovieExec
+    WHERE producerC# = cert# name = 'John Wilks'
+    \end{lstlisting}
 
     \underline{\textbf{Notes:}}
 
