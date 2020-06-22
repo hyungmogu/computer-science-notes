@@ -137,7 +137,6 @@
 
     \bigskip
 
-
     \begin{lstlisting}[language=SQL]
     Product(maker, model, type)
     PC(model, speed, ram, hd, price)
@@ -145,7 +144,43 @@
     Printer(model, color, type, price)
     \end{lstlisting}
 
+    \bigskip
 
+    of Exercise 2.4.1.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Take a price as argument and return the model number of the PC whose price is closest.
+        \item Take a maker and model as arguments, and return the price of whatever type of product that model is.
+        \item Take model, speed, ram, hard-disk, and price information as arguments, and insert this information into the relation PC. However, if there is already a PC with that model number (tell by assuming that violation of a key constraint on insertion will raise an exception with SQLSTATE equal to ’23000’), then keep adding 1 to the model number until you find a model number that is not already a PC model number.
+        \item Given a price, produce the number of PC ’s, the number of laptops, and the number of printers selling for more than that price.
+    \end{enumerate}
+
+    \item \textbf{Exercise 9.4.3:} Write the following PSM functions or procedures,
+    based on the database schema
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    Classes(class, type, country, numGuns, bore, displacement)
+    Ships(name, class, launched)
+    Battles(name, date)
+    Outcomes(ship, battle, result)
+    \end{lstlisting}
+
+    \bigskip
+
+    of Exercise 2.4.3.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item The firepower of a ship is roughly proportional to the number of guns times the cube of the bore. Given a class, find its firepower.
+        \item Given the name of a battle, produce the two countries whose ships were involved in the battle. If there are more or fewer than two countries involved, produce NULL for both countries.
+        \item Take as arguments a new class name, type, country, number of guns, bore, and displacement. Add this information to C lasses and also add the ship with the class name to Ships.
+        \item Given a ship name, determine if the ship was in a battle with a date before the ship was launched. If so, set the date of the battle and the date the ship was launched to 0
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
