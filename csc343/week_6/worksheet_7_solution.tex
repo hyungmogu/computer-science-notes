@@ -548,24 +548,76 @@
         \item
 
     \begin{lstlisting}[language=c]
+    #include <string.h>
+    ...
     void countryWithMostShipsSunk() {
         EXEC SQL BEGIN DECLARE SECTION;
             char targetBattle[255];
+            char country[100];
+            int count;
+
+            char mostSunkCountry[100];
+            int maxSunkCount = 0;
+
+            char mostDamagedCountry[100];
+            int maxDamagedCount = 0;
+
         EXEC SQL END DECLARE SECTION;
 
         printf("Enter name of battle:\n");
         scanf("%s", &targetBattle);
 
-        EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT country, Ships.name, Outcomes.result FROM Classes
+        EXEC SQL DECLARE shipsSunkCursor CURSOR FOR
+            SELECT country, COUNT(Outcomes.result) FROM Classes
             INNER JOIN Ships ON Classes.class = Ships.class
             INNER JOIN Outcomes ON Ships.name = Outcomes.ship
-            INNER JOIN Battles ON Battles.name = Outcome.battle;
-            WHERE Battles.name=:targetBattle;
+            INNER JOIN Battles ON Battles.name = Outcome.battle
+            GROUP BY country
+            HAVING Battles.name=:targetBattle;
+                   Outcomes.result='sunk';
 
-        EXEC SQL OPEN execCursor;
+        EXEC SQL DECLARE shipsDamagedCursor CURSOR FOR
+            SELECT country, COUNT(Outcomes.result) FROM Classes
+            INNER JOIN Ships ON Classes.class = Ships.class
+            INNER JOIN Outcomes ON Ships.name = Outcomes.ship
+            INNER JOIN Battles ON Battles.name = Outcome.battle
+            GROUP BY country
+            HAVING Battles.name=:targetBattle;
+                    Outcomes.result='damaged';
 
-        EXEC SQL CLOSE execCursor;
+        EXEC SQL OPEN shipsSunkCursor;
+            while(1) {
+                EXEC SQL FETCH FROM shipsSunkCursor INTO :country,
+                :count;
+
+                if (NO_MORE_TUPLES) break;
+
+                if (count > maxSunkCount) {
+                    maxSunkCount = count;
+                    strcpy(mostSunkCountry, country);
+                }
+            }
+
+            printf("Country with most sunk ships: %s", mostSunkCountry);
+
+        EXEC SQL CLOSE shipsSunkCursor;
+
+        EXEC SQL OPEN shipsDamagedCursor;
+            while(1) {
+                EXEC SQL FETCH FROM shipsDamagedCursor INTO :country,
+                :count;
+
+                if (NO_MORE_TUPLES) break;
+
+                if (count > maxDamagedCount) {
+                    maxDamagedCount = count;
+                    strcpy(mostDamagedCountry, country);
+                }
+            }
+
+            printf("Country with most damaged ships: %s", mostDamagedCountry);
+
+        EXEC SQL CLOSE shipsDamagedCursor;
 
     }
     \end{lstlisting}
