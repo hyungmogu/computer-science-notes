@@ -740,8 +740,10 @@
             char battle[101];
             char shipName[101];
             char dateLaunched[11];
+            char newDateLaunched[11];
 
             char dateBattle[11];
+            char newDateBattle[11];
 
             char SQLSTATE[6];
         EXEC SQL END DECLARE SECTION;
@@ -767,17 +769,26 @@
                 printf("Error. Ship %s is launched after date of battle.\n");
 
                 printf("Enter correct launched date (YYYY-MM-DD, Press enter to skip):\n");
-                fgets(dateLaunched, sizeof(dateLaunched),stdin);
+                fgets(dateLaunched, sizeof(dateLaunched), stdin);
 
                 if (dateLaunched[0] != '\n') {
                     // Correct date of launch
+                    EXEC SQL UPDATE Ships
+                             SET launched = newDateLaunched
+                             WHERE name=:shipName AND
+                                   class=:class AND
+                                   launched=:dateLaunched;
                 }
 
                 printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
                 fgets(dateBattle, sizeof(dateBattle),stdin);
 
                 if (dateBattle[0] != '\n') {
-                    \\ correct date of battle
+                    // Correct date of battle
+                    EXEC SQL UPDATE Battles
+                             SET date = newDateBattle
+                             WHERE name=:battle AND
+                                   date=dateBattle;
                 }
             }
         EXEC SQL CLOSE execCursor;
