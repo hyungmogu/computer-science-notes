@@ -58,6 +58,26 @@
 \begin{enumerate}[1.]
     \item
 
+    \begin{lstlisting}[language=SQL]
+    void askUserForPrice() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            int model;
+            float speed;
+            int ram;
+            int hd;
+            float price;
+            char maker;
+        EXEC SQL END DECLARE SECTION;
+
+        EXEC SQL DECLARE execCursor CURSOR FOR
+            SELECT * FROM Product NATURAL JOIN PC
+
+
+        printf("maker=%c, model=%d, speed=%.2f\n", maker, model, speed);
+
+    }
+    \end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
