@@ -113,6 +113,84 @@
             ...
 
             EXEC SQL CLOSE $<\text{cursor name}>$;
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    void getStudio() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            char studioName[50], studioAddr[256]; // <- c variables
+            char SQLSTATE[6];
+        EXEC SQL END DECLARE SECTION;
+
+        EXEC SQL INSERT INTO Studio(name, address)
+                    VALUES (:studioName, :studioAddr);
+    }
+    \end{lstlisting}
+
+            \bigskip
+
+            \underline{\textbf{Example in Python:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=python]
+    import sqlite3
+    connection = sqlite3.connect("company.db")
+
+    cursor = connection.cursor()
+
+    staff_data = [ ("William", "Shakespeare", "m", "1961-10-25"),
+                    ("Frank", "Schiller", "m", "1955-08-17"),
+                    ("Jane", "Wall", "f", "1989-03-14") ]
+
+    for p in staff_data:
+        format_str = """INSERT INTO employee (staff_number, fname, lname, gender, birth_date)
+        VALUES (NULL, "{first}", "{last}", "{gender}", "{birthdate}");"""
+
+        sql_command = format_str.format(first=p[0], last=p[1], gender=p[2], birthdate = p[3])
+        cursor.execute(sql_command)
+    \end{lstlisting}
+        \end{itemize}
+
+        \item Fetch Statement
+        \begin{itemize}
+            \item fetch data from the result table one row at a time
+            \item \textbf{Syntax:}
+
+            EXEC SQL FETCH FROM $<\text{cursor name}>$ INTO $<\text{list of variables}>$
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    void worthRanges() {
+        int i, digits, counts[15];
+        EXEC SQL BEGIN DECLARE SECTION;
+            int worth;
+            char SQLSTATE[6];
+        EXEC SQL END DECLARE SECTION;
+        EXEC SQL DECLARE execCursor CURSOR FOR
+            SELECT netWorth FROM MovieExec;
+
+        EXEC SQL OPEN execCursor;
+        for (i=1; i < 15; i++) counts[i] = 0;
+        while(1) {
+            EXEC SQL FETCH FROM execCursor INTO :worth; // fetches a row of value from movieExec and stores in worth
+            if (NO_MORE_TUPLES) break;
+
+            ...
+        }
+    }
+    \end{lstlisting}
+
         \end{itemize}
     \end{itemize}
 \end{enumerate}
