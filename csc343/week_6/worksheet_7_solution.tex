@@ -808,7 +808,43 @@
             \item PSM
             \begin{itemize}
                 \item Is also called \textbf{Persistent, Stored Modules}
+                \item Is very similar to function
+                \item \textbf{Syntax:}
+
+                \bigskip
+
+                CREATE PROCEDURE $<\text{name}>$ ($<\text{parameters}>$)
+
+                    $<\text{local declarations}>$
+
+                    $<\text{syntax body}>$;
+
+                \item \textbf{Syntax \# 2:}
+
+                \bigskip
+
+                CREATE FUNCTION $<\text{name}>$ ($<\text{parameters list}>$) RETURNS $<\text{type}>$
+
+                    $<\text{local declarations}>$
+
+                    $<\text{syntax body}>$;
             \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE Move(
+        IN oldAddr VARCHAR(255),
+        IN newAddr VARCHAR(255)
+    )
+    UPDATE MovieStar
+    SET address = newAddr
+    WHERE address = oldAddr;
+    \end{lstlisting}
         \end{itemize}
 
     \end{enumerate}
