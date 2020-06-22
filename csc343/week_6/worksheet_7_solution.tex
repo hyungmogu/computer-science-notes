@@ -243,6 +243,62 @@
 
             \end{itemize}
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=c]
+    void findLaptops() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            int model;
+            float speed;
+            int ram;
+            int hd;
+            int screen;
+            float price;
+
+            float minSpeed;
+            int minRam;
+            int minHd;
+            float minPrice;
+        EXEC SQL END DECLARE SECTION;
+
+        EXEC SQL DECLARE execCursor CURSOR FOR
+            SELECT model, speed, ram, hd, screen, price, maker
+            FROM Product NATURAL JOIN Laptop;
+
+        EXEC SQL OPEN execCursor;
+
+        printf("Enter minimum speed:");
+        scanf("%f", &minSpeed);
+
+        printf("Enter minimum ram:");
+        scanf("%f", &minRam);
+
+        printf("Enter minimum hard-drive space:");
+        scanf("%f", &minHd);
+
+        printf("Enter minimum price:");
+        scanf("%f", &minPrice);
+
+        while(1) {
+            EXEC SQL FETCH FROM execCursor INTO :model,
+                :speed, :ram, :hd, :screen, :price, :maker;
+
+            if (NO_MORE_TUPLES) break;
+
+            if (abs(price - targetPrice) >= minDiff) {
+                continue;
+            }
+
+            minDiff = abs(price - targetPrice);
+            modelSol = model;
+            speedSol = speed;
+            makerSol = maker;
+        }
+
+        EXEC SQL CLOSE execCursor;
+    }
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
