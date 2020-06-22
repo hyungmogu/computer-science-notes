@@ -385,18 +385,18 @@
         EXEC SQL END DECLARE SECTION;
 
         EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT model, maker, productType FROM Product;
+            SELECT DISTINCT maker, DISTINCT productType FROM Product;
 
         printf("Enter manufacturer:");
-        scanf("%f", &targetMaker);
+        scanf("%c", &targetMaker);
 
         EXEC SQL OPEN execCursor;
         while (1) {
-            EXEC SQL FETCH FROM execCursor INTO :model,
-                :maker, :productType;
+            EXEC SQL FETCH FROM execCursor INTO :maker, :productType;
 
             if (NO_MORE_TUPLES) break;
 
+            if (tolower(maker) != tolower(targetMaker)) continue;
 
             if (strcmp(productType,'pc')) {
                 EXEC SQL DECLARE pcCursor CURSOR FOR
@@ -419,26 +419,40 @@
             } else if (strcmp(productType, 'laptop')) {
 
                 EXEC SQL DECLARE laptopCursor CURSOR FOR
-                    SELECT model, speed, ram, hd, price FROM PC
+                    SELECT speed, ram, hd, screen, price FROM Laptop
                     NATURAL JOIN Product
                     WHERE type=productType;
 
                 EXEC SQL OPEN laptopCursor;
                 while(1) {
+                    EXEC SQL FETCH FROM laptopCursor INTO :speed,
+                        :ram, :hd, :screen, :price;
 
+                    if (NO_MORE_TUPLES) break;
 
+                    printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
+                    model, speed, ram, hd, screen, screen, price, maker, productType);
                 }
+                EXEC SQL CLOSE laptopCursor;
+
 
             } else if (strcmp(productType, 'printer')) {
                 EXEC SQL DECLARE printerCursor CURSOR FOR
-                    SELECT model, speed, ram, hd, price FROM PC
+                    SELECT color, printType, price FROM Printer
                     NATURAL JOIN Product
                     WHERE type=productType;
 
+                EXEC SQL OPEN printerCursor;
                 while(1) {
+                    EXEC SQL FETCH FROM laptopCursor INTO :speed,
+                        :ram, :hd, :screen, :price;
 
+                    if (NO_MORE_TUPLES) break;
 
+                    printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
+                    model, speed, ram, hd, screen, screen, price, maker, productType);
                 }
+                EXEC SQL CLOSE printerCursor;
             }
             }
         }
