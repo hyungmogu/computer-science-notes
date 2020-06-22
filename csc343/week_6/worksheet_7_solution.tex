@@ -555,6 +555,10 @@
 
         printf("Enter name of battle:\n");
         scanf("%s", &targetBattle);
+
+        EXEC SQL DECLARE execCursor CURSOR FOR
+            SELECT country FROM Classes
+            NATURAL JOIN;
     }
     \end{lstlisting}
 
