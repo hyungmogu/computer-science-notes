@@ -897,12 +897,50 @@
                 \end{itemize}
                 \item Declarations of local variables
                 \begin{itemize}
-                    \item \textbf{Syntax:} RETURN $<\text{expression}>$
-                    \item can only be appeared in function
-                    \item evaluates the expression and sets the return-value of the function
-                    equivalent of the result
+                    \item \textbf{Syntax:} DECLARE $<\text{name}>$ $<\text{type}>$
+                    \item Is used to declare a variable
+                    \item Is not preserved by DBMS after a running of the function or procedure
+                    \item Must precede executable statements
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+                    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE SomeProc(IN studioName CHAR(15))
+
+    DECLARE presNetWorth INTEGER;
+    \end{lstlisting}
+
                 \end{itemize}
                 \item Assignment statements
+                \begin{itemize}
+                    \item \textbf{Syntax:} SET $<\text{variable}>$ = $<\text{expression}>$
+                    \item Is quite like assignment in other languages.
+                    \item The expression can be a query as long as it returns a signle value
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE MeanVar(
+        IN s CHAR(15),
+        OUT mean REAL,
+        OUT variance REAL
+    )
+
+    BEGIN
+    ...
+    SET mean=0.0;
+    ...
+    SET movieCount = (SELECT COUNT(name) FROM Movies);
+    SET mean= mean / movieCount;
+    END
+    \end{lstlisting}
+                \end{itemize}
                 \item Statement groups
                 \item Statement labels
             \end{enumerate}
