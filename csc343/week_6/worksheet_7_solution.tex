@@ -545,6 +545,20 @@
     }
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=c]
+    void countryWithMostShipsSunk() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            char targetBattle[255];
+        EXEC SQL END DECLARE SECTION;
+
+        printf("Enter name of battle:\n");
+        scanf("%s", &targetBattle);
+    }
+    \end{lstlisting}
+
+
     \end{enumerate}
 \end{enumerate}
 
