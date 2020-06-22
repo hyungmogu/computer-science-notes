@@ -677,15 +677,46 @@
         \item
 
     \begin{lstlisting}[language=c]
+    #define NO_MORE_TUPLES ! (strcmp(SQLSTATE, "02000"));
+
     void insertClassAndShip() {
         EXEC SQL BEGIN DECLARE SECTION;
             char class[100];
+            char type[2];
+            char country[100];
+            int numGuns;
+            int bore;
+            int displacement;
 
+            char shipName[100];
+            char dateLaunched[11];
+
+            char SQLSTATE[6];
         EXEC SQL END DECLARE SECTION;
 
         printf("Enter name of class:\n");
         scanf("%s", &class);
 
+        printf("Enter name of type:\n");
+        scanf("%s", &type);
+
+        printf("Enter name of country:\n");
+        scanf("%s", &country);
+
+        printf("Enter name of numGuns:\n");
+        scanf("%d", &numGuns);
+
+        printf("Enter name of bore:\n");
+        scanf("%d", &bore);
+
+        printf("Enter name of displacement:\n");
+        scanf("%d", &displacement);
+
+        printf("Enter name of ship:\n");
+        scanf("%s", &shipName);
+
+        printf("Enter date launched (YYYY-MM-DD):\n");
+        scanf("%s", &dateLaunched);
     }
     \end{lstlisting}
 
