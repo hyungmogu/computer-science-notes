@@ -747,13 +747,29 @@
         EXEC SQL END DECLARE SECTION;
 
         EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT Ships.*,
+            SELECT Ships.name,
+                   Ships.class,
+                   Ships.launched,
                    Outcomes.battle,
                    Battles.date
             FROM Ships
             INNER JOIN Outcomes ON Ships.name = Outcomes.ship
             INNER JOIN Battles ON Outcomes.battle = Battles.name
             WHERE Ships.launched > Battles.date;
+
+        EXEC SQL OPEN execCursor;
+            while(1) {
+                EXEC SQL FETCH FROM execCursor INTO :shipName,
+                    :class, :dateLaunched, :battle, :dateBattle;
+
+                if (NO_MORE_TUPLES) break;
+
+                printf("Error. Ship %s is launched after date of battle.\n");
+
+                printf("Enter correct launched date (Press enter to skip):\n");
+                fgets(shipName, sizeof shipName,stdin);
+            }
+        EXEC SQL CLOSE execCursor;
 
     }
     \end{lstlisting}
