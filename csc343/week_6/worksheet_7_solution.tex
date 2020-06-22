@@ -766,8 +766,19 @@
 
                 printf("Error. Ship %s is launched after date of battle.\n");
 
-                printf("Enter correct launched date (Press enter to skip):\n");
-                fgets(shipName, sizeof shipName,stdin);
+                printf("Enter correct launched date (YYYY-MM-DD, Press enter to skip):\n");
+                fgets(dateLaunched, sizeof(dateLaunched),stdin);
+
+                if (dateLaunched[0] != '\n') {
+                    // Correct date of launch
+                }
+
+                printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
+                fgets(dateBattle, sizeof(dateBattle),stdin);
+
+                if (dateBattle[0] != '\n') {
+                    \\ correct date of battle
+                }
             }
         EXEC SQL CLOSE execCursor;
 
