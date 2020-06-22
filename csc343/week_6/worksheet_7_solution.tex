@@ -286,14 +286,15 @@
 
             if (NO_MORE_TUPLES) break;
 
-            if (abs(price - targetPrice) >= minDiff) {
-                continue;
+            if (
+                speed >= minSpeed &&
+                ram >= minRam &&
+                hd >= minHd &&
+                screen >= minScreen
+            ) {
+                printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
+                    model, speed, ram, hd, screen, price, maker);
             }
-
-            minDiff = abs(price - targetPrice);
-            modelSol = model;
-            speedSol = speed;
-            makerSol = maker;
         }
 
         EXEC SQL CLOSE execCursor;
