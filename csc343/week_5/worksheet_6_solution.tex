@@ -835,6 +835,18 @@
     WHERE producerC# = cert# name = 'John Wilks'
     \end{lstlisting}
 
+    \bigskip
+
+    Query Q \#6: The title of movie created by producer 'John Wilks' in 2019
+
+    \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SELECT title,
+    FROM Movies, MovieExec
+    WHERE producerC# = cert# name = 'John Wilks' year = 2019
+    \end{lstlisting}
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -858,6 +870,7 @@
                 there is no WHERE clause
             \end{itemize}
         \end{itemize}
+        \item Key point: use queries C and relations in FROM related to materialized view
     \end{itemize}
 
 \end{enumerate}
