@@ -384,25 +384,64 @@
             char targetMaker;
         EXEC SQL END DECLARE SECTION;
 
-        EXEC SQL DECLARE execCursor CURSOR FOR Product;
+        EXEC SQL DECLARE execCursor CURSOR FOR
+            SELECT model, maker, productType FROM Product;
 
         printf("Enter manufacturer:");
         scanf("%f", &targetMaker);
 
         EXEC SQL OPEN execCursor;
+        while (1) {
             EXEC SQL FETCH FROM execCursor INTO :model,
                 :maker, :productType;
 
             if (NO_MORE_TUPLES) break;
 
+
             if (strcmp(productType,'pc')) {
+                EXEC SQL DECLARE pcCursor CURSOR FOR
+                    SELECT speed, ram, hd, price FROM PC
+                    NATURAL JOIN Product
+                    WHERE type=productType;
+
+                EXEC SQL OPEN pcCursor;
+                while(1) {
+                    EXEC SQL FETCH FROM pcCursor INTO :speed,
+                        :ram, :hd, :price;
+
+                    if (NO_MORE_TUPLES) break;
+
+                    printf("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
+                    model, speed, ram, hd, screen, price, maker, productType);
+                }
+                EXEC SQL CLOSE pcCursor;
 
             } else if (strcmp(productType, 'laptop')) {
 
+                EXEC SQL DECLARE laptopCursor CURSOR FOR
+                    SELECT model, speed, ram, hd, price FROM PC
+                    NATURAL JOIN Product
+                    WHERE type=productType;
+
+                EXEC SQL OPEN laptopCursor;
+                while(1) {
+
+
+                }
+
             } else if (strcmp(productType, 'printer')) {
+                EXEC SQL DECLARE printerCursor CURSOR FOR
+                    SELECT model, speed, ram, hd, price FROM PC
+                    NATURAL JOIN Product
+                    WHERE type=productType;
 
+                while(1) {
+
+
+                }
             }
-
+            }
+        }
         EXEC SQL CLOSE execCursor;
     }
     \end{lstlisting}
