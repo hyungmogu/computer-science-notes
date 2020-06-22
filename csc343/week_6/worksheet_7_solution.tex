@@ -525,6 +525,27 @@
     \end{enumerate}
 
     \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=c]
+    void classWithLargestPower() {
+        EXEC SQL BEGIN DECLARE SECTION;
+            int class;
+        EXEC SQL END DECLARE SECTION;
+
+        EXEC SQL SELECT class FROM FROM Classes
+            INTO :class
+            WHERE numGuns * POWER(bore, 3) >= ALL (
+                SELECT numGuns * POWER(bore, 3) FROM Classes
+            );
+
+        printf("Class = %s\n", class);
+    }
+    \end{lstlisting}
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
