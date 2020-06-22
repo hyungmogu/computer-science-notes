@@ -472,19 +472,53 @@
             int hd;
             float price;
             char maker;
+
+            int modelCount;
         EXEC SQL END DECLARE SECTION;
 
-        printf("Enter manufacturer:");
-        scanf("%c", &targetMaker);
+        printf("Enter manufacturer:\n");
+        scanf("%c", &maker);
 
+        printf("Enter model:\n");
+        scanf("%d", &model);
+
+        printf("Enter speed:\n");
+        scanf("%f", &speed);
+
+        printf("Enter ram:\n");
+        scanf("%d", &ram);
+
+        printf("Enter hd:\n");
+        scanf("%d", &hd);
+
+        printf("Enter price:\n");
+        scanf("%f", &price);
+
+        printf("Enter maker:\n");
+        scanf("%c", &maker);
 
         EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT model FROM (
-                (SELECT model FROM Product WHERE model=targetModel)
+            SELECT COUNT(model) FROM (
+                (SELECT model FROM Product WHERE model=:model)
                 UNION
-                (SELECT model FROM PC WHERE model=targetModel)
+                (SELECT model FROM PC WHERE model=:model)
             );
 
+        EXEC SQL OPEN execCursor;
+            EXEC SQL FETCH FROM execCursor INTO :modelCount;
+
+            if (modelCount != 0) {
+                printf("Error. Model already exists in database.");
+            } else {
+                EXEC SQL INSERT INTO PC(model, speed, ram, hd, price)
+                                VALUES(:model, :speed, :ram, :hd, :price);
+
+                EXEC SQL INSERT INTO Product(model, maker, type)
+                                VALUES(:model, :maker, "pc")
+            }
+
+
+        EXEC SQL CLOSE execCursor;
     }
     \end{lstlisting}
 
