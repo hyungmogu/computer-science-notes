@@ -1351,6 +1351,34 @@
     \end{lstlisting}
 
     \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION getClosestPrice(
+        targetPrice FLOAT
+    )
+
+    BEGIN
+
+    SET model = (
+        SELECT model FROM PC
+        WHERE model IN (
+            SELECT model, ABS(price - targetPrice) AS priceDiff FROM PC
+
+            ORDER BY priceDiff ASC
+            LIMIT 1;
+        )
+    );
+
+    END;
+
+    \end{lstlisting}
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
