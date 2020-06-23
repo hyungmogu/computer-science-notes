@@ -1507,22 +1507,6 @@
         \item
 
     \begin{lstlisting}[language=SQL]
-    CREATE PROCEDURE getFirePower(
-        IN targetClass CHAR(100),
-        OUT firePower INTEGER,
-    )
-
-    BEGIN
-        SET firePower = (
-            SELECT numGuns * POWER(bore, 3) FROM Classes
-            WHERE class=targetClass;
-        );
-    END;
-    \end{lstlisting}
-
-        \item
-
-    \begin{lstlisting}[language=SQL]
     CREATE PROCEDURE getTwoCountriesInBattle(
         IN targetBattle CHAR(100),
         OUT firstCountry CHAR(100),
@@ -1560,14 +1544,18 @@
     \begin{lstlisting}[language=SQL]
     CREATE PROCEDURE insertShipAndClass(
         IN inputClass CHAR(100),
-        IN type CHAR(2),
-        IN country CHAR(100),
-        IN numGuns INTEGER,
-        IN bore INTEGER,
-        IN displacement INTEGER
+        IN inputType CHAR(2),
+        IN inputCountry CHAR(100),
+        IN inputNumGuns INTEGER,
+        IN inputBore INTEGER,
+        IN inputDisplacement INTEGER
     )
     BEGIN
+        INSERT INTO Classes(class, type, country, numGuns, bore, displacement)
+        VALUES (inputClass, inputType, inputCountry, inputNumGuns, inputBore, inputDisplacement);
 
+        INSERT INTO Ships(name, class)
+        VALUES (inputClass, inputClass);
     END;
     \end{lstlisting}
 
