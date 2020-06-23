@@ -1292,16 +1292,33 @@
 
     \end{lstlisting}
 
-        \item
+    \item
 
     \begin{lstlisting}[language=SQL]
     CREATE FUNCTION getUniqueStarWithAddress(
         address CHAR(255)
-    ) RETURN INTEGER
+    ) RETURNS CHAR(100)
 
     BEGIN
 
+    SET uniqueStarName = NULL;
+    SET starCount = 1;
 
+    FOR movieStarLoop AS MovieStarCursor CURSOR FOR
+        SELECT starName FROM MovieStar
+        WHERE address=address;
+
+        IF starCount > 1
+        THEN RETURN NULL;
+
+        ELSE SET uniqueStarName = starName;
+
+        END IF;
+
+        SET starCount = starCount + 1;
+    END FOR;
+
+    RETURN uniqueStarName;
     END;
 
     \end{lstlisting}
