@@ -1242,20 +1242,28 @@
         IN studioName CHAR(50)
     )
 
-    DECLARE Not_Found CONDITION FOR SQLSTATE '02000';
     DECLARE firstMovieTitle CHAR(100);
     DECLARE secondMovieTitle CHAR(100);
-    DECLARE MovieCursor CURSOR FOR
-        SELECT * FROM Movies
-        ORDER BY length DESC
-        WHERE studioName=studioName
-        LIMIT 2;
 
     BEGIN
-        set movieCount = 0;
-        movieLoop:LOOP
+        SET movieCount = 1;
+        SET firstMovieTitle = NULL;
+        SET secondMovieTitle = NULL;
 
-        END LOOP;
+        FOR movieLoop as MovieCursor FOR
+            SELECT title FROM Movies
+            ORDER BY length DESC
+            WHERE studioName=studioName
+            LIMIT 2;
+        DO
+            IF movieCount = 1
+            THEN SET firstMovieTitle = title;
+            ELSEIF movieCount = 2
+            THEN SET secondMovieTitle = title;
+            END IF;
+
+            SET movieCount = movieCount + 1;
+        END FOR;
     END;
     \end{lstlisting}
     \end{enumerate}
