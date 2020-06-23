@@ -1038,7 +1038,23 @@
             \bigskip
 
     \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE MeanVar(
+        IN s CHAR(15),
+        OUT mean REAL,
+        OUT variance REAL
+    )
 
+    BEGIN
+        ...
+        movieLoop: LOOP
+            FETCH FROM MovieCursor INTO newLength;
+            IF Not_Found THEN LEAVE movieLoop END IF;
+            SET movieCount = movieCOunt + 1;
+            SET mean = mean + newLength;
+            ...
+        END LOOP
+
+    END;
     \end{lstlisting}
         \end{itemize}
 
