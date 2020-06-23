@@ -945,7 +945,7 @@
                 \begin{itemize}
                     \item \textbf{Syntax:} BEGIN ... END
                     \item Is used to envelope function body in Procedures and Functions
-                    \item is like $\{\}$ used in functions (i.e. javascript, c, java)
+                    \item is like $function \{\}$ used in functions (i.e. javascript, c, java)
 
                     \bigskip
 
@@ -965,9 +965,56 @@
     END;
     \end{lstlisting}
                 \end{itemize}
-                \item Statement labels
             \end{enumerate}
+            \item IF ELSE
+            \begin{itemize}
+                \item \textbf{Syntax:}
 
+                \bigskip
+
+                IF $<\text{condition}>$ THEN
+
+                $<\text{statement list}>$
+
+                ELSEIF $<\text{condition}>$ THEN
+
+                $<\text{statement list}>$
+
+                ELSEIF
+
+                ...
+
+                ELSE
+
+                $<\text{statement list}>$
+
+                END IF;
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION BandW(y INT, s CHAR(15)) RETURNS BOOLEAN
+
+    BEGIN
+    IF NOT EXISTS(
+            SELECT * FROM Movies WHERE year = y AND
+                studioName = s)
+
+    THEN RETURN TRUE;
+    ELSEIF 1 <=
+        (SELECT COUNT(*) FROM Movies WHERE year = y AND
+            studioName = s AND genre = 'comedy')
+
+    THEN RETURN TRUE;
+    ELSE RETURN FALSE;
+    END IF;
+    END;
+    \end{lstlisting}
         \end{itemize}
 
     \end{enumerate}
