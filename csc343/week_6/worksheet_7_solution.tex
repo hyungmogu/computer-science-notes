@@ -1408,76 +1408,57 @@
         \item
 
     \begin{lstlisting}[language=SQL]
-    CREATE FUNCTION getProductType(
-        maker CHAR(1),
-        model INTEGER
-    )
-
-    BEGIN
-    SET price = (
-        SELECT price FROM (
-            (SELECT model, price FROM Product NATURAL JOIN PC)
-            UNION
-            (SELECT model, price FROM Product NATURAL JOIN Laptop)
-            UNION
-            (SELECT model, price FROM Product NATURAL JOIN Printer)
-        )
-        WHERE model=model
-    );
-
-    RETURN price;
-    END;
-
-    \end{lstlisting}
-
-        \item
-
-    \begin{lstlisting}[language=SQL]
-    CREATE FUNCTION getProductType(
-        maker CHAR(1),
-        model INTEGER
-    )
-
-    BEGIN
-    SET price = (
-        SELECT price FROM (
-            (SELECT model, price FROM Product NATURAL JOIN PC)
-            UNION
-            (SELECT model, price FROM Product NATURAL JOIN Laptop)
-            UNION
-            (SELECT model, price FROM Product NATURAL JOIN Printer)
-        )
-        WHERE model=model
-    );
-
-    RETURN price;
-    END;
-
-    \end{lstlisting}
-
-        \item
-
-    \begin{lstlisting}[language=SQL]
     CREATE PROCEDURE insertNewPC(
-        model INTEGER,
-        speed FLOAT,
-        ram INTEGER,
-        hd INTEGER,
-        price FLOAT
+        IN insertModel INTEGER,
+        IN insertSpeed FLOAT,
+        IN insertRam INTEGER,
+        IN insertHd INTEGER,
+        IN insertPrice FLOAT
     )
 
     DECLARE Already_Exists CONDITION FOR SQLSTATE '23000';
 
     BEGIN
 
-        WHILE TRUE DO
+        WHILE 1=1 DO
 
+        INSERT INTO PC(model, speed, ram, hd, price)
+        VALUES (insertModel, insertSpeed, insertRam, insertHd, insertPrice);
+        IF NOT Already_Exists
+        THEN break;
+        END IF;
 
+        SET insertModel = insertModel + 1;
 
         END WHILE;
     END;
 
     \end{lstlisting}
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item SQL Server does not have true and false values. Use pseudo true instead (i.e. 1=1) $^{[1]}$
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References:}}
+
+        \bigskip
+
+        \begin{enumerate}[1)]
+            \item StackOverflow: SQL Server - boolean literal?, \href{https://stackoverflow.com/questions/7170688/sql-server-boolean-literal}{link}
+        \end{enumerate}
+
+        \item
+
+
+
 
     \end{enumerate}
 \end{enumerate}
