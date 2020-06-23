@@ -1017,6 +1017,47 @@
     \end{lstlisting}
         \end{itemize}
 
+        \item Loops in PSM
+        \begin{itemize}
+            \item Is used with cursor
+            \item exists a break statement for loop (i.e.LEAVE $<\text{loop label}>$)
+            \item \textbf{Syntax:}
+
+            \bigskip
+
+            LOOP
+
+            $<\text{statement list}>$
+
+            END LOOP;
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+
+    \end{lstlisting}
+        \end{itemize}
+
+        \item For-loops
+        \begin{itemize}
+            \item \textbf{Syntax:}
+            \bigskip
+
+            FOR $<\text{loop name}>$ AS $<\text{cursor name}>$ CURSOR FOR
+
+            $<\text{query}>$
+
+            DO
+
+            $<\text{statement list}>$
+
+            END FOR;
+        \end{itemize}
+
     \end{enumerate}
 \end{enumerate}
 
