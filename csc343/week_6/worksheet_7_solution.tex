@@ -1463,7 +1463,7 @@
         OUT pcCount INTEGER,
         OUT laptopCount INTEGER,
         OUT printerCount INTEGER
-    ) RETURN
+    )
 
     BEGIN
         SET pcCount = (SELECT COUNT(model) FROM PC
@@ -1481,9 +1481,25 @@
             GROUP BY type
             HAVING price > targetPrice);
     END;
-
     \end{lstlisting}
 
+    \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE getFirePower(
+        IN class FLOAT,
+        OUT firePower INTEGER,
+    )
+
+    BEGIN
+
+    END;
+    \end{lstlisting}
 
     \end{enumerate}
 \end{enumerate}
