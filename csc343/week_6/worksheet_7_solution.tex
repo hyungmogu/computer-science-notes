@@ -1015,7 +1015,6 @@
     END IF;
     END;
     \end{lstlisting}
-        \end{itemize}
 
         \item Loops in PSM
         \begin{itemize}
@@ -1060,6 +1059,7 @@
 
         \item For-loops
         \begin{itemize}
+            \item is also used to iterate over cursor
             \item \textbf{Syntax:}
             \bigskip
 
@@ -1072,6 +1072,42 @@
             $<\text{statement list}>$
 
             END FOR;
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE MeanVar(
+        IN s CHAR(15),
+        OUT mean REAL,
+        OUT variance REAL
+    )
+
+    BEGIN
+        ...
+        FOR movieLoop AS MovieCursor CURSOR FOR
+            SELECT length FROM Movies WHERE studioName = s;
+        DO
+            FETCH FROM MovieCursor INTO newLength;
+            IF Not_Found THEN LEAVE movieLoop END IF;
+            SET movieCount = movieCOunt + 1;
+            SET mean = mean + length;
+            SET variance = mean + length * length;
+            ...
+        END LOOP
+
+    END;
+    \end{lstlisting}
+        \end{itemize}
+
+        \item Exceptions in PSM
+        \begin{itemize}
+            \item
+        \end{itemize}
+
         \end{itemize}
 
     \end{enumerate}
