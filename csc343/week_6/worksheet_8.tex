@@ -122,14 +122,44 @@
                     \item Descriptions
                     \begin{itemize}
                         \item Holds information about either tuples or parameters
-
-                        \begin{center}
-                        \includegraphics[width=\linewidth]{images/worksheet_8_solution_3.png}
-                        \end{center}
+                        \item Each statement has this information implicitly
                     \end{itemize}
                 \end{enumerate}
             \end{itemize}
             \item Processing Statements
+            \begin{itemize}
+                \item is done using \textbf{SQLPrepare} and \textbf{SQLExecute}
+
+                \begin{align}
+                    \textbf{SQLPrepare}(sh,st,SQL\_NTS)\\
+                    \textbf{SQLExecute}(sh)
+                \end{align}
+
+                \item $sh$ is the statement pointer created using \textbf{SQLHSTMT}
+                \item SQL\_NTS evaluates the length of string in $st$
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SQLPrepare(execStat, "SELECT netWorth FROM MovieExec", SQL_NTS);
+    SQLExecute(execStat);
+    \end{lstlisting}
+                \item the function \textbf{SQLExecDirect} combines \textbf{SQLPrepare} and \textbf{SQLExecute}
+
+                \bigskip
+
+                \underline{\textbf{Example 2:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    SQLExecDirect(execStat, "SELECT netWorth FROM MovieExec", SQL_NTS);
+    \end{lstlisting}
+            \end{itemize}
             \item Fetching Data From
             \item Passing Parameters to Queries
         \end{itemize}
