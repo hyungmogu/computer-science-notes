@@ -1266,6 +1266,31 @@
         END FOR;
     END;
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION getEarliestMovieOver120(
+        starName CHAR(100)
+    ) RETURN INTEGER
+
+    BEGIN
+        SET year = 0;
+
+        IF EXISTS (
+            SELECT movieYear FROM Movies
+            INNER JOIN StarsIn ON Movies.title = StarsIn.movieTitle
+            ORDER BY year ASC
+            WHERE length >= 120 AND
+                  starName = starName
+            LIMIT 1;
+        ) THEN
+            SET year = movieYear;
+        END IF;
+        RETURN year;
+    END;
+
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
