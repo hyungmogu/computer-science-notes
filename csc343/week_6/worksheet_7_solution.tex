@@ -1105,8 +1105,65 @@
 
         \item Exceptions in PSM
         \begin{itemize}
-            \item
+            \item \textbf{Syntax:}
+
+            DECLARE $<\text{where to go next}>$ HANDLER FOR $<\text{condition list}>$
+
+                $<\text{statement}>$
+
+            \item Choices for where to go
+            \begin{enumerate}[1.]
+                \item CONTINUE
+                \begin{itemize}
+                    \item Continues to execute code as is
+                \end{itemize}
+                \item EXIT
+                \begin{itemize}
+                    \item Leaves BEGIN ... END block
+                \end{itemize}
+                \item UNDO
+                \begin{itemize}
+                    \item In addition to EXIT, any changes made to database is undone
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION GetYear(t VARCHAR(255)) RETURN INTEGER
+
+    DECLARE Not_Found CONDITION FOR SQLSTATE '02000';
+    DECLARE Too_Many CONDITION FOR SQLSTATE '21000';
+
+    BEGIN
+        DECLARE EXIT HANDLER FOR Not_Found, Too_Many
+            RETURN NULL;
+        RETURN (SELECT year FROM Movies WHERE title = t);
+    END;
+    \end{lstlisting}
+            \end{enumerate}
         \end{itemize}
+
+            \item Using PSM Functions and Procedures
+            \begin{itemize}
+                \item Always include CALL before Procedures
+                \item Can be used in WHERE
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=SQL]
+    INSERT INTO StarsIn(movieTitle, movieYear, starName)
+    VALUES ('Remember the Titans', GetYear('Remember the Titans'),
+            'Denzel Washington');
+    \end{lstlisting}
+            \end{itemize}
 
         \end{itemize}
 
