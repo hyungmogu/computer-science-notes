@@ -1184,6 +1184,25 @@
 
         \end{itemize}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION GetPersonType(name CHAR(50), address VARCHAR(255)) RETURN INTEGER
+
+    BEGIN
+        DECLARE type INTEGER;
+
+        IF EXISTS (
+            SELECT * FROM MovieStar Natural JOIN MovieExec)
+        THEN RETURN 3;
+
+        ELSEIF
+
+        ELSE RETURN 4;
+
+    END;
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
