@@ -69,14 +69,7 @@
             \item Using Call-Level Interface
             \begin{itemize}
                 \item Uses host language to connect to and access a database
-                \item CLI replaces embedded SQL
-                \item e.g.
-
-                \begin{enumerate}[1.]
-                    \item JDBC (Java)
-                    \item Standard SQL/CLI
-                    \item PHP
-                \end{enumerate}
+                \item Replaces embedded SQL
             \end{itemize}
             \item Standard SQL/CLI
             \begin{itemize}
@@ -90,9 +83,21 @@
                     \item Environment handle
                     \begin{itemize}
                         \item Prepares one or more connections to database server
+                        \item Is required
                         \item \textbf{SQLHENV} does this job
+
+                        \begin{center}
+                        \includegraphics[width=\linewidth]{images/worksheet_8_solution_1.png}
+                        \end{center}
+
                     \end{itemize}
-                    \item Connections
+                    \item Connection handle
+                    \begin{itemize}
+                        \item Connects to a data resource
+                        \item Is required
+                        \item Is declared after \textbf{SQLHENV}
+                        \item \textbf{SQLHDBC} does this job
+                    \end{itemize}
                     \item Statements
                     \item Descriptions
                 \end{enumerate}
