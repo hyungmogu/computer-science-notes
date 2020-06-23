@@ -1459,14 +1459,27 @@
 
     \begin{lstlisting}[language=SQL]
     CREATE PROCEDURE getHigherPricedProducts(
-        IN price FLOAT,
+        IN targetPrice FLOAT,
         OUT pcCount INTEGER,
         OUT laptopCount INTEGER,
         OUT printerCount INTEGER
     ) RETURN
 
     BEGIN
+        SET pcCount = (SELECT COUNT(model) FROM PC
+            NATURAL JOIN Product
+            GROUP BY type
+            HAVING price > targetPrice);
 
+        SET laptopCount = (SELECT COUNT(model) FROM Laptop
+            NATURAL JOIN Product
+            GROUP BY type
+            HAVING price > targetPrice);
+
+        SET printerCount = (SELECT COUNT(model) FROM Printer
+            NATURAL JOIN Product
+            GROUP BY type
+            HAVING price > targetPrice);
     END;
 
     \end{lstlisting}
