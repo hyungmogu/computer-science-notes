@@ -1405,6 +1405,80 @@
 
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION getProductType(
+        maker CHAR(1),
+        model INTEGER
+    )
+
+    BEGIN
+    SET price = (
+        SELECT price FROM (
+            (SELECT model, price FROM Product NATURAL JOIN PC)
+            UNION
+            (SELECT model, price FROM Product NATURAL JOIN Laptop)
+            UNION
+            (SELECT model, price FROM Product NATURAL JOIN Printer)
+        )
+        WHERE model=model
+    );
+
+    RETURN price;
+    END;
+
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION getProductType(
+        maker CHAR(1),
+        model INTEGER
+    )
+
+    BEGIN
+    SET price = (
+        SELECT price FROM (
+            (SELECT model, price FROM Product NATURAL JOIN PC)
+            UNION
+            (SELECT model, price FROM Product NATURAL JOIN Laptop)
+            UNION
+            (SELECT model, price FROM Product NATURAL JOIN Printer)
+        )
+        WHERE model=model
+    );
+
+    RETURN price;
+    END;
+
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE insertNewPC(
+        model INTEGER,
+        speed FLOAT,
+        ram INTEGER,
+        hd INTEGER,
+        price FLOAT
+    )
+
+    DECLARE Already_Exists CONDITION FOR SQLSTATE '23000';
+
+    BEGIN
+
+        WHILE TRUE DO
+
+
+
+        END WHILE;
+    END;
+
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
