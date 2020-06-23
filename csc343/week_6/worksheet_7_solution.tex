@@ -1492,12 +1492,15 @@
 
     \begin{lstlisting}[language=SQL]
     CREATE PROCEDURE getFirePower(
-        IN class FLOAT,
+        IN targetClass CHAR(100),
         OUT firePower INTEGER,
     )
 
     BEGIN
-
+        SET firePower = (
+            SELECT numGuns * POWER(bore, 3) FROM Classes
+            WHERE class=targetClass;
+        );
     END;
     \end{lstlisting}
 
