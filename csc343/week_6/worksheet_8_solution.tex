@@ -58,6 +58,126 @@
 \begin{enumerate}[1.]
     \item
 
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \begin{itemize}
+            \item Using Call-Level Interface
+            \begin{itemize}
+                \item Uses host language to connect to and access a database
+                \item Replaces embedded SQL
+            \end{itemize}
+            \item Standard SQL/CLI
+            \begin{itemize}
+                \item Is database CLI for C
+                \item Included in file \textit{sqlcli.h}
+                \item Creates deals with four kinds of records
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Environment handle
+                    \begin{itemize}
+                        \item Prepares one or more connections to database server
+                        \item Is required
+                        \item Is allocated using \textbf{SQLHENV}
+                        \item Is established via function \textbf{SQLAllocHandle}
+
+                        \begin{center}
+                        \includegraphics[width=\linewidth]{images/worksheet_8_solution_1.png}
+                        \end{center}
+
+                    \end{itemize}
+                    \item Connection handle
+                    \begin{itemize}
+                        \item Conenects application program to database
+                        \item Is required
+                        \item Is declared after \textbf{SQLHENV}
+                        \item Is allocated using \textbf{SQLHDBC}
+                        \item Is established via function \textbf{SQLAllocHandle}
+
+                        \begin{center}
+                        \includegraphics[width=\linewidth]{images/worksheet_8_solution_2.png}
+                        \end{center}
+                    \end{itemize}
+                    \item Statements
+                    \begin{itemize}
+                        \item Created by application program (the user)
+                        \item Can be created as many as needed
+                        \item Holds information about a single SQL statement, including cursor
+                        \item Can represent different SQL statements at different times
+                        \item Is required
+                        \item Is declared after \textbf{SQLHDBC}
+                        \item Is allocated using \textbf{SQLHSTMT}
+                        \item Is sent using the function \textbf{SQLAllocHandle}
+
+                        \begin{center}
+                        \includegraphics[width=\linewidth]{images/worksheet_8_solution_3.png}
+                        \end{center}
+                    \end{itemize}
+                    \item Descriptions
+                    \begin{itemize}
+                        \item Holds information about either tuples or parameters
+                        \item Each statement has this information implicitly
+                    \end{itemize}
+                \end{enumerate}
+            \end{itemize}
+            \item Processing Statements
+            \begin{itemize}
+                \item is done using \textbf{SQLPrepare} and \textbf{SQLExecute}
+
+                \begin{align}
+                    \textbf{SQLPrepare}(sh,st,SQL\_NTS)\\
+                    \textbf{SQLExecute}(sh)
+                \end{align}
+
+                \item $sh$ is the statement handle created using \textbf{SQLHSTMT}
+                \item SQL\_NTS evaluates the length of string in $st$
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=c]
+    SQLPrepare(execStat, "SELECT netWorth FROM MovieExec", SQL_NTS);
+    SQLExecute(execStat);
+    \end{lstlisting}
+                \item the function \textbf{SQLExecDirect} combines \textbf{SQLPrepare} and \textbf{SQLExecute}
+
+                \bigskip
+
+                \underline{\textbf{Example 2:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=c]
+    SQLExecDirect(execStat, "SELECT netWorth FROM MovieExec", SQL_NTS);
+    \end{lstlisting}
+            \end{itemize}
+            \item Fetching Data From
+            \begin{itemize}
+                \item \textbf{Syntax:} SQLFetch(sh)
+                \item Returns a value of type \textbf{SQLRETURN}, indicating either success or error
+                \item Fetched data transferred to host-language variable using \textbf{SQLBindCol}
+                \begin{itemize}
+                    \item \textbf{Syntax:} $\text{SQLBindCol}(sh, colNo, colType, pVar, varSize, varInfo)$
+                    \item This is done before fetching begins
+                \end{itemize}
+            \end{itemize}
+            \item Passing Parameters to Queries
+        \end{itemize}
+
+    \end{enumerate}
+
+
 \end{enumerate}
 
 \end{document}
