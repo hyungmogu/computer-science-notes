@@ -800,6 +800,23 @@
 
         \bigskip
 
+    \begin{lstlisting}[language=SQL]
+    CREATE FUNCTION getNetWorth(studioName CHAR(15)) RETURN INTEGER
+
+    BEGIN
+        DECLARE presNetWorth INTEGER;
+        SET presNetWorth = (
+            SELECT netWorth FROM Studio INNER JOIN MovieExec
+            ON Studio.presC# = MovieExec.cert#
+            WHERE Studio.name = :studioName;
+        );
+
+        RETURN presNetWorth;
+    END;
+    \end{lstlisting}
+
+        \bigskip
+
         \underline{\textbf{Notes:}}
 
         \bigskip
