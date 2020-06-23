@@ -1504,6 +1504,57 @@
     END;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE getFirePower(
+        IN targetClass CHAR(100),
+        OUT firePower INTEGER,
+    )
+
+    BEGIN
+        SET firePower = (
+            SELECT numGuns * POWER(bore, 3) FROM Classes
+            WHERE class=targetClass;
+        );
+    END;
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE getTwoCountriesInBattle(
+        IN targetBattle CHAR(100),
+        OUT firstCountry CHAR(100),
+        OUT secondCountry CHAR(100)
+    )
+
+    BEGIN
+        SET countryCount = 1;
+        SET firstCountry = NULL;
+        SET secondCountry = NULL;
+
+        FOR battleLoop as BattleCursor FOR
+            SELECT country FROM Classes
+            INNER JOIN Ships ON Classes.class = Ships.class
+            INNER JOIN Outcomes ON Outcomes.ship = Ships.name
+            WHERE Outcomes.battle=targetBattle;
+        DO
+            IF countryCount = 1
+            THEN SET firstCountry = country;
+            ELSEIF countryCount = 2
+            THEN SET secondCountry = country;
+            ELSE
+                BEGIN
+                SET firstCountry = NULL;
+                SET secondCountry = NULL;
+                LEAVE battleLoop;
+                END
+            END IF;
+        END FOR;
+    END;
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
