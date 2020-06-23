@@ -1559,6 +1559,53 @@
     END;
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE CheckDates(
+        IN shipName CHAR(101);
+    )
+
+    DECLARE Not_Found CONDITION FOR SQLSTATE '02000';
+    DECLARE class CHAR(100);
+    DECLARE dateLaunched DATE;
+    DECLARE battle CHAR(100);
+    DECLARE dateBattle DATE;
+    DECLARE execCursor CURSOR FOR
+        SELECT Ships.name,
+            Ships.class,
+            Ships.launched,
+            Outcomes.battle,
+            Battles.date
+        FROM Ships
+        INNER JOIN Outcomes ON Ships.name = Outcomes.ship
+        INNER JOIN Battles ON Outcomes.battle = Battles.name
+        WHERE Ships.launched > Battles.date AND
+              Ships.name = shipName;
+
+    BEGIN
+        OPEN execCursor;
+            shipLoop: LOOP
+                FETCH FROM execCursor INTO shipName,
+                    class, dateLaunched, battle, dateBattle;
+
+                if (Not_Found) LEAVE shipLoop;
+
+                UPDATE Ships
+                SET launched = '0000-00-00'
+                WHERE name=shipName AND
+                    class=class;
+
+
+                UPDATE Battles
+                SET date = '0000-00-00'
+                WHERE name=battle;
+            END LOOP;
+        CLOSE execCursor;
+
+    END;
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
