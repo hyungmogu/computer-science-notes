@@ -1243,10 +1243,19 @@
     )
 
     DECLARE Not_Found CONDITION FOR SQLSTATE '02000';
+    DECLARE firstMovieTitle CHAR(100);
+    DECLARE secondMovieTitle CHAR(100);
+    DECLARE MovieCursor CURSOR FOR
+        SELECT * FROM Movies
+        ORDER BY length DESC
+        WHERE studioName=studioName
+        LIMIT 2;
 
     BEGIN
+        set movieCount = 0;
+        movieLoop:LOOP
 
-
+        END LOOP;
     END;
     \end{lstlisting}
     \end{enumerate}
