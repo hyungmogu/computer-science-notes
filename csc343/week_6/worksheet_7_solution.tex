@@ -1292,7 +1292,7 @@
 
     \end{lstlisting}
 
-    \item
+        \item
 
     \begin{lstlisting}[language=SQL]
     CREATE FUNCTION getUniqueStarWithAddress(
@@ -1322,6 +1322,34 @@
     END;
 
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=SQL]
+    CREATE PROCEDURE deleteStar(
+        starName CHAR(100)
+    )
+
+    BEGIN
+
+    FOR MovieLoop AS MovieCursor CURSOR FOR
+        SELECT movieTitle FROM StarIn
+        WHERE starName = starName;
+    DO
+        DELETE FROM Movies
+        WHERE title=movieTitle;
+    END FOR;
+
+    DELETE FROM StarIn
+    WHERE starName=starName;
+
+    DELETE FROM MovieStar
+    WHERE name=starName;
+
+    END;
+
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
