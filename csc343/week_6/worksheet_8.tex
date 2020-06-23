@@ -84,7 +84,8 @@
                     \begin{itemize}
                         \item Prepares one or more connections to database server
                         \item Is required
-                        \item \textbf{SQLHENV} does this job
+                        \item Is allocated using \textbf{SQLHENV}
+                        \item Is established via function \textbf{SQLAllocHandle}
 
                         \begin{center}
                         \includegraphics[width=\linewidth]{images/worksheet_8_solution_1.png}
@@ -93,16 +94,31 @@
                     \end{itemize}
                     \item Connection handle
                     \begin{itemize}
-                        \item Connects application program to database
+                        \item Conenects application program to database
                         \item Is required
                         \item Is declared after \textbf{SQLHENV}
-                        \item \textbf{SQLHDBC} does this job
+                        \item Is allocated using \textbf{SQLHDBC}
+                        \item Is established via function \textbf{SQLAllocHandle}
 
                         \begin{center}
                         \includegraphics[width=\linewidth]{images/worksheet_8_solution_2.png}
                         \end{center}
                     \end{itemize}
                     \item Statements
+                    \begin{itemize}
+                        \item Created by application program (the user)
+                        \item Can be created as many as needed
+                        \item Holds information about a single SQL statement, including cursor
+                        \item Can represent different SQL statements at different times
+                        \item Is required
+                        \item Is declared after \textbf{SQLHDBC}
+                        \item Is allocated using \textbf{SQLHSTMT}
+                        \item Is sent using the function \textbf{SQLAllocHandle}
+
+                        \begin{center}
+                        \includegraphics[width=\linewidth]{images/worksheet_8_solution_2.png}
+                        \end{center}
+                    \end{itemize}
                     \item Descriptions
                 \end{enumerate}
             \end{itemize}
