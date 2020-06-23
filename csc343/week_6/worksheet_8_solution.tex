@@ -164,15 +164,32 @@
             \end{itemize}
             \item Fetching Data From
             \begin{itemize}
-                \item \textbf{Syntax:} SQLFetch(sh)
-                \item Returns a value of type \textbf{SQLRETURN}, indicating either success or error
-                \item Fetched data transferred to host-language variable using \textbf{SQLBindCol}
+                \item Fetch
+                \begin{itemize}
+                    \item \textbf{Syntax:} SQLFetch(sh)
+                    \item Executes statement in \textbf{SQLPrepare} and \textbf{SQLExecute} and stores result
+                    \textbf{SQLBindCol}
+                    \item Fetches a row per call
+                    \item Returns a value of type \textbf{SQLRETURN}, indicating either success or error
+                \end{itemize}
+                \item SQLBindCol
                 \begin{itemize}
                     \item \textbf{Syntax:} $\text{SQLBindCol}(sh, colNo, colType, pVar, varSize, varInfo)$
-                    \item This is done before fetching begins
+                    \begin{itemize}
+                        \item \textbf{sh}: the handle of statement
+                        \item \textbf{colNo}: the position of column in tuple we obtain
+                        \item \textbf{colType}: the SQL data type of variable (i.e. SQL\_INTEGER, SQL\_CHAR)
+                        \item \textbf{pVar}: the pointer to variable the value is placed
+                        \item \textbf{varSize}: the length in bytes of the value in $pVar$
+                        \item \textbf{varInfo}: a pointer to an integer used by SQLBindCol for additional value
+                        about the value produced
+                    \end{itemize}
+                    \item Stores data from \textbf{SQLFetch} to host-language variable
+                    \item must be setup before SQLFetch(sh) is run
                 \end{itemize}
             \end{itemize}
             \item Passing Parameters to Queries
+
         \end{itemize}
 
     \end{enumerate}
