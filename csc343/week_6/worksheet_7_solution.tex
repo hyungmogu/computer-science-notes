@@ -1192,11 +1192,37 @@
     BEGIN
         DECLARE type INTEGER;
 
-        IF EXISTS (
-            SELECT * FROM MovieStar Natural JOIN MovieExec)
-        THEN RETURN 3;
+        IF NOT EXISTS (
+            SELECT * FROM MovieStar
+            WHERE name=name AND
+                  address=address
+        ) AND EXISTS (
+            SELECT * FROM MovieExec
+            WHERE name=name AND
+                  address=address
+        )
 
-        ELSEIF
+        THEN RETURN 1;
+
+        ELSEIF EXISTS (
+            SELECT * FROM MovieStar
+            WHERE name=name AND
+                  address=address
+        ) AND NOT EXISTS (
+            SELECT * FROM MovieExec
+            WHERE name=name AND
+                  address=address
+        )
+
+        THEN RETURN 2;
+
+        ELSEIF EXISTS (
+            SELECT * FROM MovieStar NATURAL JOIN MovieExec
+            WHERE name=name AND
+                  address=address
+        )
+
+        THEN RETURN 3;
 
         ELSE RETURN 4;
 
