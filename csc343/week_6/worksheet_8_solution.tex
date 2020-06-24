@@ -1062,6 +1062,17 @@
                 \end{itemize}
             \end{itemize}
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=JAVA]
+    PreparedStatement studioStat = myCon.prepareStatement(
+        "INSERT INTO Studio(name, address) VALUES(?, ?)");
+
+    studioStat.setString(1, studioName);
+    studioStat.setString(2, studioAddr);
+    studioStat.executeUpdate();
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
