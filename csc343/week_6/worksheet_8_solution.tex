@@ -900,15 +900,87 @@
                     \item \textbf{executeQuery(Q):}
                     \begin{itemize}
                         \item takes a query statement Q and executes it.
+                        \item Used for SELECT
                         \item Is similar to \textbf{SQLPrepare} and \textbf{SQLExecute}
                     \end{itemize}
                     \item \textbf{executeQuery():}
                     \begin{itemize}
                         \item Is used with \textbf{prepareStatement(Q)}
+                        \item Used for SELECT
+                        \item Is similar to \textbf{SQLExecute} in C
+                    \end{itemize}
+                    \item \textbf{execUpdate(U):}
+                    \begin{itemize}
+                        \item takes a non-query statement U and executes it.
+                        \item Used for UPDATE AND INSERT
                         \item Is similar to \textbf{SQLPrepare} and \textbf{SQLExecute}
                     \end{itemize}
+                    \item \textbf{executeQuery():}
+                    \begin{itemize}
+                        \item Is used with \textbf{prepareStatement(Q)}
+                        \item Used for UPDATE AND INSERT
+                        \item Is similar to \textbf{SQLExecute} in C
+                    \end{itemize}
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+                    \bigskip
+
+    \begin{lstlisting}[language=JAVA]
+    // Example 1
+    Statement execStat = myCon.createStatement();
+    ResultSet worths = execStat.executeQuery(
+        "SELECT netWorth FROM MovieExec");
+
+    // Example 2
+    PreparedStatement execStat = myCon.prepareStatement(
+        "SELECT netWorth FROM MovieExec");
+    ResultSet worths = execStat.executeQuery()
+
+    // Example 3
+    Statement starStat = myCon.createStatement();
+    starStat.executeUpdate("INSERT INTO StarsIn VALUES('Remember the Titans', 2000, 'Denzel Washington')");
+
+    // Example 4
+    PreparedStatement starStat = myCon.prepareStatement(
+        "INSERT INTO StarsIn VALUES('Remember the Titans', 2000, 'Denzel Washington')");
+    starStat.executeUpdate()");
+    \end{lstlisting}
+
+                    \bigskip
+
                 \end{enumerate}
                 \item Cursor Operations in JDBC
+                \begin{itemize}
+                    \item \textbf{next():}
+                    \begin{itemize}
+                        \item Moves to next tuple
+                    \end{itemize}
+                    \item \textbf{getString($i$), getInt($i$), getFloat($i$):}
+                    \begin{itemize}
+                        \item Fetches and converts value at $i$th column in tuple
+                    \end{itemize}
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+                    \bigskip
+
+    \begin{lstlisting}[language=JAVA]
+    Statement execStat = myCon.createStatement();
+    ResultSet worths = execStat.executeQuery(
+        "SELECT netWorth FROM MovieExec");
+
+    while (worths.next()) {
+        int worth = worths.getInt(1);
+        ...
+    }
+    \end{lstlisting}
+
+                \end{itemize}
                 \item Parameter Passing
             \end{itemize}
         \end{itemize}
