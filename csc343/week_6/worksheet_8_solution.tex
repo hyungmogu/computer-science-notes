@@ -64,12 +64,66 @@
         \item
 
     \begin{lstlisting}[language=c]
+    #include <float.h>
+
     #include sqlcli.h
+
     void askUserForPrice() {
+
+        float targetPrice, minDiff, speedSol, minDiff = FLT_MAX;
+        int modelSol;
+        char makerSol;
+
         SQLHENV myEnv;
         SQLHDBC myCon;
         SQLHSTMT execStat;
-        SQLINTEGER worth, worthInfo;
+
+        SQLINTEGER model, modelInfo, speedInfo, ram, ramInfo, hd, hdInfo, priceInfo, makerInfo;
+        SQLREAL speed, price;
+        SQLCHAR maker;
+
+
+        errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
+                    SQL_NULL_HANDLE, &myEnv);
+
+        if (!errorCode1) {
+            errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
+        }
+
+        if (!errorCode2) {
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
+        }
+
+        if (!errorCode3) {
+            SQLPrepare(execStat,
+                      "SELECT model, speed, ram, hd, price, maker "
+                      "FROM Product NATURAL JOIN PC", SQL_NTS);
+            SQLExecute(execStat);
+            SQLBindCol(execStat, 1, SQL_INTEGER, &model, sizeof(model), &modelInfo);
+            SQLBindCol(execStat, 2, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
+            SQLBindCol(execStat, 3, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
+            SQLBindCol(execStat, 4, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
+            SQLBindCol(execStat, 5, SQL_FLOAT, &price, sizeof(price), &priceInfo);
+            SQLBindCol(execStat, 5, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
+
+            printf("Enter target price:");
+            scanf("%f", &targetPrice);
+
+            while (SQLFetch(execStat) != SQL_NO_DATA) {
+
+                if (abs(price - targetPrice) >= minDiff) {
+                    continue;
+                }
+
+                minDiff = abs(price - targetPrice);
+                modelSol = model;
+                speedSol = speed;
+                makerSol = maker;
+            }
+
+            printf("maker=%c, model=%d, speed=%.2f\n", makerSol, modelSol, speedSol);
+
+        }
     }
     \end{lstlisting}
 
