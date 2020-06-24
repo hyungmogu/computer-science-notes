@@ -982,6 +982,25 @@
 
                 \end{itemize}
                 \item Parameter Passing
+                \begin{itemize}
+                    \item \textbf{Syntax:} $<\text{PreparedStatement object}>$.setString($<\text{column position}>$, $<\text{insert variable}>$);
+                    \item Is similar to \textbf{SQLBindCol} in C
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+                    \bigskip
+
+    \begin{lstlisting}[language=JAVA]
+    PreparedStatement studioStat = myCon.prepareStatement(
+        "INSERT INTO Studio(name, address) VALUES(?, ?)");
+
+    studioStat.setString(1, studioName);
+    studioStat.setString(2, studioAddr);
+    studioStat.executeUpdate();
+    \end{lstlisting}
+                \end{itemize}
             \end{itemize}
         \end{itemize}
     \end{enumerate}
