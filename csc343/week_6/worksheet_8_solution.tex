@@ -752,6 +752,8 @@
         int newDateBattleMonth;
         int newDateBattleYear;
 
+        SQLCHAR name[101], class[101]
+
         SQLHENV myEnv;
         SQLHDBC myCon;
         SQLHSTMT execStat, subExecStat;
@@ -771,50 +773,44 @@
 
         if (!errorCode3) {
 
-            EXEC SQL DECLARE execCursor CURSOR FOR
-                SELECT Ships.name,
-                    Ships.class,
-                    Ships.launched,
-                    Outcomes.battle,
-                    Battles.date
-                FROM Ships
-                INNER JOIN Outcomes ON Ships.name = Outcomes.ship
-                INNER JOIN Battles ON Outcomes.battle = Battles.name
-                WHERE Ships.launched > Battles.date;
+            SQLPrepare(execStat,
+                        "SELECT Ships.name, Ships.class, Outcomes.battle"
+                        "FROM Ships "
+                        "INNER JOIN Outcomes ON Ships.name = Outcomes.ship "
+                        "INNER JOIN Battles ON Outcomes.battle = Battles.name "
+                        "WHERE Ships.launched > Battles.date", SQL_NTS);
+            SQLExecute(execStat);
+            SQLBindCol(execStat, 1, SQL_CHAR, &shipName, sizeof(shipName), &shipNameInfo);
+            SQLBindCol(execStat, 2, SQL_FLOAT, &class, sizeof(class), &classInfo);
+            SQLBindCol(execStat, 3, SQL_INTEGER, &battle, sizeof(battle), &battleInfo);
 
-            EXEC SQL OPEN execCursor;
-                while(1) {
-                    EXEC SQL FETCH FROM execCursor INTO :shipName,
-                        :class, :dateLaunched, :battle, :dateBattle;
+            while(SQLFetch(execStat) != SQL_NO_DATA) {
 
-                    if (NO_MORE_TUPLES) break;
+                printf("Error. Ship %s is launched after date of battle.\n");
 
-                    printf("Error. Ship %s is launched after date of battle.\n");
+                printf("Enter correct launched date (YYYY-MM-DD, Press enter to skip):\n");
+                fgets(dateLaunched, sizeof(dateLaunched), stdin);
 
-                    printf("Enter correct launched date (YYYY-MM-DD, Press enter to skip):\n");
-                    fgets(dateLaunched, sizeof(dateLaunched), stdin);
-
-                    if (dateLaunched[0] != '\n') {
-                        // Correct date of launch
-                        EXEC SQL UPDATE Ships
-                                SET launched = newDateLaunched
-                                WHERE name=:shipName AND
-                                    class=:class AND
-                                    launched=:dateLaunched;
-                    }
-
-                    printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
-                    fgets(dateBattle, sizeof(dateBattle),stdin);
-
-                    if (dateBattle[0] != '\n') {
-                        // Correct date of battle
-                        EXEC SQL UPDATE Battles
-                                SET date = newDateBattle
-                                WHERE name=:battle AND
-                                    date=dateBattle;
-                    }
+                if (dateLaunched[0] != '\n') {
+                    // Correct date of launch
+                    EXEC SQL UPDATE Ships
+                            SET launched = newDateLaunched
+                            WHERE name=:shipName AND
+                                class=:class AND
+                                launched=:dateLaunched;
                 }
-            EXEC SQL CLOSE execCursor;
+
+                printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
+                fgets(dateBattle, sizeof(dateBattle),stdin);
+
+                if (dateBattle[0] != '\n') {
+                    // Correct date of battle
+                    EXEC SQL UPDATE Battles
+                            SET date = newDateBattle
+                            WHERE name=:battle AND
+                                date=dateBattle;
+                }
+            }
         }
     }
     \end{lstlisting}
