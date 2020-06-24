@@ -1070,7 +1070,10 @@
 
     class Q3b {
         public static void main(String[ ] args) {
-            float minSpeed, minPrice, speed, price;
+            float minSpeed
+            float minPrice
+            float speed;
+            float price;
             int minRam;
             int minHd;
             int model;
@@ -1078,6 +1081,36 @@
             int hd;
             int screen;
             String maker;
+
+            try {
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+                Statement execStat = myCon.createStatement();
+
+                Scanner scanObj = new Scanner(System.in);
+
+                System.out.println("Enter minimum speed:");
+                String minSpeedRaw = scanObj.nextLine();
+                minSpeed = Float.parseFloat(minSpeedRaw);
+
+                System.out.println("Enter minimum ram:");
+                String minRamRaw = scanObj.nextLine();
+                minRam = Integer.parseFloat(minRamRaw);
+
+
+                System.out.println("Enter minimum hard-drive space:");
+                String hdRaw = scanObj.nextLine();
+                hd = Integer.parseFloat(hdRaw);
+
+                printf("Enter minimum price:");
+                scanf("%f", &minPrice);
+
+
+
+            } catch (SQLException ex) {
+                // handle the error
+                System.out.println("Error occured while establishing database connection");
+            }
 
             errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
                         SQL_NULL_HANDLE, &myEnv);
