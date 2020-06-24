@@ -358,7 +358,6 @@
             printf("Enter manufacturer:");
             scanf("%c", &targetMaker);
 
-            ≈
             SQLBindCol(execStat, 1, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
             SQLBindCol(execStat, 2, SQL_CHAR, &productType, sizeof(productType), &productTypeInfo);
 
@@ -821,6 +820,73 @@
     }
     \end{lstlisting}
 
+    \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item JDBC
+            \begin{itemize}
+                \item Setup
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Import JDBC
+
+                    \bigskip
+
+                    import java.sql.*;
+
+                    \bigskip
+
+                    \item Load a drive rfor the database system to use (i.e. sqlite, postgresql, mysql)
+
+                    \bigskip
+
+                    Class.forName($<\text{driver name}>$);
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+                    \bigskip
+
+                    Class.forName("com.mysql.jdbc.Driver");
+
+                    \bigskip
+
+                    \item Establish a connection to the database
+
+                    \bigskip
+
+                    Connection myCon = DriverManager.getConnection($<\text{URL}>$, $<\text{user name}>$, $<\text{password}>$);
+
+                    \begin{itemize}
+                        \item The url for jdbc is
+
+                        \bigskip
+
+                        jdbc:mysql://$<\text{host name}>$/$<\text{database name}>$
+
+                        \bigskip
+                    \end{itemize}
+
+                \end{enumerate}
+                \item Creating Statements in JDBC
+                \item Cursor Operations in JDBC
+                \item Parameter Passing
+            \end{itemize}
+        \end{itemize}
     \end{enumerate}
 
 \end{enumerate}
