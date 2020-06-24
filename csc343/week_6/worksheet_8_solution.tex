@@ -492,22 +492,23 @@
             if (modelCount != 0) {
                 printf("Error. Model already exists in database.");
             } else {
-                EXEC SQL INSERT INTO PC(model, speed, ram, hd, price)
-                                VALUES(:model, :speed, :ram, :hd, :price);
-
                 SQLPrepare(execStat,
                         "INSERT INTO PC(model, speed, ram, hd, price)"
-                        "VALUES(?, ?, ?, ?, ?)"
-                        "UNION "
-                        "(SELECT model FROM PC WHERE model= ?)", SQL_NTS);
+                        "VALUES(?, ?, ?, ?, ?)", SQL_NTS);
                     SQLBindParameter(execStat, 1, ..., model, ...);
+                    SQLBindParameter(execStat, 2, ..., speed, ...);
+                    SQLBindParameter(execStat, 3, ..., ram, ...);
+                    SQLBindParameter(execStat, 4, ..., hd, ...);
+                    SQLBindParameter(execStat, 5, ..., price, ...);
                 SQLExecute(execStat);
 
-                EXEC SQL INSERT INTO Product(model, maker, type)
-                                VALUES(:model, :maker, "pc")
+                SQLPrepare(execStat,
+                        "INSERT INTO Product(model, maker, type)"
+                        "VALUES(?, ?, 'pc')", SQL_NTS);
+                    SQLBindParameter(execStat, 1, ..., model, ...);
+                    SQLBindParameter(execStat, 2, ..., maker, ...);
+                SQLExecute(execStat);
             }
-
-
         }
     }
     \end{lstlisting}
