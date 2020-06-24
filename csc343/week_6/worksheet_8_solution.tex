@@ -861,7 +861,9 @@
 
                     \bigskip
 
-                    Class.forName("com.mysql.jdbc.Driver");
+    \begin{lstlisting}[language=JAVA]
+    Class.forName("com.mysql.jdbc.Driver");
+    \end{lstlisting}
 
                     \bigskip
 
@@ -883,6 +885,29 @@
 
                 \end{enumerate}
                 \item Creating Statements in JDBC
+
+                \begin{enumerate}[1.]
+                    \item \textbf{createStatement():}
+                    \begin{itemize}
+                        \item Prepares a statement object
+                        \item Is similar to \textbf{SQLAllocHandle} in C
+                    \end{itemize}
+                    \item \textbf{prepareStatement(Q):}
+                    \begin{itemize}
+                        \item Prepares a statement object but with query
+                        \item Is similar to \textbf{SQLAllocHandle} and \textbf{SQLPrepare} combined in C
+                    \end{itemize}
+                    \item \textbf{executeQuery(Q):}
+                    \begin{itemize}
+                        \item takes a query statement Q and executes it.
+                        \item Is similar to \textbf{SQLPrepare} and \textbf{SQLExecute}
+                    \end{itemize}
+                    \item \textbf{executeQuery():}
+                    \begin{itemize}
+                        \item Is used with \textbf{prepareStatement(Q)}
+                        \item Is similar to \textbf{SQLPrepare} and \textbf{SQLExecute}
+                    \end{itemize}
+                \end{enumerate}
                 \item Cursor Operations in JDBC
                 \item Parameter Passing
             \end{itemize}
