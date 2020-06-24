@@ -104,7 +104,7 @@
             SQLBindCol(execStat, 3, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
             SQLBindCol(execStat, 4, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
             SQLBindCol(execStat, 5, SQL_FLOAT, &price, sizeof(price), &priceInfo);
-            SQLBindCol(execStat, 5, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
+            SQLBindCol(execStat, 6, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
 
             printf("Enter target price:");
             scanf("%f", &targetPrice);
@@ -268,8 +268,9 @@
         float minSpeed, minPrice;
         int minRam, minHd;
 
-        SQLINTEGER model, ram, hd, screen;
+        SQLINTEGER model, modelInfo, speedInfo, ram, ramInfo, hd, hdInfo, priceInfo, makerInfo, screen, screenInfo;
         SQLREAL speed, price;
+        SQLCHAR maker;
 
         errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
                     SQL_NULL_HANDLE, &myEnv);
@@ -283,9 +284,17 @@
         }
 
         if (!errorCode3) {
-            EXEC SQL DECLARE execCursor CURSOR FOR
-            SELECT model, speed, ram, hd, screen, price, maker
-            FROM Product NATURAL JOIN Laptop;
+            SQLPrepare(execStat,
+                      "SELECT model, speed, ram, hd, screen, price, maker "
+                      "FROM Product NATURAL JOIN Laptop", SQL_NTS);
+            SQLExecute(execStat);
+            SQLBindCol(execStat, 1, SQL_INTEGER, &model, sizeof(model), &modelInfo);
+            SQLBindCol(execStat, 2, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
+            SQLBindCol(execStat, 3, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
+            SQLBindCol(execStat, 4, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
+            SQLBindCol(execStat, 5, SQL_INTEGER, &screen, sizeof(screen), &screenInfo);
+            SQLBindCol(execStat, 6, SQL_FLOAT, &price, sizeof(price), &priceInfo);
+            SQLBindCol(execStat, 7, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
 
             printf("Enter minimum speed:");
             scanf("%f", &minSpeed);
@@ -299,12 +308,7 @@
             printf("Enter minimum price:");
             scanf("%f", &minPrice);
 
-            while(1) {
-                EXEC SQL FETCH FROM execCursor INTO :model,
-                    :speed, :ram, :hd, :screen, :price, :maker;
-
-                if (NO_MORE_TUPLES) break;
-
+            while(SQLFetch(execStat) != SQL_NO_DATA) {
                 if (
                     speed >= minSpeed &&
                     ram >= minRam &&
