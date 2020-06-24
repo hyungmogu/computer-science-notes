@@ -334,9 +334,9 @@
 
         SQLHENV myEnv;
         SQLHDBC myCon;
-        SQLHSTMT execStat;
+        SQLHSTMT execStat, subExecStat;
 
-        SQLINTEGER model, modelInfo, speedInfo, ram, ramInfo, hd, hdInfo, priceInfo, makerInfo, screen, screenInfo, color, colorInfo;
+        SQLINTEGER model, modelInfo, speedInfo, ram, ramInfo, hd, hdInfo, priceInfo, makerInfo, screen, screenInfo, color, colorInfo, printTypeInfo;
         SQLREAL speed, price;
         SQLCHAR maker, printType[50];
 
@@ -350,10 +350,11 @@
         }
 
         if (!errorCode2) {
-            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat);
+            errorCode4 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &subExecStat);
         }
 
-        if (!errorCode3) {
+        if (!errorCode3 && !errorCode4) {
             printf("Enter manufacturer:");
             scanf("%c", &targetMaker);
 
@@ -367,62 +368,58 @@
             SQLBindCol(execStat, 2, SQL_CHAR, &productType, sizeof(productType), &productTypeInfo);
 
             while (SQLFetch(execStat) != SQL_NO_DATA) {
-
                 if (strcmp(productType,'pc')) {
-                    EXEC SQL DECLARE pcCursor CURSOR FOR
-                        SELECT speed, ram, hd, price FROM PC
-                        NATURAL JOIN Product
-                        WHERE type=productType;
+                    SQLPrepare(subExecStat,
+                                "SELECT speed, ram, hd, price FROM PC "
+                                "NATURAL JOIN Product "
+                                "WHERE type= ?", SQL_NTS);
+                        SQLBindParameter(subExecStat, 1, ..., productType, ...);
+                    SQLExecute(subExecStat);
 
-                    EXEC SQL OPEN pcCursor;
-                    while(1) {
-                        EXEC SQL FETCH FROM pcCursor INTO :speed,
-                            :ram, :hd, :price;
+                    SQLBindCol(subExecStat, 1, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
+                    SQLBindCol(subExecStat, 2, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
+                    SQLBindCol(subExecStat, 3, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
+                    SQLBindCol(subExecStat, 4, SQL_FLOAT, &price, sizeof(price), &priceInfo);
 
-                        if (NO_MORE_TUPLES) break;
-
+                    while(SQLFetch(subExecStat) != SQL_NO_DATA) {
                         printf("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
                         model, speed, ram, hd, screen, price, maker, productType);
                     }
-                    EXEC SQL CLOSE pcCursor;
-
                 } else if (strcmp(productType, 'laptop')) {
 
-                    EXEC SQL DECLARE laptopCursor CURSOR FOR
-                        SELECT speed, ram, hd, screen, price FROM Laptop
-                        NATURAL JOIN Product
-                        WHERE type=productType;
+                    SQLPrepare(subExecStat,
+                                "SELECT speed, ram, hd, screen, price FROM Laptop "
+                                "NATURAL JOIN Product "
+                                "WHERE type= ?", SQL_NTS);
+                        SQLBindParameter(subExecStat, 1, ..., productType, ...);
+                    SQLExecute(subExecStat);
 
-                    EXEC SQL OPEN laptopCursor;
-                    while(1) {
-                        EXEC SQL FETCH FROM laptopCursor INTO :speed,
-                            :ram, :hd, :screen, :price;
+                    SQLBindCol(subExecStat, 1, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
+                    SQLBindCol(subExecStat, 2, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
+                    SQLBindCol(subExecStat, 3, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
+                    SQLBindCol(subExecStat, 4, SQL_INTEGER, &screen, sizeof(screen), &screenInfo);
+                    SQLBindCol(subExecStat, 5, SQL_FLOAT, &price, sizeof(price), &priceInfo);
 
-                        if (NO_MORE_TUPLES) break;
-
+                    while(SQLFetch(subExecStat) != SQL_NO_DATA) {
                         printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
                         model, speed, ram, hd, screen, screen, price, maker, productType);
                     }
-                    EXEC SQL CLOSE laptopCursor;
-
-
                 } else if (strcmp(productType, 'printer')) {
-                    EXEC SQL DECLARE printerCursor CURSOR FOR
-                        SELECT color, printType, price FROM Printer
-                        NATURAL JOIN Product
-                        WHERE type=productType;
+                    SQLPrepare(subExecStat,
+                                "SELECT color, printType, price FROM Printer "
+                                "NATURAL JOIN Product "
+                                "WHERE type= ?", SQL_NTS);
+                        SQLBindParameter(subExecStat, 1, ..., productType, ...);
+                    SQLExecute(subExecStat);
 
-                    EXEC SQL OPEN printerCursor;
-                    while(1) {
-                        EXEC SQL FETCH FROM printerCursor INTO :color,
-                            :printType, :price;
+                    SQLBindCol(subExecStat, 1, SQL_INTEGER, &color, sizeof(speed), &speedInfo);
+                    SQLBindCol(subExecStat, 2, SQL_CHAR, &printType, sizeof(printType), &printTypeInfo);
+                    SQLBindCol(subExecStat, 3, SQL_FLOAT, &price, sizeof(price), &priceInfo);
 
-                        if (NO_MORE_TUPLES) break;
-
+                    while(SQLFetch(subExecStat) != SQL_NO_DATA) {
                         printf("model=%d, color=%s, price=%.2f, maker=%c, type=%s",
                         model, color ? "true" : "false", price, maker, type);
                     }
-                    EXEC SQL CLOSE printerCursor;
                 }
             }
         }
