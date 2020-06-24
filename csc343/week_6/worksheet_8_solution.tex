@@ -426,6 +426,91 @@
     }
     \end{lstlisting}
 
+        \item
+        \item
+
+    \begin{lstlisting}[language=c]
+    #include <sqlcli.h>
+    #include <string.h>
+    ...
+    void insertNewPC() {
+
+        int model, ram, hd;
+        float speed, price;
+        char maker;
+
+        SQLINTEGER modelCount;
+
+        SQLHENV myEnv;
+        SQLHDBC myCon;
+        SQLHSTMT execStat, subExecStat;
+
+        SQLRETURN errorCode1, errorCode2, errorCode3;
+
+        errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
+                    SQL_NULL_HANDLE, &myEnv);
+
+        if (!errorCode1) {
+            errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
+        }
+
+        if (!errorCode2) {
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat);
+        }
+
+        if (!errorCode3) {
+            printf("Enter manufacturer:\n");
+            scanf("%c", &maker);
+
+            printf("Enter model:\n");
+            scanf("%d", &model);
+
+            printf("Enter speed:\n");
+            scanf("%f", &speed);
+
+            printf("Enter ram:\n");
+            scanf("%d", &ram);
+
+            printf("Enter hd:\n");
+            scanf("%d", &hd);
+
+            printf("Enter price:\n");
+            scanf("%f", &price);
+
+            printf("Enter maker:\n");
+            scanf("%c", &maker);
+
+            SQLPrepare(execStat,
+                      "SELECT COUNT(model) FROM ("
+                      "(SELECT model FROM Product WHERE model=:model) "
+                      "UNION "
+                      "(SELECT model FROM PC WHERE model= ?)", SQL_NTS);
+                SQLBindParameter(execStat, 1, ..., model, ...);
+            SQLExecute(execStat);
+            SQLBindCol(execStat, 1, SQL_INT, &modelCount, sizeof(modelCount), &modelCountInfo);
+
+            if (modelCount != 0) {
+                printf("Error. Model already exists in database.");
+            } else {
+                EXEC SQL INSERT INTO PC(model, speed, ram, hd, price)
+                                VALUES(:model, :speed, :ram, :hd, :price);
+
+                SQLPrepare(execStat,
+                        "INSERT INTO PC(model, speed, ram, hd, price)"
+                        "VALUES(?, ?, ?, ?, ?)"
+                        "UNION "
+                        "(SELECT model FROM PC WHERE model= ?)", SQL_NTS);
+                    SQLBindParameter(execStat, 1, ..., model, ...);
+                SQLExecute(execStat);
+
+                EXEC SQL INSERT INTO Product(model, maker, type)
+                                VALUES(:model, :maker, "pc")
+            }
+
+
+        }
+    }
+    \end{lstlisting}
 
     \end{enumerate}
 
