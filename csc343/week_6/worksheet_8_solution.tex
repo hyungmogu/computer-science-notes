@@ -1066,12 +1066,69 @@
         \item
 
     \begin{lstlisting}[language=JAVA]
-    PreparedStatement studioStat = myCon.prepareStatement(
-        "INSERT INTO Studio(name, address) VALUES(?, ?)");
+    import java.util.Scanner;
 
-    studioStat.setString(1, studioName);
-    studioStat.setString(2, studioAddr);
-    studioStat.executeUpdate();
+    class Q3b {
+        public static void main(String[ ] args) {
+            float minSpeed, minPrice, speed, price;
+            int minRam;
+            int minHd;
+            int model;
+            int ram;
+            int hd;
+            int screen;
+            String maker;
+
+            errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
+                        SQL_NULL_HANDLE, &myEnv);
+
+            if (!errorCode1) {
+                errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
+            }
+
+            if (!errorCode2) {
+                errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
+            }
+
+            if (!errorCode3) {
+                SQLPrepare(execStat,
+                            "SELECT model, speed, ram, hd, screen, price, maker "
+                            "FROM Product NATURAL JOIN Laptop", SQL_NTS);
+                SQLExecute(execStat);
+                SQLBindCol(execStat, 1, SQL_INTEGER, &model, sizeof(model), &modelInfo);
+                SQLBindCol(execStat, 2, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
+                SQLBindCol(execStat, 3, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
+                SQLBindCol(execStat, 4, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
+                SQLBindCol(execStat, 5, SQL_INTEGER, &screen, sizeof(screen), &screenInfo);
+                SQLBindCol(execStat, 6, SQL_FLOAT, &price, sizeof(price), &priceInfo);
+                SQLBindCol(execStat, 7, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
+
+                printf("Enter minimum speed:");
+                scanf("%f", &minSpeed);
+
+                printf("Enter minimum ram:");
+                scanf("%f", &minRam);
+
+                printf("Enter minimum hard-drive space:");
+                scanf("%f", &minHd);
+
+                printf("Enter minimum price:");
+                scanf("%f", &minPrice);
+
+                while(SQLFetch(execStat) != SQL_NO_DATA) {
+                    if (
+                        speed >= minSpeed &&
+                        ram >= minRam &&
+                        hd >= minHd &&
+                        screen >= minScreen
+                    ) {
+                        printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
+                            model, speed, ram, hd, screen, price, maker);
+                    }
+                }
+            }
+        }
+    }
     \end{lstlisting}
     \end{enumerate}
 
