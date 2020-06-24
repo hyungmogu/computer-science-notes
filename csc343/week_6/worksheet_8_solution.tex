@@ -1085,7 +1085,6 @@
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                 Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
-                Statement execStat = myCon.createStatement();
 
                 Scanner scanObj = new Scanner(System.in);
 
@@ -1097,68 +1096,42 @@
                 String minRamRaw = scanObj.nextLine();
                 minRam = Integer.parseFloat(minRamRaw);
 
-
                 System.out.println("Enter minimum hard-drive space:");
                 String hdRaw = scanObj.nextLine();
                 hd = Integer.parseFloat(hdRaw);
 
-                printf("Enter minimum price:");
-                scanf("%f", &minPrice);
+                System.out.println("Enter minimum price:");
+                String priceRaw = scanObj.nextLine();
+                hd = Integer.parseFloat(priceRaw);
 
+                PreparedStatement execStat = myCon.prepareStatement(
+                    "SELECT model, speed, ram, hd, screen, price, maker" +
+                    "FROM Product NATURAL JOIN Laptop");
+                ResultSet results = execStat.executeQuery();
 
+                while(results.next()) {
+                    model = results.getInt(1);
+                    speed = results.getFloat(2);
+                    ram = results.getFloat(3);
+                    hd = results.getInt(4);
+                    screen = results.getInt(5);
+                    price = results.getInt(6);
+                    maker = results.getString(7);
 
-            } catch (SQLException ex) {
-                // handle the error
-                System.out.println("Error occured while establishing database connection");
-            }
-
-            errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
-                        SQL_NULL_HANDLE, &myEnv);
-
-            if (!errorCode1) {
-                errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
-            }
-
-            if (!errorCode2) {
-                errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
-            }
-
-            if (!errorCode3) {
-                SQLPrepare(execStat,
-                            "SELECT model, speed, ram, hd, screen, price, maker "
-                            "FROM Product NATURAL JOIN Laptop", SQL_NTS);
-                SQLExecute(execStat);
-                SQLBindCol(execStat, 1, SQL_INTEGER, &model, sizeof(model), &modelInfo);
-                SQLBindCol(execStat, 2, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
-                SQLBindCol(execStat, 3, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
-                SQLBindCol(execStat, 4, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
-                SQLBindCol(execStat, 5, SQL_INTEGER, &screen, sizeof(screen), &screenInfo);
-                SQLBindCol(execStat, 6, SQL_FLOAT, &price, sizeof(price), &priceInfo);
-                SQLBindCol(execStat, 7, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
-
-                printf("Enter minimum speed:");
-                scanf("%f", &minSpeed);
-
-                printf("Enter minimum ram:");
-                scanf("%f", &minRam);
-
-                printf("Enter minimum hard-drive space:");
-                scanf("%f", &minHd);
-
-                printf("Enter minimum price:");
-                scanf("%f", &minPrice);
-
-                while(SQLFetch(execStat) != SQL_NO_DATA) {
                     if (
                         speed >= minSpeed &&
                         ram >= minRam &&
                         hd >= minHd &&
                         screen >= minScreen
                     ) {
-                        printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
-                            model, speed, ram, hd, screen, price, maker);
+                        System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
+                            model, speed, ram, hd, screen, price, maker));
                     }
                 }
+
+            } catch (SQLException ex) {
+                // handle the error
+                System.out.println("Error occured while establishing database connection");
             }
         }
     }
