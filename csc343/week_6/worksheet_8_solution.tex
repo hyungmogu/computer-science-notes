@@ -560,8 +560,102 @@
     }
     \end{lstlisting}
 
-    \end{enumerate}
+        \item
 
+    \begin{lstlisting}[language=c]
+    #include <sqlcli.h>
+    #include <string.h>
+    ...
+    void countryWithMostShipsSunk() {
+        char targetBattle[255];
+        char mostSunkCountry[100];
+        int maxSunkCount = 0, loopIndex = 0;
+
+        char mostDamagedCountry[100];
+        int maxDamagedCount = 0;
+
+        SQLCHAR country[100];
+        SQLINTEGER count, countInfo. countryInfo;
+
+        SQLHENV myEnv;
+        SQLHDBC myCon;
+        SQLHSTMT execStat, subExecStat;
+
+        SQLRETURN errorCode1, errorCode2, errorCode3;
+
+        errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
+                    SQL_NULL_HANDLE, &myEnv);
+
+        if (!errorCode1) {
+            errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
+        }
+
+        if (!errorCode2) {
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
+        }
+
+        if (!errorCode3) {
+
+            printf("Enter name of battle:\n");
+            scanf("%s", &targetBattle);
+
+            SQLPrepare(execStat,
+                        "SELECT country, COUNT(Outcomes.result) FROM Classes "
+                        "INNER JOIN Ships ON Classes.class = Ships.class "
+                        "INNER JOIN Outcomes ON Ships.name = Outcomes.ship "
+                        "INNER JOIN Battles ON Battles.name = Outcome.battle "
+                        "GROUP BY country "
+                        "HAVING Battles.name=:targetBattle AND"
+                        "Outcomes.result='sunk'", SQL_NTS);
+            SQLExecute(execStat);
+            SQLBindCol(execStat, 1, SQL_CHAR, &country, sizeof(country), &countryInfo);
+            SQLBindCol(execStat, 2, SQL_INTEGER, &count, sizeof(count), &countInfo);
+
+            while(SQLFetch(execStat) != SQL_NO_DATA) {
+                if (loopIndex == 0) {
+                    strcpy(mostSunkCountry, country);
+                }
+
+                if (count > maxSunkCount) {
+                    maxSunkCount = count;
+                    strcpy(mostSunkCountry, country);
+                }
+                loopIndex = loopIndex + 1;
+            }
+
+            printf("Country with most sunk ships: %s", mostSunkCountry);
+
+
+            count = 0;
+            loopIndex = 0;
+            SQLPrepare(execStat,
+                        "SELECT country, COUNT(Outcomes.result) FROM Classes "
+                        "INNER JOIN Ships ON Classes.class = Ships.class "
+                        "INNER JOIN Outcomes ON Ships.name = Outcomes.ship "
+                        "INNER JOIN Battles ON Battles.name = Outcome.battle "
+                        "GROUP BY country "
+                        "HAVING Battles.name=:targetBattle AND"
+                        "Outcomes.result='damaged'", SQL_NTS);
+            SQLExecute(execStat);
+
+            while(SQLFetch(execStat) != SQL_NO_DATA) {
+                if (loopIndex == 0) {
+                    strcpy(mostDamagedCountry, country);
+                }
+
+                if (count > maxDamagedCount) {
+                    maxDamagedCount = count;
+                    strcpy(mostDamagedCountry, country);
+                }
+                loopIndex = loopIndex + 1;
+            }
+
+            printf("Country with most damaged ships: %s", mostDamagedCountry);
+        }
+    }
+    \end{lstlisting}
+
+    \end{enumerate}
 
 \end{enumerate}
 
