@@ -358,12 +358,7 @@
             printf("Enter manufacturer:");
             scanf("%c", &targetMaker);
 
-            SQLPrepare(execStat,
-                      "SELECT maker, productType FROM Product "
-                      "GROUP BY maker, productType "
-                      "WHERE maker = ?", SQL_NTS);
-                SQLBindParameter(execStat, 1, ..., targetMaker, ...);
-            SQLExecute(execStat);
+            ≈
             SQLBindCol(execStat, 1, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
             SQLBindCol(execStat, 2, SQL_CHAR, &productType, sizeof(productType), &productTypeInfo);
 
@@ -758,7 +753,7 @@
         SQLHDBC myCon;
         SQLHSTMT execStat, subExecStat;
 
-        SQLRETURN errorCode1, errorCode2, errorCode3;
+        SQLRETURN errorCode1, errorCode2, errorCode3, errorCode4;
 
         errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
                     SQL_NULL_HANDLE, &myEnv);
@@ -768,10 +763,11 @@
         }
 
         if (!errorCode2) {
-            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat);
+            errorCode4 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &subExecStat);
         }
 
-        if (!errorCode3) {
+        if (!errorCode3 && !errorCode4) {
 
             SQLPrepare(execStat,
                         "SELECT Ships.name, Ships.class, Outcomes.battle"
@@ -788,16 +784,19 @@
 
                 printf("Error. Ship %s is launched after date of battle.\n");
 
-                printf("Enter correct launched date (YYYY-MM-DD, Press enter to skip):\n");
+                printf("Enter correct launched date (YYYY-MM-DD. Type 0000-00-00 to skip):\n");
                 fgets(dateLaunched, sizeof(dateLaunched), stdin);
 
                 if (dateLaunched[0] != '\n') {
                     // Correct date of launch
-                    EXEC SQL UPDATE Ships
-                            SET launched = newDateLaunched
-                            WHERE name=:shipName AND
-                                class=:class AND
-                                launched=:dateLaunched;
+                    SQLPrepare(subExecStat,
+                                "UPDATE Ships "
+                                "SET launched = ? "
+                                "WHERE name = ? AND class = ?", SQL_NTS);
+                        SQLBindParameter(subExecStat, 1, ..., newDateLaunched, ...);
+                        SQLBindParameter(subExecStat, 2, ..., shipName, ...);
+                        SQLBindParameter(subExecStat, 3, ..., class, ...);
+                    SQLExecute(subExecStat);
                 }
 
                 printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
@@ -805,10 +804,13 @@
 
                 if (dateBattle[0] != '\n') {
                     // Correct date of battle
-                    EXEC SQL UPDATE Battles
-                            SET date = newDateBattle
-                            WHERE name=:battle AND
-                                date=dateBattle;
+                    SQLPrepare(subExecStat,
+                                "UPDATE Battles "
+                                "SET date = ? "
+                                "WHERE name = ?", SQL_NTS);
+                        SQLBindParameter(subExecStat, 1, ..., newDateBattle, ...);
+                        SQLBindParameter(subExecStat, 2, ..., battle, ...);
+                    SQLExecute(subExecStat);
                 }
             }
         }
