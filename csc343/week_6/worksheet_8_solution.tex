@@ -828,6 +828,64 @@
         \item
 
         \bigskip
+    \begin{lstlisting}[language=java]
+    import java.sql.*;
+
+    class Playground {
+        public static void main(String[ ] args) {
+
+            int model, ram, hd, modelSol;
+            float targetPrice, minDiff, speedSol, minDiff = Float.MAX_VALUE;
+
+            String makerSol;
+
+            try {
+                // The newInstance() call is a work around for some
+                // broken Java implementations
+
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+
+                SQLPrepare(execStat,
+                        "SELECT model, speed, ram, hd, price, maker "
+                        "FROM Product NATURAL JOIN PC", SQL_NTS);
+                SQLExecute(execStat);
+                SQLBindCol(execStat, 1, SQL_INTEGER, &model, sizeof(model), &modelInfo);
+                SQLBindCol(execStat, 2, SQL_FLOAT, &speed, sizeof(speed), &speedInfo);
+                SQLBindCol(execStat, 3, SQL_INTEGER, &ram, sizeof(ram), &ramInfo);
+                SQLBindCol(execStat, 4, SQL_INTEGER, &hd, sizeof(hd), &hdInfo);
+                SQLBindCol(execStat, 5, SQL_FLOAT, &price, sizeof(price), &priceInfo);
+                SQLBindCol(execStat, 6, SQL_CHAR, &maker, sizeof(maker), &makerInfo);
+
+                printf("Enter target price:");
+                scanf("%f", &targetPrice);
+
+                while (SQLFetch(execStat) != SQL_NO_DATA) {
+
+                    if (abs(price - targetPrice) >= minDiff) {
+                        continue;
+                    }
+
+                    minDiff = abs(price - targetPrice);
+                    modelSol = model;
+                    speedSol = speed;
+                    makerSol = maker;
+                }
+
+                printf("maker=%c, model=%d, speed=%.2f\n", makerSol, modelSol, speedSol);
+
+            }
+
+
+            } catch (SQLException ex) {
+                // handle the error
+                System.out.println("Error occured while establishing database connection");
+            }
+        }
+    }
+    \end{lstlisting}
+
+        \bigskip
 
         \underline{\textbf{Notes:}}
 
