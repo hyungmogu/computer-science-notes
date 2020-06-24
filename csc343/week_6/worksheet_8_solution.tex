@@ -515,6 +515,53 @@
 
     \end{enumerate}
 
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=c]
+    void classWithLargestPower() {
+
+        SQLINTEGER classInfo;
+        SQLCHAR class[100];
+
+        SQLHENV myEnv;
+        SQLHDBC myCon;
+        SQLHSTMT execStat, subExecStat;
+
+        SQLRETURN errorCode1, errorCode2, errorCode3;
+
+        errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
+                    SQL_NULL_HANDLE, &myEnv);
+
+        if (!errorCode1) {
+            errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
+        }
+
+        if (!errorCode2) {
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat);
+        }
+
+        if (!errorCode3) {
+            SQLPrepare(execStat,
+                      "SELECT class FROM FROM Classes"
+                      "WHERE numGuns * POWER(bore, 3) >= ALL ( "
+                      "SELECT numGuns * POWER(bore, 3) FROM Classes "
+                      ")", SQL_NTS);
+                SQLBindParameter(execStat, 1, ..., model, ...);
+            SQLExecute(execStat);
+            SQLBindCol(execStat, 1, SQL_CHAR, &class, sizeof(class), &classInfo);
+
+            while(SQLFetch(execStat) != SQL_NO_DATA) {
+                printf("Class = %s\n", class);
+            }
+        }
+    }
+    \end{lstlisting}
+
+    \end{enumerate}
+
 
 \end{enumerate}
 
