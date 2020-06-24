@@ -734,6 +734,91 @@
     }
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=c]
+    #include <sqlcli.h>
+
+    void correctError() {
+        SQLCHAR battle[101], shipName[101];
+        DATE_STRUCT dateLaunched;
+        DATE_STRUCT dateBattle;
+
+        int newDateLaunchedDay;
+        int newDateLaunchedMonth;
+        int newDateLaunchedYear;
+
+        int newDateBattleDay;
+        int newDateBattleMonth;
+        int newDateBattleYear;
+
+        SQLHENV myEnv;
+        SQLHDBC myCon;
+        SQLHSTMT execStat, subExecStat;
+
+        SQLRETURN errorCode1, errorCode2, errorCode3;
+
+        errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
+                    SQL_NULL_HANDLE, &myEnv);
+
+        if (!errorCode1) {
+            errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
+        }
+
+        if (!errorCode2) {
+            errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
+        }
+
+        if (!errorCode3) {
+
+            EXEC SQL DECLARE execCursor CURSOR FOR
+                SELECT Ships.name,
+                    Ships.class,
+                    Ships.launched,
+                    Outcomes.battle,
+                    Battles.date
+                FROM Ships
+                INNER JOIN Outcomes ON Ships.name = Outcomes.ship
+                INNER JOIN Battles ON Outcomes.battle = Battles.name
+                WHERE Ships.launched > Battles.date;
+
+            EXEC SQL OPEN execCursor;
+                while(1) {
+                    EXEC SQL FETCH FROM execCursor INTO :shipName,
+                        :class, :dateLaunched, :battle, :dateBattle;
+
+                    if (NO_MORE_TUPLES) break;
+
+                    printf("Error. Ship %s is launched after date of battle.\n");
+
+                    printf("Enter correct launched date (YYYY-MM-DD, Press enter to skip):\n");
+                    fgets(dateLaunched, sizeof(dateLaunched), stdin);
+
+                    if (dateLaunched[0] != '\n') {
+                        // Correct date of launch
+                        EXEC SQL UPDATE Ships
+                                SET launched = newDateLaunched
+                                WHERE name=:shipName AND
+                                    class=:class AND
+                                    launched=:dateLaunched;
+                    }
+
+                    printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
+                    fgets(dateBattle, sizeof(dateBattle),stdin);
+
+                    if (dateBattle[0] != '\n') {
+                        // Correct date of battle
+                        EXEC SQL UPDATE Battles
+                                SET date = newDateBattle
+                                WHERE name=:battle AND
+                                    date=dateBattle;
+                    }
+                }
+            EXEC SQL CLOSE execCursor;
+        }
+    }
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
