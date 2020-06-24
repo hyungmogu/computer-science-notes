@@ -784,10 +784,12 @@
 
                 printf("Error. Ship %s is launched after date of battle.\n");
 
-                printf("Enter correct launched date (YYYY-MM-DD. Type 0000-00-00 to skip):\n");
-                fgets(dateLaunched, sizeof(dateLaunched), stdin);
+                printf("Enter correct launched date (YYYY-MM-DD. Type 0-0-0 to skip):\n");
+                scanf("%d-%d-%d", &newDateLaunchedDay, &newDateLaunchedMonth, &newDateLaunchedYear);
 
-                if (dateLaunched[0] != '\n') {
+                if (!newDateLaunchedDay == 0 &&
+                    !newDateLaunchedMonth == 0 &&
+                    !newDateLaunchedYear == 0) {
                     // Correct date of launch
                     SQLPrepare(subExecStat,
                                 "UPDATE Ships "
@@ -799,10 +801,12 @@
                     SQLExecute(subExecStat);
                 }
 
-                printf("Enter correct battle date (YYYY-MM-DD, Press enter to skip):\n");
-                fgets(dateBattle, sizeof(dateBattle),stdin);
+                printf("Enter correct launched date (YYYY-MM-DD. Type 0-0-0 to skip):\n");
+                scanf("%d-%d-%d", &newDateBattleDay, &newDateBattleMonth, &newDateBattleYear);
 
-                if (dateBattle[0] != '\n') {
+                if (!newDateBattleDay == 0 &&
+                    !newDateBattleMonth == 0 &&
+                    !newDateBattleYear == 0) {
                     // Correct date of battle
                     SQLPrepare(subExecStat,
                                 "UPDATE Battles "
