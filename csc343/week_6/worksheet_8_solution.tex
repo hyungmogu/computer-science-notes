@@ -1671,116 +1671,53 @@
 
         \item
 
-    \begin{lstlisting}[language=JAVA]
-    import java.sql.*;
-    import java.util.Scanner;
+    \begin{lstlisting}[language=PHP]
+    <?php
+    function writeMsg() {
+        try {
+            // The newInstance() call is a work around for some
+            // broken Java implementations
 
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+            Statement execStat = myCon.createStatement();
 
-    class Q4d {
-        public static void main(String[ ] args) {
-            String battle;
-            String shipName;
+            Scanner scanObj = new Scanner(System.in);
+            System.out.println("Enter target price:");
 
-            Date dateLaunched;
-            String newDateLaunched;
-            Date dateBattle;
-            String newDateBattle;
+            String targetPriceRaw = scanObj.nextLine();  // Read user input
+            float targetPrice = Float.parseFloat(targetPriceRaw);
 
-            try {
-                Class.forName("com.mysql.jdbc.Driver").newInstance();
-                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q4");
+            ResultSet results = execStat.executeQuery("SELECT model, speed, ram, hd, price, maker FROM Product NATURAL JOIN PC");
 
-                Scanner scanObj = new Scanner(System.in);
+            while (results.next()) {
+                model = results.getInt(1);
+                speed = results.getFloat(2);
+                ram = results.getFloat(3);
+                hd = results.getInt(4);
+                price = results.getInt(5);
+                maker = results.getString(6);
 
-                PrepareStatement execStat = myCon.prepareStatement("SELECT Ships.name, Ships.class, Outcomes.battle " +
-                                "FROM Ships " +
-                                "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
-                                "INNER JOIN Battles ON Outcomes.battle = Battles.name " +
-                                "WHERE Ships.launched > Battles.date");
-                ResultSet results = execStat.executeQuery();
-
-                while (results.next()) {
-                    shipName = results.getString(1);
-                    class = results.getString(2);
-                    battle = results.getString(3);
-
-                    System.out.println("Error. Ship %s is launched after date of battle:");
-                    System.out.println("Enter correct launched date (YYYY-MM-DD. Type enter to skip):");
-                    newDateLaunched = scanObj.nextLine();
-
-                    if (newDateLaunched.trim().equals("")) {
-                        PrepareStatement updateShipsStat  = myCon.prepareStatement("UPDATE Ships " +
-                                        "SET launched = ? " +
-                                        "WHERE name = ? AND class = ?");
-
-                            updateShipsStat.setString(1, newDateLaunched);
-                            updateShipsStat.setString(2, shipName);
-                            updateShipsStat.setString(3, class);
-                        updateShipsStat.executeQuery();
-                    }
-
-                    System.out.println("Enter correct launched date (YYYY-MM-DD. Type enter to skip):");
-                    newDateBattle = scanObj.nextLine();
-
-                    if (newDateBattle.trim().equals("")) {
-                        PrepareStatement updateBatlleStat  = myCon.prepareStatement("UPDATE Battles " +
-                                        "SET launched = ? " +
-                                        "WHERE name = ?");
-                            updateBatlleStat.setString(1, newDateBattle);
-                            updateBatlleStat.setString(2, battle);
-                        updateShipsStat.executeQuery();
-                    }
-
+                if (abs(price - targetPrice) >= minDiff) {
+                    continue;
                 }
 
-                scanObj.close();
-
-            } catch (SQLException ex) {
-                // handle the error
-                System.out.println("Error occured while establishing database connection");
+                minDiff = abs(price - targetPrice);
+                modelSol = model;
+                speedSol = speed;
+                makerSol = maker;
             }
 
+            System.out.println(String.format("maker=%c, model=%d, speed=%.2f\n", makerSol, modelSol, speedSol));
 
-                while(SQLFetch(execStat) != SQL_NO_DATA) {
+        }
 
-                    printf("Error. Ship %s is launched after date of battle.\n");
-
-                    printf("Enter correct launched date (YYYY-MM-DD. Type 0-0-0 to skip):\n");
-                    scanf("%d-%d-%d", &newDateLaunchedDay, &newDateLaunchedMonth, &newDateLaunchedYear);
-
-                    if (!newDateLaunchedDay == 0 &&
-                        !newDateLaunchedMonth == 0 &&
-                        !newDateLaunchedYear == 0) {
-                        // Correct date of launch
-                        SQLPrepare(subExecStat,
-                                    "UPDATE Ships "
-                                    "SET launched = ? "
-                                    "WHERE name = ? AND class = ?", SQL_NTS);
-                            SQLBindParameter(subExecStat, 1, ..., newDateLaunched, ...);
-                            SQLBindParameter(subExecStat, 2, ..., shipName, ...);
-                            SQLBindParameter(subExecStat, 3, ..., class, ...);
-                        SQLExecute(subExecStat);
-                    }
-
-                    printf("Enter correct launched date (YYYY-MM-DD. Type 0-0-0 to skip):\n");
-                    scanf("%d-%d-%d", &newDateBattleDay, &newDateBattleMonth, &newDateBattleYear);
-
-                    if (!newDateBattleDay == 0 &&
-                        !newDateBattleMonth == 0 &&
-                        !newDateBattleYear == 0) {
-                        // Correct date of battle
-                        SQLPrepare(subExecStat,
-                                    "UPDATE Battles "
-                                    "SET date = ? "
-                                    "WHERE name = ?", SQL_NTS);
-                            SQLBindParameter(subExecStat, 1, ..., newDateBattle, ...);
-                            SQLBindParameter(subExecStat, 2, ..., battle, ...);
-                        SQLExecute(subExecStat);
-                    }
-                }
-            }
+        } catch (SQLException ex) {
+            // handle the error
+            System.out.println("Error occured while establishing database connection");
         }
     }
+    ?>
     \end{lstlisting}
 
     \end{enumerate}
@@ -1789,6 +1726,12 @@
 
     \begin{enumerate}[a)]
         \item
+
+    \begin{lstlisting}[language=PHP]
+    import java.sql.*;
+    import java.util.Scanner;
+
+    \end{lstlisting}
 
     \begin{lstlisting}[language=PHP]
 
