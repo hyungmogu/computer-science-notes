@@ -1356,7 +1356,6 @@
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                 Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
-                Statement execStat = myCon.createStatement();
 
                 Scanner scanObj = new Scanner(System.in);
 
@@ -1383,37 +1382,42 @@
                 String priceRaw = scanObj.nextLine();
                 price = Float.parseFloat(priceRaw);
 
-                SQLPrepare(execStat,
-                          "SELECT COUNT(model) FROM ("
-                          "(SELECT model FROM Product WHERE model=:model) "
-                          "UNION "
-                          "(SELECT model FROM PC WHERE model= ?)", SQL_NTS);
-                    SQLBindParameter(execStat, 1, ..., model, ...);
-                SQLExecute(execStat);
-                SQLBindCol(execStat, 1, SQL_INT, &modelCount, sizeof(modelCount), &modelCountInfo);
 
-                if (modelCount != 0) {
-                    printf("Error. Model already exists in database.");
-                } else {
-                    SQLPrepare(execStat,
-                            "INSERT INTO PC(model, speed, ram, hd, price)"
-                            "VALUES(?, ?, ?, ?, ?)", SQL_NTS);
-                        SQLBindParameter(execStat, 1, ..., model, ...);
-                        SQLBindParameter(execStat, 2, ..., speed, ...);
-                        SQLBindParameter(execStat, 3, ..., ram, ...);
-                        SQLBindParameter(execStat, 4, ..., hd, ...);
-                        SQLBindParameter(execStat, 5, ..., price, ...);
-                    SQLExecute(execStat);
+                PrepareStatement execStat = myCon.prepareStatement("SELECT Product.model AS m1, PC.model AS m2 FROM " +
+                                                                  "Product FULL OUTER JOIN PC" +
+                                                                  "WHERE model = ?");
+                    execStat.setString(1, model);
+                ResultSet results = execStat.executeQuery();
 
-                    SQLPrepare(execStat,
-                            "INSERT INTO Product(model, maker, type)"
-                            "VALUES(?, ?, 'pc')", SQL_NTS);
-                        SQLBindParameter(execStat, 1, ..., model, ...);
-                        SQLBindParameter(execStat, 2, ..., maker, ...);
-                    SQLExecute(execStat);
+
+                Statement subExecStat = myCon.createStatement();
+
+                while (results.next()) {
+                    productModel = results.getString(1);
+                    pcModel = results.getString(2);
+
+                    if (productModel != null & pcModel != null) {
+                        System.out.println("Error. Model already exists in database.");
+                    } else {
+                        SQLPrepare(execStat,
+                                "INSERT INTO PC(model, speed, ram, hd, price)"
+                                "VALUES(?, ?, ?, ?, ?)", SQL_NTS);
+                            SQLBindParameter(execStat, 1, ..., model, ...);
+                            SQLBindParameter(execStat, 2, ..., speed, ...);
+                            SQLBindParameter(execStat, 3, ..., ram, ...);
+                            SQLBindParameter(execStat, 4, ..., hd, ...);
+                            SQLBindParameter(execStat, 5, ..., price, ...);
+                        SQLExecute(execStat);
+
+                        SQLPrepare(execStat,
+                                "INSERT INTO Product(model, maker, type)"
+                                "VALUES(?, ?, 'pc')", SQL_NTS);
+                            SQLBindParameter(execStat, 1, ..., model, ...);
+                            SQLBindParameter(execStat, 2, ..., maker, ...);
+                        SQLExecute(execStat);
+                    }
+
                 }
-
-
             } catch (SQLException ex) {
                 // handle the error
                 System.out.println("Error occured while establishing database connection");
