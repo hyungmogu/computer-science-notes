@@ -10,6 +10,13 @@ public class Demo {
 
         System.out.println("Hello Java 2");
         String minSpeedRaw2 = myObj.nextLine();
+
+        if (minSpeedRaw2.trim().equals("")) {
+            System.out.println("white spaces are trimmed!");
+        }
+
         System.out.println(minSpeedRaw2);
+
+
     }
 }

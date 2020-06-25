@@ -1600,95 +1600,6 @@
     import java.util.Scanner;
 
 
-    class Q4c {
-        public static void main(String[ ] args) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver").newInstance();
-                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q4");
-
-                Scanner scanObj = new Scanner(System.in);
-
-                SQLHENV myEnv;
-                SQLHDBC myCon;
-                SQLHSTMT execStat, subExecStat;
-
-                SQLRETURN errorCode1, errorCode2, errorCode3;
-
-                errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
-                            SQL_NULL_HANDLE, &myEnv);
-
-                if (!errorCode1) {
-                    errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
-                }
-
-                if (!errorCode2) {
-                    errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat)
-                }
-
-                if (!errorCode3) {
-                    printf("Enter name of class:\n");
-                    scanf("%s", class);
-
-                    printf("Enter name of type ('bb' or 'bc'):\n");
-                    scanf("%s", type);
-
-                    printf("Enter name of country:\n");
-                    scanf("%s", country);
-
-                    printf("Enter name of numGuns:\n");
-                    scanf("%d", &numGuns);
-
-                    printf("Enter name of bore:\n");
-                    scanf("%d", &bore);
-
-                    printf("Enter name of displacement:\n");
-                    scanf("%d", &displacement);
-
-                    printf("Enter name of ship (if first ship, skip by pressing ENTER):\n");
-                    fgets(shipName, sizeof shipName,stdin);
-
-                    if (shipName[0] == '\n') {
-                        strncpy(shipName, class, sizeof(class));
-                    }
-
-                    printf("Enter date launched (YYYY-MM-DD):\n");
-                    scanf("%s", dateLaunched);
-
-                    SQLPrepare(execStat,
-                            "INSERT INTO Classes(class, type, country, numGuns, bore, displacement)"
-                            "VALUES (?, ?, ?, ?, ?, ?)", SQL_NTS);
-                        SQLBindParameter(execStat, 1, ..., class, ...);
-                        SQLBindParameter(execStat, 2, ..., type, ...);
-                        SQLBindParameter(execStat, 3, ..., country, ...);
-                        SQLBindParameter(execStat, 4, ..., numGuns, ...);
-                        SQLBindParameter(execStat, 5, ..., bore, ...);
-                        SQLBindParameter(execStat, 6, ..., displacement, ...);
-                    SQLExecute(execStat);
-
-                    SQLPrepare(execStat,
-                            "INSERT INTO Ships(name, class, launched)"
-                            "VALUES (?, ?, ?)", SQL_NTS);
-                        SQLBindParameter(execStat, 1, ..., shipName, ...);
-                        SQLBindParameter(execStat, 2, ..., class, ...);
-                        SQLBindParameter(execStat, 3, ..., dateLaunched, ...);
-                    SQLExecute(execStat);
-                }
-
-            } catch (SQLException ex) {
-                // handle the error
-                System.out.println("Error occured while establishing database connection");
-            }
-        }
-    }
-    \end{lstlisting}
-
-        \item
-
-    \begin{lstlisting}[language=JAVA]
-    import java.sql.*;
-    import java.util.Scanner;
-
-
     class Q4d {
         public static void main(String[ ] args) {
             try {
@@ -1719,34 +1630,36 @@
                 displacement = Integer.parseFloat(displacementRaw);
 
                 System.out.println("Enter name of ship (if first ship, skip by pressing ENTER):");
-                String class = scanObj.nextLine();
+                String shipName = scanObj.nextLine();
 
-                    if (shipName[0] == '\n') {
-                        strncpy(shipName, class, sizeof(class));
-                    }
-
-                    printf("Enter date launched (YYYY-MM-DD):\n");
-                    scanf("%s", dateLaunched);
-
-                    SQLPrepare(execStat,
-                            "INSERT INTO Classes(class, type, country, numGuns, bore, displacement)"
-                            "VALUES (?, ?, ?, ?, ?, ?)", SQL_NTS);
-                        SQLBindParameter(execStat, 1, ..., class, ...);
-                        SQLBindParameter(execStat, 2, ..., type, ...);
-                        SQLBindParameter(execStat, 3, ..., country, ...);
-                        SQLBindParameter(execStat, 4, ..., numGuns, ...);
-                        SQLBindParameter(execStat, 5, ..., bore, ...);
-                        SQLBindParameter(execStat, 6, ..., displacement, ...);
-                    SQLExecute(execStat);
-
-                    SQLPrepare(execStat,
-                            "INSERT INTO Ships(name, class, launched)"
-                            "VALUES (?, ?, ?)", SQL_NTS);
-                        SQLBindParameter(execStat, 1, ..., shipName, ...);
-                        SQLBindParameter(execStat, 2, ..., class, ...);
-                        SQLBindParameter(execStat, 3, ..., dateLaunched, ...);
-                    SQLExecute(execStat);
+                if (shipName.trim().equals("")) {
+                    shipName = class;
                 }
+
+                System.out.println("Enter date launched (YYYY-MM-DD):");
+                String dateLaunched = scanObj.nextLine();
+
+
+                PreparedStatement classExecStat = myCon.prepareStatement(
+                    "INSERT INTO Classes(class, type, country, numGuns, bore, displacement) " +
+                    "VALUES (?, ?, ?, ?, ?, ?)"
+                );
+                    classExecStat.setString(1, class);
+                    classExecStat.setString(2, type);
+                    classExecStat.setString(3, country);
+                    classExecStat.setString(4, numGuns);
+                    classExecStat.setString(5, bore);
+                    classExecStat.setString(6, displacement);
+                classExecStat.executeUpdate();
+
+                PreparedStatement shipsExecStat = myCon.prepareStatement(
+                    "INSERT INTO Ships(name, class, launched) " +
+                    "VALUES (?, ?, ?)"
+                );
+                    shipsExecStat.setString(1, shipName);
+                    shipsExecStat.setString(2, class);
+                    shipsExecStat.setString(3, dateLaunched);
+                shipsExecStat.executeUpdate();
 
             } catch (SQLException ex) {
                 // handle the error
