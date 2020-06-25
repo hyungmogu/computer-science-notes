@@ -1681,47 +1681,41 @@
     include(DB.php);
 
     function Q5a() {
-        try {
-            // The newInstance() call is a work around for some
-            // broken Java implementations
+        $targetPrice = INF;
 
-            $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
-            Statement execStat = myCon.createStatement();
+        $modelSol;
+        $speedSol;
+        $makerSol;
 
-            $stdin = fopen('php://stdin', 'r');
-            echo("Enter target price:");
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
+        Statement execStat = myCon.createStatement();
 
-            String targetPriceRaw = scanObj.nextLine();  // Read user input
-            float targetPrice = Float.parseFloat(targetPriceRaw);
+        $stdin = fopen('php://stdin', 'r');
+        echo("Enter target price:");
+        $targetPrice = fscanf(STDIN, "%f\n");
 
-            ResultSet results = execStat.executeQuery("SELECT model, speed, ram, hd, price, maker FROM Product NATURAL JOIN PC");
+        $results = $myCon->query("SELECT model, speed, ram, hd, price, maker FROM Product NATURAL JOIN PC");
 
-            while (results.next()) {
-                model = results.getInt(1);
-                speed = results.getFloat(2);
-                ram = results.getFloat(3);
-                hd = results.getInt(4);
-                price = results.getInt(5);
-                maker = results.getString(6);
+        while ($tuple = $results->fetchRow()) {
+            $model = $tuple[0];
+            $speed = $tuple[1];
+            $ram = $tuple[2];
+            $hd = $tuple[3];
+            $price = $tuple[4];
+            $maker = $tuple[5];
 
-                if (abs(price - targetPrice) >= minDiff) {
-                    continue;
-                }
-
-                minDiff = abs(price - targetPrice);
-                modelSol = model;
-                speedSol = speed;
-                makerSol = maker;
+            if (abs($price - $targetPrice) >= $minDiff) {
+                continue;
             }
 
-            System.out.println(String.format("maker=%c, model=%d, speed=%.2f\n", makerSol, modelSol, speedSol));
-            $myCon->disconnect();
+            $minDiff = abs($price - $targetPrice);
+            $modelSol = $model;
+            $speedSol = $speed;
+            $makerSol = $maker;
         }
 
-        } catch (SQLException ex) {
-            // handle the error
-            System.out.println("Error occured while establishing database connection");
-        }
+        sprintf("maker=%c, model=%d, speed=%.2f\n", makerSol, modelSol, speedSol);
+        $myCon->disconnect();
     }
     ?>
     \end{lstlisting}
