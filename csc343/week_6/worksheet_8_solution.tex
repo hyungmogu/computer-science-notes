@@ -1518,18 +1518,15 @@
 
     class Q4b {
         public static void main(String[ ] args) {
-            EXEC SQL BEGIN DECLARE SECTION;
-                char targetBattle[255];
-                char country[100];
-                int count;
+            String targetBattle;
+            String country;
+            int count;
 
-                char mostSunkCountry[100];
-                int maxSunkCount = 0;
+            String mostSunkCountry;
+            int maxSunkCount = 0;
 
-                char mostDamagedCountry[100];
-                int maxDamagedCount = 0;
-
-            EXEC SQL END DECLARE SECTION;
+            String mostDamagedCountry;
+            int maxDamagedCount = 0;
 
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -1537,66 +1534,55 @@
 
                 Scanner scanObj = new Scanner(System.in);
 
-                PrepareStatement execStat = myCon.prepareStatement("SELECT class FROM FROM Classes " +
-                                                                    "WHERE numGuns * POWER(bore, 3) >= ALL ( " +
-                                                                    "SELECT numGuns * POWER(bore, 3) FROM Classes)");
+                Scanner scanObj = new Scanner(System.in);
+                System.out.println("Enter name of battle:");
+                targetBattle = scanObj.nextLine();
 
-                ResultSet results = execStat.executeQuery();
+                PrepareStatement sunkStat = myCon.prepareStatement("SELECT country, COUNT(Outcomes.result) FROM Classes " +
+                                                                    "INNER JOIN Ships ON Classes.class = Ships.class " +
+                                                                    "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+                                                                    "INNER JOIN Battles ON Battles.name = Outcome.battle " +
+                                                                    "GROUP BY country " +
+                                                                    "HAVING Battles.name= ? AND " +
+                                                                    "Outcomes.result='sunk'");
+                    sunkStat.setString(1, targetBattle);
+                ResultSet sunkResults = sunkStat.executeQuery();
 
-                printf("Enter name of battle:\n");
-                scanf("%s", &targetBattle);
+                while(sunkResults.next()) {
+                    country = sunkResults.getString(1);
+                    count = sunkResults.getInt(1);
 
-                EXEC SQL DECLARE shipsSunkCursor CURSOR FOR
-                    SELECT country, COUNT(Outcomes.result) FROM Classes
-                    INNER JOIN Ships ON Classes.class = Ships.class
-                    INNER JOIN Outcomes ON Ships.name = Outcomes.ship
-                    INNER JOIN Battles ON Battles.name = Outcome.battle
-                    GROUP BY country
-                    HAVING Battles.name=:targetBattle;
-                            Outcomes.result='sunk';
-
-                EXEC SQL DECLARE shipsDamagedCursor CURSOR FOR
-                    SELECT country, COUNT(Outcomes.result) FROM Classes
-                    INNER JOIN Ships ON Classes.class = Ships.class
-                    INNER JOIN Outcomes ON Ships.name = Outcomes.ship
-                    INNER JOIN Battles ON Battles.name = Outcome.battle
-                    GROUP BY country
-                    HAVING Battles.name=:targetBattle;
-                            Outcomes.result='damaged';
-
-                EXEC SQL OPEN shipsSunkCursor;
-                    while(1) {
-                        EXEC SQL FETCH FROM shipsSunkCursor INTO :country,
-                        :count;
-
-                        if (NO_MORE_TUPLES) break;
-
-                        if (count > maxSunkCount) {
-                            maxSunkCount = count;
-                            strcpy(mostSunkCountry, country);
-                        }
+                    if (count > maxSunkCount) {
+                        maxSunkCount = count;
+                        mostSunkCountry = country;
                     }
+                }
 
-                    printf("Country with most sunk ships: %s", mostSunkCountry);
+                printf("Country with most sunk ships: %s", mostSunkCountry);
 
-                EXEC SQL CLOSE shipsSunkCursor;
+                PrepareStatement damagedStat = myCon.prepareStatement("SELECT country, COUNT(Outcomes.result) FROM Classes " +
+                                                                    "INNER JOIN Ships ON Classes.class = Ships.class " +
+                                                                    "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+                                                                    "INNER JOIN Battles ON Battles.name = Outcome.battle " +
+                                                                    "GROUP BY country " +
+                                                                    "HAVING Battles.name= ? AND " +
+                                                                    "Outcomes.result='damaged'");
 
-                EXEC SQL OPEN shipsDamagedCursor;
-                    while(1) {
-                        EXEC SQL FETCH FROM shipsDamagedCursor INTO :country,
-                        :count;
+                    sunkStat.setString(1, targetBattle);
+                ResultSet damagedResults = damagedStat.executeQuery();
 
-                        if (NO_MORE_TUPLES) break;
+                while(damagedResults.next()) {
+                    country = damagedResults.getString(1);
+                    count = damagedResults.getInt(1);
 
-                        if (count > maxDamagedCount) {
-                            maxDamagedCount = count;
-                            strcpy(mostDamagedCountry, country);
-                        }
+                    if (count > maxDamagedCount) {
+                        maxDamagedCount = count;
+                        mostDamagedCountry = country;
                     }
+                }
 
-                    printf("Country with most damaged ships: %s", mostDamagedCountry);
+                printf("Country with most damaged ships: %s", mostDamagedCountry);
 
-                EXEC SQL CLOSE shipsDamagedCursor;
 
             } catch (SQLException ex) {
                 // handle the error
