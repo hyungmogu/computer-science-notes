@@ -1144,7 +1144,15 @@
 
     class Q3c {
         public static void main(String[ ] args) {
+            try {
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+                Statement execStat = myCon.createStatement();
 
+            } catch (SQLException ex) {
+                // handle the error
+                System.out.println("Error occured while establishing database connection");
+            }
         }
     }
     \end{lstlisting}
