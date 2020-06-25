@@ -1600,7 +1600,7 @@
     import java.util.Scanner;
 
 
-    class Q4d {
+    class Q4c {
         public static void main(String[ ] args) {
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -1664,6 +1664,80 @@
             } catch (SQLException ex) {
                 // handle the error
                 System.out.println("Error occured while establishing database connection");
+            }
+        }
+    }
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=JAVA]
+    import java.sql.*;
+    import java.util.Scanner;
+
+
+    class Q4d {
+        public static void main(String[ ] args) {
+            String battle[101];
+            String shipName[101];
+            String dateLaunched[11];
+            String newDateLaunched[11];
+
+            char dateBattle[11];
+            char newDateBattle[11];
+
+            char SQLSTATE[6];
+
+
+
+                SQLPrepare(execStat,
+                            "SELECT Ships.name, Ships.class, Outcomes.battle"
+                            "FROM Ships "
+                            "INNER JOIN Outcomes ON Ships.name = Outcomes.ship "
+                            "INNER JOIN Battles ON Outcomes.battle = Battles.name "
+                            "WHERE Ships.launched > Battles.date", SQL_NTS);
+                SQLExecute(execStat);
+                SQLBindCol(execStat, 1, SQL_CHAR, &shipName, sizeof(shipName), &shipNameInfo);
+                SQLBindCol(execStat, 2, SQL_FLOAT, &class, sizeof(class), &classInfo);
+                SQLBindCol(execStat, 3, SQL_INTEGER, &battle, sizeof(battle), &battleInfo);
+
+                while(SQLFetch(execStat) != SQL_NO_DATA) {
+
+                    printf("Error. Ship %s is launched after date of battle.\n");
+
+                    printf("Enter correct launched date (YYYY-MM-DD. Type 0-0-0 to skip):\n");
+                    scanf("%d-%d-%d", &newDateLaunchedDay, &newDateLaunchedMonth, &newDateLaunchedYear);
+
+                    if (!newDateLaunchedDay == 0 &&
+                        !newDateLaunchedMonth == 0 &&
+                        !newDateLaunchedYear == 0) {
+                        // Correct date of launch
+                        SQLPrepare(subExecStat,
+                                    "UPDATE Ships "
+                                    "SET launched = ? "
+                                    "WHERE name = ? AND class = ?", SQL_NTS);
+                            SQLBindParameter(subExecStat, 1, ..., newDateLaunched, ...);
+                            SQLBindParameter(subExecStat, 2, ..., shipName, ...);
+                            SQLBindParameter(subExecStat, 3, ..., class, ...);
+                        SQLExecute(subExecStat);
+                    }
+
+                    printf("Enter correct launched date (YYYY-MM-DD. Type 0-0-0 to skip):\n");
+                    scanf("%d-%d-%d", &newDateBattleDay, &newDateBattleMonth, &newDateBattleYear);
+
+                    if (!newDateBattleDay == 0 &&
+                        !newDateBattleMonth == 0 &&
+                        !newDateBattleYear == 0) {
+                        // Correct date of battle
+                        SQLPrepare(subExecStat,
+                                    "UPDATE Battles "
+                                    "SET date = ? "
+                                    "WHERE name = ?", SQL_NTS);
+                            SQLBindParameter(subExecStat, 1, ..., newDateBattle, ...);
+                            SQLBindParameter(subExecStat, 2, ..., battle, ...);
+                        SQLExecute(subExecStat);
+                    }
+                }
             }
         }
     }
