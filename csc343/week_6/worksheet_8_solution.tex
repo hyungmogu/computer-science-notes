@@ -1678,28 +1678,46 @@
 
     class Q4d {
         public static void main(String[ ] args) {
-            String battle[101];
-            String shipName[101];
-            String dateLaunched[11];
-            String newDateLaunched[11];
+            String battle;
+            String shipName;
 
-            char dateBattle[11];
-            char newDateBattle[11];
+            Date dateLaunched;
+            Date newDateLaunched;
+            Date dateBattle;
+            Date newDateBattle;
 
-            char SQLSTATE[6];
+            try {
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q4");
+
+                Scanner scanObj = new Scanner(System.in);
+
+                PrepareStatement execStat = myCon.prepareStatement("SELECT Ships.name, Ships.class, Outcomes.battle " +
+                                "FROM Ships " +
+                                "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+                                "INNER JOIN Battles ON Outcomes.battle = Battles.name " +
+                                "WHERE Ships.launched > Battles.date");
+                ResultSet results = execStat.executeQuery();
+
+                while (results.next()) {
+                    shipName = results.getString(1);
+                    class = results.getString(2);
+                    battle = results.getString(3);
+
+                    printf("Error. Ship %s is launched after date of battle.\n");
+                    printf("Enter correct launched date (YYYY-MM-DD. Type enter to skip):\n");
 
 
+                    Scanner scanObj = new Scanner(System.in);
+                    System.out.println("Error. Ship %s is launched after date of battle:");
+                    targetBattle = scanObj.nextLine();
+                }
 
-                SQLPrepare(execStat,
-                            "SELECT Ships.name, Ships.class, Outcomes.battle"
-                            "FROM Ships "
-                            "INNER JOIN Outcomes ON Ships.name = Outcomes.ship "
-                            "INNER JOIN Battles ON Outcomes.battle = Battles.name "
-                            "WHERE Ships.launched > Battles.date", SQL_NTS);
-                SQLExecute(execStat);
-                SQLBindCol(execStat, 1, SQL_CHAR, &shipName, sizeof(shipName), &shipNameInfo);
-                SQLBindCol(execStat, 2, SQL_FLOAT, &class, sizeof(class), &classInfo);
-                SQLBindCol(execStat, 3, SQL_INTEGER, &battle, sizeof(battle), &battleInfo);
+            } catch (SQLException ex) {
+                // handle the error
+                System.out.println("Error occured while establishing database connection");
+            }
+
 
                 while(SQLFetch(execStat) != SQL_NO_DATA) {
 
