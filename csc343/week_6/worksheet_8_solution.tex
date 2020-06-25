@@ -1883,6 +1883,36 @@
     \end{lstlisting}
 
             \end{itemize}
+
+            \item Cursor Operations in PHP
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=PHP]
+    $worths = $myCon->query("SELECT netWorth FROM MovieExec");
+    while ($tuple = $worhts->fetchRow()) {
+        $worth = $tuple[0];
+    }
+    \end{lstlisting}
+
+            \item Dynamic SQL in PHP
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=PHP]
+    $worths = $myCon->prepare("INSERT INTO Studio(name, address) VALUES(?,?)");
+    $args = array('MGM', 'Los Angles');
+    $result = $myCon->execute($prepQuery, $args);
+    \end{lstlisting}
+
         \end{itemize}
     \end{enumerate}
 
