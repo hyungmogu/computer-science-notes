@@ -1669,21 +1669,27 @@
     }
     \end{lstlisting}
 
+    \end{enumerate}
+
+        \item
+
+    \begin{enumerate}[a)]
         \item
 
     \begin{lstlisting}[language=PHP]
     <?php
-    function writeMsg() {
+    include(DB.php);
+
+    function Q5a() {
         try {
             // The newInstance() call is a work around for some
             // broken Java implementations
 
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+            $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
             Statement execStat = myCon.createStatement();
 
-            Scanner scanObj = new Scanner(System.in);
-            System.out.println("Enter target price:");
+            $stdin = fopen('php://stdin', 'r');
+            echo("Enter target price:");
 
             String targetPriceRaw = scanObj.nextLine();  // Read user input
             float targetPrice = Float.parseFloat(targetPriceRaw);
@@ -1709,7 +1715,7 @@
             }
 
             System.out.println(String.format("maker=%c, model=%d, speed=%.2f\n", makerSol, modelSol, speedSol));
-
+            $myCon->disconnect();
         }
 
         } catch (SQLException ex) {
@@ -1718,23 +1724,6 @@
         }
     }
     ?>
-    \end{lstlisting}
-
-    \end{enumerate}
-
-        \item
-
-    \begin{enumerate}[a)]
-        \item
-
-    \begin{lstlisting}[language=PHP]
-    import java.sql.*;
-    import java.util.Scanner;
-
-    \end{lstlisting}
-
-    \begin{lstlisting}[language=PHP]
-
     \end{lstlisting}
 
         \bigskip
@@ -1806,7 +1795,7 @@
             \item Connecting to Database
 
             \begin{itemize}
-                \item\textbf{Syntax:} $\$$myCon = DB::connect($<\text{vendor}>$://$<\text{user name}>$:$< \text{password}>$ $<\text{host name}>$/ $<\text{database name}>$);
+                \item\textbf{Syntax:} $\$$myCon = DB::connect($<\text{vendor}>$://$<\text{user name}>$:$< \text{password}>@<\text{host name}>$/$<\text{database name}>$);
                 \item connection to server disconnect via $\text{DB\_Object\_Instance}->\text{disconnect()}$
             \end{itemize}
 
