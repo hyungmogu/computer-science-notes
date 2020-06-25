@@ -1164,34 +1164,36 @@
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                 Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
                 Statement execStat = myCon.createStatement();
+                Statement subExecStat = myCon.createStatement();
 
                 System.out.println("Enter minimum speed:");
                 targetMaker = scanObj.nextLine();
 
-                ResultSet results = execStat.executeQuery("SELECT DISTINCT maker, DISTINCT productType FROM Product");
+                ResultSet results = execStat.executeQuery("SELECT maker, productType FROM Product" +
+                                                          "GROUP BY maker, productType");
 
                 while (results.next()) {
+                    maker = results.getString(1);
+                    productType = results.getString(2);
 
-                    if (tolower(maker) != tolower(targetMaker)) continue;
+                    if (maker.toLowerCase() != targetMaker.toLowerCase()) continue;
 
-                    if (strcmp(productType,'pc')) {
-                        EXEC SQL DECLARE pcCursor CURSOR FOR
-                            SELECT speed, ram, hd, price FROM PC
-                            NATURAL JOIN Product
-                            WHERE type=productType;
+                    if (productType == 'pc') {
+                        PreparedStatement subExecStat = myCon.prepareStatement("SELECT speed, ram, hd, price FROM PC " +
+                                                                                "NATURAL JOIN Product " +
+                                                                                "WHERE type= ?");
 
-                        EXEC SQL OPEN pcCursor;
-                        while(1) {
-                            EXEC SQL FETCH FROM pcCursor INTO :speed,
-                                :ram, :hd, :price;
+                        ResultSet subResults = subExecStat.executeQuery();
 
-                            if (NO_MORE_TUPLES) break;
+                        while(subResults.next()) {
+                            speed = results.getFloat(1);
+                            ram = results.getFloat(2);
+                            hd = results.getInt(3);
+                            price = results.getInt(4);
 
-                            printf("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
-                            model, speed, ram, hd, screen, price, maker, productType);
+                            System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
+                            model, speed, ram, hd, screen, price, maker, productType));
                         }
-                        EXEC SQL CLOSE pcCursor;
-
                     } else if (strcmp(productType, 'laptop')) {
 
                         EXEC SQL DECLARE laptopCursor CURSOR FOR
