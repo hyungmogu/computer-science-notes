@@ -1848,52 +1848,42 @@
 
         $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
 
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
-        Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+        echo("Enter minimum speed:");
+        $minSpeed = fscanf(STDIN, "%f\n");
 
-        Scanner scanObj = new Scanner(System.in);
+        echo("Enter minimum ram:");
+        $minRam = fscanf(STDIN, "%d\n");
 
-        System.out.println("Enter minimum speed:");
-        String minSpeedRaw = scanObj.nextLine();
-        minSpeed = Float.parseFloat(minSpeedRaw);
+        echo("Enter minimum hard-drive space:");
+        $minHd = fscanf(STDIN, "%d\n");
 
-        System.out.println("Enter minimum ram:");
-        String minRamRaw = scanObj.nextLine();
-        minRam = Integer.parseFloat(minRamRaw);
+        echo("Enter minimum price:");
+        $minPrice = fscanf(STDIN, "%f\n");
 
-        System.out.println("Enter minimum hard-drive space:");
-        String hdRaw = scanObj.nextLine();
-        hd = Integer.parseFloat(hdRaw);
+        $results = $myCon->query("SELECT model, speed, ram, hd, screen, price, maker" +
+                                 "FROM Product NATURAL JOIN Laptop");
 
-        System.out.println("Enter minimum price:");
-        String priceRaw = scanObj.nextLine();
-        hd = Integer.parseFloat(priceRaw);
-
-        PreparedStatement execStat = myCon.prepareStatement(
-            "SELECT model, speed, ram, hd, screen, price, maker" +
-            "FROM Product NATURAL JOIN Laptop");
-        ResultSet results = execStat.executeQuery();
-
-        while(results.next()) {
-            model = results.getInt(1);
-            speed = results.getFloat(2);
-            ram = results.getFloat(3);
-            hd = results.getInt(4);
-            screen = results.getInt(5);
-            price = results.getInt(6);
-            maker = results.getString(7);
+        while($tuple = $results->fetchRow()) {
+            $model = $tuple[0];
+            $speed = $tuple[1];
+            $ram = $tuple[2];
+            $hd = $tuple[3];
+            $screen = $tuple[4];
+            $price = $tuple[5];
+            $maker = $tuple[6];
 
             if (
-                speed >= minSpeed &&
-                ram >= minRam &&
-                hd >= minHd &&
-                screen >= minScreen
+                $speed >= $minSpeed &&
+                $ram >= $minRam &&
+                $hd >= $minHd &&
+                $screen >= $minScreen
             ) {
-                System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
-                    model, speed, ram, hd, screen, price, maker));
+                sprintf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
+                    model, speed, ram, hd, screen, price, maker);
             }
         }
 
+        $myCon->disconnect();
     }
     \end{lstlisting}
     \end{enumerate}
