@@ -1146,8 +1146,8 @@
         public static void main(String[ ] args) {
 
             int model;
-            bool color;
-            char printType[50];
+            boolean color;
+            String printType;
             float price;
 
             float speed;
@@ -1164,7 +1164,6 @@
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                 Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
                 Statement execStat = myCon.createStatement();
-                Statement subExecStat = myCon.createStatement();
 
                 System.out.println("Enter minimum speed:");
                 targetMaker = scanObj.nextLine();
@@ -1213,22 +1212,20 @@
                         }
 
                     } else if (strcmp(productType, 'printer')) {
-                        EXEC SQL DECLARE printerCursor CURSOR FOR
-                            SELECT color, printType, price FROM Printer
-                            NATURAL JOIN Product
-                            WHERE type=productType;
+                        PreparedStatement subExecStat = myCon.prepareStatement("SELECT color, printType, price FROM Printer " +
+                                                                                "NATURAL JOIN Product " +
+                                                                                "WHERE type= ?");
+                            subExecStat.setString(1, productType);
+                        ResultSet subResults = subExecStat.executeQuery();
 
-                        EXEC SQL OPEN printerCursor;
-                        while(1) {
-                            EXEC SQL FETCH FROM printerCursor INTO :color,
-                                :printType, :price;
-
-                            if (NO_MORE_TUPLES) break;
+                        while(subResults.next()) {;
+                            color = results.getBoolean(1);
+                            printType = results.getString(2);
+                            price = results.getFloat(3);
 
                             printf("model=%d, color=%s, price=%.2f, maker=%c, type=%s",
                             model, color ? "true" : "false", price, maker, type);
                         }
-                        EXEC SQL CLOSE printerCursor;
                     }
                 }
 
