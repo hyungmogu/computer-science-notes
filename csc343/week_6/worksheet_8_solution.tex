@@ -1866,6 +1866,23 @@
                 \item\textbf{Syntax:} $\$$myCon = DB::connect($<\text{vendor}>$://$<\text{user name}>$:$< \text{password}>$ $<\text{host name}>$/ $<\text{database name}>$);
                 \item connection to server disconnect via $\text{DB\_Object\_Instance}->\text{disconnect()}$
             \end{itemize}
+
+            \item Executing SQL statements
+            \begin{itemize}
+                \item \textbf{Syntax:} $\text{DB\_Object\_Instance}->\text{query(statement)}$
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=PHP]
+    $result = $myCon->query("INSERT INTO StarsIn VALUES("
+        'Denzel Washington', 2000, 'Remember the Titans'")")
+    \end{lstlisting}
+
+            \end{itemize}
         \end{itemize}
     \end{enumerate}
 
