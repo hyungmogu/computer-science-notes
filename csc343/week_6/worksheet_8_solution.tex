@@ -1688,7 +1688,6 @@
         $makerSol;
 
         $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
-        Statement execStat = myCon.createStatement();
 
         $stdin = fopen('php://stdin', 'r');
         echo("Enter target price:");
@@ -1840,6 +1839,63 @@
     \end{lstlisting}
 
         \end{itemize}
+
+        \item
+
+    \begin{lstlisting}[language=PHP]
+    <?php
+    function Q3b() {
+
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
+
+        Scanner scanObj = new Scanner(System.in);
+
+        System.out.println("Enter minimum speed:");
+        String minSpeedRaw = scanObj.nextLine();
+        minSpeed = Float.parseFloat(minSpeedRaw);
+
+        System.out.println("Enter minimum ram:");
+        String minRamRaw = scanObj.nextLine();
+        minRam = Integer.parseFloat(minRamRaw);
+
+        System.out.println("Enter minimum hard-drive space:");
+        String hdRaw = scanObj.nextLine();
+        hd = Integer.parseFloat(hdRaw);
+
+        System.out.println("Enter minimum price:");
+        String priceRaw = scanObj.nextLine();
+        hd = Integer.parseFloat(priceRaw);
+
+        PreparedStatement execStat = myCon.prepareStatement(
+            "SELECT model, speed, ram, hd, screen, price, maker" +
+            "FROM Product NATURAL JOIN Laptop");
+        ResultSet results = execStat.executeQuery();
+
+        while(results.next()) {
+            model = results.getInt(1);
+            speed = results.getFloat(2);
+            ram = results.getFloat(3);
+            hd = results.getInt(4);
+            screen = results.getInt(5);
+            price = results.getInt(6);
+            maker = results.getString(7);
+
+            if (
+                speed >= minSpeed &&
+                ram >= minRam &&
+                hd >= minHd &&
+                screen >= minScreen
+            ) {
+                System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
+                    model, speed, ram, hd, screen, price, maker));
+            }
+        }
+
+    }
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
