@@ -1831,7 +1831,31 @@
                 \underline{\textbf{Example:}}
 
     \begin{lstlisting}[language=PHP]
+    // Here, $ in single quote is printed as is
+    $foo = 'bar';
+    $x = 'step up to the $foo'
 
+    // Here, $ in double quote is replaced with corresponding value of variable
+    $foo = "bar";
+    $x = "step up to the $foo" // <- prints "step up to the bar"
+    \end{lstlisting}
+
+                \item concatenates two strings using dot
+
+                \bigskip
+
+    \begin{lstlisting}[language=PHP]
+    $foo = "foo" . " bar"; // <- $foo has value "foo bar";
+    \end{lstlisting}
+
+            \end{itemize}
+
+            \item Arrays
+            \begin{itemize}
+                \item \textbf{Syntax 1:} array($<\text{val 1}>$, $<\text{val 2}>$, $<\text{val 3}>$, ...)
+                \item \textbf{Syntax 2:} array($<\text{key 1}>$ $=>$ $<\text{val 1}>$, $<\text{key 2}>$ $=>$  $<\text{val 2}>$, $<\text{key 3}>$ $=>$  $<\text{val 3}>$, ...)
+    \begin{lstlisting}[language=PHP]
+    $seasons = array('spring' => 'warm')
     \end{lstlisting}
 
             \end{itemize}
