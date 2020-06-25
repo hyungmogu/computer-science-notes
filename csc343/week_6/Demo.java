@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Demo {
     public static void main(String[ ] args) {
@@ -11,12 +12,11 @@ public class Demo {
         System.out.println("Hello Java 2");
         String minSpeedRaw2 = myObj.nextLine();
 
-        if (minSpeedRaw2.trim().equals("")) {
-            System.out.println("white spaces are trimmed!");
-        }
+        String[] array = minSpeedRaw2.split("-");
 
-        System.out.println(minSpeedRaw2);
+        System.out.println(Arrays.toString(array));
 
+        myObj.close();
 
     }
 }

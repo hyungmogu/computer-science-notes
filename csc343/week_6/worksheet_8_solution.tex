@@ -1682,9 +1682,9 @@
             String shipName;
 
             Date dateLaunched;
-            Date newDateLaunched;
+            String newDateLaunched;
             Date dateBattle;
-            Date newDateBattle;
+            String newDateBattle;
 
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -1704,14 +1704,36 @@
                     class = results.getString(2);
                     battle = results.getString(3);
 
-                    printf("Error. Ship %s is launched after date of battle.\n");
-                    printf("Enter correct launched date (YYYY-MM-DD. Type enter to skip):\n");
-
-
-                    Scanner scanObj = new Scanner(System.in);
                     System.out.println("Error. Ship %s is launched after date of battle:");
-                    targetBattle = scanObj.nextLine();
+                    System.out.println("Enter correct launched date (YYYY-MM-DD. Type enter to skip):");
+                    newDateLaunched = scanObj.nextLine();
+
+                    if (newDateLaunched.trim().equals("")) {
+                        PrepareStatement updateShipsStat  = myCon.prepareStatement("UPDATE Ships " +
+                                        "SET launched = ? " +
+                                        "WHERE name = ? AND class = ?");
+
+                            updateShipsStat.setString(1, newDateLaunched);
+                            updateShipsStat.setString(2, shipName);
+                            updateShipsStat.setString(3, class);
+                        updateShipsStat.executeQuery();
+                    }
+
+                    System.out.println("Enter correct launched date (YYYY-MM-DD. Type enter to skip):");
+                    newDateBattle = scanObj.nextLine();
+
+                    if (newDateBattle.trim().equals("")) {
+                        PrepareStatement updateBatlleStat  = myCon.prepareStatement("UPDATE Battles " +
+                                        "SET launched = ? " +
+                                        "WHERE name = ?");
+                            updateBatlleStat.setString(1, newDateBattle);
+                            updateBatlleStat.setString(2, battle);
+                        updateShipsStat.executeQuery();
+                    }
+
                 }
+
+                scanObj.close();
 
             } catch (SQLException ex) {
                 // handle the error
