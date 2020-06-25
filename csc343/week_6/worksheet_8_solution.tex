@@ -1145,40 +1145,32 @@
     class Q3c {
         public static void main(String[ ] args) {
 
-            EXEC SQL BEGIN DECLARE SECTION;
-                int model;
-                bool color;
-                char printType[50];
-                float price;
+            int model;
+            bool color;
+            char printType[50];
+            float price;
 
-                float speed;
-                int ram;
-                int hd;
-                int screen;
+            float speed;
+            int ram;
+            int hd;
+            int screen;
+            int productModel;
+            String productType;
+            String targetMaker;
+            String maker;
 
-                char maker;
-                int productModel;
-                char productType[50];
-
-                char targetMaker;
-            EXEC SQL END DECLARE SECTION;
 
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                 Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
                 Statement execStat = myCon.createStatement();
 
-                EXEC SQL DECLARE execCursor CURSOR FOR
-                SELECT DISTINCT maker, DISTINCT productType FROM Product;
+                System.out.println("Enter minimum speed:");
+                targetMaker = scanObj.nextLine();
 
-                printf("Enter manufacturer:");
-                scanf("%c", &targetMaker);
+                ResultSet results = execStat.executeQuery("SELECT DISTINCT maker, DISTINCT productType FROM Product");
 
-                EXEC SQL OPEN execCursor;
-                while (1) {
-                    EXEC SQL FETCH FROM execCursor INTO :maker, :productType;
-
-                    if (NO_MORE_TUPLES) break;
+                while (results.next()) {
 
                     if (tolower(maker) != tolower(targetMaker)) continue;
 
