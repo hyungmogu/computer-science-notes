@@ -1438,40 +1438,29 @@
 
     class Q4a {
         public static void main(String[ ] args) {
+            int class;
 
-            SQLINTEGER classInfo;
-            SQLCHAR class[100];
+            try {
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q3");
 
-            SQLHENV myEnv;
-            SQLHDBC myCon;
-            SQLHSTMT execStat, subExecStat;
+                Scanner scanObj = new Scanner(System.in);
 
-            SQLRETURN errorCode1, errorCode2, errorCode3;
+                PrepareStatement execStat = myCon.prepareStatement("SELECT class FROM FROM Classes " +
+                                                                    "WHERE numGuns * POWER(bore, 3) >= ALL ( " +
+                                                                    "SELECT numGuns * POWER(bore, 3) FROM Classes)");
 
-            errorCode1 = SQLAllocHandle(SQL_HANDLE_ENV,
-                        SQL_NULL_HANDLE, &myEnv);
+                                                                    ResultSet results = execStat.executeQuery();
 
-            if (!errorCode1) {
-                errorCode2 = SQLAllocHandle(SQL_HANDLE_DBC, myEnv, &myCon);
-            }
-
-            if (!errorCode2) {
-                errorCode3 = SQLAllocHandle(SQL_HANDLE_STMT, myCon, &execStat);
-            }
-
-            if (!errorCode3) {
-                SQLPrepare(execStat,
-                        "SELECT class FROM FROM Classes"
-                        "WHERE numGuns * POWER(bore, 3) >= ALL ( "
-                        "SELECT numGuns * POWER(bore, 3) FROM Classes "
-                        ")", SQL_NTS);
-                    SQLBindParameter(execStat, 1, ..., model, ...);
-                SQLExecute(execStat);
-                SQLBindCol(execStat, 1, SQL_CHAR, &class, sizeof(class), &classInfo);
-
-                while(SQLFetch(execStat) != SQL_NO_DATA) {
-                    printf("Class = %s\n", class);
+                while (results.next()) {
+                    class = results.getString(1);
+                    System.out.println(String.format("Class = %s\n", class));
                 }
+
+
+            } catch (SQLException ex) {
+                // handle the error
+                System.out.println("Error occured while establishing database connection");
             }
         }
     }
