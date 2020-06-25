@@ -1465,6 +1465,55 @@
         }
     }
     \end{lstlisting}
+
+        \bigskip
+
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{lstlisting}[language=JAVA]
+            import java.sql.*;
+            import java.util.Scanner;
+
+            class Q4a {
+                public static void main(String[ ] args) {
+                    int class;
+
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost/Q4"); // <- Corrected
+
+                        Scanner scanObj = new Scanner(System.in);
+
+                        PrepareStatement execStat = myCon.prepareStatement("SELECT class FROM FROM Classes " +
+                                                                            "WHERE numGuns * POWER(bore, 3) >= ALL ( " +
+                                                                            "SELECT numGuns * POWER(bore, 3) FROM Classes)");
+
+                                                                            ResultSet results = execStat.executeQuery();
+
+                        while (results.next()) {
+                            class = results.getString(1);
+                            System.out.println(String.format("Class = %s\n", class));
+                        }
+
+
+                    } catch (SQLException ex) {
+                        // handle the error
+                        System.out.println("Error occured while establishing database connection");
+                    }
+                }
+            }
+            \end{lstlisting}
+
+        \end{mdframed}
+
+        \item
+
+    \begin{lstlisting}[language=JAVA]
+
+    \end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
