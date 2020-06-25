@@ -1182,7 +1182,7 @@
                         PreparedStatement subExecStat = myCon.prepareStatement("SELECT speed, ram, hd, price FROM PC " +
                                                                                 "NATURAL JOIN Product " +
                                                                                 "WHERE type= ?");
-
+                            subExecStat.setString(1, productType);
                         ResultSet subResults = subExecStat.executeQuery();
 
                         while(subResults.next()) {
@@ -1194,25 +1194,23 @@
                             System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
                             model, speed, ram, hd, screen, price, maker, productType));
                         }
-                    } else if (strcmp(productType, 'laptop')) {
+                    } else if (productType == 'laptop') {
+                        PreparedStatement subExecStat = myCon.prepareStatement("SELECT speed, ram, hd, screen, price FROM Laptop " +
+                                                                                "NATURAL JOIN Product " +
+                                                                                "WHERE type= ?");
+                            subExecStat.setString(1, productType);
+                        ResultSet subResults = subExecStat.executeQuery();
 
-                        EXEC SQL DECLARE laptopCursor CURSOR FOR
-                            SELECT speed, ram, hd, screen, price FROM Laptop
-                            NATURAL JOIN Product
-                            WHERE type=productType;
+                        while(subResults.next()) {
+                            speed = results.getFloat(1);
+                            ram = results.getFloat(2);
+                            hd = results.getInt(3);
+                            screen = results.getInt(4);
+                            price = results.getInt(5);
 
-                        EXEC SQL OPEN laptopCursor;
-                        while(1) {
-                            EXEC SQL FETCH FROM laptopCursor INTO :speed,
-                                :ram, :hd, :screen, :price;
-
-                            if (NO_MORE_TUPLES) break;
-
-                            printf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
-                            model, speed, ram, hd, screen, screen, price, maker, productType);
+                            System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
+                            model, speed, ram, hd, screen, screen, price, maker, productType));
                         }
-                        EXEC SQL CLOSE laptopCursor;
-
 
                     } else if (strcmp(productType, 'printer')) {
                         EXEC SQL DECLARE printerCursor CURSOR FOR
