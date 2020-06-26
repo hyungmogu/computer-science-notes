@@ -1539,12 +1539,12 @@
                 targetBattle = scanObj.nextLine();
 
                 PrepareStatement sunkStat = myCon.prepareStatement("SELECT country, COUNT(Outcomes.result) FROM Classes " +
-                                                                    "INNER JOIN Ships ON Classes.class = Ships.class " +
-                                                                    "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
-                                                                    "INNER JOIN Battles ON Battles.name = Outcome.battle " +
-                                                                    "GROUP BY country " +
-                                                                    "HAVING Battles.name= ? AND " +
-                                                                    "Outcomes.result='sunk'");
+                                                                   "INNER JOIN Ships ON Classes.class = Ships.class " +
+                                                                   "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+                                                                   "INNER JOIN Battles ON Battles.name = Outcome.battle " +
+                                                                   "GROUP BY country " +
+                                                                   "HAVING Battles.name= ? AND " +
+                                                                   "Outcomes.result='sunk'");
                     sunkStat.setString(1, targetBattle);
                 ResultSet sunkResults = sunkStat.executeQuery();
 
@@ -2045,6 +2045,37 @@
         $results = $myCon->query("SELECT class FROM FROM Classes " +
                                  "WHERE numGuns * POWER(bore, 3) >= ALL ( " +
                                  "SELECT numGuns * POWER(bore, 3) FROM Classes)");
+
+        while ($tuple = $results->fetchRow()) {
+            class = $tuple[1];
+            sprintf("Class = %s\n", class);
+        }
+    }
+    ?>
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=PHP]
+    <?php
+    function Q6b () {
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q6);
+
+        Scanner scanObj = new Scanner(System.in);
+        System.out.println("Enter name of battle:");
+        targetBattle = scanObj.nextLine();
+
+        $query = $myCon->prepare("SELECT country, COUNT(Outcomes.result) FROM Classes " +
+                                 "INNER JOIN Ships ON Classes.class = Ships.class " +
+                                 "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+                                 "INNER JOIN Battles ON Battles.name = Outcome.battle " +
+                                 "GROUP BY country " +
+                                 "HAVING Battles.name= ? AND " +
+                                 "Outcomes.result='sunk'");
+
+        $args = array(targetBattle);
+        $sunkResults = $myCon->execute($query, $args);
+
 
         while ($tuple = $results->fetchRow()) {
             class = $tuple[1];
