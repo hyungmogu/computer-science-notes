@@ -1550,7 +1550,7 @@
 
                 while(sunkResults.next()) {
                     country = sunkResults.getString(1);
-                    count = sunkResults.getInt(1);
+                    count = sunkResults.getInt(2);
 
                     if (count > maxSunkCount) {
                         maxSunkCount = count;
@@ -2059,6 +2059,10 @@
     \begin{lstlisting}[language=PHP]
     <?php
     function Q6b () {
+        $maxSunkCount;
+        $mostSunkCountry;
+        $maxDamagedCount;
+        $mostDamagedCountry;
         $myCon = DB::connect(mysql://root:dbPassword@localhost/Q6);
 
         Scanner scanObj = new Scanner(System.in);
@@ -2078,9 +2082,39 @@
 
 
         while ($tuple = $results->fetchRow()) {
-            class = $tuple[1];
-            sprintf("Class = %s\n", class);
+            $country = $tuple[0];
+            $count = $tuple[1];
+
+            if ($count > $maxSunkCount) {
+                $maxSunkCount = $count;
+                $mostSunkCountry = $country;
+            }
         }
+
+        sprintf("Country with most sunk ships: %s", mostSunkCountry);
+
+        $query = $myCon->prepare("SELECT country, COUNT(Outcomes.result) FROM Classes " +
+                                 "INNER JOIN Ships ON Classes.class = Ships.class " +
+                                 "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+                                 "INNER JOIN Battles ON Battles.name = Outcome.battle " +
+                                 "GROUP BY country " +
+                                 "HAVING Battles.name= ? AND " +
+                                 "Outcomes.result='damaged'");
+        $args = array(targetBattle);
+        $damagedResults = $myCon->execute($query, $args);
+
+
+        while($tuple = $results->fetchRow()) {
+            $country = $tuple[0];
+            $count = $tuple[1];
+
+            if ($count > $maxDamagedCount) {
+                $maxDamagedCount = $count;
+                $mostDamagedCountry = $country;
+            }
+        }
+
+        sprintf("Country with most damaged ships: %s", mostDamagedCountry);
     }
     ?>
     \end{lstlisting}
