@@ -1966,6 +1966,75 @@
     }
     \end{lstlisting}
 
+        \item
+
+        \item
+
+    \begin{lstlisting}[language=PHP]
+    function Q5e {
+
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
+
+        echo("Enter manufacturer:");
+        $maker = fscanf(STDIN, "%f\n");
+
+        System.out.println("Enter model:");
+        String modelRaw = scanObj.nextLine();
+        model = Integer.parseInt(modelRaw);
+
+        echo("Enter model:");
+        $model = fscanf(STDIN, "%d\n");
+
+        echo("Enter speed:");
+        $speed = fscanf(STDIN, "%f\n");
+
+        echo("Enter ram:");
+        $ram = fscanf(STDIN, "%d\n");
+
+        echo("Enter hd:");
+        $hd = fscanf(STDIN, "%d\n");
+
+        echo("Enter price:");
+        $price = fscanf(STDIN, "%f\n");
+
+        PrepareStatement execStat = myCon.prepareStatement("SELECT Product.model AS m1, PC.model AS m2 FROM " +
+                                                            "Product FULL OUTER JOIN PC" +
+                                                            "WHERE model = ?");
+            execStat.setString(1, model);
+        ResultSet results = execStat.executeQuery();
+
+        while (results.next()) {
+            productModel = results.getString(1);
+            pcModel = results.getString(2);
+
+            if (productModel != null & pcModel != null) {
+                System.out.println("Error. Model already exists in database.");
+            } else {
+                PreparedStatement subExecStat = myCon.prepareStatement(
+                    "INSERT INTO PC(model, speed, ram, hd, price) " +
+                    "VALUES(?, ?, ?, ?, ?)"
+                );
+                    subExecStat.setString(1, model);
+                    subExecStat.setString(2, speed);
+                    subExecStat.setString(3, ram);
+                    subExecStat.setString(4, hd);
+                    subExecStat.setString(5, price);
+                subExecStat.executeUpdate();
+
+                subExecStat = myCon.prepareStatement(
+                    "INSERT INTO Product(model, maker, type) " +
+                    "VALUES(?, ?, 'pc')"
+                );
+                    subExecStat.setString(1, model);
+                    subExecStat.setString(2, maker);
+                subExecStat.executeUpdate();
+            }
+
+        }
+    }
+
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
