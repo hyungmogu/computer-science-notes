@@ -2127,35 +2127,31 @@
         $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
 
         echo("Enter name of class:");
-        $class = fscanf(STDIN, "%s\n");
+        $class = $_POST['class'];
 
         echo("Enter name of type ('bb' or 'bc'):");
-        $type = fscanf(STDIN, "%s\n");
-
-        System.out.println("Enter name of country:");
-        String country = scanObj.nextLine();
+        $type = $_POST['type'];
 
         echo("Enter name of country:");
-        $country = fscanf(STDIN, "%s\n");
+        $country = $_POST['country'];
 
         echo("Enter name of numGuns:");
-        $numGuns = fscanf(STDIN, "%d\n");
+        $numGuns = $_POST['numGuns'];
 
         echo("Enter name of bore:");
-        $bore = fscanf(STDIN, "%d\n");
+        $bore = $_POST['bore'];
 
         echo("Enter name of displacement:");
-        $bore = fscanf(STDIN, "%d\n");
+        $displacement = $_POST['displacement'];
 
         echo("Enter name of ship (if first ship, skip by pressing ENTER):");
-        $bore = fscanf(STDIN, "%d\n");
+        $shipName = $_POST['shipName'];
 
-        if (shipName.trim().equals("")) {
-            shipName = class;
+        if (trim($shipName) == "") {
+            shipName = $_POST['class'];
         }
 
-        System.out.println("Enter date launched (YYYY-MM-DD):");
-        String dateLaunched = scanObj.nextLine();
+        $dateLaunched = $_POST['dateLaunched'];
 
 
         PreparedStatement classExecStat = myCon.prepareStatement(
