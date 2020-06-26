@@ -1903,33 +1903,34 @@
 
 
         while ($tuple = $results->fetchRow()) {
-            maker = results.getString(1);
-            productType = results.getString(2);
+            $maker = $tuple[0];
+            $productType = $tuple[1];
 
-            if (maker.toLowerCase() != targetMaker.toLowerCase()) continue;
+            if (strtolower(maker) != strtolowertargetMaker))) continue;
 
             if (productType == 'pc') {
-                PreparedStatement subExecStat = myCon.prepareStatement("SELECT speed, ram, hd, price FROM PC " +
-                                                                        "NATURAL JOIN Product " +
-                                                                        "WHERE type= ?");
-                    subExecStat.setString(1, productType);
-                ResultSet subResults = subExecStat.executeQuery();
+                $subQuery = $myCon->prepare("SELECT speed, ram, hd, price FROM PC " +
+                                            "NATURAL JOIN Product " +
+                                            "WHERE type= ?");
 
-                while(subResults.next()) {
-                    speed = results.getFloat(1);
-                    ram = results.getFloat(2);
-                    hd = results.getInt(3);
-                    price = results.getInt(4);
+                $args = array($productType);
+                $subResults = $myCon->execute($subQuery, $args);
 
-                    System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
-                    model, speed, ram, hd, screen, price, maker, productType));
+                while($tuple = $results->fetchRow()) {
+                    $speed = $tuple[0];
+                    $ram = $tuple[1];
+                    $hd = $tuple[2];
+                    $price = $tuple[3];
+
+                    sprintf("model=%d, speed=%.2f, ram=%d, hd=%d, price=%.2f, maker=%c, type=%s",
+                    model, speed, ram, hd, screen, price, maker, productType);
                 }
             } else if (productType == 'laptop') {
-                PreparedStatement subExecStat = myCon.prepareStatement("SELECT speed, ram, hd, screen, price FROM Laptop " +
-                                                                        "NATURAL JOIN Product " +
-                                                                        "WHERE type= ?");
-                    subExecStat.setString(1, productType);
-                ResultSet subResults = subExecStat.executeQuery();
+                $subQuery = $myCon->prepare("SELECT speed, ram, hd, screen, price FROM Laptop " +
+                                            "NATURAL JOIN Product " +
+                                            "WHERE type= ?");
+                    $args = array($productType);
+                $subResults = $myCon->execute($subQuery, $args);
 
                 while(subResults.next()) {
                     speed = results.getFloat(1);
