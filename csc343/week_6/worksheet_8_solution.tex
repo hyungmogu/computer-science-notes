@@ -2181,7 +2181,39 @@
     \begin{lstlisting}[language=PHP]
     <?php
     function Q6d () {
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
 
+        $classQuery = $myCon->prepare(
+            "SELECT Ships.name, Ships.class, Outcomes.battle" +
+            "FROM Ships " +
+            "INNER JOIN Outcomes ON Ships.name = Outcomes.ship " +
+            "INNER JOIN Battles ON Outcomes.battle = Battles.name " +
+            "WHERE Ships.launched > Battles.date"
+        );
+        $myCon->execute();
+
+        while($tuple = $results->fetchRow()) {
+
+            $newLaunchDate = $_POST['newLaunchDate'];
+            $newDateBattle = $_POST['newDateBattle'];
+
+            if ($newLaunchdate) {
+                $query = $myCon->prepare("UPDATE Ships "
+                                        "SET launched = ? "
+                                        "WHERE name = ? AND class = ?");
+                $args = array($newDateLaunched, $shipName, $class);
+                $myCon->execute($query, $args);
+            }
+
+
+            if ($newDateBattle) {
+                $query = $myCon->prepare("UPDATE Battles "
+                                        "SET date = ? "
+                                        "WHERE name = ?");
+                $args = array($newDateBattle, $battle);
+                $myCon->execute($query, $args);
+            }
+        }
     }
     ?>
     \end{lstlisting}
