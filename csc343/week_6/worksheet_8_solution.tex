@@ -2154,27 +2154,21 @@
         $dateLaunched = $_POST['dateLaunched'];
 
 
-        PreparedStatement classExecStat = myCon.prepareStatement(
+        $classQuery = $myCon->prepare(
             "INSERT INTO Classes(class, type, country, numGuns, bore, displacement) " +
             "VALUES (?, ?, ?, ?, ?, ?)"
         );
-            classExecStat.setString(1, class);
-            classExecStat.setString(2, type);
-            classExecStat.setString(3, country);
-            classExecStat.setString(4, numGuns);
-            classExecStat.setString(5, bore);
-            classExecStat.setString(6, displacement);
-        classExecStat.executeUpdate();
 
-        PreparedStatement shipsExecStat = myCon.prepareStatement(
+        $args = array(class,type,country,numGuns,bore,displacement);
+        $myCon->execute($classQuery, $args);
+
+        $shipsQuery = $myCon->prepare(
             "INSERT INTO Ships(name, class, launched) " +
             "VALUES (?, ?, ?)"
         );
-            shipsExecStat.setString(1, shipName);
-            shipsExecStat.setString(2, class);
-            shipsExecStat.setString(3, dateLaunched);
-        shipsExecStat.executeUpdate();
 
+        $args = array(shipName, class, dateLaunched);
+        $myCon->execute($shipsQuery, $args);
 
         $myCon->disconnect();
 
