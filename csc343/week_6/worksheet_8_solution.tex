@@ -1916,7 +1916,7 @@
                 $args = array($productType);
                 $subResults = $myCon->execute($subQuery, $args);
 
-                while($tuple = $results->fetchRow()) {
+                while($tuple = $subResults->fetchRow()) {
                     $speed = $tuple[0];
                     $ram = $tuple[1];
                     $hd = $tuple[2];
@@ -1932,52 +1932,33 @@
                     $args = array($productType);
                 $subResults = $myCon->execute($subQuery, $args);
 
-                while(subResults.next()) {
-                    speed = results.getFloat(1);
-                    ram = results.getFloat(2);
-                    hd = results.getInt(3);
-                    screen = results.getInt(4);
-                    price = results.getInt(5);
+                while($tuple = $subResults->fetchRow()) {
+                    $speed = $tuple[0];
+                    $ram = $tuple[1];
+                    $hd = $tuple[2];
+                    $screen = $tuple[3];
+                    $price = $tuple[4];
 
-                    System.out.println(String.format("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
-                    model, speed, ram, hd, screen, screen, price, maker, productType));
+                    sprintf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c, type=%s",
+                    model, speed, ram, hd, screen, screen, price, maker, productType);
                 }
 
             } else if (strcmp(productType, 'printer')) {
-                PreparedStatement subExecStat = myCon.prepareStatement("SELECT color, printType, price FROM Printer " +
-                                                                        "NATURAL JOIN Product " +
-                                                                        "WHERE type= ?");
-                    subExecStat.setString(1, productType);
-                ResultSet subResults = subExecStat.executeQuery();
 
-                while(subResults.next()) {;
-                    color = results.getBoolean(1);
-                    printType = results.getString(2);
-                    price = results.getFloat(3);
+                $subQuery = $myCon->prepare("SELECT color, printType, price FROM Printer " +
+                                            "NATURAL JOIN Product " +
+                                            "WHERE type= ?");
+                $args = array($productType);
+                $subResults = $myCon->execute($subQuery, $args);
 
-                    printf("model=%d, color=%s, price=%.2f, maker=%c, type=%s",
+                while($tuple = $subResults->fetchRow()) {;
+                    $color = $tuple[1];
+                    $printType = $tuple[2];
+                    $price = $tuple[3];
+
+                    sprintf("model=%d, color=%s, price=%.2f, maker=%c, type=%s",
                     model, color ? "true" : "false", price, maker, type);
                 }
-            }
-        }
-
-        while($tuple = $results->fetchRow()) {
-            $model = $tuple[0];
-            $speed = $tuple[1];
-            $ram = $tuple[2];
-            $hd = $tuple[3];
-            $screen = $tuple[4];
-            $price = $tuple[5];
-            $maker = $tuple[6];
-
-            if (
-                $speed >= $minSpeed &&
-                $ram >= $minRam &&
-                $hd >= $minHd &&
-                $screen >= $minScreen
-            ) {
-                sprintf("model=%d, speed=%.2f, ram=%d, hd=%d, screen=%d, price=%.2f, maker=%c",
-                    model, speed, ram, hd, screen, price, maker);
             }
         }
 
