@@ -1619,7 +1619,7 @@
 
                 System.out.println("Enter name of numGuns:");
                 String numGunsRaw = scanObj.nextLine();
-                hd = Integer.parseFloat(numGunsRaw);
+                numGuns = Integer.parseFloat(numGunsRaw);
 
                 System.out.println("Enter name of bore:");
                 String boreRaw = scanObj.nextLine();
@@ -2118,6 +2118,84 @@
     }
     ?>
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=PHP]
+    <?php
+    function Q6c () {
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q5);
+
+        echo("Enter name of class:");
+        $class = fscanf(STDIN, "%s\n");
+
+        echo("Enter name of type ('bb' or 'bc'):");
+        $type = fscanf(STDIN, "%s\n");
+
+        System.out.println("Enter name of country:");
+        String country = scanObj.nextLine();
+
+        echo("Enter name of country:");
+        $country = fscanf(STDIN, "%s\n");
+
+        echo("Enter name of numGuns:");
+        $numGuns = fscanf(STDIN, "%d\n");
+
+        echo("Enter name of bore:");
+        $bore = fscanf(STDIN, "%d\n");
+
+        echo("Enter name of displacement:");
+        $bore = fscanf(STDIN, "%d\n");
+
+        echo("Enter name of ship (if first ship, skip by pressing ENTER):");
+        $bore = fscanf(STDIN, "%d\n");
+
+        if (shipName.trim().equals("")) {
+            shipName = class;
+        }
+
+        System.out.println("Enter date launched (YYYY-MM-DD):");
+        String dateLaunched = scanObj.nextLine();
+
+
+        PreparedStatement classExecStat = myCon.prepareStatement(
+            "INSERT INTO Classes(class, type, country, numGuns, bore, displacement) " +
+            "VALUES (?, ?, ?, ?, ?, ?)"
+        );
+            classExecStat.setString(1, class);
+            classExecStat.setString(2, type);
+            classExecStat.setString(3, country);
+            classExecStat.setString(4, numGuns);
+            classExecStat.setString(5, bore);
+            classExecStat.setString(6, displacement);
+        classExecStat.executeUpdate();
+
+        PreparedStatement shipsExecStat = myCon.prepareStatement(
+            "INSERT INTO Ships(name, class, launched) " +
+            "VALUES (?, ?, ?)"
+        );
+            shipsExecStat.setString(1, shipName);
+            shipsExecStat.setString(2, class);
+            shipsExecStat.setString(3, dateLaunched);
+        shipsExecStat.executeUpdate();
+
+
+        $myCon->disconnect();
+
+    }
+    ?>
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=PHP]
+    <?php
+    function Q6d () {
+
+    }
+    ?>
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
