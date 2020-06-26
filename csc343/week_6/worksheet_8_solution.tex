@@ -1997,37 +1997,32 @@
         echo("Enter price:");
         $price = fscanf(STDIN, "%f\n");
 
-        PrepareStatement execStat = myCon.prepareStatement("SELECT Product.model AS m1, PC.model AS m2 FROM " +
-                                                            "Product FULL OUTER JOIN PC" +
-                                                            "WHERE model = ?");
-            execStat.setString(1, model);
-        ResultSet results = execStat.executeQuery();
+        $execStat = $myCon->prepare("SELECT Product.model AS m1, PC.model AS m2 FROM " +
+                                    "Product FULL OUTER JOIN PC" +
+                                    "WHERE model = ?");
+            $args = array(model);
+        $results = $myCon->execute();
 
-        while (results.next()) {
-            productModel = results.getString(1);
-            pcModel = results.getString(2);
+        while ($tuple = $results->fetchRow()) {
+            $productModel = $tuple[0];
+            $pcModel = $tuple[1];
 
-            if (productModel != null & pcModel != null) {
-                System.out.println("Error. Model already exists in database.");
+            if (!is_null($productModel) && !is_null($pcModel)) {
+                echo("Error. Model already exists in database.");
             } else {
-                PreparedStatement subExecStat = myCon.prepareStatement(
+                $subExecStat = $myCon->prepare(
                     "INSERT INTO PC(model, speed, ram, hd, price) " +
                     "VALUES(?, ?, ?, ?, ?)"
                 );
-                    subExecStat.setString(1, model);
-                    subExecStat.setString(2, speed);
-                    subExecStat.setString(3, ram);
-                    subExecStat.setString(4, hd);
-                    subExecStat.setString(5, price);
-                subExecStat.executeUpdate();
+                    $args = array(model, speed, ram, hd, price);
+                $myCon->execute($subExecStat, $args);
 
-                subExecStat = myCon.prepareStatement(
+                $subExecStat = $myCon->statement(
                     "INSERT INTO Product(model, maker, type) " +
                     "VALUES(?, ?, 'pc')"
                 );
-                    subExecStat.setString(1, model);
-                    subExecStat.setString(2, maker);
-                subExecStat.executeUpdate();
+                    $args = array(model, maker);
+                $myCon->execute($subExecStat, $args);
             }
 
         }
