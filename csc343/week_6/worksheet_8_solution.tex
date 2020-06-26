@@ -2032,6 +2032,29 @@
 
     \end{enumerate}
 
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=PHP]
+    <?php
+    function Q6a () {
+        $myCon = DB::connect(mysql://root:dbPassword@localhost/Q6);
+
+        $results = $myCon->query("SELECT class FROM FROM Classes " +
+                                 "WHERE numGuns * POWER(bore, 3) >= ALL ( " +
+                                 "SELECT numGuns * POWER(bore, 3) FROM Classes)");
+
+        while ($tuple = $results->fetchRow()) {
+            class = $tuple[1];
+            sprintf("Class = %s\n", class);
+        }
+    }
+    ?>
+    \end{lstlisting}
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
