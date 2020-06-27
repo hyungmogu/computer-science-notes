@@ -476,6 +476,118 @@
     </shipsData>
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <shipsData>
+        <Classes>
+            <Class>Bismarck</Class>
+            <Type>bb</Type>
+            <Country>Germany</Country>
+            <NumGuns>8</NumGuns>
+            <Bore>15</Bore>
+            <Displacement>42000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>Iowa</Class>
+            <Type>bb</Type>
+            <Country>USA</Country>
+            <NumGuns>9</NumGuns>
+            <Bore>16</Bore>
+            <Displacement>46000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>Kongo</Class>
+            <Type>bc</Type>
+            <Country>Japan</Country>
+            <NumGuns>8</NumGuns>
+            <Bore>14</Bore>
+            <Displacement>32000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>North Carolina</Class>
+            <Type>bb</Type>
+            <Country>USA</Country>
+            <NumGuns>9</NumGuns>
+            <Bore>16</Bore>
+            <Displacement>37000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>Renown</Class>
+            <Type>bc</Type>
+            <Country>Gt. Britain</Country>
+            <NumGuns>6</NumGuns>
+            <Bore>15</Bore>
+            <Displacement>32000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>Revenge</Class>
+            <Type>bb</Type>
+            <Country>Gt. Britain</Country>
+            <NumGuns>8</NumGuns>
+            <Bore>15</Bore>
+            <Displacement>29000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>Tennessee</Class>
+            <Type>bb</Type>
+            <Country>USA</Country>
+            <NumGuns>12</NumGuns>
+            <Bore>14</Bore>
+            <Displacement>32000</Displacement>
+        </Classes>
+        <Classes>
+            <Class>Yamato</Class>
+            <Type>bb</Type>
+            <Country>Japan</Country>
+            <NumGuns>9</NumGuns>
+            <Bore>18</Bore>
+            <Displacement>65000</Displacement>
+        </Classes>
+    </shipsData>
+    \end{lstlisting}
+
+        \item
+
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Empty element
+            \begin{itemize}
+                \item is an element that is complete by itself
+                \item rather than being composed of a start tag, data
+                and an end tag, the empty element is a combined start and end tag.
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <phone>
+        <entry>
+            <name>Chip</name>
+            <extension number="3"/>
+        </entry>
+    </phone>
+    \end{lstlisting}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Phone is not an empty element
+                    \item extension is an empty element
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+
 \end{enumerate}
 
 \end{document}
