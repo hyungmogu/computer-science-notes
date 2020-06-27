@@ -1099,7 +1099,60 @@
             \item Can be used as an attribute or element
             \begin{enumerate}[1.]
                 \item Restricting numerical values by setting lower bound and upperbound
+                \begin{itemize}
+                    \item \textbf{Syntax:}
+
+                    \bigskip
+
+                    $<$xs:simpleType name = \textit{type name}$>$
+
+                    \quad$<$xs:restriction base = \text{base type} $>$
+
+                    \quad\quad\textit{upper and/or lower bounds}
+
+                    \quad$<$/xs:restriction $>$
+
+                    $<$/xs:simpleType$>$
+
+                    \item Use \textbf{minInclusive} to state the lower bound
+                    \item Use \textbf{maxInclusive} to state the upper bound
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <xs:simpleType name = "movieYearType">
+        <xs:restriction base = "xs:integer">
+            <xs:minInclusive value = "1915" />
+        </xs:restriction>
+    </xs:simpleType>
+    \end{lstlisting}
                 \item Restricting avlues to an enumerated type
+                \begin{itemize}
+                    \item \textbf{Syntax:}
+
+                    \bigskip
+
+                    $<$xs:simpleType name = "movieYearType" $>$
+
+                    \quad$<$xs:restriction base = "xs:string"$>$
+
+                    \quad\quad$<$xs:enumeration value = "comedy"$/>$
+
+                    \quad\quad$<$xs:enumeration value = "drama"$/>$
+
+                    \quad\quad$<$xs:enumeration value = "sciFi"$/>$
+
+                    \quad\quad$<$xs:enumeration value = "teen"$/>$
+
+                    \quad$<$/xs:restriction$>$
+
+                    $<$/xs:simpleType$>$
+                \end{itemize}
             \end{enumerate}
         \end{itemize}
     \end{itemize}
