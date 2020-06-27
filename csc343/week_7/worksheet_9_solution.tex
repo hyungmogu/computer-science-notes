@@ -553,20 +553,32 @@
     \begin{lstlisting}[language=XML]
     <? xml version = "1.0" encoding="utf-8" standalone = "yes">
     <DocRoot docID="root" rootElementID="">
-        <Subelement parentID="root" childID="cf" position="1">
-
+        <SubElement parentID="root" childID="cf" position="1">
+            <ElementAttribute elementID="cf-starsIn" name="starsIn" value="sw"/>
             <ElementValue elementID="cf-name" name="name" value="Carrie Fisher"/>
-            <Subelement parentID="cf" childID="cf-add-1" position="1">
-                <ElementAttribute elementID="" name="" value="">
-            </Subelement>
-        </Subelement>
-        <Subelement parentID="root" childID="mh" position="2">
-        </Subelement>
-        <Subelement parentID="root" childID="sw" position="3">
-            <ElementAttribute elementID="" name="" value="">
-                <ElementValue elementID="" name="" value=""/>
-            </ElementAttribute>
-        </Subelement>
+            <SubElement parentID="cf" childID="cf-add_1" position="1">
+                <City elementID="cf-add_1-city" value="Hollywood">
+                <Street elementID="cf-add_1-street" value="Maple">
+            </SubElement>
+            <SubElement parentID="cf" childID="cf-add_2" position="2">
+                <ElementValue elementID="cf-add_2-city" value="Malibu">
+                <ElementValue elementID="cf-add_1-street" value="Locust">
+            </SubElement>
+        </SubElement>
+        <SubElement parentID="root" childID="mh" position="2">
+            <ElementAttribute elementID="mh-starsIn" name="starsIn" value="sw"/>
+            <ElementValue elementID="mh-name" value="Mark Hamill"/>
+            <SubElement parentID="mh" childID="mh-add_2" position="1">
+                <ElementValue elementID="mh-add_2-city" value="Bollywood">
+                <ElementValue elementID="mh-add_2-street" value="Oak">
+            </SubElement>
+        </SubElement>
+        <SubElement parentID="root" childID="sw" position="3">
+            <ElementAttribute elementID="mh-starsOf_1" name="starsOf" value="cf"/>
+            <ElementAttribute elementID="mh-starsOf_2" name="starsOf" value="mh"/>
+            <ElementValue elementID="sw-title" value="Star Wars" />
+            <ElementValue elementID="sw-year" value="1977" />
+        </SubElement>
     </DocRoot>
     \end{lstlisting}
 
