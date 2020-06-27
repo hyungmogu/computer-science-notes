@@ -838,24 +838,36 @@
     \begin{lstlisting}[language=XML]
     <!DOCTYPE TeamData [
         <!ELEMENT TeamData (Players*, Teams*, Fans*)>
-        <!ELEMENT Players(pfirstName, lastName, team)>
+        <!ELEMENT Players(FirstName, LastName, Team)>
             <!ATTLIST Players
                 playerId ID #REQUIRED
                 playerIn IDREFS #IMPLIED
             >
-        <!ELEMENT Teams(name)>
+        <!ELEMENT FirstName (#PCDATA)>
+        <!ELEMENT LastName (#PCDATA)>
+        <!ELEMENT Team (#PCDATA)>
+        <!ELEMENT Teams(Name)>
             <!ATTLIST Teams
                 teamId ID #REQUIRED
                 playerOf IDREFS #IMPLIED
                 fanOf IDREFS #IMPLIED
             >
-        <!ELEMENT Fans(firstName, lastName)>
+        <!ELEMENT Name (#PCDATA)>
+        <!ELEMENT Fans(FirstName, LastName)>
             <!ATTLIST Fans
                 faId ID #REQUIRED
                 fanIn IDREFS #IMPLIED
             >
     ]>
     \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \begin{itemize}
+        \item There is no need to write same tags twice. (e.g. FirstName, LastName)
+    \end{itemize}
 
 
 \end{enumerate}
