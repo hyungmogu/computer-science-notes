@@ -356,6 +356,46 @@
     </StarMovieData>
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <StarMovieData>
+        <Star starID="cf" starredIn="sw">
+            <Name>Carrie Fisher</Name>
+            <Address>
+                <Street>123 Maple St.</Street>
+                <City>Hollywood</City>
+            </Address>
+            <Address>
+                <Street>5 Locust Ln.</Street>
+                <City>Malibu</City>
+            </Address>
+        </Star>
+        <Star starID="mh" starredIn="sw">
+            <Name>Mark Hamill</Name>
+            <Street>456 Oak Rd.</Street>
+            <City>Brentwood</City>
+        </Star>
+        <Movie movieID="sw" starsOf="cf", "mh" movieIn="fx">
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+        <Movie movieID="esb" starOf="cf", "mh" movieIn="fx">
+            <Title>Empire Strikes Back</Title>
+            <Year>1980</Year>
+        </Movie>
+        <Movie movieID="roj" starOf="cf", "mh" movieIn="fx">
+            <Title>Return of Jedi</Title>
+            <Year>1983</Year>
+        </Movie>
+        <Studio studioID="fx" movieOf="esb", "roj", "sw">
+            <Name>Fox</Name>
+            <Address>Hollywood</Address>
+        </Studio>
+    </StarMovieData>
+    \end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
