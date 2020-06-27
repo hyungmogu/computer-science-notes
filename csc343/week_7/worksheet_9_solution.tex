@@ -226,7 +226,60 @@
 
         \item Attributes
         \begin{itemize}
-            \item
+            \item is used to represent connections in a semistructured data graph
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <StarMovieData>
+        <Star starID="cf" starredIn="sw">
+            <Name>Carrie Fisher</Name>
+            <Address>
+                <Street>123 Maple St.</Street>
+                <City>Hollywood</City>
+            </Address>
+            <Address>
+                <Street>5 Locust Ln.</Street>
+                <City>Malibu</City>
+            </Address>
+        </Star>
+        <Star starID="mh" starredIn="sw">
+            <Name>Mark Hamill</Name>
+            <Street>456 Oak Rd.</Street>
+            <City>Brentwood</City>
+        </Star>
+        <Movie starID="sw" starOf="cf", "mh">
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+    </StarMovieData>
+    \end{lstlisting}
+
+        \end{itemize}
+
+        \item Namespaces
+        \begin{itemize}
+            \item \textbf{Syntax:} xmlns:\textit{name}:URI
+            \item Is similar to import numpy as np in python
+            \item Is used to distinguish tags coming from different sources, i.e. HTML
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            Retireving element \textit{StarMovieData} from document \textbf{infolab.stanford.edu/movies}.
+            Set md as the name of import
+
+    \begin{lstlisting}[language=XML]
+    <md:StarMovieData xmlns:md="http://infolab.stanford.edu/movies">
+    \end{lstlisting}
         \end{itemize}
     \end{itemize}
 
