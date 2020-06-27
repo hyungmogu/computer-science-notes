@@ -933,8 +933,28 @@
             \item Is text that will not be parsed by a parser.
             \item Tags inside the text will not be treated as markup and entities will not be expanded
             \item e.g. attributes
+
+    \begin{lstlisting}[language=XML]
+    <Movie title="Star Wars" year="1977" genre="sciFi">
+
+    <!ELEMENT Movie EMPTY>
+        <!ATTLIST Movie
+            title CDATA #REQUIRED
+            year  CDATA #REQUIRED
+            genre (comedy | drama | sciFi | teen) #IMPLIED
+        >
+
+    \end{lstlisting}
         \end{itemize}
     \end{itemize}
+
+    \item
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE ShipBattleData [
+
+    ]>
+    \end{lstlisting}
 
 
 
