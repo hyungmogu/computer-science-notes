@@ -483,7 +483,7 @@
         \begin{itemize}
             \item DocRoot
     \begin{lstlisting}[language=XML]
-    <DocRoot docID="" rootElementId="" />
+    <DocRoot docID="" rootElementID="" />
     \end{lstlisting}
             \item SubElement
     \begin{lstlisting}[language=XML]
@@ -534,7 +534,23 @@
                     \item extension is an empty element
                 \end{itemize}
             \end{itemize}
-        \end{itemize}
+    \end{itemize}
+
+    \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <DocRoot docID="root" rootElementID="">
+        <Subelement parentID="" childID="" position="">
+            <ElementAttribute elementID="" name="" value="">
+
+            </ElementAttribute>
+            <ElementValue elementID="" name="" value="">
+
+            </ElementValue>
+        </Subelement>
+    </DocRoot>
+    \end{lstlisting}
 
 \end{enumerate}
 
