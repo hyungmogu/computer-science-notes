@@ -1282,6 +1282,20 @@
         \includegraphics[width=0.7\linewidth]{images/worksheet_9_solution_15.png}
         \end{center}
 
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE Movies [
+        <!ELEMENT Movies(Movie*)>
+
+        <!ELEMENT Movie (Title, Year, Genre)>
+            <!ATTLIST Movie
+                title CDATA #REQUIRED
+                year CDATA #REQUIRED
+                genre (comedy | drama | sciFi | teen) #IMPLIED
+            >
+    ]>
+    \end{lstlisting}
+
         \item Converting schema in figure 20 to DTD
 
         \bigskip
