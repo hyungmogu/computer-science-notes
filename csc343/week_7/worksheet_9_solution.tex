@@ -1098,7 +1098,7 @@
         \begin{itemize}
             \item Can be used as an attribute or element
             \begin{enumerate}[1.]
-                \item Restricting numerical values by setting lower bound and upperbound
+                \item Restricting numerical values by \underline{setting lower bound and upperbound}
                 \begin{itemize}
                     \item \textbf{Syntax:}
 
@@ -1131,7 +1131,7 @@
         </xs:restriction>
     </xs:simpleType>
     \end{lstlisting}
-                \item Restricting avlues to an enumerated type
+                \item Restricting values to an \underline{enumerated} type
                 \begin{itemize}
                     \item \textbf{Syntax:}
 
@@ -1153,8 +1153,27 @@
 
                     $<$/xs:simpleType$>$
                 \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <xs:simpleType name = "genreType">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "comedy"/>
+            <xs:enumeration value = "drama"/>
+            <xs:enumeration value = "sciFi"/>
+            <xs:enumeration value = "teen"/>
+        </xs:restriction>
+    </xs:simpleType>
+    \end{lstlisting}
             \end{enumerate}
         \end{itemize}
+
+        \item Keys in XML Schema
     \end{itemize}
 
     \bigskip
