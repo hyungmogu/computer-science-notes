@@ -538,16 +538,34 @@
 
     \item
 
+    \bigskip
+
+    The following will be used as an example.
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/worksheet_9_solution_10.png}
+    \end{center}
+
+    \bigskip
+
     \begin{lstlisting}[language=XML]
     <? xml version = "1.0" encoding="utf-8" standalone = "yes">
     <DocRoot docID="root" rootElementID="">
-        <Subelement parentID="" childID="" position="">
+        <Subelement parentID="root" childID="cf" position="1">
+
+            <ElementValue elementID="cf-name" name="name" value="Carrie Fisher"/>
+            <Subelement parentID="cf" childID="cf-add-1" position="1">
+                <ElementAttribute elementID="" name="" value="">
+            </Subelement>
+        </Subelement>
+        <Subelement parentID="root" childID="mh" position="2">
+        </Subelement>
+        <Subelement parentID="root" childID="sw" position="3">
             <ElementAttribute elementID="" name="" value="">
-
+                <ElementValue elementID="" name="" value=""/>
             </ElementAttribute>
-            <ElementValue elementID="" name="" value="">
-
-            </ElementValue>
         </Subelement>
     </DocRoot>
     \end{lstlisting}
