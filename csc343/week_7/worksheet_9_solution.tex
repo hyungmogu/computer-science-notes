@@ -162,7 +162,44 @@
 
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <StarMovieData>
+        <Star starID="cf" starredIn="sw">
+            <Name>Carrie Fisher</Name>
+            <Address>
+                <Street>123 Maple St.</Street>
+                <City>Hollywood</City>
+            </Address>
+            <Address>
+                <Street>5 Locust Ln.</Street>
+                <City>Malibu</City>
+            </Address>
+        </Star>
+        <Star starID="mh" starredIn="sw">
+            <Name>Mark Hamill</Name>
+            <Street>456 Oak Rd.</Street>
+            <City>Brentwood</City>
+        </Star>
+        <Movie movieID="sw" starsOf="cf", "mh">
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+        <MovieExec movieExecID="gl" execsIn="sw">
+            <Name>George Lucas</Name>
+            <Position>Director</Position>
+        </MovieExec>
+        <MovieExec movieExecID="gk" execsIn="sw">
+            <Name>Gru Kurtz</Name>
+            <Position>Produced By</Position>
+        </MovieExec>
+    </StarMovieData>
+    \end{lstlisting}
+
+        \bigskip
 
     \begin{itemize}
         \item XML
@@ -282,6 +319,8 @@
     \end{lstlisting}
         \end{itemize}
     \end{itemize}
+
+    \end{enumerate}
 
 \end{enumerate}
 
