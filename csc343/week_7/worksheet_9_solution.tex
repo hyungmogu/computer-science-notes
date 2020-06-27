@@ -869,6 +869,76 @@
         \item There is no need to write same tags twice. (e.g. FirstName, LastName)
     \end{itemize}
 
+    \item
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE GenealogyData [
+        <!ELEMENT TeamData (Players*, Teams*, Fans*)>
+        <!ELEMENT Players(FirstName, LastName, Team)>
+            <!ATTLIST Players
+                playerId ID #REQUIRED
+                playerIn IDREFS #IMPLIED
+            >
+        <!ELEMENT FirstName (#PCDATA)>
+        <!ELEMENT LastName (#PCDATA)>
+        <!ELEMENT Team (#PCDATA)>
+        <!ELEMENT Teams(Name)>
+            <!ATTLIST Teams
+                teamId ID #REQUIRED
+                playerOf IDREFS #IMPLIED
+                fanOf IDREFS #IMPLIED
+            >
+        <!ELEMENT Name (#PCDATA)>
+        <!ELEMENT Fans(FirstName, LastName)>
+            <!ATTLIST Fans
+                faId ID #REQUIRED
+                fanIn IDREFS #IMPLIED
+            >
+    ]>
+    \end{lstlisting}
+
+    \item
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE GenealogyData [
+        <!ELEMENT GenealogyData (Person)>
+        <!ELEMENT Person(FirstName, LastName, Age)>
+            <!ATTLIST Person
+                personId ID #REQUIRED
+                spouse IDREFS #IMPLIED
+                husband IDREFS #IMPLIED
+                child IDREFS #IMPLIED
+                brother IDREFS #IMPLIED
+            >
+        <!ELEMENT FirstName (#PCDATA)>
+        <!ELEMENT LastName (#PCDATA)>
+    ]>
+    \end{lstlisting}
+
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item PCDATA
+        \begin{itemize}
+            \item Is text that will be parsed by a parser.
+            \item Tags inside the text will be treated as markup and entities will be expanded.
+        \end{itemize}
+        \item CDATA
+        \begin{itemize}
+            \item Is text that will not be parsed by a parser.
+            \item Tags inside the text will not be treated as markup and entities will not be expanded
+            \item e.g. attributes
+        \end{itemize}
+    \end{itemize}
+
+
+
+
 
 \end{enumerate}
 
