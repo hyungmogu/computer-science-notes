@@ -788,7 +788,7 @@
         <!ELEMENT Customers(firsrName, lastName, idNo, account)>
             <!ATTLIST Accounts
                 idNo ID #REQUIRED
-                acctOf IDREFS #IMPLIED
+                account IDREFS #IMPLIED
             >
         <!ELEMENT acctNo (#PCDATA)>
         <!ELEMENT type (#PCDATA)>
@@ -797,6 +797,63 @@
         <!ELEMENT lastName (#PCDATA)>
         <!ELEMENT idNo (#PCDATA)>
         <!ELEMENT account (#PCDATA)>
+    ]>
+    \end{lstlisting}
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE BankData [
+        <!ELEMENT BankData (Accounts*, Customers*)>
+        <!ELEMENT Accounts(acctNo, type, balance)>
+            <!ATTLIST Accounts
+                acctNo ID #REQUIRED
+                acctIn IDREFS #IMPLIED
+            >
+        <!ELEMENT Customers(firsrName, lastName, idNo, account)>
+            <!ATTLIST Accounts
+                idNo ID #REQUIRED
+                account IDREFS #IMPLIED
+            >
+        <!ELEMENT acctNo (#PCDATA)>
+        <!ELEMENT type (#PCDATA)>
+        <!ELEMENT balance (#PCDATA)>
+        <!ELEMENT firstName (#PCDATA)>
+        <!ELEMENT lastName (#PCDATA)>
+        <!ELEMENT idNo (#PCDATA)>
+        <!ELEMENT account (#PCDATA)>
+    ]>
+    \end{lstlisting}
+
+    \end{mdframed}
+
+    \item
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE TeamData [
+        <!ELEMENT TeamData (Players*, Teams*, Fans*)>
+        <!ELEMENT Players(pfirstName, lastName, team)>
+            <!ATTLIST Players
+                playerId ID #REQUIRED
+                playerIn IDREFS #IMPLIED
+            >
+        <!ELEMENT Teams(name)>
+            <!ATTLIST Teams
+                teamId ID #REQUIRED
+                playerOf IDREFS #IMPLIED
+                fanOf IDREFS #IMPLIED
+            >
+        <!ELEMENT Fans(firstName, lastName)>
+            <!ATTLIST Fans
+                faId ID #REQUIRED
+                fanIn IDREFS #IMPLIED
+            >
     ]>
     \end{lstlisting}
 
