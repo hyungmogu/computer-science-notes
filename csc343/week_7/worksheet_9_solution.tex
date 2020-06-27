@@ -958,6 +958,44 @@
 
     \item
 
+    \begin{itemize}
+        \item An example of a document that conforms tothe XML Schema
+
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8" ?>
+    <Movies>
+        <Movie>
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+        <Movie>
+            <Title>Return of the Jedi</Title>
+            <Year>1983</Year>
+        </Movie>
+    </Movies>
+    \end{lstlisting}
+
+        \item An example of one that has all the elements mentioned, but does not conform to
+        definition
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8" ?>
+    <Movies>
+        <Movie>
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+        <Movie>
+            <Title>Return of the Jedi</Title>
+            <Year>This is not correct</Year>
+        </Movie>
+    </Movies>
+    \end{lstlisting}
+
+
+    \end{itemize}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
