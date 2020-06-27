@@ -170,6 +170,55 @@
             \item is called \textit{Extensible Markup Language}
             \item is an example of semistructured data
         \end{itemize}
+        \item XML with and without a Schema
+        \begin{itemize}
+            \item has two different types
+            \begin{enumerate}[1.]
+                \item Well-formed XML
+                \begin{itemize}
+                    \item allows to invent your own tags
+                    \item corresponds very-similarly to semi-structured data
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <StarMovieData>
+        <Star>
+            <Name>Carrie Fisher</Name>
+            <Address>
+                <Street>123 Maple St.</Street>
+                <City>Hollywood</City>
+            </Address>
+            <Address>
+                <Street>5 Locust Ln.</Street>
+                <City>Malibu</City>
+            </Address>
+        </Star>
+        <Star>
+            <Name>Mark Hamill</Name>
+            <Street>456 Oak Rd.</Street>
+            <City>Brentwood</City>
+        </Star>
+        <Movie>
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+    </StarMovieData>
+    \end{lstlisting}
+                \item Valid XML
+
+                \begin{itemize}
+                    \item Involes "Document Type Definition"
+                    \item specifies allowable tags and gives a grammar for how they may be nested
+                \end{itemize}
+            \end{enumerate}
+        \end{itemize}
     \end{itemize}
 
 \end{enumerate}
