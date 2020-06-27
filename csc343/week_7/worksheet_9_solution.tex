@@ -873,34 +873,6 @@
 
     \begin{lstlisting}[language=XML]
     <!DOCTYPE GenealogyData [
-        <!ELEMENT TeamData (Players*, Teams*, Fans*)>
-        <!ELEMENT Players(FirstName, LastName, Team)>
-            <!ATTLIST Players
-                playerId ID #REQUIRED
-                playerIn IDREFS #IMPLIED
-            >
-        <!ELEMENT FirstName (#PCDATA)>
-        <!ELEMENT LastName (#PCDATA)>
-        <!ELEMENT Team (#PCDATA)>
-        <!ELEMENT Teams(Name)>
-            <!ATTLIST Teams
-                teamId ID #REQUIRED
-                playerOf IDREFS #IMPLIED
-                fanOf IDREFS #IMPLIED
-            >
-        <!ELEMENT Name (#PCDATA)>
-        <!ELEMENT Fans(FirstName, LastName)>
-            <!ATTLIST Fans
-                faId ID #REQUIRED
-                fanIn IDREFS #IMPLIED
-            >
-    ]>
-    \end{lstlisting}
-
-    \item
-
-    \begin{lstlisting}[language=XML]
-    <!DOCTYPE GenealogyData [
         <!ELEMENT GenealogyData (Person)>
         <!ELEMENT Person(FirstName, LastName, Age)>
             <!ATTLIST Person
