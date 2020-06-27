@@ -781,7 +781,15 @@
     <!DOCTYPE BankData [
         <!ELEMENT BankData (Accounts*, Customers*)>
         <!ELEMENT Accounts(acctNo, type, balance)>
+            <!ATTLIST Accounts
+                acctNo ID #REQUIRED
+                acctIn IDREFS #IMPLIED
+            >
         <!ELEMENT Customers(firsrName, lastName, idNo, account)>
+            <!ATTLIST Accounts
+                idNo ID #REQUIRED
+                account IDREFS #IMPLIED
+            >
         <!ELEMENT acctNo (#PCDATA)>
         <!ELEMENT type (#PCDATA)>
         <!ELEMENT balance (#PCDATA)>
