@@ -717,6 +717,63 @@
     </StarMovieData>
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding="utf-8" standalone = "yes">
+    <StarMovieData>
+        <Star starID="cf" starredIn="sw">
+            <Name>Carrie Fisher</Name>
+            <Address>
+                <Street>123 Maple St.<Street>
+                <City>Hollywood</City>
+            </Address>
+            <Address>
+                <Street>5 Locust Ln.</Street>
+                <City>Malibu</City>
+            </Address>
+        </Star>
+        <Star starID="hf" starredIn="sw fw">
+            <Name>Harrison Ford</Name>
+        </Star>
+        <Star starID="mh" starredIn="sw">
+            <Name>Mark Hamill</Name>
+            <Address>
+                <Street>456 Oak Rd.</Street>
+                <City>Brentwood</City>
+            </Address>
+        </Star>
+        <Star starID="md" starredIn="bi">
+            <Name>Matt Damon</Name>
+        </Star>
+        <Movie movieID="sw" starsOf="cf mh hf">
+            <Title>Star Wars</Title>
+            <Year>1977</Year>
+        </Movie>
+        <Movie movieID="esb" starsOf="cf mh hf">
+            <Title>The Empire Strikes Back</Title>
+            <Year>1980</Year>
+        </Movie>
+        <Movie movieID="roj" starsOf="cf mh hf">
+            <Title>Return of the Jedi</Title>
+            <Year>1983</Year>
+        </Movie>
+        <Movie movieID="fw" starsOf="hf">
+            <Title>Firewall</Title>
+            <Year>2006</Year>
+        </Movie>
+        <Movie movieID="hhs" starsOf="cf">
+            <Title>Hannah and Her Sisters</Title>
+            <Year>1985</Year>
+        </Movie>
+        <Movie movieID="bi" starsOf="md">
+            <Title>The Bourne Identity</Title>
+            <Year>2002</Year>
+        </Movie>
+    </StarMovieData>
+    \end{lstlisting}
+
+
 
     \end{enumerate}
 
