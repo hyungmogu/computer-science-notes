@@ -779,8 +779,16 @@
 
     \begin{lstlisting}[language=XML]
     <!DOCTYPE BankData [
-
-
+        <!ELEMENT BankData (Accounts*, Customers*)>
+        <!ELEMENT Accounts(acctNo, type, balance)>
+        <!ELEMENT Customers(firsrName, lastName, idNo, account)>
+        <!ELEMENT acctNo (#PCDATA)>
+        <!ELEMENT type (#PCDATA)>
+        <!ELEMENT balance (#PCDATA)>
+        <!ELEMENT firstName (#PCDATA)>
+        <!ELEMENT lastName (#PCDATA)>
+        <!ELEMENT idNo (#PCDATA)>
+        <!ELEMENT account (#PCDATA)>
     ]>
     \end{lstlisting}
 
