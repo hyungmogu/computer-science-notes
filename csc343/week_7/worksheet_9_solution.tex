@@ -981,13 +981,13 @@
 
             \bigskip
 
-    \begin{lstlisting}[language=XML]
-    <? xml version = "1.0" encoding = "utf-8" ?>
+            $<$? xml version = "1.0" encoding = "utf-8" ?$>$
 
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-        ...
-    </xs:schema>
-    \end{lstlisting}
+            $<$xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"$>$
+
+            \quad...
+
+            $<$/xs:schema$>$
 
         \end{itemize}
         \item Elements
@@ -1174,6 +1174,48 @@
         \end{itemize}
 
         \item Keys in XML Schema
+        \begin{itemize}
+            \item \textbf{Syntax:}
+
+            $<$xs:key name = \textit{key name}$>$
+
+            \quad$<$xs:selector xpath= \textit{path description} $>$
+
+            \quad$<$xs:field xpath = \textit{path description} $>$
+
+            $<$/xs:key$>$
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8" ?>
+    <xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+
+        <xs:simpleType name = "genreType">
+            <xs:restrction base = "xs:string">
+                <xs:enumeration value="comedy" />
+                <xs:enumeration value="drama" />
+                <xs:enumeration value="sciFi" />
+                <xs:enumeration value = "teen" />
+            </xs:restriction>
+        </xs:complexType>
+
+
+
+        <xs:element name = "Movies">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="Movie" type="movieType" minOccurs="0" maxOccurs = "unbounded" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+    </xs:schema>
+    \end{lstlisting}
+        \end{itemize}
     \end{itemize}
 
     \bigskip
