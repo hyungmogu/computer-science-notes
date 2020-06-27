@@ -976,7 +976,41 @@
         \end{itemize}
 
         \item The Form of an XML Schema
-        \item
+        \begin{itemize}
+            \item Each XML-Schema document has the form
+
+            \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8" ?>
+
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        ...
+    </xs:schema>
+    \end{lstlisting}
+
+        \end{itemize}
+        \item Elements
+        \item \textbf{Syntax:}
+
+        \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <xs:element name = element name type = element type>
+        constraints and / or structure information
+    </xs:element>
+    \end{lstlisting}
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=XML]
+    <xs:element name = "title" type = "xs:string" />
+    <xs:element name = "Year" type = "xs:integerg" />
+    \end{lstlisting}
     \end{itemize}
 
 
