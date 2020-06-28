@@ -67,7 +67,7 @@
         \underline{\textbf{Notes:}}
 
         \begin{itemize}
-            \item Selecting Nodes
+            \item XPATH and Selecting Nodes
             \begin{itemize}
                 \item nodename
                 \begin{itemize}
@@ -142,6 +142,29 @@
             \begin{itemize}
                 \item `@*' means any attributes
                 \item `*' means any tag
+            \end{itemize}
+            \item Context of Expressions
+            \begin{itemize}
+                \item $[...]$ means that exists or there exists
+                \item $[\textit{integer}]$ selects ith child of its parent
+                \item $[\textit{Tag}]$ selects elements that have one or more sublements with `Tag'
+                \item$[\textit{Attribute}]$ selects elements that have attribute `Attribute'
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}[language=XML]
+    /StarMovieData/Star[//City = "Malibu"]/Name
+    \end{lstlisting}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Means select all Star Name that contains City with value `Malibu'
+                \end{itemize}
             \end{itemize}
         \end{itemize}
 
