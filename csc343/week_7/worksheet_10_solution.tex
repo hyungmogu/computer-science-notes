@@ -357,9 +357,32 @@
     \end{lstlisting}
                 \end{itemize}
 
+                \item \textbf{Where} Clause
+                \begin{itemize}
+                    \item \textbf{Syntax:} \textbf{where} \textit{condition}
+                \end{itemize}
+
+                \item \textbf{Return} Clause
+                \begin{itemize}
+                    \item \textbf{Syntax:} \textbf{return} \textit{expression}
+                \end{itemize}
+
             \end{itemize}
 
-            \item
+            \item Replacement of Variables
+            \begin{itemize}
+                \item Is done using curly braces $\{\}$
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+    \begin{lstlisting}
+    let $movies := doc("movies.xml");
+    for $m in $movies/Movies/Movie
+    return <Movie title= {$/@title}>{$m/Version/Star}</Movie>
+    \end{lstlisting}
+            \end{itemize}
 
         \end{itemize}
 
