@@ -235,6 +235,15 @@
         \item /Products/Maker/*/@price
         \item /Products/Maker/Printer
         \item /Products/Maker$[$/Printer/Type/text() = 'ink-jet'$]$
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            /Products/Maker$[$Printer/Type/text() = 'ink-jet'$]$
+
+        \end{mdframed}
         \item /Products/Maker$[$/PC $\vert$ /Laptops$]$
 
         \bigskip
