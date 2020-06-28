@@ -285,19 +285,65 @@
 
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
+        \item
 
-    \underline{\textbf{Notes:}}
+        \bigskip
 
-    \bigskip
+        \underline{\textbf{Notes:}}
 
-    \begin{itemize}
-        \item XQuery
+        \bigskip
+
         \begin{itemize}
-            \item Means \textbf{XML Query}
-            \item Is a functional language
+            \item XQuery
+            \begin{itemize}
+                \item Means \textbf{XML Query}
+                \item Is a functional language
+            \end{itemize}
+            \item XQuery and FLWOR
+            \begin{itemize}
+                \item FLWOR means
+                \begin{enumerate}[1.]
+                    \item \textbf{F}or - selects a sequence of nodes
+                    \item \textbf{L}et - binds a sequence to a variable
+                    \item \textbf{W}here - filters the nodes
+                    \item \textbf{O}rder By - sorts the nodes
+                    \item \textbf{R}eturn - what to return (gets evaluated once for every node)
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+                    \bigskip
+
+            \begin{lstlisting}
+            doc("books.xml")/bookstore/book[price>30]/title
+
+            for $x in doc("books.xml")/bookstore/book
+            where $x/price>30
+            return $x/title
+            \end{lstlisting}
+
+                \end{enumerate}
+                \item Let cluase
+                \begin{itemize}
+                    \item \textbf{Syntax:} let \textit{variable} := \textit{expression}
+                    \item Has a use case of storing document
+
+                    \bigskip
+
+                    e.g.
+
+                    \bigskip
+
+                    \$stars := doc('stars.xml');
+
+                \end{itemize}
+            \end{itemize}
+
         \end{itemize}
-    \end{itemize}
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
