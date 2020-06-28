@@ -316,16 +316,16 @@
 
                     \bigskip
 
-            \begin{lstlisting}
-            doc("books.xml")/bookstore/book[price>30]/title
+    \begin{lstlisting}
+    doc("books.xml")/bookstore/book[price>30]/title
 
-            for $x in doc("books.xml")/bookstore/book
-            where $x/price>30
-            return $x/title
-            \end{lstlisting}
+    for $x in doc("books.xml")/bookstore/book
+    where $x/price>30
+    return $x/title
+    \end{lstlisting}
 
                 \end{enumerate}
-                \item Let cluase
+                \item \textbf{Let} cluase
                 \begin{itemize}
                     \item \textbf{Syntax:} let \textit{variable} := \textit{expression}
                     \item Has a use case of storing document
@@ -339,7 +339,27 @@
                     \$stars := doc('stars.xml');
 
                 \end{itemize}
+
+                \item \textbf{For} cluase
+
+                \begin{itemize}
+                    \item \textbf{Syntax:} for \textit{variable} in \textit{expression}
+
+                    \bigskip
+
+                    \underline{\textbf{Example:}}
+
+    \begin{lstlisting}
+    let $movies := doc("movies.xml");
+    for $m in $movies/Movies/Movie
+    where $/@title = 'King Kong'
+    return $m
+    \end{lstlisting}
+                \end{itemize}
+
             \end{itemize}
+
+            \item
 
         \end{itemize}
 
