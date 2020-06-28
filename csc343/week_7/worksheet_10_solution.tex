@@ -58,23 +58,76 @@
 \begin{enumerate}[1.]
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
 
-    \underline{\textbf{Notes:}}
+        \item
 
-    \begin{itemize}
-        \item Selecting Nodes
-        \begin{enumerate}[1.]
-            \item nodename
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \begin{itemize}
+            \item Selecting Nodes
             \begin{itemize}
-                \item Selects all nodes with the name "nodename"
+                \item nodename
+                \begin{itemize}
+                    \item Selects all nodes with the name "nodename"
+                \end{itemize}
+                \item /
+                \begin{itemize}
+                    \item Selects from the root node
+                \end{itemize}
+                \item //
+                \begin{itemize}
+                    \item Selects node in the document from the current node that
+                    match the selection no matter where they are
+                \end{itemize}
+                \item .
+                \begin{itemize}
+                    \item Select the current node
+                \end{itemize}
+                \item ..
+                \begin{itemize}
+                    \item Selects the parent of the current node
+                \end{itemize}
+                \item @
+                \begin{itemize}
+                    \item Selects attributes
+                \end{itemize}
             \end{itemize}
-            \item /
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=XML]
+    /StarMovieData/Star//City
+    \end{lstlisting}
+
+            \item Wildcards *
             \begin{itemize}
-                \item Selects from the root node
+                \item Is used to say 'any tag'
             \end{itemize}
-        \end{enumerate}
-    \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}[language=XML]
+    /StarMovieData/*/@*
+    \end{lstlisting}
+
+            \bigskip
+
+            \begin{itemize}
+                \item `@*' means any attributes
+                \item `*' means any tag
+            \end{itemize}
+        \end{itemize}
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
