@@ -279,6 +279,8 @@
         \item /Ships/Class[@displacement $>$ 35000]
         \item /Ships/Class/Ship[@launched $<$ 1917]
         \item /Ships/Class/Ship[Battle/@outcome = 'sunk']/@name
+        \item /Ships[Class/@name = Class/Ship/@name]/Ship/@name
+        \item /Ships[Class/@name = Class/Ship/@name]/Class/Ship/@launched
     \end{enumerate}
 \end{enumerate}
 
