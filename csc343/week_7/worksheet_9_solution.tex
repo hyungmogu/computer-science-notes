@@ -1303,6 +1303,25 @@
         \begin{center}
         \includegraphics[width=0.6\linewidth]{images/worksheet_9_solution_16.png}
         \end{center}
+
+
+
+    \begin{lstlisting}[language=XML]
+    <!DOCTYPE Stars [
+        <!ELEMENT Stars(Star+)>
+
+        <!ELEMENT Star (Name, Address, StarredIn*)>
+        <!ELEMENT Name (#PCDATA)>
+        <!ELEMENT Address (#PCDATA)>
+        <!ELEMENT StarredIn EMPTY>
+            <!ATTLIST StarredIn
+                title ID #REQUIRED
+                year ID #REQUIRED
+
+            >
+    ]>
+    \end{lstlisting}
+
     \end{enumerate}
 
 
