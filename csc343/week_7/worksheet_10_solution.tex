@@ -384,6 +384,48 @@
     \end{lstlisting}
             \end{itemize}
 
+
+            \item Joins in XQuery
+            \begin{itemize}
+                \item Is done using `,' and where
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+    \begin{lstlisting}
+    let $movies := doc("movies.xml"),
+        $stars := doc("stars.xml")
+
+    for $s1 in $movies/Movies/Movie/Version/Star.
+        $s2 in $stars/Stars/Star
+    where data($s1) = data($s2/Name)
+    return $s2/Address/City
+    \end{lstlisting}
+            \end{itemize}
+
+            \item Elimination of duplicate values
+            \begin{itemize}
+                \item Is done by enveloping query in function \textit{distinct-values}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+    \begin{lstlisting}
+    let $movies := doc("movies.xml"),
+    $stars := doc("stars.xml")
+
+    let $starSeq := (for $s1 in $movies/Movies/Movie
+                    return $m/Version/Star)
+    return <Star>{starSeq}</Star>
+    \end{lstlisting}
+            \end{itemize}
+
         \end{itemize}
 
     \end{enumerate}
