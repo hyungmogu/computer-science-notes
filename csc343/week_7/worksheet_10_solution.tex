@@ -426,6 +426,30 @@
     \end{lstlisting}
             \end{itemize}
 
+            \item Quantification in XQuery
+            \begin{itemize}
+                \item \textbf{Syntax:} every \textit{variable} in \textit{expression1} satisfies \textit{expression2}
+                \begin{itemize}
+                    \item the entire expression is false if there is at least one item where expression1 makes expression2 false
+                \end{itemize}
+                \item \textbf{Syntax:} some \textit{variable} in \textit{expression1} satisfies \textit{expression2}
+                \begin{itemize}
+                    \item the entire expression is false if \underline{all} items in expression1 makes expression2 false
+                \end{itemize}
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+    \begin{lstlisting}
+    let $stars := doc("stars.xml")
+    for $s in $stars/Stars/Star
+    where every $c in $s/Address/City satisfies
+        $c = "Hollywood"
+    return $s/Name
+    \end{lstlisting}
+
         \end{itemize}
 
     \end{enumerate}
