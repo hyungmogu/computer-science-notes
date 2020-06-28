@@ -276,8 +276,9 @@
 
     \begin{enumerate}[a)]
         \item /Ships/Class/Ship/@name
-        \item /Ships/Class[@displacement > 35000]
-        \item /Ships/Class/Ship[@launched < 1917]
+        \item /Ships/Class[@displacement $>$ 35000]
+        \item /Ships/Class/Ship[@launched $<$ 1917]
+        \item /Ships/Class/Ship[Battle/@outcome = 'sunk']/@name
     \end{enumerate}
 \end{enumerate}
 
