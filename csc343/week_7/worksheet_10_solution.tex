@@ -674,10 +674,9 @@
     \item
 
     \begin{lstlisting}[language=XML]
-    let $stars := doc("stars.xml")
-    for $s in $stars/Stars/Star
-    where $s/Address/Street = "123 Maple St." and
-          $s/Address/City = "Malibu"
+    let $stars := docs("stars.xml")
+    for $s in $stars/Star
+    where exists($s/Address[./Street = "123 Maple St." and ./City = "Hollywood"])
     return $s/Name
     \end{lstlisting}
 \end{enumerate}
