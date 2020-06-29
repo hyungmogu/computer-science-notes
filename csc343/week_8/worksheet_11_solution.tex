@@ -110,12 +110,15 @@
 
             \item Obtaining values from XML Data
             \begin{itemize}
-                \item \textbf{Syntax:} $<$xsl value-of select = "\textit{expression}" /$>$
+                \item value-of
+                \begin{itemize}
+                    \item Is used to extract the value of a selected node.
+                    \item \textbf{Syntax:} $<$xsl value-of select = "\textit{expression}" /$>$
 
 
-                \bigskip
+                    \bigskip
 
-                \underline{\textbf{Example:}}
+                    \underline{\textbf{Example:}}
 
     \begin{lstlisting}[language=XML]
     <? xml version = "1.0" encoding = "utf-8"?>
@@ -125,8 +128,21 @@
         </xsl:template>
     </xsl:stylesheet>
     \end{lstlisting}
+                \end{itemize}
+
+                \item apply-templates
+                \begin{itemize}
+                    \item applies a $<$xls:template$>$ to the current element or
+                    to the current element's child nodes.
+                \end{itemize}
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/worksheet_11_solution_1.png}
+                \end{center}
 
             \end{itemize}
+
+            \item
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
