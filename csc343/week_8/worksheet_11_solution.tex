@@ -346,6 +346,16 @@
                             <TD>Name</td>
                             <TD>Launched</td>
                         </th>
+                        <xsl:for-each select="Ships/Class/Ship">
+                        <TR>
+                            <TD>
+                                <xsl:value-of select="@name"/>
+                            </td>
+                            <TD>
+                                <xsl:value-of select="@launched"/>
+                            </td>
+                        </tr>
+                        </xsl:for-each>
                     </table>
                 </body>
             </html>
