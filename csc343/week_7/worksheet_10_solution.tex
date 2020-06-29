@@ -574,6 +574,19 @@
     \end{lstlisting}
 
     \end{enumerate}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $ships := doc("ships.xml")
+    for $c in $ships/Class
+        where data($c/@numGuns) > 10
+        return $c
+    \end{lstlisting}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
