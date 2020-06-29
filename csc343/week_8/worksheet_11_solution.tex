@@ -231,7 +231,6 @@
         <xsl:template match = "/">
             <html>
                 <BODY>
-                    <xsl:for-each select="Products/Maker/Laptop">
                     <TABLE>
                         <TH>
                             <TD>Model</td>
@@ -241,25 +240,31 @@
                         </th>
                         <xsl:for-each select="Products/Maker/Laptop">
                         <TR>
-                            <TD><xsl:
+                            <TD><xsl:value-of select="@model"/></td>
+                            <TD><xsl:value-of select="@price"/></td>
+                            <TD><xsl:value-of select="Speed"/></td>
+                            <TD><xsl:value-of select="RAM"/></td>
                         </tr>
                         </xsl:for-each>
                     </table>
 
 
-                    <xsl:for-each select="Products/Maker">
-                        <xsl:if test="PC">
-                            <TABLE>
-                                <TH>
-                                    <TD>Model</td>
-                                    <TD>Price</td>
-                                    <TD>Speed</td>
-                                    <TD>RAM</td>
-                                </th>
-                            </table>
-                        </xsl:if>
-
-                    </xsl:for-each>
+                    <TABLE>
+                        <TH>
+                            <TD>Model</td>
+                            <TD>Price</td>
+                            <TD>Speed</td>
+                            <TD>RAM</td>
+                        </th>
+                        <xsl:for-each select="Products/Maker/PC">
+                        <TR>
+                            <TD><xsl:value-of select="@model"/></td>
+                            <TD><xsl:value-of select="@price"/></td>
+                            <TD><xsl:value-of select="Speed"/></td>
+                            <TD><xsl:value-of select="RAM"/></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
                 </body>
             </html>
         </xsl:template>
