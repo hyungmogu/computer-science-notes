@@ -59,6 +59,25 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8"?>
+    <xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/ISL/Transform">
+        <xsl:template match = "/">
+            <html>
+                <BODY>
+                    <H1>Manufacturerers</h1>
+                    <OL>
+                        <xsl:for-each select="Products/Maker">
+                            <Li><xsl:value-of select="@name"/></li>
+                        </xsl:for-each>
+                    </ol>
+                </body>
+            </html>
+        </xsl:template>
+    </xsl:stylesheet>
+    \end{lstlisting}
+
+
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -143,7 +162,7 @@
                 \includegraphics[width=\linewidth]{images/worksheet_11_solution_1.png}
                 \end{center}
 
-                \item For-loop in XLST
+                \item For-loop in XSLT
                 \begin{itemize}
                     \item \textbf{Syntax:} $<$xsl:for-each select = "\textit{expression}" $>$ ... $<$/xsl:for-each$>$
                     \item Is easier to maintain and read than apply templates $^{[1]}$
@@ -164,7 +183,14 @@
                 \end{enumerate}
             \end{itemize}
 
-            \item
+            \item If condition in XSLT
+            \begin{itemize}
+                \item \textbf{Syntax:} $<$xsl:if test = "\textit{boolean expression}"$>$
+            \end{itemize}
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/worksheet_11_solution_3.png}
+            \end{center}
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
