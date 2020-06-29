@@ -271,6 +271,64 @@
     </xsl:stylesheet>
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8"?>
+    <xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/ISL/Transform">
+        <xsl:template match = "/">
+            <html>
+                <BODY>
+                    <FORM method="POST" action="...">
+                    <xsl:for-each select="PCs/PC">
+                        <DIV style="margin-bottom:1em">
+                            <DIV>
+                                <LABEL>Model</label>
+                                <INPUT type="text">
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="@model" />
+                                    </xsl:attribute>
+                                </input>
+                            </div>
+
+                            <DIV>
+                                <LABEL>Price</label>
+                                <INPUT type="text">
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="Price" />
+                                    </xsl:attribute>
+                                </input>
+                            </div>
+
+                            <DIV>
+                                <LABEL>Speed</label>
+                                <INPUT type="text">
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="Speed" />
+                                    </xsl:attribute>
+                                </input>
+                            </div>
+
+                            <DIV>
+                                <LABEL>RAM</label>
+                                <INPUT type="text">
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="RAM" />
+                                    </xsl:attribute>
+                                </input>
+                            </div>
+                        </div>
+                    </xsl:for-each>
+
+                    <input type="submit" value="Submit" />
+                    </form>
+                </body>
+            </html>
+        </xsl:template>
+    </xsl:stylesheet>
+    \end{lstlisting}
+
+
 
     \end{enumerate}
 \end{enumerate}
