@@ -555,6 +555,24 @@
         return data($m/@name)
     \end{lstlisting}
 
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $products := doc("products.xml")
+    for $m in $products/Maker
+        where count($m/PC) >= 2 and $m/PC/Speed >= 3.00
+        return data($m/@name)
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $products := doc("products.xml")
+    for $m in $products/Maker
+        where $m/PC/@price < 1000
+        return $m
+    \end{lstlisting}
+
     \end{enumerate}
 \end{enumerate}
 
