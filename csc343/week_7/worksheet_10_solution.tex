@@ -573,6 +573,20 @@
         return $m
     \end{lstlisting}
 
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+    \begin{lstlisting}[language=XML]
+    let $products := doc("products.xml")
+    for $m in $products/Maker
+        where data($m/PC/@price) < 1000
+        return $m
+    \end{lstlisting}
+
+        \end{mdframed}
+
     \end{enumerate}
 
     \item
