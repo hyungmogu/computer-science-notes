@@ -64,6 +64,20 @@
         \item An HTML file consisting of a table whose headers are "Model," "Price," "Speed," and "Ram" for all Laptops, followed by another table with the same headers for PC's.
         \item An XML file with root tag <PCs> and subelements having tag <PC>. This tag has attributes model, price, speed, and ram. In the output, there should be one <PC> element for each <PC> element of the input file, and the values of the attributes should be taken from the corresponding input element.
     \end{enumerate}
+
+    \item \textbf{Exercise 12.3.2:} Suppose our input XML document has the form of the product
+    data of Fig. 12.6. Write XSLT stylesheets to produce each of the following
+    documents.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item An HTML file with a header for each class. Under each header is a table with column-headers "Name" and "Launched" with the appropriate entry for each ship of the class.
+        \item An HTML file with root tag <Losers> and subelements <Ship>, each of whose values is the name of one of the ships that were sunk.
+        \item An XML file with root tag <Ships> and subelements <Ship> for each ship. These elements each should have attributes name, class, country and num.Guns with the appropriate values taken from the input file.
+        \item Repeat (c), but only list those ships that were in at least one battle.
+        \item An XML file identical to the input, except that <Battle> elements should be empty, with the outcome and name of the battle as two attributes.
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
