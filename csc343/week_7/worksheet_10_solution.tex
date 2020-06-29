@@ -633,6 +633,15 @@
             \end{lstlisting}
 
         \end{mdframed}
+
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $ships := doc("ships.xml")
+    for $s in $ships/Class/Ship
+        where data($s/Battle/@outcome) = 'sunk'
+        return data($s/@name)
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
