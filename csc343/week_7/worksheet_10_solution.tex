@@ -600,6 +600,14 @@
         where data($c/@numGuns) > 10
         return $c
     \end{lstlisting}
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $ships := doc("ships.xml")
+        for $c in $ships/Class
+        where data($c/@numGuns) > 10
+        return data($c/Ship/@name)
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
