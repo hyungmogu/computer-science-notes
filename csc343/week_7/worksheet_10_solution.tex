@@ -617,10 +617,22 @@
 
     \begin{lstlisting}[language=XML]
     let $ships := doc("ships.xml")
-        for $c in $ships/Class
+    for $c in $ships/Class
         where data($c/@numGuns) > 10
         return data($c/Ship/@name)
     \end{lstlisting}
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \begin{lstlisting}[language=XML]
+            let $ships := doc("ships.xml")
+            for $c in $ships/Class
+                where data($c/@numGuns) >= 10
+                return data($c/Ship/@name)
+            \end{lstlisting}
+
+        \end{mdframed}
     \end{enumerate}
 \end{enumerate}
 
