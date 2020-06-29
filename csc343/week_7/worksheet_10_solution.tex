@@ -679,6 +679,18 @@
     where exists($s/Address[./Street = "123 Maple St." and ./City = "Hollywood"])
     return $s/Name
     \end{lstlisting}
+
+    \item This is impossible.
+
+    \bigskip
+
+    We know that for some \$x in $E$ to satisfy $F$ to be false, there has to exist at least one
+    item must be false.
+
+    \bigskip
+
+    But since all items must be true for every \$x in $E$ to satisfy $F$ to be true,
+    the two statement contradicts.
 \end{enumerate}
 
 \end{document}
