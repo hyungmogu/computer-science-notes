@@ -514,6 +514,13 @@
 
         \item
 
+    \begin{lstlisting}[language=XML]
+    let $products := doc("products.xml")
+    let $printerSeq := (for $p in $products/Maker/Printer
+                        where $price < 100
+                        return $p)
+    return <CheapPrinters>{$p}</CheapPrinters>
+    \end{lstlisting}
 
     \end{enumerate}
 \end{enumerate}
