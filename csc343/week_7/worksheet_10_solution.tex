@@ -549,12 +549,11 @@
         \item
 
     \begin{lstlisting}[language=XML]
-    let $products := /Products
+    let $products := doc("products.xml")
     for $m in $products/Maker
-        where exists($m/Printer) and exists($m/Laptop)
+        where count($m/PC) > 2 and $m/PC/Speed > 2.80
         return data($m/@name)
     \end{lstlisting}
-
 
     \end{enumerate}
 \end{enumerate}
