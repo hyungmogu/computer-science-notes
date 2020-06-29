@@ -450,8 +450,19 @@
                         name="
                         <xsl:value-of select="Ship/@name"/>
                         "
-                    >
-                    </Ship>
+
+                        class="
+                        <xsl:value-of select="Ship/@class"/>
+                        "
+
+                        country="
+                        <xsl:value-of select="@country">
+                        "
+
+                        numGuns="
+                        <xsl:value-of select="@numGuns">
+                        "
+                    />
                 </xsl:for-each>
             </Ships>
         </xsl:template>
