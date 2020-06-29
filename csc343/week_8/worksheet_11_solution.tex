@@ -414,6 +414,49 @@
         </xsl:template>
     </xsl:stylesheet>
     \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8"?>
+    <xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/ISL/Transform">
+        <xsl:template match = "/">
+            <html>
+                <BODY>
+                    <Losers>
+                        <xsl:for-each select="Ships/Class/Ship">
+                            <xsl:if test="Battle/@outcome = 'sunk'">
+                            <Ship>
+                                <xsl:value-of select="@name"/>
+                            </ship>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </Losers>
+                </body>
+            </html>
+        </xsl:template>
+    </xsl:stylesheet>
+    \end{lstlisting}
+
+        \item
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8"?>
+    <xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/ISL/Transform">
+        <xsl:template match = "/">
+            <Ships>
+                <xsl:for-each select="Ships/Class">
+                    <Ship
+                        name="
+                        <xsl:value-of select="Ship/@name"/>
+                        "
+                    >
+                    </Ship>
+                </xsl:for-each>
+            </Ships>
+        </xsl:template>
+    </xsl:stylesheet>
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
