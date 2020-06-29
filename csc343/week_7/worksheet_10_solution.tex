@@ -525,11 +525,10 @@
         \item
 
     \begin{lstlisting}[language=XML]
-    let $products := doc("products.xml")
-    let $p := (for $p in $products/Maker/Printer
-                        where $price < 100
-                        return $p)
-    return <CheapPrinters>{$p}</CheapPrinters>
+    let $products := /Products
+    for $m in $products/Maker
+        where exists($m/Printer) and exists($m/Laptop)
+        return data($m/@name)
     \end{lstlisting}
 
 
