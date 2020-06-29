@@ -600,6 +600,19 @@
         where data($c/@numGuns) > 10
         return $c
     \end{lstlisting}
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \begin{lstlisting}[language=XML]
+            let $ships := doc("ships.xml")
+            for $c in $ships/Class
+                where data($c/@numGuns) >= 10
+                return $c
+            \end{lstlisting}
+
+        \end{mdframed}
+
         \item
 
     \begin{lstlisting}[language=XML]
