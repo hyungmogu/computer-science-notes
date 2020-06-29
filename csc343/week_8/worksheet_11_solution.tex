@@ -424,6 +424,27 @@
     <xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/ISL/Transform">
         <xsl:template match = "/">
             <Ships>
+                <xsl:for-each select="Ships/Class">
+                    <xsl: if test="count(Ship/Battle) > 0">
+                        <Ship
+                            name="
+                            <xsl:value-of select="Ship/@name"/>
+                            "
+
+                            class="
+                            <xsl:value-of select="Ship/@class"/>
+                            "
+
+                            country="
+                            <xsl:value-of select="@country">
+                            "
+
+                            numGuns="
+                            <xsl:value-of select="@numGuns">
+                            "
+                        />
+                    </xsl:if>
+                </xsl:for-each>
             </Ships>
         </xsl:template>
     </xsl:stylesheet>
