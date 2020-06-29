@@ -130,23 +130,34 @@
     \end{lstlisting}
                 \end{itemize}
 
-                \item apply-templates
+                \item Apply-templates
                 \begin{itemize}
                     \item applies a $<$xls:template$>$ to the current element or
                     to the current element's child nodes.
                     \begin{itemize}
                         \item select='.' means choose the current value
                     \end{itemize}
-
-                    \begin{center}
-                    \includegraphics[width=\linewidth]{images/worksheet_11_solution_1.png}
-                    \end{center}
                 \end{itemize}
 
-                \item
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/worksheet_11_solution_1.png}
+                \end{center}
+
+                \item For-loop in XLST
                 \begin{itemize}
-                    \item
+                    \item \textbf{Syntax:} $<$xsl:for-each select = "\textit{expression}" $>$ ... $<$/xsl:for-each$>$
+                    \item Is easier to maintain and read than apply templates $^{[1]}$
                 \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{References:}}
+
+                \bigskip
+
+                \begin{enumerate}[1)]
+                    \item StackOverflow, differences between for-each and templates in xsl?, \href{https://stackoverflow.com/questions/4460232/differences-between-for-each-and-templates-in-xsl}{link}
+                \end{enumerate}
             \end{itemize}
 
             \item
