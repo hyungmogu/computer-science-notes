@@ -288,6 +288,14 @@
     \begin{enumerate}[a)]
         \item
 
+    \begin{lstlisting}
+    $products = doc("Products.xml");
+
+    for $p in $products/Maker/Printer
+        where @price < 100
+        return $p
+    \end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -395,7 +403,7 @@
 
             \bigskip
 
-    \begin{lstlisting}
+    \begin{lstlisting}[language=XML]
     let $movies := doc("movies.xml"),
         $stars := doc("stars.xml")
 
@@ -416,7 +424,7 @@
 
                 \bigskip
 
-    \begin{lstlisting}
+    \begin{lstlisting}[language=XML]
     let $movies := doc("movies.xml"),
     $stars := doc("stars.xml")
 
@@ -430,11 +438,11 @@
             \begin{itemize}
                 \item \textbf{Syntax:} every \textit{variable} in \textit{expression1} satisfies \textit{expression2}
                 \begin{itemize}
-                    \item the entire expression is false if there is at least one item where expression1 makes expression2 false
+                    \item Returns false if there is at least one item where expression1 makes expression2 false
                 \end{itemize}
                 \item \textbf{Syntax:} some \textit{variable} in \textit{expression1} satisfies \textit{expression2}
                 \begin{itemize}
-                    \item the entire expression is false if \underline{all} items in expression1 makes expression2 false
+                    \item Returns false if \underline{all} items in expression1 makes expression2 false
                 \end{itemize}
             \end{itemize}
 
@@ -442,7 +450,7 @@
 
             \underline{\textbf{Example}}
 
-    \begin{lstlisting}
+    \begin{lstlisting}[language=XML]
     let $stars := doc("stars.xml")
     for $s in $stars/Stars/Star
     where every $c in $s/Address/City satisfies
@@ -450,7 +458,62 @@
     return $s/Name
     \end{lstlisting}
 
+            \item Aggregations
+            \begin{itemize}
+                \item can use \textit{count}, \textit{sum} or \textit{max}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=XML]
+    let $movies := doc("movies.xml")
+    for $m in $movies/Movies/Movie
+    where count($m/Version) > 1
+    return $m
+
+    \end{lstlisting}
+            \end{itemize}
+
+            \item Branching in XQuery Expressions
+            \begin{itemize}
+                \item \textbf{Syntax:} if (\textit{expression1}) then \textit{expression2} else \textit{expression3}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=XML]
+    let $kk := doc("movies.xml")/Movies/Movie[@title = "King Kong"]
+    for $v in $kk/Version
+    return
+        if ($v/@year = max($kk/Version/@year))
+        then <Latest>{$v}</Latest>
+        else <Old>{$v}</Old>
+    \end{lstlisting}
+            \end{itemize}
+
+
+            \item Ordering the Result of a Query
+            \begin{itemize}
+                \item \textbf{Syntax:} order \textit{list of expressions}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=XML]
+    let $movies := doc("movies.xml")
+    for $m in $movies/Movies/Movie,
+        $v in $m/Version
+    order $v/@year
+    return <Movie title = "{$m/@title}" year = "{$v/@year}" />
+    \end{lstlisting}
+            \end{itemize}
         \end{itemize}
+
+        \item
+
 
     \end{enumerate}
 \end{enumerate}
