@@ -531,6 +531,30 @@
         return data($m/@name)
     \end{lstlisting}
 
+        \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+    \begin{lstlisting}[language=XML]
+    let $products := doc("products.xml")
+    for $m in $products/Maker
+        where exists($m/Printer) and exists($m/Laptop)
+        return data($m/@name)
+    \end{lstlisting}
+    \end{mdframed}
+
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $products := /Products
+    for $m in $products/Maker
+        where exists($m/Printer) and exists($m/Laptop)
+        return data($m/@name)
+    \end{lstlisting}
+
 
     \end{enumerate}
 \end{enumerate}
