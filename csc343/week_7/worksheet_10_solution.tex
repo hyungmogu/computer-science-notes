@@ -668,7 +668,15 @@
         where count($c/Ship/Battle) = 0
         return data($c/@name)
     \end{lstlisting}
+
     \end{enumerate}
+
+    \item
+
+    \begin{lstlisting}[language=XML]
+    $ships := doc("ships.xml")
+    for $c in $ships/Class
+    \end{lstlisting}
 \end{enumerate}
 
 \end{document}
