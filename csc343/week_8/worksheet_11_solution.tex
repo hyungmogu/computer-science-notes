@@ -202,7 +202,20 @@
             <html>
                 <BODY>
                     <TABLE>
-
+                        <TH>
+                            <TD>Model</td>
+                            <TD>Price</td>
+                        </th>
+                        <xsl:for-each select="Products/Maker">
+                            <TR>
+                                <TD>
+                                    <xsl:value-of select="@model"/>
+                                </td>
+                                <TD>
+                                    <xsl:value-of select="@price"/>
+                                </td>
+                            </tr>
+                        </xsl:for-each>
                     </table>
                 </body>
             </html>
