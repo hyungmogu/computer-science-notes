@@ -642,6 +642,14 @@
         where data($s/Battle/@outcome) = 'sunk'
         return data($s/@name)
     \end{lstlisting}
+        \item
+
+    \begin{lstlisting}[language=XML]
+    let $ships := doc("ships.xml")
+    for $c in $ships/Class
+        where count($c/Ship) >= 3
+        return data($c/@name)
+    \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
