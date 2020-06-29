@@ -90,8 +90,27 @@
 
 
             \item Templates
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+    \begin{lstlisting}[language=XML]
+    <? xml version = "1.0" encoding = "utf-8"?>
+    <xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/ISL/Transform">
+        <xsl:template match = "/">
+            <HTML>
+                <BODY>
+                    <B>This is text</b>
+                </body>
+            </html>
+        </xsl:template>
+    </xsl:stylesheet>
+    \end{lstlisting}
+
+            \item Obtaining values from XML Data
             \begin{itemize}
-                \item
+                \item \textbf{Syntax:} $<$xsl value-of select = "\textit{expression}" /$>$
             \end{itemize}
         \end{itemize}
     \end{enumerate}
