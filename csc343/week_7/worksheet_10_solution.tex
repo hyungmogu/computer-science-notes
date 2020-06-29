@@ -674,8 +674,11 @@
     \item
 
     \begin{lstlisting}[language=XML]
-    $ships := doc("ships.xml")
-    for $c in $ships/Class
+    let $stars := doc("stars.xml")
+    for $s in $stars/Stars/Star
+    where $s/Address/Street = "123 Maple St." and
+          $s/Address/City = "Malibu"
+    return $s/Name
     \end{lstlisting}
 \end{enumerate}
 
