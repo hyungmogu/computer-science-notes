@@ -175,17 +175,94 @@
             \item The Splitting / Combining Rule
             \begin{itemize}
                 \item Combining Rule
-                \item Splitting Rule
                 \begin{itemize}
                     \item
 
-                    $A_1,A_2,\cdots A_n \to B_1,B_2,\cdots B_n$
+                    $A_1,A_2,\cdots,A_n \to B_i$ for $i = 1,2,...,m$
 
-                    $\Downarrow$
+                    to
 
-                    $A_1,A_2,\cdots,A_n \to B_1$, $A_1,A_2,\cdots,A_n \to B_2$, ... , $A_1,A_2,\cdots,A_n \to B_m$
+                    $A_1,A_2,\cdots A_n \to B_1,B_2,\cdots B_m$
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+                Given
+
+                \bigskip
+
+                title year $\to$ length
+
+                title year $\to$ genre
+
+                title year $\to$ studioName
+
+                \bigskip
+
+                it's combined form is
+
+                \bigskip
+
+                title year $\to$ length genre studioName
+
+                \bigskip
+
+                \item Splitting Rule
+                \begin{itemize}
+                    \item
+                    \item
+
+                    $A_1,A_2,\cdots A_n \to B_1,B_2,\cdots B_m$
+
+                    to
+
+                    $A_1,A_2,\cdots,A_n \to B_i$ for $i = 1,2,...,m$
 
                 \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+                Given
+
+                \bigskip
+
+                title year $\to$ length
+
+                \bigskip
+
+                It's splitted form is
+
+                \bigskip
+
+                title $\to$ length
+
+                year $\to$ length
+            \end{itemize}
+
+            \item Trivial Functional Dependencies
+
+            \bigskip
+
+            \begin{itemize}
+                \item A functional dependency $FD: X \to Y$ is \textbf{trivial}
+                if $Y$ is a subset of $X$
+
+                \bigskip
+
+                \underline{\textbf{Exmaple:}}
+
+                \bigskip
+
+                title year $\to$ title
+
             \end{itemize}
         \end{itemize}
     \end{enumerate}
