@@ -733,64 +733,119 @@
 
             \item
 
+            Let $A_1A_2\cdots A_n \to B$ is FD. That is, $\{A_1A_2\cdots A_n\}^+ = \{A_1A_2\cdots A_n, B\}$
 
-            \begin{mdframed}
+            \bigskip
 
-                \underline{\textbf{Rough Work:}}
+            We need to show $A_1A_2 \cdots A_nC \to BC$ follows. That is,
+            $\{A_1,A_2,\cdots,A_n,C\}^+ = \{A_1,A_2,\cdots,A_n,C,B\}$
 
-                Let $A_1A_2\cdots A_n \to B$ is FD. That is, $\{A_1A_2\cdots A_n\}^+ = \{A_1A_2\cdots A_n, B\}$
+            \bigskip
+
+            It follows from the combine and split rule that $A_1A_2\cdots A_n C \to BC$
+            can be spliited into $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$.
+
+            \bigskip
+
+            So, we need to show $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$ follows
+            from the given.
+
+            \bigskip
+
+            We will do so in parts.
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item \textbf{Part 1 (Showing $A_1A_2\cdots A_nC \to B$):}
 
                 \bigskip
 
-                We need to show $A_1A_2 \cdots A_nC \to BC$ follows. That is,
-                $\{A_1,A_2,\cdots,A_n,C\}^+ = \{A_1,A_2,\cdots,A_n,C,B\}$
-
+                Here, we need to show $A_1A_2\cdots A_nC \to B$ follows.
 
                 \bigskip
 
-                \begin{enumerate}[1.]
-                    \item Use the split rule to split $A_1A_2\cdots A_n C \to BC$
-                    into $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$
+                And indeed, this follows from the work of \textit{augmenting left sides}.
+                That is the solution to previous problem.
 
-                    \begin{mdframed}
-                    It follows from the combine and split rule that $A_1A_2\cdots A_n C \to BC$
-                    can be spliited into $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$.
+                \bigskip
 
-                    \bigskip
+                \item \textbf{Part 2 (Showing $A_1A_2 \cdots A_nC \to C$):}
 
-                    So, we need to show $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$ follows
-                    from the given.
+                \bigskip
 
-                    \bigskip
+                Here, we need to show $A_1A_2 \cdots A_nC \to C$ follows.
 
-                    We will do so in parts.
-                    \end{mdframed}
+                \bigskip
 
-                    \item Prove $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$
-                    in parts
-                    \begin{enumerate}[1)]
-                        \item Show $A_1A_2\cdots A_nC \to B$ follows
+                The definition of trivial FD tells us $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$
+                holds when\\ $\{B_1,B_2,\cdots,B_m\} \subseteq \{A_1,A_2,\cdots,A_n\}$
 
-                        \begin{mdframed}
-                        We can conclude this holds by the work of \textit{augmenting left sides}.
-                        That is the previous problem.
-                        \end{mdframed}
+                \bigskip
 
-                        \item Show $A_1A_2\cdots,A_nC \to C$ follows
+                Since $\{C\} \subseteq \{A_1,A_2\cdots,A_n,C\}$, we can conclude
+                this FD follows trivially.
 
-                        \begin{mdframed}
-                        The definition of trivial FD tells us $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$
-                        is trivial when $\{B_1,B_2,\cdots,B_m\} \subseteq \{A_1,A_2,\cdots,A_n\}$
+            \end{enumerate}
 
-                        \bigskip
 
-                        Since $\{C\} \subseteq \{A_1,A_2\cdots,A_n,C\}$, we can conclude
-                        this FD holds trivially.
-                        \end{mdframed}
-                    \end{enumerate}
-                \end{enumerate}
+            % \begin{mdframed}
 
-            \end{mdframed}
+            %     \underline{\textbf{Rough Work:}}
+
+            %     Let $A_1A_2\cdots A_n \to B$ is FD. That is, $\{A_1A_2\cdots A_n\}^+ = \{A_1A_2\cdots A_n, B\}$
+
+            %     \bigskip
+
+            %     We need to show $A_1A_2 \cdots A_nC \to BC$ follows. That is,
+            %     $\{A_1,A_2,\cdots,A_n,C\}^+ = \{A_1,A_2,\cdots,A_n,C,B\}$
+
+
+            %     \bigskip
+
+            %     \begin{enumerate}[1.]
+            %         \item Use the split rule to split $A_1A_2\cdots A_n C \to BC$
+            %         into $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$
+
+            %         \begin{mdframed}
+            %         It follows from the combine and split rule that $A_1A_2\cdots A_n C \to BC$
+            %         can be spliited into $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$.
+
+            %         \bigskip
+
+            %         So, we need to show $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$ follows
+            %         from the given.
+
+            %         \bigskip
+
+            %         We will do so in parts.
+            %         \end{mdframed}
+
+            %         \item Prove $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$
+            %         in parts
+            %         \begin{enumerate}[1)]
+            %             \item Show $A_1A_2\cdots A_nC \to B$ follows
+
+            %             \begin{mdframed}
+            %             We can conclude this holds by the work of \textit{augmenting left sides}.
+            %             That is the solution to previous problem.
+            %             \end{mdframed}
+
+            %             \item Show $A_1A_2\cdots,A_nC \to C$ follows
+
+            %             \begin{mdframed}
+            %             The definition of trivial FD tells us $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$
+            %             is trivial when $\{B_1,B_2,\cdots,B_m\} \subseteq \{A_1,A_2,\cdots,A_n\}$
+
+            %             \bigskip
+
+            %             Since $\{C\} \subseteq \{A_1,A_2\cdots,A_n,C\}$, we can conclude
+            %             this FD follows trivially.
+            %             \end{mdframed}
+            %         \end{enumerate}
+            %     \end{enumerate}
+
+            % \end{mdframed}
 
         \end{enumerate}
 \end{enumerate}
