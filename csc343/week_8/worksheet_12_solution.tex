@@ -352,8 +352,27 @@
                 \item Has 3 axioms
                 \begin{enumerate}[1.]
                     \item \textit{Reflexivity}
+                    \begin{itemize}
+                        \item If $\{B_1, B_2, ..., B_n\} \subseteq \{A_1, A_2, ..., A_n\}$ then
+
+                        $A_1A_2 \cdots  A_n \to B_1B_2 \cdots B_m$
+                        \item also called \textbf{trivial FDs}
+                    \end{itemize}
                     \item \textit{Augmentation}
+                    \begin{itemize}
+                        \item If $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$
+
+                        then $A_1A_2 \cdots A_nC_1C_2 \cdots C_k \to B_1B_2 \cdots B_m C_1C_2 \cdots C_k$
+
+                        \item $ C_1C_2 \cdots C_k$ are any set of attributes
+                    \end{itemize}
                     \item \textit{Transitivity}
+                    \begin{itemize}
+                        \item If $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $B_1B_2 \cdots B_m \to C_1C_2 \cdots C_k$
+
+                        then $A_1A-2 \cdots A_n \to C_1C_2 \cdots C_k$
+
+                    \end{itemize}
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
