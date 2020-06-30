@@ -849,27 +849,39 @@
 
             \item
 
-            \begin{mdframed}
-                \underline{\textbf{Rough Work:}}
+            \underline{\textbf{Rough Work:}}
+
+            \bigskip
+
+            Let $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$,
+            where $B$ are each among the $C$'s.
+
+            \bigskip
+
+            We neeed to show $A_1A_2\cdots A_n E_1E_2 \cdots E_j \to D$ follows,
+            where the $E$'s are all of those $C$'s not found among the $B$'s.
+
+
+            \begin{enumerate}[1.]
+                \item Show using transitive rule that $A_1 A_2 \cdots A_n \to D$ holds.
+
+                \begin{mdframed}
+                The transitive rule tells us if $A_1A_2\cdots A_n \to B_1B_2 \cdots B_m$
+                and $B_1B_2 \cdots B_m \to C_1 C_2 \cdots C_k$, then $A_1A_2 \cdots A_n \to C_1 C_2 \cdots C_k$
+                also holds in $R$.
 
                 \bigskip
 
-                Let $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$,
-                where $B$ are each among the $C$'s.
+                Since we know $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$
+                where $B$'s are each among the $C$'s, we can conclude from the transitive rule
+                that $A_1A_2 \cdots A_n \to D$.
 
-                \bigskip
+                \end{mdframed}
 
-                We neeed to show $A_1A_2\cdots A_n E_1E_2 \cdots E_j \to D$ follows,
-                where the $E$'s are all of those $C$'s not found among the $B$'s.
+                \item Show using Augmenting Left Sides that $A_1 A_2 \cdots A_n E_1 E_2 \cdots E_n \to D$ follows
+                follows
+            \end{enumerate}
 
-
-                \begin{enumerate}[1.]
-                    \item Show using transitive rule that $A_1 A_2 \cdots A_n \to D$ holds.
-                    \item Show using Augmenting Left Sides that $A_1 A_2 \cdots A_n E_1 E_2 \cdots E_n \to D$ follows
-                    follows
-                \end{enumerate}
-
-            \end{mdframed}
 
         \end{enumerate}
 \end{enumerate}
