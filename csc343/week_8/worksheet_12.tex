@@ -85,9 +85,48 @@
     \begin{enumerate}[a)]
         \item Augmenting left sides. If $A_1 A_2 \cdots A_n \to B$ is an $FD$, and $C$ is another attribute, then $A_1 A_2 \cdots A_nC \to B$ follows.
         \item Full augmentation. If $A_1 A_2 \cdots  A_n \to B$ is an $FD$, and $C$ is another attribute, then $A_1A_2 \cdots  A_nC \to BC$ follows. Note: from this rule, the "augmentation" rule mentioned in the box of Section 3.2.7 on "A Complete Set of Inference Rules" can easily be proved.
-        \item Pseudotransitivity. Suppose FD's $A_1 A_2 \cdots  A_n \to B_1B_2 \cdots  B_m$ and $C_1C_2 \cdots C_k \to D$ hold, and the $B$'s are each among the $C$'s. Then $A_1A_2 \cdots A_n E_1 E_2 \cdots E_j \to D$  holds, where the E's are all those of the C's that are not found among the B's.
-        \item Addition
+        \item Pseudotransitivity. Suppose FD's $A_1 A_2 \cdots  A_n \to B_1B_2 \cdots  B_m$ and $C_1C_2 \cdots C_k \to D$ hold, and the $B$'s are each among the $C$'s. Then $A_1A_2 \cdots A_n E_1 E_2 \cdots E_j \to D$  holds, where the $E$'s are all those of the $C$'s that are not found among the $B$'s.
+        \item Addition If $FD$'s $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D_1D_2 \cdots D_j$ hold, then $FD$ $A_1A_2 \cdots A_nC_1C_2 \cdots C_K \to B_1B_2 \cdots B_m D_1D_2 \cdots D_j$ also holds. In the above, we should remove one copy of any attribute that appears among both the $A$'s and $C$'s or among both the $B$'s and $D$'s.
     \end{enumerate}
+
+    \item \textbf{Exercise 3.2.4:} Show that each of the following are not valid rules about FD's
+    by giving example relations that satisfy the given FD's (following the "if") but
+    not the FD that allegedly follows (after the "then").
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item If $A \to B$ then $B \to A$.
+        \item If $AB \to C$ and $A \to C$, then $B \to C$.
+        \item If $AB \to C$, then $A \to C$ or $B \to C$.
+    \end{enumerate}
+
+    \item \textbf{Exercise 3.2.5:} Show that if a relation has no attribute that is functionally
+    determined by all the other attributes, then the relation has no nontrivial FD's
+    at all.
+
+    \item \textbf{Exercise 3.2.6:} Let $X$ and $Y$ be sets of attributes. Show that if $X \subseteq Y$, then
+    $X^+ \subseteq Y^+$, where the closures are taken with respect to the same set of $FD$'s.
+
+    \item \textbf{Exercise 3.2.7:} Prove that $(X^+)^+ = X^+$.
+
+    \item \textbf{Exercise 3.2.9:} Find all the minimal bases for the FD's and relation of
+    Example 3.11.
+
+    \item \textbf{Exercise 3.2.10:} Suppose we have relation R(A,B,C,D,E), with some set
+    of FD's, and we wish to project those FD's onto relation S(A, B, C). Give the
+    FD's that hold in S if the FD's for Rare:
+
+    \begin{enumerate}[a)]
+        \item $AB \to DE$, $C \to E$, $D \to C$, and $E \to A$.
+        \item $A \to D$, $BD \to E$, $AC \to E$, and $DE \to B$.
+        \item $AB \to D$, $AC \to E$, $BC \to D$, $D \to A$, and $E \to B$.
+        \item $A \to B$, $B \to C$, $C \to D$, $D \to E$, and $E \to A$.
+    \end{enumerate}
+
+    In each case, it is sufficient to give a minimal basis for the full set of FD's of S.
+
+
 
 \end{enumerate}
 
