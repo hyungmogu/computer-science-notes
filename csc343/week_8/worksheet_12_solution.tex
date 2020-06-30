@@ -263,6 +263,46 @@
 
                 title year $\to$ title
 
+                \bigskip
+
+                \underline{\textbf{Example 2:}}
+
+                \bigskip
+
+                title $\to$ title
+
+            \end{itemize}
+
+            \item Non-trivial Functional Dependencies
+            \begin{itemize}
+                \item is a case where some but not all of the attributes on the R.H.S
+                of an FD are also on L.H.S
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+                title year $\to$ title movieLength
+
+                \bigskip
+
+                \item Can be simplified using \textbf{tirivial-dependency rule}
+                \begin{itemize}
+                    \item The $FD$ $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ is equivalent to
+
+                    $A_1 A_2 \cdots A_n \to C_1 C_2 \cdots C_k$
+
+                    \bigskip
+
+                    where $C$'s are all those $B$'s that are not in $A$'s.
+
+
+                    \begin{center}
+                    \includegraphics[width=\linewidth]{images/worksheet_12_solution_1.png}
+                    \end{center}
+                \end{itemize}
             \end{itemize}
         \end{itemize}
     \end{enumerate}
