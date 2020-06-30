@@ -312,6 +312,35 @@
                 \item Closure of attribute set $\{X\}$ is denoted as $\{X\}^+$.
                 \item The closure means a given set of attributes $A$ satisfying FD, are a sets of all attributes
                 $B$ such that $A \to B$
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+
+                Given attributes $A,B,C,D,E,F$ and FDs $AB \to C$, $BC \to AD$, $D \to E$
+                and $CF \to B$, What is the closure of $\{A,B\}$ or $\{A,B\}^+$
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Start with $\{A,B\}$.
+                    \item Split $BC \to AD$
+                    \begin{itemize}
+                        \item We have $BC \to A$ and $BC to D$
+                        \item Since $A$ is in $\{A,B\}$, this is not included
+                        \item Since $D$ is not in  $\{A,B\}$, this IS included
+
+                        \bigskip
+
+                        So, we have $\{A,B,D\}$
+                    \end{itemize}
+                    \item Since $C$ in $AB \to C$ is NOT in $\{A,B,C,D\}$, $C$ is included and we have $\{A,B,C,D\}$
+                    \item Since $A$ in $BC \to A$ is in $\{A,B,C,D\}$, this is skipped
+                    \item Since $E$ is not in $D \to E$, $E$ is included and we have $\{A,B,C,D,E\}$
+                \end{enumerate}
             \end{itemize}
 
             \item Why the Closure Algorithm Works
