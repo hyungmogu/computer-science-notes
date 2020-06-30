@@ -124,9 +124,45 @@
         \item $A \to B$, $B \to C$, $C \to D$, $D \to E$, and $E \to A$.
     \end{enumerate}
 
-    In each case, it is sufficient to give a minimal basis for the full set of FD's of S.
+    In each case, it is sufficient to give a minimal basis for the full set of $FD$'s of $S$.
 
+    \item \textbf{Exercise 3.3.1:} For each of the following relation schemas and Sf'tS of FD's:
 
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item $R(A, B, C, D)$ with $FD$'s $AB \to C$, $C \to D$, and $D \to A$.
+        \item $R(A,B,C,D)$ with $FD$'s $B \to C$ and $B \to D$.
+        \item $R(A, B, C, D)$ with $FD$'s $AB \to C$, $BC \to D, CD \to A and AD \to B$
+        \item $R(A, B, C, D)$ with $FD$'s ,$A \to B$, $B \to C$. $C \to D$, and $D \to A$.
+        \item $R(A, B, C, D, E)$ with $FD$'s $AB \to C$, $DE \to C$, and $B \to D$.
+        \item $R(A, B, C, D, E)$ with $FD$'s $AB \to C$, $C \to D$, $D \to B$, and $D \to E$.
+    \end{enumerate}
+
+    do the following:
+
+    \begin{enumerate}[i)]
+        \item Indicate all the BCNF violations. Do not forget to consider FD's that are not in the given set, but follow from them. However, it is not necessary to give violations that have more than one attribute on the right side.
+        \item Decompose the relations, as necessary, into collections of relations that are in BCNF.
+    \end{enumerate}
+
+    \item \textbf{Exercise 3.3.2}: We mentioned in Section 3.3.4 that we would exercise our
+    option to expand the right side of an $FD$ that is a BCNF violation if possible.
+    Consider a relation R whose schema is the set of attributes $\{A, B, C, D\}$ with
+    $FD$'s $A \to B$ and $A \to C$. Either is a BCNF violation, because the only key
+    for $R$ is $\{A, D\}$. Suppose we begin by decomposing R according to $A \to B$. Do
+    we ultimately get the same result as if we first expand the BCNF violation to
+    $A \to BC$? Why or why not?
+
+    \item \textbf{Exercise 3.3.3:} Let $R$ be as in Exercise 3.3.2, but let the FD's be $A \to B$ and
+    $B \to C$. Again compare decomposing using $A \to B$ first against decomposing
+    by $A \to BC$ first.
+
+    \item \textbf{Exercise 3.3.4:} Suppose we have a relation schema $R(A, B, C)$ with $FD$ $A \to
+    B$. Suppose also that we decide to decompose this schema into $S(A, B)$ and
+    $T(B, C)$. Give an example of an instance of relation R whose projection onto
+    $S$ and $T$ and subsequent rejoining as in Section 3.4.1 does not yield the same
+    relation instance. That is, $\pi_{A,B}(R)$ $\bowtie$ $\pi_{B,C}(R) \neq R$.
 
 \end{enumerate}
 
