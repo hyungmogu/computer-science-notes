@@ -738,9 +738,22 @@
 
                 \underline{\textbf{Rough Work:}}
 
-                We need to show the closure of attributes $\{A_1,A_2,\cdots,A_n,C\}$ of
-                \\ $FD$ $A_1,A_2,\cdots,A_n,C \to BC$ is $\{A_1,A_2,\cdots,A_n,C,B\}$. That is
-                \\ $\{A_1,A_2,\cdots,A_n,C\}^+ = \{A_1,A_2,\cdots,A_n,C,B\}$
+                Let $A_1A_2\cdots A_n \to B$ is FD. That is, $\{A_1A_2\cdots A_n\}^+ = \{A_1A_2\cdots A_n, B\}$
+
+                \bigskip
+
+                We need to show $A_1A_2 \cdots A_nC \to BC$ follows. That is,
+                $\{A_1,A_2,\cdots,A_n,C\}^+ = \{A_1,A_2,\cdots,A_n,C,B\}$
+
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Use the split rule to split $A_1A_2\cdots A_n C \to BC$
+                    into $A_1A_2\cdots A_nC \to B$ and $A_1A_2\cdots,A_nC \to C$
+
+                    \item $A_1,A_2,\cdots,A_n,C \to C$
+                \end{enumerate}
 
             \end{mdframed}
 
