@@ -56,6 +56,14 @@
 \begin{enumerate}[1.]
     \item
 
+    \begin{itemize}
+        \item Key is the id of molecule
+        \item Functional Dependencies
+        \begin{enumerate}[1.]
+            \item
+        \end{enumerate}
+    \end{itemize}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -87,16 +95,6 @@
 
         \end{itemize}
 
-        \bigskip
-
-        \underline{\textbf{References:}}
-
-        \bigskip
-
-        \begin{enumerate}[1)]
-            \item OpenTextBC, Chapter 11 Functional Dependencies, \href{https://opentextbc.ca/dbdesign01/chapter/chapter-11-functional-dependencies/#:~:text=A%20functional%20dependency%20(FD)%20is,determines%20the%20value%20of%20Y.}{link}
-        \end{enumerate}
-
         \item Key of Relations
         \begin{itemize}
             \item One or more attributes $\{A_1,A_2,...,A_n\}$ is a key for a relation R if
@@ -123,8 +121,40 @@
                     movies per year
                 \end{enumerate}
             \end{enumerate}
+
+            \item Superkeys
+            \begin{itemize}
+                \item Means a a set of attributes that contains a key
+                \item Don't need to be minimal
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                Given relation
+
+                \bigskip
+
+                $R = \text{Movies1(title, year, length, genre, studioName, starName)}$
+
+                \begin{itemize}
+                    \item $\{$ title, year, starName $\}$ is a key and superkey
+                    \item $\{$ title, year, starName, title, year, length$\}$ is a superkey
+                \end{itemize}
+            \end{itemize}
         \end{itemize}
     \end{itemize}
+
+
+    \bigskip
+
+    \underline{\textbf{References:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item OpenTextBC, Chapter 11 Functional Dependencies, \href{https://opentextbc.ca/dbdesign01/chapter/chapter-11-functional-dependencies/#:~:text=A%20functional%20dependency%20(FD)%20is,determines%20the%20value%20of%20Y.}{link}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
