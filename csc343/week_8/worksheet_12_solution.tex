@@ -57,10 +57,15 @@
     \item
 
     \begin{itemize}
-        \item Key is the id of molecule
+        \item Keys
+        \begin{itemize}
+            \item $\{$id of molecule$\}$
+            \item $\{$x position, y position, z position$\}$
+        \end{itemize}
         \item Functional Dependencies
         \begin{enumerate}[1.]
-            \item
+            \item id of molecule $\to$ x position, y position, z position, x velocity, y velocity, z velocity
+            \item x position, y position, z position $\to$ id of molecule, x velocity, y velocity, z velocity
         \end{enumerate}
     \end{itemize}
 
