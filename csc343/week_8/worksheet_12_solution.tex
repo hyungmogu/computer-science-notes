@@ -1090,23 +1090,58 @@
 
         \bigskip
 
-        \begin{mdframed}
-            \underline{\textbf{Rough Work:}}
+        Assume a relation has no attribute that is functionallty determined
+        by all the other attributes.
 
-            Assume A relation has no attribute that is functionallty determined
-            by all the other attributes.
+        \bigskip
 
-            \bigskip
+        And, assume for the sake of contradiction that there is a relation with
+        non-trivial FD $X \to Y$.
 
-            And, assume for the sake of contradiction that there is a relation with
-            non-trivial FD.
+        \bigskip
 
-            \bigskip
+        Then, it follows from the definition of non-trivial functional dependency
+        that $Y \neq\subseteq X$.
 
-            \begin{enumerate}[1.]
-                \item
-            \end{enumerate}
-        \end{mdframed}
+        \bigskip
+
+        Then, we can conclude the attributes in $Y$ is functionally determined by other
+        attributes in $X$.
+
+        \bigskip
+
+        But this contradicts the assumption that no attribute is functionally
+        determined by all other attributes.
+
+        \bigskip
+
+        % \begin{mdframed}
+        %     \underline{\textbf{Rough Work:}}
+
+        %     Assume a relation has no attribute that is functionallty determined
+        %     by all the other attributes.
+
+        %     \bigskip
+
+        %     And, assume for the sake of contradiction that there is a relation with
+        %     non-trivial FD $X \to Y$.
+
+        %     \bigskip
+
+        %     Then, it follows from the definition of non-trivial functional dependency
+        %     that $Y \neq\subseteq X$.
+
+        %     \bigskip
+
+        %     Then, we can conclude the attributes in $Y$ is functionally determined by other
+        %     attributes in $X$.
+
+        %     \bigskip
+
+        %     But this contradicts the assumption that no attribute is functionally
+        %     determined by all other attributes.
+
+        % \end{mdframed}
 \end{enumerate}
 
 \end{document}
