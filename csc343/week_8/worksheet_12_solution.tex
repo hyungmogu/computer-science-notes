@@ -1294,6 +1294,261 @@
 
             since \textbf{augmenting left sides} rule tells us $AB \to C$ can be
             attained by adding $B$ to L.H.S of $A \to C$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to C$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to BC$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to BC$
+                \item $A \to A$
+            \end{enumerate}
+
+            by removing redundant $A \to C$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to BC$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to B$ \color{red}Splitted from $A \to BC$\color{black}
+                \item $A \to C$ \color{red}Splitted from $A \to BC$\color{black}
+                \item $A \to A$
+            \end{enumerate}
+
+            by using \textbf{splitting rule} on $A \to BC$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to B$
+                \item $A \to C$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to B$
+                \item $A \to A$
+            \end{enumerate}
+
+            by removing redundant $A \to C$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to B$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$ \color{red}$C$ removed here!!\color{black}
+                \item $BC \to A$
+                \item $A \to B$
+                \item $A \to A$
+            \end{enumerate}
+
+            \bigskip
+
+            since \textbf{augmenting left sides} tells us $AC \to B$ can be attained
+            by adding $C$ to $A \to B$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $BC \to A$
+                \item $A \to B$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $BC \to A$
+                \item $A \to A$
+            \end{enumerate}
+
+            by removing redundant $A \to B$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $BC \to A$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $BC \to A$
+            \end{enumerate}
+
+            since $A \to A$ can be attained by using \textbf{transitivity} rule on
+            $A \to C$ and $C \to A$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $BC \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $B \to A$ \color{red}$C$ removed here!!\color{black}
+            \end{enumerate}
+
+            since \textbf{augmenting let sides} rule tells us $BC \to A$ can be attained
+            by adding $C$ to L.H.S of $B \to A$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+                \item $B \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to B$
+            \end{enumerate}
+
+            by removing redundant $B \to A$.
+
+            \bigskip
+
+
         \end{enumerate}
 
         \bigskip
