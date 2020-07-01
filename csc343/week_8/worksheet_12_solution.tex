@@ -1153,39 +1153,109 @@
 
         \bigskip
 
-        \underline{\textbf{Rough Work:}}
-
-        \bigskip
-
-        Let $X$ and $Y$ be sets of attributes. Assume $X \subseteq Y$.
-
-        \bigskip
-
-        I need to show $X^+ \subseteq Y^+$.
-
-        \bigskip
+        I will do so in cases
 
         \begin{enumerate}[1.]
-            \item Show that all attributes in $Y^+$ includes all attributes from $X^+$
-            in addition to attributes not in $X^+$.
+            \item \textbf{Case 1 ($X = Y$):}
 
-            \begin{mdframed}
-            Since attributes in $X$ is in $Y$, we can conclude the attributes in $X^+$
+            \bigskip
+
+            Assume $X = Y$.
+
+            \bigskip
+
+            I need to show $X^+ \subseteq Y^+$ follows.
+
+            \bigskip
+
+            The header tells us $X = Y$.
+
+            \bigskip
+
+            Using this fact, $X^+ = Y^+$ is true.
+
+            \bigskip
+
+            Then it follows from above that $X^+ \subseteq Y^+$ is also true.
+
+            \item \textbf{Case 2 ($X \subset Y$)}
+
+            \bigskip
+
+            Assume $X \subset Y$.
+
+            \bigskip
+
+            I need to show $X^+ \subseteq Y^+$ follows.
+
+            \bigskip
+
+            Since the attributes in $X$ is in $Y$, we can conclude the attributes in $X^+$
             is also in $Y^+$.
 
             \bigskip
 
             And, since $Y$ has attributes not in $X$, we can conclude $Y^+$ may
             contain attributes not in $X^+$.
-            \end{mdframed}
 
-            \item Conclude $X^+ \subseteq Y^+$.
+            \bigskip
 
-            \begin{mdframed}
             Thus, we can conclude $X^+ \subseteq Y^+$.
-            \end{mdframed}
 
         \end{enumerate}
+
+        % \underline{\textbf{Rough Work:}}
+
+        % \bigskip
+
+        % Let $X$ and $Y$ be sets of attributes. Assume $X \subseteq Y$.
+
+        % \bigskip
+
+        % I need to show $X^+ \subseteq Y^+$.
+
+        % \bigskip
+
+        % I will do so in cases
+
+        % \begin{enumerate}[1.]
+        %     \item Case where $X = Y$
+        %     \begin{enumerate}[1.]
+        %         \item Show that all attributes in $Y^+$ includes all attributes from $X^+$
+
+        %         \begin{mdframed}
+        %         Since $X = Y$, we can write $X^+ = Y^+$.
+        %         \end{mdframed}
+
+        %         \item Conclude $X^+ \subseteq Y^+$
+
+        %         \begin{mdframed}
+        %         Then it follows from above that $X^+ \subseteq Y^+$ is also true.
+        %         \end{mdframed}
+        %     \end{enumerate}
+
+        %     \item Case where $X \subset Y$
+        %     \begin{enumerate}[1.]
+        %         \item Show that all attributes in $Y^+$ includes all attributes from $X^+$
+        %         in addition to attributes not in $X^+$.
+
+        %         \begin{mdframed}
+        %         Since attributes in $X$ is in $Y$, we can conclude the attributes in $X^+$
+        %         is also in $Y^+$.
+
+        %         \bigskip
+
+        %         And, since $Y$ has attributes not in $X$, we can conclude $Y^+$ may
+        %         contain attributes not in $X^+$.
+        %         \end{mdframed}
+
+        %         \item Conclude $X^+ \subseteq Y^+$.
+
+        %         \begin{mdframed}
+        %         Thus, we can conclude $X^+ \subseteq Y^+$.
+        %         \end{mdframed}
+        %     \end{enumerate}
+        % \end{enumerate}
 
 \end{enumerate}
 
