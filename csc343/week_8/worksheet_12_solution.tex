@@ -1823,7 +1823,23 @@
                 \begin{enumerate}[1.]
                     \item Initialize $T = \{\}$.
                     \item Construct a set of all subsets of attributes of $R_1$ called $X$
-                    \item
+                    \item Compute $X_i^+$ for all members of $X$ under S.
+                    \begin{itemize}
+                        \item $X_i^+$ may consist of attributes that are not in $R1$
+                    \end{itemize}
+                    \item Add to $T$ all nontirival FD's $X \to A$ such that $A$
+                    is both in $X_i^+$ and an attributes of $R_1$
+                    \item Now, $T$ is a basis for the $FD$'s that hold in $R1$ but
+                    may not be a minimal basis. Modify $T$ as follows.
+
+                    \begin{enumerate}[a)]
+                        \item If there is an $FD$ in $F$ in $T$ that follows from
+                        the other $FD$'s in $T$, remove $F$
+                        \item Let $Y \to B$ be an FD in $T$, with at least two
+                        attributes in $Y$. Remove one attribute from $Y$ and call
+                        it $Z$. If $Z \to B$ follows from the $FD$'s in $T$, then
+                        replace $Z \to B$ with $Y \to B$.
+                    \end{enumerate}
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
