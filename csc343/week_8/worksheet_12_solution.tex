@@ -1353,6 +1353,85 @@
             since by \textbf{augmentation rule}, $A \to B$ can be re-written as
             $ACD \to BCD$. And by \textbf{trivial rule}, $ACD \to BCD$ can be re-written
             as $ACB \to ABCD$, which then can be used to get $E$ from $ABCD \to E$.
+
+            \bigskip
+
+            Second, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ACD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+                \item $ACDF \to E$
+                \item $ACDF \to G$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ACD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+                \item $ACD \to E$ \color{red}F Removed here!!\color{black}
+                \item $ACDF \to G$
+            \end{enumerate}
+
+            since \textbf{augmenting left side} rule tells us
+            $ACDF \to E$ can be attained by adding $F$ to $ACD$ in $ACD \to E$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ACD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+                \item $ACD \to E$
+                \item $ACDF \to G$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ACD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+                \item $ACDF \to G$
+            \end{enumerate}
+
+            by removing redundant $ACD \to E$.
+
+            \bigskip
+
+            Then, the following
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ACD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+                \item $ACD \to E$
+                \item $ACDF \to G$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ACD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+            \end{enumerate}
+
+            since \textbf{augmentation} rule tells us $ACDF \to G$ can be
+            re-written to get $ACDF \to EF$ and then use \textbf{transtivity rule}
+            on $EF \to G$ to get $ACDF \to G$.
+
         \end{itemize}
 
 \end{enumerate}
