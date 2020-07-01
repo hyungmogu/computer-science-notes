@@ -1295,12 +1295,6 @@
 
         \item
 
-        \begin{enumerate}[1.]
-            \item $\{A \to C$, $C \to B$, $B \to A\}$
-            \item $\{A \to C$, $C \to A$, $A \to B\}$
-            \item $\{A \to B$, $B \to C\}$
-        \end{enumerate}
-
         \bigskip
 
         \underline{\textbf{Notes:}}
@@ -1330,7 +1324,22 @@
                     \item Get rid of redundant dependencies
                 \end{enumerate}
             \end{itemize}
-            \item
+            \item Example
+
+            \bigskip
+
+            The following
+
+            \begin{enumerate}[1.]
+                \item $A \to B$
+                \item $ABCD \to E$
+                \item $EF \to G$
+                \item $EF \to H$
+                \item $ACDF \to E$
+                \item $ACDF \to G$
+            \end{enumerate}
+
+            can be simplified to
         \end{itemize}
 
 \end{enumerate}
