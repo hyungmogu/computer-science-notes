@@ -849,10 +849,6 @@
 
             \item
 
-            \underline{\textbf{Rough Work:}}
-
-            \bigskip
-
             Let $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$,
             where $B$ are each among the $C$'s.
 
@@ -861,36 +857,70 @@
             We neeed to show $A_1A_2\cdots A_n E_1E_2 \cdots E_j \to D$ follows,
             where the $E$'s are all of those $C$'s not found among the $B$'s.
 
+            \bigskip
 
-            \begin{enumerate}[1.]
-                \item Show using transitive rule that $A_1 A_2 \cdots A_n \to D$ holds.
+            The transitive rule tells us if $A_1A_2\cdots A_n \to B_1B_2 \cdots B_m$
+            and $B_1B_2 \cdots B_m \to C_1 C_2 \cdots C_k$, then $A_1A_2 \cdots A_n \to C_1 C_2 \cdots C_k$
+            also holds in $R$.
 
-                \begin{mdframed}
-                The transitive rule tells us if $A_1A_2\cdots A_n \to B_1B_2 \cdots B_m$
-                and $B_1B_2 \cdots B_m \to C_1 C_2 \cdots C_k$, then $A_1A_2 \cdots A_n \to C_1 C_2 \cdots C_k$
-                also holds in $R$.
+            \bigskip
 
-                \bigskip
+            Since we know $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$
+            where $B$'s are each among the $C$'s, we can conclude from the transitive rule
+            that $A_1A_2 \cdots A_n \to D$.
 
-                Since we know $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$
-                where $B$'s are each among the $C$'s, we can conclude from the transitive rule
-                that $A_1A_2 \cdots A_n \to D$.
+            \bigskip
 
-                \end{mdframed}
+            Then using \textbf{augmenting left sides} to all $C$'s not found among the $B$'s
+            on $A_1 A_2 \cdots A_n \to D$, we can conclude $A_1A_2 \cdots A_n E_1 E_2 \cdots E_j \to D$ follows.
 
-                \item Show using Augmenting Left Sides that $A_1 A_2 \cdots A_n E_1 E_2 \cdots E_n \to D$ follows
-                follows
 
-                \begin{mdframed}
-                Then using \textbf{augmenting left sides} to all $C$'s not found among the $B$'s
-                on $A_1 A_2 \cdots A_n \to D$, we can conclude $A_1A_2 \cdots A_n E_1 E_2 \cdots E_j \to D$ follows.
+            \bigskip
 
-                \end{mdframed}
 
-                \bigskip
+            % \underline{\textbf{Rough Work:}}
 
-            \end{enumerate}
+            % \bigskip
 
+            % Let $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$,
+            % where $B$ are each among the $C$'s.
+
+            % \bigskip
+
+            % We neeed to show $A_1A_2\cdots A_n E_1E_2 \cdots E_j \to D$ follows,
+            % where the $E$'s are all of those $C$'s not found among the $B$'s.
+
+            % \bigskip
+
+
+            % \begin{enumerate}[1.]
+            %     \item Show using transitive rule that $A_1 A_2 \cdots A_n \to D$ holds.
+
+            %     \begin{mdframed}
+            %     The transitive rule tells us if $A_1A_2\cdots A_n \to B_1B_2 \cdots B_m$
+            %     and $B_1B_2 \cdots B_m \to C_1 C_2 \cdots C_k$, then $A_1A_2 \cdots A_n \to C_1 C_2 \cdots C_k$
+            %     also holds in $R$.
+
+            %     \bigskip
+
+            %     Since we know $A_1A_2 \cdots A_n \to B_1B_2 \cdots B_m$ and $C_1C_2 \cdots C_k \to D$
+            %     where $B$'s are each among the $C$'s, we can conclude from the transitive rule
+            %     that $A_1A_2 \cdots A_n \to D$.
+
+            %     \end{mdframed}
+
+            %     \item Show using Augmenting Left Sides that $A_1 A_2 \cdots A_n E_1 E_2 \cdots E_n \to D$ follows
+            %     follows
+
+            %     \begin{mdframed}
+            %     Then using \textbf{augmenting left sides} to all $C$'s not found among the $B$'s
+            %     on $A_1 A_2 \cdots A_n \to D$, we can conclude $A_1A_2 \cdots A_n E_1 E_2 \cdots E_j \to D$ follows.
+
+            %     \end{mdframed}
+
+            %     \bigskip
+
+            % \end{enumerate}
 
         \end{enumerate}
 \end{enumerate}
