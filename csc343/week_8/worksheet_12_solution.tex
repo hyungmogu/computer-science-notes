@@ -1145,26 +1145,48 @@
 
         \item
 
-        \begin{mdframed}
-            \underline{\textbf{Rough Work:}}
+        Let $X$ and $Y$ be sets of attributes. Assume $X \subseteq Y$.
+
+        \bigskip
+
+        I need to show $X^+ \subseteq Y^+$.
+
+        \bigskip
+
+        \underline{\textbf{Rough Work:}}
+
+        \bigskip
+
+        Let $X$ and $Y$ be sets of attributes. Assume $X \subseteq Y$.
+
+        \bigskip
+
+        I need to show $X^+ \subseteq Y^+$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show that all attributes in $Y^+$ includes all attributes from $X^+$
+            in addition to attributes not in $X^+$.
+
+            \begin{mdframed}
+            Since attributes in $X$ is in $Y$, we can conclude the attributes in $X^+$
+            is also in $Y^+$.
 
             \bigskip
 
-            Let $X$ and $Y$ be sets of attributes. Assume $X \subseteq Y$.
+            And, since $Y$ has attributes not in $X$, we can conclude $Y^+$ may
+            contain attributes not in $X^+$.
+            \end{mdframed}
 
-            \bigskip
+            \item Conclude $X^+ \subseteq Y^+$.
 
-            I need to show $X^+ \subseteq Y^+$.
+            \begin{mdframed}
+            Thus, we can conclude $X^+ \subseteq Y^+$.
+            \end{mdframed}
 
-            \bigskip
+        \end{enumerate}
 
-            \begin{enumerate}[1.]
-                \item
-            \end{enumerate}
-
-
-
-        \end{mdframed}
 \end{enumerate}
 
 \end{document}
