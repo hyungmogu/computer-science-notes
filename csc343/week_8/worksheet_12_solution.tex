@@ -924,12 +924,6 @@
 
             \item
 
-            \bigskip
-
-            \underline{\textbf{Rough Work:}}
-
-            \bigskip
-
             Assume $FD$'s $A_1A_2 \cdots A_n \to B_1 B_2 \cdots B_m$ and $C_1 C_2 \dots C_k \to D_1 D_2 \cdots D_j$ holds.
 
             \bigskip
@@ -938,60 +932,119 @@
 
             \bigskip
 
+            Using the split / combine rule, we can conclude showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m D_1 D_2 \cdots D_k$ is
+            the same as showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ and
+            $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$
+
+            \bigskip
+
+            So, we will prove the two, in parts
+
+            \bigskip
+
             \begin{enumerate}[1.]
-                \item Using split combine rule, split $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m D_1 D_2 \cdots D_k$
-                into $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ and  $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$
+                \item \textbf{Part 1 (Showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$)}
 
                 \bigskip
 
-                \begin{mdframed}
-                The split / combine rule tells us showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m D_1 D_2 \cdots D_k$ is
-                the same as showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ and
-                \\ $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$
+                Here, we need to show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows.
 
                 \bigskip
 
-                So, we will prove the two, in parts
-
-                \end{mdframed}
+                The header of problem tells us $A_1A_2 \cdots A_n \to B_1 B_2 \cdots B_m$ holds.
 
                 \bigskip
 
-                \begin{enumerate}[1.]
-                    \item Show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows
+                Then by using \textbf{Augmenting Left Sides} rule to all $C$s not
+                found among the $A$s, $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows.
 
-                    \begin{mdframed}
-                    Here, we need to show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows.
+                \bigskip
 
-                    \bigskip
+                \item \textbf{Part 2 (Showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows)}
 
-                    The header of problem tells us $A_1A_2 \cdots A_n \to B_1 B_2 \cdots B_m$ holds.
+                \bigskip
 
-                    \bigskip
+                Here, we need to show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows.
 
-                    Then by using \textbf{Augmenting Left Sides} rule to all $C$s not
-                    found among the $A$s, $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows.
+                \bigskip
 
+                The header of problem tells us $C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ holds.
 
-                    \end{mdframed}
-                    \item Show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows
+                \bigskip
 
-                    \begin{mdframed}
-                    Here, we need to show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows.
+                Then by using \textbf{Augmenting Left Sides} rule to all $A$s not
+                found among the $C$s, $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows.
 
-                    \bigskip
-
-                    The header of problem tells us $C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ holds.
-
-                    \bigskip
-
-                    Then by using \textbf{Augmenting Left Sides} rule to all $A$s not
-                    found among the $C$s, $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows.
-
-
-                    \end{mdframed}
-                \end{enumerate}
             \end{enumerate}
+
+            \bigskip
+
+            % \underline{\textbf{Rough Work:}}
+
+            % \bigskip
+
+            % Assume $FD$'s $A_1A_2 \cdots A_n \to B_1 B_2 \cdots B_m$ and $C_1 C_2 \dots C_k \to D_1 D_2 \cdots D_j$ holds.
+
+            % \bigskip
+
+            % We need to show $FD$ $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m D_1 D_2 \cdots D_k$ follows.
+
+            % \bigskip
+
+            % \begin{enumerate}[1.]
+            %     \item Using split combine rule, split $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m D_1 D_2 \cdots D_k$
+            %     into $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ and  $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$
+
+            %     \bigskip
+
+            %     \begin{mdframed}
+            %     The split / combine rule tells us showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m D_1 D_2 \cdots D_k$ is
+            %     the same as showing $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ and
+            %     \\ $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$
+
+            %     \bigskip
+
+            %     So, we will prove the two, in parts
+
+            %     \end{mdframed}
+
+            %     \bigskip
+
+            %     \begin{enumerate}[1.]
+            %         \item Show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows
+
+            %         \begin{mdframed}
+            %         Here, we need to show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows.
+
+            %         \bigskip
+
+            %         The header of problem tells us $A_1A_2 \cdots A_n \to B_1 B_2 \cdots B_m$ holds.
+
+            %         \bigskip
+
+            %         Then by using \textbf{Augmenting Left Sides} rule to all $C$s not
+            %         found among the $A$s, $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to B_1 B_2 \cdots B_m$ follows.
+
+
+            %         \end{mdframed}
+            %         \item Show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows
+
+            %         \begin{mdframed}
+            %         Here, we need to show $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows.
+
+            %         \bigskip
+
+            %         The header of problem tells us $C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ holds.
+
+            %         \bigskip
+
+            %         Then by using \textbf{Augmenting Left Sides} rule to all $A$s not
+            %         found among the $C$s, $A_1A_2 \cdots A_n C_1 C_2 \cdots C_k \to D_1 D_2 \cdots D_k$ follows.
+
+
+            %         \end{mdframed}
+            %     \end{enumerate}
+            % \end{enumerate}
 
         \end{enumerate}
 \end{enumerate}
