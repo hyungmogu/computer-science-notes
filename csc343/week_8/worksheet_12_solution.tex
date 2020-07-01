@@ -1851,24 +1851,26 @@
 
                 \begin{enumerate}[1.]
                     \item Initialize $T = \{\}$.
+                    \color{red}
                     \begin{itemize}
                         \item $T = \{\}$
                     \end{itemize}
-
+                    \color{black}
                     \item Construct a set of all subsets of attributes of $R_1$ called $X$
+                    \color{red}
                     \begin{itemize}
                         \item There are 8 subsets
 
                         \bigskip
 
                         $X_1 = \{A\}$, $X_2 = \{C\}$, $X_3 = \{D\}$, $X_4 = \{A,C\}$,
-                        $X_5 = \{A,D\}$, $X_6 = \{C,D\}$, $X_7 = \{D,C\}$, $X_8 = \{A,C,D\}$,
-                        $X_9 = \{\}$
+                        $X_5 = \{A,D\}$, $X_6 = \{C,D\}$, $X_7 = \{A,C,D\}$, $X_8 = \{\}$
 
                     \end{itemize}
-
+                    \color{black}
                     \item Compute $X_i^+$ for all members of $X$ under S.
 
+                    \color{red}
                     \begin{itemize}
                         \item $X_1 = \{A\}$
 
@@ -1906,7 +1908,37 @@
 
                         $X_5^+ = \{A,B,C,D\}$
 
+                        \item $X_6 = \{C,D\}$
+
+                        \bigskip
+
+                        $X_6^+ = \{C,D,\}$
+
+                        \item $X_7 = \{A,C,D\}$
+
+                        \bigskip
+
+                        $X_7^+ = \{A,B,C,D\}$
+
+                        \item $X_8 = \{\}$
+
+                        \bigskip
+
+                        $X_8^+ = \{\}$
+
                     \end{itemize}
+                    \color{black}
+
+                    \item Add to $T$ all nontirival FD's $X \to A$ such that $A$
+                    is both in $X_i^+$ and an attributes of $R_1$
+
+                    \color{red}
+                    \begin{itemize}
+                        \item
+
+                        $T = \{\}$
+                    \end{itemize}
+                    \color{black}
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
