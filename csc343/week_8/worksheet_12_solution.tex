@@ -1259,6 +1259,43 @@
 
         \item
 
+        \begin{enumerate}[1.]
+            \item
+
+            The following
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $AB \to C$
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to BC$
+                \item $A \to A$
+            \end{enumerate}
+
+            can be simplified to
+
+            \begin{enumerate}[1.]
+                \item $A \to C$
+                \item $B \to A$
+                \item $B \to C$
+                \item $C \to A$
+                \item $C \to B$
+                \item $A \to C$ \color{red}B removed from here!!\color{black}
+                \item $AC \to B$
+                \item $BC \to A$
+                \item $A \to BC$
+                \item $A \to A$
+            \end{enumerate}
+
+            since \textbf{augmenting left sides} rule tells us $AB \to C$ can be
+            attained by adding $B$ to L.H.S of $A \to C$.
+        \end{enumerate}
+
         \bigskip
 
         \underline{\textbf{Rough Works:}}
