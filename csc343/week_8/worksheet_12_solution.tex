@@ -2189,10 +2189,27 @@
 
                 \begin{itemize}
                     \item A relation $R$ is in BCNF if and only if: whenever there is a
-                    non trivial FD $A_1A_2 \cots A_n \to B_1 B_2 \cdots B_m$ for $R$,
+                    non trivial FD $A_1A_2 \cdots A_n \to B_1 B_2 \cdots B_m$ for $R$,
                     it is the case that $\{A_1, A_2, \cdots A_n\}$ is a superkey for $R$.
                 \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/worksheet_12_solution_4.png}
+                \end{center}
+
+                \bigskip
+
+                Is not BCNF because 1. title year $\to$ length holds, but $\{title, year\}$
+                are not superkeys
+
+                \bigskip
             \end{itemize}
+
+            \item
         \end{itemize}
 
     \end{enumerate}
