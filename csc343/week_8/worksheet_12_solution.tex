@@ -2223,7 +2223,29 @@
 
             \end{itemize}
 
-            \item
+            \item Decomposition into BCNF
+            \begin{itemize}
+                \item Fixes BCNF Violations
+                \item Algorithm
+
+                \bigskip
+
+                \textbf{Input:} A relation $R_0$ with a set of $FD$'s $S_0$
+
+                \bigskip
+
+                \textbf{Output:} A decomposition of $R_0$ into a collection of relations all in $BCNF$
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Suppose that $X \to Y$ is a BCNF violation
+                    \item Compute $X^+$ and put $R_1 = X^+$
+                    \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
+                    \item Project FD's for $R_1$ and $R_2$
+                    \item Recursively decompose $R_1$ and $R_2$
+                \end{enumerate}
+            \end{itemize}
         \end{itemize}
 
     \end{enumerate}
