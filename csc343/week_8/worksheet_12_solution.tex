@@ -1902,29 +1902,24 @@
 
                         $X_5^+ = \{A,B,C,D\}$
 
-                        \item $X_5 = \{A,D\}$
+                        \item $X_6 = \{A,D\}$
 
                         \bigskip
 
-                        $X_5^+ = \{A,B,C,D\}$
+                        $X_6^+ = \{A,B,C,D\}$
 
-                        \item $X_6 = \{C,D\}$
-
-                        \bigskip
-
-                        $X_6^+ = \{C,D,\}$
-
-                        \item $X_7 = \{A,C,D\}$
+                        \item $X_7 = \{C,D\}$
 
                         \bigskip
 
-                        $X_7^+ = \{A,B,C,D\}$
+                        $X_7^+ = \{C,D\}$
 
-                        \item $X_8 = \{\}$
+                        \item $X_8 = \{A,C,D\}$
 
                         \bigskip
 
-                        $X_8^+ = \{\}$
+                        $X_8^+ = \{A,B,C,D\}$
+
 
                     \end{itemize}
                     \color{black}
@@ -1936,21 +1931,20 @@
                     \begin{itemize}
                         \item
 
-                        $T = \{A \to C, A \to D, C \to D, AC \to D, AD \to C, CD \to A\}$
+                        $T = \{A \to C, A \to D, C \to D, AC \to D, AD \to C\}$
                     \end{itemize}
                     \color{black}
 
                     \item Now, $T$ is a basis for the $FD$'s that hold in $R1$ but
                     may not be a minimal basis. Modify $T$ as follows.
 
-                    \begin{enumerate}[a)]
-                        \item If there is an $FD$ in $F$ in $T$ that follows from
-                        the other $FD$'s in $T$, remove $F$
-                        \item Let $Y \to B$ be an FD in $T$, with at least two
-                        attributes in $Y$. Remove one attribute from $Y$ and call
-                        it $Z$. If $Z \to B$ follows from the $FD$'s in $T$, then
-                        replace $Z \to B$ with $Y \to B$.
-                    \end{enumerate}
+                    \color{red}
+                    \begin{itemize}
+                        \item
+
+                        $T = \{C \to D, A \to D , A \to C\}$
+                    \end{itemize}
+                    \color{black}
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
