@@ -2129,6 +2129,29 @@
         \bigskip
 
         \begin{itemize}
+            \item BCNF Form violations when closure of a a set of attributes are not complete
+
+            \bigskip
+
+            e.g.
+
+
+            \bigskip
+
+            $R(A,B,C,D): AB \to C, B \to D, CD \to A, AD \to B$
+
+            \bigskip
+
+            the above forms the following closures
+
+
+            \begin{itemize}
+                \item $AB^+ = \{A, B, C, D\}$
+                \item $B^+ = \{B, D\}$ // this forms violations
+                \item $CD^+ = \{C, D, A, B\}$
+                \item $AD^+ = \{A, D, B, C\}$
+            \end{itemize}
+
             \item Anomalies
             \begin{itemize}
                 \item means ``Something that you don't expect'' in layman's terms
@@ -2252,33 +2275,73 @@
 
                 \bigskip
 
-                Student(ssn, sname, address, hscode, hsname, hscity, gpa, priority)
-                \begin{itemize}
-                    \item ssn $\to$ sname, address, gpa
-                    \item hscode $\to$ hsname, hscity
-                    \item gpa $\to$ priority
-                \end{itemize}
+                e.g.
+
 
                 \bigskip
 
-                With  (ssn, hscode) as key
+                $R(A,B,C,D): AB \to C, B \to D, CD \to A, AD \to B$
+
+                \bigskip
+
+                the above forms the following closures
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $AB^+ = \{A, B, C, D\}$
+                    \item $B^+ = \{B, D\}$ // this forms violations
+                    \item $CD^+ = \{C, D, A, B\}$
+                    \item $AD^+ = \{A, D, B, C\}$
+                \end{itemize}
 
                 \bigskip
 
                 \begin{enumerate}[1.]
                     \item Suppose that $X \to Y$ is a BCNF violation
+
+                    \bigskip
+
+                    \color{red}
+                    $B \to D$
+                    \color{black}
+
+                    \bigskip
+
                     \item Compute $X^+$ and put $R_1 = X^+$
 
                     \bigskip
 
-                    $X^+ = \{\}$
+                    \color{red}
+                    $B^+ = \{B,D\} \Rightarrow R_1(B,D)$
+                    \color{black}
 
                     \bigskip
 
                     \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
+
+                    \bigskip
+
+                    \color{red}
+                    $R_2(A,C)$
+                    \color{black}
+
+                    \bigskip
+
                     \item Project FD's for $R_1$ and $R_2$
+
+                    \bigskip
+
+                    \color{red}
+                    $R_2(A,C)$
+                    \color{black}
+
+                    \bigskip
+
                     \item Recursively decompose $R_1$ and $R_2$
                 \end{enumerate}
+
+
             \end{itemize}
         \end{itemize}
 
