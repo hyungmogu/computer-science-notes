@@ -2174,8 +2174,23 @@
                     \begin{enumerate}[1.]
                         \item $\{A_1, A_2, \cdots, A_n\} = \{B_1, B_2, \cdots, B_m\} \cup \{C_1,C_2, \cdots, C_k\}$
                         \item $S = \pi_{B_1, B_2, \cdots, B_m}(R)$
+                        \item $T = \pi_{C_1, C_2, \cdots, C_k}(R)$
                     \end{enumerate}
 
+                \end{itemize}
+            \end{itemize}
+
+            \item Boyce-Codd Normal Form
+            \begin{itemize}
+                \item is a simple condition under which the anormalies can be
+                guarenteed NOT to exist
+
+                \bigskip
+
+                \begin{itemize}
+                    \item A relation $R$ is in BCNF if and only if: whenever there is a
+                    non trivial FD $A_1A_2 \cots A_n \to B_1 B_2 \cdots B_m$ for $R$,
+                    it is the case that $\{A_1, A_2, \cdots A_n\}$ is a superkey for $R$.
                 \end{itemize}
             \end{itemize}
         \end{itemize}
