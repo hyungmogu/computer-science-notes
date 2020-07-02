@@ -2045,6 +2045,74 @@
 
         \end{itemize}
 
+        \item
+
+        \begin{itemize}
+            \item Finding subsets
+
+            $X_1 = \{A\}$, $X_2 = \{B\}$, $X_3 = \{C\}$, $X_4 = \{A,B\}$, $X_5 = \{A,C\}$,
+            $X_6 = \{B,C\}$, $X_7 = \{A,B,C\}$, $X_8 = \{\}$
+
+
+            \item Finding $X_i^+$
+            \begin{enumerate}[1.]
+                \item $X_1^+ = \{A,B,C,D,E\}$
+                \item $X_2^+ = \{A,B,C,D,E\}$
+                \item $X_3^+ = \{A,B,C,D,E\}$
+                \item $X_4^+ = \{A,B,C,D,E\}$
+                \item $X_5^+ = \{A,B,C,D,E\}$
+                \item $X_6^+ = \{A,B,C,D,E\}$
+                \item $X_7^+ = \{A,B,C,D,E\}$
+                \item $X_8^+ = \{\}$
+            \end{enumerate}
+
+            \item Putting all nontirival FD's in $T$
+
+            $T = \{
+                    A \to B,
+                    A \to C,
+                    A \to D,
+                    A \to E,
+                    B \to A,
+                    B \to C,
+                    B \to D,
+                    B \to E,
+                    C \to A,
+                    C \to B,
+                    C \to D,
+                    C \to E,
+                   AB \to C,
+                   AB \to D,
+                   AB \to E,
+                   AC \to B,
+                   AC \to D,
+                   AC \to E,
+                   BC \to A,
+                   BC \to D,
+                   BC \to E,
+                  ABC \to D,
+                  ABC \to E
+                \}$
+
+            \item Finding minimal basis for the FD of $S$
+
+            $T_{\text{minimal}} = \{
+                    A \to B,
+                    A \to C,
+                    A \to D,
+                    A \to E,
+                    B \to A,
+                    B \to C,
+                    B \to D,
+                    B \to E,
+                    C \to A,
+                    C \to B,
+                    C \to D,
+                    C \to E
+            \}$
+
+        \end{itemize}
+
     \end{enumerate}
 
 \end{enumerate}
