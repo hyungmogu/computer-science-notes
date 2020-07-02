@@ -2119,51 +2119,66 @@
 
             \item
 
-            \bigskip
 
-            \underline{\textbf{Notes:}}
+        \end{enumerate}
 
-            \bigskip
+        \bigskip
 
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Anomalies
             \begin{itemize}
-                \item Anomalies
+                \item means ``Something that you don't expect'' in layman's terms
+                \item Three main types of anomalies exist
                 \begin{itemize}
-                    \item means ``Something that you don't expect'' in layman's terms
-                    \item Three main types of anomalies exist
-                    \begin{itemize}
-                        \item \textit{Redundancy} - Information may be prepeated unnecessarily in several tuples
+                    \item \textit{Redundancy} - Information may be prepeated unnecessarily in several tuples
 
-                        \bigskip
+                    \bigskip
 
-                        \begin{center}
-                        \includegraphics[width=0.7\linewidth]{images/worksheet_12_solution_3.png}
-                        \end{center}
+                    \begin{center}
+                    \includegraphics[width=0.7\linewidth]{images/worksheet_12_solution_3.png}
+                    \end{center}
 
-                        \item \textit{Update Anomalies} - information changed in one
-                        tuple, but the same information is not changed in the other
+                    \item \textit{Update Anomalies} - information changed in one
+                    tuple, but the same information is not changed in the other
 
-                        \item \textit{Deletion Anomalies} - Deletion of one tuple causing
-                        undesired deletion of other information
+                    \item \textit{Deletion Anomalies} - Deletion of one tuple causing
+                    undesired deletion of other information
 
-                        \bigskip
+                    \bigskip
 
-                        e.g. deleting movie \textit{Gone with the wind} resulting
-                        in loss of information about studio \textit{Fox}
+                    e.g. deleting movie \textit{Gone with the wind} resulting
+                    in loss of information about studio \textit{Fox}
 
 
-                    \end{itemize}
-                \end{itemize}
-
-                \item Decomposing Relations
-                \begin{itemize}
-                    \item \textit{Decompose Relations}
-                    \begin{itemize}
-                        \item is an accepted way to eliminate anomalies
-                        \item involves splitting the attributes of $R$ to make the schemas of two new relations.
-                    \end{itemize}
                 \end{itemize}
             \end{itemize}
-        \end{enumerate}
+
+            \item Decomposing Relations
+            \begin{itemize}
+                \item \textit{Decompose Relations}
+                \begin{itemize}
+                    \item is an accepted way to eliminate anomalies
+                    \item involves splitting the attributes of $R$ to make the schemas of two new relations.
+                \end{itemize}
+                \item The how of decomposing anomalies
+                \begin{itemize}
+                    \item Given a relation $R(A_1,A_2,...,A_n)$ we may decompose
+                    $R$ into two relations $S(B_1, B_2, \cdots, B_m)$ and $T(C_1, C_2, \cdots, C_k)$
+
+                    \bigskip
+
+                    \begin{enumerate}[1.]
+                        \item $\{A_1, A_2, \cdots, A_n\} = \{B_1, B_2, \cdots, B_m\} \cup \{C_1,C_2, \cdots, C_k\}$
+                        \item $S = \pi_{B_1, B_2, \cdots, B_m}(R)$
+                    \end{enumerate}
+
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
 
     \end{enumerate}
 
