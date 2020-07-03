@@ -2442,182 +2442,22 @@
 
         \item
 
-
         \begin{itemize}
             \item Determining BCNF violations
 
             \bigskip
 
-            $\{A,B\}^+ = \{A,B,C,D\}$ \color{red}BCNF violation\color{black}
+            $\{A,B\}^+ = \{A,B,C,D,E\}$
 
             \bigskip
 
-            $\{D,E\}^+ = \{C,D,E\}$ \color{red}BCNF violation\color{black}
+            $\{C\}^+ = \{C,D,B,E\}$ \color{red}BCNF Violations\color{black}
 
             \bigskip
 
-            $\{B\}^+ = \{B,D\}$ \color{red}BCNF violation\color{black}
-
-            \item Decomposing Relations ($AB \to C$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \color{red}
-                $AB \to C$
-                \color{black}
-
-                \item Compute $X^+$ and put $R_1 = X^+$
-
-                \color{red}
-                $R_1(A,B,C,D)$
-                \color{black}
-
-                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
-
-                \color{red}
-                $R_2(A,B,E)$
-                \color{black}
-
-                \item Project FD's for $R_1$ and $R_2$
-
-                \bigskip
-
-                \begin{itemize}
-                    \item $R_1(A,B,C,D):$ \color{red}$\{B \to D, AB \to C\}$\color{black}
-                    \begin{itemize}
-                        \item Forms BCNF violations on $B \to D$
-                    \end{itemize}
-                    \item $R_2(A,B,E):$ \color{red}empty\color{black}
-
-                \end{itemize}
-                \item Recursively decompose $R_1$ and $R_2$
-
-                \bigskip
-
-                $R_1(A,B,C,D): B \to D$ violates BCNF. The decomposition produces:
-
-                \bigskip
-
-                \begin{itemize}
-                    \item $R_3(B,D): B \to D$
-                    \item $R_4(B,C,A): AB \to C$
-                \end{itemize}
-
-            \end{enumerate}
-
-            \item Decomposing Relations ($D \to E$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \color{red}
-                $D \to E$
-                \color{black}
-
-                \item Compute $X^+$ and put $R_5 = X^+$
-
-                \color{red}
-                $R_5(C,D,E)$
-                \color{black}
-
-                \item $R62$ contain all $X$ attributes and those that are not in $X^+$
-
-                \color{red}
-                $R_6(A,B,D,E)$
-                \color{black}
-
-                \item Project FD's for $R_5$ and $R_6$
-
-                \bigskip
-
-                \color{red}
-                \begin{itemize}
-                    \item $R_5(C,D,E): DE \to C$
-                    \item $R_6(A,B,D,E): B \to D$ // \color{red}forms violation\color{black}
-                \end{itemize}
-                \color{black}
-                \item Recursively decompose $R_5$ and $R_6$
-
-                \bigskip
-
-                $R_6(A,B,D,E): B \to D$ violates BCNF. The decomposition produces:
-
-                \bigskip
-
-                \begin{itemize}
-                    \item $R_7(B,D): B \to D$
-                    \item $R_8(A,B,E):$ \color{red}empty\color{black}
-                \end{itemize}
-
-
-            \end{enumerate}
-
-            \item Decomposing Relations ($B \to D$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \color{red}
-                $B \to D$
-                \color{black}
-
-                \item Compute $X^+$ and put $R_9 = X^+$
-
-                \color{red}
-                $R_9(B,D)$
-                \color{black}
-
-                \item $R_{10}$ contain all $X$ attributes and those that are not in $X^+$
-
-                \color{red}
-                $R_{10}(A,B,D,E)$
-                \color{black}
-
-                \item Project FD's for $R_1$ and $R_2$
-
-                \bigskip
-
-                \color{red}
-                \begin{itemize}
-                    \item $R_9(B,D): B \to D$
-                    \item $R_{10}(A,B,D,E): B \to D$ // \color{red}forms violation\color{black}
-                \end{itemize}
-                \color{black}
-                \item Recursively decompose $R_9$ and $R_10$
-
-                \bigskip
-
-                $R_{10}(A,B,D,E): B \to D$ violates BCNF. The decomposition produces:
-                \bigskip
-
-                \begin{itemize}
-                    \item $R_{11}(B,D): B \to D$
-                    \item $R_{12}(A,B,E):$ \color{red}empty\color{black}
-                \end{itemize}
-
-
-            \end{enumerate}
+            $\{D\}^+ = \{D,B,E\}$ \color{red}BCNF Violations\color{black}
 
         \end{itemize}
-
-        \bigskip
-
-        So, the solution is
-
-        \bigskip
-
-        $R_2(A,B,E)$, $R_3(B,D)$, $R_4(B,C,A)$
-
-
-        \item
-
-
-        \begin{itemize}
-            \item Determining BCNF violations
-
-        \end{itemize}
-
 
 
     \end{enumerate}
