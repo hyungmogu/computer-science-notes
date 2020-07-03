@@ -2232,6 +2232,63 @@
 
         $R_1(A,D)$, $R_2(C,D)$, $R_3(B,C)$
 
+        \item
+
+
+        \begin{itemize}
+            \item Determining BCNF violations
+
+
+            \bigskip
+
+            $\{B\}^+ = \{B,C,D\}$ \color{red}BCNF Violations\color{black}
+
+            \bigskip
+
+            \item Decomposing Relations ($B \to C$)
+
+            \begin{enumerate}[1.]
+                \item Suppose that $X \to Y$ is a BCNF violation
+
+                \color{red}
+                $B \to C$
+                \color{black}
+
+                \item Compute $X^+$ and put $R_1 = X^+$
+
+                \color{red}
+                $R_1(B,C,D)$
+                \color{black}
+
+                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
+
+                \color{red}
+                $R_2(B,A)$
+                \color{black}
+
+                \item Project FD's for $R_1$ and $R_2$
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $R_1$ -
+                    \item $R_2$ - \color{red}empty\color{black}
+
+                \end{itemize}
+                \item Recursively decompose $R_1$ and $R_2$
+
+            \end{enumerate}
+
+        \end{itemize}
+
+        \bigskip
+
+        So, the solution is
+
+        \bigskip
+
+        $R_1(A,D)$, $R_2(C,D)$, $R_3(B,C)$
+
     \end{enumerate}
 
     \bigskip
