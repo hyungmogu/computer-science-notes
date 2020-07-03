@@ -2158,7 +2158,7 @@
                 \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
 
                 \color{red}
-                $R_2(B)$
+                $R_2(C,B)$
                 \color{black}
 
                 \item Project FD's for $R_1$ and $R_2$
@@ -2179,7 +2179,7 @@
                 \bigskip
 
                 \begin{itemize}
-                    \item \color{red}Decomposition Produces $R_1 (A,D): D \to A$ and $R_2 (C)$\color{black}
+                    \item \color{red}Decomposition Produces $R_1 (A,D): D \to A$ and $R_2 (D,C):C \to D$\color{black}
                 \end{itemize}
 
 
@@ -2212,26 +2212,25 @@
 
                 \begin{itemize}
                     \item $R_1(A,D)$ - \color{red}$\{D \to A\}$\color{black}
-                    \item $R_2(B,C)$ - \color{red}$\{C \to D, C \to A, BC \to A, BC \to B\}$\color{black}
+                    \item $R_2(B,C)$ - \color{red}empty\color{black}
 
                 \end{itemize}
                 \item Recursively decompose $R_1$ and $R_2$
 
                 \bigskip
 
-                \color{red}$R_2(B,C): C \to D, C \to A, BC \to A, BC \to B$ forms BCNF violations.\color{black}
-
-                \bigskip
-
-                \begin{itemize}
-                    \item \color{red}Decomposition Produces $R_1 (A,D): D \to A$ and $R_2 (C)$\color{black}
-                \end{itemize}
-
-
+                Nothing to be done here
             \end{enumerate}
 
         \end{itemize}
 
+        \bigskip
+
+        So, the solution is
+
+        \bigskip
+
+        $R_1(A,D)$, $R_2(C,D)$, $R_3(B,C)$
 
     \end{enumerate}
 
