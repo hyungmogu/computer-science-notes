@@ -2185,6 +2185,51 @@
 
             \end{enumerate}
 
+            \item Decomposing Relations ($D \to A$)
+
+            \begin{enumerate}[1.]
+                \item Suppose that $X \to Y$ is a BCNF violation
+
+                \color{red}
+                $D \to A$
+                \color{black}
+
+                \item Compute $X^+$ and put $R_1 = X^+$
+
+                \color{red}
+                $R_1(A,D)$
+                \color{black}
+
+                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
+
+                \color{red}
+                $R_2(B,C)$
+                \color{black}
+
+                \item Project FD's for $R_1$ and $R_2$
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $R_1(A,D)$ - \color{red}$\{D \to A\}$\color{black}
+                    \item $R_2(B,C)$ - \color{red}$\{C \to D, C \to A$\}{black}
+
+                \end{itemize}
+                \item Recursively decompose $R_1$ and $R_2$
+
+                \bigskip
+
+                \color{red}$R_1(A,C,D):D \to A$ forms BCNF violations.\color{black}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item \color{red}Decomposition Produces $R_1 (A,D): D \to A$ and $R_2 (C)$\color{black}
+                \end{itemize}
+
+
+            \end{enumerate}
+
         \end{itemize}
 
 
