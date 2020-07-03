@@ -2878,6 +2878,65 @@
 
     But, when R is decomposed on $B \to C$, we get $R_3(B,C)$, $R_4(B,A,D)$
 
+
+    \item
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        StudioName & Address & Net Worth\\
+        \hline
+        Disney  & 123 ABC Street & 100,000\\
+        \hline
+        Pixar & 123 ABC Street & 50,000\\
+        \hline
+    \end{tabular}
+
+    \bigskip
+
+    Here, decomposition produces
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        StudioName & Address\\
+        \hline
+        Disney  & 123 ABC Street\\
+        \hline
+        Pixar & 123 ABC Street\\
+        \hline
+    \end{tabular}
+
+    and
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Address & Net Worth\\
+        \hline
+        123 ABC Street  & 100,000\\
+        \hline
+        123 ABC Street & 50,000\\
+        \hline
+    \end{tabular}
+
+    \bigskip
+
+    but the natural join produces.
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        StudioName & Address & Net Worth\\
+        \hline
+        Disney  & 123 ABC Street & 100,000\\
+        \hline
+        Disney  & 123 ABC Street & 50,000\\
+        \hline
+        Pixar & 123 ABC Street & 100,000\\
+        \hline
+        Pixar & 123 ABC Street & 50,000\\
+        \hline
+    \end{tabular}
+
+    which is not the same.
+
 \end{enumerate}
 
 \end{document}
