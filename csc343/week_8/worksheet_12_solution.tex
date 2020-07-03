@@ -2462,11 +2462,25 @@
             \begin{enumerate}[1.]
                 \item Suppose that $X \to Y$ is a BCNF violation
 
+                $C \to D$
+
                 \item Compute $X^+$ and put $R_1 = X^+$
+
+                $R_1(C,D,B,E)$
 
                 \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
 
+                $R_2(C,A)$
+
                 \item Project FD's for $R_1$ and $R_2$
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $R_1(C,D,B,E):$ \color{red}\color{black}
+                    \item $R_2(C,A):$ \color{red}empty\color{black}
+
+                \end{itemize}
 
                 \item Recursively decompose $R_1$ and $R_2$
 
