@@ -2382,6 +2382,42 @@
 
             $\{B\}^+ = \{B,D\}$ \color{red}BCNF violation\color{black}
 
+            \item Decomposing Relations ($AB \to C$)
+
+            \begin{enumerate}[1.]
+                \item Suppose that $X \to Y$ is a BCNF violation
+
+                \color{red}
+                $AB \to C$
+                \color{black}
+
+                \item Compute $X^+$ and put $R_1 = X^+$
+
+                \color{red}
+                $R_1(A,B,C,D)$
+                \color{black}
+
+                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
+
+                \color{red}
+                $R_2(A,B,E)$
+                \color{black}
+
+                \item Project FD's for $R_1$ and $R_2$
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $R_1(A,B,C,D):$
+                    \item $R_2(A,B,E):$
+
+                \end{itemize}
+                \item Recursively decompose $R_1$ and $R_2$
+
+
+
+            \end{enumerate}
+
         \end{itemize}
 
         \bigskip
