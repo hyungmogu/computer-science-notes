@@ -2462,22 +2462,28 @@
             \begin{enumerate}[1.]
                 \item Suppose that $X \to Y$ is a BCNF violation
 
-                $C \to D$
+                \color{red}$C \to D$\color{black}
 
                 \item Compute $X^+$ and put $R_1 = X^+$
 
-                $R_1(C,D,B,E)$
+                \color{red}$R_1(C,D,B,E)$\color{black}
 
                 \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
 
-                $R_2(C,A)$
+                \color{red}$R_2(C,A)$\color{black}
 
                 \item Project FD's for $R_1$ and $R_2$
 
                 \bigskip
 
                 \begin{itemize}
-                    \item $R_1(C,D,B,E):$ \color{red}\color{black}
+                    \item $R_1(C,D,B,E):$ \color{red}$C \to D, C \to B, C \to E, D \to B, D \to E$\color{black}
+
+                    \begin{itemize}
+                        \item \color{red}$D \to B$ forms BCNF violations\color{black}
+                        \item \color{red}$D \to E$ forms BCNF violations\color{black}
+                    \end{itemize}
+
                     \item $R_2(C,A):$ \color{red}empty\color{black}
 
                 \end{itemize}
