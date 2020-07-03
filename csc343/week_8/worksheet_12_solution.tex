@@ -2272,7 +2272,7 @@
 
                 \begin{itemize}
                     \item $R_1(B,C,D):$ \color{red}$\{B \to C, B \to D\}$\color{black}
-                    \item $R_2(B,A):$ - \color{red}empty\color{black}
+                    \item $R_2(B,A):$ \color{red}empty\color{black}
 
                 \end{itemize}
                 \item Recursively decompose $R_1$ and $R_2$
@@ -2408,13 +2408,25 @@
                 \bigskip
 
                 \begin{itemize}
-                    \item $R_1(A,B,C,D):$
-                    \item $R_2(A,B,E):$
+                    \item $R_1(A,B,C,D):$ \color{red}$\{B \to D, AB \to C\}$\color{black}
+                    \begin{itemize}
+                        \item Forms BCNF violations on $B \to D$
+                    \end{itemize}
+                    \item $R_2(A,B,E):$ \color{red}empty\color{black}
 
                 \end{itemize}
                 \item Recursively decompose $R_1$ and $R_2$
 
+                \bigskip
 
+                $R_1(A,B,C,D): B \to D$ violates BCNF. The decomposition produces:
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $R_3(B,D): B \to D$
+                    \item $R_4(B,C,A): AB \to C$
+                \end{itemize}
 
             \end{enumerate}
 
@@ -2426,7 +2438,7 @@
 
         \bigskip
 
-        $R(A,B,C,D)$
+        $R_2(A,B,E)$, $R_3(B,D)$, $R_4(B,C,A)$
 
 
     \end{enumerate}
