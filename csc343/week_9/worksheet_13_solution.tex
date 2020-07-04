@@ -440,7 +440,7 @@
 
         \bigskip
 
-        \underline{\textbf{Step 2 ($B \to D$):}}
+        \underline{\textbf{Step 3 ($B \to D$):}}
 
         \bigskip
 
@@ -460,6 +460,75 @@
 
         $a,b,c,d,e$ exists. So by the Chast test, the decomposition of $R(A,B,C,D,E): A \to D, D \to E, B \to D$
         into $\{A,B,C\}$, $\{B,C,D\}$, $\{A,C,E\}$ is lossless.
+
+        \item
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \underline{\textbf{Step 1 ($A \to D$):}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $\color{red}d_1$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        \underline{\textbf{Step 2 ($CD \to E$):}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $\color{red}e$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $\color{red}d_1$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        \underline{\textbf{Step 3 ($E \to D$):}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $\color{red}e$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $\color{red}d_1$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
 
     \end{enumerate}
 \end{enumerate}
