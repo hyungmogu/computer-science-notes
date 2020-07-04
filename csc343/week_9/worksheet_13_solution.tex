@@ -529,7 +529,11 @@
 
         \bigskip
 
-        So in this case, an example of an instance of $R$ that is not lossless
+        So in this case, the relation is not lossless.
+
+        \bigskip
+
+        An example of an instance of $R$ that is not lossless
         is:
 
         \bigskip
@@ -542,9 +546,9 @@
             \hline
             2 & 89 & John Doe & 222-222-3333 & 123 ABC Street\\
             \hline
-            1 & 62 & Josh Doe & 333-444-5555 & 123 ABC Street\\
+            1 & 62 & Josh Doe & 111-222-3333 & 123 ABC Street\\
             \hline
-            3 & 94 & Frank McKay & 444-555-6666 & 123 ABC Street\\
+            3 & 94 & Frank McKay & 444-555-6666 & 234 ABC Street\\
             \hline
         \end{tabular}
 
@@ -581,9 +585,9 @@
                 \hline
                 John Doe & 222-222-3333 & 123 ABC Street\\
                 \hline
-                Josh Doe & 333-444-5555 & 123 ABC Street\\
+                Josh Doe & 111-222-3333 & 123 ABC Street\\
                 \hline
-                Frank McKay & 444-555-6666 & 123 ABC Street\\
+                Frank McKay & 444-555-6666 & 234 ABC Street\\
                 \hline
             \end{tabular}
 
@@ -595,13 +599,13 @@
                 \hline
                 Phone ID & Student Name & Physical Address\\
                 \hline
-                1 & John Doe & 1123 ABC Street\\
+                1 & John Doe & 123 ABC Street\\
                 \hline
-                2 & John Doe & 1123 ABC Street\\
+                2 & John Doe & 123 ABC Street\\
                 \hline
                 1 & Josh Doe & 123 ABC Street\\
                 \hline
-                3 & Frank McKay & 123 ABC Street\\
+                3 & Frank McKay & 234 ABC Street\\
                 \hline
             \end{tabular}
 
@@ -613,23 +617,35 @@
                 \hline
                 1 & 89 & John Doe & 111-222-3333 & 123 ABC Street\\
                 \hline
+                2 & 89 & John Doe & 111-222-3333 & 123 ABC Street\\
+                \hline
+                1 & 89 & John Doe & 222-222-3333 & 123 ABC Street\\
+                \hline
+                2 & 89 & John Doe & 222-222-3333 & 123 ABC Street\\
+                \hline
+                1 & 62 & Josh Doe & 111-222-3333 & 123 ABC Street\\
+                \hline
+                3 & 94 & Frank McKay & 444-555-6666 & 234 ABC Street\\
+                \hline
             \end{tabular}
 
             \item $S_1 \bowtie S_2 \bowtie S_3$
 
             \begin{tabular}{|c|c|c|c|c|}
                 \hline
-                Title & Studio Name & President & Year & President Address\\
+                Phone ID & Grade & Student Name & Phone \# & Physical Address\\
                 \hline
-                Toy Story & Pixar & Steve Jobs & 2000 & 123 ABC Street\\
+                1 & 89 & John Doe & 111-222-3333 & 123 ABC Street\\
                 \hline
-                Star Wars & Fox & Lachlan Murdoch & 1977 & Hollywood\\
+                2 & 89 & John Doe & 111-222-3333 & 123 ABC Street\\
                 \hline
-                Star Wars & Fox & Lachlan Murdoch & 1983 & Hollywood\\
+                1 & 89 & John Doe & 222-222-3333 & 123 ABC Street\\
                 \hline
-                Return of the Jedi & Fox & Lachlan Murdoch & 1977 & Hollywood\\
+                2 & 89 & John Doe & 222-222-3333 & 123 ABC Street\\
                 \hline
-                Return of the Jedi & Fox & Lachlan Murdoch & 1983 & Hollywood\\
+                1 & 62 & Josh Doe & 111-222-3333 & 123 ABC Street\\
+                \hline
+                3 & 94 & Frank McKay & 444-555-6666 & 234 ABC Street\\
                 \hline
             \end{tabular}
 
