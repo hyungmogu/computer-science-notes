@@ -81,12 +81,49 @@
         \begin{tabular}{|c|c|c|c|c|}
             \hline
             A & B & C & D & E\\
-            \hline            $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
-
             \hline
-            $a_1$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d_1$ & $\color{red}e_1$\\
             \hline
             $a$ & $b_1$ & $c$ & $d_1$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        \underline{\textbf{Step 2 ($CE \to A$):}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            \hline
+            $\color{red}a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $d_1$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        So in this case, an example of an instance of $R$ that is not lossless
+        is:
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            Title & Year & Studio Name & President & President Address\\
+            \hline
+            Toy Story & 2000 & Pixar & Steve Jobs & 123 ABC Street\\
+            \hline
+            Star Wars & 1977 & Fox & Lachlan Murdoch & Hollywood\\
+            \hline
+            Return of the Jedi & 1983 & Fox & Lachlan Murdoch & Hollywood\\
             \hline
         \end{tabular}
 
