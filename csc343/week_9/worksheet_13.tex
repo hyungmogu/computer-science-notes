@@ -53,4 +53,26 @@
 \title{CSC343 Worksheet 13}
 \maketitle
 
+\begin{enumerate}[a)]
+    \item \textbf{Exercise 3.4.1:} Let $R(A, B, C, D, E)$ be decomposed into relations with the
+    following three sets of attributes: $\{A, B, C\}$, $\{B, C, D\}$, and $\{A, C, E\}$. For each
+    of the following sets of FD 's, use the chase test to tell whether the decomposition
+    of $R$ is lossless. For those that are not lossless, give an example of an instance
+    of $R$ that returns more than $R$ when projected onto the decomposed relations
+    and rejoined.
+
+    \begin{enumerate}[a)]
+        \item $B \to E$ and C $E \to A$.
+        \item $AC \to E$ and $BC \to D$.
+        \item $A \to D$, $D \to E$, and $B \to D$.
+        \item $A \to D$, $CD \to E$, and $E \to D$.
+    \end{enumerate}
+
+    \bigskip
+
+    \item \textbf{Exercise 3.6.1:} Suppose we have a relation $R(A, B, C)$ with an
+    MVD $A \to\to B$. If we know that the tuples $(a_1, b_1, c_1)$, $(a_2, b_2, C_2)$, and $(a_3, b_3, c_3)$
+    are in the current instance of R, what other tuples do we know must also be in R?
+\end{enumerate}
+
 \end{document}
