@@ -68,11 +68,46 @@
         \item $A \to D$, $CD \to E$, and $E \to D$.
     \end{enumerate}
 
-    \bigskip
+    \item \textbf{Exercise 3.4.2:} For each of the sets of FD's in Exercise 3.4.1,
+    are dependencies preserved by the drcomposition?
 
     \item \textbf{Exercise 3.6.1:} Suppose we have a relation $R(A, B, C)$ with an
     MVD $A \to\to B$. If we know that the tuples $(a_1, b_1, c_1)$, $(a_2, b_2, C_2)$, and $(a_3, b_3, c_3)$
     are in the current instance of R, what other tuples do we know must also be in R?
+
+    \item \textbf{Exercise 3.5.1:} For each of the relation schernas and sets of FD's of Exercise
+    3.3.1:
+
+    \bigskip
+
+    \begin{enumerate}[i)]
+        \item Indicate all the 3NF violations.
+        \item Decompose the relations, as necessary, into collections of relations that are in 3NF.
+    \end{enumerate}
+
+    \item \textbf{Exercise 3.5.2:} Consider the relation $Courses(C, T, H, R, S, G)$,
+    whose attributes may be thought of informally as course, teacher, hour, room, student,
+    and grade. Let the set of FD's for Courses be $C\to T$, $HR\to C$, $HT\to R$,
+    $HS\to R$, and $CS\to G$. Intuitively, the first says that a course has a unique
+    teacher, and the second says that only one course can meet in a given room at
+    a given hour. The third says that a teacher can be in only one room at a given
+    hour, and the fourth says the same about students. The last says that students
+    get only one grade in a course.
+
+    \begin{enumerate}[a)]
+        \item What are all the keys for Courses?
+        \item Verify that the given FD's are their own minimal basis.
+        \item Use the 3NF synthesis algorithm to find a lossless-join, dependency-preserving decomposition of R into 3NF relations. Are any of the relations not in BCNF?
+    \end{enumerate}
+
+    \item \textbf{Exercise 3.5.3:} Consider a relation $Stocks(B, O, I, S, Q, D)$, whose attributes
+    may be thought of informally as broker, office (of the broker), investor, stock,
+    quantity (of the stock owned by the investor), and dividend (of the stock). Let
+    the set of FD's for Stocks be $S \to D$, $I \to B$, $IS \to Q$, and $B \to O$. Repeat
+    Exercise 3.5.2 for the relation Stocks.
+
+    \item \textbf{Exercise 3.5.4:} Verify, using the chase, that the decomposition of Example
+    3.27 has a lossless join.
 \end{enumerate}
 
 \end{document}
