@@ -538,7 +538,102 @@
             \hline
             Student ID & Grade & Student Name & Phone \# & Physical Address\\
             \hline
+            1 & 89 & John Doe & 111-222-3333 & 123 ABC Street\\
+            \hline
+            1 & 62 & Josh Doe & 111-222-3333 & 123 ABC Street\\
+            \hline
+            2 & 94 & Frank McKay & 444-555-6666 & 123 ABC Street\\
+            \hline
         \end{tabular}
+
+        \bigskip
+
+        \begin{itemize}
+            \item $S_1 = \{A,B,C\}$
+
+            \bigskip
+
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Student ID & Grade & Student Name\\
+                \hline
+                1 & 89 & John Doe\\
+                \hline
+                1 & 62 & Josh Doe\\
+                \hline
+                2 & 94 & Frank McKay\\
+                \hline
+            \end{tabular}
+
+            \item $S_2 = \{C,D,E\}$
+
+            \bigskip
+
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                President & Year & President Address\\
+                \hline
+                Steve Jobs & 2000 & 123 ABC Street\\
+                \hline
+                Lachlan Murdoch & 1977 & Hollywood\\
+                \hline
+                Lachlan Murdoch & 1983 & Hollywood\\
+                \hline
+            \end{tabular}
+
+            \item $S_3 = \{C,E,A\}$
+
+            \bigskip
+
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Title & President & President Address\\
+                \hline
+                Toy Story & Steve Jobs & 123 ABC Street\\
+                \hline
+                Star Wars & Lachlan Murdoch & Hollywood\\
+                \hline
+                Return of the Jedi & Lachlan Murdoch & Hollywood\\
+                \hline
+            \end{tabular}
+
+            \item $S_1 \bowtie S_2$
+
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Title & Studio Name & President & Year & President Address\\
+                \hline
+                Toy Story & Pixar & Steve Jobs & 2000 & 123 ABC Street\\
+                \hline
+                Star Wars & Fox & Lachlan Murdoch & 1977 & Hollywood\\
+                \hline
+                Star Wars & Fox & Lachlan Murdoch & 1983 & Hollywood\\
+                \hline
+                Return of the Jedi & Fox & Lachlan Murdoch & 1977 & Hollywood\\
+                \hline
+                Return of the Jedi & Fox & Lachlan Murdoch & 1983 & Hollywood\\
+                \hline
+            \end{tabular}
+
+            \item $S_1 \bowtie S_2 \bowtie S_3$
+
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Title & Studio Name & President & Year & President Address\\
+                \hline
+                Toy Story & Pixar & Steve Jobs & 2000 & 123 ABC Street\\
+                \hline
+                Star Wars & Fox & Lachlan Murdoch & 1977 & Hollywood\\
+                \hline
+                Star Wars & Fox & Lachlan Murdoch & 1983 & Hollywood\\
+                \hline
+                Return of the Jedi & Fox & Lachlan Murdoch & 1977 & Hollywood\\
+                \hline
+                Return of the Jedi & Fox & Lachlan Murdoch & 1983 & Hollywood\\
+                \hline
+            \end{tabular}
+
+        \end{itemize}
 
 
     \end{enumerate}
