@@ -66,9 +66,9 @@
             \hline
             $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
             \hline
-            $a_1$ & $b$ & $c$ & $d_1$ & $e_2$\\
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
             \hline
-            $a$ & $b_1$ & $c$ & $d_1$ & $e$\\
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
             \hline
         \end{tabular}
 
@@ -84,9 +84,9 @@
             \hline
             $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
             \hline
-            $a_1$ & $b$ & $c$ & $d_1$ & $\color{red}e_1$\\
+            $a_1$ & $b$ & $c$ & $d$ & $e_1$\\
             \hline
-            $a$ & $b_1$ & $c$ & $d_1$ & $e$\\
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
             \hline
         \end{tabular}
 
@@ -102,9 +102,9 @@
             \hline
             $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
             \hline
-            $\color{red}a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            $\color{red}a$ & $b$ & $c$ & $d$ & $e_1$\\
             \hline
-            $a$ & $b_1$ & $c$ & $d_1$ & $e$\\
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
             \hline
         \end{tabular}
 
@@ -336,6 +336,21 @@
             So, we can conclude the join is lossless.
 
         \end{itemize}
+
+        \item
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $e_1$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
+            \hline
+        \end{tabular}
+
 
     \end{enumerate}
 \end{enumerate}
