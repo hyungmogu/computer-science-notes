@@ -351,6 +351,46 @@
             \hline
         \end{tabular}
 
+        \bigskip
+
+        \underline{\textbf{Step 1 ($AC \to E$):}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $d_1$ & $\color{red}e$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        \underline{\textbf{Step 2 ($BC \to D$):}}
+
+        \bigskip
+
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            $a$ & $b$ & $c$ & $\color{red}d$ & $\color{red}e$\\
+            \hline
+            $a_1$ & $b$ & $c$ & $d$ & $e_2$\\
+            \hline
+            $a$ & $b_1$ & $c$ & $d_2$ & $e$\\
+            \hline
+        \end{tabular}
+
+        \bigskip
+
+        $a,b,c,d,e$ exists. So by the Chast test, the decomposition of $R(A,B,C,D,E): AC \to E, BC \to D$
+        into $\{A,B,C\}$, $\{B,C,D\}$, $\{A,C,E\}$ is lossless.
 
     \end{enumerate}
 \end{enumerate}
