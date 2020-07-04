@@ -83,12 +83,38 @@
 
 
             \item The Chase Test for Lossless Join
+            \begin{itemize}
+                \item Tests whether the decomposition is lossless
+            \end{itemize}
 
             \bigskip
 
+            \textbf{Input:}
+
             \begin{itemize}
-                \item
+                \item A relation $R$
+                \item A decomposition of $R$
+                \item A set of functional dependencies
             \end{itemize}
+
+            \bigskip
+
+            \textbf{Output:}
+
+            \begin{itemize}
+                \item Whether the decomposition is loseless or not
+                \item $\Pi_{S_1}(R) \bowtie \Pi_{S_2}(R) \bowtie \cdots \Pi_{S_i}(R) = R$
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Three things to remember:}}
+
+            \begin{enumerate}[1.]
+                \item The natural join is associate and commutative
+                \item Any tuple $t$ in $R$ is surely in $\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R)$.
+                \item We have to check to see any tuple in the $\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R)$.
+            \end{enumerate}
 
         \end{itemize}
 
