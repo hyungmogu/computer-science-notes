@@ -661,55 +661,105 @@
 
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
+        \item
 
-    \underline{\textbf{Notes:}}
+        \bigskip
 
-    \bigskip
+        \underline{\textbf{Notes:}}
 
-    \begin{itemize}
-        \item 3NF
+        \bigskip
+
         \begin{itemize}
-            \item Definition
+            \item 3NF
             \begin{itemize}
-                \item A elation $R$ is in 3NF if
+                \item Definition
+                \begin{itemize}
+                    \item A elation $R$ is in 3NF if
+
+                    \bigskip
+
+                    For each nontrivial FD, the left side is a superkey (BCNF), or
+                    the right side consists of prime attributes only.
+                \end{itemize}
+                \item Our expectation after decomposing are:
+                \begin{enumerate}[1.]
+                    \item Elimination of Anomalies
+                    \item Recoverability of Information (Recovering original relation after decomposition)
+                    \item Preservation of Information (Recovering original tuples after decomposition)
+                \end{enumerate}
 
                 \bigskip
 
-                For each nontrivial FD, the left side is a superkey (BCNF), or
-                the right side consists of prime attributes only.
+                Key: \color{red}3NF guarentees 2) and 3) but not 1)\color{black}
             \end{itemize}
-            \item Our expectation after decomposing are:
+
+            \item Synthesis algorithm for 3NF Schemas
             \begin{enumerate}[1.]
-                \item Elimination of Anomalies
-                \item Recoverability of Information (Recovering original relation after decomposition)
-                \item Preservation of Information (Recovering original tuples after decomposition)
+                \item Check if the FD's are minimal
+                \begin{itemize}
+                    \item To verify, we should show that we cannot eliminate any of FD's.
+                    That is, using algorithm 3.7, no two of the FD's imply the third
+                \end{itemize}
+                \item Find a minimal basis for $F$, say $G$
+                \item For each functional dependency $X \to A$ in $G$, use $XA$
+                as the schema of one of the relations in the decomposition
+                \item If none of the relation schemas from Step 2 is a superky for $R$,
+                add another relation whose schema is a key for $R$.
             \end{enumerate}
 
             \bigskip
 
-            Key: \color{red}3NF guarentees 2) and 3) but not 1)\color{black}
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            $R(A,B,C,D,E): AB \to C, C \to B, A \to D$
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item Check if the FD's are minimal
+                \begin{itemize}
+                    \item To verify, we should show that we cannot eliminate any of FD's.
+                    That is, using algorithm 3.7, no two of the FD's imply the third
+                \end{itemize}
+
+                \bigskip
+
+                \color{red}
+                \begin{enumerate}[1)]
+                    \item $\{A,B\}^+$
+
+                    \bigskip
+
+                    Using the FDs $C \to B$, $A \to D$, we have $\{A,B\}^+ = \{A,B,D\}$.
+
+                    \bigskip
+
+                    Since $C$ is required for $AB \to C$, we can conclude second
+                    and third doesn't imply the first
+
+                \end{enumerate}
+
+                \color{black}
+
+
+                \item Find a minimal basis for $F$, say $G$
+                \item For each functional dependency $X \to A$ in $G$, use $XA$
+                as the schema of one of the relations in the decomposition
+                \item If none of the relation schemas from Step 2 is a superky for $R$,
+                add another relation whose schema is a key for $R$.
+            \end{enumerate}
+
         \end{itemize}
 
-        \item Synthesis algorithm for 3NF Schemas
-        \begin{enumerate}[1.]
-            \item Check if the FD's are minimal
-            \item To verify, we should show that we cannot eliminate any of FD's.
-            That is, using algorithm 3.7, no two of the FD's imply the third
-            \item Find a minimal basis for $F$, say $G$
-            \item For each functional dependency $X \to A$ in $G$, use $XA$
-            as the schema of one of the relations in the decomposition
-            \item If none of the relation schemas from Step 2 is a superky for $R$,
-            add another relation whose schema is a key for $R$.
-        \end{enumerate}
+        \item
 
-        \bigskip
 
-        \underline{\textbf{Example:}}
 
-        \bigskip
+    \end{enumerate}
 
-    \end{itemize}
 \end{enumerate}
 
 \end{document}
