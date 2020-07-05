@@ -915,7 +915,8 @@
                 \item $\{B\}^+ = \{B,C,D\}$
                 \begin{itemize}
                     \item Violates 3NF
-                    \item Doesn't have $C$ required for $AB \to C$
+                    \item Doesn't have $C$ required for $B \to C$
+                    \item Doesn't have $C$ required for $B \to D$
                     \item Second and third don't imply first
                 \end{itemize}
             \end{itemize}
@@ -928,8 +929,22 @@
             \begin{enumerate}[1.]
                 \item Find a minimal basis for $F$, say $G$
 
+                \bigskip
+
+                \color{red}
+                $B \to D$ and $B \to C$
+                \color{black}
+
+                \bigskip
+
                 \item For each functional dependency $X \to A$ in $G$, use $XA$
                 as the schema of one of the relations in the decomposition
+
+                \bigskip
+
+                $S_1(B,D)$, $S_2(B,C)$
+
+                \bigskip
 
                 \item If none of the relation schemas from Step 2 is a superkey for $R$,
                 add another relation whose schema is a key for $R$. And drop redundant relations.
