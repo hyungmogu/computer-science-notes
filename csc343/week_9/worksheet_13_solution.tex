@@ -691,7 +691,17 @@
             Key: \color{red}3NF guarentees 2) and 3) but not 1)\color{black}
         \end{itemize}
 
-        \item
+        \item Synthesis algorithm for 3NF Schemas
+        \begin{enumerate}[1.]
+            \item Check if the FD's are minimal
+            \item To verify, we should show that we cannot eliminate any of FD's.
+            That is, using algorithm 3.7, no two of the FD's imply the third
+            \item Find a minimal basis for $F$, say $G$
+            \item For each functional dependency $X \to A$ in $G$, use $XA$
+            as the schema of one of the relations in the decomposition
+            \item If none of the relation schemas from Step 2 is a superky for $R$,
+            add another relation whose schema is a key for $R$.
+        \end{enumerate}
     \end{itemize}
 \end{enumerate}
 
