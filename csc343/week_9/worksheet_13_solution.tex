@@ -1155,18 +1155,22 @@
                     \item Second, third and fourth don't imply first
                 \end{itemize}
 
-                \item $\{C\}^+ = \{C\}$
+                \item $\{C\}^+ = \{C,D,B,E\}$
                 \begin{itemize}
                     \item Violates 3NF
-                    \item Doesn't have $D$ required for $C \to D$
                     \item first, third and fourth don't imply second
+                \end{itemize}
+
+                \item $\{D\}^+ = \{D\}$
+                \begin{itemize}
+                    \item Doesn't have $D$ required for $D \to B$
+                    \item first, second and fourth don't imply third
                 \end{itemize}
 
                 \item $\{B\}^+ = \{B\}$
                 \begin{itemize}
-                    \item Violates 3NF
-                    \item Doesn't have $D$ required for $B \to D$
-                    \item first and second don't imply third
+                    \item Doesn't have $D$ required for $D \to B$
+                    \item first, second and fourth don't imply third
                 \end{itemize}
             \end{itemize}
             \color{black}
