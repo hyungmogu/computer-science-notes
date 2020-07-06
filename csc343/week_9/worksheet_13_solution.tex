@@ -1367,23 +1367,59 @@
                         \item $\{H,G\}^+ = \{H,G\}$
                         \item $\{R,S\}^+ = \{R,S\}$
                         \item $\{R,G\}^+ = \{R,G\}$
-                        \item $\{C,H,R\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{C,H,S\}^+ = \{\}$
-                        \item $\{C,H,G\}^+ = \{\}$
-                        \item $\{C,R,S\}^+ = \{\}$
-                        \item $\{C,R,G\}^+ = \{\}$
-                        \item $\{C,S,G\}^+ = \{\}$
-                        \item $\{H,R,S\}^+ = \{\}$
-                        \item $\{H,R,G\}^+ = \{\}$
-                        \item $\{H,S,G\}^+ = \{\}$
-                        \item $\{R,S,G\}^+ = \{\}$
-                        \item $\{C,H,R,S\}^+ = \{\}$
-                        \item $\{H,R,S,G\}^+ = \{\}$
-                        \item $\{R,S,G,C\}^+ = \{\}$
-                        \item $\{S,G,C,H\}^+ = \{\}$
-                        \item $\{G,C,H,R\}^+ = \{\}$
-                        \item $\{C,H,R,S,G\}^+ = \{\}$
+                        \item $\{C,H,R\}^+ = \{C,T,H,R\}$
+                        \item $\{C,H,S\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{C,H,G\}^+ = \{C,T,H,G\}$
+                        \item $\{C,R,S\}^+ = \{C,S,G,R\}$
+                        \item $\{C,R,G\}^+ = \{C,T,R,G\}$
+                        \item $\{C,S,G\}^+ = \{C,T,S,G\}$
+                        \item $\{H,R,S\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{H,R,G\}^+ = \{C,T,H,R,G\}$
+                        \item $\{H,S,G\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{R,S,G\}^+ = \{R,S,G\}$
+                        \item $\{C,H,R,S\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{R,S,G,C\}^+ = \{C,T,R,S,G\}$
+                        \item $\{S,G,C,H\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{G,C,H,R\}^+ = \{C,T,H,R,G\}$
+                        \item $\{C,H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
                     \end{itemize}
+
+                    which gives
+
+                    \begin{itemize}
+                        \item $\{C\}^+ = \{C,T\}$ : $C \to T$
+                        \item $\{H\}^+ = \{H\}$
+                        \item $\{R\}^+ = \{R\}$
+                        \item $\{S\}^+ = \{S\}$
+                        \item $\{G\}^+ = \{G\}$
+                        \item $\{C,H\}^+ = \{C,T,H,R\}$ : $CH \to T$, $CH \to R$
+                        \item $\{C,R\}^+ = \{C,T,R\}$ : $CR \to T$
+                        \item $\{C,S\}^+ = \{C,S,T,G\}$ : $CS \to T$, $CS \to G$
+                        \item $\{C,G\}^+ = \{C,T,G\}$ : $CG \to T$
+                        \item $\{H,R\}^+ = \{H,R,C,T\}$ : $HR \to C$, $HR \to T$
+                        \item $\{H,S\}^+ = \{C,T,H,R,S,G\}$ : $HS \to C$, $HS \to T$, $HS \to R$, $HS \to G$
+                        \item $\{H,G\}^+ = \{H,G\}$
+                        \item $\{R,S\}^+ = \{R,S\}$
+                        \item $\{R,G\}^+ = \{R,G\}$
+                        \item $\{C,H,R\}^+ = \{C,T,H,R\}$ : $CHR \to T$
+                        \item $\{C,H,S\}^+ = \{C,T,H,R,S,G\}$ : $CHS \to R$, $CHS \to T$
+                        \item $\{C,H,G\}^+ = \{C,T,H,G\}$ : $CHG \to T$
+                        \item $\{C,R,S\}^+ = \{C,S,G,R\}$ : $CRS \to G$
+                        \item $\{C,R,G\}^+ = \{C,T,R,G\}$ : $CRG \to T$
+                        \item $\{C,S,G\}^+ = \{C,T,S,G\}$ : $CSG \to T$
+                        \item $\{H,R,S\}^+ = \{C,T,H,R,S,G\}$ : $HRS \to T$, $HRS \to C$, $HRS \to G$
+                        \item $\{H,R,G\}^+ = \{C,T,H,R,G\}$
+                        \item $\{H,S,G\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{R,S,G\}^+ = \{R,S,G\}$
+                        \item $\{C,H,R,S\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{R,S,G,C\}^+ = \{C,T,R,S,G\}$
+                        \item $\{S,G,C,H\}^+ = \{C,T,H,R,S,G\}$
+                        \item $\{G,C,H,R\}^+ = \{C,T,H,R,G\}$
+                        \item $\{C,H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
+                    \end{itemize}
+
                 \end{itemize}
 
                 \bigskip
