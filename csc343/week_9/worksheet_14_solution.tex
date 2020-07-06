@@ -53,4 +53,38 @@
 \title{CSC343 Worksheet 14}
 \maketitle
 
+\begin{enumerate}[1.]
+    \item \textbf{Exercise 4.1.1:} Design a database for a bank, including information
+    about customers and their accounts. Information about a customer includes their
+    name, address, phone, and Social Security number. Accounts have numbers,
+    types (e.g., savings, checking) and balances. Also record the customer(s) who
+    own an account. Draw the E/R diagram for this database. Be sure to include
+    arrows where appropriate, to indicate the multiplicity of a relationship.
+
+    \item \textbf{Exercise 4.1.2:} Modify your solution to Exercise 4.1.1 as follows:
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Change your diagram so an account can have only one customer.
+        \item Further change your diagram so a customer can have only one account.
+        \item Change your original diagram of Exercise 4.1.1 so that a customer can have a set of addresses (which are street-city-state triples) and a set of phones. Remember that we do not allow attributes to have nonprimitive types, such as sets, in the E/R model.
+        \item Further modify your diagram so that customers can have a set of addresses, and at each address there is a set of phones.
+    \end{enumerate}
+
+    \item \textbf{Exercise 4.1.3:} Give an E/R diagram for a database recording information
+    about teams, players, and their fans, including:
+
+    \begin{enumerate}[1.]
+        \item For each team, its name, its players, its team captain (one of its players), and the colors of its uniform.
+        \item For each player, his/her name.
+        \item For each fan, his/her name, favorite teams, favorite players, and favorite color.
+    \end{enumerate}
+
+    \bigskip
+
+    Remember that a set of colors is not a suitable attribute type for teams. How can you get around this restriction?
+
+\end{enumerate}
+
 \end{document}
