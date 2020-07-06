@@ -1292,32 +1292,11 @@
 
         \bigskip
 
-        The lossless decompostion of $R$ are: $S_1(C,T)$, $S_2(H,R,C)$, $S_3(H,T,R)$, $S_4(H,S,R)$, $S_5(C,S,G)$
+        The lossless decompostion of $R$ are: $S_1(C,T): C \to T $, $S_2(H,R,C): HR \to C$, $S_3(H,T,R): HT \to R$, $S_4(H,S,R): HS \to R$, $S_5(C,S,G): CS \to G$
 
         \bigskip
 
-        \underline{\textbf{Finding relations that violate BCNF:}}
-
-        \bigskip
-
-        \begin{itemize}
-            \item Determining BCNF violations
-
-            $\{C\}^+ = \{C,T\}$ \color{red}BCNF Violation\color{black}
-
-            \bigskip
-
-            $\{H,R\}^+ = \{H,R.C,T\}$ \color{red} BCNF Violation\color{black}
-
-            \bigskip
-
-            $\{H,S\}^+ = \{C,T,H,R,S,G\}$
-
-            \bigskip
-
-            $\{C,S\}^+ = \{C,T,S,G\}$ \color{red} BCNF Violation\color{black}
-        \end{itemize}
-
+        All of the relations are in BCNF.
 
     \end{enumerate}
 
