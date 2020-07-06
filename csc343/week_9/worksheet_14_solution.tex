@@ -85,6 +85,94 @@
 
     Remember that a set of colors is not a suitable attribute type for teams. How can you get around this restriction?
 
+    \item \textbf{Exercise 4.1.4:} Suppose we wish to add to the schema of Exercise 4.1.3 a
+    relationship Led-by among two players and a team. The intention is that this
+    relationship set consists of triples (player1, player2, team) such that player 1
+    played on the team at a time when some other player 2 was the team captain.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Draw the modification to the E/R diagram.
+        \item Replace your ternary relationship with a new entity set and binary relationships.
+        \item Are your new binary relationships the same as any of the previously existing relationships? Note that we assume the two players are different, i.e., the team captain is not self-led.
+    \end{enumerate}
+
+    \item \textbf{Exercise 4.1.5:} Modify Exercise 4.1.3 to record for each player the history of
+    teams on which they have played, including the start date and ending date (if
+    they were traded) for each such team.
+
+    \item \textbf{Exercise 4.1.6:} Design a genealogy database with one entity set: People. The
+    information to record about persons includes their name (an attribute), their
+    mother, father, and children.
+
+    \item \textbf{Exercise 4.1.7:} Modify your "people" database design of Exercise 4.1.6 to
+    include the following special types of people:
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Females.
+        \item Males.
+        \item People who are parents
+    \end{enumerate}
+
+    \bigskip
+
+    You may wish to distinguish certain other kinds of people as well, so relationships connect appropriate subclasses of people.
+
+
+    \item \textbf{Exercise 4.1.8:} An alternative way to represent the information of Exercise
+    4.1.6 is to have a ternary relationship Family with the intent that in tht'
+    relationship set for Family, triple (person, mother, father) is a person, their
+    mother, and their father; all three are in the People entity set, of course.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item Draw this diagram, placing arrows on edges where appropriate.
+        \item Replace the ternary relationship Family by an entity set and binary relationships. Again place arrows to indicate the multiplicity of relationships.
+    \end{enumerate}
+
+    \item \textbf{Exercise 4.1.9:} Design a database suitable for a university registrar. This
+    database should include information about students, departments, professor~,
+    courses, which students are enrolled in which courses, which professors are
+    teaching which courses, student grades, TA's for a course (TA's are students),
+    which courses a department offers, and any other information you deem appropriate.
+    Note that this question is more free-form than the questions above, and
+    you need to make some decisions about multiplicities of relationships, appropriate
+    types, and even what information needs to be represented.
+
+    \item \textbf{Exercise 4.1.10:} Informally, we can say that two E/R diagrams "have the
+    same information" if, given a real-world situation, the instances of these two diagrams
+    that reflect this situation can be computed from one another. Consider
+    the E/R diagram of Fig. 4.6. This four-way relationship can be decomposed
+    into a three-way relationship and a binary relationship by taking advantage
+    of the fact that for each movie, there is a unique studio that produces that
+    movie. Give an E/R diagram without a four-way relationship that has the
+    same information as Fig. 4.6.
+
+    \item \textbf{Exercise 4.2.1:} In Fig. 4.14 is an E/R diagram for a bank database involving
+    customers and accounts. Since customers may have several accounts, and
+
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/worksheet_14_1.png}
+    \end{center}
+
+    accounts may be held jointly by several customers, we associate with each customer
+    an "account set," and accounts are members of one or more account sets.
+    Assuming the meaning of the various relationships and attributes are as expected
+    given their names, criticize the design. What design rules are violated?
+    Why? What modifications would you suggest?
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/worksheet_14_2.png}
+    \end{center}
+
+
 \end{enumerate}
 
 \end{document}
