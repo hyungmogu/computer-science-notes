@@ -1354,7 +1354,7 @@
 
     \item
 
-    Given the decomposed table $S_1(A,B,C)$, $S_2(B,C)$, $S_3(A,D)$, we have
+    Given the decomposed table $S_1(A,B,C)$, $S_2(A,D)$, $S_3(A,D,E)$, we have
 
     \bigskip
 
@@ -1364,25 +1364,13 @@
         \hline
         $a$ & $b$ & $c$  & $d_1$ & $e_1$\\
         \hline
-        $a_1$ & $b$ & $c$ & $d_2$ & $e_2$\\
+        $a$ & $b_1$ & $c_1$ & $d$ & $e_2$\\
         \hline
-        $a$ & $b_1$ & $c$ & $d$ & $e_3$\\
+        $a$ & $b$ & $c_2$ & $d_2$ & $e$\\
         \hline
     \end{tabular}
 
     \bigskip
-
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        A & B & C & D & E\\
-        \hline
-        $a$ & $b$ & $c$  & $d_1$ & $e_1$\\
-        \hline
-        $a_1$ & $b$ & $c$ & $d_2$ & $e_2$\\
-        \hline
-        $a$ & $b$ & $c$ & $d$ & $e$\\
-        \hline
-    \end{tabular}
 
     \bigskip
 
@@ -1396,9 +1384,9 @@
         \hline
         $a$ & $b$ & $c$  & $d_1$ & $e_1$\\
         \hline
-        $a_1$ & $b$ & $c$ & $d_2$ & $e_2$\\
+        $a$ & $b_1$ & $c_1$ & $d$ & $e_2$\\
         \hline
-        $a$ & $b$ & $c$ & $d$ & $e$\\
+        $a$ & $b$ & $\color{red}c$ & $d_2$ & $e$\\
         \hline
     \end{tabular}
 
@@ -1414,9 +1402,9 @@
         \hline
         $a$ & $b$ & $c$  & $d_1$ & $e_1$\\
         \hline
-        $a_1$ & $b$ & $c$ & $d_2$ & $e_2$\\
+        $a$ & $b_1$ & $c_1$ & $d$ & $e_2$\\
         \hline
-        $a$ & $\color{red}b$ & $c$ & $d$ & $e$\\
+        $a$ & $b$ & $\color{red}c$ & $d_2$ & $e$\\
         \hline
     \end{tabular}
 
@@ -1432,11 +1420,17 @@
         \hline
         $a$ & $b$ & $c$  & $\color{red}d$ & $e_1$\\
         \hline
-        $a_1$ & $b$ & $c$ & $d_2$ & $e_2$\\
+        $a$ & $b_1$ & $c_1$ & $d$ & $e_2$\\
         \hline
-        $a$ & $\color{red}b$ & $c$ & $d$ & $e$\\
+        $a$ & $b$ & $\color{red}c$ & $\color{red}d$ & $e$\\
         \hline
     \end{tabular}
+
+    \bigskip
+
+    Since $a,b,c,d,e$ exists, by Chase Test, the decomposition of $R(A,B,C,D,E): AB \to C, C \to B, A \to D$
+    has a lossless join.
+
 
 \end{enumerate}
 
