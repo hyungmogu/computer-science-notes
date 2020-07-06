@@ -1296,14 +1296,14 @@
 
         \bigskip
 
-        \underline{\textbf{Finding Decomposition using BCNF:}}
+        \underline{\textbf{Finding relations that violate BCNF:}}
 
         \bigskip
 
         \begin{itemize}
             \item Determining BCNF violations
 
-            $\{C\}^+ = \{C,T\}$ \color{red} BCNF Violation\color{black}
+            $\{C\}^+ = \{C,T\}$ \color{red}BCNF Violation\color{black}
 
             \bigskip
 
@@ -1316,156 +1316,6 @@
             \bigskip
 
             $\{C,S\}^+ = \{C,T,S,G\}$ \color{red} BCNF Violation\color{black}
-
-            \item Decomposing Relations ($C \to T$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \bigskip
-
-                \color{red}$C \to T$\color{black}
-
-                \bigskip
-
-                \item Compute $X^+$ and put $R_1 = X^+$
-
-                \bigskip
-
-                \color{red}$R_1(C,T)$\color{black}
-
-                \bigskip
-
-                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
-
-                \bigskip
-
-                \color{red}$R_2(C,H,R,S,G)$\color{black}
-
-                \bigskip
-
-                \item Project FD's for $R_1$ and $R_2$
-
-                \bigskip
-
-                \begin{itemize}
-                    \item $R_1(C,T): C \to T$
-                    \item $R_2(C,H,R,S,G)): C \to T, H \to R, H \to C, H \to T, S \to G$
-
-                    \bigskip
-
-                    \begin{mdframed}
-                        \underline{\textbf{Rough Works:}}
-
-                        \bigskip
-
-                        \begin{itemize}
-                            \item $\{C\}^+ = \{C,T\}$
-                            \item $\{H\}^+ = \{H\}$
-                            \item $\{R\}^+ = \{R\}$
-                            \item $\{S\}^+ = \{S\}$
-                            \item $\{G\}^+ = \{G\}$
-                            \item $\{C,H\}^+ = \{C,T,H,R\}$
-                            \item $\{C,R\}^+ = \{C,T,R\}$
-                            \item $\{C,S\}^+ = \{C,S,T,G\}$
-                            \item $\{C,G\}^+ = \{C,T,G\}$
-                            \item $\{H,R\}^+ = \{H,R,C,T\}$
-                            \item $\{H,S\}^+ = \{C,T,H,R,S,G\}$
-                            \item $\{H,G\}^+ = \{H,G\}$
-                            \item $\{R,S\}^+ = \{R,S\}$
-                            \item $\{R,G\}^+ = \{R,G\}$
-
-                            ...
-                        \end{itemize}
-
-                        \bigskip
-
-                        which gives
-
-                        \bigskip
-
-                        $C \to T$,
-                        $CH \to T$,
-                        $CH \to R$,
-                        $CR \to T$,
-                        $CS \to T$,
-                        $CS \to G$,
-                        $CG \to T$,
-                        $HR \to C$,
-                        $HR \to T$,
-                        $HS \to C$,
-                        $HS \to T$,
-                        $HS \to R$,
-                        $HS \to G$
-
-                        ...
-
-                        \bigskip
-
-                        which is simplified to
-
-                        \bigskip
-
-                        $C \to T$,
-                        $H \to R$,
-                        $H \to C$,
-                        $H \to T$,
-                        $S \to G$
-                    \end{mdframed}
-
-                \end{itemize}
-
-                \bigskip
-
-                \item Recursively decompose $R_1$ and $R_2$
-
-            \end{enumerate}
-
-            \item Decomposing Relations ($HR \to C$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \item Compute $X^+$ and put $R_1 = X^+$
-
-                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
-
-                \item Project FD's for $R_1$ and $R_2$
-
-                \item Recursively decompose $R_1$ and $R_2$
-
-            \end{enumerate}
-
-            \item Decomposing Relations ($HT \to R$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \item Compute $X^+$ and put $R_1 = X^+$
-
-                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
-
-                \item Project FD's for $R_1$ and $R_2$
-
-                \item Recursively decompose $R_1$ and $R_2$
-
-            \end{enumerate}
-
-            \item Decomposing Relations ($CS \to G$)
-
-            \begin{enumerate}[1.]
-                \item Suppose that $X \to Y$ is a BCNF violation
-
-                \item Compute $X^+$ and put $R_1 = X^+$
-
-                \item $R_2$ contain all $X$ attributes and those that are not in $X^+$
-
-                \item Project FD's for $R_1$ and $R_2$
-
-                \item Recursively decompose $R_1$ and $R_2$
-
-            \end{enumerate}
-
         \end{itemize}
 
 
