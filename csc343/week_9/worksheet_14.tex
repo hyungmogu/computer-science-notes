@@ -201,6 +201,29 @@
 
     In each case, what design flaws do you see?
 
+    \item \textbf{Exercise 4.4.1:} One way to represent students and the grades they get in
+    courses is to use entity sets corresponding to students, to courses, and to "enrollments."
+    Enrollment entities form a "connecting" entity set between students
+    and courses and can be used to represent not only the fact that a student is
+    taking a certain course, but the grade of the student in the course. Draw an
+    E/R diagram for this situation, indicating weak entity sets and the keys for the
+    entity sets. Is the grade part of the key for enrollments?
+
+    \item \textbf{Exercise 4.4.2:} Modify your solution to Exercise 4.4.1 so that we can record
+    grades of the student for each of several assignments within a course. Again,
+    indicate weak entity sets and keys.
+
+    \item \textbf{Exercise 4.4.3:} For your E/R diagrams of Exercise 4.2.6(a)~(c), indicate weak
+    entity sets, supporting relationships, and keys.
+
+    \item \textbf{Exercise 4.4.4:} Draw E/R diagrams for the following situations involving
+    weak entity sets. In each case indicate keys for entity sets.
+
+    \begin{enumerate}[a)]
+        \item Entity sets Courses and Departments. A course is given by a unique department, but its only attribute is its number. Different departments can offer courses with the same number. Each department has a unique name.
+        \item Entity sets Leagues, Teams, and Players. League names are unique. No league has two teams with the same name. No team has two players with the same number. However, there can be players with the same number on different teams, and there can be teams with the same name in different leagues.
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
