@@ -1350,99 +1350,104 @@
 
                 \begin{itemize}
                     \item $R_1(C,T): C \to T$
-                    \item $R_1(C,H,R,S,G)): $
-
-                    \begin{itemize}
-                        \item $\{C\}^+ = \{C,T\}$
-                        \item $\{H\}^+ = \{H\}$
-                        \item $\{R\}^+ = \{R\}$
-                        \item $\{S\}^+ = \{S\}$
-                        \item $\{G\}^+ = \{G\}$
-                        \item $\{C,H\}^+ = \{C,T,H,R\}$
-                        \item $\{C,R\}^+ = \{C,T,R\}$
-                        \item $\{C,S\}^+ = \{C,S,T,G\}$
-                        \item $\{C,G\}^+ = \{C,T,G\}$
-                        \item $\{H,R\}^+ = \{H,R,C,T\}$
-                        \item $\{H,S\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{H,G\}^+ = \{H,G\}$
-                        \item $\{R,S\}^+ = \{R,S\}$
-                        \item $\{R,G\}^+ = \{R,G\}$
-                        \item $\{C,H,R\}^+ = \{C,T,H,R\}$
-                        \item $\{C,H,S\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{C,H,G\}^+ = \{C,T,H,G\}$
-                        \item $\{C,R,S\}^+ = \{C,S,G,R\}$
-                        \item $\{C,R,G\}^+ = \{C,T,R,G\}$
-                        \item $\{C,S,G\}^+ = \{C,T,S,G\}$
-                        \item $\{H,R,S\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{H,R,G\}^+ = \{C,T,H,R,G\}$
-                        \item $\{H,S,G\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{R,S,G\}^+ = \{R,S,G\}$
-                        \item $\{C,H,R,S\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{R,S,G,C\}^+ = \{C,T,R,S,G\}$
-                        \item $\{S,G,C,H\}^+ = \{C,T,H,R,S,G\}$
-                        \item $\{G,C,H,R\}^+ = \{C,T,H,R,G\}$
-                        \item $\{C,H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
-                    \end{itemize}
+                    \item $R_1(C,H,R,S,G)): H \to R,S \to G,HR \to C,HS \to C,HS \to R,HS \to G$
 
                     \bigskip
 
-                    which gives
+                    \begin{mdframed}
+                        \underline{\textbf{Rough Works:}}
 
-                    \bigskip
+                        \bigskip
 
-                    $C \to T$,
-                    $CH \to T$,
-                    $CH \to R$,
-                    $CR \to T$,
-                    $CS \to T$,
-                    $CS \to G$,
-                    $CG \to T$,
-                    $HR \to C$,
-                    $HR \to T$,
-                    $HS \to C$,
-                    $HS \to T$,
-                    $HS \to R$,
-                    $HS \to G$,
-                    $CHR \to T$,
-                    $CHS \to R$,
-                    $CHS \to T$,
-                    $CHG \to T$,
-                    $CRS \to G$,
-                    $CRG \to T$,
-                    $CSG \to T$,
-                    $HRS \to T$,
-                    $HRS \to C$,
-                    $HRS \to G$,
-                    $HRG \to C$,
-                    $HRG \to T$,
-                    $HSG \to C$,
-                    $HSG \to T$,
-                    $HSG \to R$,
-                    $CHRS \to T$,
-                    $CHRS \to G$,
-                    $HRSG \to C$,
-                    $HRSG \to T$,
-                    $RSGC \to T$,
-                    $SGCH \to T$,
-                    $SCGH \to R$,
-                    $GCHR \to T$,
+                        \begin{itemize}
+                            \item $\{C\}^+ = \{C,T\}$
+                            \item $\{H\}^+ = \{H\}$
+                            \item $\{R\}^+ = \{R\}$
+                            \item $\{S\}^+ = \{S\}$
+                            \item $\{G\}^+ = \{G\}$
+                            \item $\{C,H\}^+ = \{C,T,H,R\}$
+                            \item $\{C,R\}^+ = \{C,T,R\}$
+                            \item $\{C,S\}^+ = \{C,S,T,G\}$
+                            \item $\{C,G\}^+ = \{C,T,G\}$
+                            \item $\{H,R\}^+ = \{H,R,C,T\}$
+                            \item $\{H,S\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{H,G\}^+ = \{H,G\}$
+                            \item $\{R,S\}^+ = \{R,S\}$
+                            \item $\{R,G\}^+ = \{R,G\}$
+                            \item $\{C,H,R\}^+ = \{C,T,H,R\}$
+                            \item $\{C,H,S\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{C,H,G\}^+ = \{C,T,H,R,G\}$
+                            \item $\{C,R,S\}^+ = \{C,T,R,S,G\}$
+                            \item $\{C,R,G\}^+ = \{C,T,R,G\}$
+                            \item $\{C,S,G\}^+ = \{C,T,S,G\}$
+                            \item $\{H,R,S\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{H,R,G\}^+ = \{C,T,H,R,G\}$
+                            \item $\{H,S,G\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{R,S,G\}^+ = \{R,S,G\}$
+                            \item $\{C,H,R,S\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{R,S,G,C\}^+ = \{C,T,R,S,G\}$
+                            \item $\{S,G,C,H\}^+ = \{C,T,H,R,S,G\}$
+                            \item $\{G,C,H,R\}^+ = \{C,T,H,R,G\}$
+                            \item $\{C,H,R,S,G\}^+ = \{C,T,H,R,S,G\}$
+                        \end{itemize}
 
-                    \bigskip
+                        \bigskip
 
-                    which is simplified to
+                        which gives
 
-                    \bigskip
+                        \bigskip
 
-                    $C \to T$,
-                    $CH \to R$,
-                    $CS \to G$,
-                    $HR \to C$,
-                    $HR \to T$,
-                    $HS \to C$,
-                    $HS \to T$,
-                    $HS \to R$,
-                    $HS \to G$
+                        $C \to T$,
+                        $CH \to T$,
+                        $CH \to R$,
+                        $CR \to T$,
+                        $CS \to T$,
+                        $CS \to G$,
+                        $CG \to T$,
+                        $HR \to C$,
+                        $HR \to T$,
+                        $HS \to C$,
+                        $HS \to T$,
+                        $HS \to R$,
+                        $HS \to G$,
+                        $CHR \to T$,
+                        $CHS \to R$,
+                        $CHS \to T$,
+                        $CHG \to T$,
+                        $CRS \to G$,
+                        $CRG \to T$,
+                        $CSG \to T$,
+                        $HRS \to T$,
+                        $HRS \to C$,
+                        $HRS \to G$,
+                        $HRG \to C$,
+                        $HRG \to T$,
+                        $HSG \to C$,
+                        $HSG \to T$,
+                        $HSG \to R$,
+                        $CHRS \to T$,
+                        $CHRS \to G$,
+                        $HRSG \to C$,
+                        $HRSG \to T$,
+                        $RSGC \to T$,
+                        $SGCH \to T$,
+                        $SCGH \to R$,
+                        $GCHR \to T$,
+
+                        \bigskip
+
+                        which is simplified to
+
+                        \bigskip
+
+                        $CH \to R$,
+                        $CS \to G$,
+                        $HR \to C$,
+                        $HS \to C$,
+                        $HS \to R$,
+                        $HS \to G$
+                    \end{mdframed}
 
                 \end{itemize}
 
