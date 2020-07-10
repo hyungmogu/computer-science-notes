@@ -780,7 +780,6 @@
             \begin{itemize}
                 \item Is an entity set of which some or all of attributes belong to
                 another entity set
-                \item  has one or more many-one relationships t
                 \item Is denoted by the following symbol:
 
                 \begin{center}
@@ -788,6 +787,36 @@
                 \end{center}
 
                 \item Depends on a dominant entity, and it cannot exist without a strong entity. $^{[1]}$
+                \item Has attributes in both weak entity sets and the entity sets
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/worksheet_14_solution_56.png}
+                \end{center}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Schemas for the strong entity sets
+
+                    \begin{itemize}
+                        \item student (\underline{username})
+                        \item assignment (\underline{shortname}, due\_date, url)
+                    \end{itemize}
+
+                    \item Schemas for the weak entity set
+
+                    \begin{itemize}
+                        \item submission(\underline{username}, \underline{shortname}, \underline{version}, submit\_date, data)
+                    \end{itemize}
+                \end{itemize}
+
+
             \end{itemize}
 
             \item Requirements for Entity Sets
