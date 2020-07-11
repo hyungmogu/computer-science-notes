@@ -247,46 +247,6 @@
     by the flight number, day of the flight, the row, and the seat; the customer is
     not then necessary to help identify the booking.
 
-    \bigskip
-
-    \begin{mdframed}
-        \underline{\textbf{Relations with Subset Schema}}
-
-        \bigskip
-
-        You might imagine from Example 4.30 that whenever one relation R has a
-        set of attributes that is a subset of the attributes of another relation S, we
-        can eliminate R. That is not exactly true. R might hold information that
-        doesn't appear inS because the additional attributes of S do not allow us
-        to extend a tuple from R to S.
-
-        \bigskip
-
-        For instance, the Internal Revenue Service tries to maintain a relation
-        People (name, ss\#) of potential taxpayers and their social-security numbers,
-        even if the person had no income and did not file a tax return. They
-        might also maintain a relation TaxPayers (name, ss\#, amount) indicating
-        the amount of tax paid by each person who filed a return in the current
-        year. The schema of People is a subset of the schema of TaxPayers, yet
-        there may be value in remembering the social-security number of those
-        who are mentioned in People but not in Taxpayers.
-
-        \bigskip
-
-        In fact, even identical sets of attributes may have different semantics,
-        so it is not possible to merge their tuples. An example would be two
-        relations Stars (name, addr) and Studios (name, addr). Although the
-        schemas look alike, we cannot turn star tuples into studio tuples, or viceversa.
-        On the other hand, when the two relations come from the weak-entityset
-        construction, then there can be no such additional value to the relation
-        with the smaller set of attributes. The reason is that the tuples of the
-        relation that comes from the supporting relationship correspond one-forone
-        with the tuples of the relation that comes from the weak entity set.
-        Thus, we routinely eliminate the former relation.
-    \end{mdframed}
-
-    \bigskip
-
     \begin{enumerate}[a)]
         \item Revise the diagram of Fig. 4.29 to reflect this new viewpoint.
         \item Convert your diagram from (a) into relations. Do you get the same database schema as in Exercise 4.5.1?
