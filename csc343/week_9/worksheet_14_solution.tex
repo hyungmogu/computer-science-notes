@@ -1179,10 +1179,52 @@
             \bigskip
 
             \item Movies
+
+            \bigskip
+
+            Studios(\underline{name}, addr)
+
+            \bigskip
+
             \item Contracts
-            \item StarOf
-            \item StudioOf
+
+            \bigskip
+
+            Contracts(\underline{title}, \underline{year}, length, genre)
+
+            \bigskip
+
             \item Movies
+
+            \bigskip
+
+            Movies(\underline{title}, \underline{year}, length, genre)
+
+            \bigskip
+
+            \item StarOf
+
+            \bigskip
+
+            StarOf(\underline{name}) \color{red}Can be eliminated. Is a subclass of Stars\color{black}
+
+            \bigskip
+
+            \item StudioOf
+
+            \bigskip
+
+            StudioOf(\underline{name}) \color{red}Can be eliminated. Is a subclass of Studio\color{black}
+
+            \bigskip
+
+            \item StudioOf
+
+            \bigskip
+
+            StudioOf(\underline{title}, \underline{year}) \color{red}Can be eliminated. Is a subclass of Movies\color{black}
+
+            \bigskip
         \end{itemize}
         \item
         \item
