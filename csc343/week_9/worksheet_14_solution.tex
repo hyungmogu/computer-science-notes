@@ -1663,6 +1663,109 @@
             \bigskip
         \end{itemize}
         \item
+
+        \begin{itemize}
+            \item Person
+
+            \bigskip
+
+            \quad Person (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Child
+
+            \bigskip
+
+            \quad PersonC (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Father
+
+            \bigskip
+
+            \quad PersonF(\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Mother
+
+            \bigskip
+
+            \quad PersonM (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Person-Child-Father
+
+            \bigskip
+
+            \quad PersonCF (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Person-Child-Mother
+
+            \bigskip
+
+            \quad PersonCM (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Person-Father-Mother
+
+            \bigskip
+
+            \quad PersonFM (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item Person-Child-Father-Mother
+
+            \bigskip
+
+            \quad PersonCFM (\underline{name}, \underline{address})
+
+            \bigskip
+
+            \item ChildOf (For PersonChild, PersonChildMother, PersonChildFather,\\ PersonChildFatherMother)
+
+            \bigskip
+
+            \quad ChildOf(\underline{nameOfPerson}, \underline{addressOfPerson},
+                    \underline{nameOfChild}, \underline{addressOfChild})
+
+            \bigskip
+
+            \item FatherOf (For PersonFather, PersonChild, PersonChildFather, \\ PersonChildFatherMother)
+
+            \bigskip
+
+            \quad ChildOf(\underline{nameOfChild}, \underline{addressOfChild},
+                    \underline{nameOfFather}, \underline{addressOfFather})
+
+            \bigskip
+
+            \item Married (For PersonFather, PersonMother, PersonFatherMother, \\ PersonChildFatherMother)
+
+            \bigskip
+
+            \quad Married(\underline{nameOfHusband}, \underline{nameOfHusband},
+                    \underline{nameOfWife}, \underline{addressOfWife})
+
+            \bigskip
+
+            \item MotherOf (For PersonMother, PersonChild, PersonChildMother, \\ PersonChildFatherMother)
+
+            \bigskip
+
+            \quad MotherOf(\underline{nameOfChild}, \underline{nameOfChild},
+                    \underline{nameOfMother}, \underline{addressOfMother})
+
+            \bigskip
+        \end{itemize}
+
         \item
     \end{enumerate}
 
