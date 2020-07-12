@@ -1363,42 +1363,54 @@
 
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
 
-    \underline{\textbf{Notes:}}
-
-    \bigskip
-
-    \begin{itemize}
-        \item Coverting Subclass Structure to Relations (Three different approaches)
-
-        \begin{enumerate}[1.]
-            \item \textit{E/R Style Conversion:}
-            \item \textit{An Object-Oriented Approach}
-            \item \textit{Use Null Values}
-        \end{enumerate}
-        \item E/R-Style Conversion
-        \begin{enumerate}[a)]
-            \item Create a relation that includes key attributes from it's parent
-            \item From a) include all attributes from its own
-        \end{enumerate}
-
-        \bigskip
-
-        \underline{\textbf{Example:}}
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=\linewidth]{images/worksheet_14_solution_75.png}
-        \end{center}
-
-        \bigskip
-
-        \item An Object-Oriented Approach
+        \item
 
         \begin{itemize}
-            \item A strategy is to enumerate all the possible subtrees of the hierarchy
+            \item Depts
+
+            \bigskip
+
+            Depts(\underline{name}, chair)
+
+            \bigskip
+
+            \item GivenBy
+
+            \bigskip
+
+            GivenBy(\underline{deptName}, \underline{CoursesNumber}) \color{red}Can be eliminated since it's the subclass of Courses\color{black}
+
+            \bigskip
+
+            \item Courses
+
+            \bigskip
+
+            Courses(\underline{number}, \underline{deptName}, room)
+
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Coverting Subclass Structure to Relations (Three different approaches)
+
+            \begin{enumerate}[1.]
+                \item \textit{E/R Style Conversion:}
+                \item \textit{An Object-Oriented Approach}
+                \item \textit{Use Null Values}
+            \end{enumerate}
+            \item E/R-Style Conversion
+            \begin{enumerate}[a)]
+                \item Create a relation that includes key attributes from it's parent
+                \item From a) include all attributes from its own
+            \end{enumerate}
 
             \bigskip
 
@@ -1407,77 +1419,95 @@
             \bigskip
 
             \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/worksheet_14_solution_76.png}
+            \includegraphics[width=\linewidth]{images/worksheet_14_solution_75.png}
+            \end{center}
+
+            \bigskip
+
+            \item An Object-Oriented Approach
+
+            \begin{itemize}
+                \item A strategy is to enumerate all the possible subtrees of the hierarchy
+
+                \bigskip
+
+                \underline{\textbf{Example:}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/worksheet_14_solution_76.png}
+                \end{center}
+
+
+                \begin{enumerate}[1.]
+                    \item \textit{Movies} alone
+
+                    \bigskip
+
+                    \quad\textbf{Movies(title, year, length, genre)}
+
+                    \bigskip
+
+                    \item \textit{Movies} and \textit{Cartoons} only
+
+                    \bigskip
+
+                    \quad\textbf{MoviesC(title, year, length, genre)}
+
+                    \bigskip
+
+                    \item \textit{Movies} and \textit{Muder-Mysteries} only
+
+                    \bigskip
+
+                    \quad\textbf{MoviesMM(title, year, length, genre, weapon)}
+
+                    \bigskip
+
+                    \item All three entity-sets
+
+                    \bigskip
+
+                    \quad\textbf{MoviesCMM(title, year, length, genre, weapon)}
+
+                    \bigskip
+
+                    \item Voice for MoviesCMM and MoviesMM
+
+                    \bigskip
+
+                    \quad\textbf{Voices(title, year, starName)}
+
+                    \bigskip
+
+                \end{enumerate}
+
+
+            \end{itemize}
+
+            \item Use Null values to Combine Relations
+
+            \begin{itemize}
+                \item Has all attributes belonging to any entity set in the hierarchy
+                \item Use `NULL' in each attribute that is not defined for that entity
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_14_solution_77.png}
             \end{center}
 
 
-            \begin{enumerate}[1.]
-                \item \textit{Movies} alone
-
-                \bigskip
-
-                \quad\textbf{Movies(title, year, length, genre)}
-
-                \bigskip
-
-                \item \textit{Movies} and \textit{Cartoons} only
-
-                \bigskip
-
-                \quad\textbf{MoviesC(title, year, length, genre)}
-
-                \bigskip
-
-                \item \textit{Movies} and \textit{Muder-Mysteries} only
-
-                \bigskip
-
-                \quad\textbf{MoviesMM(title, year, length, genre, weapon)}
-
-                \bigskip
-
-                \item All three entity-sets
-
-                \bigskip
-
-                \quad\textbf{MoviesCMM(title, year, length, genre, weapon)}
-
-                \bigskip
-
-                \item Voice for MoviesCMM and MoviesMM
-
-                \bigskip
-
-                \quad\textbf{Voices(title, year, starName)}
-
-                \bigskip
-
-            \end{enumerate}
-
 
         \end{itemize}
 
-        \item Use Null values to Combine Relations
-
-        \begin{itemize}
-            \item Has all attributes belonging to any entity set in the hierarchy
-            \item Use `NULL' in each attribute that is not defined for that entity
-        \end{itemize}
-
-        \bigskip
-
-        \underline{\textbf{Example:}}
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=\linewidth]{images/worksheet_14_solution_77.png}
-        \end{center}
-
-
-
-    \end{itemize}
-
+    \end{enumerate}
 
 \end{enumerate}
 
