@@ -101,19 +101,6 @@
         \item Exercise 4.9.4.
         \item Exercise 4.9.5.
     \end{enumerate}
-    \item \textbf{Exercise 4.10.2:} Consider an attribute of type Dictionary with key and range types both structs of primitive types. Show how to convert a class with an attribute of this type to a relation.
-    \item \textbf{Exercise 4.10.3:} We mentioned that when attributes are of a type more complex than a collection of structs, it becomes tricky to convert them to relations; in particular, it becomes necessary to create some intermediate concepts and relations for them. The following sequence of questions will examine increasingly more complex types and how to represent them as relations.
-
-    \begin{enumerate}[a)]
-        \item A card can be represented as a struct with fields rank (2. 3, ... , 10, Jack, Queen, King, and Ace) and suit (Clubs, Diamonds, Hearts, and Spades). Give a suitable definition of a structured type Card. This definition should be independent of any class declarations but available to them all.
-        \item A hand is a set of cards. The number of cards may vary. Give a declaration of a class Hand whose objects are hands. That is, this class declaration has an attribute theHand, whose type is a hand.
-        \item Convert your class declaration Hand from (b) to a relation schema.
-        \item A poker hand is a set of five cards. Repeat (b) and (c) for poker hands.
-        \item A deal is a set of pairs, each pair consisting of the name of a player and a hand for that player. Declare a class Deal, whose objects are deals. That is, this class declaration has an attribute theDeal, whose type is a deal.
-        \item Repeat (e), but restrict hands of a deal to be hands of exactly five cards.
-        \item Repeat (e), using a dictionary for a deal. You may assume the names of players in a deal are unique.
-        \item Suppose we defined deals to be sets of sets of cards, with no player associated with each hand (set of cards). It is proposed that we represent such deals by a relation schema Deals (dealiD, card), meaning that the card was a member of one of the hands in the deal with the given ID. What, if anything, is wrong with this representation? How would you fix the problem?
-    \end{enumerate}
 \end{enumerate}
 
 \end{document}
