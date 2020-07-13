@@ -91,7 +91,29 @@
     \item \textbf{Exercise 4.9.4:} Suppose we wish to keep a genealogy. We shall have one class, Person. The information we wish to record about persons includes their name (an attribute) and the following relationships: mother, father, and children. Give an ODL design for the Person class. Be sure to indicate the inverses of the relationships that, like mother, father, and children, are also relationships from Person to itself. Is the inverse of the mother relationship the children relationship? Why or why not? Describe each of the relationships and their inverses as sets of pairs.
     \item \textbf{Exercise 4.9.5:} Let us add to the design of Exercise 4.9.4 the attribute education. The value of this attribute is intended to be a collection of the degrees obtained by each person, including the name of the degree (e.g., B.S.), the school, and the date. This collection of structs could be a set, bag, list, or array. Describe the consequences of each of these four choices. What information could be gained or lost by making each choice? Is the information lost likely to be important in practice?
     \item \textbf{Exercise 4.9.6:} In Exercise 4.4.4 we saw two examples of situations where weak entity sets were essential. Render these databases in ODL, including declarations for suitable keys.
-    \item \textbf{Exercise 4.9.7:} Give an ODL design for the registrar's database described in
+    \item \textbf{Exercise 4.9.7:} Give an ODL design for the registrar's database described in Exercise 4.1.9.
+    \item Exercise 4.10.1: Convert your ODL designs from the following exercises to relational database schemas.
+
+    \begin{enumerate}[a)]
+        \item Exercise 4.9.1.
+        \item Exercise 4.9.2 (include all four of the modifications specified by that exercise).
+        \item Exercise 4.9.3.
+        \item Exercise 4.9.4.
+        \item Exercise 4.9.5.
+    \end{enumerate}
+    \item \textbf{Exercise 4.10.2:} Consider an attribute of type Dictionary with key and range types both structs of primitive types. Show how to convert a class with an attribute of this type to a relation.
+    \item \textbf{Exercise 4.10.3:} We mentioned that when attributes are of a type more complex than a collection of structs, it becomes tricky to convert them to relations; in particular, it becomes necessary to create some intermediate concepts and relations for them. The following sequence of questions will examine increasingly more complex types and how to represent them as relations.
+
+    \begin{enumerate}[a)]
+        \item A card can be represented as a struct with fields rank (2. 3, ... , 10, Jack, Queen, King, and Ace) and suit (Clubs, Diamonds, Hearts, and Spades). Give a suitable definition of a structured type Card. This definition should be independent of any class declarations but available to them all.
+        \item A hand is a set of cards. The number of cards may vary. Give a declaration of a class Hand whose objects are hands. That is, this class declaration has an attribute theHand, whose type is a hand.
+        \item Convert your class declaration Hand from (b) to a relation schema.
+        \item A poker hand is a set of five cards. Repeat (b) and (c) for poker hands.
+        \item A deal is a set of pairs, each pair consisting of the name of a player and a hand for that player. Declare a class Deal, whose objects are deals. That is, this class declaration has an attribute theDeal, whose type is a deal.
+        \item Repeat (e), but restrict hands of a deal to be hands of exactly five cards.
+        \item Repeat (e), using a dictionary for a deal. You may assume the names of players in a deal are unique.
+        \item Suppose we defined deals to be sets of sets of cards, with no player associated with each hand (set of cards). It is proposed that we represent such deals by a relation schema Deals (dealiD, card), meaning that the card was a member of one of the hands in the deal with the given ID. What, if anything, is wrong with this representation? How would you fix the problem?
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
