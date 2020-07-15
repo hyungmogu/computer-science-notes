@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[utf]{kotex}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{CSC 373}
+\rhead{Worksheet 1}
+
+\begin{document}
+\title{CSC373 Worksheet 1}
+\maketitle
+
+\bigskip
+
+Source: \href{http://www.cs.toronto.edu/~denisp/csc373/material.html}{link}
+
+\begin{enumerate}[1.]
+    \item \textbf{CLRS 4.2-2:} Write Pseudocode for Strassen's algorithm
+    \item \textbf{CLRS 4.2-4:} What is the largest $k$ such that if you can multiply $3 \times 3$ matrics
+    using $k$ multiplications (not assuming commutativity of multiplciation), then you can multiply $n \times n$
+    matrices in time $o(n^{\lg 7})$? What would the runing time of this algorithm be?
+    \item \textbf{CLRS 4.2-5:} V.Pan has discovered a way of multiplying $68 \times 68$ matrices, using 132,464 multiplications,
+    a way of multiplying $70 \times 70 matrices$ using $143,640$ multiplications, and a way of
+    multiplying $72 \times 72$ matricsusing $155,424$ multiplicaiotns. Which method yields the
+    best asymptotic running time when used in a divide-and-conquer matric-multiplication algorithm? How does it
+    compare to Strassen's algorithm?
+    \item \textbf{CLRS 4.2-7:} Show how to multiply the complex numbers $a + bi$ and $c + di$
+    using only three multiplications of real numbers. The algorithm should take $a,b,c$ and $d$ as
+    input and product the real component $ac - bd$ and the imaginary component $ad + bc$
+    separately.
+    \item \textbf{CLRS 4-1:} Give asymptotic upper and lower bounds for $T(n)$ in each of the following
+    recurrences. Assume that $T(n)$ is constant for $n \leq 2$. Make your bounds as tight
+    as possible, and justify your answers
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item $T(n) = 2T(n/2) + n^4$
+        \item $T(n) = T(7n/10) + n$
+        \item $T(n) = 16T(n/4) + n^2$
+        \item $T(n) = 7T(n/3) + n^2$
+        \item $T(n) = 7T(n/2) + n^2$
+        \item $T(n) = 2T(n/4) + \sqrt{n}$
+        \item $T(n) = 2T(n - 2) + n^2$
+    \end{enumerate}
+
+
+    \item \textbf{CLRS 33.4-2:} Show that it actually suffices to check only the
+    points in the 5 array positions following each point in the array $Y'$
+
+    \item \textbf{CLRS 33.4-4:} Give two points $p_1$ and $p_2$ in the plane, the $L_{\infty}$-distance
+    between them is given by $max(\vert x_1 - x_2 \vert, \vert y_1 - y_2 \vert)$. Modify the closest-pair
+    algorithm to use the $L_{\infty}$-distance.
+
+    \item \textbf{CLRS 33.4-6:} Auggest a change to the closest-pair algorithm that avoids presorting the $Y$
+    array but leaves the running time as $O(n \lg n)$. (\textit{Hint:} Merge sorted arrays $Y_L$ and $Y_R$ to
+    form the sorted array $Y$.
+
+\end{enumerate}
+
+
+\end{document}
