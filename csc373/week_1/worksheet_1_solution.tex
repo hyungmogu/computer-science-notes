@@ -62,10 +62,36 @@
     \underline{\textbf{Notes:}}
 
     \begin{itemize}
-        \item Strassen's method
+        \item Strassen's method for matrix multiplication
 
         \begin{itemize}
             \item Reduces the time complexity of matrix multiplication from $O(n^3)$ to $O(n^{\log_2 7}) = O(n^{2.81})$
+            \item Is not preferred in practical purposes
+
+            \bigskip
+
+            \begin{enumerate}[1)]
+                \item The constants used in Strassen’s method are high and for a typical application Naive method works better.
+                \item For Sparse matrices, there are better methods especially designed for them.
+                \item The submatrices in recursion take extra space.
+                \item Because of the limited precision of computer arithmetic on noninteger values, larger errors accumulate in Strassen’s algorithm than in Naive Method
+            \end{enumerate}
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References:}}
+
+        \bigskip
+
+        \begin{enumerate}[1)]
+            \item GeeksForGeeks, Divide and Conquer | Set 5 (Strassen’s Matrix Multiplication), \href{https://www.geeksforgeeks.org/strassens-matrix-multiplication/}{link}
+        \end{enumerate}
+
+        \item Regular matrix multiplication
+
+        \begin{itemize}
+            \item
         \end{itemize}
     \end{itemize}
 \end{enumerate}
