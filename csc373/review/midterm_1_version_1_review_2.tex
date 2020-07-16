@@ -94,6 +94,16 @@
     \begin{enumerate}[a)]
         \item $\exists x \in P, Student(x) \land Attends(x)$
         \item $\forall x \in P, \exists y \in P, Student(y) \land Attends(y) \Rightarrow Loves(x,y)$
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            $\forall x \in P, \exists y \in P, Student(y) \land Attends(y) \color{red} \land Loves(x,y)$
+        \end{mdframed}
     \end{enumerate}
 \end{enumerate}
 
