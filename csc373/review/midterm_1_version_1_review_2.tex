@@ -127,7 +127,31 @@
     \item
 
     \begin{enumerate}[a)]
-        \item $\forall a,b,c \in \mathbb{Z}, \exists k_1, k_2, k_3 \in \mathbb{Z}, a = k_1b \land b = k_2c \Rightarrow c = k_3c$
+        \item $\forall a,b,c \in \mathbb{Z}, \exists k_1, k_2, k_3 \in \mathbb{Z}, a = k_1b \land b = k_2c \Rightarrow a = k_3c$
+        \item
+
+        \begin{proof}
+        Let $a,b,c \in \mathbb{Z}$, and there is some $k1,k2,k3 \in \mathbb{Z}$ such that
+        $a = k_1b, b = k_2c$.
+
+        \bigskip
+
+        I need to prove $a = k_3 c$.
+
+        \bigskip
+
+        Let $k_3 = k_1k_2$.
+
+        \bigskip
+
+        Then, we can conclude
+
+        \begin{align}
+            a &= k_1b    & [\text{By header}]\\
+            &= k_1k_2c    & [\text{By replacing $b$ with $k_2c$}]\\
+            &= k_3c    & [\text{By $k_3 = k_1k_2$}]
+        \end{align}
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 
