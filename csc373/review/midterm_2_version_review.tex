@@ -84,24 +84,36 @@
         \item
 
         \begin{enumerate}[i.]
-            \item
+            \item \underline{$f(n) \in \Omega(n)$}
+
+            \bigskip
 
             True (since $n^2 + 10n + 2 \geq cn$)
 
             \bigskip
 
-            \underline{\textbf{Notes:}}
+            \item \underline{$g(n) \in \Omega(n)$}
 
             \bigskip
 
-            \begin{itemize}
-                \item
-                $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
-                \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+            False (Let $c = 100, n_0 = 100$. Then $100 \log_2 n < 100 n$)
 
-            \end{itemize}
+            \bigskip
 
         \end{enumerate}
+
+        \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item
+            $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+            \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
