@@ -57,6 +57,27 @@
 \begin{enumerate}[1.]
     \item
 
+    \begin{lstlisting}
+    Strassen_Algorithm(A,B):
+        n = A.rows
+        let C be a new n x n matrix
+
+        if n == 1
+            c_11 = a_11 * b_11
+
+        else partition as in step 3 of strassen's algorithm
+
+            p1 =
+            p2 =
+            p3 =
+            p4 =
+            p5 =
+            p6 =
+            p7 =
+
+
+    \end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -250,7 +271,15 @@
 
                 \bigskip
 
-                $C_{11} = P_5 + P_4 - P_2 + P_6 = 48 - 10 - 8 - 20 = 10$
+                $C_{12} = P_1 + P_2 = 10$
+
+                \bigskip
+
+                $C_{21} = P_3 + P_4 = 62$
+
+                \bigskip
+
+                $C_{22} = P_5 + P_1 - P_3 - P_7 = 48 + 2 - 72 + 20 = -2$
 
                 \bigskip
 
