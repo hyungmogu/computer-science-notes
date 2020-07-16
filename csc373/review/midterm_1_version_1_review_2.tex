@@ -153,6 +153,27 @@
         \end{align}
         \end{proof}
     \end{enumerate}
+
+    \item
+    \setcounter{equation}{0}
+    \begin{proof}
+
+    Let $x,y \in \mathbb{R}$. Assume $\lfloor x + y \rfloor$.
+
+    \bigskip
+
+    I need to show $\lfloor x + y \rfloor \leq \lfloor x \rfloor + \lfloor y \rfloor$.
+
+    \bigskip
+
+    Indeed we have
+
+    \begin{align}
+        \lfloor x + y \rfloor &= \lfloor \lfloor x \rfloor + \epsilon + y \rfloor & [\text{By fact 1}]\\
+        &= \lfloor x \rfloor + \lfloor \epsilon + y \rfloor & [\text{By fact 2}]\\
+        &\geq \lfloor x \rfloor + \lfloor y \rfloor & [\text{Since $\epsilon \geq 0$}]
+    \end{align}
+    \end{proof}
 \end{enumerate}
 
 \end{document}
