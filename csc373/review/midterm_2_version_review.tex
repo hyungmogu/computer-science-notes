@@ -106,6 +106,14 @@
 
             False ($f(n) = n^2 + 10n + 2$ grows faster than $g(n) = 100 \log_2 n$)
 
+            \bigskip
+
+            \item \underline{$f(n) \in \Theta(g(n))$}
+
+            \bigskip
+
+            True (Set $c_1 = -1 , c_2 = 1, n_1 = 100$. Then $c_1f(n) \leq g(n) \leq c_2f(n)$)
+
         \end{enumerate}
 
         \bigskip
@@ -124,6 +132,14 @@
             $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
             \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
 
+            \item
+
+            $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+
+            or
+
+            $g \in \Theta(f):\:\exists c_1,c_2,n_1 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_1
+            \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)$, where $f,g:\:\mathbb{N} \to \mathbb{R}^{\geq 0}$
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
