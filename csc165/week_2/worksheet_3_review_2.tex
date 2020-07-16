@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{mdframed}
+
+\begin{document}
+\title{Worksheet 3 Review 2}
+\author{Hyungmo Gu}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item $Correct(my\_prog) \land Python(my\_prog)$
+    \item
+
+    $\forall x \in P,\: \neg Correct(x) \Rightarrow Python(x)$
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        $\color{red}\exists\color{black} x \in P,\: \neg Correct(x) \color{red}\land\color{black} Python(x)$
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item I feel that `$\land$' operator is used instead of `$\Rightarrow$'
+        if `is' is used with an existential quantifier
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+           An incorrect program is written in Python
+        \end{mdframed}
+
+        \item I also feel `$\Rightarrow$' is used when `is' is used with universal
+        quantifier
+
+        \bigskip
+
+        \begin{mdframed}
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+           Every incorrect program is written in python
+        \end{mdframed}
+    \end{itemize}
+
+    \item $\forall x \in P, Python(x) \Rightarrow \neg Correct(x)$
+    \item $\forall x \in P, \neg Correct(x) \Rightarrow Python(x)$
+    \item There is a program that is written in $Python$ and is $Correct$
+    \item All programs are not written in $Python$ and is $Correct$
+    \item There is a program that is $Correct$ and not written in $Python$
+    \item All programs that are correct is not written in $Python$, and all
+    programs that are $Correct$ is not written in $Python$.
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item Either all programs that are written in $Python$ is $Correct$, or
+    all programs that are written in $Python$ are not $Correct$
+    \item $(\exists x \in P,\:Python(x) \land Correct(x)) \Rightarrow
+    (\forall x \in P, Python(x) \land Correct(x))$
+    \item The difference is that in statement 1, each divisibility claims can be
+    validated with different natural numbers where as in statement 2,
+    the two claims must be validated with a single natural number.
+
+    \bigskip
+
+    The statement 1 is true, where as statement 2 is false (consider counter example
+    of $x = 7$)
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item $Odd(n):\:\forall n \in \mathbb{Z},\:\exists \in \mathbb{Z},\:n+1=2k$
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        $Odd(n):\:\exists \in \mathbb{Z},\:n+1=2k$, \color{red}where $n \in \mathbb{Z}$\color{black}
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor defines variable in predicate (i.e. $n$ in $P(n)$)
+    in where (i.e where $n \in \mathbb{Z}$)
+    \end{itemize}
+
+    \item $\forall m,n \in \mathbb{Z},\:Odd(m) \land Odd(n) \Rightarrow Odd(mn)$
+    \item $\forall m,n \in \mathbb{Z},\:\exists k_1,k_2 \in \mathbb{Z},\:(n+1=2k_1)
+    \land (m+1=2k_2) \Rightarrow \exists k_3 \in \mathbb{Z},\:(mn+1=2k_3)$
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        $\forall m,n \in \mathbb{Z},\:(\color{red}\exists k_1 \in \mathbb{Z}\color{black},\:n+1=2k_1) \land
+        (\color{red}\exists k_1 \in \mathbb{Z}\color{black},\:m+1=2k_2) \Rightarrow \exists k_3 \in \mathbb{Z},\:mn+1=2k_3$
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor didn't pull out existential quantifier from parenthesis
+    \end{itemize}
+
+    \item $\forall m,n \in \mathbb{Z},\:\exists k_1 \in \mathbb{Z},\: mn + 1 = 2k_1
+    \Rightarrow (\exists k_2 \in \mathbb{Z},\:m+1 = 2k_2) \land (\exists k_3 \in \mathbb{Z},\:
+    n + 1 = 2k_3)$
+\end{enumerate}
+
+\section*{Question 4}
+\begin{enumerate}[a.]
+    \item $((a \land b) \land \neg c) \lor ((\neg a \lor \neg b) \land c)$
+    \item $\exists x,y \in S,\:\forall x \in S, \neg P(x,y) \lor \neg Q(x,z)$
+    \item $(\exists x \in S, P(x)) \land (\forall y \in S, \neg Q(y))$
+\end{enumerate}
+
+\section*{Question 5}
+\begin{itemize}
+    \item
+
+    A solution that returns the statement as false is:
+
+    \begin{itemize}
+        \item $U:\:\mathbb{N}$
+        \item $P(x):\:x \neq 1 \land x \mid 5$, where $x \in \mathbb{N}$
+        \item $Q(y):\:y \neq 1 \land y \mid 7$, where $y \in \mathbb{N}$
+    \end{itemize}
+\end{itemize}
+
+\end{document}

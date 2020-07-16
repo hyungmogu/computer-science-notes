@@ -1,0 +1,793 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mdframed}
+
+\begin{document}
+\title{Worksheet 16 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Part 1.a - Finding minimum possible change for a loop in a single iteration}
+
+    The minimum possible change in a loop occurs when $i$ increments by 1.
+
+    \textbf{Part 1.b - Finding maximum possible change for a loop in a single iteration}
+
+    The maximum possible change in a loop occurs when $i$ increments by 6.
+
+    \textbf{Part 2.a - Determine formula for an exact lower bound on the value}
+
+    Since the loop starts at $i=0$ and ends at $n-1$, the loop has
+
+    \begin{align}
+        n-1+1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the smallest step increases by 1 per iteration, the total cost of the
+    loop at minimum possible change is
+
+    \begin{align}
+        (n) \cdot 1 = n
+    \end{align}
+
+    steps.
+
+
+    \textbf{Part 2.a - Determine formula for an exact upper bound on the value}
+
+    Since the loop starts at $i=0$ and ends at $n-1$, the loop has
+
+    \begin{align}
+        n-1+1 &= n
+    \end{align}
+
+    iterations.
+
+    \textbf{Part 2.b - Determine formula for an exact lower bound on the value}
+
+    \bigskip
+
+    Since the largest step increases by 6 per iteration, the total cost of the
+    loop at minimum possible change is
+
+    \begin{align}
+        \left\lceil \frac{n}{6} \right\rceil
+    \end{align}
+
+    steps.
+
+    \textbf{Part 3.a - Determine formula for an exact upper bound on the value}
+    Is it $n$?
+
+    \textbf{Part 3.a - Determine formula for an exact upper bound on the value}
+    Is it $\left\lceil \frac{n}{6} \right\rceil$?
+
+    \textbf{Part 4 - Determine Big Oh and Big Omega}
+
+    The big Oh bound of running time is $\mathcal{O}(n)$, and the big theta of
+    running time is $\Omega(n)$.
+
+    \bigskip
+
+    Since $n$ in $\mathcal{O}(n)$ and  $\Omega(n)$ are the same, $\Theta(n)$ is
+    also true.
+
+    \begin{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \textbf{Part 1.a - Finding minimum possible change for a loop in a single iteration}
+
+    The minimum possible change in a loop occurs when $i$ increments by 1.
+
+    \textbf{Part 1.b - Finding maximum possible change for a loop in a single iteration}
+
+    The maximum possible change in a loop occurs when $i$ increments by 6.
+
+    \color{red}
+    \textbf{Part 2.a - Determine formula for an exact upper bound on the value}
+
+    The upper bound of loop termination is when $k\geq n$
+
+
+    \textbf{Part 2.b - Determine formula for an exact lower bound on the value}
+
+    The lower bound of loop termination is when $6k \leq n$
+
+    \textbf{Part 3.a - Use the formula to determine the exact number of loops that will occur for upper bound}
+
+    \bigskip
+
+    Since the loop starts from 0 and ends at $n-1$, the loop has total of
+
+    \begin{align}
+        n-1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since 1 step is taken for each iteration, the upper bound total cost of loop
+    iteration is
+
+    \begin{align}
+        n \cdot 1 &= n
+    \end{align}
+
+    \bigskip
+
+    Since the statement on line 2 has cost of 1, the upper bound total cost of
+    the algorithm is $n + 1$, or $\mathcal{O}(n)$.
+
+    \bigskip
+
+    \textbf{Part 3.b - Use the formula to determine the exact number of loops that will occur for lower bound}
+
+    \bigskip
+
+    Since the loop starts from 0 and ends at $n-1$, the loop has total of
+
+    \begin{align}
+        n-1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since 6 steps are taken for each iteration, the lower bound total cost of loop
+    iteration is
+
+    \begin{align}
+        \left\lceil \frac{n}{6} \right\rceil
+    \end{align}
+
+    \bigskip
+
+    Since the statement on line 2 has cost of 1, the lower bound total cost of
+    the algorithm is $\left\lceil \frac{n}{6} \right\rceil + 1$, or $\Omega(n)$
+    \color{black}
+
+    \textbf{Part 4 - Determine Big Oh and Big Omega}
+
+    The big Oh bound of running time is $\mathcal{O}(n)$, and the big theta of
+    running time is $\Omega(n)$.
+
+    \bigskip
+
+    Since $n$ in $\mathcal{O}(n)$ and  $\Omega(n)$ are the same, $\Theta(n)$ is
+    also true.
+
+    \end{mdframed}
+
+    \item
+
+    \textbf{Part 1.a - Finding minimum possible change for a loop in a single iteration}
+
+    \bigskip
+
+    The minimum possible change for a look in a single iteration is when $i$
+    increases by a factor of 2
+
+    \bigskip
+
+    \textbf{Part 1.b - Finding maximum possible change for a loop in a single iteration}
+
+    \bigskip
+
+    The maximum possible change for a look in a single iteration is when $i$
+    increases by a factor of 3
+
+    \bigskip
+
+    \textbf{Part 2.a - Determine formula for an exact upper bound of the loop variable after k iterations}
+
+    \bigskip
+
+    The exact upper bound of the loop variable after k iteration is $2^k \geq n$
+
+    \bigskip
+
+    \textbf{Part 2.b - Determine formula for an exact lower bound of the loop variable after k iterations}
+
+    \bigskip
+
+    The exact lower bound of the loop variable after k iteration is $3^k \geq n$
+
+    \bigskip
+
+    \textbf{Part 3.a - Use the formula to determine the exact number of loops that will occur for upper bound}
+
+    \bigskip
+
+    The upper bound of loop iteration is $\lceil \log n \rceil$, or $\mathcal{O}(\log n)$
+
+    \bigskip
+
+    \textbf{Part 3.b - Use the formula to determine the exact number of loops that will occur for lower bound}
+
+    \bigskip
+
+    The lower bound of loop iteration is $\lceil \log_3 n \rceil$, or $\Omega(\log n)$
+
+    \bigskip
+
+    \textbf{Part 4 - Determine Big Oh and Big Omega}
+
+    \bigskip
+
+    For the upper bound, we have $\mathcal{O}(\log n)$.
+
+    \bigskip
+
+    For the lower bound, we have $\Omega(\log n)$
+
+    \bigskip
+
+    Since Big Oh and Big Omega have the same value, $\Theta (\log n)$ is also true.
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    Since \textbf{helper1} has cost of $n$ steps, and \textbf{helper2} has cost of
+    $n^2$ steps, the algorithm has total runtime of $n^2 + n$ steps, or $\Theta (n^2)$
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
+
+        Since \textbf{helper1} has cost of $n$ steps, and \textbf{helper2} has cost of
+        $n^2$ steps, the algorithm has total \color{red}\textbf{cost}\color{black}
+        \:of $n^2 + n$ steps, or $\Theta (n^2)$
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+     \item Noticed professor uses \textbf{runtime} for $\Theta(n^2)$ or $\Theta(n)$
+     and \textbf{cost} for the exact cost of helper functions (i.e. $n^2 + n$)
+
+    \end{itemize}
+
+    \item
+
+    Assume \textbf{helper1} has running time of $\Theta(n)$ steps and \textbf{helper2} has
+    running time of $\Theta(n^2)$.
+
+    \bigskip
+
+    Because the outer loop 1 runs from $i = 0$ to $\left\lceil \frac{n}{2} \right\rceil - 1$,
+    the outer loop 1 has
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{n}{2} \right\rceil - 1 + 1 &= \left\lceil \frac{n}{2} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the outer loop 1 takes $n$ steps per iteration, the outer loop 1 has
+    total cost of $\left\lceil \frac{n}{2} \right\rceil \cdot n$ steps.
+
+    \bigskip
+
+    Because the outer loop 2 runs from $j = 0$ to $j = 9$, it has
+
+    \begin{align}
+        (9 - 0 + 1) &= 10
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the outer loop 2 takes $n^2$ steps per iteration, it has total cost of
+    $10n^2$ steps.
+
+    \bigskip
+
+    Since $i = 0$ and $j = 0$ each have cost of 1, the total cost of the algorithm
+    is $\left\lceil \frac{n}{2} \right\rceil \cdot n + 10n^2 + 2$ steps or $\Theta(n^2)$.
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+     \item Noticed professor uses the phrase \textbf{each iteration requires
+     $n$ steps for the call to helper 1} to reference helper functions in loop.
+
+     \item Noticed professor did not consider $i = 0$ and $j = 0$ into total costs.
+     Should $i = 0$ and $j = 0$ be counted towards costs? If not, how come the cost of
+     $len(lst)$ and \textbf{return} statement are considered in Question 1.a of
+     worksheet 15? Are there rules such as what to include and what to omit
+     when considering the statements with constant time?
+
+    \end{itemize}
+
+    \item
+
+    Assume \textbf{helper1} function has runtime of $\Theta(n)$, and \textbf{helper2}
+    function has runtime of $\Theta(n^2)$.
+
+    \bigskip
+
+    Since loop 1 runs from $i = 0$ to $n-1$, the loop has
+    \setcounter{equation}{0}
+    \begin{align}
+        n - 1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Then, since each iteration of loop 1 requires $n$ steps for the call to
+    \textbf{helper1}, the loop has total cost of
+
+    \begin{align}
+        n \cdot n &= n^2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Because we know the loop 2 runs from $j = 0$ to $j = 9$, we can conclude
+    the loop has
+
+    \begin{align}
+        9 - 0 + 1 = 10
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration of loop 2 requires $n^2$ steps for the call to
+    \textbf{helper2}, the loop has total cost of
+
+    \begin{align}
+        10 \cdot n^2 &= 10n^2
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since $i = 0$ and $j = 0$ each have cost of 1, the total cost of algorithm
+    is
+
+    \begin{align}
+        n^2 + 10n^2 + 2 &= 11n^2 + 2
+    \end{align}
+
+    steps, or $\Theta(n^2)$.
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}\textbf{Let $n \in \mathbb{N}$}\color{black}. Assume \textbf{helper1}
+        function has runtime of $\Theta(n)$, and \textbf{helper2} function has runtime
+        of $\Theta(n^2)$.
+
+        \bigskip
+
+        Since loop 1 runs from $i = 0$ to $n-1$ \color{red}where $i$ represents
+        the variable for loop 1\color{black}, the loop has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            n - 1 - 0 + 1 &= n
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Then, since each iteration of loop 1 requires \color{red}\textbf{$i$}\color{black}
+        \:steps for the call to \textbf{helper1}, the loop has total cost of
+
+        \color{red}
+        \begin{align}
+            \sum\limits_{i=0}^{n-1} i &= \frac{n(n-1)}{2}
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Because we know the loop 2 runs from $j = 0$ to $j = 9$ \color{red}where $j$
+        represents the variable for loop 2\color{black}, we can conclude
+        the loop has
+
+        \begin{align}
+            9 - 0 + 1 = 10
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration of loop 2 requires \color{red}\textbf{$j^2$}\color{black}
+        \:steps for the call to \textbf{helper2}, the loop has total cost of
+
+        \color{red}
+        \begin{align}
+            \sum\limits_{j=0}^{9} j^2 &= \frac{9 \cdot (9 - 1)(2(9) - 1)}{6}\\
+            &= \frac{9 \cdot 8 \cdot 17}{6}\\
+            &= 204
+        \end{align}
+        \color{black}
+
+        steps.
+
+        \bigskip
+
+        Since \color{red}\textbf{the statements}\color{black}\:$i = 0$ and $j = 0$
+        each have cost of 1, the total cost of algorithm is
+
+        \color{red}
+        \begin{align}
+            \frac{n(n-1)}{2} + 204 + 2 &= \frac{n(n-1)}{2} + 206
+        \end{align}
+        \color{black}
+
+        steps, or $\Theta(n^2)$.
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Missed that the helper functions depend on loop.
+        \item Noticed that in solutions, the variables $i,j,n$ are assumed to be
+        in $\mathbb{N}$. But I feel worried applying the same assumption would
+        get me into troubles. Would marks be deducted for not mentioning about the variables
+        $n$, $i$ and $j$? If not, when are the times the mentioning of
+        variables can be omitted?
+
+    \end{itemize}
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Predicate Logic:} $\forall x \in \mathbb{Z}^{+},\:(\text{3 loops occur})
+    \Rightarrow \exists x_{final},m \in \mathbb{Z}^{+},\:x - x_{final} \geq 2^m$
+
+    \bigskip
+
+    Let $x \in \mathbb{Z}^{+}$. Assume 3 loop iterations occur.
+
+    \bigskip
+
+    We will prove the statement by dividing into cases. First case is where
+    $x \bmod 2 == 0$ in all three loops. Second case is where $x \bmod 2 ==0$
+    runs once, then $x = 2*x - 2$, and then $x \bmod 2 ==0$. The last case is where
+    $x = 2*x - 2$ is run, and the rest with $x \bmod 2 == 0$.
+
+    \bigskip
+
+    \textbf{Case 1} ($\exists k \in \mathbb{Z},\:x = 2^k$):
+
+    \bigskip
+
+    Let $m = 2$. Assume there is some $k \in \mathbb{Z}$, $x = 2^k$.
+
+    \bigskip
+
+    We will show $x - x_{final} \geq 2^m$ by calculating the value of $x_{final}$
+    and subtracting it from $x$.
+
+    \bigskip
+
+    It follows from the the statement $x = x // 2$ being executed three
+    times that the value of $x_{final}$ is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        x_{final} &= x^{k-3}
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the loop terminates when $x \leq 1$, we can conclude that
+
+    \begin{align}
+        x^{k-3} &\leq 1\\
+        \log x^{k-3} &\leq \log 1\\
+        k-3 &\leq 0\\
+        k &\leq 3
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $k < 3$ results in loop count less than 3, we can conclude
+    that
+
+    \begin{align}
+        k = 3
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x_{final} &= 2^{3-3}\\
+        &= 2^0\\
+        &= 1
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \bigskip
+
+    \begin{align}
+        x - x_{final} &= 2^3 - 1\\
+        &= 8 - 1\\
+        &= 7\\
+        &\geq 4\\
+        &\geq 2^2\\
+        &\geq 2^m
+    \end{align}
+
+    \bigskip
+
+    \textbf{Case 2} ($\exists k \in \mathbb{Z},\:x = 2 \cdot Odd(k)$):
+
+    \bigskip
+
+    Let $m = 1$. Assume $\exists k \in \mathbb{Z},\:x = 2(2k+1)$.
+
+    \bigskip
+
+    We will show $x - x_{final} \geq 2^m$ by calculating the value of $x_{final}$
+    and subtracting it from $x$.
+
+    \bigskip
+
+    Because we know $x > 1$ and $2 \mid x$ in first iteration, we can conclude
+    that the new value of $x$, or $x_2$ is
+
+    \begin{align}
+        x_2 &= \left\lfloor \frac{2(2k+1)}{2} \right\rfloor\\
+        &= (2k + 1)
+    \end{align}
+
+    \bigskip
+
+    In second iteration, because we know $x_2 > 1$ and $2 \nmid x_2$,
+    we can conclude the statement $x = 2 * x - 2$ will run.
+
+    \bigskip
+
+    Then, the new value of $x$ or $x_3$ is
+
+    \begin{align}
+        x_3 &= 2 \cdot (2k + 1) - 2\\
+        &= 2 \cdot (2k+1-1)\\
+        &= 4k
+    \end{align}
+
+    In final iteration, because we know $x_3 > 1$, and $2 \mid x_3$, the
+    last value of $x$ in last iteration, or $x_{final}$ is
+
+    \begin{align}
+        x_{final} &= \left\lfloor \frac{2 \cdot (2k + 1) - 1}{2}\right\rfloor\\
+        &= 2k
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x - x_{final} &= 2(2k + 1) - 2k\\
+        &= 2\left[(2k + 1) - k \right]\\
+        &= 2(k + 1)
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the termination occurs when $x \leq 1$, we can conclude
+    that
+
+    \begin{align}
+        2(k+1) &\leq 1\\
+        k &\leq 0
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $x \in \mathbb{Z}^{+}$ and $k < 0$ results in $x < 0$,
+    we can conclude that $k = 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x - x_{final} &= 2(k + 1)\\
+        &= 2(0 + 1)\\
+        &= 2\\
+        &= 2^1\\
+        &= 2^m\\
+        &\geq 2^m
+    \end{align}
+
+    \bigskip
+
+    \textbf{Case 3} ($\exists k \in \mathbb{Z},\:x = Odd(k)$):
+
+    \bigskip
+
+    Let $m = 1$. Assume $\exists k \in \mathbb{Z}$, $x = 2k + 1$.
+
+    \bigskip
+
+    We will show $x - x_{final} \geq 2^m$ by calculating the value of $x_{final}$
+    and subtracting it from $x$.
+
+    \bigskip
+
+    In first iteration, because we know $x > 1$ and $2 \nmid x$, we can conclude
+    that the line $x = 2 * x - 2$ will run, and the new value of $x$ or $x_2$ is
+
+    \begin{align}
+        x_2 &= 2 \cdot (2k + 1) - 2 \\
+        &= 4k
+    \end{align}
+
+    \bigskip
+
+    For the second iteration, because we know $x_2 > 1$ and $2 \mid x_3$, we can
+    conclude the new value of $x$ or $x_3$ is
+
+    \begin{align}
+        x_3 &= \left\lfloor \frac{x_2}{2} \right\rfloor\\
+        &= \left\lfloor \frac{4k}{2} \right\rfloor\\
+        &= 2k
+    \end{align}
+
+    \bigskip
+
+    Now in final iteration, because $x_3 > 1$ amd $2 \mid x_3$, we can conclude
+    the final value of $x_3$ is
+
+    \begin{align}
+        x_3 &= \left\lfloor \frac{x_3}{2} \right\rfloor\\
+        &= k
+    \end{align}
+
+    \bigskip
+
+    Then, since termination occurs when $x_{final} \leq 1$, we can conclude
+
+    \begin{align}
+        k = x_{final} \leq 1
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $k = 0$ results in $x = 1$, and since 3 loops cannot
+    occur with $x = 1$, we can conclude
+
+    \begin{align}
+        k &= 1
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        x - x_{final} &= 2k + 1 - k\\
+        &= k + 1\\
+        &= 2\\
+        &= 2^1\\
+        &= 2^m\\
+        &\geq 2^m
+    \end{align}
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Oh my... I read the question wrong. I need to generalize this for
+        all 3 iterations before and right before termination
+        \item \textbf{By a factor} means $\frac{1}{2}$, and not $\left( \frac{1}{2} \right)^m$.
+        \item Must always ask clarification question to professor. Don't dive
+        when not so sure. It's not healthy. The future moe will appreciate it.
+
+    \end{itemize}
+
+    \item
+
+    Because we know the value halves for every 3 iterations, we can conclude that
+    the value of $x$ after $3k$ iterations is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        x_k &\leq \frac{x_0}{2^k}
+    \end{align}
+
+    \bigskip
+
+    Because we know loop terminates when $x_{final} \leq 1$, we can conclude that
+
+    \begin{align}
+        \frac{n}{2^k} &\leq 1\\
+        n &\leq 2^k\\
+        \log n &\leq \log 2^k\\
+        \log n &\leq k
+    \end{align}
+
+    \bigskip
+
+    Since the above means the loop terminates when k is greater than $\log n$,
+    we can conclude the upper bound runtime of the function is $\mathcal{O}(\log n)$
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item
+
+        What does $g$ in $g(n) \leq cf(n)$ represent? How was he able to come to
+        conclusion of $\mathcal{O}(\log n)$ from $k \leq \log n$? Why did we not
+        stop at $x_k \leq (\frac{1}{2})^k$? How do we know when to stop?
+
+        \item
+
+        What does $f$ in $g(n) \leq cf(n)$ represent?
+
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+    \end{itemize}
+
+\end{enumerate}
+
+\end{document}

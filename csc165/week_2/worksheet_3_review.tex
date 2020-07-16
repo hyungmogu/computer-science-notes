@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+
+\begin{document}
+\title{Worksheet 3 Review}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    $Correct(my\_prog) \land Python(my\_prog)$
+
+    \item
+
+    $\exists x \in P,\:\neg Correct(x) \Rightarrow Python(x)$
+
+    \item
+
+    $\forall x \in P,\:Python(x) \Rightarrow \neg Correct(x)$
+
+    \item
+
+    $\forall x \in P,\:\neg Correct(x) \Rightarrow Python(x)$
+
+    \item
+
+    There is a program that is written in Python and is correct.
+
+    \item
+
+    Every program is not written in Python and is correct.
+
+    \item
+
+    There is a program that is correct but is not written in Python.
+
+    \item
+
+    All running programs not written in Python are correct, and all correctly
+    running programs are not written in Python.
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    All programs written in Python is correct, or all program written in python
+    is not correct.
+
+    \item
+
+    $(\exists x \in P,\:Python(x) \Rightarrow Correct(x)) \Rightarrow (\forall y
+    \in P,\:Python(y) \Rightarrow Correct(y))$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $(\exists x \in P,\:Python(x) \land Correct(x)) \Rightarrow (\forall y \in P,\:
+    Python(y) \Rightarrow Correct(y))$
+
+    \item
+
+    $x_1$ and $x_2$ in first statement could have different values. Where as the $x$ in
+    second statement has the same value.
+
+    \bigskip
+
+    The first statement is true, but the second is false. Assume x is divisible by 7.
+    Then, 165 must be divisible by 7, but this is false.
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    $\forall n \in \mathbb{N},\:Odd(n) \Rightarrow \exists k \in \mathbb{Z}, n = 2k + 1$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $Odd(n): \exists k \in \mathbb{Z}, n = 2k + 1$, where $n \in \mathbb{Z}$
+
+    \item
+
+    $\forall n,m \in \mathbb{N},\:Odd(n) \land Odd(m) \Rightarrow Odd(nm)$
+
+    \item
+
+    $\forall n,m \in \mathbb{N},\: \exists k,l \in \mathbb{Z},\:n = 2k - 1 \land
+    m = 2l - 1 \Rightarrow \exists o \in \mathbb{Z},\:nm = 2o - 1$
+
+    \item
+
+    $\forall n,m \in \mathbb{N},\:\exists o \in \mathbb{Z},\:nm = 2o - 1 \Rightarrow
+    \exists k,l \in \mathbb{Z},\: n = 2k - 1 \land m = 2k - 1$
+
+\end{enumerate}
+
+\section*{Question 4}
+\begin{enumerate}[a.]
+    \item
+
+    $((\neg a \lor \neg b) \land c) \lor ((a \land b) \land \neg c)$
+
+    \item
+
+    $\exists x,y \in S,\:\forall z \in S,\:\neg P(x,y) \lor \neg Q(x,z)$
+
+    \item
+
+    $(\exists x \in S, P(x)) \land (\forall y \in S, \neg Q(y))$
+\end{enumerate}
+
+\section*{Question 5}
+\begin{itemize}
+    \item
+
+    Define
+
+    $P(x)$: $x$ is an odd number, where $x \in \mathbb{Z}$
+
+    $Q(x):$ $x$ is an even number, where $x \in \mathbb{Z}$
+
+    $U \in \mathbb{R}^{\geq 1}$
+
+    \bigskip
+
+    Then the statement $\left[ (\exists x \in U,\:P(x)) \land (\exists y \in U,\:Q(y)) \right]
+    \Rightarrow \left[ \exists z \in U,\: P(z) \land Q(z) \right]$ is false.
+
+\end{itemize}
+
+\end{document}

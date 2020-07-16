@@ -1,0 +1,885 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage[utf]{kotex}
+
+\begin{document}
+\title{Worksheet 7 Review 2}
+\author{Hyungmo Gu}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    In this case assume that $n \leq 1$.
+
+    \bigskip
+
+    We want to show $n \leq 1$.
+
+    \bigskip
+
+    Since the assumption tells us $n \leq 1$, we can conclude this is true.
+
+    \item
+
+    \begin{proof}
+
+    Let $a = d$ and $b = k$. Assume there exists $d \in \mathbb{N}$ where
+    $(\exists k \in \mathbb{Z}, n = dk) \land d \neq 1 \land d \neq n$. Assume $n > 1$
+
+    \bigskip
+
+    We need to prove that $n \nmid a$, $n \nmid b$ and $n \mid ab$.
+
+    \bigskip
+
+    We will do so in parts.
+
+    \bigskip
+
+    \underline{\textbf{Part 1 (Proving $n \nmid a$):}}
+
+    \bigskip
+
+    We need to prove $n \nmid a$.
+
+    \bigskip
+
+    First, we need to show $n \geq d$.
+
+    \bigskip
+
+    The fact 2 tells us
+
+    \begin{align}
+        \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+    \end{align}
+
+    and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
+
+    \bigskip
+
+    Then, by using these facts, we can write
+
+    \begin{align}
+        1 \leq d \leq n
+    \end{align}
+
+    \bigskip
+
+    Second, we need to show $n = d$.
+
+    \bigskip
+
+    The definition of divisibility tells us for $n$ to
+    divide $d$, there must be some $k_1 \in \mathbb{Z}$ such that
+    $d$ is equal to $k_1 \cdot n$.
+
+    \bigskip
+
+    Then, since we know $n \geq d$, by using these facts, we can conclude
+    the definition of divisibility is satisfied only when $k_1 = 1$, or
+    when $n = d$.
+
+    \bigskip
+
+    Finally, since we know from the header that $n \neq d$, we can conclude
+    $n \nmid d$.
+
+    \bigskip
+
+    Then, since we know $d = a$ from the header, we can conclude $n \nmid a$.
+
+    \bigskip
+
+    \underline{\textbf{Part 2 (Proving $n \nmid b$):}}
+
+    \bigskip
+
+    We need to prove $n \nmid b$.
+
+    \bigskip
+
+    First, we need to show $k \mid n$.
+
+    \bigskip
+
+    The assumption tells us $n = kd$.
+
+    \bigskip
+
+    Then, it follows from the definition of divisibility that $k \mid d$.
+
+    \bigskip
+
+    Second, we need to show $k \geq 1$.
+
+    \bigskip
+
+    The header tells us $n > 1$ $d \geq 0$, and we know from
+    assumption that $n = dk$.
+
+    \bigskip
+
+    Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+    cannot happen, we can conclude $k \geq 1$.
+
+    \bigskip
+
+    Third, we need to show $n \geq k$ using the fact $k \geq 1$ and $k \mid n$.
+
+    \bigskip
+
+    The fact 2 tells us
+
+    \begin{align}
+        \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+    \end{align}
+
+    \bigskip
+
+    Since we know $k \mid n$, $n > 1$ and $k,n \in \mathbb{N}$, we can conclude
+    $k \leq n$.
+
+    \bigskip
+
+    Fourth, we need to show $n = k$.
+
+    \bigskip
+
+    The definition of divisibility tells us for $n$ to
+    divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+    $k$ is equal to $k_1 \cdot n$.
+
+    \bigskip
+
+    Then, using the fact $n \geq k$, we can conclude the definition of
+    divisibility is satisfied only when $k_1 = 1$, or $n = k$.
+
+    \bigskip
+
+    Finally, since we know from the header that $n \neq k$, we can conclude
+    $n \nmid k$.
+
+    \bigskip
+
+    Then, it follows from the fact $k = b$, we can conclude $n \nmid b$.
+
+    \bigskip
+
+    \underline{\textbf{Part 3 (Proving $n \mid ab$):}}
+
+    \bigskip
+
+    We need to prove $n \mid ab$.
+
+    \bigskip
+
+    The fact 1 tells us
+
+    \begin{align}
+        \forall x \in \mathbb{Z}, x \mid x
+    \end{align}
+
+    \bigskip
+
+    Since we know $n \in \mathbb{N}$, we can conclude $n \mid n$.
+
+    \bigskip
+
+    Then, since we know $n = dk$, $d = a$ and $k = b$, we can conclude
+    $n \mid ab$.
+
+    \end{proof}
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Pseudoproof:}}
+
+    \bigskip
+
+    Let $a = d$ and $b = k$. Assume there exists $d \in \mathbb{N}$ where
+    $(\exists k \in \mathbb{Z}, n = dk) \land d \neq 1 \land d \neq n$. Assume $n > 1$
+
+    \bigskip
+
+    We need to prove that $n \nmid a$, $n \nmid b$ and $n \mid ab$.
+
+    \bigskip
+
+    We will do so in parts.
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Show $n \nmid a$.
+
+        \bigskip
+
+        First, we need to show $n \nmid a$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+
+            \item Show $n \geq d$.
+
+            \bigskip
+
+            \begin{mdframed}
+            The fact 2 tells us
+
+            \begin{align}
+                \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+            \end{align}
+
+            and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
+
+            \bigskip
+
+            Then, by using these facts, we can write
+
+            \begin{align}
+                1 \leq d \leq n
+            \end{align}
+
+            \end{mdframed}
+
+            \item Show that for $n$ to divide $d$, $n = d$.
+
+            \begin{mdframed}
+            Now, the definition of divisibility tells us for $n$ to
+            divide $d$, there must be some $k_1 \in \mathbb{Z}$ such that
+            $d$ is equal to $k_1 \cdot n$.
+
+            \bigskip
+
+            Then, since we know $n \geq d$, by using these facts, we can conclude
+            the definition of divisibility is satisfied when $k_1 = 1$, or
+            when $n = d$.
+
+            \end{mdframed}
+
+            \item Conclude $n \nmid a$.
+
+            \begin{mdframed}
+            Then, since we know from header that $n \neq d$, we can conclude
+            $n \nmid d$.
+            \end{mdframed}
+        \end{enumerate}
+
+        \begin{mdframed}
+
+        \underline{\textbf{Part 1 (Proving $n \nmid a$):}}
+
+        \bigskip
+
+        We need to prove $n \nmid a$.
+
+        \bigskip
+
+        First, we need to show $n \geq d$.
+
+        \bigskip
+
+        The fact 2 tells us
+
+        \begin{align}
+            \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+        \end{align}
+
+        and we know from headers that $d \mid n$, $n > 1$, and $n,d \in \mathbb{N}$.
+
+        \bigskip
+
+        Then, by using these facts, we can write
+
+        \begin{align}
+            1 \leq d \leq n
+        \end{align}
+
+        \bigskip
+
+        Second, we need to show $n = d$.
+
+        \bigskip
+
+        The definition of divisibility tells us for $n$ to
+        divide $d$, there must be some $k_1 \in \mathbb{Z}$ such that
+        $d$ is equal to $k_1 \cdot n$.
+
+        \bigskip
+
+        Then, since we know $n \geq d$, by using these facts, we can conclude
+        the definition of divisibility is satisfied only when $k_1 = 1$, or
+        when $n = d$.
+
+        \bigskip
+
+        Finally, since we know from the header that $n \neq d$, we can conclude
+        $n \nmid d$.
+
+        \bigskip
+
+        Then, since we know $d = a$ from the header, we can conclude $n \nmid a$.
+
+        \end{mdframed}
+
+        \item Show $n \nmid b$
+        \begin{itemize}
+
+            \item Show $k \mid n$
+
+            \bigskip
+
+            First, we need to show $k \mid n$.
+
+            \bigskip
+
+            \begin{itemize}
+                \item State $n = kd$.
+                \begin{mdframed}
+                The assumption tells us $n = kd$.
+                \end{mdframed}
+
+                \item Show $k \mid n$ by using the definition of divisibility
+                \begin{mdframed}
+                Then, it follows from the definition of divisibility that $k \mid d$.
+                \end{mdframed}
+            \end{itemize}
+
+            \bigskip
+
+            \begin{mdframed}
+
+            First, we need to show $k \mid n$.
+
+            \bigskip
+
+            The assumption tells us $n = kd$.
+
+            \bigskip
+
+            Then, it follows from the definition of divisibility that $k \mid d$.
+            \end{mdframed}
+
+            \item Show $k \geq 1$.
+
+            \bigskip
+
+            Second, we need to show $k \geq 1$.
+
+            \bigskip
+
+            \begin{mdframed}
+            Second, we need to show $k \geq 1$.
+
+            \bigskip
+
+            The header tells us $n > 1$ $d \geq 0$, and we know from
+            assumption that $n = dk$.
+
+            \bigskip
+
+            Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+            cannot happen, we can conclude $k \geq 1$.
+
+            \end{mdframed}
+
+            \item Show $n \geq k$ using the fact $k \mid n$ and $k \geq 1$.
+
+            \bigskip
+
+            Third, we need to show $n \geq k$.
+
+            \bigskip
+
+            \begin{mdframed}
+            \bigskip
+
+            Third, we need to show $n \geq k$.
+
+            \bigskip
+
+            The fact 2 tells us
+
+            \begin{align}
+                \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+            \end{align}
+
+            \bigskip
+
+            Since we know $k \mid n$, $n > 1$ and $k,n \in \mathbb{N}$, we can conclude
+            $k \leq n$.
+
+            \end{mdframed}
+
+            \item Show that for $n$ to divide $k$, $n = k$.
+
+            \bigskip
+
+            Fourth, we need to show $n = k$.
+
+            \bigskip
+
+            \begin{mdframed}
+            Fourth, we need to show $n = k$.
+
+            \bigskip
+
+            The definition of divisibility tells us for $n$ to
+            divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+            $k$ is equal to $k_1 \cdot n$.
+
+            \bigskip
+
+            Then, using the fact $n \geq k$, we can conclude the definition of
+            divisibility is satisfied only when $k_1 = 1$, or $n = k$.
+
+            \end{mdframed}
+
+            \item Conclude $n \nmid a$.
+
+            \begin{mdframed}
+            Finally, since we know from the header that $n \neq k$, we can conclude
+            $n \nmid k$.
+
+            \bigskip
+
+            It follows from the fact $k = b$, we can conclude $n \nmid b$.
+            \end{mdframed}
+
+        \end{itemize}
+
+        \begin{mdframed}
+
+        \underline{\textbf{Part 2 (Proving $n \nmid b$):}}
+
+        \bigskip
+
+        We need to show $n \nmid b$.
+
+        \bigskip
+
+        First, we need to show $k \mid n$.
+
+        \bigskip
+
+        The assumption tells us $n = kd$.
+
+        \bigskip
+
+        Then, it follows from the definition of divisibility that $k \mid d$.
+
+        \bigskip
+
+        Second, we need to show $k \geq 1$.
+
+        \bigskip
+
+        The header tells us $n > 1$ $d \geq 0$, and we know from
+        assumption that $n = dk$.
+
+        \bigskip
+
+        Since the facts tell us $k \leq 0$ results in $n \leq 0$ and this
+        cannot happen, we can conclude $k \geq 1$.
+
+        \bigskip
+
+        Third, we need to show $n \geq k$ using the fact $k \geq 1$ and $k \mid n$.
+
+        \bigskip
+
+        The fact 2 tells us
+
+        \begin{align}
+            \forall x,y \in \mathbb{N}, y \geq 1 \land x \mid y \Rightarrow 1 \leq x \leq y
+        \end{align}
+
+        \bigskip
+
+        Since we know $k \mid n$, $n > 1$ and $k,n \in \mathbb{N}$, we can conclude
+        $k \leq n$.
+
+        \bigskip
+
+        Fourth, we need to show $n = k$.
+
+        \bigskip
+
+        The definition of divisibility tells us for $n$ to
+        divide $k$, there must be some $k_1 \in \mathbb{Z}$ such that
+        $k$ is equal to $k_1 \cdot n$.
+
+        \bigskip
+
+        Then, using the fact $n \geq k$, we can conclude the definition of
+        divisibility is satisfied only when $k_1 = 1$, or $n = k$.
+
+        \bigskip
+
+        Finally, since we know from the header that $n \neq k$, we can conclude
+        $n \nmid k$.
+
+        \bigskip
+
+        Then, it follows from the fact $k = b$, we can conclude $n \nmid b$.
+
+        \end{mdframed}
+
+
+        \item Show $n \mid ab$
+
+        We need to show $n \mid ab$.
+
+        \begin{itemize}
+            \item State fact 1
+
+            \begin{mdframed}
+            The fact 1 tells us
+
+            \begin{align}
+                \forall x \in \mathbb{Z}, x \mid x
+            \end{align}
+            \end{mdframed}
+
+            \item Show $n \mid n$
+
+            \begin{mdframed}
+            Since we know $n \in \mathbb{N}$, we can conclude $n \mid n$.
+            \end{mdframed}
+
+            \item Show $n \mid ab$ using the fact $n = dk$ where $a = d$ and $b = k$.
+
+            \begin{mdframed}
+            Then, since we know $n = dk$, $d = a$ and $k = b$, we can conclude
+            $n \mid ab$.
+            \end{mdframed}
+        \end{itemize}
+
+        \begin{mdframed}
+
+        \underline{\textbf{Part 3 (Proving $n \mid ab$):}}
+
+        \bigskip
+
+        We need to show $n \mid ab$.
+
+        \bigskip
+
+        The fact 1 tells us
+
+        \begin{align}
+            \forall x \in \mathbb{Z}, x \mid x
+        \end{align}
+
+        \bigskip
+
+        Since we know $n \in \mathbb{N}$, we can conclude $n \mid n$.
+
+        \bigskip
+
+        Then, since we know $n = dk$, $d = a$ and $k = b$, we can conclude
+        $n \mid ab$.
+        \end{mdframed}
+
+    \end{enumerate}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Made some serious errors (i.e. show n = a or n = b) :(.
+        \item How can a proof be organized so it's structurally clear so moe
+        3 months from now can say I understand this proof? I used first, second
+        and third to show steps involved but I still feel something is missing...
+        \item Can I write a predicate logic for proving $n \nmid b$ or $n \nmid a$?
+        (i.e. ... $\Rightarrow n \nmid b$)?
+    \end{itemize}
+
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    \bigskip
+
+    \begin{proof}
+        Let $m,n \in \mathbb{N}$. Assume $Prime(n)$ and $n \nmid m$.
+
+        \bigskip
+
+        We need to prove there are some integer numbers $r$ and $s$ such that $rn + sm = 1$.
+
+        \bigskip
+
+        First, we need to show $gcd(n,m) = 1$.
+
+        \bigskip
+
+        The fact 3 tells us
+        \setcounter{equation}{0}
+        \begin{align}
+            \forall n,m \in \mathbb{Z},\:Prime(n) \land n \nmid m \Rightarrow gcd(n,m) = 1
+        \end{align}
+
+        \bigskip
+
+        Because we know from assumption that $n$ is prime and $n \nmid m$, we can write
+        $gcd(n,m) = 1$.
+
+        \bigskip
+
+        Finally, the fact 6 tells us
+
+        \begin{align}
+            \forall n,m \in \mathbb{N},\:\exists r,s \in \mathbb{Z},\:rn + sm = gcd(n,m)
+        \end{align}
+
+        \bigskip
+
+        Since $gcd(n,m) = 1$, we can conclude
+
+        \begin{align}
+            gcd(n,m) = rn + sm  = 1
+        \end{align}
+
+    \end{proof}
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Pseudoproof:}}
+
+    \bigskip
+
+    Let $m,n \in \mathbb{N}$. Assume $Prime(n)$ and $n \nmid m$.
+
+    \bigskip
+
+    We need to prove $\exists r,s \in \mathbb{Z}, rn + sm = 1$.
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Show $gcd(n,m) = 1$, using fact 3
+
+        \bigskip
+
+        First, we need to show $gcd(n,m) = 1$.
+
+        \bigskip
+
+        \begin{mdframed}
+        First, we need to show $gcd(n,m) = 1$.
+
+        \bigskip
+
+        The fact 3 tells us
+
+        \begin{align}
+            \forall n,m \in \mathbb{Z},\:Prime(n) \land n \nmid m \Rightarrow gcd(n,m) = 1
+        \end{align}
+
+        \bigskip
+
+        Because we know from assumption that $n$ is prime and $n \nmid m$, we can write
+        $gcd(n,m) = 1$.
+        \end{mdframed}
+
+        \item Show $rn + sm = gcd(n,m) = 1$ using fact 6
+
+        \bigskip
+
+        \begin{mdframed}
+        Finally, the fact 6 tells us
+
+        \begin{align}
+            \forall n,m \in \mathbb{N},\:\exists r,s \in \mathbb{Z},\:rn + sm = gcd(n,m)
+        \end{align}
+
+        \bigskip
+
+        Since $gcd(n,m) = 1$, we can conclude
+
+        \begin{align}
+            gcd(n,m) = rn + sm  = 1
+        \end{align}
+        \end{mdframed}
+
+    \end{enumerate}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed that professor doesn't put $\exists$ symbols in 'we need to prove that...'.
+
+        \begin{mdframed}
+            Let $n, m \in \mathbb{N}$. Assume that $n$ is prime and that $n - m$.
+            We want to prove there exist $r, s \in \mathbb{Z}$, $rn + sm = 1$.
+
+        \end{mdframed}
+        \item 형모야. 오늘도 사랑하는 내 여보 향해 화이팅 :)
+        \item 오늘 캘거리에 구름이 많은데 날씨가 굉장히 밝구나.
+        \item 오오오오오!!!!
+    \end{itemize}
+
+    \item
+
+    \underline{\textbf{Contrapositive of Statement:}} $\forall n,m \in \mathbb{N},\:
+    n \mid m \Rightarrow \neg Prime(n) \lor (\forall r,s \in \mathbb{Z},\:rn + sm \neq 1)$
+
+    \begin{proof}
+        Let $n,m \in \mathbb{N}$. Assume $n \mid m$, and assume $n$ is prime, i.e
+        $n > 1 \land (\forall d \in \mathbb{N}, d \mid n \Rightarrow d = 1 \lor d = n$, where $n \in \mathbb{N})$
+
+        \bigskip
+
+        We need to prove for every $r,s \in \mathbb{Z}$, $rn + sm \neq 1$.
+
+        \bigskip
+
+        First, we need to show $gcd(n,m) = n$.
+
+        \bigskip
+
+        The definition of greatest common divisor tells us
+        \setcounter{equation}{0}
+        \begin{align}
+            \forall n,m \in \mathbb{Z},\:IsCD(n,m,n) \land (\forall d_1 \in \mathbb{Z},\: IsCD(n,m,d_1) \Rightarrow d_1 \leq n)
+        \end{align}
+
+        \bigskip
+
+        Because we know $n$ is a common divisor to both $n$ and $m$, and $n$
+        is the highest value that divides $n$ and $m$, we can conclude
+        $gcd(n,m) = n$.
+
+        \bigskip
+
+        Second, we need to show for every $r,s \in \mathbb{Z},\:rn + sm \geq n$.
+
+        \bigskip
+
+        The fact 5 tells us
+
+        \begin{align}
+            \forall n,m \in \mathbb{N}, \forall r,s \in \mathbb{Z}, gcd(n,m) \mid (rn + sm)
+        \end{align}
+
+        \bigskip
+
+        Using the fact $gcd(n,m) = n$, we can write $rn + sm \geq n$.
+
+        \bigskip
+
+        Finally, because we know $n > 1$ from assumption and $rn + sm \geq n$, we can conclude $rn + sm > 1$,
+        which is $rn + sm \neq 1$.
+    \end{proof}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Pseudoproof:}}
+
+        \bigskip
+
+        Let $n,m \in \mathbb{N}$. Assume $n \mid m$ and assume $n$ is prime, i.e
+        $n > 1 \land (\forall d \in \mathbb{N}, d \mid n \Rightarrow d = 1 \lor d = n$, where $n \in \mathbb{N})$
+
+        \bigskip
+
+        We need to prove for every $r,s \in \mathbb{Z}$, $rn + sm \neq 1$.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Show $gcd(n,m) = n$
+
+            \bigskip
+
+            First, we need to show $gcd(n,m) = n$.
+
+            \begin{mdframed}
+                First, we need to show $gcd(n,m) = n$.
+
+                \bigskip
+
+                The definition of greatest common divisor tells us
+
+                \begin{align}
+                    \forall n,m \in \mathbb{Z},\:IsCD(n,m,n) \land (\forall d_1 \in \mathbb{Z},\: IsCD(n,m,d_1) \Rightarrow d_1 \leq n)
+                \end{align}
+
+                \bigskip
+
+                Because we know $n$ is a common divisor to both $n$ and $m$, and $n$
+                is the highest value that divides $n$ and $m$, we can conclude
+                $gcd(n,m) = n$.
+
+            \end{mdframed}
+
+            \item Show $\forall r,s \in \mathbb{Z}, rn + sm \geq n$.
+
+            \bigskip
+
+            Second, we need to show $\forall r,s \in \mathbb{Z},\:rn + sm \geq n$.
+
+            \bigskip
+
+            \begin{mdframed}
+
+                Second, we need to show for every $r,s \in \mathbb{Z},\:rn + sm \geq n$.
+
+                \bigskip
+
+                The fact 5 tells us
+
+                \begin{align}
+                    \forall n,m \in \mathbb{N}, \forall r,s \in \mathbb{Z}, gcd(n,m) \mid (rn + sm)
+                \end{align}
+
+                \bigskip
+
+                Using the fact $gcd(n,m) = n$, we can write $rn + sm \geq n$.
+
+            \end{mdframed}
+
+            \item Conclude $rn + sm \neq 1$ using the fact $n > 1$.
+
+            \begin{mdframed}
+
+                Finally, because we know $n > 1$ from assumption and $rn + sm \geq n$, we can conclude $rn + sm > 1$,
+                or $rn + sm \neq 1$.
+
+            \end{mdframed}
+
+        \end{enumerate}
+    \end{mdframed}
+
+\end{enumerate}
+
+\section*{Question 3}
+
+\end{document}

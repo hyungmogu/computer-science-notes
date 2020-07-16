@@ -1,0 +1,505 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Problem Set 2 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \item
+
+    \textbf{Predicate Logic:} $\forall k,n \in \mathbb{Z}^{+},\:\forall p \in
+    \mathbb{N}$, $Prime(p) \land p^k < n < p^k + p \Rightarrow gcd(p^k,n) = 1$
+
+    \bigskip
+
+    Let $k,n \in \mathbb{Z}^{+}$, and $p \in \mathbb{N}$. Assume $Prime(p)$, and
+    $p^k < n < p^k + p$.
+
+    \bigskip
+
+    Then, $p^k$ can either be divided by 1 or $p$ by fact 3.
+
+    \bigskip
+
+    Since, $p^k < n < p^k + p$, $n$ cannot be written in multiples of $p$.
+
+    \bigskip
+
+    Then, it follows from the definition of divisibility that $p \nmid n$.
+
+    \bigskip
+
+    Since $p \nmid n$, but $1 \mid p^k$ and $1 \mid n$, $gcd(p^k, n) = 1$.
+
+    \item
+
+    \textbf{Predicate Logic:} $\forall m \in \mathbb{Z}$, $\forall n_0 \in \mathbb{N}$,
+    $\exists n \in \mathbb{N}$ $n > n_0 \land gcd(n, n+m) = 1$
+
+    \bigskip
+
+    Since there are infinitely many primes by fact 4, let $Prime(n)$ and $n > m$.
+
+    \bigskip
+
+    Since $Prime(n)$, by fact 3, $n$ can either be divided by 1 or $n$.
+
+    \bigskip
+
+    Since $n \mid n$, but $n \nmid m$, $n \nmid (n+m)$, and $n$ can't be chosen
+    as the greatest common divisor of $n$ and $n+m$.
+
+    \bigskip
+
+    Since $gcd(n,n+m) \neq n$ but $1 \mid n$ and $1 \mid (n+m)$, $gcd(n,n+m)=1$.
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall m \in \mathbb{Z}$,
+    $\forall n_0 \in \mathbb{N}$, $\exists n \in \mathbb{N}$ $n > n_0 \land
+    gcd(n, n+m) = 1$ is true.
+
+    \item
+
+    \textbf{Definition of Primary Gap:} Let $a \in \mathbb{N}$. We say that $a$
+    is a prime gap when there exists a prime $p$ such that $p+a$ is also prime,
+    and none of the numbers between $p$ and $p + a$ (exclusive) are prime.
+
+    \bigskip
+
+    \textbf{Case 1 ($a > 2$):}
+
+    \bigskip
+
+    Let $a,p \in \mathbb{Z}^{+}$. Assume $PrimaryGap(a)$, $Primary(p)$, and $a > 2$.
+
+    \bigskip
+
+    Then, $2 \nmid p$ and $2 \nmid p + a$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        2 &\mid (p + a) - a\\
+        2 &\mid a
+    \end{align}
+
+    by fact 1.
+
+    \bigskip
+
+    Then it follows from above that in case $a > 2$, primary gap is divisible by
+    2.
+
+    \bigskip
+
+    \textbf{Case 2 ($a \leq 2$):}
+
+    \bigskip
+
+    Let $a,p \in \mathbb{Z}^{+}$. Assume $PrimaryGap(a)$, $Primary(p)$, and
+    $a \leq 2$.
+
+    \bigskip
+
+    Then, only two primary numbers in $\mathbb{Z}^{+}$ exist - 1 and 2.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        a &= 2 - 1\\
+        a &= 1
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that in case $a \leq 2$, the value of primary gap
+    is 1.
+
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{enumerate}[a.]
+    \item
+
+    Let $n \in \mathbb{N}$, and $x \in \mathbb{R}$.
+
+    \bigskip
+
+    Because we know $\forall x \in \mathbb{R},\: 0 \leq x - \lfloor x \rfloor < 1$ from
+    fact 1, we can conclude $\lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor nx \rfloor - n \lfloor x \rfloor &\leq nx - n\lfloor x \rfloor\\
+        &\leq n(x - \lfloor x \rfloor)
+    \end{align}
+
+    by using the above.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \lfloor nx \rfloor - n \lfloor x \rfloor &\leq n(x - \lfloor x \rfloor)\\
+        &< n\\
+        &< k
+    \end{align}
+
+    by using fact 1 and choosing $k = n$.
+
+    \bigskip
+
+    Then, it follows that the statement the statement
+    $\forall n \in \mathbb{N},\:\exists k \in \mathbb{N},\:x \in \mathbb{R},\:\lfloor
+    nx \rfloor - n \lfloor x \rfloor \leq k$ is true.
+
+    \item
+
+    \textbf{Negation of statement:} $\forall k \in \mathbb{N},\: \exists m \in \mathbb{N},\:
+    \exists x \in \mathbb{R},\: \lfloor nx \rfloor - n \lfloor x \rfloor > k$
+
+    \bigskip
+
+    Let $x = 0.5$ and $n = 2(k+1)$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor nx \rfloor - n \lfloor x \rfloor &= \lfloor \frac{2(k+1)}{2} \rfloor - n\lfloor 0.5 \rfloor\\
+        &= k + 1 - 0\\
+        &= k + 1\\
+        &> k
+    \end{align}
+
+    \bigskip
+
+    Then it follows that the statement $\exists k \in \mathbb{N},\:\forall n \in \mathbb{N},\:
+    \forall x \in \mathbb{R},\: \lfloor nx \rfloor - n \lfloor x \rfloor \leq k$ is false.
+
+    \item
+
+    \textbf{Proof of $0 \leq \epsilon < 1$:}
+
+    \bigskip
+
+    Let $y \in \mathbb{R}^{\geq 0}$, and $n \in \mathbb{Z}$. Assume $n >y$, and
+    assume $y = (n + \epsilon)^2 - n^2$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        y + n^2 &= (n + \epsilon)^2\\
+        \pm \sqrt{y + n^2} - n &= \epsilon\\
+        \sqrt{y + n^2} - n &= \epsilon\\
+    \end{align}
+
+    by assuming $\epsilon$ is in $\mathbb{R}^{\geq 0}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sqrt{n^2} - n &\leq \epsilon
+    \end{align}
+
+    by using inequality $y \geq 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sqrt{n^2} - n &\leq \epsilon\\
+        n - n &\leq \epsilon\\
+        0 &\leq \epsilon
+    \end{align}
+
+    \bigskip
+
+    And for $\epsilon < 1$, let $y \in \mathbb{R}^{\geq 0}$, and $n \in \mathbb{Z}$.
+    Assume $n >y$, and assume $y = (n + \epsilon)^2 - n^2$.
+
+    \bigskip
+
+    \begin{align}
+        y + n &= (\epsilon + n)^2\\
+        \pm \sqrt{y + n^2} - n &= \epsilon\\
+        \sqrt{y + n^2} - n &= \epsilon\\
+    \end{align}
+
+    by assuming $\epsilon$ is in $\mathbb{R}^{\geq 0}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sqrt{y + n^2} - n &= \epsilon\\
+        \frac{(\sqrt{y - n^2})^2 - n^2}{\sqrt{y + n^2} + n} &= \epsilon
+    \end{align}
+
+    by using hint 2 ($x -y = \frac{x^2 - y^2}{x + y}$).
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{(\sqrt{y - n^2})^2 - n^2}{\sqrt{y + n^2} + n} &= \epsilon\\
+        \frac{y}{\sqrt{y + n^2} + n} &= \epsilon\\
+        \frac{y}{\sqrt{y + y^2} + y} &> \epsilon
+    \end{align}
+
+    by using assumption $n > y$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{y}{\sqrt{y + y^2} + y} &> \epsilon\\
+        \frac{y}{\sqrt{y^2} + y} &> \epsilon\\
+        \frac{y}{y + y} &> \epsilon\\
+        \frac{y}{2y} &> \epsilon\\
+        \frac{y}{y} &> \epsilon\\
+        1 &> \epsilon
+    \end{align}
+
+    Then, it follows from above that the statement $\forall y \in \mathbb{R}^{\geq 0},\:
+    \forall n \in \mathbb{Z}^{+},\:n>y \Rightarrow (\exists \epsilon \in \mathbb{R}^{\geq 0},\:
+    0 \leq \epsilon < 1 \land y = (n + \epsilon)^2 - n^2)$ is true given $n>y$ and
+    $y = (n + \epsilon)^2 - n^2$.
+
+    \bigskip
+
+    \textbf{Proof of $y = (n + \epsilon)^2 - n^2$:}
+
+    \bigskip
+
+    Let $y \in \mathbb{R}^{\geq 0}$, and $n \in \mathbb{Z}$. Assume $n >y$, and
+    assume $0 \leq \epsilon < 1$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        (n + \epsilon)^2 &= n^2 + 2n\epsilon + \epsilon^2\\
+        (n + \epsilon)^2 - n^2 &= 2n\epsilon + \epsilon^2\\
+        (n + \epsilon)^2 - n^2 &= 2n(\sqrt{y+n^2}-n) + (\sqrt{y + n^2} - n)^2
+    \end{align}
+
+    by assuming $\epsilon = \sqrt{y+n^2} - n$ (since $0 \leq \sqrt{y+n^2} - n < 1$).
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        (n + \epsilon)^2 - n^2 &= 2n(\sqrt{y+n^2}-n) + (\sqrt{y + n^2} - n)^2\\
+        &= 2(\sqrt{y+n^2} - n)(2n + \sqrt{y+n^2} - n)\\
+        &= (\sqrt{y+n^2} - n)(\sqrt{y+n^2} + n)\\
+        &= (\sqrt{y + n^2})^2 - n^2\\
+        &= y
+    \end{align}
+
+    Then, it follows from above that the statement $\forall y \in \mathbb{R}^{\geq 0},\:
+    \forall n \in \mathbb{Z}^{+},\:n>y \Rightarrow (\exists \epsilon \in \mathbb{R}^{\geq 0},\:
+    0 \leq \epsilon < 1 \land y = (n + \epsilon)^2 - n^2)$ is true given $n>y$ and
+    $0 \leq \epsilon < 1$.
+
+    \item
+
+    \textbf{Predicate Logic:} $\exists f:\mathbb{R}^{\geq 0} \to \mathbb{R}^{\geq 0}$,
+    $f(x) = x^2 - (\lfloor x \rfloor)^2 \land Onto(f)$
+
+    \textbf{Definition of Onto:} $f:\mathbb{R} \to \mathbb{R}$ is \textbf{onto}
+    when its codomain $\mathbb{R}$ only contains values that could possibly be output
+    by $f$ (and no impossible values).
+
+    \bigskip
+
+    Let $f(x) = x^2 - (\lfloor x \rfloor)^2$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        (x^2 - \lfloor x \rfloor^2) &\geq (x - \lfloor x \rfloor)(x + \lfloor x \rfloor)\\
+        &\geq (x - \lfloor x \rfloor) \cdot 0\\
+        &\geq 0
+    \end{align}
+
+    by fact 1 (i.e. $\forall x \in \mathbb{R},\: 0 \leq x + \lfloor x \rfloor < 1$).
+
+    \bigskip
+
+    Since $f$ has lower bound of 0, and covers all of its codomain, $f$ is onto.
+
+\end{enumerate}
+
+\section*{Question 3}
+
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Predicate Logic}: $\forall f: \mathbb{R} \to \mathbb{R},\: f(x) = f(-x) \land
+    -f(-x) = f(x) \Leftrightarrow f = 0$
+
+    \bigbreak
+
+    \textbf{Part 1: Proving in $\Rightarrow$ direction}
+
+    \bigbreak
+
+    Let $f: \mathbb{R} \to \mathbb{R}$. Assume $f(x) = f(-x) \land -f(-x)=f(x)$.
+
+    \bigbreak
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        f(-x) - f(-x) &= 2f(x)\\
+        0 &= 2f(x)
+    \end{align}
+
+    by adding $f(x) = f(-x)$ and$-f(-x) = f(x)$ together.
+
+    \bigbreak
+
+    Then,
+
+    \begin{align}
+        0 &= f(x)
+    \end{align}
+
+    \bigbreak
+
+    Then it follows that the statement $\forall f: \mathbb{R} \to \mathbb{R},\:
+    f(x) = f(-x) \land -f(-x) = f(x) \Rightarrow f = 0$ is true.
+
+    \bigbreak
+
+    \textbf{Part 2: Proving in $\Leftarrow$ direction}
+
+    \bigbreak
+
+    Let $f: \mathbb{R} \to \mathbb{R}$. Assume $f(x) = 0$.
+
+    \bigbreak
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        -f(-x) &= -(-0)\\
+        &= 0\\
+        &= f(x)
+    \end{align}
+
+    It follows from above that $f(x) = 0$ is an odd function.
+
+    \bigbreak
+
+    Also,
+
+    \begin{align}
+        f(-x) &= (-0)\\
+        &= 0\\
+        &= f(x)
+    \end{align}
+
+    It follows from above that $f(x) = 0$ is an odd function.
+
+    \bigbreak
+
+    Because we know $f(x) = 0$ is both even and odd, we can conclude that the statement
+    $\forall f: \mathbb{R} \to \mathbb{R},\:f = 0 \Rightarrow f(x) = f(-x) \land -f(-x)
+    = f(x)$ is true.
+
+    \item
+
+    \textbf{Predicate Logic:} $\forall f:\mathbb{R} \to \mathbb{R},\:\exists f_1,
+    f_2: \mathbb{R} \to \mathbb{R}, -f_1(x) = f_1(x) \land f_2(-x) = f_2(fx)
+    \land f(x) = f_1(x) + f_2(x)$
+
+    \bigskip
+
+    \textbf{Negation:} $\exists f: \mathbb{R} \to \mathbb{R},\:\forall f_1,f_2:
+    \mathbb{R} \to \mathbb{R},\:-f_1(-x) \neq f_1(x) \lor f_2(x) \neq f_2(x) \lor
+    f(x) \neq f_1(x) + f_2(x)$
+
+    \bigskip
+
+    Let $f$ be an even function. Assume $Even(f_1)$ and $Odd(f_2)$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        f(-x) &= (f_1(-x) + f_2(-x))\\
+        &= f_1(x) - f_2(x)\\
+        &\neq f(x)
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from negation of the statement that every function cannot be
+    written as a sum of an even function and an odd function.
+
+    \item
+
+    \textbf{Predicate Logic:} $\forall f: \mathbb{R} \to \mathbb{R},\:\exists f_1,
+    f_2: \mathbb{R} \to \mathbb{R},\:Even(f_1) \land Odd(f_2) \land f(x) = f_1(x)
+    + f_2(x)$.
+
+    \bigskip
+
+    \textbf{Negation:} $\exists f: \mathbb{R} \to \mathbb{R},\:\forall f_1,f_2:
+    \mathbb{R} \to \mathbb{R}, \neg Even(f_1) \lor \neg Odd(f_2) \lor f(x) \neq f_1(x)f_2(x)$
+
+    \bigskip
+
+    Let $f$ be an even function. Assume $Even(f_1)$ and $Odd(f_2)$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        f(-x) &= f_1(-x)f_2(-x)\\
+        &= -f_1(x)f_2(x)\\
+        &\neq f(x)
+    \end{align}
+
+    Then, it follows from negation of the statement that every function cannot be
+    written as a product of an even function and an odd function.
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,258 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Worksheet 7 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Case 1 ($n \geq 1$):}
+
+    \bigskip
+
+    No more proof required. This is exactly what we want to show.
+
+    \bigskip
+
+    \textbf{Case 2 ($\exists d \in \mathbb{N}, d \mid n \land d \neq 1 \land d \neq n$):}
+
+    \bigskip
+
+    Let $a = d$ and $b = k$.
+
+    \bigskip
+
+    Because we know $\forall n \in \mathbb{Z}^{+}$, and $l \in \mathbb{Z}, l \mid
+    n \Rightarrow l \leq n$, $a \leq n$.
+
+    \bigskip
+
+    Then $n \mid a$ is true only when $a = n$ and $b = 1$, by the fact that any
+    lower value of $a$ results in non-integer value.
+
+    \bigskip
+
+    Then it follows from the assumption $a \neq 1 \land a \neq n$ that $n \nmid a$.
+
+    \bigskip
+
+    The same logic holds for $n \nmid b$.
+
+    \bigskip
+
+    Lastly, since $n = ab$, and $\forall x \in \mathbb{Z},\:x \mid x$, $n \mid ab$.
+
+
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{enumerate}[a.]
+    \item
+
+    Let $n,m \in \mathbb{N}$. Assume $Prime(n)$, and $n \nmid m$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        gcd(n,m) &= 1
+    \end{align}
+
+    by fact 2 (i.e. $\forall n,p \in \mathbb{Z}, Prime(p) \land p \nmid n \Rightarrow
+    gcd(p,n) = 1$).
+
+    \bigskip
+
+    Then $\exists r,s \in \mathbb{Z}$,
+
+    \begin{align}
+        1 = gcd(n,m) = rn + sm
+    \end{align}
+
+    by fact 6 (i.e. $\forall n,m \in \mathbb{N}, \exists r,s \in \mathbb{Z},
+    rn+sm = gcd(n,m)$).
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall n,m \in \mathbb{N},\:
+    Prime(n) \land n \nmid m \Rightarrow (\exists r,s \in \mathbb{Z}, rn+sm = 1)$ is
+    true.
+
+    \item
+
+    Let $n,m \in \mathbb{N}$. Assume $Prime(n)$ and $(\exists r,s \in \mathbb{Z}, rn+sm = 1)$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        gcd(n,m) = 1
+    \end{align}
+
+    by fact 6 (i.e. $\forall n,m \in \mathbb{N},\:\exists r,s \in \mathbb{Z},\: rn+sm = gcd(n,m)$).
+
+    \bigskip
+
+    Then, 1 is the maximum number that divides both $n$ and $m$, by the definition
+    of GCD.
+
+    \bigskip
+
+    It follows from the above that $n \mid m$ only when $n = 1$.
+
+    \bigskip
+
+    Since $n$ is prime and $n > 1$, the above is not possible, and $n \nmid m$.
+
+
+\end{enumerate}
+
+
+\section*{Question 3}
+
+\begin{enumerate}[a.]
+    \item
+
+    Let $x \in \mathbb{Z}$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        x &= x\\
+        x &= (1)x
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from the definition of divisibility that x divides x.
+
+    \item
+
+    Let $x,y \in \mathbb{N}$. Assume $y \geq 1$ and $x \mid y$.
+
+    \bigskip
+
+    Then $\exists k \in \mathbb{Z}$,
+
+    \setcounter{equation}{0}
+    \begin{align}
+        y &= kx
+    \end{align}
+
+    \bigskip
+
+    Then, because we know $y \geq 1$, and $x \geq 1$, we can conclude that $k \geq 1$.
+
+    \bigskip
+
+    Then it follows from the above that
+
+    \begin{align}
+        1 \leq x \leq kx = y
+    \end{align}
+
+    \item
+
+    Let $n,p \in \mathbb{Z}$. Assume $Prime(p)$ and $p \nmid n$.
+
+    \bigskip
+
+    Because we know from the definition of prime number, the common divisors
+    available for $p$ are 1 and $p$.
+
+    \bigskip
+
+    Also, because we know $\forall n \in \mathbb{Z}, n \mid n$, we can conclude
+    that $1 \mid n$.
+
+    \bigskip
+
+    Since $p \nmid n$, but $1 \mid p$ and $1 \mid n$, $gcd(p,n) = 1$
+
+    \item
+
+    Let $n,m \in \mathbb{N}$.
+
+    \bigskip
+
+    \textbf{Case 1 ($n \neq 0, m = 0$):}
+
+    \bigskip
+
+    Assume $n \neq 0$ and $m = 0$.
+
+    \bigskip
+
+    Since $n \mid n$ (by fact 1) and $n \mid m$, $n$ is a common divisor, and
+
+    \bigskip
+    \setcounter{equation}{0}
+    \begin{align}
+        gcd(n,m) &= n
+    \end{align}
+
+    by the definition of greatest common divisor.
+
+    \bigskip
+
+    Since, $n \in \mathbb{N}$ and $n \mid gcd(n,m)$ (by fact 1),
+
+    \begin{align}
+        1 &\leq gcd(n,m) \leq n
+    \end{align}
+
+    by fact 2.
+
+    \bigskip
+
+    \textbf{Case 2 ($n = 0, m \neq 0$):}
+
+    \bigskip
+
+    The inequality $gcd(n,m) \geq 1$ holds using the same logic as case 1.
+
+    \bigskip
+
+    \textbf{Case 3 ($n \neq 0, m \neq 0$):}
+
+    \bigskip
+
+    Let $n,m \in \mathbb{N}$. Assume $n \neq 0$ and $m \neq 0$.
+
+    \bigskip
+
+    Since 1 is the smallest divisor that exists in both $n$ and $m$,
+    \setcounter{equation}{0}
+    \begin{align}
+        gcd(n,m) &\geq 1
+    \end{align}
+
+    \item
+
+    Let $n,m \in \mathbb{N}$, and $d,r,s \in \mathbb{Z}$, and assume $d = gcd(n,m)$.
+
+    \bigskip
+
+    Then, $gcd(n,m)$ divides both $n$ and $m$, by the definition of greatest
+    common divisor.
+
+    \bigskip
+
+    Then, it follows from above that $gcd(n,m)$ divides $rn + sm$.
+
+
+\end{enumerate}
+
+\end{document}

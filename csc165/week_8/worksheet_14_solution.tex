@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\begin{document}
+\title{Worksheet 14 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Inner Loop:} $n$
+
+    \textbf{Outer Loop:} $n - 5$
+
+    \textbf{Theta Expressions:} $\Theta (n^2)$
+
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop:} $n$
+
+    \textbf{Outer Loop:} $n \cdot \left\lceil \displaystyle\frac{n}{5} \right\rceil$
+
+    \textbf{Theta Expressions:} $\Theta (n^2)$
+
+    \item
+
+    \textbf{Inner Loop:} $\displaystyle \frac{n}{3} + (n - 2)$
+
+    \textbf{Outer Loop:} $n - 4$
+
+    \textbf{Theta Expressions:} $\Theta (n^2)$
+
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop:} $\left\lceil \log_3 n \right\rceil + \left\lceil \displaystyle\frac{n}{2} \right\rceil$
+
+    \textbf{Outer Loop:} $max(0, n-4) \cdot \left[ \left\lceil \log_3 n \right\rceil + \left\lceil \displaystyle\frac{n}{2} \right\rceil \right]$
+
+    \textbf{Theta Expressions:} $\Theta (n^2)$
+
+    \item
+
+    \textbf{Inner Loop \#2:} $\sum\limits_{i=1}^n i = \displaystyle\frac{n(n+1)}{2}$
+
+    \textbf{Inner Loop \#1:} $n \cdot \displaystyle\frac{n(n+1)}{2} = \displaystyle\frac{n^3 + n^2}{2}$
+
+    \textbf{Outer Loop:} $\displaystyle\frac{n^3 + n^2}{2} \cdot (n - 4) = \displaystyle\frac{n^4 - 3n^3 + 4n^2}{2}$
+
+    \textbf{Theta Expressions:} $\Theta (n^4)$
+
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop \#2:} $j$
+
+    \textbf{Inner Loop \#1:} $\sum\limits_{j=1}^n j = \displaystyle\frac{n(n+1)}{2}$
+
+    \textbf{Outer Loop:} $\left\lceil \displaystyle\frac{n}{4} \right\rceil \cdot \displaystyle\frac{n(n+1)}{2}$
+
+    \textbf{Theta Expressions:} $\Theta (n^3)$
+    \item
+
+    \textbf{Inner Loop:} $2^n$
+
+    \textbf{Outer Loop:} $\displaystyle\sum\limits_{i=0}^{\frac{n}{2} - 1} 2^i = 2^{\frac{n}{2} - 1}$
+
+    \textbf{Theta Expressions:} $\Theta (2^n)$
+
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop:} $i$
+
+    \textbf{Outer Loop:} $\sum\limits_{i=0}^{\log n - 1} 2^i = \displaystyle\frac{1 - 2^{\log n - 1 + 1}}{1 - 2} = 2^{\log n} - 1 = n - 1$
+
+    \textbf{Theta Expressions:} $\Theta (n)$
+
+    % the outer loop seems to represent the summation notation
+    % the inner loop seems to represent the term in summation notation (i.e. 2^i)
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{itemize}
+
+    \item
+
+    \textbf{Inner Loop \#2:} $j - i$
+
+    \textbf{Inner Loop \#1:} $\sum\limits_{j=i}^{n - 1} (j - i)$
+
+    \textbf{Outer Loop:} $\sum\limits_{i=0}^{n-1}\sum\limits_{j=i}^{n - 1} (j - i)$
+
+    \textbf{Calculation:}
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1}\sum\limits_{j=i}^{n - 1} (j - i) &= \sum\limits_{i=0}^{n-1-i}\sum\limits_{j'=0}^{n - 1} (j' + i - i)\\
+        &= \sum\limits_{i=0}^{n-1}\sum\limits_{j'=0}^{n-1-i} j'\\
+        &= \sum\limits_{i=0}^{n-1} \frac{(n-1-i)(n-i)}{2}\\
+        &= \sum\limits_{i=0}^{n-1} \frac{(n-1-i)(n-i)}{2}\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} n^2 - \sum\limits_{i=0}^{n-1} n - 2n \sum\limits_{i=0}^{n-1} i + \sum\limits_{i=0}^{n-1} i + \sum\limits_{i=0}^{n-1} i^2 \right]\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} n^2 - \sum\limits_{i=0}^{n-1} n - 2n \sum\limits_{i=0}^{n-1} i + \sum\limits_{i=0}^{n-1} i + \sum\limits_{i=0}^{n-1} i^2 \right]\\
+        &= \frac{1}{2} \left[ \frac{(n^2 - n)}{2} + \frac{2n^3 - n^2 - 2n^2 + n}{6} \right]\\
+        &= \frac{1}{2} \left[ \frac{3n^2 - 3n}{6} + \frac{2n^3 - 3n^2 + n}{6} \right]\\
+        &= \frac{1}{2} \left[ \frac{2n^3 - 2n}{6} \right]\\
+        &= \frac{n^3 - n}{6}
+    \end{align}
+
+    \textbf{Theta Expressions:} $\Theta (n^3)$
+
+    \noindent\rule{\textwidth}{1pt}
+
+    \textbf{Correct Solution:}
+
+    \bigskip
+
+    \textbf{Inner Loop \# 2:} $j - i + 1$
+
+    \textbf{Inner Loop \# 1:} $\sum\limits_{j = i}^{n-1} (j - i + 1)$
+
+    \textbf{Outer Loop:} $\sum\limits_{i = 0}^{n-1}\sum\limits_{j = i}^{n-1} (j - i + 1)$
+
+    \textbf{Calculation:}
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{i = 0}^{n-1}\sum\limits_{j = i}^{n-1} (j - i + 1) &= \sum\limits_{i = 0}^{n-1}\sum\limits_{j' = 1}^{n-i} j'
+    \end{align}
+
+    by setting $j' = j - i + 1$, and also by replacing the inner summation notation from
+    $\sum\limits_{i = 0}^{b-a} f(i+a)$ to $\sum\limits_{i = a}^{b} f(i')$
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sum\limits_{i = 0}^{n-1}\sum\limits_{j' = 1}^{n-i} j' &= \sum\limits_{i=0}^{n-1} \frac{(n-i)(1 + n - i)}{2}
+    \end{align}
+
+    by using the arithmetic sum $\sum\limits_{i=1}^n a_i = \left(\frac{n}{2}\right) (a_1 + a_n)$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        &= \frac{1}{2} \left[ n + n^2 - 2in -i + i^2 \right]\\
+        &= \frac{1}{2} \sum\limits_{i=0}^{n-1} \left[ (n + n^2) -i(2n+1) + i^2 \right]\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n + n^2) - \sum\limits_{i=0}^{n-1} i(2n+1) + \sum\limits_{i=0}^{n-1} i^2 \right]\\
+        &= \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n + n^2) - \frac{3(2n+1)n(n-1)}{6}  + \frac{n(n-1)(2n-1)}{6} \right]\\
+        &= \frac{1}{2} \left[ n(n + n^2) - \frac{3(2n+1)n(n-1)}{6}  + \frac{n(n-1)(2n-1)}{6} \right]\\
+        &= \frac{1}{2} \left[ (n^2 + n^3) - \frac{4n(n-1)(n+1)}{6} \right]\\
+        &= \frac{1}{2} \left[ (n^2 + n^3) - \frac{4n - 4n^3}{6} \right]\\
+        &= \frac{1}{2} \left[ n^2 + \frac{6n^3}{6} - \frac{4n - 4n^3}{6} \right]\\
+        &= \frac{1}{2} \left[ n^2 + \frac{n^3}{3} + \frac{2n}{3} \right]\\
+        &= \frac{n^2}{2} + \frac{n^3}{6} + \frac{n}{3}
+    \end{align}
+
+    \textbf{Theta Expressions:} $\Theta (n^3)$
+
+    \bigskip
+
+    \textbf{Note}
+
+    \begin{itemize}
+     \item forgot that if starts at 0, has total of n + 1 many iterations.
+     \item must be grouped in terms of variables before expanding\\
+     $\frac{1}{2} \sum\limits_{i=0}^{n-1} \left[ n^2 + n - 2in -i + i^2 \right]$
+
+        \begin{align}
+            \text{NO:}&  \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} n^2 + \sum\limits_{i=0}^{n-1} n - \sum\limits_{i=0}^{n-1} 2in - \sum\limits_{i=0}^{n-1} i + \sum\limits_{i=0}^{n-1} i^2 \right]\\
+            \text{YES:}& \frac{1}{2} \left[ \sum\limits_{i=0}^{n-1} (n^2 + n) + \sum\limits_{i=0}^{n-1} (2n-1)i + \sum\limits_{i=0}^{n-1} i^2 \right]
+        \end{align}
+
+     \item replace whole (j - i + 1) in $\sum\limits_{j = i}^{n-1} (j - i + 1)$
+     by setting $j' = j - i + 1$, and adding $-i + 1$ to $j = i$
+     \item the formula for arithematic sum starting at $i = 1$ is
+
+     \begin{align}
+        \sum\limits_{i=1}^n a_i = \left(\frac{n}{2}\right) (a_1 + a_n)
+     \end{align}
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,649 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\begin{document}
+\title{Worksheet 8 Review}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    $\forall n \in \mathbb{N,} (0 \leq 1) \land (n \leq 2^n) \Rightarrow (n+1) \leq 2^{n+1}$
+
+    \bigskip
+
+    \textbf{Note:}
+    \begin{itemize}
+        \item \textbf{Induction:} $\forall n \in \mathbb{N},\:P(0) \land P(n) \Rightarrow P(n+1)$
+    \end{itemize}
+
+    \item
+
+    We will prove this statement by induction on n.
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        0 &\leq 2^0\\
+        0 &\leq 1
+    \end{align}
+
+    \bigskip
+
+    Since the above inequality is true, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $P(n)$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n &\leq 2^n\\
+        n+1 &\leq 2^n + 1\\
+        n+1 &\leq 2^n + 2^n\\
+        n+1 &\leq 2^{n+1}
+    \end{align}
+
+    by the fact $2^k + 2^k = 2^{k+1}$.
+
+    \bigskip
+
+    Then, it follows from proof by induction that the statement $n \leq 2^n$ is
+    true for all $n$.
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        We will prove this statement by induction on n.
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        Let $n = 0$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            0 &\leq 2^0\\
+            0 &\leq 1
+        \end{align}
+
+        \bigskip
+
+        Since the above inequality is true, the base case holds.
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $P(n)$.
+
+        \bigskip
+
+        \textbf{We want to show $n+1 \leq 2^{n+1}$}.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            n &\leq 2^n\\
+            n+1 &\leq 2^n + 1\\
+            n+1 &\leq 2^n + 2^n\\
+            n+1 &\leq 2^{n+1}
+        \end{align}
+
+        by the fact $2^n + 2^n = 2^{n+1}$.
+
+        \bigskip
+
+        Then, it follows from proof by induction that the statement $n \leq 2^n$ is
+        true for all $n$.
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item professor specifically states what we want to show in inductive
+        case part of the proof. I thought it was obvious, and not necessary.
+
+        \item When are the times 'we want to show x' in proof can be omitted?
+
+    \end{itemize}
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{itemize}
+    \item
+
+    We will prove the statement by induction on natural number $n$.
+
+    \bigskip
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 1$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{j=1}^{1} T_j &= 1 \frac{\cdot (1+1)(1+2)}{6}\\
+        &= 1
+    \end{align}
+
+    \bigskip
+
+    Since the data also shows value 1 at $n = 1$, the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $\sum\limits_{j=0}^n T_j = \frac{n \cdot (n+1)(n+2)}{6}$.
+
+    \bigskip
+
+    We want to show $\sum\limits_{j=0}^{n+1} T_j = \frac{(n+1)(n+2)(n+3)}{6}$.
+
+    \bigskip
+
+    It follows from the following table
+
+    \begin{tabularx}{\textwidth}{|c|X|X|X|X|X|}
+        \hline
+        n & 1 & 2 & 3 & 4 & 5\\
+        \hline
+        $T_i = \frac{n \cdot (n+1)}{2}$ & 1 & 3 & 6 & 10 & 15\\
+        \hline
+        $\sum\limits_{j=1}^n T_j$ & 1 & 4 & 10 & 20 & 35\\
+        \hline
+    \end{tabularx}
+
+    that $n+1^{th}$ value of the summation is $\frac{(n+1)(n+2)}{2}$ more than
+    the $n^{th}$ sum.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \sum\limits_{j=0}^{n+1} T_j &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{(n+1)(n+2)}{2}\\
+        &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{3(n+1)(n+2)}{6}\\
+        &= \frac{(n+1)(n+2)(n+3)}{6}
+    \end{align}
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        We will prove the statement by induction on natural number $n$.
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        \color{red}
+        \textbf{Let $n = 0$.}
+        \color{black}
+
+        \bigskip
+
+        Then,
+        \setcounter{equation}{0}
+        \begin{align}
+            \sum\limits_{j=0}^{1} T_j &= \frac{0 \cdot (0+1)(0+2)}{6}\\
+            &= 0
+        \end{align}
+
+        \bigskip
+
+        \color{red}
+        \textbf{Since}
+
+        \begin{align}
+            \sum\limits_{j=0}^0 T_j &= T_0
+        \end{align}
+
+        \textbf{and,}
+
+        \begin{align}
+            T_0 &= \frac{0 \cdot (0+1)}{2}\\
+            &= 0
+        \end{align}
+
+        \textbf{, the base case holds.}
+
+        \color{black}
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $\sum\limits_{j=0}^n T_j = \frac{n \cdot (n+1)(n+2)}{6}$.
+
+        \bigskip
+
+        We want to show $\sum\limits_{j=0}^{n+1} T_j = \frac{(n+1)(n+2)(n+3)}{6}$.
+
+        \bigskip
+
+        It follows from the following table
+
+        \begin{tabularx}{\textwidth}{|c|X|X|X|X|X|}
+            \hline
+            n & 1 & 2 & 3 & 4 & 5\\
+            \hline
+            $T_i = \frac{n \cdot (n+1)}{2}$ & 1 & 3 & 6 & 10 & 15\\
+            \hline
+            $\sum\limits_{j=1}^n T_j$ & 1 & 4 & 10 & 20 & 35\\
+            \hline
+        \end{tabularx}
+
+        that $n+1^{th}$ value of the summation is $\frac{(n+1)(n+2)}{2}$ more than
+        the $n^{th}$ sum.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            \sum\limits_{j=0}^{n+1} T_j &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{(n+1)(n+2)}{2}\\
+            &= \frac{n \cdot (n+1)(n+2)}{6} + \frac{3(n+1)(n+2)}{6}\\
+            &= \frac{(n+1)(n+2)(n+3)}{6}
+        \end{align}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item I wasn't explicit about where the value 1 in data came from.
+    \end{itemize}
+
+\end{itemize}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+    Let $x \in \mathbb{R}$.
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Let $x \in \mathbb{R}$.
+
+        \bigskip
+
+        \color{red}
+        \textbf{We will prove the statement $\forall n \in \mathbb{N}, (1+x)^n \geq 1 + nx$
+        using induction on $n$.}
+        \color{black}
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item Professor separately introduced 'Let $x \in \mathbb{R}$' from
+        the rest of the statement.
+        \item By using 'the standard proof structure to introduce $x$', does it
+        include the line up to 'we will prove the statement x by induction'?
+        \item \textbf{Proof by Induction:} $\forall k \in \mathbb{N},\:P(k) \Rightarrow P(k+1)$
+    \end{itemize}
+
+    \item
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        1 = (1+x)^0 &\geq 1 + (0)x\\
+        &\geq 1
+    \end{align}
+
+    \bigskip
+
+    Because we know the inequality is true, we can conclude that the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $(1+x)^n \geq 1 + nx$.
+
+    \bigskip
+
+    We want to show $(1+x)^{n+1} \geq 1 + (n+1)x$.
+
+    \bigskip
+
+    Because we know $(1 + x)^{n+1} = (1+x)^n(1+x)$ and $(1+x)^n \geq 1 + nx$, we
+    can write
+
+    \begin{align}
+        (1+x)^{n+1} &= (1+x)^n(1+x)\\
+        &\geq (1+nx)(1+x)\\
+        &\geq 1 + x + nx + nx^2
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        1 + x + nx + nx^2 &\geq 1 + x + nx
+    \end{align}
+
+    by the fact that $nx^2 \geq 0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        1 + x + nx &\geq 1 + x(n+1)
+    \end{align}
+
+    \bigskip
+
+    Since $(1+x)^{n+1} \geq 1 + x(n+1)$ is true, it follows from proof by
+    induction that the statement $(1+x)^n \geq 1 + xn$ is true for all $n$.
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        Let $n = 0$.
+
+        \bigskip
+        \color{red}
+        \textbf{Since $(1 + x)^0 = 1$ and $1 + (0)x = 1$, we know $(1+x)^0 \geq 1 + (0)x$ is true.}
+        \color{black}
+
+        Because we know the inequality is true, we can conclude that the base case holds.
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $(1+x)^n \geq 1 + nx$.
+
+        \bigskip
+
+        We want to show $(1+x)^{n+1} \geq 1 + (n+1)x$.
+
+        \bigskip
+
+        Because we know $(1 + x)^{n+1} = (1+x)^n(1+x)$ and $(1+x)^n \geq 1 + nx$, we
+        can write
+
+        \begin{align}
+            (1+x)^{n+1} &= (1+x)^n(1+x)\\
+            &\geq (1+nx)(1+x)\\
+            &\geq 1 + x + nx + nx^2
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            1 + x + nx + nx^2 &\geq 1 + x + nx
+        \end{align}
+
+        by the fact that $nx^2 \geq 0$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            1 + x + nx &\geq 1 + x(n+1)
+        \end{align}
+
+        \bigskip
+
+        Since $(1+x)^{n+1} \geq 1 + x(n+1)$ is true, it follows from proof by
+        induction that the statement $(1+x)^n \geq 1 + xn$ is true for all $n$.
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item Realized professor evaluates lhs and rhs before validating the inequality for the base case
+        \item Can values can be compared directly from inequality? i.e
+
+        \begin{align}
+            1 = (1+x)^0 &\geq 1 + (0)x\\
+            &\geq 1
+        \end{align}
+
+        \item 'Assume $P(n)$' is called \textbf{inductive hypothesis}
+        \item $\mathbb{N} = \{0,1,2,\dots\}$
+        \item $\mathbb{Z}^{+} = \{1,2,3,\dots\}$
+    \end{itemize}
+
+\end{enumerate}
+
+\section*{Question 4}
+\begin{enumerate}[a.]
+    \item
+
+    $\forall n \in \mathbb{N}, n \geq 8 \Rightarrow 30n \leq 2^n$
+
+    \item
+
+    We will prove the statement $\forall n \in \mathbb{N},\:n \geq 8 \Rightarrow
+    30n \leq 2^n$ by using induction on $n$.
+
+    \bigskip
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n=8$.
+
+    \bigskip
+
+    Since
+    \setcounter{equation}{0}
+    \begin{align}
+        30n &= 30(8)\\
+        &= 240
+    \end{align}
+
+    ,and
+
+    \begin{align}
+        2^n &= 2^8\\
+        &= 256
+    \end{align}
+
+    the inequality $30(8) \leq 2^{(8)}$ is true, and the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $30n \leq 2^n$.
+
+    \bigskip
+
+    We want to show $30(n+1) \leq 2^{(n+1)}$.
+
+    \bigskip
+
+    It follows from inductive hypothesis that
+
+    \begin{align}
+        30(n+1) &= 30n + 30\\
+        &\leq 2^n + 30
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        30(n+1) &< 2^n + 2^n
+    \end{align}
+
+    by the fact $n \geq 8$ and $2^n > 30$.
+
+    \bigskip
+
+    Then, since $2^n + 2^n = 2^{n+1}$
+
+    \begin{align}
+        30(n+1) < 2^{(n+1)}
+    \end{align}
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        $\forall n \in \mathbb{N}, n \geq 8 \Rightarrow 30n \leq 2^n$
+
+        \item
+
+        We will prove the statement $\forall n \in \mathbb{N},\:n \geq 8 \Rightarrow
+        30n \leq 2^n$ by using induction on $n$.
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        Let $n=8$.
+
+        \bigskip
+
+        Since
+        \setcounter{equation}{0}
+        \begin{align}
+            30n &= 30(8)\\
+            &= 240
+        \end{align}
+
+        ,and
+
+        \begin{align}
+            2^n &= 2^8\\
+            &= 256
+        \end{align}
+
+        the inequality $30(8) \leq 2^{(8)}$ is true, and the base case holds.
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume $30n \leq 2^n$.
+
+        \bigskip
+
+        We want to show $30(n+1) \leq 2^{(n+1)}$.
+
+        \bigskip
+
+        It follows from inductive hypothesis that
+
+        \begin{align}
+            30(n+1) &= 30n + 30\\
+            &\leq 2^n + 30
+        \end{align}
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            30(n+1) &\color{red}\leq\color{black} 2^n + 2^n
+        \end{align}
+
+        by the fact $n \geq 8$ and $2^n \color{red}\geq\color{black} 30$.
+
+        \bigskip
+
+        Then, since $2^n + 2^n = 2^{n+1}$
+
+        \begin{align}
+            30(n+1) \color{red}\leq\color{black} 2^{(n+1)}
+        \end{align}
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item $n \geq 8 \land 2^n \geq 30$ is true.
+        \item $2^{(8)} \geq 30$ is true.
+        \item $2^{(8)} > 30$ is also true.
+    \end{itemize}
+
+
+\end{enumerate}
+
+\end{document}

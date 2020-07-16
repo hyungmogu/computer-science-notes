@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Worksheet 10 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \begin{align}
+        (165)_8 &= 5 \times 8^0 + 6 \times 8^1 + 1 \times 8^2\\
+        &= 5 + 48 + 64\\
+        &= 117
+    \end{align}
+
+    \item
+
+    \textbf{Reference Table}
+
+    \bigskip
+
+    \begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c }
+        Number & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F & G\\
+        \hline
+        Value & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16
+    \end{tabular}
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (B4)_{16} &= 4 \times 16^0 + 11 \times 16^1\\
+        &= 4 + 176\\
+        &= 180
+    \end{align}
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    \begin{align*}
+        357 \div 2 = 178 &, \text{remainder}\:\textbf{1}\\
+        178 \div 2 = 89 &, \text{remainder}\:\textbf{0}\\
+        89 \div 2 = 44 &, \text{remainder}\:\textbf{1}\\
+        44 \div 2 = 22 &, \text{remainder}\:\textbf{0}\\
+        22 \div 2 = 11 &, \text{remainder}\:\textbf{0}\\
+        11 \div 2 = 5 &, \text{remainder}\:\textbf{1}\\
+        5 \div 2 = 2 &, \text{remainder}\:\textbf{1}\\
+        2 \div 2 = 1 &, \text{remainder}\:\textbf{0}\\
+        1 \div 2 = 0 &, \text{remainder}\:\textbf{1}
+    \end{align*}
+
+    Hence, the binary representation of 357 is (101100101).
+
+    \item
+
+    \begin{align*}
+        357 \div 8 = 44 &, \text{remainder}\:\textbf{5}\\
+        44 \div 8 = 5 &, \text{remainder}\:\textbf{4}\\
+        5 \div 8 = 0 &, \text{remainder}\:\textbf{5}
+    \end{align*}
+
+    Hence, the octal representation of 357 is $(545)_8$
+
+    \item
+
+    \begin{align*}
+        357 \div 16 = 22 &, \text{remainder}\:\textbf{5}\\
+        22 \div 16 = 1 &, \text{remainder}\:\textbf{6}\\
+        1 \div 16 = 0 &, \text{remainder}\:\textbf{1}
+    \end{align*}
+
+    Hence, the hexadecimal representation of 357 is $(165)_{16}$
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    \begin{align*}
+        0.375 \times 2 = 0.750 &, + \textbf{0}\\
+        0.750 \times 2 = 0.5 &, + \textbf{1}\\
+        0.5 \times 2 = 0 &, + \textbf{1}
+    \end{align*}
+
+    Hence, the binary representation of 0.375 is $(0.011)_2$.
+
+    \item
+
+    \begin{align*}
+        \frac{1}{10} \times 2 &= \frac{2}{10} + \textbf{0}\\
+        \frac{2}{10} \times 2 &= \frac{4}{10} + \textbf{0}\\
+        \frac{4}{10} \times 2 &= \frac{8}{10} + \textbf{0}\\
+        \frac{8}{10} \times 2 &= \frac{6}{10} + \textbf{1}\\
+        \frac{6}{10} \times 2 &= \frac{2}{10} + \textbf{1}\\
+        \frac{2}{10} \times 2 &= \frac{4}{10} + \textbf{0}\\
+        \frac{4}{10} \times 2 &= \frac{8}{10} + \textbf{0}\\
+        \frac{8}{10} \times 2 &= \frac{6}{10} + \textbf{1}
+    \end{align*}
+
+    Hence, the binary representation of $\frac{1}{10}$ is $(0.0\overline{0011})_2$.
+
+    \item
+
+    Let $a = 1$, and $r = \frac{1}{2}$.
+
+    \bigskip
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{i=1}^{\infty} \frac{1}{2}^i &= \frac{1(\frac{1}{2})}{1 - \frac{1}{2}}\\
+        &= 1
+    \end{align}
+
+    \item
+
+    The first 1 in $(0.0\overline{0011})_2$ repeats every $4^{th}$ position, and
+    the second 1 repeats every $4^{th} + 1$ position.
+
+    \bigskip
+
+    So,
+    \setcounter{equation}{0}
+    \begin{align}
+        (0.0\overline{0011})_2 &= \sum\limits_{i=1}^{\infty} (\frac{1}{2})^{4i} + \sum\limits_{i=1}^{\infty} (\frac{1}{2})^{4i+1}\\
+        &= \sum\limits_{i=1}^{\infty} (\frac{1}{16})^{i} + \sum\limits_{i=1}^{\infty} \frac{1}{2}(\frac{1}{16})^{i}\\
+        &= \frac{\frac{1}{16}}{1 - \frac{1}{16}} + \frac{1}{2}(\frac{\frac{1}{16}}{1 - \frac{1}{16}})\\
+        &= \frac{1}{15} + \frac{1}{30}\\
+        &= \frac{3}{30}\\
+        &= \frac{1}{10}
+    \end{align}
+
+\end{enumerate}
+
+
+\end{document}

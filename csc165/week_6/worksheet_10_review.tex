@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{mdframed}
+
+\begin{document}
+\title{Worksheet 10 Review}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+    \begin{align}
+        (165)_8 &= 5 \cdot 8^0 + 6 \cdot 8^1 + 1 \cdot 8^2\\
+        &= 5 + 48 + 64\\
+        &= 53 + 64\\
+        &= 117
+    \end{align}
+
+    \item
+    \setcounter{equation}{0}
+    \begin{align}
+        (B4)_{16} &= 4 \cdot 16^0 + 11 \cdot 16^1\\
+        &= 4 + (11 \cdot 16)\\
+        &= 4 + 176\\
+        &= 180
+    \end{align}
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+    \setcounter{equation}{0}
+    \begin{align*}
+        357 \div 2 = 178, &\text{remainder \textbf{1}},\\
+        178 \div 2 = 89, &\text{remainder \textbf{0}},\\
+        89 \div 2 = 44, &\text{remainder \textbf{1}},\\
+        44 \div 2 = 22, &\text{remainder \textbf{0}},\\
+        22 \div 2 = 11, &\text{remainder \textbf{0}},\\
+        11 \div 2 = 5, &\text{remainder \textbf{1}},\\
+        5 \div 2 = 2, &\text{remainder \textbf{1}},\\
+        2 \div 2 = 1, &\text{remainder \textbf{0}},\\
+        1 \div 2 = 0, &\text{remainder \textbf{1}}
+    \end{align*}
+
+    Combining it together, the binary representation of 357 is $(101100101)_2$
+
+    \bigskip
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item \textbf{Converting decimal to binary}
+
+        \begin{align}
+            29 \div 2 = 14 + &\text{remainder \textbf{1}},\\
+            14 \div 2 = 7 + &\text{remainder \textbf{0}},\\
+            7 \div 2 = 3 + &\text{remainder \textbf{1}},\\
+            3 \div 2 = 1 + &\text{remainder \textbf{1}},\\
+            1 \div 2 = 0 + &\text{remainder \textbf{1}}
+        \end{align}
+
+        Binaries read \textit{bottom to top}
+    \end{itemize}
+
+    \item
+
+    \begin{align*}
+        1 \cdot 2^0 + 0 \cdot 2^1 + 1 \cdot 2^2 &= \frac{1 + 0 + 4}{8^0} = 5\\
+        0 \cdot 2^3 + 0 \cdot 2^4 + 1 \cdot 2^5 &= \frac{0 + 0 + 32}{8^1} = 4\\
+        1 \cdot 2^6 + 0 \cdot 2^7 + 1 \cdot 2^8 &= \frac{64 + 0 + 256}{8^2} = 5
+    \end{align*}
+
+    Combining it together, the octal representation of $(101100101)_2$ is
+    $(545)_8$.
+
+    \item
+
+    \begin{align*}
+        357 \div 16 = 22, &\text{remainder \textbf{5}},\\
+        22 \div 16 = 1, &\text{remainder \textbf{5}},\\
+        1 \div 16 = 0, &\text{remainder \textbf{1}}
+    \end{align*}
+
+    Combining it together, the hexadecimal representation of 357 is $(155)_{16}$.
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \begin{align*}
+            357 \div 16 = 22, &\text{remainder \textbf{5}},\\
+            22 \div 16 = 1, &\text{remainder \color{red}\textbf{6}}\color{black},\\
+            1 \div 16 = 0, &\text{remainder \textbf{1}}
+        \end{align*}
+
+        Combining it together, the hexadecimal representation of 357 is \color{red}\textbf{$(165)_{16}$}\color{black}.
+
+    \end{mdframed}
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+    \setcounter{equation}{0}
+    \begin{align}
+        0.375 \times 2 = 0.75 + &\textbf{0}\\
+        0.75 \times 2 = 0.5 + &\textbf{1}\\
+        0.5 \times 2 = 0 + &\textbf{1}
+    \end{align}
+
+    Combining the above, the binary representation of 0.375 is $(0.011)_2$.
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item \textbf{Converting fractional decimal to binary}
+
+        \begin{align}
+            0.8125 \times 2 = 0.625 + &\textbf{1}\\
+            0.625 \times 2 = 0.25 + &\textbf{1}\\
+            0.25 \times 2 = 0.5 + &\textbf{0}\\
+            0.5 \times 2 = 0 + &\textbf{1}
+        \end{align}
+
+        Binaries read \textit{top to bottom}
+    \end{itemize}
+
+    \item
+
+    \setcounter{equation}{0}
+    \begin{align}
+        0.1 \times 2 = 0.2 + &\textbf{0}\\
+        0.2 \times 2 = 0.4 + &\textbf{0}\\
+        0.4 \times 2 = 0.8 + &\textbf{0}\\
+        0.8 \times 2 = 0.6 + &\textbf{1}\\
+        0.6 \times 2 = 0.2 + &\textbf{1}\\
+        0.2 \times 2 = 0.4 + &\textbf{0}\\
+        0.4 \times 2 = 0.8 + &\textbf{0}\\
+        0.8 \times 2 = 0.6 + &\textbf{1}
+    \end{align}
+
+    Combining the above, the binary representation of 0.1 is $(0.0\overline{0011})_2$.
+
+\end{enumerate}
+
+\section*{Question 4}
+\begin{enumerate}[a.]
+    \item
+    \setcounter{equation}{0}
+    \begin{align}
+        \sum\limits_{i=0}^{\infty} \left(\frac{1}{2}\right) &= \frac{\frac{1}{2}}{1 - \frac{1}{2}}\\
+        &= \frac{\frac{1}{2}}{\frac{1}{2}}\\
+        &= 1
+    \end{align}
+
+    \item
+
+    Since $1^{st}$ 1 repeats every 4 decimal places, and $2^{nd}$ 1 repeats every
+    5 decimal places, we have
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (0.0\overline{0011})_2 &= \sum\limits_{i=1}^{\infty} \left(\frac{1}{2}\right)^{4i} + \sum\limits_{i=1}^{\infty} \left(\frac{1}{2}\right)^{4i + 1}\\
+        &= \sum\limits_{i=1}^{\infty} \frac{1}{16} + \frac{1}{2} \cdot \sum\limits_{i=1}^{\infty} \frac{1}{16}\\
+        &= \frac{1}{15} + \frac{1}{30}\\
+        &= \frac{3}{30}\\
+        &= \frac{1}{10}
+    \end{align}
+\end{enumerate}
+
+\end{document}

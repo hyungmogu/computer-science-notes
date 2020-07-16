@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+
+\begin{document}
+\title{Worksheet 3 Solution}
+\maketitle
+
+\section*{Question 1}
+
+Part 1
+\begin{enumerate}[a)]
+    \item
+        $Correct(my\_prog) \land Python(my\_prog)$
+    \item
+        $\exists x \in P,\: \neg Correct(x) \Rightarrow Python(x)$
+    \item
+        $\forall x \in P,\: \neg Python(x) \Rightarrow Correct(x)$
+    \item
+        $\forall x \in P,\: \neg Correct(x) \Rightarrow Correct(x)$
+    \item
+        A program is written in Python and is correct
+    \item
+        All programs are not written in Python and is correct
+    \item
+        It is not true that all programs written in python is correct
+    \item
+        All programs that are not written in python is correct, and all correctly running programs are not written in python
+
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{enumerate}[a)]
+    \item
+        All program written in Python is correct, or all program written in Python is not correct
+    \item
+        $(\exists x \in P,\: Python(x) \Rightarrow Correct(x)) \Rightarrow (\forall y \in P, Python(x) \Rightarrow Correct(x))$
+    \item
+        The first statement considers two different natural numbers, where as the second uses the same number
+
+        The first statement is True (with $x_1 = 5$ and $x_2 = 35$), but the second statement is False (165 cannot be in multiples of 7)
+\end{enumerate}
+
+\section*{Question 3}
+
+\begin{enumerate}[a)]
+    \item
+        $Odd(x):\: \exists n \in \mathbb{Z},\: 2 \mid (n+1)$
+    \item
+        $(\forall m \in \mathbb{Z},\:Odd(m))\land(\forall n \in \mathbb{Z},\:Odd(n)) \Rightarrow Odd(mn)$
+    \item
+        $\forall m,n \in \mathbb{Z},\:\exists k,l \in \mathbb{Z},\:((m+1)=2k)\land((n+1)=2l) \Rightarrow \exists o \in \mathbb{Z}, (mn+1)=2o$
+    \item
+        $\forall m,n \in \mathbb{Z}, \exists k \in \mathbb{Z},\:((mn+1)=2k) \Rightarrow \exists l,o \in \mathbb{Z}, ((m+1)=2l)\land((n+1)=2o)$
+
+\end{enumerate}
+
+
+\section*{Question 4}
+    \begin{enumerate}[a)]
+        \item
+        \begin{equation}
+            \neg ((a \land b) \Leftrightarrow c)
+        \end{equation}
+
+        Expanding definition of iff:
+
+        \begin{equation}
+            \neg (((a\land b) \land c) \lor (\neg (a \land b) \land \neg c))
+        \end{equation}
+
+        Using $\neg(p \lor q) \Rightarrow \neg p \land \neg q$:
+
+        \begin{equation}
+            \neg((a\land b) \land c) \land \neg (\neg (a \land b) \land \neg c)
+        \end{equation}
+
+        Using $\neg(p \land q) \Rightarrow \neg p \lor \neg q$:
+
+        \begin{equation}
+            (\neg(a\land b) \lor \neg c) \land ((a \land b) \lor c)
+        \end{equation}
+
+        \item
+        Using rule \#6 and \#7:
+
+        \setcounter{equation}{0}
+        \begin{equation}
+            \exists x,y \in S,\: \forall z \in S,\:\neg (P(x,y) \land Q(x,z))
+        \end{equation}
+
+        Using rule \#2:
+
+        \begin{equation}
+            \exists x,y \in S,\: \forall z \in S,\:\neg P(x,y) \lor \neg Q(x,z)
+        \end{equation}
+
+        \item
+        Using rule \#4:
+
+        \setcounter{equation}{0}
+        \begin{equation}
+            ((\exists x \in S,\:P(x)) \land \neg (\exists y \in S,\:Q(y)))
+        \end{equation}
+
+        Using rule \#6:
+
+        \begin{equation}
+            ((\exists x \in S,\:P(x)) \land (\forall y \in S,\:\neg Q(y))
+        \end{equation}
+
+    \end{enumerate}
+
+\section*{Question 5}
+    \begin{itemize}
+        \item
+        A solution is $U = \mathbb{R}$, $P(x): x < 1$ and $Q(x): x > 3$. By choosing $x = 2$ on rhs of statement, this statement doesn't hold.
+    \end{itemize}
+
+\end{document}

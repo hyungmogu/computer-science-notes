@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Problem Set 1 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item $\forall t \in T, Canadian(t) \Rightarrow \neg Stanley(t)$
+    \item $\forall t \in T,\:\exists d \in D,\:\neg Canadian(t) \land BelongsTo(t,d)$
+    \item $\forall t \in T,\:\exists d \in D,\:Stanley(t) \land BelongsTo(t,d)$
+    \item $\forall t \in T, \exists d \in D,\:BelongsTo(t,d) \Rightarrow \forall d' \in D, d' \neq d \land \neg BelongsTo(t,d')$
+    \item $\forall t_1 \in T, \exists d \in D, \exists t_2 \in T, t_1 \neq t_2 \land (BelongsTo(t_1, d) \land BelongsTo(t_2,d)) \Rightarrow \forall t_3 \in T, t_3 \neq t_1 \land t_3 \neq t_2 \land \neg BelongsTo(t_3, d)$
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+    $\forall x \in \mathbb{R}, f(-x) = f(x)$
+
+    $\forall x \in \mathbb{R}, -f(-x) = f(x)$
+
+    \item
+
+    $\forall g,f:\mathbb{R} \to \mathbb{R},\:\exists h:\mathbb{R} \to \mathbb{R},\:Odd(f) \land Odd(g) \Rightarrow Odd(f) \times Odd(g) = Even(h)$
+
+    \item
+
+    $f = 0$ is a solution, since $-f(-x) = -(-0) = 0 = f(x)$ and $f(-x) = -0 = 0 = f(x)$
+
+    \item
+
+    $\forall f: \mathbb{R} \to \mathbb{R}, \exists f_1, _f2:\mathbb{R} \to \mathbb{R}, Odd(f_1) \land Even(f_2) \land f = Odd(f_1) + Even(f_2)$
+
+    \item
+
+    A solution is $f = x^2 + x$ with $f_1 = x^2$ and $f_2 = x$.
+
+    $f = x^2 + x$ is the summation $\sum\limits_{i=0}^{2n}$ with $n = 1, a_0 = 0, a_1 = 1, a_2 = 1$.
+    $f_1$ is odd since $-f(-x) = -(-x) = x = f(x)$, and $f_2$ is even since $f(-x) = (-x)^2 = x^2 = f(x)$
+
+    \item
+
+    A solution is $g_1(x) = \frac{2^x + 2^{-x}}{2}$ and $g_2(x) = \frac{2^{x} - 2^{-x}}{2}$.
+
+    $g_1 + g_2$ gives $g$ since $\frac{2^x + 2^{-x}}{2} + \frac{2^{x} - 2^{-x}}{2} = 2^x$.
+    Also, $g_1(-x) = \frac{2^{-x} + 2^{-(-x)}}{2} = \frac{2^{-x} + 2^{x}}{2} = g_1(x)$ is even, and
+    $-g_2(-x) = -(\frac{2^{-x} - 2^{-(-x)}}{2}) = \frac{-2^{x} - 2^{-x}}{2}) = g_2(x)$
+
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    One solution is $\forall x \in \mathbb{N},\:\exists y \in \mathbb{N}, x > y$.
+
+    With the above as predicate, the first statement is true, because $\forall x, x > 165$ is
+    always greater than one.
+
+    Also, the second statement is false, because on the rhs, $x = 1$ can be chosen, and $1 \ngtr 1$
+
+    \item
+
+    One solution is $\forall x \in \mathbb{N},\:\exists y \in \mathbb{N}, x > y$.
+
+    With the above as predicate, the first statement is true, because $\forall x, x > 165$ is
+    always greater than one.
+
+    Also, the second statement is false, because on the rhs, $x = 1$ can be chosen, and $1 \ngtr 1$
+
+    \item
+
+    One solution is $x \in \mathbb{R},\: y \in \mathbb{N},\:Q(x): x \notin \mathbb{R},\:P(x,y): x \geq y,\:S = \mathbb{R}, T = \mathbb{R}$.
+
+    With the above, the second statement is vacuous truth because we know by choosing an arbitrary real number for $y$,
+    $x = y - 2$ can be chosen that makes the predicate P false.
+
+    Also with the above, the first statement is false because we know by choosing $y = x$,
+    lhs of the statement becomes true, and because $x$ is always a real number, the rhs of the statement is false
+
+
+\end{enumerate}
+
+\section*{Question 4}
+\begin{enumerate}[a.]
+    \item
+
+    $\exists n_0 \in \mathbb{N},\: \forall n \in \mathbb{N}, n \leq n_0 \lor \neg Prime(n)$
+
+    \item
+
+    $\forall n_0 \in \mathbb{N},\:\exists n,a \in \mathbb{N},\:n > n_0 \land prime(n) \land prime(n+a) \land (\forall b \in \{x \mid x \in \mathbb{N},\: n<x<n+a\}, \neg Prime(b))$
+
+    \item
+
+    $\forall n_0 \in \mathbb{N},\: \exists n \in \mathbb{N},\: n > n_0 \Rightarrow \forall a \in \mathbb{N},\:\exists b \in \{x \mid x \in \mathbb{N},\: n<x<n+a\},\:\neg Prime(n) \land \neg Prime(n+a) \land Prime(b)$
+
+
+\end{enumerate}
+
+\end{document}

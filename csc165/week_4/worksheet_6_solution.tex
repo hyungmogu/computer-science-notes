@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Worksheet 6 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    $P(123) \land (\forall n \in \mathbb{N}, P(n) \Rightarrow n \leq 123)$
+
+    \item
+
+    $isCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:d \mid x \land d \mid y$
+
+    $isGCD(x,y,d)$: $\exists x,y,d \in \mathbb{Z},\:(x = 0 \land y = 0 \land d = 0)
+    \lor ((x \neq 0 \lor y \neq 0) \land isCD(x,y,d) \land \forall e \in \mathbb{Z}, \:e > d \Rightarrow \neg isCD(x,y,e))$
+
+    \item
+
+    Statement: $\forall x \in \mathbb{Z}^{+}, IsGCD(x,0,x)$
+
+    \bigskip
+
+    For the value $x$, because we know $x \mid x$, and $\forall n \in \mathbb{Z}^{+}$ and $\forall
+    d \in \mathbb{Z}, d \mid n \Rightarrow d \leq n$, $x$ is the biggest divisor of $x$
+
+    For the value $0$, because we know anything that divides 0 is 0, and
+    $\exists k \in \mathbb{Z},\: 0 = k \times 0$, $k$ can be chosen to be $x$.
+
+    Then, it follows from the definition of GCD that the statement $IsGCD(x,0,x)$ is true.
+
+    \item
+
+    $\forall a,b \in \mathbb{Z}, (a \neq 0 \lor b \neq 0) \Rightarrow \exists p,q \in \mathbb{Z},\:gcd(a,b) = ap + qb \land \forall m \in \mathbb{Z}, m < gcd(a,b) \land m \neq ap + qb$
+
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    Let $n \in \mathbb{Z}$. Assume $\exists l \in \mathbb{Z},\: n = 2l$.
+
+    \bigbreak
+
+    Then,
+
+    \begin{align}
+        n^2 - 3n &= (2l)^2 = 3(2l) \\
+        &= 4l^2 - 6l \\
+        &= 2(2l^2 - 3l)
+    \end{align}
+
+    \bigbreak
+
+    Since $2l^2 - 3l \in \mathbb{Z}$, it follows from the definition of even number
+    that $n^2-3n$ is even
+
+    \item
+
+    Let $n \in \mathbb{Z}$. Assume $\exists l \in \mathbb{Z},\: n = 2l - 1$.
+
+    \bigbreak
+
+    Then,
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n^2 - 3n &= (2l-1)^2 = 3(2l-1)\\
+        &= 4l^2 - 4l + 1 - 6l - 3\\
+        &= 4l^2 - 10l - 2 \\
+        &= 2(2l^2 - 5l - 1)
+    \end{align}
+
+    \bigbreak
+
+    Since $2l^2 - 5l - 1 \in \mathbb{Z}$, it follows from the definition of even number
+    that $n^2-3n$ is even
+
+
+\end{enumerate}
+
+\section*{Question 3}
+
+\begin{enumerate}[a.]
+    \item
+
+    $\forall a,b \in \mathbb{N}, Prime(b) \Rightarrow 1 \geq gcd(a,b) \lor gcd(a,b) \geq b$
+
+    \item
+
+    \textbf{Case 1 ($b \mid a$):}
+
+    \bigskip
+
+    Let $a,b \in \mathbb{N}$, and assume $Prime(b)$. Also assume $b \mid a$.
+
+    \bigskip
+
+    Since $b$ is a prime number, other than 1, $b$ is the only number that divides $b$.
+
+    \bigskip
+
+    Since $b \mid a,\:\exists k \in \mathbb{Z}, a = kb$.
+
+    \bigskip
+
+    Then, it follows that $gcd(a,b) = b$, and contraposition of the statement is true
+    for the case $b \mid a$.
+
+    \bigskip
+
+    \textbf{Case 2 ($b \nmid a$):}
+
+    \bigskip
+
+    Let $a,b \in \mathbb{N}$, and assume $Prime(b)$. Also assume $b \nmid a$.
+
+    \bigskip
+
+    Since $b$ is a prime number, other than 1, $b$ is the only number that divides $b$.
+
+    \bigskip
+
+    Since $b \nmid a$, but $1 \mid a$, $gcd(a,b) = 1$.
+
+    \bigskip
+
+    Then, it follows from contraposition of the statement that it is true
+    for the case $b \nmid a$.
+
+\end{enumerate}
+
+\end{document}
