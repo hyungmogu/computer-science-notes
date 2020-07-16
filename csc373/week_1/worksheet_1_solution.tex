@@ -63,15 +63,26 @@
         let C be a new n x n matrix
 
         if n == 1
-            c_11 = a_11 * b_11
+            C_11 = A_11 * B_11
 
         else partition as in step 3 of strassen's algorithm
 
-            p1 =
-            p2 =
-            p3 =
-            p4 =
-            p5 =
+            p1 = Strassen_Algorithm(A_11, B_12) -
+                 Strassen_Algorithm(A_11, B_22)
+
+            p2 = Strassen_Algorithm(A_11, B_22) +
+                 Strassen_Algorithm(A_12, B_22)
+
+            p3 = Strassen_Algorithm(A_21, B_11) +
+                 Strassen_Algorithm(A_22, B_11)
+
+            p4 = Strassen_Algorithm(A_22, B_21) -
+                 Strassen_Algorithm(A_22, B_11)
+
+            p5 = Strassen_Algorithm(A_11, B_11) +
+                 Strassen_Algorithm(A_11, B_22) +
+                 Strassen_Algorithm(A_22, B_11) +
+                 Strassen_Algorithm(A_22, B_22)
             p6 =
             p7 =
 
