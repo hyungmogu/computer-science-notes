@@ -431,7 +431,20 @@
 
         \bigskip
 
-        Then,
+        Then, at $n[i] = 3$, the \textbf{if} statement will occur.
+
+        \bigskip
+
+        Then, the inner loop will run from $i + 1$ to $n$, causing the rest of elements
+        in \textbf{lst} to have even values, and the inner loop to have $n - (2+1) + 1 = n - 2$ iterations.
+
+        \bigskip
+
+        Then, the outer loop runs until $i = 3$ to $i = n$ without the \textbf{if} condition,
+        resulting in the outloop to have $n$ iterations.
+
+        \bigskip
+        Thus, the worst-case lower bound of \textbf{$my\_alg$} is $\Omega(2n)$ or $\Omega(n)$.
 
         \bigskip
 
