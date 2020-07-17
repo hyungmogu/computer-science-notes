@@ -307,30 +307,47 @@
 
     \bigskip
 
-        \underline{\textbf{Notes:}}
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item
+        $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+
+        or
+
+        $g \in \Theta(f):\:\exists c_1,c_2,n_1 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_1
+        \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)$, where $f,g:\:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+    \end{itemize}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        I need to evaluate the total number of iterations of loop 2.
 
         \bigskip
 
-        \begin{itemize}
-            \item
-            $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
-            \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+        The code tells us that per iteration $k$ the value of $j$ increases by 3. That is, $j = 3k$.
 
-            \item
+        \bigskip
 
-            $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
-            \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+        Since the
 
-            \item
 
-            $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
-
-            or
-
-            $g \in \Theta(f):\:\exists c_1,c_2,n_1 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_1
-            \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)$, where $f,g:\:\mathbb{N} \to \mathbb{R}^{\geq 0}$
-        \end{itemize}
-
+    \end{enumerate}
 
 \end{enumerate}
 
