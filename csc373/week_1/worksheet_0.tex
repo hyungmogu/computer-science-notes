@@ -59,6 +59,16 @@
     $O(n \lg n)$. Show that the solution of this recurrence is also $\Omega(n \lg n)$. Conclude that the solution is $\Theta(n \lg n)$.
     \item \textbf{CLRS 4.3-5:} Show that $\Theta(n \lg n)$ is the solution to the “exact” recurrence (4.3) for merge sort.
     \item \textbf{CLRS 4.3-6:} Show that the solution to $T(n) = 2T(\lfloor n/2 \rfloor + 17) + n$ is $O(n \lg n)$.
+    \item \textbf{CLRS 4.3-7:}  Using the master method in Section 4.5, you can show that the solution to the
+    recurrence $T(n)= 4T(n/3) + n$ is $T(n) = \Theta(n^{\log_3 4})$. Show that a substitution
+    proof with the assumption $T(n) \leq cn^{\log_3 4}$ fails. Then show how to subtract off a
+    lower-order term to make a substitution proof work.
+    \item \textbf{CLRS 4.3-8:}  Using the master method in Section 4.5, you can show that the solution to the
+    recurrence $T(n)= 4T(n/2) + n$ is $T(n) = \Theta(n^2)$. Show that a substitution
+    proof with the assumption $T(n) \leq cn^2$ fails. Then show how to subtract off a
+    lower-order term to make a substitution proof work.
+    \item \textbf{CLRS 4.4-1:}  Use a recursion tree to determine a good asymptotic upper bound on the
+    recurrrence $T(n) = 3T(\lfloor n/2 \rfloor) +n$. Use the subtitution method to verify your answer.
 \end{enumerate}
 
 \end{document}
