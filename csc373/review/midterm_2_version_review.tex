@@ -414,16 +414,20 @@
 
         \bigskip
 
-
-
-        \bigskip
-
-        The code tells us the worst case in loop occurs when there are odd numbers
-        or no odd numbers at all.
+        The \textbf{if} condition occurs when $i$ value is odd.
 
         \bigskip
 
-        In both of the cases, the loop runs from $i = 0$ to $i = n$.
+        Then, the inner loop triggers, causing the values in \textbf{lst[$i+1$]} to \textbf{lst[$n-1$]}
+        to become even, and the inner loop to iterate $n - (i+1) - 1 = n - i$ times.
+
+        \bigskip
+
+        Then, the outer loop iterates until the end, giving the outerloop
+        to have $n$ iterations.
+        \bigskip
+
+        Thus, the alg \textbf{$my\_alg$} has upper bound worst case of $\mathcal{O}(2n-i)$ or $\mathcal{O}{n}$
 
         \bigskip
 
@@ -452,7 +456,7 @@
         resulting in the outloop to have $n$ iterations.
 
         \bigskip
-        Thus, the worst-case lower bound of \textbf{$my\_alg$} is $\Omega(2n)$ or $\Omega(n)$.
+        Thus, the worst-case lower bound of \textbf{$my\_alg$} is $\Omega(2n - 2)$ or $\Omega(n)$.
 
         \bigskip
 
