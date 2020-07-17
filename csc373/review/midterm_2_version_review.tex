@@ -259,7 +259,42 @@
 
     \item
 
-    \textbf{Negation:} $\forall a \in \mathbb{R}, an+1 \notin \Theta(n^3)$
+    \textbf{Negation(expanded):} $\forall a \in \mathbb{R}, \forall c_1, c_2, n_1 \in \mathbb{R}^+, \exists n \in \mathbb{N},
+    (n \geq n_1) \land (c_1 g(n) > f(n)) \lor (f(n) > c_2g(n))$
+
+    \bigskip
+
+    Let $a \in \mathbb{R}$.
+
+    \bigskip
+
+    I need to show $an+1 \notin \Theta(n^3)$
+
+    \bigskip
+
+        \underline{\textbf{Notes:}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item
+            $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+            \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+            \item
+
+            $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+            \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+            \item
+
+            $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+
+            or
+
+            $g \in \Theta(f):\:\exists c_1,c_2,n_1 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_1
+            \Rightarrow c_1g(n) \leq f(n) \leq c_2g(n)$, where $f,g:\:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+        \end{itemize}
 
 
 \end{enumerate}
