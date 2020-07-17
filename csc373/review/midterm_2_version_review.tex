@@ -205,57 +205,58 @@
 
         which gives $k = \lceil \log_2(\log_3(n)) - 1 \rceil$
 
-        \item Let $n \in \mathbb{N}$. Assume $n \geq 3$.
-        \setcounter{equation}{0}
-        \bigskip
-
-        I will prove $5^n + 50 < 6^n$ by induction.
-
-        \bigskip
-
-        \underline{\textbf{Base Step ($n = 3$):}}
-
-        \bigskip
-
-        Let $n = 3$.
-
-        \bigskip
-
-        Then,
-
-        \begin{align}
-            5^3 + 50 = 715 < 6^3 = 216
-        \end{align}
-
-        \bigskip
-
-        So, the base case holds.
-
-        \bigskip
-
-        \underline{\textbf{Inductive Step}}
-
-        \bigskip
-
-        Let $n \in \mathbb{N}$. Assume ($5^n + 50 < 6^n$).
-
-        \bigskip
-
-        I need to show $5^{n+1} + 50 < 6^{n+1}$.
-
-        \bigskip
-
-        Indeed we have
-
-        \begin{align}
-            5^{n+1} + 50 &= 5^n5 + 50\\
-            &= 5(5^n + 10)\\
-            &< 5(5^n + 50)\\
-            &< 56^n\\
-            &< 66^n\\
-            &< 6^{n=1}
-        \end{align}
     \end{enumerate}
+
+    \item Let $n \in \mathbb{N}$. Assume $n \geq 3$.
+    \setcounter{equation}{0}
+    \bigskip
+
+    I will prove $5^n + 50 < 6^n$ by induction.
+
+    \bigskip
+
+    \underline{\textbf{Base Step ($n = 3$):}}
+
+    \bigskip
+
+    Let $n = 3$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        5^3 + 50 = 715 < 6^3 = 216
+    \end{align}
+
+    \bigskip
+
+    So, the base case holds.
+
+    \bigskip
+
+    \underline{\textbf{Inductive Step}}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume ($5^n + 50 < 6^n$).
+
+    \bigskip
+
+    I need to show $5^{n+1} + 50 < 6^{n+1}$.
+
+    \bigskip
+
+    Indeed we have
+
+    \begin{align}
+        5^{n+1} + 50 &= 5^n5 + 50\\
+        &= 5(5^n + 10)\\
+        &< 5(5^n + 50)\\
+        &< 56^n\\
+        &< 66^n\\
+        &< 6^{n=1}
+    \end{align}
 
     \item
     \setcounter{equation}{0}
@@ -366,7 +367,46 @@
 
         \bigskip
 
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            I need to evaluate the total number of iterations of loop 2.
+
+            \bigskip
+
+            First, I need to evaluate the number of iterations of loop 2 per iteration of loop 1.
+
+            \bigskip
+
+            The code tells us that the value of $j$ increases by 3 per iteration $k$. That is, $j = 3k$.
+
+            \bigskip
+
+            Since the inner loop ends when $j \geq i$, the earliest iteration at which
+            the loop ends per iteration of the outerloop is $k = \lceil \frac{i}{3} \rceil$.
+
+            \bigskip
+
+            Finally, the outer loop starts from $i = 0$ to $i = n^2$.
+
+            \bigskip
+
+            Thus, the total number of iterations in loop 2 is:
+
+            \setcounter{equation}{0}
+            \begin{align}
+                \sum\limits_{i=0}^{\color{red}n^2-1\color{black}} \frac{i}{3} = \frac{\color{red}(n^2-1)n^2\color{black}}{6}
+            \end{align}
+
+            \bigskip
+
+        \end{mdframed}
+
     \end{enumerate}
+
+    \bigskip
 
 \end{enumerate}
 
