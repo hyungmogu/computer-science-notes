@@ -340,13 +340,26 @@
 
         \bigskip
 
-        The code tells us that per iteration $k$ the value of $j$ increases by 3. That is, $j = 3k$.
+        First, I need to evaluate the number of iterations in loop 2 per iteration of loop 1.
 
         \bigskip
 
-        Since the
+        The code tells us that the value of $j$ increases by 3 per iteration $k$. That is, $j = 3k$.
+
+        \bigskip
+
+        Since the inner loop ends when $j \geq i$, the earliest iteration at which
+        the loop ends is $k = \lceil \frac{i}{3} \rceil$.
+
+        \bigskip
 
 
+
+        The $k$ many iterations in inner loop is triggered per iteration of outerloop.
+
+        \bigskip
+
+        Since
     \end{enumerate}
 
 \end{enumerate}
