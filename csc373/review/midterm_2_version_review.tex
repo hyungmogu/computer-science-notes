@@ -187,11 +187,11 @@
         \end{tabular}
 
         \item $k = \lceil \log_3(\log_2 n) - 1\rceil$
-
+        \setcounter{equation}{0}
         \bigskip
 
         Since
-        \setcounter{equation}{0}
+
         \begin{align}
             i^2 &\geq n\\
             3^{2^k} &\geq n^{1/2}\\
@@ -204,6 +204,57 @@
         \bigskip
 
         which gives $k = \lceil \log_2(\log_3(n)) - 1 \rceil$
+
+        \item Let $n \in \mathbb{N}$. Assume $n \geq 3$.
+        \setcounter{equation}{0}
+        \bigskip
+
+        I will prove $5^n + 50 < 6^n$ by induction.
+
+        \bigskip
+
+        \underline{\textbf{Base Step ($n = 3$):}}
+
+        \bigskip
+
+        Let $n = 3$.
+
+        \bigskip
+
+        Then,
+
+        \begin{align}
+            5^3 + 50 = 715 < 6^3 = 216
+        \end{align}
+
+        \bigskip
+
+        So, the base case holds.
+
+        \bigskip
+
+        \underline{\textbf{Inductive Step}}
+
+        \bigskip
+
+        Let $n \in \mathbb{N}$. Assume ($5^n + 50 < 6^n$).
+
+        \bigskip
+
+        I need to show $5^{n+1} + 50 < 6^{n+1}$.
+
+        \bigskip
+
+        Indeed we have
+
+        \begin{align}
+            5^{n+1} + 50 &= 5^n5 + 50\\
+            &= 5(5^n + 10)\\
+            &< 5(5^n + 50)\\
+            &< 56^n\\
+            &< 66^n\\
+            &< 6^{n=1}
+        \end{align}
     \end{enumerate}
 \end{enumerate}
 
