@@ -268,7 +268,17 @@
 
     \bigskip
 
-    I need to show $an+1 \notin \Theta(n^3)$
+    I need to show $an+1 \notin \Theta(n^3)$. That is, $an + 1 \notin \mathcal{O}(n^3) \lor an+1 \notin \Omega(n^3)$.
+    In other words, $\forall c, n_0 \in \mathbb{R}^+, \exists n \in \mathbb{N}, (n \geq n_0) \land (an+1 > c \cdot n^3)$ or
+    $\forall c_1, n_1 \in \mathbb{R}^+, \exists n \in \mathbb{N}, (n \geq n_1) \land (an+1 < c_1 \cdot n^3)$.
+
+    \bigskip
+
+    Let $c_1, c_2, n_1 \in \mathbb{R}^+$, and let $n = \lceil m + n_1\rceil$ where $m \in \mathbb{N}$.
+
+    \bigskip
+
+
 
     \bigskip
 
