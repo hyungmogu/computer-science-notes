@@ -340,7 +340,7 @@
 
         \bigskip
 
-        First, I need to evaluate the number of iterations in loop 2 per iteration of loop 1.
+        First, I need to evaluate the number of iterations of loop 2 per iteration of loop 1.
 
         \bigskip
 
@@ -349,17 +349,23 @@
         \bigskip
 
         Since the inner loop ends when $j \geq i$, the earliest iteration at which
-        the loop ends is $k = \lceil \frac{i}{3} \rceil$.
+        the loop ends per iteration of the outerloop is $k = \lceil \frac{i}{3} \rceil$.
 
         \bigskip
 
-
-
-        The $k$ many iterations in inner loop is triggered per iteration of outerloop.
+        Finally, the outer loop starts from $i = 0$ to $i = n^2$.
 
         \bigskip
 
-        Since
+        Thus, the total number of iterations in loop 2 is:
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \sum\limits_{i=0}^{n^2} \frac{i}{3} = \frac{n^2 (n^2 + 1)}{6}
+        \end{align}
+
+        \bigskip
+
     \end{enumerate}
 
 \end{enumerate}
