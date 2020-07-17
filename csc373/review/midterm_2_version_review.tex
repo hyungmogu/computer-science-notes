@@ -258,27 +258,52 @@
     \end{enumerate}
 
     \item
-
+    \setcounter{equation}{0}
     \textbf{Negation(expanded):} $\forall a \in \mathbb{R}, \forall c_1, c_2, n_1 \in \mathbb{R}^+, \exists n \in \mathbb{N},
     (n \geq n_1) \land (c_1 g(n) > f(n)) \lor (f(n) > c_2g(n))$
 
     \bigskip
+    \begin{proof}
+        Let $a \in \mathbb{R}$.
 
-    Let $a \in \mathbb{R}$.
+        \bigskip
 
-    \bigskip
+        I need to show $an+1 \notin \Theta(n^3)$. That is, $an + 1 \notin \mathcal{O}(n^3) \lor an+1 \notin \Omega(n^3)$.
+        In other words, $\forall c, n_0 \in \mathbb{R}^+, \exists n \in \mathbb{N}, (n \geq n_0) \land (an+1 > c \cdot n^3)$ or
+        $\forall c_1, n_1 \in \mathbb{R}^+, \exists n \in \mathbb{N}, (n \geq n_1) \land (an+1 < c_1 \cdot n^3)$.
 
-    I need to show $an+1 \notin \Theta(n^3)$. That is, $an + 1 \notin \mathcal{O}(n^3) \lor an+1 \notin \Omega(n^3)$.
-    In other words, $\forall c, n_0 \in \mathbb{R}^+, \exists n \in \mathbb{N}, (n \geq n_0) \land (an+1 > c \cdot n^3)$ or
-    $\forall c_1, n_1 \in \mathbb{R}^+, \exists n \in \mathbb{N}, (n \geq n_1) \land (an+1 < c_1 \cdot n^3)$.
+        \bigskip
 
-    \bigskip
+        Let $c_1, c_2, n_1 \in \mathbb{R}^+$, and let $n = \bigl\lceil max\bigl( n_1, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{2}{c_1}}) \bigr) \bigr\rceil + 1$.
 
-    Let $c_1, c_2, n_1 \in \mathbb{R}^+$, and let $n = \bigl\lceil max\bigl( n_1, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{2}{c_1}}) \bigr) \bigr\rceil + 1$ where $m \in \mathbb{N}$.
+        \bigskip
 
-    \bigskip
+        Then, we can write
 
+        \begin{align}
+            n &= \bigl\lceil max\bigl( n_1, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{2}{c_1}}) \bigr) \bigr\rceil + 1 > \sqrt{\frac{2a}{c_1}}\\
+            n^2 &> \frac{2a}{c_1}\\
+            \frac{c_1 n^3}{2} &> an
+        \end{align}
 
+        \bigskip
+
+        And
+
+        \begin{align}
+            n &= \bigl\lceil max\bigl( n_1, \sqrt{\frac{2a}{c_1}}, \sqrt[3]{\frac{2}{c_1}}) \bigr) \bigr\rceil + 1 > \sqrt[3]{\frac{2}{c_1}}\\
+            \frac{c_1n^3}{2} &> 1
+        \end{align}
+
+        \bigskip
+
+        Thus, we can conclude
+
+        \begin{align}
+            \frac{c_1n^3}{2} + \frac{c_1n^3}{2} &> an + 1\\
+            c_1 \cdot n^3 &> an + 1
+        \end{align}
+    \end{proof}
 
     \bigskip
 
