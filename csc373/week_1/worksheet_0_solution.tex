@@ -97,7 +97,27 @@
             \bigskip
 
             \begin{enumerate}[1.]
-                \item
+                \item Assume the bound holds for all positive $m < n$, in particular $m = \lfloor n/2 \rfloor$
+                \item Find the upper bound of $T(m)$
+
+                \bigskip
+
+                $T(\lfloor n/2 \rfloor) \leq c \lfloor n/2 \rfloor \lg (\lfloor n/2 \rfloor)$
+
+                \bigskip
+
+                \item Show $T(n) = 2T(\lfloor n/2 \rfloor) + n$ leads to $T(n) \leq cn \lg n$
+
+                \bigskip
+
+                \begin{align}
+                    T(n) &\leq 2(c \lfloor n/2 \rfloor \lg (\lfloor n/2 \rfloor)) + n\\
+                    &\leq cn \lg (n/2) + n\\
+                    &= cn \lg (n) - cn \lg 2 + n\\
+                    &= cn \lg (n) - cn + n\\
+                    &\leq cn \lg (n) - cn + cn\\
+                    &\leq cn \lg (n)
+                \end{align}
             \end{enumerate}
         \end{itemize}
     \end{itemize}
