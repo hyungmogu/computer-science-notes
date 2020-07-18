@@ -292,13 +292,13 @@
     \setcounter{equation}{0}
     \underline{Recurrence (Merge sort):}
 
-    \begin{align}
+    \begin{align*}
         T(n) =
         \begin{cases}
           \Theta(1) & \text{if $n = 1$}\\
           T(\lceil n/2 \rceil) + T(\lfloor n/2 \rfloor) + \Theta(n) & \text{if $n > 1$}
         \end{cases}
-    \end{align}
+    \end{align*}
 
     \bigskip
 
@@ -313,12 +313,44 @@
         &= c(n-2) \lg ((n-2)/2) + dn\\
         &= c(n-2) \lg (n-2) - c(n-2) + dn\\
         &= c(n-2) \lg (n-2) - (d - c)n + 2c\\
-        &= c(n-2) \lg (n-2)\\
+        &= c(n-2) \lg (n-2)
     \end{align}
 
     \bigskip
 
     The bound holds as long as $c > d$.
+
+    \bigskip
+
+    \underline{Guess (lower bound):} $c \cdot (n-2) \cdot \lg (n-2) \leq T(n)$
+
+
+    \bigskip
+
+    \begin{align}
+        T(n) &\leq c(\lceil n/2 \rceil + 1) \lg (\lceil n/2 \rceil + 1) + c (\lfloor n/2 \rfloor + 1)\lg(\lfloor n/2 \rfloor + 1) + dn\\
+        &\leq c(n/2 - 1 + 1) \lg (n/2 - 1 + 1) + c (n/2 - 1 + 1)\lg(n/2 - 1 + 1) + dn\\
+        &= c(n/2) \lg (n/2) + c (n/2)\lg(n/2) + dn\\
+        &= cn \lg(n/2) + dn\\
+        &= cn \lg(n) - cn + dn\\
+        &= cn \lg(n) + (d - c)n\\
+        &\leq c(n-1) \lg(n-1)
+    \end{align}
+
+    \bigskip
+
+    The bound holds as long as $d > c$, and $0 \leq c < 1$
+
+    \bigskip
+
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item the $n$ here is asymptotically large
+    \end{itemize}
 
 \end{enumerate}
 
