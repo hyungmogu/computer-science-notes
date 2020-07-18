@@ -289,6 +289,18 @@
     \end{itemize}
 
     \item
+    \setcounter{equation}{0}
+    \underline{\textbf{Recurrence (Merge sort):}}
+
+    \begin{align}
+        T(n) =
+        \begin{cases}
+          \Theta(1) & \text{if $n = 1$}\\
+          T(\lceil n/2 \rceil) + T(\lfloor n/2 \rfloor) + \Theta(n) & \text{if $n > 1$}
+        \end{cases}
+    \end{align}
+
+
 \end{enumerate}
 
 \end{document}
