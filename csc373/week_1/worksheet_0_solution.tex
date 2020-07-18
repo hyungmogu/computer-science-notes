@@ -184,6 +184,41 @@
         &\leq c\lg n - c + c
     \end{align}
 
+    \bigskip
+
+    \begin{mdframed}
+        \setcounter{equation}{0}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \underline{Recurrence:} $T(n) = T(\lceil n/2 \rceil) + 1$
+
+        \bigskip
+
+        \underline{Guess:} $T(n) = \mathcal{O}(\lg n)$.
+
+        \bigskip
+
+        I need to show $T(n) \leq c \cdot \lg n$.
+
+        \bigskip
+
+        \begin{align}
+            T(n) &\leq c\lg (\lceil n/2 \rceil) + 1\\
+            &\leq c \lg (n/2) + 1 \\
+            &= c (\lg n - \lg 2) + 1\\
+            &= c (\lg n - 1) + 1\\
+            &= c\lg n - c + 1\\
+            &\leq c\lg n - c + c
+        \end{align}
+
+        \bigskip
+
+        \color{red}The solution holds for $c \geq 1$.\color{black}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
