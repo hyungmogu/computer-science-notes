@@ -365,6 +365,11 @@
     \begin{align}
         T(n) &\leq 2c(\lfloor n/2 \rfloor + 17)\lg(\lfloor n/2 \rfloor + 17) + n\\
         &\leq 2c((n/2) + 17) \lg ((n/2) + 17) + n\\
+        &= 2c(n/2) \lg (n/2) + n\\
+        &= cn (\lg(n) - 1) + n\\
+        &= cn \lg (n) - cn + n\\
+        &\leq cn \lg (n) - cn + cn\\
+        &= cn \lg (n)
     \end{align}
 
 
