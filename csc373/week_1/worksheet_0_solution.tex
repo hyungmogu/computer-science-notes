@@ -57,6 +57,28 @@
 \begin{enumerate}[1.]
     \item
 
+    \underline{Recurrence:} $T(n) = T(n-1) + n$
+
+    \bigskip
+
+    \underline{Guess:} $T(n) = \mathcal{O}(n^2)$.
+
+    \bigskip
+
+    I need to show $T(n) \leq c \cdot n^2$.
+
+    \bigskip
+
+    \begin{align}
+        T(n) &\leq c(n-1)^2 + n\\
+        &= c(n^2 -2n + 1) + n\\
+        &= cn^2 - c2n + c + n\\
+        &\leq cn^2 - c2n + cn + n\\
+        &= cn^2 - cn + n\\
+        &\leq cn^2 - cn + cn\\
+        &= cn^2
+    \end{align}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
