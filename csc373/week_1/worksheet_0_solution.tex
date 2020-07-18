@@ -302,16 +302,23 @@
 
     \bigskip
 
-    \underline{Guess (upper bound):} $T(n) \leq c \cdot (n-1) \cdot \lg (n-1)$
+    \underline{Guess (upper bound):} $T(n) \leq c \cdot (n-2) \cdot \lg (n-2)$
 
     \bigskip
 
     \begin{align}
-        T(n) &\leq c(\lceil n/2 \rceil - 1) \lg (\lceil n/2 \rceil -1 ) + c (\lfloor n/2 \rfloor -1)\lg(\lfloor n/2 \rfloor - 1) + dn\\
-        &= c(n/2 - 1) \lg (n/2 - 1) + c (n/2 - 1)\lg(n/2 - 1) + dn\\
-        &= c((n-2)/2) \lg ((n-2)/2) + c ((n-2)/2)\lg((n-2)/2) + dn
+        T(n) &\leq c(\lceil n/2 \rceil - 2) \lg (\lceil n/2 \rceil - 2) + c (\lfloor n/2 \rfloor - 2)\lg(\lfloor n/2 \rfloor - 2) + dn\\
+        &= c(n/2 + 1 - 2) \lg (n/2 + 1 - 2) + c (n/2 + 1 - 2)\lg(n/2 + 1 - 2) + dn\\
+        &= c((n-2)/2) \lg ((n-2)/2) + c ((n-2)/2)\lg((n-2)/2) + dn\\
+        &= c(n-2) \lg ((n-2)/2) + dn\\
+        &= c(n-2) \lg (n-2) - c(n-2) + dn\\
+        &= c(n-2) \lg (n-2) - (d - c)n + 2c\\
+        &= c(n-2) \lg (n-2)\\
     \end{align}
 
+    \bigskip
+
+    The bound holds as long as $c > d$.
 
 \end{enumerate}
 
