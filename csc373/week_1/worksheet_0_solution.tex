@@ -219,6 +219,38 @@
 
     \end{mdframed}
 
+    \item
+    \setcounter{equation}{0}
+    \bigskip
+
+    \underline{Recurrence:} $T(n) = T(\lceil n/2 \rceil) + 1$
+
+    \bigskip
+
+    \underline{Guess (Upperbound):} $T(n) = \mathcal{O}(\lg n)$.
+
+    \bigskip
+
+    I first need to show $T(n) \leq c \cdot n \lg n$.
+
+    \bigskip
+
+    \begin{align}
+        T(n) &= 2T(\lfloor n/2 \rfloor) + n\\
+        &= 2 c \lfloor n/2 \rfloor \lg \lfloor n/2 \rfloor + n\\
+        &\leq 2 c \cdot (n/2) \lg (n/2) + n\\
+        &= c \cdot n (\lg n - 1) + n\\
+        &= cn \lg n - cn + n\\
+        &\leq cn \lg n - cn + cn\\
+        &\leq cn \lg n
+    \end{align}
+
+    \bigskip
+
+    The solution holds for $c \geq 1$.
+
+    \bigskip
+
 \end{enumerate}
 
 \end{document}
