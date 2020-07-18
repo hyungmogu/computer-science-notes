@@ -307,7 +307,9 @@
     \bigskip
 
     \begin{align}
-        T(n) &\leq c(\lceil n/2 \rceil - 1) \lg (\lceil n/2 \rceil -1 ) + c (\lfloor n/2 \rfloor -1)\lg(\lfloor n/2 \rfloor - 1) + dn
+        T(n) &\leq c(\lceil n/2 \rceil - 1) \lg (\lceil n/2 \rceil -1 ) + c (\lfloor n/2 \rfloor -1)\lg(\lfloor n/2 \rfloor - 1) + dn\\
+        &= c(n/2 - 1) \lg (n/2 - 1) + c (n/2 - 1)\lg(n/2 - 1) + dn\\
+        &= c((n-2)/2) \lg ((n-2)/2) + c ((n-2)/2)\lg((n-2)/2) + dn
     \end{align}
 
 
