@@ -290,7 +290,7 @@
 
     \item
     \setcounter{equation}{0}
-    \underline{\textbf{Recurrence (Merge sort):}}
+    \underline{Recurrence (Merge sort):}
 
     \begin{align}
         T(n) =
@@ -298,6 +298,16 @@
           \Theta(1) & \text{if $n = 1$}\\
           T(\lceil n/2 \rceil) + T(\lfloor n/2 \rfloor) + \Theta(n) & \text{if $n > 1$}
         \end{cases}
+    \end{align}
+
+    \bigskip
+
+    \underline{Guess (upper bound):} $T(n) \leq c \cdot (n-1) \cdot \lg (n-1)$
+
+    \bigskip
+
+    \begin{align}
+        T(n) &\leq c(\lceil n/2 \rceil - 1) \lg (\lceil n/2 \rceil -1 ) + c (\lfloor n/2 \rfloor -1)\lg(\lfloor n/2 \rfloor - 1) + dn
     \end{align}
 
 
