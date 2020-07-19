@@ -492,7 +492,7 @@
     The bound holds as long as $d \geq 1$ and $c \geq 1$.
 
     \item
-
+    \setcounter{equation}{0}
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -521,6 +521,25 @@
         \begin{center}
         \includegraphics[width=\linewidth]{images/worksheet_0_solution_2.png}
         \end{center}
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Finding number of levels in recursion tree
+
+            \begin{align}
+                1 &= n/2^i\\
+                2^i &= n\\
+                i &= \log_2 n
+            \end{align}
+
+            \item Finding the value of guess
+
+            \begin{align}
+            \sum\limits_{i=0}^{\log_2 n} 4n &= 4n \cdot \sum\limits_{i=0}^{\log_2 n} 1\\
+            &= 4n (\log_2 n + 1)
+            \end{align}
+        \end{enumerate}
 
     \end{itemize}
 
