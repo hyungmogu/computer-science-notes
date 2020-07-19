@@ -718,15 +718,15 @@
         \item Finding the upper bound of $T(n)$
 
         \begin{align}
-            T(n) &= n \cdot \sum\limits_{i=0}^{\lg n - 1} \frac{1}{2^i} + \Theta(1)\\
-            &= n \cdot \sum\limits_{i=0}^{\infty} \frac{1}{2^i} + \Theta(1) & [\text{since $n$ is asympt. large}]\\
-            &= n \cdot \Bigl ( \frac{1}{1 - \frac{1}{2}} \Bigr) + \Theta(1)\\
-            &= 2n + \Theta(1)\\
+            T(n) &= n^2 \cdot \sum\limits_{i=0}^{\lg n - 1} \frac{1}{2^{2i}} + \Theta(1)\\
+            &= n^2 \cdot \sum\limits_{i=0}^{\infty} \frac{1}{2^{2i}} + \Theta(1) & [\text{since $n$ is asympt. large}]\\
+            &= n^2 \cdot \Bigl ( \frac{1}{1 - \frac{1}{4}} \Bigr) + \Theta(1)\\
+            &= \frac{4n^2}{3} + \Theta(1)
         \end{align}
 
         \bigskip
 
-        Thus, we we can conclude $T(n) = \mathcal{O}(n)$
+        Thus, we we can conclude $T(n) = \mathcal{O}(n^2)$
 
         \bigskip
 
@@ -735,7 +735,27 @@
 
         \bigskip
 
-        \underline{Guess:} $T(n) \leq $
+        \underline{Guess:} $T(n) \leq cn^2$
+
+        \bigskip
+
+        I need to show the guess holds for the recurrence $T(n) = T(\frac{n}{2}) + n$.
+
+        \bigskip
+
+        And, indeed we have
+
+        \begin{align}
+            T(n) &= T(\frac{n}{2}) + n^2\\
+            &\leq \frac{cn^2}{4} + n^2\\
+            &=  (\frac{c}{4} + 1) \cdot n^2\\
+            &\leq cn^2
+        \end{align}
+
+        \bigskip
+
+        THe boundary holds when $c \geq \frac{4}{3}$.
+
 
 
     \end{enumerate}
