@@ -516,15 +516,24 @@
 
         \bigskip
 
-        The tree has $n^{\lg 3}$ leaves. So,
+        The tree has $n^{\lg 3}$ leaves. So, we have
 
         \bigskip
 
         \begin{align}
-            T(n) &= cn \cdot \sum\limits_{i=0}^{\lg_2(n) - 1} (3/2)^i + \Theta(n^{\lg 3})\\
-            &= cn \cdot \Bigl( \frac{(3/2)^{\lg_2(n)} - 1}{(3/2) - 1} \Bigr) + \Theta(n^{\lg 3})\\
-            &= 2cn \cdot \Bigl((3/2)^{\lg_2(n)} - 1 \Bigr) + \Theta(n^{\lg 3})
+            T(n) &= n \cdot \sum\limits_{i=0}^{\lg_2(n) - 1} (3/2)^i + \Theta(n^{\lg 3})\\
+            &= n \cdot \Bigl( \frac{(3/2)^{\lg_2(n)} - 1}{(3/2) - 1} \Bigr) + \Theta(n^{\lg 3})\\
+            &= 2n \cdot \Bigl((3/2)^{\lg_2(n)} - 1 \Bigr) + \Theta(n^{\lg 3})\\
+            &= 2n \cdot \Bigl(n^{\lg (3/2)} - 1 \Bigr) + \Theta(n^{\lg 3})\\
+            &= 2n \cdot \Bigl(n^{\lg (3/2)} - 1 \Bigr) + \Theta(n^{\lg 3})\\
+            &= 2 \cdot \Bigl(n^{\lg 3 - 1 + 1} - n \Bigr) + \Theta(n^{\lg 3})\\
+            &= 2 \cdot \Bigl(n^{\lg 3} - n \Bigr) + \Theta(n^{\lg 3})\\
+            &= 2 \cdot \Bigl(n^{\lg 3} - n \Bigr) + \Theta(n^{\lg 3})
         \end{align}
+
+        \bigskip
+
+        Thus, the guess for the upper bound is $T(n) = \mathcal{O}(n^{\lg 3})$
 
     \end{enumerate}
 
