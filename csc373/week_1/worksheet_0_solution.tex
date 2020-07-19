@@ -569,7 +569,10 @@
             \item Finding the value of guess
 
             \begin{align}
-            \sum\limits_{i=0}^{\log_4 n} c(3/16)^in^2 &= \\
+            \sum\limits_{i=0}^{\log_4 n} c(3/16)^in^2 &= cn^2 \cdot \sum\limits_{i=0}^{\log_4 n} (3/16)^i\\
+            &= cn^2 \cdot \sum\limits_{i=0}^{\log_4 n} (3/16)^i\\
+            &= cn^2 \cdot \sum\limits_{i=0}^{\infty} (3/16)^i & [\text{since $n$ is asympt. large}]\\
+            &= cn^2 (\frac{1}{1 - (3/16)})
             \end{align}
         \end{enumerate}
 
