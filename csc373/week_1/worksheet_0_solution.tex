@@ -493,6 +493,13 @@
 
     \item
     \setcounter{equation}{0}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/worksheet_0_solution_4.png}
+    \end{center}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -594,6 +601,20 @@
             \bigskip
 
             \item Verify the correctness of guess using subtitution method
+
+            \bigskip
+
+            \begin{align}
+                T(n) &\leq 3T(\lfloor n/4 \rfloor) + cn^2\\
+                &\leq 3d \lfloor n/4 \rfloor^2 + cn^2\\
+                &\leq 3d (n/4)^2 + cn^2\\
+                &= (3/16) dn^2 + cn^2\\
+                &\leq dn^2
+            \end{align}
+
+            \bigskip
+
+            where the last step holds as long as $d \geq (16/13)c$.
         \end{enumerate}
 
 
