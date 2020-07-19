@@ -372,6 +372,15 @@
         &= cn \lg (n)
     \end{align}
 
+    \item
+    \setcounter{equation}{0}
+    \begin{align}
+        T(n) &= 4T(n/3) + n\\
+        &\leq 4c (n/3)^{\log_3 4} + n\\
+        &\leq 4cn^{\log_3 4} + n
+    \end{align}
+
+    We cannot advance further since $n$ in $4cn^{\log_3 4} + n$ cannot be eliminated.
 
 \end{enumerate}
 
