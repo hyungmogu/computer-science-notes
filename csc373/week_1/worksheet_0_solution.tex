@@ -403,6 +403,38 @@
 
     The bound holds as long as $d \geq 3$ and $c \geq 1$.
 
+    \item I need to show $T(n) \leq cn^2$
+
+    \bigskip
+
+    \begin{align}
+        T(n) &= 4T(n/2) + n\\
+        &\leq 4c(n/2)^2 + n\\
+        &= (4/4)cn^2 + n\\
+        &= cn^2 + n
+    \end{align}
+
+    \bigskip
+
+    We cannot advance further since $n$ in $cn^2 + n$ cannot be eliminated.
+
+    \bigskip
+
+    But with the new guess $T(n) \leq cn^2 - dn$, we have
+
+    \begin{align}
+        T(n) &= 4T(n/2) + n\\
+        &\leq 4c(n/2)^2 - 4d(n/2) + n\\
+        &= (4/4)cn^2 - 2dn + n\\
+        &\leq cn^2 - 2dn + dn\\
+        &= cn^2 - dn
+    \end{align}
+
+    \bigskip
+
+    The bound holds as long as $d \geq 1$ and $c \geq 1$.
+
+
 \end{enumerate}
 
 \end{document}
