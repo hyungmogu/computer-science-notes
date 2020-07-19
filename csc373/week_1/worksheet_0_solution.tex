@@ -708,11 +708,34 @@
     \begin{enumerate}[1.]
         \item Finding number of levels in recursion tree
 
+        \begin{align}
+            1 &= \frac{n}{2^i}\\
+            2^i &= n\\
+            i &= \lg n
+        \end{align}
+
 
         \item Finding the upper bound of $T(n)$
 
+        \begin{align}
+            T(n) &= n \cdot \sum\limits_{i=0}^{\lg n - 1} \frac{1}{2^i} + \Theta(1)\\
+            &= n \cdot \sum\limits_{i=0}^{\infty} \frac{1}{2^i} + \Theta(1) & [\text{since $n$ is asympt. large}]\\
+            &= n \cdot \Bigl ( \frac{1}{1 - \frac{1}{2}} \Bigr) + \Theta(1)\\
+            &= 2n + \Theta(1)\\
+        \end{align}
+
+        \bigskip
+
+        Thus, we we can conclude $T(n) = \mathcal{O}(n)$
+
+        \bigskip
+
 
         \item Verify the correctness of guess using subtitution method
+
+        \bigskip
+
+        \underline{Guess:} $T(n) \leq $
 
 
     \end{enumerate}
