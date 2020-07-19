@@ -535,6 +535,36 @@
 
         Thus, the guess for the upper bound is $T(n) = \mathcal{O}(n^{\lg 3})$
 
+        \bigskip
+
+        \item Verifying the correct guess using the subtitution method
+
+        \bigskip
+
+        \underline{Guess:} $T(n) \leq cn^{\lg 3} - dn$
+
+        \bigskip
+
+        I need to show the guess holds in the recurrence $T(n) = 3T(\lfloor n/2 \rfloor) + n$.
+
+        \bigskip
+
+        Indeed we have
+
+        \begin{align}
+            T(n) &= 3T(\lfloor n/2 \rfloor) + n \\
+            &\leq 3(c \lfloor n/2 \rfloor^{\lg 3}) - d(\lfloor n/2 \rfloor) + n\\
+            &= 3\Bigl(\frac{cn^{\lg 3}}{3} - d(\frac{n}{2} + 1) \Bigr) + n\\
+            &= 3\Bigl(\frac{cn^{\lg 3}}{3} - \frac{3dn}{2} \Bigr) + n\\
+            &\leq 3\Bigl(\frac{cn^{\lg 3}}{3} - \frac{3dn}{3} \Bigr) + n\\
+            &= cn^{\lg 3} - 3dn + n\\
+            &\leq cn^{\lg 3} - 3dn + 2dn\\
+            &= cn^{\lg 3} - dn
+        \end{align}
+
+        \bigskip
+
+        And the boundary holds as long as $c \geq 0$ and $d \geq 1$.
     \end{enumerate}
 
     \bigskip
