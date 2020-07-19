@@ -377,10 +377,31 @@
     \begin{align}
         T(n) &= 4T(n/3) + n\\
         &\leq 4c (n/3)^{\log_3 4} + n\\
-        &\leq 4cn^{\log_3 4} + n
+        &\leq 4c(1/3)^{\log_3 4}n^{\log_3 4} + n\\
+        &\leq (4/4)cn^{\log_3 4} + n\\
+        &\leq cn^{\log_3 4} + n
     \end{align}
 
-    We cannot advance further since $n$ in $4cn^{\log_3 4} + n$ cannot be eliminated.
+    We cannot advance further since $n$ in $cn^{\log_3 4} + n$ cannot be eliminated.
+
+    \bigskip
+
+    With the new guess $T(n) \leq cn^{\log_3 4} - dn$, we have
+
+    \begin{align}
+        T(n) &= 4T(n/3) + n\\
+        &\leq 4c(n/3)^{\log_3 4} - d(n/3) + n\\
+        &= 4c(n/3)^{\log_3 4} - d(n/3) + n\\
+        &= (4/3^{\log_3 4})cn^{\log_3 4} - d(n/3) + n\\
+        &= (4/4)cn^{\log_3 4} - d(n/3) + n\\
+        &= cn^{\log_3 4} - d(n/3) + n\\
+        &\leq cn^{\log_3 4} - d(n/3) + n\\
+        &\leq cn^{\log_3 4}
+    \end{align}
+
+    \bigskip
+
+    The bound holds as long as $d \geq 3$ and $c \geq 1$.
 
 \end{enumerate}
 
