@@ -1153,6 +1153,37 @@
     \includegraphics[width=\linewidth]{images/worksheet_0_solution_10.png}
     \end{center}
 
+    \begin{enumerate}[1.]
+        \item Finding the depth of tree
+
+        \bigskip
+
+        The longest simple path from the root to a leaf is $n \to \frac{n}{2} \to \frac{n}{4} \to \cdots \to 1$.
+
+        \bigskip
+
+        Since ($\frac{n}{2^i} = 1$) when $i = \lg n$, the height of the tree is $\lg n$.
+
+        \bigskip
+
+        \item Finding the cost at each level in the tree
+
+
+
+        \bigskip
+
+        \item Finding the cost of leaf nodes
+
+        \item Finding the upper bound cost of $T(n)$
+
+        \begin{align}
+            T(n) &\leq \sum\limits_{i=0}^{n-1} 2^i + \Theta(2^n)\\
+            &= \Bigl( \frac{2^n - 1}{2 - 1} \Bigr) + \Theta(2^n)\\
+            &= (2^n - 1) + \Theta(2^n)\\
+            &= \Theta(2^n)
+        \end{align}
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
