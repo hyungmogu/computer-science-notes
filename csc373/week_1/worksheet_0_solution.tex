@@ -770,9 +770,21 @@
     \end{center}
 
     \begin{itemize}
-        \item find the total cost of the recursion tree
+        \item Find the total cost of the recursion tree
 
-        \item
+        \begin{align}
+            1 &= \frac{n}{2^i}\\
+            2^i &= n\\
+            i &= \lg n
+        \end{align}
+
+        \item Finding the upper bound of $T(n)$
+
+        \begin{align}
+            T(n) &=  \sum\limits_{i=0}^{\lg n - 1} (2 \cdot 4^i + (2n)^i) + \Theta(n^2)
+        \end{align}
+
+        \item Verify the correctness of guess using subtitution method
 
     \end{itemize}
 
