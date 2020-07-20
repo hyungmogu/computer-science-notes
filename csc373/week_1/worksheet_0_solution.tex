@@ -987,6 +987,16 @@
 
         \item Find the number of leaves expecting a full binary tree of the same depth
 
+        \bigskip
+
+        \quad Here, the number of leaves is:
+
+        \begin{align}
+            \text{number of branchings}^{\text{depth of tree}} &= 2^{2^{n - 1}}
+        \end{align}
+
+        \bigskip
+
         \item Find the upper bound of $T(...)$ that produces most depth
 
         \item Valiate the upper bound using the subtitution method
@@ -1034,7 +1044,7 @@
             \color{red}
 
             \begin{align*}
-                \mathcal{O}( c \cdot \text{cost at depth} \times \text{depth}) = \mathcal{O}(cn \log_{3/2} n) = \mathcal{O}(n\lg n)
+                \mathcal{O}( \text{cost at depth} \times \text{depth}) = \mathcal{O}(cn \log_{3/2} n) = \mathcal{O}(n\lg n)
             \end{align*}
 
             \color{black}
