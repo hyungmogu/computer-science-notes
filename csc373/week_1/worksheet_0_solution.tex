@@ -881,7 +881,7 @@
     \item
 
     \bigskip
-
+    \setcounter{equation}{0}
     \underline{\textbf{Solution:}}
 
     \bigskip
@@ -893,9 +893,28 @@
     \begin{itemize}
         \item Finding the depth of tree
 
+        \begin{align}
+            n - 1
+        \end{align}
+
+        \bigskip
+
         \item Finding the number of leaves in the tree
 
+        \begin{align}
+            \text{number of branchings}^{\text{depth of tree}} &= 2^{n - 1}
+        \end{align}
+
+        \bigskip
+
         \item Finding the upper bound of $T(n)$
+
+        \begin{align}
+            T(n) &\leq \sum\limits_{i=0}^{n-1} 2^i + \Theta(2^n)\\
+            &= \Bigl( \frac{2^n - 1}{2 - 1} \Bigr) + \Theta(2^n)\\
+            &= (2^n - 1) + \Theta(2^n)\\
+            &= \Theta(2^n)
+        \end{align}
 
         \item Verify the correctness of guess using subtitution method
 
