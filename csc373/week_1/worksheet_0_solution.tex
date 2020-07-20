@@ -918,6 +918,19 @@
 
         \item Verify the correctness of guess using subtitution method
 
+        \bigskip
+
+        \underline{Guess:} $T(n) \geq c2^n$
+
+        \bigskip
+
+        \begin{align}
+            T(n) &= 2T(n - 1) + 1\\
+            &< 2c 2^{n-1} + 1\\
+            &= c2^n + 1\\
+            &= c2^n & [\text{Since $n$ is asympt. large}]
+        \end{align}
+
     \end{itemize}
 
     \bigskip
