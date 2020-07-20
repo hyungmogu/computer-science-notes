@@ -759,7 +759,7 @@
     \end{enumerate}
 
     \item
-
+    \setcounter{equation}{0}
     \underline{\textbf{Solution:}}
 
     \bigskip
@@ -781,7 +781,8 @@
         \item Finding the upper bound of $T(n)$
 
         \begin{align}
-            T(n) &=  \sum\limits_{i=0}^{\lg n - 1} (2 \cdot 4^i + (2n)^i) + \Theta(n^2)
+            T(n) &=  \sum\limits_{i=0}^{\lg n - 1} (2 \cdot 4^i + (2n)^i) + \Theta(n^2)\\
+            &=  \sum\limits_{i=0}^{\lg n - 1} 2 \cdot 4^i + \sum\limits_{i=0}^{\lg n - 1} (2n)^i + \Theta(n^2)
         \end{align}
 
         \item Verify the correctness of guess using subtitution method
