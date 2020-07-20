@@ -1019,7 +1019,7 @@
 
         \bigskip
 
-        \underline{Guess:} $T(n) \leq cn2^{n-1} - dn$
+        \underline{Guess:} $T(n) \leq c2^{n} - 2dn$
 
         \bigskip
 
@@ -1031,7 +1031,11 @@
 
         \begin{align}
             T(n) &= T(n-1) + T(\frac{n}{2}) + n\\
-            &\leq
+            &\leq c2^{n-1} - d(n-1) + c2^{\frac{n}{2}} - \frac{dn}{2} + n\\
+            &= c2^{n-1} - d (\frac{3n}{2} - 1) + c2^{\frac{n}{2}} + n\\
+            &\leq c2^{n-1} - d (\frac{3n}{2} - 1) + n & [\text{Since $c2^{n-1}$ dominates $c2^{\frac{n}{2}}$}]\\
+            &\leq c2^{n-1} - d (\frac{3n}{2}) + n & [\text{Since $\frac{3n}{2}$ dominates $-1$}]\\
+            &\leq c2^{n} - d (\frac{3n}{2}) + n & [\text{Since $n$ dominates $-1$}]\\
         \end{align}
 
         \bigskip
