@@ -1156,7 +1156,7 @@
     \begin{enumerate}[1.]
         \item Finding the depth of tree
 
-        \bigskip
+        \begin{mdframed}
 
         The longest simple path from the root to a leaf is $n \to \frac{n}{2} \to \frac{n}{4} \to \cdots \to 1$.
 
@@ -1164,13 +1164,27 @@
 
         Since ($\frac{n}{2^i} = 1$) when $i = \lg n$, the height of the tree is $\lg n$.
 
-        \bigskip
+        \end{mdframed}
 
         \item Finding the cost at each level in the tree
 
+        \begin{mdframed}
 
+        Each level has four times more nodes than the level above.
 
         \bigskip
+
+        So, the number of nodes at depth $i$ is $4^i$.
+
+        \bigskip
+
+        Now, each node at $i = 0, ... , \lg(n) - 1$ has cost of $\frac{cn}{2^i}$.
+
+        \bigskip
+
+        So, by multiplying together, the cost of all nodes at depth $i$ is $cn2^i$
+
+        \end{mdframed}
 
         \item Finding the cost of leaf nodes
 
