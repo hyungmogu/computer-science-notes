@@ -985,8 +985,44 @@
 
         \begin{enumerate}[1.]
             \item Find the depth of longest simple path in recursion tree
+
+            \bigskip
+
+            \color{red}
+            The longest simple path is created in $T(\frac{2n}{3})$. With the depth of
+            $i = \log_{3/2} n$.
+            \color{black}
+
+            \bigskip
+
             \item Find the number of leaves expecting a full binary tree of the same depth
+
+            \bigskip
+
+            \color{red}
+            Here, the number of leaves is $\mathcal{O}(n)$.
+            \color{black}
+
+            \bigskip
+
             \item Find the upper bound of $T(...)$ that produces most depth
+
+            \color{red}
+
+            \begin{align*}
+                \mathcal{O}( c \cdot \text{total cost} \times \text{depth}) = \mathcal{O}(cn \log_{3/2} n) = \mathcal{O}(n\lg n)
+            \end{align*}
+
+            \color{black}
+
+            \bigskip
+
+            \begin{itemize}
+                \item $\mathcal{O}(cn \log_{3/2} n) \to \mathcal{O}(n\lg n)$ since $\frac{3}{2} < 2$ (There seems to be a lot of sloppiness)
+            \end{itemize}
+
+            \bigskip
+
             \item Valiate the upper bound using the subtitution method
         \end{enumerate}
     \end{itemize}
