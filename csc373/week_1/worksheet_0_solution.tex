@@ -924,12 +924,22 @@
 
         \bigskip
 
+        I need to show the bound holds for $T(n) = 2T(n - 1) + 1$.
+
+        \bigskip
+
+        Indeed we have
+
         \begin{align}
             T(n) &= 2T(n - 1) + 1\\
             &< 2c 2^{n-1} + 1\\
             &= c2^n + 1\\
             &= c2^n & [\text{Since $n$ is asympt. large}]
         \end{align}
+
+        \bigskip
+
+        And the boundary holds when $c \geq 1$.
 
     \end{itemize}
 
@@ -943,7 +953,7 @@
         \item If constant term in $T$ exists, but The term after $T()$ is constant,
         then it's ignored. It is considered when it's in terms of $n$.
 
-        \item calculating the number of leaves
+        \item Calculating the number of leaves
 
         \bigskip
 
@@ -956,6 +966,21 @@
         \underline{\textbf{Example:}}
 
         $2^{n-1}$ (in above example)
+    \end{itemize}
+
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \begin{itemize}
+        \item Solving recurrence with uneven recursion tree
+
+        \begin{enumerate}[1.]
+            \item Find the depth of longest simple path in recursion tree
+            \item
+        \end{enumerate}
     \end{itemize}
 
 \end{enumerate}
