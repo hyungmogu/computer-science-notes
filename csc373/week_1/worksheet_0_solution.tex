@@ -784,12 +784,31 @@
             T(n) &=  \sum\limits_{i=0}^{\lg n - 1} (2 \cdot 4^i + n2^i) + \Theta(n^2)\\
             &= \sum\limits_{i=0}^{\lg n - 1} 2 \cdot 4^i + \sum\limits_{i=0}^{\lg n - 1} n2^i + \Theta(n^2)\\
             &= 2 \cdot \sum\limits_{i=0}^{\lg n - 1} 4^i + n \cdot \sum\limits_{i=0}^{\lg n - 1} 2^i + \Theta(n^2)\\
-            &= 2 \cdot \Bigl( \frac{4^{\lg n} - 1}{4 - 1} \Bigr) + n \cdot ( n - 1) + \Theta(n^2)\\
+            &= 2 \cdot \Bigl( \frac{4^{\lg n} - 1}{4 - 1} \Bigr) + n \cdot ( n - 1) + \Theta(n^2) & [\text{Since $\sum\limits_{i=0}^{n-1} ar^i = a \cdot \frac{r^n - 1}{r - 1}$, where $r \neq 1$}]\\
             &= \frac{2}{3} \cdot ( n^2 - 1)+ n \cdot (n - 1) + \Theta(n^2)\\
             &= \mathcal{O}(n^2) + \Theta(n^2)\\
         \end{align}
 
         \item Verify the correctness of guess using subtitution method
+
+        \bigskip
+
+        \underline{Guess:} $T(n) \leq cn^2 - dn$.
+
+        \bigskip
+
+        I need to show the guess holds for the recurrence $T(n) = 4T(\frac{n}{2} +2) + n$
+
+        \bigskip
+
+        \begin{align}
+            T(n) &= 4T(\frac{n}{2} +2) + n\\
+            &\leq 4c (\frac{n}{2} + 2)^2 - 4dn  + n\\
+            &= 4c (\frac{n^2}{4} + 2n + 4) - 4dn  + n\\
+            &\leq cn^2 - 4dn  + n & [\text{Since $n^2$ dominates $n$ asymptotically}]\\
+            &\leq cn^2 - 4dn  + 3dn\\
+            &= cn^2 - dn
+        \end{align}
 
     \end{itemize}
 
