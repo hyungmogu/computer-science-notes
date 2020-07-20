@@ -995,7 +995,7 @@
 
         \bigskip
 
-        \quad Here, the number of leaves is:
+        \quad Here, the number of leaves is at most:
 
         \begin{align}
             \text{number of branchings}^{\text{depth of tree}} &= 2^{2^{n - 1}}
@@ -1003,14 +1003,14 @@
 
         \bigskip
 
-        \item Find the upper bound of $T(...)$ that produces most depth
+        \item Find the upper bound of $T(n)$ that produces most depth
 
         \bigskip
 
-        Allowing a lot of estimation, we have
-
         \begin{align}
-            \mathcal{O}(\text{cost at depth} \times \text{depth}) = \mathcal{O}(n \cdot 2^{n-1})
+            \sum\limits_{i=0}^{n-1} 2^i + ... &= \Bigl( \frac{2^n - 1}{2 - 1} \Bigr) + ...\\
+            &= (2^n - 1) + ...\\
+            &= \mathcal{O}(2^n)
         \end{align}
 
         \bigskip
