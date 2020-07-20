@@ -1133,6 +1133,15 @@
 
     The shortest simple path from the root occurs in $T(\frac{n}{3})$ with the value of $i = \log_3 n$.
 
+    \bigskip
+
+    The figure 4.6 tells us each level in the recurrence tree has cost of $cn$.
+
+    \bigskip
+
+    Since the solution to the recurrence is at least the number of levels times the
+    cost of each level, the solution is $\Omega(cn \log_3 n) = \Omega(\frac{cn\lg n}{\lg 3}) = \Omega(n\lg n)$.
+
 \end{enumerate}
 
 \end{document}
