@@ -972,6 +972,30 @@
 
     \bigskip
 
+    \underline{\textbf{Solution:}}
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Find the depth of longest simple path in recursion tree
+
+        \bigskip
+
+        \quad The longest simple path is created by $T(n-1)$ and has depth of $2^{n-1}$.
+
+        \bigskip
+
+        \item Find the number of leaves expecting a full binary tree of the same depth
+
+        \item Find the upper bound of $T(...)$ that produces most depth
+
+        \item Valiate the upper bound using the subtitution method
+
+    \end{enumerate}
+
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \begin{itemize}
@@ -1010,7 +1034,7 @@
             \color{red}
 
             \begin{align*}
-                \mathcal{O}( c \cdot \text{total cost} \times \text{depth}) = \mathcal{O}(cn \log_{3/2} n) = \mathcal{O}(n\lg n)
+                \mathcal{O}( c \cdot \text{cost at depth} \times \text{depth}) = \mathcal{O}(cn \log_{3/2} n) = \mathcal{O}(n\lg n)
             \end{align*}
 
             \color{black}
@@ -1025,11 +1049,22 @@
 
             \item Valiate the upper bound using the subtitution method
 
+            \color{red}
             \begin{align}
                 T(n) &\leq T(\frac{n}{3}) + T(\frac{2n}{3}) + cn\\
                 &\leq d(\frac{n}{3}) \cdot \lg(\frac{n}{3}) + d(\frac{2n}{3})\lg(\frac{2n}{3}) + cn\\
-                &= (d(\frac{n}{3}) \lg n - d(\frac{n}{3}) \cdot \lg 3) + (d (\frac{2n}{3})\lg n - d (\frac{2n}{3})\lg(\frac{3}{2}) + cn)
+                &= (d(\frac{n}{3}) \lg n - d(\frac{n}{3}) \cdot \lg 3) + (d (\frac{2n}{3})\lg n - d (\frac{2n}{3})\lg(\frac{3}{2}) + cn)\\
+                &= dn \lg n - d( (\frac{n}{3} \lg 3) + (\frac{2n}{3})\lg(3/2) ) + cn\\
+                &= dn \lg n - d( (\frac{n}{3}) \lg 3 + (\frac{2n}{3})\lg(3) - (\frac{2n}{3})\lg(2) ) + cn\\
+                &= dn \lg n - dn (\lg 3 - \frac{2}{3}) + cn\\
+                &\leq dn \lg n
             \end{align}
+
+            \bigskip
+
+            And the above is true as long as $d \geq \frac{c}{\lg 3 - \frac{2}{3}}$
+
+            \color{black}
         \end{enumerate}
     \end{itemize}
 
