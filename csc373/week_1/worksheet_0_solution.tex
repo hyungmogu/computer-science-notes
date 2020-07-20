@@ -976,6 +976,10 @@
 
     \bigskip
 
+    I will solve only the upper bound for now.
+
+    \bigskip
+
     \begin{center}
     \includegraphics[width=\linewidth]{images/worksheet_0_solution_9.png}
     \end{center}
@@ -1031,14 +1035,18 @@
 
         \begin{align}
             T(n) &= T(n-1) + T(\frac{n}{2}) + n\\
-            &\leq c2^{n-1} - d(n-1) + c2^{\frac{n}{2}} - \frac{dn}{2} + n\\
-            &= c2^{n-1} - d (\frac{3n}{2} - 1) + c2^{\frac{n}{2}} + n\\
-            &\leq c2^{n-1} - d (\frac{3n}{2} - 1) + n & [\text{Since $c2^{n-1}$ dominates $c2^{\frac{n}{2}}$}]\\
-            &\leq c2^{n-1} - d (\frac{3n}{2}) + n & [\text{Since $\frac{3n}{2}$ dominates $-1$}]\\
-            &\leq c2^{n} - d (\frac{3n}{2}) + n & [\text{Since $n$ dominates $-1$}]\\
+            &\leq c2^{n-1} - 2d(n-1) + c2^{\frac{n}{2}} - 2\Bigl(\frac{dn}{2} \Bigr) + n\\
+            &= c2^{n-1} - 2d(n-1) + c2^{\frac{n}{2}} - dn + n\\
+            &\leq c2^{n-1} - 2d(n-1) + c2^{\frac{n}{2}} - dn + dn\\
+            &= c2^{n-1} - 2d(n-1) + c2^{\frac{n}{2}}\\
+            &= c2^{n-1} - 2d(n-1) & [\text{Since $c2^{n-1}$ dominates $c2^{\frac{n}{2}}$}]\\
+            &= c2^{n} - 2dn & [\text{Since $n$ dominates $-1$}]\\
+            &\leq c2^{n} - dn
         \end{align}
 
         \bigskip
+
+        And the bound holds when $c \geq 1$ (not too sure) and $d \geq 1$.
 
     \end{enumerate}
 
