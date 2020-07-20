@@ -812,6 +812,60 @@
 
     \end{itemize}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_0_solution_6.png}
+            \includegraphics[width=\linewidth]{images/worksheet_0_solution_7.png}
+            \end{center}
+
+            \begin{itemize}
+                \item Find the total cost of the recursion tree
+
+                \begin{align}
+                    1 &= \frac{n}{2^i}\\
+                    2^i &= n\\
+                    i &= \lg n
+                \end{align}
+
+                \item Finding the upper bound of $T(n)$
+
+                \begin{align}
+                    T(n) &=  \sum\limits_{i=0}^{\lg n - 1} (2 \cdot 4^i + n2^i) + \Theta(n^2)\\
+                    &= \sum\limits_{i=0}^{\lg n - 1} 2 \cdot 4^i + \sum\limits_{i=0}^{\lg n - 1} n2^i + \Theta(n^2)\\
+                    &= 2 \cdot \sum\limits_{i=0}^{\lg n - 1} 4^i + n \cdot \sum\limits_{i=0}^{\lg n - 1} 2^i + \Theta(n^2)\\
+                    &= 2 \cdot \Bigl( \frac{4^{\lg n} - 1}{4 - 1} \Bigr) + n \cdot ( n - 1) + \Theta(n^2) & [\text{Since $\sum\limits_{i=0}^{n-1} ar^i = a \cdot \frac{r^n - 1}{r - 1}$, where $r \neq 1$}]\\
+                    &= \frac{2}{3} \cdot ( n^2 - 1)+ n \cdot (n - 1) + \Theta(n^2)\\
+                    &= \color{red}\Theta(n^2)\color{black}
+                \end{align}
+
+                \item Verify the correctness of guess using subtitution method
+
+                \bigskip
+
+                \underline{Guess:} $T(n) \leq cn^2 - dn$.
+
+                \bigskip
+
+                I need to show the guess holds for the recurrence $T(n) = 4T(\frac{n}{2} +2) + n$
+
+                \bigskip
+
+                \begin{align}
+                    T(n) &= 4T(\frac{n}{2} +2) + n\\
+                    &\leq 4c (\frac{n}{2} + 2)^2 - 4dn  + n\\
+                    &= 4c (\frac{n^2}{4} + 2n + 4) - 4dn  + n\\
+                    &\leq cn^2 - 4dn  + n & [\text{Since $n^2$ dominates $n$ asymptotically}]\\
+                    &\leq cn^2 - 4dn  + 3dn\\
+                    &= cn^2 - dn
+                \end{align}
+
+            \end{itemize}
+    \end{mdframed}
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -823,6 +877,10 @@
         \item Noticed that in solution, the total cost is found for each term in $T(\frac{n}{2} + 2)$ (i.e. first for $\frac{n}{2}$ and second for $2$).
         and then combined together in the end.
     \end{itemize}
+
+    \
+
+
 
 
 \end{enumerate}
