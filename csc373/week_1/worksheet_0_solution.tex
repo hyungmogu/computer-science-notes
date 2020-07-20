@@ -1024,6 +1024,12 @@
             \bigskip
 
             \item Valiate the upper bound using the subtitution method
+
+            \begin{align}
+                T(n) &\leq T(\frac{n}{3}) + T(\frac{2n}{3}) + cn\\
+                &\leq d(\frac{n}{3}) \cdot \lg(\frac{n}{3}) + d(\frac{2n}{3})\lg(\frac{2n}{3}) + cn\\
+                &= (d(\frac{n}{3}) \lg n - d(\frac{n}{3}) \cdot \lg 3) + (d (\frac{2n}{3})\lg n - d (\frac{2n}{3})\lg(\frac{3}{2}) + cn)
+            \end{align}
         \end{enumerate}
     \end{itemize}
 
