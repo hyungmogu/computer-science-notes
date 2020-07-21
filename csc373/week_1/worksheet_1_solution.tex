@@ -475,6 +475,25 @@
         \bigskip
 
         Thus, $T(n)$ has upper bound of $\mathcal{O}(n^4)$ and lower bounds of $\Omega(n^4)$, or $\Theta(n^4)$.
+
+        \bigskip
+
+        \item
+
+        Here $a = 1, b = \frac{10}{7}, f(n) = n$.
+
+        \bigskip
+
+        Since $f(n) = 1 = n^{0 + 1} = n^{\log_{10/7} (1) + 1}=n^{\log_b (a) + \epsilon}$, where $\epsilon = 1$,
+        and $af(\frac{n}{b}) =\frac{7n}{10} \leq cn^4$ where
+        $c = \frac{7}{10}$ for sufficiently large $n$, the case 3 of master's theorem applies.
+
+        \bigskip
+
+        Thus, $T(n)$ has upper bound of $\mathcal{O}(n)$ and lower bounds of $\Omega(n^4)$, or $\Theta(n)$.
+
+
+
     \end{enumerate}
 
 
