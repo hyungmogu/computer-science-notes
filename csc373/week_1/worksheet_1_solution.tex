@@ -534,7 +534,23 @@
 
         \bigskip
 
-        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^{\log_2 7})$ and lower bounds of $\Omega(n^{\log_2 7})$, or $\Theta(n^{\log_2 7})$.
+        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^{\log_2 7})$ and lower bound of $\Omega(n^{\log_2 7})$, or $\Theta(n^{\log_2 7})$.
+
+        \bigskip
+
+        \item
+
+        Here we have $a = 2, b = 4 , f(n) = \sqrt(n)$.
+
+        \bigskip
+
+        Since $f(n) = \sqrt{n} = n^{\log_4 2} = n^{\log_b a}$, case 2 of master's theorem
+        applies.
+
+        \bigskip
+
+        Thus $T(n)$ has upper bound of $\mathcal{O}(\sqrt{n}\lg n)$, and lower bound of
+        $\Omega(\sqrt{n}\lg n)$, or $\Theta(\sqrt{n} \lg n)$.
 
     \end{enumerate}
 
