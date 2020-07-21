@@ -1205,13 +1205,40 @@
             &= \Theta(n^2)
         \end{align}
 
+        \bigskip
+
+        Thus, the tight asymptotic bound is $\Theta(n^2)$.
+
+        \end{mdframed}
+
+        \item Verifying the upper bound
+
+        \begin{mdframed}
+
+        Let the guess be $T(n) \leq cn^2 - dn$.
+
+        \bigskip
+
+        I need to show the guess holds for the recurrence $T(n) = 4T(\lfloor n/2 \rfloor) + cn$.
+
+        \bigskip
+
+        Indeed we have
+
+        \begin{align}
+            T(n) &= 4T(\lfloor n/2 \rfloor) + cn
+        \end{align}
+
+        \end{mdframed}
+
+        \item Verifying the lower bound
+
+        \begin{mdframed}
+
         \end{mdframed}
 
     \end{enumerate}
 
-    \bigskip
-
-    Thus, the tight asymptotic bound is $\Theta(n^2)$.
 \end{enumerate}
 
 \end{document}
