@@ -1261,7 +1261,16 @@
 
         \begin{align}
             T(n) &= 4T(\lfloor n/2 \rfloor) + cn\\
+            &\geq 4d (\lfloor \frac{n}{2} \rfloor + 2)^2 + cn\\
+            &\geq 4d (\frac{n}{2} - 1 + 2)^2 + cn\\
+            &= 4d \Bigl( \frac{n}{2} + 1 \Bigr)^2 + cn\\
+            &= d \Bigl( n + 2 \Bigr)^2 + cn\\
+            &\geq d(n+2)^2
         \end{align}
+
+        \bigskip
+
+        as long as $c \geq 0$ and $d \geq 1$.
 
         \end{mdframed}
 
