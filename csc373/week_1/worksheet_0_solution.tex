@@ -1318,8 +1318,14 @@
             $\lceil \frac{n}{b} \rceil$. Then $T(n)$ has the following asymptotic bounds:
 
             \begin{enumerate}[1.]
-                \item
+                \item if $f(n) = \mathcal{O}(n^{\log_b (a - \epsilon)})$ for some constant $\epsilon > 0$, then $T(n) = \Theta(n^{\log_b a})$.
+                \item if $f(n) = \Theta(n^{\log_b a})$, then $T(n) = \Theta(n^{\log_b a}\lg n)$
+                \item if $f(n) = \Omega(n^{\log_b a + \epsilon})$ for some constant $\epsilon > 0$ and if
+                $af(\frac{n}{b}) \leq cf(n)$ for some constant $c < 1$ and all sufficiently large $n$,
+                then $T(n = \Theta(f(n)))$.
             \end{enumerate}
+
+            \item Comparing $f(n)$ with the function $n^{\log_b a}$, the larger of two functions determine the solution to the recurrence.
         \end{itemize}
     \end{itemize}
 
