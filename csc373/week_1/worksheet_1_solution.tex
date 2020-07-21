@@ -452,6 +452,32 @@
             \end{itemize}
         \end{itemize}
     \end{itemize}
+
+    \item
+
+    \item
+
+    \item
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        Here, $a = 2, b = 2, f(n) = 4$.
+
+        \bigskip
+
+        Since $f(n) = n^{\log_2 2 + 3} = n^{\log_b a + \epsilon}$ where $\epsilon = 3$,
+        and $af(\frac{n}{b}) = 2\Bigl( \frac{n^4}{16} \Bigr) = \frac{n^4}{8} \leq cn^4$ where
+        $c = \frac{1}{8}$ for sufficiently large $n$, the case 3 of master's theorem applies.
+
+        \bigskip
+
+        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^4)$ and lower bounds of $\Omega(n^4)$, or $\Theta(n^4)$.
+    \end{enumerate}
+
+
 \end{enumerate}
 
 \end{document}
