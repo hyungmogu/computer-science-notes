@@ -1418,10 +1418,22 @@
 
         Thus, we have $T(n) = \Theta(n^2)$.
 
-
-
     \end{enumerate}
 
+    \bigskip
+
+    \item
+
+    Here $a = 1, b = 2$, and $f(n) = 1$.
+
+    \bigskip
+
+    Since $f(n) = 1 = n^0 = n^{\log_2 1} = n^{\log_b a}$, case 2 of master's theorem
+    applies.
+
+    \bigskip
+
+    Thus, we have $T(n) = \Theta(n^{\log_2 1}\lg n) = \Theta(\lg n)$.
 \end{enumerate}
 
 \end{document}
