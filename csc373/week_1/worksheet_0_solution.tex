@@ -1280,88 +1280,96 @@
     \setcounter{equation}{0}
     \bigskip
 
-    Here we have $a = 2, b = 4, f(n) = 1$. Since $1 = n^0 = n^{\log_4(2) - \log_4(2)}$ where $\epsilon = \log_4(2)$,
-    the case 1 of master's theorem applies, and $T(n) = \Theta(n^{\log_4 2})$
+    \begin{enumerate}[a)]
 
-    \bigskip
+        \item
 
-    \underline{\textbf{Notes:}}
+        Here we have $a = 2, b = 4, f(n) = 1$. Since $1 = n^0 = n^{\log_4(2) - \log_4(2)}$ where $\epsilon = \log_4(2)$,
+        the case 1 of master's theorem applies, and $T(n) = \Theta(n^{\log_4 2})$
 
-    \bigskip
+        \bigskip
 
-    \begin{itemize}
-        \item Master method
+        \underline{\textbf{Notes:}}
 
-        \begin{itemize}
-            \item The master method provides a "cookbook" method for solving recurrences of the
-            form
-
-
-            \begin{align}
-                T(n) &= aT(\frac{n}{b}) + f(n)
-            \end{align}
-
-            where $a \geq 1$ and $b > 1$ are constants and $f(n)$ is asymptotically positive function.
-
-            \item Allows to solve problems without pencil or paper
-
-        \end{itemize}
-
-        \item Master Theorem
+        \bigskip
 
         \begin{itemize}
-            \item Let $a \geq 1$ and $b > 1$ be constants, let $f(n)$ be a function, and
-            let $T(n)$ be defined on the nonnegative integers by the recurrence
+            \item Master method
 
-            \bigskip
+            \begin{itemize}
+                \item The master method provides a "cookbook" method for solving recurrences of the
+                form
 
-            $T(n) = aT(\frac{n}{b}) + f(n)$
 
-            \bigskip
+                \begin{align}
+                    T(n) &= aT(\frac{n}{b}) + f(n)
+                \end{align}
 
-            where we interpret $\frac{n}{b}$ to be either $\lfloor \frac{n}{b} \rfloor$ or
-            $\lceil \frac{n}{b} \rceil$. Then $T(n)$ has the following asymptotic bounds:
+                where $a \geq 1$ and $b > 1$ are constants and $f(n)$ is asymptotically positive function.
 
-            \begin{enumerate}[1.]
-                \item if $f(n) = \mathcal{O}(n^{\log_b (a - \epsilon)})$ for some constant $\epsilon > 0$, then $T(n) = \Theta(n^{\log_b a})$.
-                \item if $f(n) = \Theta(n^{\log_b a})$, then $T(n) = \Theta(n^{\log_b a}\lg n)$
-                \item if $f(n) = \Omega(n^{\log_b a + \epsilon})$ for some constant $\epsilon > 0$ and if
-                $af(\frac{n}{b}) \leq cf(n)$ for some constant $c < 1$ and all sufficiently large $n$,
-                then $T(n = \Theta(f(n)))$.
-            \end{enumerate}
+                \item Allows to solve problems without pencil or paper
 
-            \bigskip
+            \end{itemize}
 
-            \item Comparing $f(n)$ with the function $n^{\log_b a}$, the larger of two functions determine the solution to the recurrence.
+            \item Master Theorem
 
-            \bigskip
+            \begin{itemize}
+                \item Let $a \geq 1$ and $b > 1$ be constants, let $f(n)$ be a function, and
+                let $T(n)$ be defined on the nonnegative integers by the recurrence
 
-            \underline{\textbf{Example:}}
+                \bigskip
 
-            \bigskip
+                $T(n) = aT(\frac{n}{b}) + f(n)$
 
-            $T(n) = 9T(\frac{n}{3}) + n$
+                \bigskip
 
-            \bigskip
+                where we interpret $\frac{n}{b}$ to be either $\lfloor \frac{n}{b} \rfloor$ or
+                $\lceil \frac{n}{b} \rceil$. Then $T(n)$ has the following asymptotic bounds:
 
-            Here $a = 9, b = 3, f(n) = n$. Since $f(n) = \mathcal{O}(n^{\log_3 9 - \epsilon})$
-            where $\epsilon = 1$, the case 1 of master theorem tells us $T(n) = \Theta(n^2)$.
+                \begin{enumerate}[1.]
+                    \item if $f(n) = \mathcal{O}(n^{\log_b (a - \epsilon)})$ for some constant $\epsilon > 0$, then $T(n) = \Theta(n^{\log_b a})$.
+                    \item if $f(n) = \Theta(n^{\log_b a})$, then $T(n) = \Theta(n^{\log_b a}\lg n)$
+                    \item if $f(n) = \Omega(n^{\log_b a + \epsilon})$ for some constant $\epsilon > 0$ and if
+                    $af(\frac{n}{b}) \leq cf(n)$ for some constant $c < 1$ and all sufficiently large $n$,
+                    then $T(n = \Theta(f(n)))$.
+                \end{enumerate}
 
-            \bigskip
+                \bigskip
 
-            \underline{\textbf{Example \#2:}}
+                \item Comparing $f(n)$ with the function $n^{\log_b a}$, the larger of two functions determine the solution to the recurrence.
 
-            \bigskip
+                \bigskip
 
-            $T(n) = T(\frac{2n}{3}) + 1$
+                \underline{\textbf{Example:}}
 
-            \bigskip
+                \bigskip
 
-            Here, $a = 1, b = \frac{3}{2}, f(n) = 1$. Since $f(n) = 1 = n^0 = n^{\log_{3/2} 1}$,
-            the case 2 of master theorem applies and $T(n) = \Theta(\lg n)$.
+                $T(n) = 9T(\frac{n}{3}) + n$
 
+                \bigskip
+
+                Here $a = 9, b = 3, f(n) = n$. Since $f(n) = \mathcal{O}(n^{\log_3 9 - \epsilon})$
+                where $\epsilon = 1$, the case 1 of master theorem tells us $T(n) = \Theta(n^2)$.
+
+                \bigskip
+
+                \underline{\textbf{Example \#2:}}
+
+                \bigskip
+
+                $T(n) = T(\frac{2n}{3}) + 1$
+
+                \bigskip
+
+                Here, $a = 1, b = \frac{3}{2}, f(n) = 1$. Since $f(n) = 1 = n^0 = n^{\log_{3/2} 1}$,
+                the case 2 of master theorem applies and $T(n) = \Theta(\lg n)$.
+
+            \end{itemize}
         \end{itemize}
-    \end{itemize}
+
+        \item
+
+    \end{enumerate}
 
 \end{enumerate}
 
