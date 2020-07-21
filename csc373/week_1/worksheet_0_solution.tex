@@ -1341,6 +1341,20 @@
 
             Here $a = 9, b = 3, f(n) = n$. Since $f(n) = \mathcal{O}(n^{\log_3 9 - \epsilon})$
             where $\epsilon = 1$, the case 1 of master theorem tells us $T(n) = \Theta(n^2)$.
+
+            \bigskip
+
+            \underline{\textbf{Example \#2:}}
+
+            \bigskip
+
+            $T(n) = T(\frac{2n}{3}) + 1$
+
+            \bigskip
+
+            Here, $a = 1, b = \frac{3}{2}, f(n) = 1$. Since $f(n) = 1 = n^0 = n^{\log_{3/2} 1}$,
+            the case 2 of master theorem applies and $T(n) = \Theta(\lg n)$.
+
         \end{itemize}
     \end{itemize}
 
