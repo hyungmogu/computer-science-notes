@@ -1376,6 +1376,18 @@
 
         \bigskip
 
+        \begin{mdframed}
+            \underline{\textbf{Correct Solution:}}
+
+            \bigskip
+
+            Here $a = 2, b = 4$ and $f(n) = n^{\frac{1}{2}}$. Since $f(n) = n^{\frac{1}{2}} = n^{\log_b a} = n^{\log_4 2}$,
+        the case 2 of master theorem applies and $T(n) = \Theta(n^{\log_4 2}) = \Theta(\sqrt{n}\color{red}\lg n\color{black})$.
+
+        \end{mdframed}
+
+        \bigskip
+
         \item
 
         Here, we have $a = 2, b = 4, f(n) = n$ and $n^{\log_4 2} = \mathcal{O}(n^{0.5})$.
