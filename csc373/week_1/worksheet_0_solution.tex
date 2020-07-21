@@ -1435,7 +1435,33 @@
 
     Thus, we have $T(n) = \Theta(n^{\log_2 1}\lg n) = \Theta(\lg n)$.
 
+    \bigskip
+
     \item
+
+    $f(n) = n \lg n$ cannot be represented in the form $n^{\log_b a + \epsilon}$.
+
+    \bigskip
+
+    Thus, master's method cannot be applied here.
+
+    \bigskip
+
+    So, to determine asymptotic upper bound, recurrence tree method + subtitution method is used.
+
+    \bigskip
+
+    Using the recurrence tree method, the recurrence tree has depth of  $\lg n$, the
+    level cost of $2^i n^2 \lg n$ where $i = 0, 1, ..., \lg n - 1$, and the leaf cost of
+    $\Theta(n^2)$.
+
+    \bigskip
+
+    So, the asymptotic upper bound is:
+
+    \begin{align}
+        T(n) &= + \Theta(n^2)
+    \end{align}
 
 
 \end{enumerate}
