@@ -1144,7 +1144,7 @@
 
 
     \item
-
+    \setcounter{equation}{0}
     \underline{\textbf{Solution:}}
 
     \bigskip
@@ -1194,16 +1194,24 @@
 
         \end{mdframed}
 
-        \item Finding the upper bound cost of $T(n)$
+        \item Finding the total cost of $T(n)$, or the tight asymptotic bound
+
+        \begin{mdframed}
 
         \begin{align}
-            T(n) &\leq \sum\limits_{i=0}^{n-1} 2^i + \Theta(2^n)\\
-            &= \Bigl( \frac{2^n - 1}{2 - 1} \Bigr) + \Theta(2^n)\\
-            &= (2^n - 1) + \Theta(2^n)\\
-            &= \Theta(2^n)
+            T(n) &\leq \sum\limits_{i=0}^{\lg n - 1} cn2^i + \Theta(n^2)\\
+            &= cn \Bigl( \frac{2^{\lg n} - 1}{2 - 1} \Bigr) + \Theta(n^2)\\
+            &= cn(n - 1) + \Theta(n^2)\\
+            &= \Theta(n^2)
         \end{align}
 
+        \end{mdframed}
+
     \end{enumerate}
+
+    \bigskip
+
+    Thus, the tight asymptotic bound is $\Theta(n^2)$.
 \end{enumerate}
 
 \end{document}
