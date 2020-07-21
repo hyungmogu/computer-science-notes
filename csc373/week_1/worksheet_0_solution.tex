@@ -1378,12 +1378,12 @@
 
         \item
 
-        Here, we have $a = 2, b = 4, f(n) = n$ and $n^{\log_4 2} = \mathcal{O}(n^2)$.
+        Here, we have $a = 2, b = 4, f(n) = n$ and $n^{\log_4 2} = \mathcal{O}(n^{0.5})$.
 
         \bigskip
 
         Since $f(n) = \Omega(n^{\log_4 2 + \epsilon})$, where $\epsilon = 0.5$, and
-        $af(\frac{n}{b}) = 2 f (\frac{n}{4}) = \frac{n}{2} = cn$ where $c = \frac{1}{2}$
+        $af(\frac{n}{b}) = 2 f (\frac{n}{4}) = \frac{n}{2} \leq cn$ where $c = \frac{1}{2}$
         for sufficiently large $n$, the case 3 of master theorem applies.
 
         \bigskip
@@ -1391,6 +1391,20 @@
         Thus, we have $T(n) = \Theta(n)$.
 
         \bigskip
+
+        \item
+
+        Here, we have $a = 2, b = 4, f(n) = n^2$ and $n^{\log_4 2} = \mathcal{O}(n^0.5)$.
+
+        \bigskip
+
+        Since $f(n) = \Omega(n^{\log_4 2 + \epsilon})$, where $\epsilon = 1.5$, and
+        $af(\frac{n}{b}) = 2 f (\frac{n}{4}) = \frac{n^2}{8} \leq cn$ where $c = \frac{1}{8}$
+        for sufficiently large $n$, the case 3 of master theorem applies.
+
+        \bigskip
+
+        Thus, we have $T(n) = \Theta(n^2)$.
 
 
 
