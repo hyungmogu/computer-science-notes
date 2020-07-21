@@ -1467,6 +1467,32 @@
         &= \mathcal{O}(n^2\lg^2 n)
     \end{align}
 
+    And we verify it using subtitution method.
+
+    \bigskip
+
+    Let the guess be $T(n) \leq cn^2 \lg^2 n$.
+
+    \bigskip
+
+    I need to show the guess holds in the recurrence $T(n) = 4T(\frac{n}{2}) + n^2 \lg n$.
+
+    \bigskip
+
+    And indeed, we have
+
+    \begin{align}
+        T(n) &= T(\frac{n}{2}) + n^2 \lg (n)\\
+        &\leq 4c\bigl( \frac{n^2}{4} \bigr) \lg^2 (\frac{n}{2}) + n^2 \lg (n)\\
+        &= cn^2 \lg^2 (\frac{n}{2}) + n^2 \lg (n)\\
+        &\leq cn^2 \lg^2 (n) + n^2 \lg (n)\\
+        &\leq cn^2 \lg^2 (n) + n^2 \lg (n)\\
+        &= cn^2 \lg^2 (n) & [\text{Since $cn^2 \lg^2 (n)$ dominates $n^2 \lg (n)$}]
+    \end{align}
+
+    \bigskip
+
+    as long as $c \geq 1$.
 
 \end{enumerate}
 
