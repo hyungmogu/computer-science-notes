@@ -506,6 +506,21 @@
 
         Thus, $T(n)$ has upper bound of $\mathcal{O}(n^2 \lg n)$ and lower bounds of $\Omega(n^2 \lg n)$.
 
+        \bigskip
+
+        \item
+
+        Here we have $a = 7, b = 3, f(n) = n^2$.
+
+        \bigskip
+
+        Since $n^2 = n^{\log_3 7 + \epsilon} = n^{\log_b a + \epsilon}$ where $\epsilon \approx 0.23$,
+        and $af(\frac{n}{b}) \leq cn^2$ where $c = \frac{7}{9}$, the case 3 of master's theorem applies.
+
+        \bigskip
+
+        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^2)$ and lower bounds of $\Omega(n^2)$.
+
     \end{enumerate}
 
 
