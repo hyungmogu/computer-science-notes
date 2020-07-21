@@ -1325,7 +1325,22 @@
                 then $T(n = \Theta(f(n)))$.
             \end{enumerate}
 
+            \bigskip
+
             \item Comparing $f(n)$ with the function $n^{\log_b a}$, the larger of two functions determine the solution to the recurrence.
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            $T(n) = 9T(\frac{n}{3}) + n$
+
+            \bigskip
+
+            Here $a = 9, b = 3, f(n) = n$. Since $f(n) = \mathcal{O}(n^{\log_3 9 - \epsilon})$
+            where $\epsilon = 1$, the case 1 of master theorem tells us $T(n) = \Theta(n^2)$.
         \end{itemize}
     \end{itemize}
 
