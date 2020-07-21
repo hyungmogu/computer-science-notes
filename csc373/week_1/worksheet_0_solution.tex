@@ -1457,10 +1457,15 @@
 
     \bigskip
 
-    So, the asymptotic upper bound is:
+    So, the asymptotic upper bound of $T(n)$ is:
 
     \begin{align}
-        T(n) &= + \Theta(n^2)
+        T(n) &= \sum\limits_{i=0}^{\lg n - 1} 2^in^2\lg n + \Theta(n^2)\\
+        &= n^2\lg n \cdot \sum\limits_{i=0}^{\lg n - 1} 2^i + \Theta(n^2)\\
+        &= n^2\lg n \sum\limits_{i=0}^{\lg n - 1} 2^i + \Theta(n^2)\\
+        &= n^2\lg n \Bigl( \frac{2^{\lg n} - 1}{2 - 1} \Bigr) + \Theta(n^2) & [\text{Since $\sum\limits_{i=0}^{n-1} ar^i = a \cdot \frac{r^n - 1}{r - 1}$, where $r \neq 1$}]\\
+        &= n^3\lg n + \Theta(n^2)\\
+        &= \mathcal{O}(n^3\lg n)
     \end{align}
 
 
