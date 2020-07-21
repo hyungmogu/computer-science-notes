@@ -1215,7 +1215,7 @@
 
         \begin{mdframed}
 
-        Let the guess be $T(n) \leq cn^2 - dn$.
+        Let the guess be $T(n) \leq dn^2 - en$.
 
         \bigskip
 
@@ -1226,7 +1226,10 @@
         Indeed we have
 
         \begin{align}
-            T(n) &= 4T(\lfloor n/2 \rfloor) + cn
+            T(n) &= 4T(\lfloor n/2 \rfloor) + cn\\
+            &\leq 4d\lfloor \frac{n}{2} \rfloor^2 - 4e\lfloor \frac{n}{2} \rfloor + cn\\
+            &\leq 4d\Bigl(\frac{n}{2} \Bigr)^2 - 4e\Bigl( \frac{n}{2} - 1 \Bigr) + cn\\
+            &\leq 4d\Bigl(\frac{n}{2} \Bigr)^2 - 4e\Bigl( \frac{n}{2} - 1 \Bigr) + cn
         \end{align}
 
         \end{mdframed}
