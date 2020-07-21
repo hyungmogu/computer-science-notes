@@ -1452,7 +1452,7 @@
     \bigskip
 
     Using the recurrence tree method, the recurrence tree has depth of  $\lg n$, the
-    level cost of $2^i n^2 \lg n$ where $i = 0, 1, ..., \lg n - 1$, and the leaf cost of
+    level cost of $n^2 (\lg n - i)$ where $i = 0, 1, ..., \lg n - 1$, and the leaf cost of
     $\Theta(n^2)$.
 
     \bigskip
@@ -1460,12 +1460,11 @@
     So, the asymptotic upper bound of $T(n)$ is:
 
     \begin{align}
-        T(n) &= \sum\limits_{i=0}^{\lg n - 1} 2^in^2\lg n + \Theta(n^2)\\
-        &= n^2\lg n \cdot \sum\limits_{i=0}^{\lg n - 1} 2^i + \Theta(n^2)\\
-        &= n^2\lg n \sum\limits_{i=0}^{\lg n - 1} 2^i + \Theta(n^2)\\
-        &= n^2\lg n \Bigl( \frac{2^{\lg n} - 1}{2 - 1} \Bigr) + \Theta(n^2) & [\text{Since $\sum\limits_{i=0}^{n-1} ar^i = a \cdot \frac{r^n - 1}{r - 1}$, where $r \neq 1$}]\\
-        &= n^3\lg n + \Theta(n^2)\\
-        &= \mathcal{O}(n^3\lg n)
+        T(n) &= \sum\limits_{i=0}^{\lg n - 1} n^2 (\lg n - i) + \Theta(n^2)\\
+        &= \Bigl[ \sum\limits_{i=0}^{\lg n - 1} \Bigr] n^2\lg n - n^2 \sum\limits_{i=0}^{\lg n - 1} i + \Theta(n^2)\\
+        &= n^2\lg^2 n - n^2 \cdot \Bigl( \frac{\lg n (\lg n - 1)}{2} \Bigr) + \Theta(n^2)\\
+        &= n^2\lg^2 n - \frac{n^2}{2} \cdot (\lg^2 n - \lg n) + \Theta(n^2)\\
+        &= \mathcal{O}(n^2\lg^2 n)
     \end{align}
 
 
