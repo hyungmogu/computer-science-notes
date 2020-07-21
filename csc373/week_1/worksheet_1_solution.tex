@@ -519,7 +519,22 @@
 
         \bigskip
 
-        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^2)$ and lower bounds of $\Omega(n^2)$.
+        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^2)$ and lower bounds of $\Omega(n^2)$, or $\Theta(n^2)$.
+
+        \bigskip
+
+        \item
+
+        Here we have $a = 7, b = 2, f(n) = n^2$.
+
+        \bigskip
+
+        Since $f(n) = n^2 = n^{\log_2 (7) - \epsilon}$, where $\epsilon \approx 0.81$,
+        case 1 of master theorem applies.
+
+        \bigskip
+
+        Thus, $T(n)$ has upper bound of $\mathcal{O}(n^{\log_2 7})$ and lower bounds of $\Omega(n^{\log_2 7})$, or $\Theta(n^{\log_2 7})$.
 
     \end{enumerate}
 
