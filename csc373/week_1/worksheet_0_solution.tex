@@ -1229,8 +1229,17 @@
             T(n) &= 4T(\lfloor n/2 \rfloor) + cn\\
             &\leq 4d\lfloor \frac{n}{2} \rfloor^2 - 4e\lfloor \frac{n}{2} \rfloor + cn\\
             &\leq 4d\Bigl(\frac{n}{2} \Bigr)^2 - 4e\Bigl( \frac{n}{2} - 1 \Bigr) + cn\\
-            &\leq 4d\Bigl(\frac{n}{2} \Bigr)^2 - 4e\Bigl( \frac{n}{2} - 1 \Bigr) + cn
+            &= 4d\Bigl(\frac{n^2}{4} \Bigr) - e\Bigl( 2n - 4 \Bigr) + cn\\
+            &= dn^2 - e\Bigl( 2n - 4 \Bigr) + cn\\
+            &= dn^2 - e\Bigl( 2n - 4 \Bigr) + cn & [\text{since $n$ is asympt. large}]\\
+            &= dn^2 - e2n + cn & [\text{since $n$ is asympt. large}]\\
+            &= dn^2 - n(e2 - c)\\
+            &\leq dn^2 - ne
         \end{align}
+
+        \bigskip
+
+        as long as $c \geq e$.
 
         \end{mdframed}
 
