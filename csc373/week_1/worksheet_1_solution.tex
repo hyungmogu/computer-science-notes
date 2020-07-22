@@ -558,6 +558,27 @@
         \includegraphics[width=\linewidth]{images/worksheet_0_solution_11.png}
         \end{center}
 
+        \bigskip
+
+        Using recurrence tree method, we can see that the tree has depth of $\frac{n}{2}$,
+        level cost of $(n-2i)^2$ where $i = 0,1,...,n-1$, and bottom level cost
+        of $T(1)$ or $\Theta(1)$.
+
+        \bigskip
+
+        So, the total cost of $T(n)$ is:
+
+        \begin{align}
+            T(n) &= \sum\limits_{i=0}^{\frac{n}{2} - 1} (n - 2i) + \Theta(1)\\
+            &= \frac{n^2}{2} - 2 \sum\limits_{i = 0}^{\frac{n}{2} - 1} i + \Theta(1)\\
+            &= \frac{n^2}{2} - \Bigl(\frac{n}{2} \Bigr)\Bigl( \frac{n}{2} - 1 \Bigr) + \Theta(1)\\
+            &= \Bigl( \frac{n^2}{2} \Bigr) - \Bigl( \frac{n^2}{4} - \frac{n}{2} \Bigr) + \Theta(1)\\
+            &= \frac{n^2}{4} + \frac{n}{2} + \Theta(1)\\
+            &= \Theta(n^2)
+        \end{align}
+
+        \bigskip
+
 
     \end{enumerate}
 
