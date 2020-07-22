@@ -455,10 +455,20 @@
 
     \item
 
-    Let $n = 3^m$ where $m$ is an element of $\mathbb{Z}^+ \cup \{0\}$.
+    Let $n = 3^m$ where $m$ is an element of $\mathbb{Z}^+ \cup \{0\}$
 
     \bigskip
 
+    Then we know the time it takes to multiply $n \times n$ matrices in $3 \times 3$
+    matrices is $T(n) = k T(\frac{n}{3}) + \Theta(n^2)$.
+
+    \bigskip
+
+    Now, I need to look for the upper bound of $k$ in $T(n) = \Theta(n^{\log_3 k} )$ satisfying $O(n^{\lg 7}) \approx O (n^{2.81})$.
+
+    \bigskip
+
+    And using master's master's theorem, we can write that the upper limit of $k$ is 21.
 
 
     \bigskip
