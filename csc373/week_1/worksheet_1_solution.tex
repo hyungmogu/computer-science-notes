@@ -516,7 +516,28 @@
         \item $68 \times 68$ matrices using $132,464$ multiplications:
 
         \begin{itemize}
-            \item
+            \item Has recurrence of form $T(n) = 132,464T(\frac{n}{68}) + \Theta(n^2)$
+            \item Has $a = 132,464, b = 68, f(n) = \Theta(n^2)$
+            \item Since $f(n) = \Theta(n^{\log_b a - \epsilon})$ where $\epsilon \approx 0.80$, case 1
+            of master's theorem applies and $T(n) = \Theta(n^{\log_b a}) \approx \Theta(n^{2.80})$
+        \end{itemize}
+
+        \item $70 \times 70$ matrices using $143,640$ multiplications:
+
+        \begin{itemize}
+            \item Has recurrence of form $T(n) = 143,640T(\frac{n}{70}) + \Theta(n^2)$
+            \item Has $a = 143,640, b = 70, f(n) = \Theta(n^2)$
+            \item Since $f(n) = \Theta(n^{\log_b a - \epsilon})$ where $\epsilon \approx 0.80$, case 1
+            of master's theorem applies and $T(n) = \Theta(n^{\log_b a}) \approx \Theta(n^{2.80})$
+        \end{itemize}
+
+        \item $72 \times 72$ matrices using $155,424$ multiplications:
+
+        \begin{itemize}
+            \item Has recurrence of form $T(n) = 155,424(\frac{n}{72}) + \Theta(n^2)$
+            \item Has $a = 155,424, b = 72, f(n) = \Theta(n^2)$
+            \item Since $f(n) = \Theta(n^{\log_b a - \epsilon})$ where $\epsilon \approx 0.80$, case 1
+            of master's theorem applies and $T(n) = \Theta(n^{\log_b a}) \approx \Theta(n^{2.80})$
         \end{itemize}
     \end{itemize}
 
