@@ -550,6 +550,37 @@
     In comparison to Strassen method (which has $\Theta(n^{\lg 7}) \approx \Theta(n^{2.81})$),
     the above three divide and conquer algorithms are a bit faster.
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+        \color{red}
+
+        We need to find the divide and conquer method that yields the best asymptotic running time.
+
+        \bigskip
+
+        Using master's method, we have:
+
+        \begin{itemize}
+            \item $T(n) = 132,464T(\frac{n}{68}) + \Theta(n^2)$ $\to$ $T(n) \approx \Theta(n^{2.7951284873613815})$
+            \item $T(n) = 143,640T(\frac{n}{70}) + \Theta(n^2)$ $\to$ $T(n) \approx \Theta(n^{2.795122689748337})$
+            \item $T(n) = 155,424T(\frac{n}{72}) + \Theta(n^2)$ $\to$ $T(n) \approx \Theta(n^{2.795147391093449})$
+        \end{itemize}
+
+        \bigskip
+
+        Based on the above, the second method $T(n) = 143,640T(\frac{n}{70})$ has the best asymptotic running time.
+
+        \bigskip
+
+        In comparison to Strassen method (which has $\Theta(n^{\lg 7}) \approx \Theta(n^{2.81})$),
+        the above three divide and conquer algorithm is a bit faster.
+        \color{black}
+    \end{mdframed}
+
     \item
 
     \item
