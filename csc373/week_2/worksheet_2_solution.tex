@@ -73,14 +73,28 @@
                 \item Locally optimal solution leads to globally optimal solution
             \end{itemize}
 
-
-            \item
         \end{itemize}
 
         \item Activity-selection Problem (Greedy algorithm using dynamic programming)
 
         \begin{itemize}
             \item Goal: Selecting maximum size set of mutually compatible activities
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            \begin{tabular}{c|ccccccccccc}
+                $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\
+                \hline
+                $s_i$ & 1 & 3 & 0 & 5 & 3 & 5 & 6 & 8 & 8 & 2 & 12\\
+                $f_i$ & 4 & 5 & 6 & 7 & 9 & 9 & 10 & 11 & 12 & 14 & 16
+            \end{tabular}
+
+            \bigskip
+
             \item Suppose a set exists $S = \{a_1 = [s_1, f_1), a_2 = [s_2, f_2), ..., a_n = [s_n, f_n)\}$
 
             \begin{itemize}
@@ -88,11 +102,33 @@
                 \item $s_i$ represents starting time
                 \item $f_i$ represents finishing time
                 \item $0 \leq s_i < f_i < \infty$
+                \item $a_1, ..., a_n$ sorted in monotonically increasing order of finish time
+
+                \bigskip
+
+                \quad i.e.
+
+                \bigskip
+
+                \quad $f_1 \leq f_2 \leq f_3 \leq ... \leq f_{n-1} \leq f_n$
+
+                \bigskip
+
+                \item $a_i$ and $a_j$ are \textbf{compatible}, if intervals $[s_i, f_i)$ and $[s_j, f_j)$
+                don't overlap
+
+                \bigskip
+
+                \quad i.e
+
+                \bigskip
+
+                \quad $s_i \geq f_j$ and $s_j \geq f_i$
+
+                \bigskip
+
             \end{itemize}
-            \item Activities $a_i$ and $a_j$ are \textbf{compatible}, if intervals $[s_i, f_i)$ and $[s_j, f_j)$
-            don't overlap
-            \item Assume that activities are sorted in monotonically increasing order of finish time
-            $f_1 \leq f_2 \leq f_3 \leq ... \leq f_{n-1} \leq f_n$
+
             \item Steps
 
             \begin{enumerate}[1.]
