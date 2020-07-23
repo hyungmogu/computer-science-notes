@@ -81,10 +81,25 @@
 
         \begin{itemize}
             \item Goal: Selecting maximum size set of mutually compatible activities
+            \item Suppose a set exists $S = \{a_1 = [s_1, f_1), a_2 = [s_2, f_2), ..., a_n = [s_n, f_n)\}$
+
+            \begin{itemize}
+                \item $a_i$ represents an $i^{th}$ activity
+                \item $s_i$ represents starting time
+                \item $f_i$ represents finishing time
+                \item $0 \leq s_i < f_i < \infty$
+            \end{itemize}
+            \item Activities $a_i$ and $a_j$ are \textbf{compatible}, if intervals $[s_i, f_i)$ and $[s_j, f_j)$
+            don't overlap
+            \item Assume that activities are sorted in monotonically increasing order of finish time
+            $f_1 \leq f_2 \leq f_3 \leq ... \leq f_{n-1} \leq f_n$
             \item Steps
 
             \begin{enumerate}[1.]
                 \item Think about dynamic programming solution
+
+
+
                 \item Observe that only one choice - greedy choice, and that when we make the greedy choice, only one subproblem remains
                 \item Develop recursive greedy solution
                 \item Convert the recursive algorithm into iterative one
