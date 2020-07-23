@@ -800,15 +800,38 @@
         \item Finding closest pair of paths using divide and conquer algorithm
 
         \begin{enumerate}[1.]
-            \item Find a vertical line $l$ that bisects the point set $P$ into two
-            sets $P_L$ and $P_R$ (i.e. $\lvert P_L \rvert = \lceil \lvert P \rvert / 2 \rceil, \lvert P_R \rvert = \lfloor \lvert P \rvert /2 \rfloor$.
-            In other words, take the norm of all points, and divide it into two halves)
+            \item Divide
+
+            \begin{itemize}
+                \item Find a vertical line $l$ that bisects the point set $P$ into two
+                sets $P_L$ and $P_R$
+
+                \begin{itemize}
+                    \item $\lvert P_L \rvert = \lceil \lvert P \rvert / 2 \rceil, \lvert P_R \rvert = \lfloor \lvert P \rvert /2 \rfloor$.
+
+                    \bigskip
+
+                    In other words, take the norm of all points, and divide it into two halves
+                \end{itemize}
+                \item Divide the array $X$ into $X_L$ and $X_R$, and $Y$ into $Y_L$ and $Y_R$
+                \begin{itemize}
+                    \item $X_L:$ x-coordinate points from $P_L$
+                    \item $X_R:$ x-coordinate points from $P_R$
+                    \item $Y_L:$ y-coordinate points from $P_L$
+                    \item $Y_R:$ y-coordinate points from $P_R$
+                \end{itemize}
+            \end{itemize}
 
             \begin{center}
             \includegraphics[width=\linewidth]{images/worksheet_1_solution_4.png}
             \end{center}
 
-            \item
+            \item Having divided $P$ into $P_L$ and $P_R$
+
+            \begin{itemize}
+                \item Find the closest pair of points in $P_L$
+                \item Find the other closest pair of points in $P_R$
+            \end{itemize}
         \end{enumerate}
     \end{itemize}
 
