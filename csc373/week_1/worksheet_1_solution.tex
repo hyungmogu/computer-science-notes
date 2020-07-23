@@ -829,8 +829,18 @@
             \item Having divided $P$ into $P_L$ and $P_R$
 
             \begin{itemize}
-                \item Find the closest pair of points in $P_L$
-                \item Find the other closest pair of points in $P_R$
+                \item Make one recursive call to find the closest pair of points in $P_L$
+                \begin{itemize}
+                    \item The inputs are $P_L, X_L, Y_L$
+                    \item The returned value is defined as $\delta_L$
+                \end{itemize}
+
+                \item Make the other recursive call to find the other closest pair of points in $P_R$
+
+                \begin{itemize}
+                    \item The inputs are $P_R, X_R, Y_R$
+                    \item The returned value is defined as $\delta_R$
+                \end{itemize}
             \end{itemize}
         \end{enumerate}
     \end{itemize}
