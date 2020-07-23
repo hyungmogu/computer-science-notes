@@ -135,9 +135,11 @@
                 \item Think about dynamic programming solution
 
                 \begin{itemize}
-                    \item Verify that the problem exhibits optimal substructure
+                    \item Construct optimal solution using two subproblems
 
-                    \item \textbf{$S_{ij}$:} activities that start after activity $a_i$ finishes and before
+                    \begin{mdframed}
+
+                    \textbf{$S_{ij}$:} activities that start after activity $a_i$ finishes and before
                     activity $a_j$ starts
 
                     \bigskip
@@ -150,7 +152,7 @@
 
                     \bigskip
 
-                    \item \textbf{$A_{ij}$:} maximum set of mutually compatible activities in $S_{ij}$ (including $a_k$)
+                    \textbf{$A_{ij}$:} maximum set of mutually compatible activities in $S_{ij}$ (including $a_k$)
 
                     \begin{itemize}
                         \item $A_{ik} = A_{ij} \cap S_{ik}$
@@ -158,6 +160,8 @@
                         \item $A_{ij} = A_{ik} \cup \{a_k\} \cup A{kj}$
                         \item So, $\lvert A_{ij} \rvert  = \lvert A_{ik} \rvert + \lvert A_{kj} \rvert + 1$
                     \end{itemize}
+
+                    \end{mdframed}
 
                     \item Verify that optimal solution $A_{ij}$ must include optimal solution to the two subproblems
                     for  $S_{kj}$
@@ -187,6 +191,12 @@
                 \end{itemize}
 
                 \item Observe that only one choice - greedy choice, and that when we make the greedy choice, only one subproblem remains
+
+                \begin{itemize}
+                    \item Eliminates the need to solve subproblems using recurrences
+                \end{itemize}
+
+
                 \item Develop recursive greedy solution
                 \item Convert the recursive algorithm into iterative one
             \end{enumerate}
