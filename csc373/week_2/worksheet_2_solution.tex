@@ -160,11 +160,30 @@
                     \end{itemize}
 
                     \item Verify that optimal solution $A_{ij}$ must include optimal solution to the two subproblems
-                    for $S_{ik}$ and $S_{kj}$
+                    for  $S_{kj}$
 
-                    \begin{itemize}
-                        \item Let $A'_{kj}$ be another mutually compatible activities in $S_{kj}$ where $\lvert A'_{kj} \rvert > \lvert A_{kj} \rvert$.
-                    \end{itemize}
+                    \begin{mdframed}
+                        Let $A'_{kj}$ be another mutually compatible activities in $S_{kj}$ where $\lvert A'_{kj} \rvert > \lvert A_{kj} \rvert$.
+
+                        \bigskip
+
+                        Then we could use $A'_{kj}$ in a solution to subproblem of $S_{ij}$
+
+                        \bigskip
+
+                        Then we have $\lvert A_{ik} \rvert + \lvert A'_{kj} \rvert + 1 > \lvert A_{jk} \rvert + \lvert A_{kj} \rvert + 1 = \lvert A_{ij} \rvert$ mutually compatible activites
+
+                        \bigskip
+
+                        This contradicts assumption that $A_{ij}$ is an optimal solution
+                    \end{mdframed}
+
+                    \item Verify that optimal solution $A_{ij}$ must include optimal solution to the two subproblems
+                    for $S_{ik}$
+
+                    \begin{mdframed}
+                    The same applies for activities in $S_{ik}$
+                    \end{mdframed}
                 \end{itemize}
 
                 \item Observe that only one choice - greedy choice, and that when we make the greedy choice, only one subproblem remains
