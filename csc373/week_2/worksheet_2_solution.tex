@@ -91,6 +91,18 @@
 
         If $a_j = a_m$, we are done, since we have shown that $a_m$ is the maximum-size
         subset of mutually compatible activities of $S_k$.
+
+        \bigskip
+
+        If $a_j \neq a_m$, let the set $A'_k = A_k = \{a_j\} \cup \{a_m\}$ be
+        $A_k$ but subtituting $a_m$ for $a_j$. The activities in $A'_k$ are disjoint,
+        which follow because the activities in $A_k$ are disjoint, $a_j$ is the
+        first activity in $A_k$ to finish, and $s_j \leq s_m$.
+
+        \bigskip
+
+        Since $\lvert A'_k \rvert = \lvert A_k \rvert$, we conclude that $A'_k$
+        is a maximum-size subset of mutually compatible activities of $S_k$, and it includes $a_m$.
         \end{proof}
     \end{enumerate}
 
