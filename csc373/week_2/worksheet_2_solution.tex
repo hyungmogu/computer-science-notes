@@ -193,21 +193,18 @@
                 \item Observe that only one choice - greedy choice, and that when we make the greedy choice, only one subproblem remains
 
                 \begin{itemize}
-                    \item Eliminates the need to solve subproblems using recurrences
-                    \item Typically have top-down design
-                    \begin{itemize}
-                        \item Make a choice and then solve a subproblem
-                        \item Dynamic programming has bottom-up approach: Solve subproblems before making a choice
-                    \end{itemize}
                     \item Steps
 
                     \begin{enumerate}[1.]
-                        \item Choose an activity that makes the most resource possible (intuition)
-                        \item Choose an acitivty that finishes the earliest (intuition)
-                        \item Find activities that start after $a_1$ finishes
+                        \item Make a greedy choice
+                        \begin{itemize}
+                            \item Choose an activity that makes the most resource possible (intuition)
+                            \item Choose an acitivty that finishes the earliest (intuition)
+                        \end{itemize}
+                        \item Solve a subproblem: Find activities that start after $a_1$ finishes
+                        \item Verify that making greedy choices always arrive at optimal solution
                     \end{enumerate}
                 \end{itemize}
-
 
                 \item Develop recursive greedy solution
                 \item Convert the recursive algorithm into iterative one
