@@ -313,15 +313,16 @@
         \item Optimal Substructure
 
         \begin{mdframed}
-        Let $i$ be the index in the set of elements.
+        Let $I$ be the following instance of the problem: Let $n$ be the number of items,
+        and let $x_i$ be the $i^{th}$ point in the set.
 
         \bigskip
 
-        Let $A = [a_{\text{min}}, a_{\text{max}}]$ be the solution. The greedy algorithm works by assigning $a_{\text{min}} = min(a_{\text{min}}, x_n)$ and
-        $a_{\text{max}} = max(a_{\text{max}}, x_n)$, and then continuing by solving the subproblem
+        Let $A = [x_{\text{min}}, x_{\text{max}}]$ be the solution. The greedy algorithm works by assigning $x_{\text{min}} = min(x_{\text{min}}, x_n)$ and
+        $x_{\text{max}} = max(x_{\text{max}}, x_n)$, and then continuing by solving the subproblem
 
         \begin{align}
-            I' = (n - 1, \{x_1,..., x_{n-1}\}, S - x_n)
+            I' = (n - 1, \{x_1,..., x_{n-1}\})
         \end{align}
 
         until $n = 0$.
