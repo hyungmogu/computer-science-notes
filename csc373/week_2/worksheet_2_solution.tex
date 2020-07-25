@@ -332,17 +332,45 @@
 
     \end{itemize}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \color{red}
+        \begin{enumerate}[1)]
+            \item Consider the left-most interval.
+            \item Set the left most point $x$ in the set as its value (since we know it must contain the leftmost point)
+            \item For any point that is within the unit distance of the point $x$ (i.e. $[x, x+1]$), remove the points
+            since they are covered
+            \item Move to the next closest point not covered by the unit interval of $x$, and repeat until all points in the set are covered.
+            \item Since each step has a clearly optimal choice for where to put the leftmost interval, the final solution is optimal
+        \end{enumerate}
+
+        \color{black}
+
+        \bigskip
+
+    \end{mdframed}
+
     \underline{\textbf{Notes:}}
 
     \bigskip
 
     \begin{itemize}
-        \item Stopped because it's taking too much time.
+        \item I stopped because it's taking too much time.
         \item I struggled on this problem.
-        \item I am having difficulty arguing why the algorith is correct
 
         \begin{itemize}
-            \item How can i generate a claim?
+            \item I had trouble understanding the meaning of unit interval
+            \item I felt there is missing knowledge regarding optimal substructure
+            \item I felt tunnel visioned to provide one interval that covers all
+        \end{itemize}
+
+        \item I had difficulty arguing why the algorith is correct
+
+        \begin{itemize}
+            \item i.e. How can i generate a claim?
         \end{itemize}
 
         \item Unit length
@@ -414,6 +442,22 @@
         \end{itemize}
     \end{itemize}
 
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item Optimal Substructure
+
+        \begin{itemize}
+            \item A problem is said to have optimal substructure if an optimal solution
+            can be constructed from optimal solutions of its subproblems.
+        \end{itemize}
+    \end{itemize}
 
 \end{enumerate}
 
