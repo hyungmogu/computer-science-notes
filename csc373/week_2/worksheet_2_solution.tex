@@ -317,6 +317,31 @@
         \end{mdframed}
 
         \item Algorithm
+
+        \begin{enumerate}[1)]
+            \item Start with $[a_1, a_1]$
+            \item if the size of the set is 1, then return $[a_1, a_1]$
+            \item if the size of the set is greater than 2, then
+
+            \begin{itemize}
+                \item Set $i = 1$, where $i$ represents the index in the set $S$
+                \item For each incrementing $i$
+                \begin{itemize}
+                    \item Compare $a_i$ with the value $a_{\text{currnet min}}$ in unit closed interval $[a_{\text{currnet min}},a_{\text{currnet max}}]$
+                    \begin{itemize}
+                        \item if $a_i < a_{\text{currnet min}}$, then replace $a_{\text{currnet min}}$ in $[a_{\text{currnet min}},a_{\text{currnet max}}]$
+                        with $a_i$
+                    \end{itemize}
+                    \item Compare $a_i$ with the value $a_{\text{currnet max}}$ in unit closed interval $[a_{\text{currnet min}},a_{\text{currnet max}}]$
+
+                    \begin{itemize}
+                        \item if $a_i > a_{\text{currnet max}}$, then replace $a_{\text{currnet max}}$ in $[a_{\text{currnet min}},a_{\text{currnet max}}]$
+                        with $a_i$
+                    \end{itemize}
+
+            \end{itemize}
+            \end{itemize}
+        \end{enumerate}
     \end{itemize}
 
     \underline{\textbf{Notes:}}
