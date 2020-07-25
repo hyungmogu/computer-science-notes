@@ -317,12 +317,14 @@
 
         \bigskip
 
-        The greedy algorithm works by assigning $a_{\text{min}} = min(a_{\text{min}}, S_i)$ and\\
-        $a_{\text{max}} = min(a_{\text{max}}, S_i)$
+        Let $A = [a_{\text{min}}, a_{\text{max}}]$ be the solution. The greedy algorithm works by assigning $a_{\text{min}} = min(a_{\text{min}}, x_n)$ and
+        $a_{\text{max}} = max(a_{\text{max}}, x_n)$, and then continuing by solving the subproblem
 
-        \bigskip
+        \begin{align}
+            I' = (n - 1, \{x_1,..., x_{n-1}\}, S - x_n)
+        \end{align}
 
-        Let $A = [a_{\text{min}}, a_{\text{max}}]$ be the solution $I' = (n - 1, \{a_1, ..., a_{n-1}\})$.
+        until $n = 0$.
 
         \bigskip
 
