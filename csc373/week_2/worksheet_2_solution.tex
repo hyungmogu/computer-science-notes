@@ -286,8 +286,6 @@
 
     \item
 
-    \bigskip
-
     \begin{itemize}
         \item Greedy Choice
 
@@ -312,7 +310,8 @@
 
         \item Optimal Substructure
 
-        \begin{mdframed}
+        \bigskip
+
         Let $I$ be the following instance of the problem: Let $n$ be the number of items,
         and let $x_i$ be the $i^{th}$ point in the set.
 
@@ -330,41 +329,7 @@
         \bigskip
 
         We need to show that the strategy gives optimal solution.
-        \end{mdframed}
 
-        \item Algorithm
-
-
-        \begin{enumerate}[1)]
-            \item consider the left most point in the set $x$
-            \item compare $x$ with $x_{\text{max}}$ in $[x_{\text{min}}, x_{\text{max}}]$. If $x > x_{\text{max}}$, then
-            replace $x_{\text{max}}$ in $[x_{\text{min}}, x_{\text{max}}]$ with $x$.
-        \end{enumerate}
-
-        % \begin{enumerate}[1)]
-        %     \item Start with $[a_1, a_1]$
-        %     \item if the size of the set is 1, then return $[a_1, a_1]$
-        %     \item if the size of the set is greater than 2, then
-
-        %     \begin{itemize}
-        %         \item Set $i = 1$, where $i$ represents the index in the set $S$
-        %         \item For each incrementing $i$
-        %         \begin{itemize}
-        %             \item Compare $a_i$ with the value $a_{\text{currnet min}}$ in unit closed interval $[a_{\text{currnet min}},a_{\text{currnet max}}]$
-        %             \begin{itemize}
-        %                 \item if $a_i < a_{\text{currnet min}}$, then replace $a_{\text{currnet min}}$ in $[a_{\text{currnet min}},a_{\text{currnet max}}]$
-        %                 with $a_i$
-        %             \end{itemize}
-        %             \item Compare $a_i$ with the value $a_{\text{currnet max}}$ in unit closed interval $[a_{\text{currnet min}},a_{\text{currnet max}}]$
-
-        %             \begin{itemize}
-        %                 \item if $a_i > a_{\text{currnet max}}$, then replace $a_{\text{currnet max}}$ in $[a_{\text{currnet min}},a_{\text{currnet max}}]$
-        %                 with $a_i$
-        %             \end{itemize}
-
-        %     \end{itemize}
-        %     \end{itemize}
-        % \end{enumerate}
     \end{itemize}
 
     \underline{\textbf{Notes:}}
@@ -372,7 +337,14 @@
     \bigskip
 
     \begin{itemize}
-        \item I am having difficulty providing optimal substructure to problem
+        \item Stopped because it's taking too much time.
+        \item I struggled on this problem.
+        \item I am having difficulty arguing why the algorith is correct
+
+        \begin{itemize}
+            \item How can i generate a claim?
+        \end{itemize}
+
         \item Unit length
 
         \begin{itemize}
