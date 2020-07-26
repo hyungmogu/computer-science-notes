@@ -462,52 +462,55 @@
 
         \begin{itemize}
             \item Is an algorithm that uses greedy algorithm for lossless (without loss of data) data compression
+            \item Has two types of codewords
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_2_solution_11.png}
+            \end{center}
+
+            \begin{itemize}
+                \item Fixed Length Code
+
+                \begin{itemize}
+                    \item has codeword with the same length
+                \end{itemize}
+
+                \item Variable Length
+                \begin{itemize}
+                    \item has codeword that may be of different lengths
+                \end{itemize}
+            \end{itemize}
             \item Constructs optimal prefix codes
-        \end{itemize}
-        \item Fixed Length Code
 
-        \begin{itemize}
-            \item has codeword with the same length
-        \end{itemize}
+            \begin{itemize}
+                \item Means no codeword is a prefix of some other codewords
 
-        \begin{center}
-        \includegraphics[width=\linewidth]{images/worksheet_2_solution_11.png}
-        \end{center}
+                \bigskip
 
-        \item Variable Length
-        \begin{itemize}
-            \item has codeword that may be of different lengths
-        \end{itemize}
+                e.g.
 
-        \item Prefix Codes
-        \begin{itemize}
-            \item Means no codeword is a prefix of some other codewords
+                The following is not prefix codes
 
-            \bigskip
+                \bigskip
 
-            e.g.
+                a - 110
 
-            The following is not prefix codes
+                b - 1101
 
-            \bigskip
+                \bigskip
 
-            a - 110
+                e.g.
 
-            b - 1101
+                The following is prefix codes
 
-            \bigskip
+                \bigskip
 
-            e.g.
+                a - 110
 
-            The following is prefix codes
+                b - 111
 
-            \bigskip
-
-            a - 110
-
-            b - 111
-
-            \bigskip
+                \bigskip
+            \end{itemize}
         \end{itemize}
     \end{itemize}
 
