@@ -631,6 +631,40 @@
 
     \item
 
+    Instead of grouping together the two with lowest frequency into pairs that
+    have the smallest total frequency, we will group together the three with
+    lowest frequency in order to have a final result that is a ternary tree.
+    The analysis of optimality is almost identical to the binary case. We are
+    placing the symbols of lowest frequency lower down in the final tree and so
+    they will have longer codewords than the more frequently occurring symbols.
+
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{My Work:}}
+
+        \begin{itemize}
+            \item Proof of greedy-choice property for Huffman's Algorithm (Ternary)
+
+            \bigskip
+
+            \underline{\textbf{Lemma:}}
+
+            \bigskip
+
+            Let $C$ be an alphabet in which each character $c \in C$ has frequency cfreq. Let $x$, $y$ and $z$
+            be two characters in $C$ having the lowest frequencies. Then there exists an optimal prefix code for $C$
+            in which the codewords for $x$, $y$ and $z$ have the smae length and differ only in the last bit.
+
+            \bigskip
+
+
+            \item Proof of optimal structure property for Huffman's Algorithm (Ternary)
+        \end{itemize}
+
+
+    \end{mdframed}
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -654,6 +688,9 @@
 
         \bigskip
 
+        \begin{proof}
+
+        \end{proof}
         \item Proof of optimal structure property for Huffman's Algorithm (Binary)
 
         \bigskip
