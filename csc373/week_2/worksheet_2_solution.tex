@@ -443,28 +443,33 @@
     \end{itemize}
 
     \item
+    \setcounter{equation}{0}
 
-    \bigskip
+    \begin{proof}
+
+    Let $T$ be a binary tree corresponding to an optimal prefix code and suppose
+    that $T$ is not full. Let node $n$ have a single child $x$. Let $T'$ be the
+    tree obtained by removing $n$ and replacing it by $x$. Let $m$ be leaf node
+    which is descendent of $x$. Then we have:
+
 
     \begin{mdframed}
-        \underline{\textbf{Rough Work:}}
+    \underline{\textbf{My work:}}
 
-        \bigskip
-
-        Let $T$ be a binary tree corresponding to an optimal prefix code and suppose
-        that $T$ is not full. Let node $n$ have a single child $x$. Let $T'$ be the
-        tree obtained by removing $n$ and replacing it by $x$. Let $m$ be leaf node
-        which is descendent of $x$. Then we have:
-
-
-        \begin{mdframed}
-
-        \end{mdframed}
-
-        which contradicts the fact that $T$ was optimal. Therefore every binary tree
-        corresponding to an optimal prefix code is full
+    \begin{align}
+    B(T') &\leq \sum\limits_{c \in C \setminus \{m\}} c.freq \cdot d_T(c) + m.freq \cdot d_{T'}(m)\\
+    &= \sum\limits_{c \in C \setminus \{m\}} c.freq \cdot d_T(c) + m.freq \cdot (d_T(m) - 1)\\
+    &< \sum\limits_{c \in C \setminus \{m\}} c.freq \cdot d_T(c) + m.freq \cdot d_T(m)\\
+    &= \sum\limits_{c \in C} c.freq \cdot d_T(c)\\
+    &= B(T)
+    \end{align}
 
     \end{mdframed}
+
+    which contradicts the fact that $T$ was optimal. Therefore every binary tree
+    corresponding to an optimal prefix code is full
+
+    \end{proof}
 
     \underline{\textbf{Notes:}}
 
