@@ -451,10 +451,18 @@
 
         \bigskip
 
-        \textbf{Claim:} A binary tree that is not full cannot correspond to an optimal prefix code.
-        That is, $B(T_{\text{not full tree}}) > B(T_{\text{full tree}}))$
-        % in $B(T) = \sum\limits_{c \in C} c.freq \cdot d_T(c)$
+        Let $T$ be a binary tree corresponding to an optimal prefix code and suppose
+        that $T$ is not full. Let node $n$ have a single child $x$. Let $T'$ be the
+        tree obtained by removing $n$ and replacing it by $x$. Let $m$ be leaf node
+        which is descendent of $x$. Then we have:
 
+
+        \begin{mdframed}
+
+        \end{mdframed}
+
+        which contradicts the fact that $T$ was optimal. Therefore every binary tree
+        corresponding to an optimal prefix code is full
 
     \end{mdframed}
 
@@ -463,7 +471,6 @@
     \bigskip
 
     \begin{itemize}
-        \item Realized that I should learn with the solution. Otherwise, it will take too much time.
         \item Optimal Substructure
 
         \begin{itemize}
@@ -525,6 +532,8 @@
                 \bigskip
             \end{itemize}
         \end{itemize}
+
+        \item Realized that I should learn with the solution. Otherwise, it will take too much time.
     \end{itemize}
 
 \end{enumerate}
