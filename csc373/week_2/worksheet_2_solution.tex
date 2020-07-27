@@ -700,6 +700,14 @@
 
             \bigskip
 
+            because both $a.freq - x.freq$ and $d_T(a) - d_T(x)$ are nonnegative. More specifically,
+            $a.freq - x.freq$ is non-negative because $x$ is a minimum-frequency leaf, and $d_T(a) - d_T(x)$
+            is non-negative because $a$ is leaf of maximum depth in $T$. Similarly, exchanging
+            $y$ and $b$ does not increase the cost, and so $B(T') - B(T'')$ is non-negative.
+            Therefore $B(T'') \leq B(T)$, and since $T$ is optimal we have $B(T) \leq B(T'')$,
+            which implies $B(T) = B(T'')$. Thus $T''$ is an optimal tree in which $x$ and $y$
+            appear as sibling leaves of maximum depth, from which the lemma follows.
+
             \end{proof}
 
 
