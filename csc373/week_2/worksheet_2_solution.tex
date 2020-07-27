@@ -712,6 +712,24 @@
 
 
             \item Proof of optimal structure property for Huffman's Algorithm (Ternary)
+
+            \bigskip
+
+            \underline{\textbf{Lemma (Modification of lemma on page 435):}}
+
+            \bigskip
+
+            Let $C$ be a given alphabet with frequency $c.freq$ defined for each
+            character $c \in C$. Let $x$, $y$ and $z$ be three characters in $C$ with minimum frequency.
+            Let $C'$ be the alphabet $C$ with characters $x$, $y$ and $z$ removed and a new character
+            $w$ added, so that $C' = C - \{x,y,z\} \cup \{w\}$. Define $freq$ for $C'$ as for $C$, except taht
+            $w.freq = x.freq + y.freq + z.freq$. Let $T'$ be any tree representing an optimal prefix code
+            for the alphabet $C'$. Then the tree $T$, obtained from $T'$ by replacing the leaf node
+            for $w$ with an internal node having $x$, $y$ and $z$ as children, represents an optimal prefix
+            code for the alphabet $C$.
+
+
+
         \end{itemize}
 
 
