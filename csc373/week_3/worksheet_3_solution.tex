@@ -118,7 +118,7 @@
 
                 \bigskip
 
-                \underline{\textbf{Example:}}
+                \underline{\textbf{Example (From CS Breakdown on Youtube):}}
 
                 \bigskip
 
@@ -126,6 +126,29 @@
                 that results from evaluating the product $A_iA_{i+1}...A_j$.
 
                 \bigskip
+
+                Assume the solution has the following parentheses:
+
+                \begin{align*}
+                    (A_{i...k})(A_{k+1...j})
+                \end{align*}
+
+                \bigskip
+
+                If there is a better way to multiply $(A_{i...k})$, then we
+                would have a more optimal solution.
+
+                \bigskip
+
+                This would be a contradiction, as we already stated that we have the optimal
+                solution for $A_{i...j}$.
+
+                \bigskip
+
+                Therefore, this problem has optimal substructure.
+
+                \bigskip
+
 
                 \item Recursive Solution
                 \item Computing the Estimated Cost
