@@ -649,7 +649,7 @@
 
             \bigskip
 
-            \underline{\textbf{Lemma:}}
+            \underline{\textbf{Lemma (Modification of lemma on page 433):}}
 
             \bigskip
 
@@ -658,6 +658,18 @@
             in which the codewords for $x$, $y$ and $z$ have the smae length and differ only in the last bit.
 
             \bigskip
+
+            \begin{proof}
+            Let $a$, $b$ and $c$ be three characters that are sibling leaves of maximum
+            depth in $T$.
+
+            \bigskip
+
+            Without loss of generality, we assume that $a.freq \leq b.freq \leq c.freq$, $x.freq \leq y.freq \leq z.freq$
+            Since $x.freq$, $y.freq$ and $z.freq$ are the three lowest leaf frequencies, in order,
+            and $a.freq$ and $b.freq$ are three arbitrary frequencies, in order, we have $x.freq \leq a.freq$,
+
+            \end{proof}
 
 
             \item Proof of optimal structure property for Huffman's Algorithm (Ternary)
