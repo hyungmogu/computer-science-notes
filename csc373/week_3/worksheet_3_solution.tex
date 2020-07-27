@@ -83,27 +83,16 @@
         \item Matrix-chain Multiplication
 
         \begin{itemize}
-            \item is an optimization problem that can be solved using dynamic
-            programming
-            \item goal is to find matrix parenthesis with fewest number of operations
+            \item Is an optimization problem solved using dynamic programming
+            \item Goal is to find matrix parenthesis with fewest number of operations
 
             \bigskip
 
-            e.g
+            \underline{\textbf{Example:}}
 
             \bigskip
 
-            Given chain of matrices $<A,B,C,D>$, it's fully parenthesized product is:
-
-            \bigskip
-
-            \begin{align*}
-            ((AB)C)D\\
-            (A(BC))D\\
-            (AB)(CD)\\
-            A((BC)D)\\
-            A(B(CD))
-            \end{align*}
+            Given chain of matrices $<A,B,C>$, it's fully parenthesized product is:
 
             \bigskip
 
@@ -121,6 +110,15 @@
             \item Is stated as: given a chain $<A_1, A_2, ..., A_n>$ of $n$ matrices,
             where for $i = 1,2,...,n$ matrix $A_i$ has dimension $p_{i-1} \times p_i$,
             fully parenthesize the product $A_1A_2...A_n$ in a way that minimizes the number of scalar multiplications.
+
+            \item Steps
+
+            \begin{enumerate}[1.]
+                \item The Structure of an Optimal Parenthesization
+                \item Recursive Solution
+                \item Computing the Estimated Cost
+                \item Constructing the Optimal Solution
+            \end{enumerate}
         \end{itemize}
     \end{itemize}
 \end{enumerate}
