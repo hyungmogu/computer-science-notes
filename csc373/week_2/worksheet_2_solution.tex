@@ -631,6 +631,8 @@
 
     \item
 
+    \setcounter{equation}{0}
+
     Instead of grouping together the two with lowest frequency into pairs that
     have the smallest total frequency, we will group together the three with
     lowest frequency in order to have a final result that is a ternary tree.
@@ -740,6 +742,36 @@
 
             \bigskip
 
+            from which we conclude that
+
+            \bigskip
+
+            $B(T) = B(T') + x.freq + y.freq + z.freq$
+
+            \bigskip
+
+            or, equivalently
+
+            \bigskip
+
+            $B(T') = B(T) - x.freq - y.freq - z.freq$
+
+            \bigskip
+
+            We now prove lemma by contradiction. Suppose that $T$ does not represent an
+            optima prefix code for $C$. Then there exists an optimal tree $T''$ such that
+            $B(T'') < B(T)$. Without loss of generality (by Lemma 16.2), $T''$ has $x$, $y$ and $z$
+            as siblings. Let $T'''$ be the tree $T''$ with the common parent of $x$, $y$ and $z$
+            replaced by leaf $w$ with frequency $w.freq = x.freq + y.freq + z.freq$. Then
+
+            \begin{align}
+            B(T''') &= B(T'') - x.freq - y.freq - z.freq\\
+            &< B(T) - x.freq - y.freq - z.freq\\
+            &= B(T')
+            \end{align}
+
+            yielding a contradiction to the assumption that $T'$ represents an optimal prefix code
+            for $C'$. Thus $T$ must represent an optimal prefix code for the alphabet $C$.
 
             \end{proof}
 
