@@ -733,7 +733,9 @@
             \begin{proof}
             We first show how to express the cost $B(T)$ of tree $T$ in terms of the cost
             $B(T')$ of the Tree $T'$ by considering the componentin equation 16.4.
-            For each character $c \in C - \{x,y,z\}$
+            For each character $c \in C - \{x,y,z\}$, we have that $d_T(c) = d_{T'}(c)$, and hence
+            $c.freq \cdot d_T(c) = c.freq \cdot d_{T'}(c)$. Since $d_T(w) = d_T(x) = d_T(y) = d_{T'}(z) + 1$, we have
+            $w.freq = x.freq + y.freq + z.freq$.
             \end{proof}
 
 
