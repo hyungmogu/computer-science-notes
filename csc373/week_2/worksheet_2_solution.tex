@@ -668,6 +668,16 @@
             Without loss of generality, we assume that $a.freq \leq b.freq \leq c.freq$, $x.freq \leq y.freq \leq z.freq$
             Since $x.freq$, $y.freq$ and $z.freq$ are the three lowest leaf frequencies, in order,
             and $a.freq$ and $b.freq$ are three arbitrary frequencies, in order, we have $x.freq \leq a.freq$,
+            $y.freq \leq b.freq$, and $z.freq \leq c.freq$.
+
+            \bigskip
+
+            In the remainder of the proof, it is possible that we could have $x.freq = a.freq$,
+            $y.freq = b.freq$, and $z.freq = c.freq$. However, if we had $x.freq = b.freq$ and $x.freq = c.freq$,
+            then we would also have $a.freq = b.freq = c.freq x.freq = y.freq = z.freq$,
+            and the lemma is trivially true. Thus, we will assume $x.freq \neq b.freq$ and $x.freq \neq c.freq$,
+            which means that $x \neq b$ and $x \neq c$.
+
 
             \end{proof}
 
