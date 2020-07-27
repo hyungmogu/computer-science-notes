@@ -683,11 +683,18 @@
             As the following image shows, we exchange the positions in $T$ of $a$ and $x$
             to produce a tree $T'$, and then we exchange the positions in $T'$ of $b$ and $y$
             to produce a tree $T''$, and then we exchange the position in $T''$ of $c$ and $z$
-            to produce a tree $T'''$ in which $x$, $y$ and $z$ are sibling leaves of maximum depth.
+            to produce a tree $T'''$ in which  $x$, $y$ and $z$ are sibling leaves of maximum depth.
+            By equation (16.4), the difference in cost between $T$ and $T'$ is
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_2_solution_21.png}
+            \end{center}
+
+            \begin{align}
+            B(T) - B(T') &= \sum\limits_{c \in C} c.freq \cdot d_T(c) - \sum\limits_{c \in C} c.freq \cdot d_{T'}(c)\\
+            \end{align}
 
             \bigskip
-
-
 
             \end{proof}
 
