@@ -151,6 +151,25 @@
 
 
                 \item Recursive Solution
+
+                \bigskip
+
+                Let $M[i,j]$ be the cost of multiplying matrices from $A_i$ to $A_j$
+
+                \bigskip
+
+                We want to find out at which $'k'$ returns the fewest number of multiplications,
+                or the minimum number of $M$.
+
+                \bigskip
+
+                The recursive formula for the cost of multiplying from $A_i$ to $A_j$ is
+
+                \begin{align}
+                    M[i,j] = M[i,k] + M[k+1,j] + p_{i-1}p_{k}p_j
+                \end{align}
+
+                \bigskip
                 \item Computing the Estimated Cost
                 \item Constructing the Optimal Solution
             \end{enumerate}
