@@ -642,7 +642,7 @@
     \bigskip
 
     \begin{mdframed}
-        \underline{\textbf{My Work:}}
+        \underline{\textbf{My Work (with a lot of help from textbook):}}
 
         \begin{itemize}
             \item Proof of greedy-choice property for Huffman's Algorithm (Ternary)
@@ -692,6 +692,10 @@
 
             \begin{align}
             B(T) - B(T') &= \sum\limits_{c \in C} c.freq \cdot d_T(c) - \sum\limits_{c \in C} c.freq \cdot d_{T'}(c)\\
+            &= x.freq \cdot d_T(x) + a.freq \cdot d_T(a) - x.freq \cdot d_{T'}(x) - a.freq \cdot d_{T'}(a)\\
+            &= x.freq \cdot d_T(x) + a.freq \cdot d_T(a) _ x.freq \cdot d_T(a) - a.freq \cdot d_T(x)\\
+            &= (a.freq - x.freq)(d_T(a) - d_T(x))\\
+            &\geq 0
             \end{align}
 
             \bigskip
