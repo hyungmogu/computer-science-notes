@@ -96,9 +96,36 @@ Source: \href{http://www.cs.toronto.edu/~denisp/csc373/material.html}{link}
     large as the last element of a candidate subseqneunce of length $i-1$. Maintain candidate subsequences by linking them
     through the input sequence)
 
-    \item \textbf{DPV 6.7:}
+    \item \textbf{DPV 6.7:} A sequence is \textit{palindromic} if it is the same
+    whether read left to right or right to left. For instance, the sequence
 
-    \item \textbf{:}
+    \begin{align*}
+        A,C,G,T,G,T,C,A,A,A,A,T,C,G
+    \end{align*}
+
+    has many palindromic subsequences, including $A,C,G,C,A$ and $A,A,A,A$ (on the other hand,
+    the subsequence $A,C,T$ is not palindromic). Devise an algorithm that takes a sequence $x[1...n]$
+    and returns the (length of the) longest palindromic subsequence. It's running time should be $O(n^2)$.
+
+    \item \textbf{DPV 6.21:} A \textit{vertac cover} of a graph $G = (V,E)$ is a subset of verticies $S \subseteq V$ that includes
+    at least one endpoint of every edge in $E$. Give a linear-time algorithm for the following task
+
+    \bigskip
+
+    \textit{Input:} An undirected tree $T = (V,E)$
+
+    \textit{Output:} The size of the smallest vertex cover of $T$
+
+    \bigskip
+
+    For instance, in the following tree, possible vertex covers include $\{A,B,C,D,E,F,G\}$
+    and $\{A,C,D,F\}$ but not $\{C,E,F\}$. The smallest vertex cover has size 3: $\{B,E,G\}$.
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/worksheet_3_1.png}
+    \end{center}
 \end{enumerate}
 
 \end{document}
