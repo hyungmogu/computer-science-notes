@@ -94,6 +94,33 @@
             \bigskip
 
             Given chain of matrices $<A,B,C,D>$, it's fully parenthesized product is:
+
+            \bigskip
+
+            \begin{align*}
+            ((AB)C)D\\
+            (A(BC))D\\
+            (AB)(CD)\\
+            A((BC)D)\\
+            A(B(CD))
+            \end{align*}
+
+            \bigskip
+
+            \begin{itemize}
+                \item $(AB)C$ needs $(10 \times 30 \times 5) + (10 \times 5 \times 60) = 1500 + 3000 = 4500$ operations
+                \item $A(BC)$ needs $(30 \times 5 \times 60) + (10 \times 30 \times 60) = 27000$ operations
+            \end{itemize}
+
+            \bigskip
+
+            Thus, $(AB)C$ performs more efficiently than $A(BC)$.
+
+            \bigskip
+
+            \item Is stated as: given a chain $<A_1, A_2, ..., A_n>$ of $n$ matrices,
+            where for $i = 1,2,...,n$ matrix $A_i$ has dimension $p_{i-1} \times p_i$,
+            fully parenthesize the product $A_1A_2...A_n$ in a way that minimizes the number of scalar multiplications.
         \end{itemize}
     \end{itemize}
 \end{enumerate}
