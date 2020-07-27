@@ -59,10 +59,32 @@ Source: \href{http://www.cs.toronto.edu/~denisp/csc373/material.html}{link}
 \begin{enumerate}[1.]
     \item \textbf{CLRS 15.2-1:} Find an optimal parenthesization of a matrix-chain product whose sequence of dimension is
     $<5,10,3,12,5,50,6>$
+
     \item \textbf{CLRS 15.2-2:} Give a recursive algorithm $MATRIX-CHAIN-MULTIPLY(A,s,i,j)$ that actually
     performs the optimal matrix-chain multiplication, given the sequence o matrices $<A_1, A_3, ..., A_n>$,
     the $s$ table computed by $MATRIX-CHAIN-ORDER$, and the indices $i$ and $j$. (The
     initial call would be $MATRIX-CHAIN-MULTIPLY(A,s,1,n)$).
+
+    \item \textbf{CLRS 15.2-5:} Let $R(i,j)$ be the number of times that table entry $m[i,j]$ is referenced
+    while computing other table entries in call of $MATRIX-CHAIN-ORDER$. Show that the
+    total number of references for the entire table is
+
+    \begin{align*}
+    \sum\limits_{i=1}^n \sum\limits_{j=1} R(i,j) &= \frac{n^3 - n}{3}
+    \end{align*}
+
+    \item \textbf{CLRS 15.3-2:} Draw the recursion tree for $MERGE-SORT$ procedure from Section 2.3.1 on an
+    array of 16 elements. Explain why memoization fails to speed up a good divide-and-conquer algorithm such as $MERGE-SORT$
+
+    \item \textbf{CLRS 15.3-3:} Consider a variant of the matrix-chain multiplication problem in which the goal
+    is to parenthesize the seqnce of matrices so as to maximize, rather than minimize the number of scalar multiplications.
+    Does this problem exhibit optimal substructure?
+
+    \item \textbf{CLRS 15.3-4:} As stated, in dynamic programming we first solve hte subproblems and then choose which of them
+    to use in an optimal solution to the problem. Professor Capulet claims that we do not always need to solve all the subproblems
+    in order to find an optimal solution. She suggests that we can find an optimal solution to the matrix chain multiplication problem
+    by always choosing the matrix $A_k$ at which to split the subproduct $A_iA_{i+1}...A_j$
+    \item
 \end{enumerate}
 
 \end{document}
