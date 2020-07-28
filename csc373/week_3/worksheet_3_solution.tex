@@ -226,13 +226,40 @@
 
                         \begin{align}
                             M[1,2] &= \min_{1 \leq k \leq 2} (M[1,1] + M[1,2] + p_{i-1}p_kp_j)\\
-                            &= \min_{1 \leq k \leq 2} (0 + p_0p_1p_2)\\
-                            &= \min_{1 \leq k \leq 2} (0 + 4 \cdot 10 \cdot 3)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + p_0p_1p_2)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + 4 \cdot 10 \cdot 3)\\
                             &= 120
                         \end{align}
 
                         where $p_0 = 3$ is from the dimension $3 \times 10$ of $A_1$, $p_k = 10$
                         is from the dimension of $3 \times 10$ of $A_1$.
+
+                        \item $i = 2, j = 3$
+
+                        \begin{align}
+                            M[2,3] &= \min_{1 \leq k \leq 2} (M[2,2] + M[3,3] + p_{i-1}p_kp_j)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + p_1p_2p_3)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + 10 \cdot 3 \cdot 12)\\
+                            &= 360
+                        \end{align}
+
+                        \item $i = 3, j = 4$
+
+                        \begin{align}
+                            M[3,4] &= \min_{1 \leq k \leq 2} (M[3,3] + M[4,4] + p_{i-1}p_kp_j)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + p_2p_3p_4)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + 3 \cdot 12 \cdot 20)\\
+                            &= 720
+                        \end{align}
+
+                        \item $i = 3, j = 4$
+
+                        \begin{align}
+                            M[3,4] &= \min_{1 \leq k \leq 2} (M[3,3] + M[4,4] + p_{i-1}p_kp_j)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + p_2p_3p_4)\\
+                            &= \min_{1 \leq k \leq 2} (0 + 0 + 3 \cdot 12 \cdot 20)\\
+                            &= 720
+                        \end{align}
                     \end{itemize}
 
                     \item Repeat 2 with the increased value of spread
