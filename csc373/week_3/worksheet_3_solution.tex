@@ -546,6 +546,25 @@
 
     \bigskip
 
+    \begin{lstlisting}
+    procedure MATRIX-CHAIN-MULTIPLY(A,s,i,j)
+        if i == j then
+            return A[i]
+        end if
+
+        if i < j
+            a = MATRIX-CHAIN-MULTIPLY(A,s,i,s[i,j])
+            b = MATRIX-CHAIN-MULTIPLY(A,s,s[i,j] + 1,j)
+
+            return MATRIX-CHAIN-MULTIPLY(a,b)
+
+        end if
+
+    end procedure
+    \end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Example:}}
 
     \bigskip
@@ -558,8 +577,13 @@
 
         $A_{1..s[1,n]}A_{s[1,n]+1..n}$
 
+        \bigskip
+
         \item Table of optimal costs $m$ is used with $m$ to construct solution to
         matrix-chain multiplication problem
+
+
+
     \end{itemize}
 \end{enumerate}
 
