@@ -114,7 +114,7 @@
             \item Steps
 
             \begin{enumerate}[1.]
-                \item Check is the problem has Optimal Substructure
+                \item \textbf{Check is the problem has Optimal Substructure}
 
                 \bigskip
 
@@ -146,7 +146,7 @@
                 \bigskip
 
 
-                \item Recursive Solution
+                \item \textbf{Find the Recursive Solution}
 
                 \bigskip
 
@@ -167,6 +167,16 @@
                         \min_{i \leq k \leq j} M[i,k] + M[k+1,j] + p_{i-1}p_{k}p_j & \text{if $i < j$}\\
                     \end{cases}
                 \end{align}
+
+                \item \textbf{Computing the Estimated Cost}
+                \begin{itemize}
+                    \item Steps
+                    \begin{enumerate}[1)]
+                        \item Fill the table for $i = j$
+                        \item Fill the table for $i < j$ with a spread of 1
+                        \item Repeat 2 with the increased value of spread
+                    \end{enumerate}
+                \end{itemize}
 
                 \bigskip
 
@@ -190,8 +200,12 @@
                     \item $A_5 \to 20 \times 7$
                 \end{itemize}
 
-                \item Computing the Estimated Cost
-                \item Constructing the Optimal Solution
+                \bigskip
+
+                we have:
+
+
+                \item \textbf{Constructing the Optimal Solution}
             \end{enumerate}
         \end{itemize}
 
