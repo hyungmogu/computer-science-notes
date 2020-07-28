@@ -96,6 +96,67 @@
 
     \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Using the following formula
+
+        \begin{align}
+            M[i,j] = \begin{cases}
+                0 & \text{if $i = j$}\\
+                \min_{i \leq k \leq j} M[i,k] + M[k+1,j] + p_{i-1}p_{k}p_j & \text{if $i < j$}\\
+            \end{cases}
+        \end{align}
+
+        we have
+
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                m (i/j) & 1 & 2 & 3 & 4 & 5 & 6\\
+                1 & 0 & 350 & 770 & 612 & 1212 & 1422\\
+                2 & x & 0 & 840 & 462 & 1662 & 1362\\
+                3 & x & x & 0 & 252 & 1092 & 1098\\
+                4 & x & x & x & 0 & 1440 & 936\\
+                5 & x & x & x & x & 0 & 720\\
+                6 & x & x & x & x & x & 0\\
+                \hline
+            \end{tabular}
+
+            \color{red}
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                s (i/j) & 1 & 2 & 3 & 4 & 5 & 6\\
+                1 & 0 & 1 & 2 & 1 & 4 & 4\\
+                2 & x & 0 & 2 & 2 & 4 & 4\\
+                3 & x & x & 0 & 3 & 4 & 4\\
+                4 & x & x & x & 0 & 4 & 4\\
+                5 & x & x & x & x & 0 & 5\\
+                5 & x & x & x & x & x & 0\\
+                \hline
+            \end{tabular}
+            \color{black}
+        \end{center}
+
+        \bigskip
+
+        And an optimal parenthesization is
+
+        \begin{mdframed}
+            \underline{\textbf{My Work:}}
+
+            \bigskip
+
+            \color{red} $(A_1(A_2(A_3A_4)))(A_5A_6)$ \color{black}
+        \end{mdframed}
+
+
+    \end{mdframed}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -579,10 +640,8 @@
 
         \bigskip
 
-        \item Table of optimal costs $m$ is used with $m$ to construct solution to
+        \item Table of optimal costs $m$ is used with table $s$ to construct solution to
         matrix-chain multiplication problem
-
-
 
     \end{itemize}
 \end{enumerate}
