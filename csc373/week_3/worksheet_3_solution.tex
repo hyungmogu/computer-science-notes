@@ -57,6 +57,22 @@
 \begin{enumerate}[1.]
     \item
 
+    Using the following formula
+
+    \begin{align}
+        M[i,j] = \begin{cases}
+            0 & \text{if $i = j$}\\
+            \min_{i \leq k \leq j} M[i,k] + M[k+1,j] + p_{i-1}p_{k}p_j & \text{if $i < j$}\\
+        \end{cases}
+    \end{align}
+
+    we have (calculation is omitted)
+
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        C & 1 & 2 & 3 & 4 & 5 & 6\\
+    \end{tabular}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
