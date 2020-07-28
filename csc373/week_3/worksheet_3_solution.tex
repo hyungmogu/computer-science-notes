@@ -330,6 +330,32 @@
                         Thus, $\min_{2 \leq k \leq 4} M[2,4] = 1320$.
 
                         \item $i = 3, j = 5$
+
+                        \bigskip
+
+                        \underline{$k = 3$}
+
+                        \begin{align}
+                            M[3,5] &= M[3,3] + M[3,5] + p_{i-1}p_kp_j\\
+                            &= 0 + 1680 + p_2p_3p_5\\
+                            &= 0 + 1680 + 3 \cdot 12 \cdot 7\\
+                            &= 0 + 1680 + 252\\
+                            &= 1932
+                        \end{align}
+
+                        \bigskip
+
+                        \underline{$k = 4$}
+
+                        \begin{align}
+                            M[3,5] &= M[3,4] + M[5,5] + p_{i-1}p_kp_j\\
+                            % &= 360 + 0 + p_1p_3p_4\\
+                            % &= 360 + 0 + 10 \cdot 12 \cdot 20\\
+                            % &= 360 + 0 + 2400\\
+                            % &= 2760
+                        \end{align}
+
+                        \bigskip
                     \end{itemize}
 
                 \end{enumerate}
