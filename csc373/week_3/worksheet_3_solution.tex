@@ -154,6 +154,10 @@
 
                 \bigskip
 
+                \underline{\textbf{Example (From CS Breakdown on Youtube):}}
+
+                \bigskip
+
                 Let $M[i,j]$ be the cost of multiplying matrices from $A_i$ to $A_j$
 
                 \bigskip
@@ -166,10 +170,14 @@
                 The recursive formula for the cost of multiplying from $A_i$ to $A_j$ is
 
                 \begin{align}
-                    M[i,j] = M[i,k] + M[k+1,j] + p_{i-1}p_{k}p_j
+                    M[i,j] = \begin{cases}
+                        0 & \text{if $i = j$}\\
+                        \min_{i \leq k \leq j} M[i,k] + M[k+1,j] + p_{i-1}p_{k}p_j & \text{if $i < j$}\\
+                    \end{cases}
                 \end{align}
 
                 \bigskip
+
                 \item Computing the Estimated Cost
                 \item Constructing the Optimal Solution
             \end{enumerate}
