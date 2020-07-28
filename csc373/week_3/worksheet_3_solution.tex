@@ -349,14 +349,34 @@
 
                         \begin{align}
                             M[3,5] &= M[3,4] + M[5,5] + p_{i-1}p_kp_j\\
-                            % &= 360 + 0 + p_1p_3p_4\\
-                            % &= 360 + 0 + 10 \cdot 12 \cdot 20\\
-                            % &= 360 + 0 + 2400\\
-                            % &= 2760
+                            &= 720 + 0 + p_2p_4p_5\\
+                            &= 720 + 0 + 3 \cdot 20 \cdot 7\\
+                            &= 720 + 420\\
+                            &= 1140
+                        \end{align}
+
+                        \bigskip
+
+                        Thus, $\min_{3 \leq k \leq 5} M[3,5] = 1140$.
+
+
+                        \item $i = 1, j = 4$
+
+                        \bigskip
+
+                        \underline{$k = 1$}
+
+                        \begin{align}
+                            M[1,4] &= M[1,1] + M[2,4] + p_{i-1}p_kp_j\\
+                            &= 0 + 1320 + p_0p_1p_4\\
+                            &= 0 + 1320 + 4 \cdot 10 \cdot 20\\
+                            &= 0 + 1320 + 800\\
+                            &= 2120
                         \end{align}
 
                         \bigskip
                     \end{itemize}
+
 
                 \end{enumerate}
 
