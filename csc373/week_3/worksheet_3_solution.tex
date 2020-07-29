@@ -975,13 +975,37 @@
         \bigskip
 
         \begin{mdframed}
-        Assume that the optimal structure of $A_iA_{i+1}...A_j$ exists. That is,
+        Assume that the optimal structure of $A_iA_{i+1}..A_j$ exists. That is,
         there exists some $k \in \mathbb{N} - \{0\}$ such that the following parenthesis $(A_{i..k})(A_{k+1..j})$
-        produces maximum operation cost.
+        produces minimum operation cost.
 
         \bigskip
 
-        Now, assume for the sake of contradiction that
+        I need to show that the substructures $A_{i..k}$ and $A_{k+1..j}$ must also be optimal.
+
+        \bigskip
+
+        I will do so in parts.
+
+        \bigskip
+
+        \underline{\textbf{Part 1 (Proving optimal substructure of $A_{i..k}$)}}
+
+        \bigskip
+
+        Assume for the sake of contradiction that the substructure $A_{i..k}$ is
+        not optimal.
+
+        \bigskip
+
+        Then, we can write that there exists some $k' \in \mathbb{N} - \{0\}$ such that
+        $(A_{i...k'})(A_{k'+1..k})$ has smaller operation cost than $(A_{i..k})$.
+
+        \bigskip
+
+        Then, we can write that $((A_{i...k'})(A_{k'+1..k}))(A_{k+1..j})$ has smaller
+        operation costs than $(A_{i..k})(A_{k+1..j})$, which contradicts the original assumption that
+        $(A_{i..k})(A_{k+1..j})$ must have minimum operation cost.
 
         \end{mdframed}
     \end{itemize}
