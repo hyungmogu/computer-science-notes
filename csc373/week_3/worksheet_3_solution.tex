@@ -663,11 +663,15 @@
 
             \bigskip
 
-            First, we need to determine the total number of $m[i,j]$ referred in the
+            First, we need to determine the total number of times $m[i,j]$ is referred in the
             innermost loop.
 
             \begin{mdframed}
-            The inner loop runs from $k = i$ to $k = j - 1$, giving the total of $j - i = l - 1$ iterations.
+            We know from the program that the loop runs from $k = i$ to $k = j - 1$.
+
+            \bigskip
+
+            Using this fact, we can write the innermost loop has $j - i = l - 1$ iterations.
 
             \bigskip
 
@@ -683,8 +687,39 @@
             \item Determine the total number of times $m[i,j]$ is referenced in the
             intermediate loop
 
+            \bigskip
+
+            Second, we need to determine the total number of times $m[i,j]$ is referred in the
+            intermediate loop
+
+            \begin{mdframed}
+            We know from the header that the loop runs from $i = 1$ to $i = n - l + 1$.
+
+            \bigskip
+
+            Using this fact, we can write the intermediate loop runs $n - l + 1$ iterations.
+
+            \bigskip
+
+            Since each iteration referrs $m[i,j]$ $(l - 1)2$ many times, the total number
+            of times $m[i,j]$ is referred in the itnermediate loop is:
+
+            \bigskip
+
+            \begin{align}
+                (n - l + 1)(l - 1)2
+            \end{align}
+
+            \end{mdframed}
+
             \item Determine the total number of times $m[i,j]$ is referenced in the
             outermost loop
+
+            \bigskip
+
+            \begin{mdframed}
+
+            \end{mdframed}
         \end{itemize}
 
         \item Compute
