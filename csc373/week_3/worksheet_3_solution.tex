@@ -667,7 +667,7 @@
             innermost loop.
 
             \begin{mdframed}
-            We know from the program that the loop runs from $k = i$ to $k = j - 1$.
+            We know from the header that the loop runs from $k = i$ to $k = j - 1$.
 
             \bigskip
 
@@ -718,11 +718,24 @@
             \bigskip
 
             \begin{mdframed}
+            We know from the header that the loop runs from $l = 2$ to $n$.
+
+            \bigskip
+
+            Since each iteration referrs $m[i,j]$ $(n - l + 1)(l - 1)2$ many times, the total number
+            of times $m[i,j]$ is referred in the outermost loop is:
+
+            \bigskip
+
+            \begin{align}
+                \sum\limits_{l=2}^{n} (n - l + 1)(l - 1)2 &= \sum\limits_{l'=0}^{n-2} (n - l' - 1)(l' + 1)2\\
+            \end{align}
 
             \end{mdframed}
         \end{itemize}
 
         \item Compute
+
     \end{enumerate}
 
     \bigskip
