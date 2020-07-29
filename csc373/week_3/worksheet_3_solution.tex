@@ -728,7 +728,12 @@
             \bigskip
 
             \begin{align}
-                \sum\limits_{l=2}^{n} (n - l + 1)(l - 1)2 &= \sum\limits_{l'=1}^{n-2} (n - l')(l')2
+                \sum\limits_{l=2}^{n} (n - l + 1)(l - 1)2 &= \sum\limits_{l'=1}^{n-1} (n - l')(l')2\\
+                &= \sum\limits_{l'=1}^{n-1} nl' - (l')^2\\
+                &= n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2\\
+                &= n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2\\
+                &= n \sum\limits_{l'=0}^{n-1} l' - \sum\limits_{l'=0}^{n-1} (l')^2\\
+                &= \frac{(n-1)n^2}{2} - \frac{(n-1)n(2n-1)}{6}\\
             \end{align}
 
             \end{mdframed}
