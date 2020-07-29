@@ -651,7 +651,7 @@
     \bigskip
 
     \underline{\textbf{Rough Work:}}
-
+    \setcounter{equation}{0}
     \bigskip
 
     \begin{enumerate}[1.]
@@ -661,8 +661,22 @@
             \item Determine the total number of times $m[i,j]$ is referenced in the
             innermost loop
 
+            \bigskip
+
+            First, we need to determine the total number of $m[i,j]$ referred in the
+            innermost loop.
+
             \begin{mdframed}
-            The inner loop runs from $k = i$ to $k = j - 1$, which gives the total of $j - i = l - 1$ iterations.
+            The inner loop runs from $k = i$ to $k = j - 1$, giving the total of $j - i = l - 1$ iterations.
+
+            \bigskip
+
+            Since $m[i.j]$ is referred twice, the total number of $m[i,j]$ referred
+            in the loop is:
+
+            \begin{align}
+                (l - 1)2
+            \end{align}
 
             \end{mdframed}
 
@@ -700,7 +714,7 @@
         \includegraphics[width=\linewidth]{images/worksheet_3_solution_6.png}
         \end{center}
 
-        \item In the problem `$m[i,j]$ is referenced' refers to $m[i,j]$ in $m[i,j] = ...$
+        \item In the problem `$m[i,j]$ is referenced' refers to $m[i,j]$ used in assignments $q = m[i,j] ...$
 
         \begin{center}
         \includegraphics[width=\linewidth]{images/worksheet_3_solution_7.png}
