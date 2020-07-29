@@ -650,99 +650,186 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Work:}}
-    \setcounter{equation}{0}
+    First, we need to determine the total number of times $m[i,j]$ is referred in the
+    innermost loop.
+
     \bigskip
 
-    \begin{enumerate}[1.]
-        \item Find equation that determines the total number of times $m[i,j]$ is referenced
+    We know from the header that the loop runs from $k = i$ to $k = j - 1$.
 
-        \begin{itemize}
-            \item Determine the total number of times $m[i,j]$ is referenced in the
-            innermost loop
+    \bigskip
 
-            \bigskip
+    Using this fact, we can write the innermost loop has $j - i = l - 1$ iterations.
 
-            First, we need to determine the total number of times $m[i,j]$ is referred in the
-            innermost loop.
+    \bigskip
 
-            \begin{mdframed}
-            We know from the header that the loop runs from $k = i$ to $k = j - 1$.
+    Since $m[i.j]$ is referred twice, the total number of $m[i,j]$ referred
+    in the loop is:
 
-            \bigskip
+    \begin{align}
+        (l - 1)2
+    \end{align}
 
-            Using this fact, we can write the innermost loop has $j - i = l - 1$ iterations.
+    \bigskip
 
-            \bigskip
+    Second, we need to determine the total number of times $m[i,j]$ is referred in the
+    intermediate loop
 
-            Since $m[i.j]$ is referred twice, the total number of $m[i,j]$ referred
-            in the loop is:
+    \bigskip
 
-            \begin{align}
-                (l - 1)2
-            \end{align}
+    We know from the header that the loop runs from $i = 1$ to $i = n - l + 1$.
 
-            \end{mdframed}
+    \bigskip
 
-            \item Determine the total number of times $m[i,j]$ is referenced in the
-            intermediate loop
+    Using this fact, we can write the intermediate loop runs $n - l + 1$ iterations.
 
-            \bigskip
+    \bigskip
 
-            Second, we need to determine the total number of times $m[i,j]$ is referred in the
-            intermediate loop
+    Since each iteration referrs $m[i,j]$ $(l - 1)2$ many times, the total number
+    of times $m[i,j]$ is referred in the itnermediate loop is:
 
-            \begin{mdframed}
-            We know from the header that the loop runs from $i = 1$ to $i = n - l + 1$.
+    \bigskip
 
-            \bigskip
+    \begin{align}
+        (n - l + 1)(l - 1)2
+    \end{align}
 
-            Using this fact, we can write the intermediate loop runs $n - l + 1$ iterations.
+    \bigskip
 
-            \bigskip
+    Finally, we need to determine the total number of times $m[i,j]$ is referenced
+    in the outermost loop.
 
-            Since each iteration referrs $m[i,j]$ $(l - 1)2$ many times, the total number
-            of times $m[i,j]$ is referred in the itnermediate loop is:
+    \bigskip
 
-            \bigskip
+    We know from the header that the loop runs from $l = 2$ to $n$.
 
-            \begin{align}
-                (n - l + 1)(l - 1)2
-            \end{align}
+    \bigskip
 
-            \end{mdframed}
+    Since each iteration referrs $m[i,j]$ $(n - l + 1)(l - 1)2$ many times, the total number
+    of times $m[i,j]$ is referred in the outermost loop is:
 
-            \item Determine the total number of times $m[i,j]$ is referenced in the
-            outermost loop
+    \bigskip
 
-            \bigskip
+    \begin{align}
+        \sum\limits_{l=2}^{n} (n - l + 1)(l - 1)2 &= 2\sum\limits_{l'=1}^{n-1} (n - l')(l')\\
+        &= 2 \Bigl[\sum\limits_{l'=1}^{n-1} nl' - (l')^2 \Bigr]\\
+        &= 2 \Bigl[ n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2 \Bigr]\\
+        &= 2 \Bigl[ n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2 \Bigr]\\
+        &= 2 \Bigl[ n \sum\limits_{l'=0}^{n-1} l' - \sum\limits_{l'=0}^{n-1} (l')^2 \Bigr]\\
+        &= 2 \Bigl[ \frac{(n-1)n^2}{2} - \frac{(n-1)n(2n-1)}{6} \Bigr]\\
+        &= 2 \Bigl[ \frac{n^3 - n^2}{2} - \frac{(n-1)n(2n-1)}{6} \Bigr]\\
+        &= 2 \Bigl[ \frac{n^3 - n^2}{2} - \frac{(n^2-n)(2n-1)}{6} \Bigr]\\
+        &= 2 \Bigl[ \frac{n^3 - n^2}{2} - \frac{(3n^3-3n^2 + n)}{6} \Bigr]\\
+        &= 2 \Bigl[ \frac{3n^3 - 3n^2}{6} - \frac{(3n^3-3n^2 + n)}{6} \Bigr]\\
+        &= 2 \Bigl[ \frac{n^3 - n}{6}\Bigr]\\
+        &= \frac{n^3 - n}{3}
+    \end{align}
 
-            \begin{mdframed}
-            We know from the header that the loop runs from $l = 2$ to $n$.
 
-            \bigskip
 
-            Since each iteration referrs $m[i,j]$ $(n - l + 1)(l - 1)2$ many times, the total number
-            of times $m[i,j]$ is referred in the outermost loop is:
+    % \bigskip
 
-            \bigskip
+    % \underline{\textbf{Rough Work:}}
+    % \setcounter{equation}{0}
+    % \bigskip
 
-            \begin{align}
-                \sum\limits_{l=2}^{n} (n - l + 1)(l - 1)2 &= 2\sum\limits_{l'=1}^{n-1} (n - l')(l')\\
-                &= 2 \Bigl[\sum\limits_{l'=1}^{n-1} nl' - (l')^2 \Bigr]\\
-                &= 2 \Bigl[ n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2 \Bigr]\\
-                &= 2 \Bigl[ n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2 \Bigr]\\
-                &= 2 \Bigl[ n \sum\limits_{l'=0}^{n-1} l' - \sum\limits_{l'=0}^{n-1} (l')^2 \Bigr]\\
-                &= 2 \Bigl[ \frac{(n-1)n^2}{2} - \frac{(n-1)n(2n-1)}{6} \Bigr]\\
-                &= 2 \Bigl[ \frac{(n-1)n^2}{2} - \frac{(n-1)n(2n-1)}{6} \Bigr]
-            \end{align}
+    % \begin{enumerate}[1.]
+    %     \item Find equation that determines the total number of times $m[i,j]$ is referenced
 
-            \end{mdframed}
-        \end{itemize}
+    %     \begin{itemize}
+    %         \item Determine the total number of times $m[i,j]$ is referenced in the
+    %         innermost loop
 
-        \item Compute
+    %         \bigskip
 
-    \end{enumerate}
+    %         First, we need to determine the total number of times $m[i,j]$ is referred in the
+    %         innermost loop.
+
+    %         \begin{mdframed}
+    %         We know from the header that the loop runs from $k = i$ to $k = j - 1$.
+
+    %         \bigskip
+
+    %         Using this fact, we can write the innermost loop has $j - i = l - 1$ iterations.
+
+    %         \bigskip
+
+    %         Since $m[i.j]$ is referred twice, the total number of $m[i,j]$ referred
+    %         in the loop is:
+
+    %         \begin{align}
+    %             (l - 1)2
+    %         \end{align}
+
+    %         \end{mdframed}
+
+    %         \item Determine the total number of times $m[i,j]$ is referenced in the
+    %         intermediate loop
+
+    %         \bigskip
+
+    %         Second, we need to determine the total number of times $m[i,j]$ is referred in the
+    %         intermediate loop
+
+    %         \begin{mdframed}
+    %         We know from the header that the loop runs from $i = 1$ to $i = n - l + 1$.
+
+    %         \bigskip
+
+    %         Using this fact, we can write the intermediate loop runs $n - l + 1$ iterations.
+
+    %         \bigskip
+
+    %         Since each iteration referrs $m[i,j]$ $(l - 1)2$ many times, the total number
+    %         of times $m[i,j]$ is referred in the itnermediate loop is:
+
+    %         \bigskip
+
+    %         \begin{align}
+    %             (n - l + 1)(l - 1)2
+    %         \end{align}
+
+    %         \end{mdframed}
+
+    %         \item Determine the total number of times $m[i,j]$ is referenced in the
+    %         outermost loop
+
+    %         \bigskip
+
+    %         Finally, we need to determine the total number of times $m[i,j]$ is referenced
+    %         in the outermost loop.
+
+    %         \bigskip
+
+    %         \begin{mdframed}
+    %         We know from the header that the loop runs from $l = 2$ to $n$.
+
+    %         \bigskip
+
+    %         Since each iteration referrs $m[i,j]$ $(n - l + 1)(l - 1)2$ many times, the total number
+    %         of times $m[i,j]$ is referred in the outermost loop is:
+
+    %         \bigskip
+
+    %         \begin{align}
+    %             \sum\limits_{l=2}^{n} (n - l + 1)(l - 1)2 &= 2\sum\limits_{l'=1}^{n-1} (n - l')(l')\\
+    %             &= 2 \Bigl[\sum\limits_{l'=1}^{n-1} nl' - (l')^2 \Bigr]\\
+    %             &= 2 \Bigl[ n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2 \Bigr]\\
+    %             &= 2 \Bigl[ n \sum\limits_{l'=1}^{n-1} l' - \sum\limits_{l'=1}^{n-1} (l')^2 \Bigr]\\
+    %             &= 2 \Bigl[ n \sum\limits_{l'=0}^{n-1} l' - \sum\limits_{l'=0}^{n-1} (l')^2 \Bigr]\\
+    %             &= 2 \Bigl[ \frac{(n-1)n^2}{2} - \frac{(n-1)n(2n-1)}{6} \Bigr]\\
+    %             &= 2 \Bigl[ \frac{n^3 - n^2}{2} - \frac{(n-1)n(2n-1)}{6} \Bigr]\\
+    %             &= 2 \Bigl[ \frac{n^3 - n^2}{2} - \frac{(n^2-n)(2n-1)}{6} \Bigr]\\
+    %             &= 2 \Bigl[ \frac{n^3 - n^2}{2} - \frac{(3n^3-3n^2 + n)}{6} \Bigr]\\
+    %             &= 2 \Bigl[ \frac{3n^3 - 3n^2}{6} - \frac{(3n^3-3n^2 + n)}{6} \Bigr]\\
+    %             &= 2 \Bigl[ \frac{n^3 - n}{6}\Bigr]\\
+    %             &= \frac{n^3 - n}{3}
+    %         \end{align}
+
+    %         \end{mdframed}
+    %     \end{itemize}
+
+    % \end{enumerate}
 
     \bigskip
 
