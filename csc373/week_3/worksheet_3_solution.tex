@@ -647,7 +647,7 @@
     \end{itemize}
 
     \item
-
+    \setcounter{equation}{0}
     \bigskip
 
     First, we need to determine the total number of times $m[i,j]$ is referred in the
@@ -876,10 +876,27 @@
             \item Optimal Substructure
             \begin{itemize}
                 \item Is the first step to solving dynamic programming problem
+                \item Exists if an optimal solution to the problem contains within it optimal
+                solution to subproblems
             \end{itemize}
             \item Overlapping Subproblems
+
+            \begin{itemize}
+                \item Is the second step to solving dynamic programming
+                \item Exists when an algorithm revisits the same problem repeatedly
+            \end{itemize}
             \item Memoization
+            \begin{itemize}
+                \item Maintains an entry in a table for the solution to each subproblem
+                \item Ensures that a method doesn't run for the same inputs more than once
+            \end{itemize}
         \end{itemize}
+
+        \item Bottom-Up Dynamic Programming
+        \begin{itemize}
+            \item
+        \end{itemize}
+        \item Top-Down Dynamic Programming
     \end{itemize}
 \end{enumerate}
 
