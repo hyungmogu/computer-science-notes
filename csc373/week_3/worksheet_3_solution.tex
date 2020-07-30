@@ -1091,69 +1091,25 @@
 
     \item
 
-    \bigskip
-
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
-
-    \begin{itemize}
-        \item $<8,10,20,5>$ $\to$ Meets Professor Capulet's Claim \& Not solution
+        Let $<2,10,20,5>$.
 
         \bigskip
 
-        We see that $p_0p_1p_3$ is minimum. So, by  Professor Capulet's claim, splitting
-        at $k = 1$ should result in minimum-cost matrix multiplication.
+        Then, we see that $p_0p_1p_3$ is minimum, and by  Professor Capulet's claim,
+        splitting at $k = 1$ should result in minimum-cost matrix multiplication.
 
         \bigskip
 
-        And we have
+        But we have
 
         \begin{center}
             \begin{tabular}{|c|c|c|c|}
                 \hline
                 m & 1 & 2 & 3\\
                 \hline
-                1 & 0 & 1600 & 1400\\
+                1 & 0 & 400 & 600\\
                 \hline
                 2 & x & 0 & 1000\\
-                \hline
-                3 & x & x & 0\\
-                \hline
-            \end{tabular}
-
-            \begin{tabular}{|c|c|c|c|}
-                \hline
-                s & 1 & 2 & 3\\
-                \hline
-                1 & 0 & 1 & \color{red}1\color{black}\\
-                \hline
-                2 & x & 0 & 2\\
-                \hline
-                3 & x & x & 0\\
-                \hline
-            \end{tabular}
-        \end{center}
-
-        \item $<8,10,2,5>$ $\to$ Meets Professor Capulet's Claim \& Not solution
-
-        \bigskip
-
-        We see that $p_0p_2p_3$ is minimum. So, by  Professor Capulet's claim, splitting
-        at $k = 2$ should result in minimum-cost matrix multiplication.
-
-        \bigskip
-
-        And we have
-
-        \begin{center}
-            \begin{tabular}{|c|c|c|c|}
-                \hline
-                m & 1 & 2 & 3\\
-                \hline
-                1 & 0 & 160 & 260\\
-                \hline
-                2 & x & 0 & 100\\
                 \hline
                 3 & x & x & 0\\
                 \hline
@@ -1172,42 +1128,137 @@
             \end{tabular}
         \end{center}
 
-        \item $<2,10,20,5>$ $\to$
+        \bigskip
+
+        And the minimum-cost matrix multiplication occurs when $A_{i..j}$ is splitted
+        at $k = 2$.
 
         \bigskip
 
-        $p_0p_1p_3$ is minimum
+        Thus, Professor Capulet's claim is false.
 
-        \bigskip
+    % \bigskip
 
-        And we have
+    % \underline{\textbf{Rough Work:}}
 
-        \begin{center}
-            \begin{tabular}{|c|c|c|c|}
-                \hline
-                m & 1 & 2 & 3\\
-                \hline
-                1 & 0 & 1600 & 1400\\
-                \hline
-                2 & x & 0 & 1000\\
-                \hline
-                3 & x & x & 0\\
-                \hline
-            \end{tabular}
+    % \bigskip
 
-            \begin{tabular}{|c|c|c|c|}
-                \hline
-                s & 1 & 2 & 3\\
-                \hline
-                1 & 0 & 1 & 1\\
-                \hline
-                2 & x & 0 & 2\\
-                \hline
-                3 & x & x & 0\\
-                \hline
-            \end{tabular}
-        \end{center}
-    \end{itemize}
+    % \begin{itemize}
+    %     \item $<8,10,20,5>$ $\to$ Meets Professor Capulet's Claim \& Not solution
+
+    %     \bigskip
+
+    %     We see that $p_0p_1p_3$ is minimum. So, by  Professor Capulet's claim, splitting
+    %     at $k = 1$ should result in minimum-cost matrix multiplication.
+
+    %     \bigskip
+
+    %     And we have
+
+    %     \begin{center}
+    %         \begin{tabular}{|c|c|c|c|}
+    %             \hline
+    %             m & 1 & 2 & 3\\
+    %             \hline
+    %             1 & 0 & 1600 & 1400\\
+    %             \hline
+    %             2 & x & 0 & 1000\\
+    %             \hline
+    %             3 & x & x & 0\\
+    %             \hline
+    %         \end{tabular}
+
+    %         \begin{tabular}{|c|c|c|c|}
+    %             \hline
+    %             s & 1 & 2 & 3\\
+    %             \hline
+    %             1 & 0 & 1 & \color{red}1\color{black}\\
+    %             \hline
+    %             2 & x & 0 & 2\\
+    %             \hline
+    %             3 & x & x & 0\\
+    %             \hline
+    %         \end{tabular}
+    %     \end{center}
+
+    %     \item $<8,10,2,5>$ $\to$ Meets Professor Capulet's Claim \& Not solution
+
+    %     \bigskip
+
+    %     We see that $p_0p_2p_3$ is minimum. So, by  Professor Capulet's claim, splitting
+    %     at $k = 2$ should result in minimum-cost matrix multiplication.
+
+    %     \bigskip
+
+    %     And we have
+
+    %     \begin{center}
+    %         \begin{tabular}{|c|c|c|c|}
+    %             \hline
+    %             m & 1 & 2 & 3\\
+    %             \hline
+    %             1 & 0 & 160 & 260\\
+    %             \hline
+    %             2 & x & 0 & 100\\
+    %             \hline
+    %             3 & x & x & 0\\
+    %             \hline
+    %         \end{tabular}
+
+    %         \begin{tabular}{|c|c|c|c|}
+    %             \hline
+    %             s & 1 & 2 & 3\\
+    %             \hline
+    %             1 & 0 & 1 & \color{red}2\color{black}\\
+    %             \hline
+    %             2 & x & 0 & 2\\
+    %             \hline
+    %             3 & x & x & 0\\
+    %             \hline
+    %         \end{tabular}
+    %     \end{center}
+
+    %     \item $<2,10,20,5>$ $\to$ Solution
+
+    %     \bigskip
+
+    %     We see that $p_0p_1p_3$ is minimum. So, by  Professor Capulet's claim, splitting
+    %     at $k = 1$ should result in minimum-cost matrix multiplication.
+
+    %     \bigskip
+
+    %     But we have
+
+    %     \begin{center}
+    %         \begin{tabular}{|c|c|c|c|}
+    %             \hline
+    %             m & 1 & 2 & 3\\
+    %             \hline
+    %             1 & 0 & 400 & 600\\
+    %             \hline
+    %             2 & x & 0 & 1000\\
+    %             \hline
+    %             3 & x & x & 0\\
+    %             \hline
+    %         \end{tabular}
+
+    %         \begin{tabular}{|c|c|c|c|}
+    %             \hline
+    %             s & 1 & 2 & 3\\
+    %             \hline
+    %             1 & 0 & 1 & \color{red}2\color{black}\\
+    %             \hline
+    %             2 & x & 0 & 2\\
+    %             \hline
+    %             3 & x & x & 0\\
+    %             \hline
+    %         \end{tabular}
+    %     \end{center}
+
+    %     \bigskip
+
+    %     So, professor Capulet's claim is false
+    % \end{itemize}
 
     \bigskip
 
