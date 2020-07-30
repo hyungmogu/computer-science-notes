@@ -1305,12 +1305,41 @@
                 \begin{align}
                     M[i,j] = \begin{cases}
                         0 & \text{$i = 0$, or $j = 0$}\\
-                        C_{i-1,j-1}+1 & a_i = b_j\\
-                        Max(C_{i,j-1},C_{i-1,j}) & a_i \neq b_j
+                        c[i-1,j-1]+1 & \text{if $i,j > 0$ and $a_i = b_j$}\\
+                        Max(C_{i,j-1},C_{i-1,j}) & \text{if $i,j > 0$ $a_i \neq b_j$}
                     \end{cases}
                 \end{align}
 
-                \item Comuting the length of an LCS
+                \item Computing the length of an LCS
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Top-Down Solution
+                    \item Bottom-Top Solution
+
+    \begin{lstlisting}[mathescape=true]
+    LCS-LENGTH(X,Y)
+        m = X.length
+        n = Y.length
+
+        let b[1..m, 1..n] and c[0..m, 0..n] be new tables
+
+        for i = 1 to m
+            c[i,0] = 0
+
+        for j = 0 to n
+            c[0,j] = 0
+
+        for i = 1 to m
+            for j = 1 to n
+                if x[i] = y[i]
+
+                    c[i,j] = c[i-1,j-1] + 1
+                    b[i,j] = '$\nwarrow$'
+
+    \end{lstlisting}
+                \end{itemize}
                 \item Constructing an LCS
             \end{enumerate}
         \end{itemize}
