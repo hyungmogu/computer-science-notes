@@ -1298,7 +1298,20 @@
             \item Steps
             \begin{enumerate}[1.]
                 \item Verify Optimal Substructure
-                \item
+                \item Create Recursive Solution
+
+                \bigskip
+
+                \begin{align}
+                    M[i,j] = \begin{cases}
+                        0 & \text{$i = 0$, or $j = 0$}\\
+                        C_{i-1,j-1}+1 & a_i = b_j\\
+                        Max(C_{i,j-1},C_{i-1,j}) & a_i \neq b_j
+                    \end{cases}
+                \end{align}
+
+                \item Comuting the length of an LCS
+                \item Constructing an LCS
             \end{enumerate}
         \end{itemize}
     \end{itemize}
