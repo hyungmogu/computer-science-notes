@@ -1333,11 +1333,17 @@
 
         for i = 1 to m
             for j = 1 to n
-                if x[i] = y[i]
-
+                if x[i] == y[i]
                     c[i,j] = c[i-1,j-1] + 1
                     b[i,j] = '$\nwarrow$'
 
+                elseif c[i-1, j] $\geq$ c[i,j-1]
+                    c[i,j] = c[i,j-1]
+                    b[i,j] = '$\uparrow$'
+
+                else
+                    c[i,j] = c[i,j-1]
+                    b[i,j] = '$\leftarrow$'
     \end{lstlisting}
                 \end{itemize}
                 \item Constructing an LCS
