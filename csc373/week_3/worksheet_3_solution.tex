@@ -1102,9 +1102,12 @@
 
         \bigskip
 
-        $p_0p_1p_3$ is minimum
+        We see that $p_0p_1p_3$ is minimum. So, by  Professor Capulet's claim, splitting
+        at $k = 1$ should result in minimum-cost matrix multiplication.
 
         \bigskip
+
+        And we have
 
         \begin{center}
             \begin{tabular}{|c|c|c|c|}
@@ -1123,7 +1126,7 @@
                 \hline
                 s & 1 & 2 & 3\\
                 \hline
-                1 & 0 & 1 & 1\\
+                1 & 0 & 1 & \color{red}1\color{black}\\
                 \hline
                 2 & x & 0 & 2\\
                 \hline
@@ -1134,6 +1137,51 @@
 
         \item $<8,10,2,5>$ $\to$ Meets Professor Capulet's Claim \& Not solution
 
+        \bigskip
+
+        We see that $p_0p_2p_3$ is minimum. So, by  Professor Capulet's claim, splitting
+        at $k = 2$ should result in minimum-cost matrix multiplication.
+
+        \bigskip
+
+        And we have
+
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                m & 1 & 2 & 3\\
+                \hline
+                1 & 0 & 160 & 260\\
+                \hline
+                2 & x & 0 & 100\\
+                \hline
+                3 & x & x & 0\\
+                \hline
+            \end{tabular}
+
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                s & 1 & 2 & 3\\
+                \hline
+                1 & 0 & 1 & \color{red}2\color{black}\\
+                \hline
+                2 & x & 0 & 2\\
+                \hline
+                3 & x & x & 0\\
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \item $<2,10,20,5>$ $\to$
+
+        \bigskip
+
+        $p_0p_1p_3$ is minimum
+
+        \bigskip
+
+        And we have
+
         \begin{center}
             \begin{tabular}{|c|c|c|c|}
                 \hline
@@ -1159,8 +1207,6 @@
                 \hline
             \end{tabular}
         \end{center}
-
-        \item $<2,10,20,5>$ $\to$
     \end{itemize}
 
     \bigskip
