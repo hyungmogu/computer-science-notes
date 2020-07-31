@@ -1420,6 +1420,23 @@
             \end{enumerate}
         \end{itemize}
     \end{itemize}
+
+    \item
+
+    \begin{lstlisting}[mathescape=true]
+    PRINT-LCS(c,X,Y,i,J)
+        if i == 0 or j == 0
+            return
+        if X[i] == Y[i]
+            PRINT-LCS(c,X,Y,i-1,j-1)
+            print X[i]
+        elseif c[i-1, j] $\geq$ c[i, j - 1]
+            PRINT-LCS(c,X,Y,i-1,j)
+        else
+            PRINT-LCS(c,X,Y,i,j-1)
+    \end{lstlisting}
+
+
 \end{enumerate}
 
 \end{document}
