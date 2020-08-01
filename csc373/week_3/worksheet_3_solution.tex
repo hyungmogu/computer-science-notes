@@ -1438,6 +1438,28 @@
 
     \item
 
+    \begin{lstlisting}[mathescape=true]
+    LIS(A)
+
+        let B be new array
+        j = 0
+
+        for i = 0 to n
+            if i = 0
+                B[j] = A[i]
+
+            elseif A[i] < max(B)
+                REPLACE-NEXT-VALUE-IN-B-BIGGER-THAN-Ai(B,A[i]) #Done using binary search
+
+            elseif A[i] $\leq$ B[j]
+                B[j] = A[i]
+            else
+                j += 1
+                B[j] = A[i]
+
+        return B
+    \end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Notes:}}
@@ -1486,32 +1508,6 @@
             \begin{center}
             \includegraphics[width=\linewidth]{images/worksheet_3_solution_24.png}
             \end{center}
-
-
-            \bigskip
-
-    \begin{lstlisting}[mathescape=true]
-    LIS(A)
-
-        let B be new array
-        j = 0
-
-        for i = 0 to n
-            if i = 0
-                B[j] = A[i]
-
-            elseif A[i] < max(B)
-                REPLACE-NEXT-VALUE-IN-B-BIGGER-THAN-Ai()
-
-            elseif A[i] $\leq$ B[j]
-                B[j] = A[i]
-            else
-                j += 1
-                B[j] = A[i]
-
-        return B
-    \end{lstlisting}
-
 
             \item Considers values and not indices
 
