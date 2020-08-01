@@ -1632,8 +1632,38 @@
                 \bigskip
 
                 $[A,A,B] \to A,[A,B] \to \text{Return 1}$
+
+                \bigskip
+
+                \item
+
+                If $a \geq b$, return a
+
+                \bigskip
+
+                else return b
             \end{itemize}
         \end{itemize}
+
+        \bigskip
+
+    \begin{lstlisting}[mathescape=true]
+    Longest-Palindrome-Subsequence(A,i,j)
+        if Palindrome(A,i,J)
+            return length(A[i..j])
+
+        a = Longest-Palindrome-Subsequence(A, i, j - 1)
+        b = Longest-Palindrome-Subsequence(A, i + 1, j)
+
+        if a $\geq b$
+            return a
+        else
+            return b
+    \end{lstlisting}
+
+    \bigskip
+
+    Here in this case, the algorithm has time complexity of $O(2^n)$.
 
     \end{itemize}
     \underline{\textbf{Notes:}}
