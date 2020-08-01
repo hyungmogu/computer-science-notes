@@ -1462,6 +1462,33 @@
 
     \bigskip
 
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+    \begin{lstlisting}[mathescape=true]
+    LIS(A)
+
+        let B be new array
+        j = 0
+
+        for i = 0 to n
+            if i = 0
+                B[j] = A[i]
+
+            elseif A[i] $\leq$ B[j]
+                B[j] = A[i]
+            else
+                j += 1
+                B[j] = A[i]
+
+        return B
+    \end{lstlisting}
+    \end{mdframed}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
