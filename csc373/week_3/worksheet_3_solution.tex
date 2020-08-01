@@ -1551,7 +1551,21 @@
 
     \bigskip
 
-    \underline{\textbf{Goal:}} Find the longest palindromic subsequence
+    \textbf{Goal:} Find the longest palindromic subsequence, and return its length
+
+    \bigskip
+
+    \textbf{Example:}
+
+    \bigskip
+
+    $<A> \to 1$
+
+    $<A,B,A> \to 3$
+
+    $<A,B,B> \to 2$
+
+    $<A,A,B> \to 2$
 
     \bigskip
 
@@ -1580,6 +1594,48 @@
 
     \bigskip
 
+    \underline{Improved Solution}
+
+    \begin{itemize}
+        \item Start at string with full length
+        \item Check if palindrome
+
+        \begin{itemize}
+            \item If palindrome
+
+            \bigskip
+
+            Return length
+            \item if not palindrome
+
+            \begin{itemize}
+                \item Return the length of largest paldromic subsequence
+                by decreasing the RHS bound of the sequence to left by 1
+
+                \bigskip
+
+                i.e
+
+                \bigskip
+
+                $[A,A,B] \to [A,A],B \to \text{Return 2}$
+
+                \item Return the length of largest paldromic subsequence
+                by increasing the LHS bound of the sequence to right by 1
+
+
+
+                \bigskip
+
+                i.e
+
+                \bigskip
+
+                $[A,A,B] \to A,[A,B] \to \text{Return 1}$
+            \end{itemize}
+        \end{itemize}
+
+    \end{itemize}
     \underline{\textbf{Notes:}}
 
     \bigskip
