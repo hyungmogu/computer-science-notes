@@ -81,6 +81,16 @@ Source: \href{http://www.cs.toronto.edu/~denisp/csc373/material.html}{link}
     \item \textbf{CLRS 23.1-1:} Let $(u,v)$ be a minimum-weight edge in a connected graph $G$. Show that $(u,v)$
     belongs to some minimum spanning tree of $G$.
 
+    \item \textbf{CLRS 23.2-2:} Suppose that we represent the graph $G = (V,E)$ as an adjacency matrix. Give a
+    simple implementation of Prim’s algorithm for this case that runs in $\mathcal{O}(V^2)$ time.
+
+    \item \textbf{CLRS 24.1-3:}
+    Given a weighted, directed graph $G = (V,E)$ with no negative-weight cycles,
+    let $m$ be the maximum over all vertices $v \in V$ of the minimum number of edges
+    in a shortest path from the source $s$ to $v$. (Here, the shortest path is by weight, not
+    the number of edges.) Suggest a simple change to the Bellman-Ford algorithm that
+    allows it to terminate in $m + 1$ passes, even if $m$ is not known in advance.
+
 \end{enumerate}
 
 \end{document}
