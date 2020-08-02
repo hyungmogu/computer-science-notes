@@ -1547,6 +1547,80 @@
 
     \bigskip
 
+    Let $T$ be 2-D table where $T[i,j]$ contains the length of longest palindromic
+    subsequence $<x_i,...,x_j>$.
+
+    \bigskip
+
+    Now, I need to define $T[i,j]$ when $i = j$, $x_i = x_j$ and $x_i \neq x_j$.
+
+    \bigskip
+
+    When $i = j$, we know $<x_i>$ is palindromic with length of 1, and furthermore
+    we know that $<x_i>=x_i$ has length of 1.
+
+    \bigskip
+
+    So, we can write $T[i,j] = 1$.
+
+    \bigskip
+
+    When $x_i = x_j$, we can write the subsequence of $<x_i,..,x_j>$ forms palindrome (
+    by attaching $x_i$ and $x_j$ to each end of the palindromic subsequence of $<x_i,...,x_j>$).
+
+    \bigskip
+
+    Using this fact, we can write the length of longest palindromic subsequence $T[i,j]$
+    is 2 more than $T[i+1,j-1]$.
+
+    \bigskip
+
+    So, we have $T[i,j]=T[i+1,j-1] + 2$.
+
+    \bigskip
+
+    When $x_i \neq x_j$, we know the longest palindromic subsequence of $<x_i,..,x_j>$ caontains either $x_i$ or $x_j$,
+    but not both.
+
+    \bigskip
+
+    So, we can write $T[i,j] = max(T[i+1,j], T[i,j-1])$.
+
+    \bigskip
+
+    Using above fact, we can write the recursive formula for $T[i,j]$ is
+
+    \begin{align}
+        T[i,j] &= \begin{cases}
+            1 & \text{if $i = j$}\\
+            T[i+1, j-1] + 2 & \text{if $i < j$ and $x_i = x_j$}\\
+            max(T[i+1, j], T[i,j-1]) & \text{otherwise}\\
+        \end{cases}
+    \end{align}
+
+    \bigskip
+
+    Hence we have
+
+    \begin{lstlisting}[mathescape=true]
+    Longest-Palindromic-Subsequence(X)
+        Let T [i..n, j..m] be 2-D array
+
+        for i = 0 to n-1
+            for i = 0 to n -1
+                if i = j
+                    T[i,j] = 1
+                elseif x[i] == x[j]
+                    T[i,j] = T[i+1, j-1] + 2
+
+                else
+                    T[i,j] = max(T[i+1,j], T[i,j-1])
+
+        return T
+    \end{lstlisting}
+
+
+
     \underline{\textbf{Rough Work:}}
 
     \bigskip
@@ -1623,8 +1697,6 @@
                 \item Return the length of largest paldromic subsequence
                 by increasing the LHS bound of the sequence to right by 1
 
-
-
                 \bigskip
 
                 i.e
@@ -1682,28 +1754,35 @@
         \item Define T[i,j] when $x_i = x_j$ and $x_i \neq x_j$
 
         \begin{mdframed}
-        Now, I need to define $T[i,j]$ when $x_i = x_j$ and $x_i \neq x_j$.
+        Now, I need to define $T[i,j]$ when $i = j$, $x_i = x_j$ and $x_i \neq x_j$.
 
         \bigskip
 
-        When $x_i = x_j$, we can write the length of longest palindromic subsequence $T[i,j]$
+        When $i = j$, we know $<x_i>$ is palindromic with length of 1, and furthermore
+        we know that $<x_i>=x_i$ has length of 1.
+
+        \bigskip
+
+        So, we can write $T[i,j] = 1$.
+
+        \bigskip
+
+        When $x_i = x_j$, we can write the subsequence of $<x_i,..,x_j>$ forms palindrome (
+        by attaching $x_i$ and $x_j$ to each end of the palindromic subsequence of $<x_i,...,x_j>$).
+
+        \bigskip
+
+        Using this fact, we can write the length of longest palindromic subsequence $T[i,j]$
         is 2 more than $T[i+1,j-1]$.
 
         \bigskip
 
-        At case $i = j$, $T[i,j] = 1$.
+        So, we have $T[i,j]=T[i+1,j-1] + 2$.
 
         \bigskip
 
-        So, we have $T[i,j]=T[i+1,j-1] + 2$ if $i < j$ and $T[i,j] = 1$ is $i = j$.
-
-        \bigskip
-
-        When $x_i \neq x_j$, $<x_i,..,x_j>$ is not a part of longest palindromic subsequence.
-
-        \bigskip
-
-        Using this fact, we can write the value of $T[i,j]$ depends on the longest palindromic subsequence of $<x_i,...,x_j>$.
+        When $x_i \neq x_j$, we know the longest palindromic subsequence of $<x_i,..,x_j>$ caontains either $x_i$ or $x_j$,
+        but not both.
 
         \bigskip
 
@@ -1717,7 +1796,7 @@
         \item Write recursive formula
 
         \begin{mdframed}
-        The recursive formula for $T[i,j]$ is
+        Using above fact, we can write the recursive formula for $T[i,j]$ is
 
         \begin{align}
             T[i,j] &= \begin{cases}
@@ -1730,9 +1809,25 @@
 
         \item Write for-loops
 
+        \bigskip
+
+        Hence we have
 
     \begin{lstlisting}[mathescape=true]
+    Longest-Palindromic-Subsequence(X)
+        Let T [i..n, j..m] be 2-D array
 
+        for i = 0 to n-1
+            for i = 0 to n -1
+                if i = j
+                    T[i,j] = 1
+                elseif x[i] == x[j]
+                    T[i,j] = T[i+1, j-1] + 2
+
+                else
+                    T[i,j] = max(T[i+1,j], T[i,j-1])
+
+        return T
     \end{lstlisting}
     \end{itemize}
 
