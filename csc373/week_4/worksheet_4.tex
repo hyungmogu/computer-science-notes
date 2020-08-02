@@ -94,6 +94,24 @@ Source: \href{http://www.cs.toronto.edu/~denisp/csc373/material.html}{link}
     \item \textbf{CLRS 24.1-4:} Modify the Bellman-Ford algorithm so that it sets :d to 1 for all vertices  for
     which there is a negative-weight cycle on some path from the source to .
 
+    \item \textbf{CLRS 24.3-6:} We are given a directed graph $G = (V,E)$ on which each edge $(u,v) \in E$ has an
+    associated value $r(u,v)$, which is a real number in the range $0 \leq r(u,v) \leq 1$ that
+    represents the reliability of a communication channel from vertex $u$ to vertex $v$.
+    We interpret $r(u,v)$ as the probability that the channel from $u$ to $v$ will not fail,
+    and we assume that these probabilities are independent. Give an efficient algorithm
+    to find the most reliable path between two given vertices.
+
+    \item \textbf{CLRS 25.2-6:} How can we use the output of the Floyd-Warshall algorithm to detect the presence
+    of a negative-weight cycle?
+
+    \item \textbf{CLRS 25.3-6:}
+    Professor Michener claims that there is no need to create a new source vertex in
+    line 1 of JOHNSON. He claims that instead we can just use $G' = G$ and let $s$ be any
+    vertex. Give an example of a weighted, directed graph $G$ for which incorporating
+    the professor’s idea into JOHNSON causes incorrect answers. Then show that if $G$
+    is strongly connected (every vertex is reachable from every other vertex), the results
+    returned by JOHNSON with the professor’s modification are correct.
+
 \end{enumerate}
 
 \end{document}
