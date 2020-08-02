@@ -1699,9 +1699,15 @@
 
         \bigskip
 
-        When $i < j$ and $X[i..j]$ is a part of longest palindromic subsequence , then $T[i,j]$
+        When $x_i \neq x_j$, $<x_i,..,x_j>$ is not a part of longest palindromic subsequence.
 
+        \bigskip
 
+        Using this fact, we can write the value of $T[i,j]$ depends on the longest palindromic subsequence of $<x_i,...,x_j>$.
+
+        \bigskip
+
+        So, we can write $T[i,j] = max(T[i+1,j], T[i,j-1])$.
 
         \bigskip
 
@@ -1710,7 +1716,24 @@
 
         \item Write recursive formula
 
+        \begin{mdframed}
+        The recursive formula for $T[i,j]$ is
+
+        \begin{align}
+            T[i,j] &= \begin{cases}
+                1 & \text{if $i = j$}\\
+                T[i+1, j-1] + 2 & \text{if $i < j$ and $x_i = x_j$}\\
+                max(T[i+1, j], T[i,j-1]) & \text{otherwise}\\
+            \end{cases}
+        \end{align}
+        \end{mdframed}
+
         \item Write for-loops
+
+
+    \begin{lstlisting}[mathescape=true]
+
+    \end{lstlisting}
     \end{itemize}
 
     \end{itemize}
