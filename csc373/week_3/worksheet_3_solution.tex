@@ -1673,7 +1673,43 @@
 
     \begin{itemize}
         \item Define 2D table T[i,j]
-        \item Definition T[i,j] when $i = j$ and $i \neq j$
+
+        \begin{mdframed}
+        Let $T$ be 2-D table where $T[i,j]$ contains the length of longest palindromic
+        subsequence $<x_i,...,x_j>$.
+        \end{mdframed}
+
+        \item Define T[i,j] when $i = j$ and $i \neq j$
+
+        \begin{mdframed}
+        Now, I need to define $T[i,j]$ when $i = j$ and $i < j$.
+
+        \bigskip
+
+        When $i = j$, $X[i..j]$ is a part of longest palindromic subsequence with the
+        length of 1.
+
+        \bigskip
+
+        The same holds for $T[i+1,j-1]$.
+
+        \bigskip
+
+        So, we have $T[i,j]=T[i+1,j-1]=1$.
+
+        \bigskip
+
+        When $i < j$ and $X[i..j]$ is a part of longest palindromic subsequence, then $T[i,j]$
+
+
+
+        \bigskip
+
+
+        \end{mdframed}
+
+        \item Write recursive formula
+
         \item Write for-loops
     \end{itemize}
 
