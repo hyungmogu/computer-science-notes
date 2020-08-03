@@ -192,9 +192,26 @@
 
     \item
 
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/worksheet_4_solution_18.png}
-    \end{center}
+    \begin{itemize}
+        \item Computing $G^T$ from $G$ in Adjacency List
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/worksheet_4_solution_18.png}
+        \end{center}
+
+        \begin{lstlisting}[mathescape=true]
+        COMPUTE-G-TRANSPOSE-ADJ-LIST(Adj,V)
+            Let Adj' be a new adjacency list containing keys $v_i...v_n$
+
+            for i = 1 to $\lvert V \rvert$
+                for every vertax $w$ in Adj[$v_i$]
+                    Insert(Adj[w], $v_i$)
+        \end{lstlisting}
+
+        \item Computing $G^T$ from $G$ in Adjacency-Matrix
+
+
+    \end{itemize}
 
 \end{enumerate}
 
