@@ -57,25 +57,42 @@
 \begin{enumerate}[1.]
     \item
 
-    \bigskip
+    \begin{itemize}
+        \item Calculating out-degree
 
-    Let $G = (V,E)$ be a directed graph. Let $[v_1,...,v_n]$ be a list of vertices
-    in graph $G$.
+        \bigskip
 
-    \bigskip
+        Let $G = (V,E)$ be a directed graph. Let $[v_1,...,v_n]$ be a list of vertices
+        in graph $G$.
 
-    I need to calculate the outdegree of every vertex using adjacency list.
+        \bigskip
 
-    \bigskip
+        I need to calculate the outdegree of every vertex using adjacency list.
 
-    We know that in addition to counting $v_i$ where $i = 1, .., n$ in adjacency list,
-    we are counting $\lvert Adj[v_i] \rvert$ edges.
+        \bigskip
 
-    \bigskip
+        We know that in addition to counting each $v_i$ in adjacency list where $i = 1, .., n$,
+        we are also counting $\lvert Adj[v_i] \rvert$ edges.
 
-    Since we are traversing $\lvert V \rvert = n$ many vertices, we can write that
-    in addition to  there are total of
-    $\sum\limits_{i=1}^{n} \lvert Adj[v_i] \rvert = \lvert E \rvert$ edges.
+        \bigskip
+
+        Since there are $\lvert V \rvert = n$ many vertices, we can write that
+        the total count is $\lvert V \rvert + \sum\limits_{i=1}^{n} \lvert Adj[v_i] \rvert = \lvert V \rvert + \lvert E \rvert$,
+        which is $\mathcal{O}(\lvert V \rvert + \lvert E \vert)$.
+
+        \bigskip
+
+        \item Calculating In-degree
+
+        \bigskip
+
+        The outdegree of a vertex is indegree of another vertex.
+
+        \bigskip
+
+        Using this fact, we can conclude the running time of computing indegree of every vertax is $\mathcal{O}(\lvert V \rvert + \lvert E \vert)$.
+
+    \end{itemize}
 
     \underline{\textbf{Notes:}}
 
