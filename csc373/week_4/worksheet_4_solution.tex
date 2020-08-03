@@ -291,6 +291,20 @@
 
     \bigskip
 
+    \begin{lstlisting}[mathescape=true]
+    Breadth-First-Search(V,$v_i$)
+        d = 0
+        for each $v_i \in V$
+            while performing BFS(V, $v_i$)
+                let $w$ be the current node in BFS
+                    if $\delta($v_i$,w) > d$
+                        d = $\delta(v_i, w)$
+
+        return d
+    \end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
