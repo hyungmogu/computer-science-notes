@@ -439,10 +439,19 @@
     \bigskip
 
     \begin{enumerate}[1.]
-        \item State that the total weight cost $w(T) = \sum\limits_{(u',v') \in T - {(u,v)}} w(u',v')$
-        of the minimum spanning tree without edge $(u,v)$ is minimum.
-        \item
-        \item
+        \item State that the minimum spanning algorithm always picks the edge with
+        smallest weight in a cut between growing minimum spanning Tree $(V - S)$ and
+        the set of vertices $S$
+
+        \item State that since $(u,v)$ is not a part of minimum spanning tree, $(u,v)$
+        is not chosen in a cut.
+
+        \item State that since $(u,v)$ is not chosen, the edge $(u',v')$ with smaller weight
+        is chosen
+
+        \item This violates the assumption that $(u,v)$ is the edge with the smallest weight.
+
+        \item Thus, by contradiction, $(u,v)$ belongs to some minimum spanning tree of $G$.
     \end{enumerate}
 
     \bigskip
