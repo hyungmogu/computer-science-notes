@@ -623,6 +623,28 @@
 
     \bigskip
 
+    \begin{lstlisting}[mathescape=true]
+    MST-PRIM-ADJACENCY-LIST(Adj,w,r)
+        Let Q be an empty list
+        Q = Extract node objects from Adj
+
+        for i = 1 to $\lvert Q \rvert$
+            u.key =  $\infty$
+            u.$\pi$ =  NIL
+
+        r.key = 0
+
+        while Q $\neq$ 0
+            u = EXTRACT-MIN(Q)
+            for each $v \in G.Adj[u]$
+                if $v \in Q$ and $w(u,v) < v.key$
+                    v.$\pi$ = u
+                    v.key = $w(u,v)$
+    \end{lstlisting}
+
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -633,11 +655,6 @@
         \begin{itemize}
             \item is a minimum-spanning-tree algorithm which finds an edge of the least possible weight that connects
             any two trees in the forest.
-
-            \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/worksheet_4_solution_39.png}
-            \includegraphics[width=0.8\linewidth]{images/worksheet_4_solution_40.png}
-            \end{center}
         \end{itemize}
 
         \item Prim's Algorithm
@@ -648,6 +665,7 @@
             \item Is very similar to Dijkstra's algorithm for finding shortest path
             \begin{center}
             \includegraphics[width=\linewidth]{images/worksheet_4_solution_41.png}
+            \includegraphics[width=\linewidth]{images/worksheet_4_solution_42.png}
             \end{center}
         \end{itemize}
     \end{itemize}
