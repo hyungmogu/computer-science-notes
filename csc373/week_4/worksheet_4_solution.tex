@@ -429,11 +429,9 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Work}}
-
-    \bigskip
-
-    Let $G$ be a connectded graph.
+    \begin{proof}
+    Let $G$ be a connectded graph. Let $A$ be a subset of $E$ that is always included
+    in some minimum spanning treee for $G$.
 
     \bigskip
 
@@ -442,21 +440,86 @@
 
     \bigskip
 
-    \begin{enumerate}[1.]
-        \item State that the minimum spanning algorithm always picks the edge with
-        smallest weight in a cut between growing minimum spanning Tree $(V - S)$ and
-        the set of vertices $S$
+    We know from the minimum-spanning tree algorithm that a light edge crossings in a
+    cut of $G$ that respects $A$ is always chosen (since this is a safe edge and the
+    algorithm always picks the safe edge).
 
-        \item State that since $(u,v)$ is not a part of minimum spanning tree, $(u,v)$
-        is not chosen in a cut.
+    \bigskip
 
-        \item State that since $(u,v)$ is not chosen, the edge $(u',v')$ with smaller weight
-        is chosen
+    Since the edge $(u,v)$ is not a part of minimum spanning tree, $(u,v)$
+    is not chosen in a cut.
 
-        \item This violates the assumption that $(u,v)$ is the edge with the smallest weight.
+    \bigskip
 
-        \item Thus, by contradiction, $(u,v)$ belongs to some minimum spanning tree of $G$.
-    \end{enumerate}
+    Since $(u,v)$ is not chosen, the edge $(u',v')$ with smaller weight
+    is chosen.
+
+    \bigskip
+
+    Then this violates the assumption that $(u,v)$ is the edge with the smallest weight.
+
+    \bigskip
+
+    Thus, by contradiction, $(u,v)$ belongs to some minimum spanning tree of $G$.
+
+    \end{proof}
+
+    % \bigskip
+
+    % \underline{\textbf{Rough Work}}
+
+    % \bigskip
+
+    % Let $G$ be a connectded graph. Let $A$ be a subset of $E$ that is always included
+    % in some minimum spanning treee for $G$.
+
+    % \bigskip
+
+    % Assume for the sake of contradiction that $(u,v)$ is not contained in some
+    % minimum spanning tree of $G$.
+
+    % \bigskip
+
+    % \begin{enumerate}[1.]
+    %     \item State that the minimum spanning algorithm always picks the edge with
+    %     smallest weight in a cut between growing minimum spanning Tree $(V - S)$ and
+    %     the set of vertices $S$
+
+    %     \begin{mdframed}
+    %     We know from the minimum-spanning tree algorithm that a light edge crossings in a
+    %     cut of $G$ that respects $A$ is always chosen (since this is a safe edge and the
+    %     algorithm always picks the safe edge).
+
+    %     \end{mdframed}
+
+    %     \item State that since $(u,v)$ is not a part of minimum spanning tree, $(u,v)$
+    %     is not chosen in a cut.
+
+    %     \begin{mdframed}
+    %     Since the edge $(u,v)$ is not a part of minimum spanning tree, $(u,v)$
+    %     is not chosen in a cut.
+    %     \end{mdframed}
+
+    %     \item State that since $(u,v)$ is not chosen, the edge $(u',v')$ with smaller weight
+    %     is chosen
+
+    %     \begin{mdframed}
+    %     Since $(u,v)$ is not chosen, the edge $(u',v')$ with smaller weight
+    %     is chosen
+    %     \end{mdframed}
+
+    %     \item This violates the assumption that $(u,v)$ is the edge with the smallest weight.
+
+    %     \begin{mdframed}
+    %     Then this violates the assumption that $(u,v)$ is the edge with the smallest weight.
+    %     \end{mdframed}
+
+    %     \item Thus, by contradiction, $(u,v)$ belongs to some minimum spanning tree of $G$.
+
+    %     \begin{mdframed}
+    %     Thus, by contradiction, $(u,v)$ belongs to some minimum spanning tree of $G$.
+    %     \end{mdframed}
+    % \end{enumerate}
 
     \bigskip
 
