@@ -684,11 +684,38 @@
 
     \bigskip
 
+    \begin{lstlisting}[mathescape=true]
+    BELLMAN-FORD(G,w,s)
+        INITIALIZE-SINGLE-SOURCE(G,s)
+        active = true
+
+        while(active)
+            for each edge $(u,v) \in G.E$
+                RELAX(u,v,w)
+
+                if $v.d > u.d + w(u,v)$
+                    return False
+
+        return True
+
+
+    RELAX(u,v,w)
+        if v.d > u.d + w(u,v)
+            v.d = u.d + w(u,v)
+            $v.\pi$ = u
+        else
+            active = false
+    \end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
 
     \begin{itemize}
+        \item $m$ here represents the total number of edges in shortest path
+        between $u$ and $v$
         \item \textbf{Negative-Weight Cycle}
 
         \begin{itemize}
@@ -704,6 +731,13 @@
         \begin{itemize}
             \item Solves the single-source shortest-paths problem in the general case
             in which edge weights may be negative.
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_4_solution_44.png}
+            \end{center}
+
+            \item Returns TRUE if and only if the graph contains no negative-weight cycles
+            that are reachable from the source
         \end{itemize}
     \end{itemize}
 
