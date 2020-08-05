@@ -743,6 +743,27 @@
 
     \item
 
+    \begin{lstlisting}[mathescape=true]
+    BELLMAN-FORD(G,w,s)
+        INITIALIZE-SINGLE-SOURCE(G,s)
+        for i = 1 to $\lvert G.V \rvert - 1$
+            for each edge $(u,v) \in G.E$
+                RELAX(u,v,w)
+
+        for each edge $(u,v) \in G.E$
+            if $v.d > u.d + w(u,v)$
+                return False
+
+        return True
+
+    RELAX(u,v,w)
+        if v.d > u.d + w(u,v)
+            v.d = u.d + w(u,v)
+            $v.\pi$ = u
+        else
+            v.d = -$\infty$
+    \end{lstlisting}
+
 
 \end{enumerate}
 
