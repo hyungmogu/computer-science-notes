@@ -840,6 +840,7 @@
             \end{center}
 
             \begin{itemize}
+                \item $n$: the number of vertices
                 \item $W$: the $n \times n$ matrix of edge weights of an $n$-vertax directed graph $G = (V,E)$
 
                 \begin{align}
@@ -852,6 +853,13 @@
 
                 \item $D^{(k)}$: the $n \times n$ matrix of edge weights of shortest path
                 where all intermediate vertices are in the set ${1,2,...,k}$.
+
+                \begin{align}
+                    d_{ij} &= \begin{cases}
+                        w_{ij} & \text{if $k = 0$}\\
+                        \text{min($d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)}$)} & \text{if $k \geq 1$}\\
+                    \end{cases}
+                \end{align}
             \end{itemize}
 
             \bigskip
@@ -862,8 +870,18 @@
 
             \begin{center}
             \includegraphics[width=\linewidth]{images/worksheet_4_solution_47.png}
+            \includegraphics[width=\linewidth]{images/worksheet_4_solution_48.png}
             \end{center}
         \end{itemize}
+
+        \begin{align}
+            D^1 = \begin{bmatrix}
+                0 & 3 & \infty & 5\\
+                2 & & & \\
+                \infty & & & \\
+                \infty & & &
+            \end{bmatrix}
+        \end{align}
 
     \end{itemize}
 
