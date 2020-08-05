@@ -840,7 +840,7 @@
             \end{center}
 
             \begin{itemize}
-                \item $W$: the edge weights of an $n$-vertax directed graph $G = (V,E)$
+                \item $W$: the $n \times n$ matrix of edge weights of an $n$-vertax directed graph $G = (V,E)$
 
                 \begin{align}
                     w_{ij} &= \begin{cases}
@@ -849,6 +849,9 @@
                         \infty & \text{if $i \neq j$ and $(i,j) \notin E$}\\
                     \end{cases}
                 \end{align}
+
+                \item $D^{(k)}$: the $n \times n$ matrix of edge weights of shortest path
+                where all intermediate vertices are in the set ${1,2,...,k}$.
             \end{itemize}
         \end{itemize}
 
