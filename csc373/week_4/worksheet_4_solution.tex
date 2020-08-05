@@ -819,7 +819,14 @@
         \end{center}
     \end{itemize}
 
+    \item
+
     \setcounter{equation}{0}
+
+    \bigskip
+
+    The output of the Floyd-Warshall algorithm can detect the presence
+    of a negative weight cycle by looking for a negative value in the matrix $D^{(n)}$.
 
     \bigskip
 
@@ -953,7 +960,7 @@
             \begin{align}
                 W = \begin{bmatrix}
                     0 & -4\\
-                    2 & 0
+                    1 & 0
                 \end{bmatrix}
             \end{align}
 
@@ -969,11 +976,22 @@
                 \begin{align}
                     W = \begin{bmatrix}
                         0 & -4\\
-                        2 & 0
+                        1 & 0
                     \end{bmatrix}
                 \end{align}
 
                 \item $k = 2$
+
+                \begin{center}
+                    \includegraphics[width=0.5\linewidth]{images/worksheet_4_solution_54.png}
+                    \end{center}
+
+                    \begin{align}
+                        W = \begin{bmatrix}
+                            0 & -4\\
+                            1 & 0
+                        \end{bmatrix}
+                    \end{align}
             \end{itemize}
         \end{itemize}
 
