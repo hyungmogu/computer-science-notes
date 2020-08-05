@@ -768,6 +768,37 @@
 
     \bigskip
 
+    I need to design algorithm that returns the most reliable path between two
+    vertices.
+
+    \bigskip
+
+    \begin{lstlisting}[mathescape=true]
+    DIJKSTRA(G,w,s)
+        INITIALIZE-SINGLE-SOURCE(G,s)
+        S = $\emptyset$
+        Q = G.V
+
+        while Q $\neq \emptyset$
+            u = EXTRACT-MAX(Q)
+            S = S $\cup$ {u}
+            for each vertax v $\in$ G.Adj[u]
+                RELAX(u,v,w)
+
+    INITIALIZE-SINGLE-SOURCE(G,s)
+        for each vertax v $\in$ G.V
+            v.d = $-\infty$
+            v.$\pi$ = NIL
+        s.d = 1
+
+    RELAX(u,v,w)
+        if u.d * w(u,v) > v.d
+            v.d = u.d * w(u,v)
+            v.$\pi$ = u
+    \end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -782,7 +813,7 @@
         \bigskip
 
         \begin{center}
-        \includegraphics[width=0.35\linewidth]{images/worksheet_4_solution_45.png}
+        \includegraphics[width=0.7\linewidth]{images/worksheet_4_solution_45.png}
         \end{center}
     \end{itemize}
 
