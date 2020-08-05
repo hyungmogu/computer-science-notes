@@ -809,6 +809,7 @@
             \item Finds shortest path from one node to all nodes
             \item Solves the single-source shortest-paths problem on a weighted
             \underline{directed} graeph $G=(V,E)$
+            \item Cannot have negative weight edges
         \end{itemize}
 
         \bigskip
@@ -833,7 +834,24 @@
             \item Is an algorithm for finding shortest paths between \underline{all} pairs of vertices in a weighted graph.
             \item Negative edges allowed
             \item Cannot have negative weight cycles
+
+            \begin{center}
+            \includegraphics[width=0.5\linewidth]{images/worksheet_4_solution_46.png}
+            \end{center}
+
+            \begin{itemize}
+                \item $W$: the edge weights of an $n$-vertax directed graph $G = (V,E)$
+
+                \begin{align}
+                    w_{ij} &= \begin{cases}
+                        0 & \text{if $i = j$}\\
+                        \text{the weight of directed edge $(i,j)$)} & \text{if $i \neq j$ and $(i,j \in E)$}\\
+                        \infty & \text{if $i \neq j$ and $(i,j) \notin E$}\\
+                    \end{cases}
+                \end{align}
+            \end{itemize}
         \end{itemize}
+
     \end{itemize}
 
 
