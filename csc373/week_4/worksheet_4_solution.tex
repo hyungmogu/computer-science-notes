@@ -841,6 +841,7 @@
             \item Is an algorithm for finding shortest paths between \underline{all} pairs of vertices in a weighted graph.
             \item Negative edges allowed
             \item Cannot have negative weight cycles
+            \item Is useful in graphs with dense number of edges
 
             \begin{center}
             \includegraphics[width=0.5\linewidth]{images/worksheet_4_solution_46.png}
@@ -1009,7 +1010,12 @@
         \item Johnson's Algorithm
 
         \begin{itemize}
-            \item
+            \item Is a way to find the shortest paths between all pairs of vertices
+            in an edge-weighted, directed graph
+            \item Allows some edges to be negative-number
+            \item No negative-cycles may exist
+            \item Is similar to Floyd-Warshall Algorithm
+            \item Is most effective in graph with sparse number of edges
         \end{itemize}
     \end{itemize}
 
