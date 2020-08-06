@@ -74,6 +74,13 @@
     flow network $G' = (V',E')$ without vertex capacities, such that a maximum
     flow in $G'$ has the same value as a maximum flow in $G$. How many vertices and
     edges does $G'$ have?
+
+    \item \textbf{CLRS 26.2-6:} Suppose that each source $s_i$ in a flow network with multiple
+    sources and sinks produces exactly $p_i$ units of flow, so that $\sum\limits_{v \in V} f(s_i,v) = p_i$.
+    Suppose also that eeach sink $t_j$ consumes exactly $q_j$ units, so that $\sum\limits_{v \in V} f(v, t_j) = q_j$,
+    where $\sum\limits_{i} p_i = \sum\limits_{j} q_j$. Show how to convert the problem of finding a flow $f$
+    that obeys these additional constraints into the problem of finding a maximum flow in a single source, single-sink
+    flow network.
 \end{enumerate}
 
 \end{document}
