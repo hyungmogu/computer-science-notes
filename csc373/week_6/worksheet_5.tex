@@ -91,6 +91,22 @@
     how to determine the edge connectivity of an undirected graph $G = (V,E)$ by
     running a maximum-flow algorithm on at most $\lvert V \rvert$ flow networks, each having
     $O(V)$ vertices and $O(E)$ edges.
+
+    \item \textbf{CLRS 26.2-13:} Suppose that you wish to find, among all minimum cuts in a flow network $G$ with
+    integral capacities, one that contains the smallest number of edges. Show how to
+    modify the capacities of $G$ to create a new flow network $G'$ in which any minimum
+    cut in $G'$ is a minimum cut with the smallest number of edges in $G$.
+
+    \item \textbf{CLRS 26-1:} \textbf{Escape problem}
+
+    An $n \times n$ grid is an undirected graph consisting of $n$ rows and $n$ columns of vertices,
+    as shown in Figure 26.11. We denote the vertex in the $i^{th}$ row and the $j^{th}$ column
+    by $(i, j)$ /. All vertices in a grid have exactly four neighbors, except for the boundary
+    vertices, which are the points .i; j / for which i D 1, i D n, j D 1, or j D n.
+    Given m  n2 starting points .x1; y1/; .x2; y2/; : : : ; .xm; ym/ in the grid, the
+    escape problem is to determine whether or not there are m vertex-disjoint paths
+    from the starting points to any m different points on the boundary. For example,
+    the grid in Figure 26.11(a) has an escape, but the grid in Figure 26.11(b) does not.
 \end{enumerate}
 
 \end{document}
