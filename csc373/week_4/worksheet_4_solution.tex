@@ -1072,11 +1072,28 @@
 
             \item Remove vertex $s$ and run Dijkstra's algorithm on every node in the graph
             \begin{itemize}
-                \item Applying Dijkstra's algorithm
+                \item Apply Dijkstra's algorithm to calculate $\hat{\delta(u,v)}$
 
                 \begin{center}
                 \includegraphics[width=\linewidth]{images/worksheet_4_solution_57.png}
                 \end{center}
+
+                \bigskip
+
+                \underline{NOTE!!}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item $\delta$ means shortest-path weights ($v.d$) derived from weight function $w$
+                    \item $\hat{\delta}$ means shortest-path weights ($v.d$) derived from weight function $\hat{w}$
+
+                    \begin{center}
+                    \includegraphics[width=\linewidth]{images/worksheet_4_solution_59.png}
+                    \end{center}
+                \end{itemize}
+
+                \item Convert each $\hat{\delta(u,v)}$ to $\delta(u,v)$
             \end{itemize}
 
             \bigskip
