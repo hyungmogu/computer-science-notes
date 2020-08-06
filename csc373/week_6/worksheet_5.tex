@@ -57,6 +57,23 @@
     contains a path $s \rightsquigarrow v \rightsquigarrow t$ for all vertices  $v \in V$ . Let $u$ be a vertex for which there
     is no path $s \rightsquigarrow u \rightsquigarrow t$ . Show that there must exist a maximum flow $f$ in $G$ such
     that $f(u,v) = f(v,u) = 0$ for all vertices $v \in V$.
+
+    \item \textbf{CLRS 26.1-6:} Professor Adam has two children who, unfortunately, dislike each other. The problem
+    is so severe that not only do they refuse to walk to school together, but in fact
+    each one refuses to walk on any block that the other child has stepped on that day.
+    The children have no problem with their paths crossing at a corner. Fortunately
+    both the professor’s house and the school are on corners, but beyond that he is not
+    sure if it is going to be possible to send both of his children to the same school.
+    The professor has a map of his town. Show how to formulate the problem of determining
+    whether both his children can go to the same school as a maximum-flow
+    problem.
+
+    \item \textbf{CLRS 26.1-7:} Suppose that, in addition to edge capacities, a flow network has \textbf{vertex capacities}.
+    That is each vertex $v$ has a limit $l(v)$ on how much flow can pass though $v$. Show
+    how to transform a flow network $G = (V,E)$ with vertex capacities into an equivalent
+    flow network $G' = (V',E')$ without vertex capacities, such that a maximum
+    flow in $G'$ has the same value as a maximum flow in $G$. How many vertices and
+    edges does $G'$ have?
 \end{enumerate}
 
 \end{document}
