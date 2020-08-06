@@ -1076,7 +1076,7 @@
             \includegraphics[width=\linewidth]{images/worksheet_4_solution_57.png}
             \end{center}
 
-            \begin{itemize}
+            \begin{enumerate}[a)]
                 \item Use Dijkstra's algorithm to find shortest paths
 
                 \begin{center}
@@ -1092,11 +1092,11 @@
                 \bigskip
 
                 \begin{align*}
+                    \hat{\delta}(1,5) &= 0\\
+                    \hat{\delta}(1,4) &= 0 + 2 = 2\\
+                    \hat{\delta}(1,3) &= 0 + 2 + 0 = 2\\
+                    \hat{\delta}(1,2) &= 0 + 2 + 0 + 0 = 2\\
                     \hat{\delta}(1,1) &= 0\\
-                    \hat{\delta}(1,2) &= 0\\
-                    \hat{\delta}(1,3) &= 0 + 2 = 2\\
-                    \hat{\delta}(1,4) &= 0 + 2 + 0 = 2\\
-                    \hat{\delta}(1,5) &= 0 + 2 + 0 + 0 = 2\\
                 \end{align*}
 
                 \bigskip
@@ -1108,10 +1108,28 @@
                 \begin{itemize}
                     \item $\delta(u,v)$ means the shortest-distance between $u$ and $v$ drived from weight function $w$
                     \item $\hat{\delta}(u,v)$ means the shortest-distance between $u$ and $v$ derived from weight function $\hat{w}$
+                    \item $h(u)$ is the value of vertex before computing all-pairs shortest paths
+
+                    \begin{center}
+                    \includegraphics[width=0.5\linewidth]{images/worksheet_4_solution_62.png}
+                    \end{center}
                 \end{itemize}
 
                 \item Convert each $\hat{\delta(u,v)}$ to $\delta(u,v)$
-            \end{itemize}
+                \begin{itemize}
+                    \item \textbf{Formula:} $\delta(u,v) = \hat{\delta}(u,v) + h(v) - h(u)$
+                \end{itemize}
+
+                \begin{align*}
+                    d_{11} &= \delta(1,1) = \hat{\delta}(1,1) + h(1) - h(1) = 0 + 0 - 0 = 0\\
+                    d_{12} &= \delta(1,2) = \hat{\delta}(1,2) + h(2) - h(1) = 2 - 1 - 0 = 1\\
+                    d_{13} &= \delta(1,3) = \hat{\delta}(1,3) + h(3) - h(1) = 2 - 5 - 0 = -3\\
+                    d_{13} &= \delta(1,3) = \hat{\delta}(1,4) + h(4) - h(1) = 2 - 0 - 0 = 2\\
+                    d_{13} &= \delta(1,3) = \hat{\delta}(1,5) + h(5) - h(1) = 0 - 4 - 0 = -4\\
+                \end{align*}
+
+                \item Repeat steps a) to c) for all the other verticies, and construct all-paths shortest distance matrix $D$
+            \end{enumerate}
 
             \bigskip
         \end{enumerate}
