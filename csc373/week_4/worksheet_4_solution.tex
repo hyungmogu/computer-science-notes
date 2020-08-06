@@ -984,8 +984,8 @@
                 \item $k = 2$
 
                 \begin{center}
-                    \includegraphics[width=0.5\linewidth]{images/worksheet_4_solution_54.png}
-                    \end{center}
+                \includegraphics[width=0.5\linewidth]{images/worksheet_4_solution_54.png}
+                \end{center}
 
                     \begin{align}
                         W = \begin{bmatrix}
@@ -1031,7 +1031,12 @@
         \underline{\textbf{Steps:}}
 
         \begin{enumerate}[1.]
-            \item Create a source vertex $V' = V \cup \{s\}$
+            \item Create a source vertex $V' = V \cup \{s\}$ for some $s \notin V$ and $E' = E \cup \{(s,v): v \in V\}$
+            \item Extend the weight functio $w$ so that $w(s,v) = 0$ for all $v \in V$
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_4_solution_55.png}
+            \end{center}
         \end{enumerate}
     \end{itemize}
 
