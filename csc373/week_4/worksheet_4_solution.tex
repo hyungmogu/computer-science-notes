@@ -1015,15 +1015,29 @@
             \item Allows some edges to be negative-number
             \item No negative-cycles may exist
             \item Is similar to Floyd-Warshall Algorithm
-            \item Is most effective in graph with sparse number of edges
+            \item Is most effective in graph with \underline{sparse} number of edges
             \item Works as a subroutine to Dijkstra and Bellman-Ford Algorithm
+            \item Has running time of O(nm + n(m + n log n)) = O(nm + n
+            2
+log n)
         \end{itemize}
 
         \item Reweighting
         \begin{itemize}
             \item Is a technique used in Johnson's Algorithm
+            \item Is so that all edges have non-negative weights $^{[1]}$
         \end{itemize}
     \end{itemize}
+
+    bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Columbia University, Johnson’s Algorithm for All-Pairs Shortest Paths, \href{http://www.columbia.edu/~cs2035/courses/ieor6614.S16/johnson.pdf}{link}
+    \end{enumerate}
 
 
 \end{enumerate}
