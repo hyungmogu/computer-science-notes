@@ -80,6 +80,27 @@
         \item \textbf{Case 1:} When $u$ only has flow going in
         \item \textbf{Case 2:} When $u$ only has flow going out
         \item \textbf{Case 3:} When $u$ only has no flow going in and out
+
+        \bigskip
+
+        \begin{mdframed}
+        Assume $u$ only has no flow going in and out.
+
+        \bigskip
+
+        Then, we can write
+
+        \begin{align}
+            \sum\limits_{v \in V} f(u,v) &= 0 & [\text{Since  $(u,v) \notin E$ for all $v \in V$}]\\
+            &= \sum\limits_{v \in V} f(v,u) & [\text{By flow conservation}]
+        \end{align}
+
+        \bigskip
+
+        Then it follows from the capacity constraint $\forall a,b \in V$, $0 \leq f(a,b)$
+        that $f(u,v) = f(v,u) = 0$ for all $v \in V$
+
+        \end{mdframed}
     \end{enumerate}
 
     \bigskip
