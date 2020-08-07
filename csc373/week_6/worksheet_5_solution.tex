@@ -381,7 +381,11 @@
     \bigskip
 
     \begin{enumerate}[1.]
+        \item There is 1 supersource (home)
+        \item There is 1 sink (school)
+        \item There are two sources ($s_1$ as child 1, $s_2$ as child 2)
         \item Edge $(u,v)$ has capacity of 1 (since both children cannot be on the same sidewalk)
+        \item Each vertex represents corner of intersection, and two children can have their paths crossing here.
     \end{enumerate}
 
     \bigskip
@@ -402,6 +406,25 @@
             \includegraphics[width=0.7\linewidth]{images/worksheet_5_solution_5.png}
             \end{center}
         \end{itemize}
+
+        \item \textbf{Multiple Sources and Sinks}
+
+        \begin{itemize}
+            \item Has edges $(s, s_i)$ where $i = 1 ... n$ and $(t_j, t)$ where $j = 1 ... n$
+            with capacity of $\infty$
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+        Lucky Puck Company having a set of $m$ factories $\{s_1, s_2, ..., s_m\}$, and
+        a set of $n$ warehourses and $n$ warehouses $\{t_1, t_2, ..., t_n\}$
+
+        \bigskip
+
     \end{itemize}
 
 \end{enumerate}
