@@ -84,8 +84,7 @@
     \bigskip
 
     \begin{enumerate}[1.]
-        \item \textbf{Cases 1:} $f(u,v) > 0$ and $f(v,u) = 0$
-        \item \textbf{Cases 2:} $f(u,v) = 0$ and $f(v,u) > 0$
+        \item \textbf{Cases 1:} $f(u,v) = 0$ and $f(v,u) > 0$
 
         \bigskip
 
@@ -95,9 +94,47 @@
 
         \begin{itemize}
             \item Show that $\sum\limits_{v \in V} f(u,v) = 0$ and $\sum\limits_{v \in V} f(v,u) > 0$
+
+            \begin{mdframed}
+            Then, we can write $\sum\limits_{v \in V} f(u,v) = 0$ and $\sum\limits_{v \in V} f(v,u) > 0$
+            \end{mdframed}
+
             \item Show that this violates flow conservation [contradiction]
+
+            \begin{mdframed}
+            But this violates the flow conservation property (i.e $\sum\limits_{v \in V} f(u,v) = \sum\limits_{v \in V} f(v,u)$)
+            \end{mdframed}
+
             \item Conclude that $f(u,v) = 0$ and $f(v,u) = 0$
+
+            \begin{mdframed}
+            Thus, by proof by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$ for all $v \in V$ and
+            all $u \in V$ with no path $s \rightsquigarrow u \rightsquigarrow t$.
+            \end{mdframed}
         \end{itemize}
+
+        \begin{mdframed}
+        Here, assume that $f(u,v) = 0$ for all $v \in V$ and $f(v,u) > 0$ for some $v \in V$.
+
+        \bigskip
+
+        Then, we can write $\sum\limits_{v \in V} f(u,v) = 0$ and $\sum\limits_{v \in V} f(v,u) > 0$
+
+        \bigskip
+
+        But this violates the flow conservation property (i.e $\sum\limits_{v \in V} f(u,v) = \sum\limits_{v \in V} f(v,u)$)
+
+        \bigskip
+
+        Thus, by proof by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$ for all $v \in V$ and
+        all $u \in V$ with no path $s \rightsquigarrow u \rightsquigarrow t$.
+        \end{mdframed}
+
+        \item \textbf{Cases 2:} $f(u,v) > 0$ and $f(v,u) = 0$
+
+        \begin{mdframed}
+        By similar work as case 1, the same result follows.
+        \end{mdframed}
 
         \item \textbf{Cases 3:} $f(u,v) > 0$ and $f(v,u) > 0$
 
@@ -125,7 +162,8 @@
             \item Conclude that $f(u,v) = 0$ and $f(v,u) = 0$
 
             \begin{mdframed}
-            Thus, by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$.
+                Thus, by proof by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$ for all $v \in V$ and
+                all $u \in V$ with no path $s \rightsquigarrow u \rightsquigarrow t$.
             \end{mdframed}
         \end{itemize}
 
@@ -144,7 +182,8 @@
 
         \bigskip
 
-        Thus, by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$.
+        Thus, by proof by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$ for all $v \in V$ and
+            all $u \in V$ with no path $s \rightsquigarrow u \rightsquigarrow t$.
 
         \end{mdframed}
     \end{enumerate}
