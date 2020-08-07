@@ -89,12 +89,25 @@
         \item \textbf{Capacity:}
 
         \begin{itemize}
-            \item
+            \item Is a non-negative function $f: V \times V \to \mathbb{R}_{\geq 0}$
+            \item Has \textbf{capacity constraint} where for all $u,v \in V$ $0 \leq f(u,v) \leq c(u,v)$
+
+            \begin{itemize}
+                \item Means flow cannot be above capacity constraint
+            \end{itemize}
         \end{itemize}
 
         \item \textbf{Flow:}
 
+        \begin{itemize}
+            \item Is a real valued function $f: V \times V \to \mathbb{R}$ in $G$
+            \item Satisfies \textbf{capacity constraint} (i.e for all $u,v \in V$, $0 \leq f(u,v) \leq c(u,v)$)
+            \item Satisfies \textbf{flow conservation}
 
+            \bigskip
+
+
+        \end{itemize}
     \end{itemize}
 
 \end{enumerate}
