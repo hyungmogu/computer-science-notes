@@ -86,11 +86,24 @@
     \begin{enumerate}[1.]
         \item \textbf{Cases 1:} $f(u,v) > 0$ and $f(v,u) = 0$
         \item \textbf{Cases 2:} $f(u,v) = 0$ and $f(v,u) > 0$
+
+        \bigskip
+
+        Here, assume that $f(u,v) = 0$ for all $v \in V$ and $f(v,u) > 0$ for some $v \in V$.
+
+        \bigskip
+
+        \begin{itemize}
+            \item Show that $\sum\limits_{v \in V} f(u,v) = 0$ and $\sum\limits_{v \in V} f(v,u) > 0$
+            \item Show that this violates flow conservation [contradiction]
+            \item Conclude that $f(u,v) = 0$ and $f(v,u) = 0$
+        \end{itemize}
+
         \item \textbf{Cases 3:} $f(u,v) > 0$ and $f(v,u) > 0$
 
         \bigskip
 
-        Here, assume that $f(u,v) > 0$ and $f(v,u) > 0$.
+        Here, assume that $f(u,v) > 0$ and $f(v,u) > 0$ for some $v \in V$.
 
         \bigskip
 
@@ -100,15 +113,40 @@
             \begin{mdframed}
             Since $s \rightsquigarrow v \rightsquigarrow t$ and $u$ is connected by some vertices $v$,
             we can write $s \rightsquigarrow u \rightsquigarrow t$.
-
             \end{mdframed}
 
             \item Write that this results in contradiction to the header that
             a vertex $u$ has no path $s \rightsquigarrow u \rightsquigarrow t$.
 
+            \begin{mdframed}
+            Then, this violates the fact in header that the vertex $u$ has no path $s \rightsquigarrow u \rightsquigarrow t$.
+            \end{mdframed}
 
             \item Conclude that $f(u,v) = 0$ and $f(v,u) = 0$
+
+            \begin{mdframed}
+            Thus, by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$.
+            \end{mdframed}
         \end{itemize}
+
+        \begin{mdframed}
+
+        Here, assume that $f(u,v) > 0$ and $f(v,u) > 0$ for some $v \in V$.
+
+        \bigskip
+
+        Since $s \rightsquigarrow v \rightsquigarrow t$ and $u$ is connected by some vertices $v$,
+        we can write $s \rightsquigarrow u \rightsquigarrow t$.
+
+        \bigskip
+
+        Then, this violates the fact in header that the vertex $u$ has no path $s \rightsquigarrow u \rightsquigarrow t$.
+
+        \bigskip
+
+        Thus, by contradiction, $f(u,v) = 0$ and $f(v,u) = 0$.
+
+        \end{mdframed}
     \end{enumerate}
 
     \bigskip
