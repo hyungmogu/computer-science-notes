@@ -74,7 +74,7 @@
 
     \bigskip
 
-    Assume for the sake of contradiction that there is a vertex $u$ with flow $f$.
+    Assume for the sake of contradiction that there is some vertex $u$ with flow $f$.
     That is, there exists some vertices $v \in V$ such that $f(u,v) > 0$ or $f(v,u) > 0$.
 
     \bigskip
@@ -88,10 +88,25 @@
         \item \textbf{Cases 2:} $f(u,v) = 0$ and $f(v,u) > 0$
         \item \textbf{Cases 3:} $f(u,v) > 0$ and $f(v,u) > 0$
 
+        \bigskip
+
+        Here, assume that $f(u,v) > 0$ and $f(v,u) > 0$.
+
+        \bigskip
+
         \begin{itemize}
-            \item Write that path $s \rightsquigarrow v \rightsquigarrow t$ exists
+            \item Write that the path $s \rightsquigarrow u \rightsquigarrow t$ exists
+
+            \begin{mdframed}
+            Since $s \rightsquigarrow v \rightsquigarrow t$ and $u$ is connected by some vertices $v$,
+            we can write $s \rightsquigarrow u \rightsquigarrow t$.
+
+            \end{mdframed}
+
             \item Write that this results in contradiction to the header that
             a vertex $u$ has no path $s \rightsquigarrow u \rightsquigarrow t$.
+
+
             \item Conclude that $f(u,v) = 0$ and $f(v,u) = 0$
         \end{itemize}
     \end{enumerate}
