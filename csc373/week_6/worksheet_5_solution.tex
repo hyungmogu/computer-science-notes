@@ -69,56 +69,24 @@
 
     \bigskip
 
-    I must show such that there is no flow
-    at vertex $u$. That is, there exists a maximum flow $f$ in $G$ such that
-    $f(u,v) = f(v,u) = 0$ for all vertices $v \in V$.
+    I must show such that there is no flow at vertex $u$. That is, there exists a
+    maximum flow $f$ in $G$ such that $f(u,v) = f(v,u) = 0$ for all vertices $v \in V$.
 
     \bigskip
 
-    I will do so in cases
+    Assume for the sake of contradiction that there is a vertex $u$ with flow $f$.
+    That is, there exists some vertices $v \in V$ such that $f(u,v) > 0$ or $f(v,u) > 0$.
+
+    \bigskip
+
+    I see that three cases follows, and I will prove each separately.
+
+    \bigskip
 
     \begin{enumerate}[1.]
-        \item \textbf{Case 1:} When $u$ only has no flow going in and out
-
-        \bigskip
-
-        \begin{itemize}
-            \item Show
-        \end{itemize}
-
-        \begin{mdframed}
-        Assume $u$ only has no flow going in and out.
-
-        \bigskip
-
-        Then, we know that $(u,v) \notin E$ for all $v \in V$.
-
-        \bigskip
-
-        Then, we know by the edge case of flow conservation that $f(u,v) = 0$ for all $v \in V$.
-
-        \bigskip
-
-        Then, we can write
-
-        \begin{align}
-            \sum\limits_{v \in V} f(u,v) = \sum\limits_{v \in V} f(v,u) &= 0 & [\text{By flow conservation}]
-        \end{align}
-
-        \bigskip
-
-        Then, using the capacity constraint ($\forall a,b \in V$, $0 \leq f(a,b)$), we can write
-        $f(v,u)$ in $\sum\limits_{v \in V} f(v,u)$ must be 0 for all $v \in V$.
-
-        \bigskip
-
-        So, $f(v,u) = 0$
-
-        \bigskip
-
-        This applies to all $u \in V$.
-
-        \end{mdframed}
+        \item \textbf{Cases 1:} $f(u,v) > 0$ and $f(v,u) = 0$
+        \item \textbf{Cases 2:} $f(u,v) = 0$ and $f(v,u) > 0$
+        \item \textbf{Cases 3:} $f(u,v) > 0$ and $f(v,u) > 0$
     \end{enumerate}
 
     \bigskip
