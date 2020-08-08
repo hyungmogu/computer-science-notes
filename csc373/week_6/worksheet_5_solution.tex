@@ -400,41 +400,47 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Works:}}
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/worksheet_5_solution_7.jpg}
+    \end{center}
 
     \bigskip
 
-    I need to formulate the problem of determining whether both of professor Adam's two children can go to the same school
-    as maximum-flow problem.
+    % \underline{\textbf{Rough Works:}}
 
-    \bigskip
+    % \bigskip
 
-    The problem statement tells us the following:
+    % I need to formulate the problem of determining whether both of professor Adam's two children can go to the same school
+    % as maximum-flow problem.
 
-    \bigskip
+    % \bigskip
 
-    \begin{enumerate}[1.]
-        \item There is 1 supersource (location of home)
-        \item There is 1 sink (location of school)
-        \item There are two sources ($s_1$ as child 1, $s_2$ as child 2)
-        \item Edge $(u,v)$ has capacity of 0 or more (0 representing unavailable sidewalk, 1 for sidewalk with capacity of 1, 2 for street with capacity of 2 and so on)
-        \item Each vertex represents corner of intersection, and two children can have their paths crossing here.
-        \begin{itemize}
-            \item But total inflow must equal total outflow (by flow conservation)
-        \end{itemize}
-        \item Has flow of 2, 1 or 0 (1 is where one of the two children walking on the road. 0 is none.)
-    \end{enumerate}
+    % The problem statement tells us the following:
 
-    \bigskip
+    % \bigskip
 
-    Here we are to find whether children must go on to a vertex and out to the same edge with the flow of 2,
-    or determine whether there is only edge to school with capacity of 1 or less.
+    % \begin{enumerate}[1.]
+    %     \item There is 1 supersource (location of home)
+    %     \item There is 1 sink (location of school)
+    %     \item There are two sources ($s_1$ as child 1, $s_2$ as child 2)
+    %     \item Edge $(u,v)$ has capacity of 0 or more (0 representing unavailable sidewalk, 1 for sidewalk with capacity of 1, 2 for street with capacity of 2 and so on)
+    %     \item Each vertex represents corner of intersection, and two children can have their paths crossing here.
+    %     \begin{itemize}
+    %         \item But total inflow must equal total outflow (by flow conservation)
+    %     \end{itemize}
+    %     \item Has flow of 2, 1 or 0 (1 is where one of the two children walking on the road. 0 is none.)
+    % \end{enumerate}
 
-    \bigskip
+    % \bigskip
 
-    If none, then both children can safely go to school.
+    % Here we are to find whether children must go on to a vertex and out to the same edge with the flow of 2,
+    % or determine whether there is only edge to school with capacity of 1 or less.
 
-    \bigskip
+    % \bigskip
+
+    % If none, then both children can safely go to school.
+
+    % \bigskip
 
     \underline{\textbf{Notes:}}
 
