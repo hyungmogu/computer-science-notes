@@ -551,9 +551,11 @@
         \includegraphics[width=0.9\linewidth]{images/worksheet_5_solution_9.png}
         \end{center}
 
-        \item \textbf{Residual Graph}
+        \item \textbf{Residual Network}
         \begin{itemize}
             \item Indicates how muh more flow is allowed in each edge in the network graph $^{[1]}$
+            \item Consists of edges with capacities that represents how we can change the flow on edges of $G$.
+            \item Provides roadmap for adding flow to the original flow network
         \end{itemize}
 
         \bigskip
@@ -606,6 +608,15 @@
         \end{itemize}
 
         \item \textbf{Augmentation}
+
+        \begin{itemize}
+            \item Is symbolized by $f \uparrow f'$
+
+            \begin{itemize}
+                \item $f$ is a flow in $G$
+                \item $f'$ is a flow in the residual network $G_f$
+            \end{itemize}
+        \end{itemize}
 
     \end{itemize}
 
