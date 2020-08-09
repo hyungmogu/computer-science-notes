@@ -761,11 +761,31 @@
     \begin{itemize}
         \item Proving that $f \uparrow f'$ satisfies the flow conservation property
 
-        \begin{enumerate}[1)]
-            \item
-        \end{enumerate}
+        \bigskip
 
-        \item Proving that $f \uparrow f'$ satisfies the capacity constraint
+        \begin{mdframed}
+
+        Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f,f'$
+        be a flow in $G$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and
+        $v \in V$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
+        we can re-write the definition of flow augmentation (equation (26.4)) as
+
+        \begin{align}
+            (f \uparrow f')(u,v) &= \begin{cases}
+                f(u,v) + f'(u,v) & [\text{If $(u,v) \in E$}]\\
+                0 & [\text{Otherwise}]
+            \end{cases}
+        \end{align}
+
+        which implies that the value of the augmentation of flow $f \uparrow f'$
+        on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$. We now prove
+        that the
+
+        \end{mdframed}
+
+        \bigskip
+
+        \item Disproving that $f \uparrow f'$ satisfies the capacity constraint
     \end{itemize}
 
     \bigskip
@@ -811,6 +831,9 @@
                     0 & [\text{Otherwise}]
                 \end{cases}
             \end{align}
+
+            \item \color{red}\ul{Augmentation of flow $f \uparrow f'$ is the sum of flow on edge $(u,v)$
+            in both flow network $G$ and residual network $G'$}\color{black}
         \end{itemize}
 
         \item \textbf{Proof of flow conservation for $f \uparrow f'$ when $f \in G$ and $f' \in G_f$}
@@ -913,7 +936,7 @@
                 \item \color{red}$c_f(v,u) = f(u,v)$ is allowed\color{black}
             \end{itemize}
 
-            \item \textbf{Part 2 ($(f \uparrow f')(u,v) \leq c_{f \uparrow f'}(u,v)$)}
+            \item \textbf{Part 2 ($(f \uparrow f')(u,v) \leq c(u,v)$)}
 
             Here, I need to show $(f \uparrow f')(u,v) \leq c(u,v)$. That is,
             $f(u,v) + f'(u,v) - f'(v,u) \leq c(u,v)$.
@@ -921,6 +944,15 @@
             \bigskip
 
             And indeed we have,
+
+            \begin{align}
+            (f \uparrow f')(u,v) &= f(u,v)+ f'(u,v) - f'(v,u)\\
+            &\leq f(u,v)+ f'(u,v) & [\text{Since $f'(u,v) \geq 0$ by cap. cons. of $f'$}]\\
+            &= f(u,v)+ c_f(u,v) & [\text{Since $f'(u,v) \leq c_f(u,v)$}]\\
+            &= f(u,v) + (c(u,v) - f(u,v)) & [\text{By def of res. capacity}]\\
+            &= c(u,v)\\
+            \end{align}
+
         \end{enumerate}
 
     \end{itemize}
