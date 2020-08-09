@@ -540,12 +540,28 @@
     \bigskip
 
     \begin{itemize}
-        \item Combine all sources $s_i$ into a single source $s$ with outgoing flow $\sum\limits_{i} p_i$
-        \item Combine all sinks $t_j$ into a single sink $t$ with incoming flow $\sum\limits_{j} q_j$
-        \item Connect source $s$ to $v$ with an edge having the sum of relevant edge weights before combining as its weight
-        \item Connect source $v$ to $t$ with an edge having the sum of relevant edge weights before combining as its weight
+        \item Combine all sources $s_i$ into a single source $s$
+        \item Combine all sinks $t_j$ into a single sink $t$
+        \item Connect source $s$ to each adjacent vertex $v$ with edge weight $\sum\limits_{i} f(s_i, v) = p_i$
+
+        \begin{itemize}
+            \item The total edge weight from $s$ should be $\sum\limits_{i} p_i$
+        \end{itemize}
+
+        \item Connect each adjacent vertex $v$ of t to $t$ with edge weight $\sum\limits_{j} f(v,t_j) = q_j$
+
+        \begin{itemize}
+            \item The total edge weight to $t$ should be $\sum\limits_{j} q_j$
+        \end{itemize}
+
+
         \item Find a simple path from $s$ to $t$ with the maximum amount of total flow
     \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=0.9\linewidth]{images/worksheet_5_solution_16.png}
+    \end{center}
+
 
     \bigskip
 
