@@ -13,6 +13,7 @@
 \usepackage{adjustbox}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{soul}
 \usepackage{booktabs}
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
@@ -783,6 +784,18 @@
         \begin{center}
         \includegraphics[width=0.8\linewidth]{images/worksheet_5_solution_18.png}
         \end{center}
+
+        \item \textbf{Flow Network (cont'd)}
+
+        \begin{itemize}
+            \item Flow network requires that
+
+            \begin{enumerate}[1)]
+                \item $G = (V,E)$ is a directed graph
+                \item each edge $(u,v) \in E$ has a non-negative capacity $c(u,v) \geq 0$
+                \item \color{red}\ul{If $E$ contains an edge $(u,v)$, then there is no edge $(v,u)$ in the reverse direction (no anti-parallel edge)}\color{black}
+            \end{enumerate}
+        \end{itemize}
 
         \item \textbf{Augmentation (cont'd)}
 
