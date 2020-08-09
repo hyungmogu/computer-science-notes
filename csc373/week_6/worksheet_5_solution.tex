@@ -779,6 +779,14 @@
         \begin{itemize}
             \item Augmentation of flow $f$ by $f'$ or $f \uparrow f'$ is a function
             $V \times  \to \mathbb{R}$ is defined by
+
+
+            \begin{align}
+                (f \uparrow f')(u,v) &= \begin{cases}
+                    f(u,v) + f'(u,v) - f'(v,u) & [\textbf{If $(u,v) \in E$}]\\
+                    0 & [\textbf{Otherwise}]
+                \end{cases}
+            \end{align}
         \end{itemize}
     \end{itemize}
 
