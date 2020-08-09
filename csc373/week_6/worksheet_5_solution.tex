@@ -716,7 +716,7 @@
             \includegraphics[width=\linewidth]{images/worksheet_5_solution_15.png}
             \end{center}
 
-            \item Edge $(u,v)$ on simple path on an augmenting path can be increased
+            \item Edge $(u,v)$ of an augmented path can be increased
             by upto $c_f(u,v)$ withhout violating the capacity constraint
         \end{itemize}
 
@@ -900,7 +900,11 @@
             And indeed we have,
 
             \begin{align}
-            (f \uparrow f')(u,v) = f(u,v)+ f'(u,v) - f'(v,u)
+            (f \uparrow f')(u,v) &= f(u,v)+ f'(u,v) - f'(v,u)\\
+            &\geq f(u,v)+ f'(u,v) - c_f(v,u) & [\text{Since $f'(v,u) \leq c_f(v,u)$}]\\
+            &= f(u,v)+ f'(u,v) - f(u,v) & [\text{By def. of residual capacity}]\\
+            &= f'(u,v)\\
+            &\geq 0 & [\text{By cap. const. of $f'$ in $G_f$ }]\\
             \end{align}
 
             \bigskip
@@ -910,6 +914,13 @@
             \end{itemize}
 
             \item \textbf{Part 2 ($(f \uparrow f')(u,v) \leq c_{f \uparrow f'}(u,v)$)}
+
+            Here, I need to show $(f \uparrow f')(u,v) \leq c(u,v)$. That is,
+            $f(u,v) + f'(u,v) - f'(v,u) \leq c(u,v)$.
+
+            \bigskip
+
+            And indeed we have,
         \end{enumerate}
 
     \end{itemize}
