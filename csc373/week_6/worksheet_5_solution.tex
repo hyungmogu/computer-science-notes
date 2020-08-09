@@ -746,7 +746,7 @@
     \end{enumerate}
 
     \item
-
+    \setcounter{equation}{0}
     \bigskip
 
     The augmented flow satisfies flow conservation, but not capacity constraint.
@@ -754,31 +754,36 @@
     \bigskip
 
     \begin{proof}
+    Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f,f'$
+    be a flow in $G$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and
+    $v \in V$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
+    we can re-write the definition of flow augmentation (equation (26.4)) as
+
+    \begin{align}
+        (f \uparrow f')(u,v) &= \begin{cases}
+            f(u,v) + f'(u,v) & [\text{If $(u,v) \in E$}]\\
+            0 & [\text{Otherwise}]
+        \end{cases}
+    \end{align}
+
+    which implies that the value of the augmentation of flow $f \uparrow f'$
+    on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$.
+
+    \bigskip
+
     I need to show if the augmented flow of $f$ and $f'$ $\in G$ and satisfy the
     flow conservation property but not capacity constraint.
 
+    \bigskip
+
+    I will do so in parts
+
     \begin{itemize}
-        \item Proving that $f \uparrow f'$ satisfies the flow conservation property
+        \item \textbf{Part 1: Proving that $f \uparrow f'$ satisfies the flow conservation property}
 
         \bigskip
 
-        \begin{mdframed}
-
-        Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f,f'$
-        be a flow in $G$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and
-        $v \in V$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
-        we can re-write the definition of flow augmentation (equation (26.4)) as
-
-        \begin{align}
-            (f \uparrow f')(u,v) &= \begin{cases}
-                f(u,v) + f'(u,v) & [\text{If $(u,v) \in E$}]\\
-                0 & [\text{Otherwise}]
-            \end{cases}
-        \end{align}
-
-        which implies that the value of the augmentation of flow $f \uparrow f'$
-        on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$. We now prove
-        that the augmented flow satisfies flow conservation. That is,
+        Here I prove that the augmented flow satisfies flow conservation. That is,
 
         \begin{align}
         \sum\limits_{v \in V} f \uparrow f' (u,v) = \sum\limits_{v \in V} f \uparrow f' (v,u)
@@ -796,28 +801,13 @@
             &= f \uparrow f' (v,u)
         \end{align}
 
-        \end{mdframed}
+        \bigskip
+
+        \item \textbf{Part 2: Disproving that $f \uparrow f'$ satisfies the capacity constraint}
 
         \bigskip
 
-        \item Disproving that $f \uparrow f'$ satisfies the capacity constraint
-
-        \begin{mdframed}
-        Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f,f'$
-        be a flow in $G$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and
-        $v \in V$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
-        we can re-write the definition of flow augmentation (equation (26.4)) as
-
-        \begin{align}
-            (f \uparrow f')(u,v) &= \begin{cases}
-                f(u,v) + f'(u,v) & [\text{If $(u,v) \in E$}]\\
-                0 & [\text{Otherwise}]
-            \end{cases}
-        \end{align}
-
-        which implies that the value of the augmentation of flow $f \uparrow f'$
-        on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$. We now disprove
-        that the augmented flow satisfies capacity constraint. That is,
+        Here, I need to disprove that the augmented flow satisfies capacity constraint. That is,
 
         \begin{align}
             (f \uparrow f')(u,v) > c(u,v)
@@ -834,7 +824,6 @@
         \bigskip
 
         Thus, we can conclude the augmentation of flow doesn't satisfy capacity constraint.
-        \end{mdframed}
     \end{itemize}
 
     \end{proof}
