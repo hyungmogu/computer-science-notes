@@ -868,7 +868,7 @@
         \bigskip
 
         \textbf{Predicate Logic:} $\forall f \in G$, $\forall f' \in G_f$, $\forall (u,v) \in E \text{ where $u,v \in V$}$,
-        $0 \leq (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) \leq c_{f \uparrow f'}(u,v)$
+        $0 \leq (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) \leq c(u,v)$
 
         \bigskip
 
@@ -879,16 +879,38 @@
         \bigskip
 
         I need to prove that $f \uparrow f'$ satisfies capacity constraint. That is,
-        $0 \leq (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) \leq c_{f \uparrow f'}(u,v)$.
+        $0 \leq (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) \leq c(u,v)$.
 
         \bigskip
 
-        I see there are two cases. I will prove each cases separately.
+        I see there are two parts. I will prove each parts separately.
 
-        \begin{enumerate}[1)]
-            \item
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item \textbf{Part 1 ($0 \leq (f \uparrow f')(u,v)$)}
+
+            \bigskip
+
+            Here, I need to show $0 \leq (f \uparrow f')(u,v)$. That is,
+            $0 \leq f(u,v) + f'(u,v) - f'(v,u)$.
+
+            \bigskip
+
+            And indeed we have,
+
+            \begin{align}
+            (f \uparrow f')(u,v) = f(u,v)+ f'(u,v) - f'(v,u)
+            \end{align}
+
+            \bigskip
+
+            \begin{itemize}
+                \item \color{red}$c_f(v,u) = f(u,v)$ is allowed\color{black}
+            \end{itemize}
+
+            \item \textbf{Part 2 ($(f \uparrow f')(u,v) \leq c_{f \uparrow f'}(u,v)$)}
         \end{enumerate}
-
 
     \end{itemize}
 
