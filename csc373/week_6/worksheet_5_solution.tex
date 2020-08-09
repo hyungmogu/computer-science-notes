@@ -791,6 +791,35 @@
             \end{align}
         \end{itemize}
 
+        \item \textbf{Proof of flow conservation for $f \uparrow f'$ when $f \in G$ and $f' \in G_f$}
+        \setcounter{equation}{0}
+        \bigskip
+
+        Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f$
+        be a flow in $G$. Let $G_f$ be a residual network of $G$ induced by $f$ and let $f'$ be
+        a flow in $G$.
+
+        \bigskip
+
+        I need to show $f \uparrow f'$ satisfies flow conservation. That is,
+
+        \begin{align}
+        \sum\limits_{v \in V} f \uparrow f' (u,v) = \sum\limits_{v \in V} f \uparrow f' (v,u)
+        \end{align}.
+
+        \bigskip
+
+        I see there are two cases. I will prove each separately.
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item \textbf{Case 1 (when $(u,v) \notin E$):}
+            \item \textbf{Case 2 (when $(u,v) \in E$):}
+        \end{enumerate}
+
+        \bigskip
+
         \item \textbf{Proof of capacity constraint for $f \uparrow f'$ when $f \in G$ and $f' \in G_f$}
     \end{itemize}
 
