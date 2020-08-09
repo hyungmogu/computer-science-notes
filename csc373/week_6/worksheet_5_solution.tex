@@ -776,6 +776,9 @@
     \begin{itemize}
         \item I need clarification from professor about the meaning of $f' \in G$.
         Is $f'$ a flow from flow network or residual network?
+        \item I feel I am struggling because I am jumping to solution without understanding the problem
+        \item Noticed that a solution in University of Texas really elaborated on $f \uparrow f'(u,v)$
+        before moving onto strategizing and constructing a solution
         \item \textbf{Augmentation (cont'd)}
 
         \begin{itemize}
@@ -797,7 +800,12 @@
 
         Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f$
         be a flow in $G$. Let $G_f$ be a residual network of $G$ induced by $f$ and let $f'$ be
-        a flow in $G$.
+        a flow in $G$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
+        the definition
+
+        \bigskip
+
+
 
         \bigskip
 
@@ -815,6 +823,24 @@
 
         \begin{enumerate}[1.]
             \item \textbf{Case 1 (when $(u,v) \notin E$):}
+
+            \bigskip
+
+            Here, assume $(u,v) \notin E$.
+
+            \bigskip
+
+            Then, we have
+
+            \begin{align}
+                \sum\limits_{v \in V} f \uparrow f' (u,v) &= 0 & [\text{By augmentation def.}]\\
+                &= \sum\limits_{v \in V} f(u,v) & [\text{Since there is no flow}]\\
+                &= \\
+                &= \sum\limits_{v \in V} f(v,u) + f'(v,u) - f'(u,v)\\
+                &= \sum\limits_{v \in V} f \uparrow f' (v,u)
+            \end{align}
+
+
             \item \textbf{Case 2 (when $(u,v) \in E$):}
             \bigskip
 
