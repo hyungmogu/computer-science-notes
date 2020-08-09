@@ -806,6 +806,13 @@
 
         \item Disproving that $f \uparrow f'$ satisfies the capacity constraint
 
+        \bigskip
+
+        \underline{\textbf{Predicate Logic:}} $\forall f,f' \in G$, $\forall (u,v) \in E \text{ where $u,v \in V$}$,
+        $0 \leq (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) \leq c(u,v)$
+
+        \bigskip
+
         \begin{mdframed}
         Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f,f'$
         be a flow in $G$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and
@@ -860,6 +867,12 @@
         \item \textbf{Augmentation (cont'd)}
 
         \begin{itemize}
+            \item Flow value can be increased by
+
+            \begin{align}
+                c_f(p) = \min_{(u,v) \in p} c_f(u,v)
+            \end{align}
+
             \item Augmentation of flow $f$ by $f'$ or $f \uparrow f'$ is a function
             $V \times V \to \mathbb{R}$ is defined by
 
@@ -877,6 +890,10 @@
             \begin{center}
             \includegraphics[width=0.8\linewidth]{images/worksheet_5_solution_19.png}
             \end{center}
+
+
+            [\color{red}NOTE!!\color{black}] I really need to ask professor about this. I can't seem to
+            understand using simple example why $f \uparrow f'(u,v) = f(u,v) + f'(u,v) - f'(v,u)$.
         \end{itemize}
 
         \item \textbf{Proof of flow conservation for $f \uparrow f'$ when $f \in G$ and $f' \in G_f$}
