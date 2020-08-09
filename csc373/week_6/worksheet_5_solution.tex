@@ -813,6 +813,9 @@
 
         \bigskip
 
+        \underline{\textbf{Negation of Predicate Logic:}} $\exists f,f' \in G$, $\exists (u,v) \in E \text{ where $u,v \in V$}$,
+        $0  > (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) > c(u,v)$
+
         \begin{mdframed}
         Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f,f'$
         be a flow in $G$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and
@@ -827,7 +830,24 @@
         \end{align}
 
         which implies that the value of the augmentation of flow $f \uparrow f'$
-        on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$.
+        on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$. We now disprove
+        that the augmented flow satisfies capacity constraint. That is,
+
+        \begin{align}
+            (f \uparrow f')(u,v) > c(u,v)
+        \end{align}
+
+        \bigskip
+
+        Let $f(u,v) = f'(u,v) = 10$ and $c(u,v) = 8$.
+
+        \bigskip
+
+        Then, we can write $(f \uparrow f')(s,t) = 20$ and $c(u,v) = 8$.
+
+        \bigskip
+
+        Thus, we can conclude the augmentation of flow doesn't satisfy capacity constraint.
         \end{mdframed}
     \end{itemize}
 
@@ -872,6 +892,15 @@
             \begin{align}
                 c_f(p) = \min_{(u,v) \in p} c_f(u,v)
             \end{align}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_5_solution_20.png}
+            \end{center}
+
 
             \item Augmentation of flow $f$ by $f'$ or $f \uparrow f'$ is a function
             $V \times V \to \mathbb{R}$ is defined by
