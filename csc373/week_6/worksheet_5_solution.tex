@@ -560,45 +560,45 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Works:}}
+    % \underline{\textbf{Rough Works:}}
 
-    \bigskip
+    % \bigskip
 
-    I need to show how to convert the problem of finding a flow $f$ that obeys the
-    constraints into the problem of finding a maximum flow in a single
-    source, single-sink flow network
+    % I need to show how to convert the problem of finding a flow $f$ that obeys the
+    % constraints into the problem of finding a maximum flow in a single
+    % source, single-sink flow network
 
-    \bigskip
+    % \bigskip
 
-    The steps are as follows:
+    % The steps are as follows:
 
-    \bigskip
+    % \bigskip
 
-    \begin{itemize}
-        \item Combine all sources $s_i$ into a single source $s$
-        \item Combine all sinks $t_j$ into a single sink $t$
-        \item Connect source $s$ to each adjacent vertex $v$ with edge weight $\sum\limits_{i} f(s_i, v) = p_i$
+    % \begin{itemize}
+    %     \item Combine all sources $s_i$ into a single source $s$
+    %     \item Combine all sinks $t_j$ into a single sink $t$
+    %     \item Connect source $s$ to each adjacent vertex $v$ with edge weight $\sum\limits_{i} f(s_i, v) = p_i$
 
-        \begin{itemize}
-            \item The total edge weight from $s$ should be $\sum\limits_{i} p_i$
-        \end{itemize}
+    %     \begin{itemize}
+    %         \item The total edge weight from $s$ should be $\sum\limits_{i} p_i$
+    %     \end{itemize}
 
-        \item Connect each adjacent vertex $v$ of t to $t$ with edge weight $\sum\limits_{j} f(v,t_j) = q_j$
+    %     \item Connect each adjacent vertex $v$ of t to $t$ with edge weight $\sum\limits_{j} f(v,t_j) = q_j$
 
-        \begin{itemize}
-            \item The total edge weight to $t$ should be $\sum\limits_{j} q_j$
-        \end{itemize}
-
-
-        \item Find a simple path from $s$ to $t$ with the maximum amount of total flow
-    \end{itemize}
-
-    \begin{center}
-    \includegraphics[width=0.9\linewidth]{images/worksheet_5_solution_16.png}
-    \end{center}
+    %     \begin{itemize}
+    %         \item The total edge weight to $t$ should be $\sum\limits_{j} q_j$
+    %     \end{itemize}
 
 
-    \bigskip
+    %     \item Find a simple path from $s$ to $t$ with the maximum amount of total flow
+    % \end{itemize}
+
+    % \begin{center}
+    % \includegraphics[width=0.9\linewidth]{images/worksheet_5_solution_16.png}
+    % \end{center}
+
+
+    % \bigskip
 
     \underline{\textbf{Notes:}}
 
@@ -679,7 +679,7 @@
         \item \textbf{Augmentation}
 
         \begin{itemize}
-            \item 한국어로 '거꾸로 가는 수압 decrease 해서 앞으로 가는 수압 더 쎄게 만들기'
+            \item 한국어로 '불필요한 수압 decrease 해서 앞으로 가는 수압 더 쎄게 만들기'
             \item Is symbolized by $f \uparrow f'$
 
             \begin{itemize}
