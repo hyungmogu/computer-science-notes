@@ -778,6 +778,7 @@
         \item I need clarification from professor about the meaning of $f' \in G$.
         Is $f'$ a flow from flow network or residual network?
         \item I feel I am struggling because I am jumping to solution without understanding the problem
+        \item I feel constructing a predicate logic would have helped to better understand this problem
         \item Noticed that a solution in University of Texas really elaborated on $f \uparrow f'(u,v)$
         before moving onto strategizing and constructing a solution
 
@@ -818,7 +819,7 @@
 
         Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f$
         be a flow in $G$. Let $G_f$ be a residual network of $G$ induced by $f$ and let $f'$ be
-        a flow in $G_f$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
+        a flow in $G_f$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and $v \in V$. We note that if $(u,v) \in E$, then $(v,u) \notin E$ and $f(v,u) = 0$. Thus,
         the definition
 
 
@@ -863,6 +864,19 @@
         \end{itemize}
 
         \item \textbf{Proof of capacity constraint for $f \uparrow f'$ when $f \in G$ and $f' \in G_f$}
+
+        \bigskip
+
+        \textbf{Predicate Logic:} $\forall f \in G$, $\forall f' \in G_f$, $\forall (u,v) \in E \text{ where $u \in V - \{s,t\},v \in V$}$,
+        $0 \leq (f \uparrow f')(u,v) \land (f \uparrow f')(u,v) \leq c_{f \uparrow f'}(u,v)$
+
+        \bigskip
+
+        Let $G = (V,E)$ be a flow network with sources $s$ and sink $t$. Let $f$
+        be a flow in $G$. Let $G_f$ be a residual network of $G$ induced by $f$ and let $f'$ be
+        a flow in $G_f$. Let $(u,v)$ be an edge in $E$ where $u \in V - \{s,t\}$ and $v \in V$.
+
+
     \end{itemize}
 
 \end{enumerate}
