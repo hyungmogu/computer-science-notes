@@ -816,9 +816,28 @@
         \begin{enumerate}[1.]
             \item \textbf{Case 1 (when $(u,v) \notin E$):}
             \item \textbf{Case 2 (when $(u,v) \in E$):}
+            \bigskip
+
+            Here, assume $(u,v) \in E$.
+
+            \bigskip
+
+            Then, we have
+
+            \begin{align}
+                \sum\limits_{v \in V} f \uparrow f' (u,v) &= \sum\limits_{v \in V} f(u,v) + f'(u,v) - f'(v,u) & [\text{By augmentation def.}]\\
+                &= \sum\limits_{v \in V} f(u,v) + \sum\limits_{v \in V} f'(u,v) - \sum\limits_{v \in V} f'(v,u)\\
+                &= \sum\limits_{v \in V} f(v,u) + \sum\limits_{v \in V} f'(v,u) - \sum\limits_{v \in V} f'(u,v) & [\text{By flow conserv. of $f$ and $f'$}]\\
+                &= \sum\limits_{v \in V} f(v,u) + f'(v,u) - f'(u,v)\\
+                &= \sum\limits_{v \in V} f \uparrow f' (v,u)
+            \end{align}
         \end{enumerate}
 
         \bigskip
+
+        \begin{itemize}
+            \item \color{red}Flow in residual network also obey flow conservation\color{black}
+        \end{itemize}
 
         \item \textbf{Proof of capacity constraint for $f \uparrow f'$ when $f \in G$ and $f' \in G_f$}
     \end{itemize}
