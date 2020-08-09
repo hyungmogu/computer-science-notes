@@ -343,7 +343,12 @@
 
             \bigskip
 
-            Means flow into vertex $u$ is the same as flow going out of vertex $u$. $^{[1]}$
+            \begin{itemize}
+                \item Means flow into vertex $u$ is the same as flow going out of vertex $u$. $^{[1]}$
+                \item $\sum\limits_{v \in V} f(u,v)$ means flow \underline{out of} vertex $u$
+                \item $\sum\limits_{v \in V} f(v,u)$ means flow \underline{into} vertex $u$
+                \item $v \in V$ in $\sum\limits_{v \in V} f(u,v)$ means all vertices that are an edge away from vertex $u$
+            \end{itemize}
 
             \bigskip
 
