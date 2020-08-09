@@ -779,7 +779,13 @@
 
         which implies that the value of the augmentation of flow $f \uparrow f'$
         on edge $(u,v)$ is the sum of flow $f(u,v)$ and $f'(u,v)$ in $G$. We now prove
-        that the
+        that the augmented flow satisfies flow conservation. That is,
+
+        \begin{align}
+        \sum\limits_{v \in V} f \uparrow f' (u,v) = \sum\limits_{v \in V} f \uparrow f' (v,u)
+        \end{align}.
+
+        \bigskip
 
         \end{mdframed}
 
@@ -805,6 +811,9 @@
         \begin{center}
         \includegraphics[width=0.8\linewidth]{images/worksheet_5_solution_18.png}
         \end{center}
+
+        \item Noticed that a solution in University of Texas made quick sketches
+        before laying the outline of proof
 
         \item \textbf{Flow Network (cont'd)} [Important!]
 
