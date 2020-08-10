@@ -1139,7 +1139,8 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Works:}}
+    \begin{mdframed}
+    \underline{\textbf{My Work:}}
 
     Let $G=(V,E)$ be an undirected graph.
 
@@ -1150,71 +1151,143 @@
 
     \bigskip
 
-    \begin{itemize}
+    First, I need to convert the undirected graph $G$ to a directed graph.
 
-        \item Convert undirected graph to directed graph
+    \bigskip
 
-        \begin{mdframed}
-        First, I need to convert the undirected graph $G$ to a directed graph.
+    I do so by assigning $G'$ as a directed graph and transforming each edges in $G$
+    to two directed edges $(u,v)$ and $(v,u)$.
 
-        \bigskip
+    \bigskip
 
-        I do so by assigning $G'$ as a directed graph and transforming each edges in $G$
-        to two directed edges $(u,v)$ and $(v,u)$.
-        \end{mdframed}
+    Second, I need to setup graph $G'$ as a flow network.
 
-        \item Setup directed graph as a flow network
+    \bigskip
 
-        \begin{mdframed}
-        Second, I need to setup graph $G'$ as a flow network.
+    I do so by assigning each edge in $G'$ with capacity of 1 and flow of 1, and
+    assigning $f'$ as max-flow in $G'$ found using maximum-flow algorithm.
 
-        \bigskip
+    \bigskip
 
-        I do so by assigning each edge in $G'$ with capacity of 1 and flow of 1, and
-        assigning $f'$ as max-flow in $G'$ found using maximum-flow algorithm.
+    And together, I see that the directed graph $G'$ has $\mathcal{O}(V)$ vertices
+    and $\mathcal{O}(2E) = \mathcal{O}(E)$ edges.
 
-        \end{mdframed}
+    \bigskip
 
-        \item Find the minimum of max-flow in $G'$
+    Third, I need to find the edge connectivity of the directed graph $G'$. That is, the minimum number of edges
+    that must be removed to disconnect $G'$. In other words, the minimum number of edges
+    required to remove a vertex from graph $G'$.
 
-        \begin{mdframed}
-        Third, I need to find the edge connectivity of the directed graph $G'$. That is, the minimum number of edges
-        that must be removed to disconnect $G'$. In other words, the minimum nunmber of edges
-        required to remove a vertex from graph $G'$.
+    \bigskip
 
-        \bigskip
+    And I do so by claiming that the edge connectivity of $G'$ or $G$ is
+    $\min_{u \neq v} f'(u,v)$. That is, the minimum of max-flows over $u \in V$ in graph $G'$.
 
-        And I do so by claiming that the edge connectivity of $G'$ or $G$ is
-        $\min_{u \neq v} f'(u,v)$. That is, the minimum of max-flows over $u \in V$ in graph $G'$.
+    \bigskip
 
-        \bigskip
+    Since this algorithm runs over all $u \in V$, it runs at most $\lvert V \rvert$ times.
 
-        Therefore, we can find edge over all vertices $u$ with $\lvert V \rvert - 1$
-        running time.
+    \bigskip
 
-        \end{mdframed}
+    \end{mdframed}
 
-        \item Prove correctness of Algorithm
+    Suppose $k$ is the edge connectivity of the graph and $S$ is the set of $k$
+    edges such that removal of $S$ will disconnect the graph into
+    2 non-empty subgraphs $G_1$ and $G_2$. WLOG assume the node $u \in G$.
+    Let $w$ be a node in $G_2$. Since $u /neq w$, the value $f^*(u.w)$ will be computed
+    by the algorithm. By the min-cut theorem $f^*(u,w)$ equals the min cut size
+    between the pair $(u,w)$, which is at most $k$ since $S$ duscibbects $u$ and $w$.
+    Therefore, we have
 
-        \bigskip
+    \begin{align}
+        c* \leq f^*(u,w) \leq k
+    \end{align}
 
-        Suppose $k$ is the edge connectivity of the graph and $S$ is the set of $k$
-        edges such that removal of $S$ will disconnect the graph into
-        2 non-empty subgraphs $G_1$ and $G_2$. WLOG assume the node $u \in G$.
-        Let $w$ be a node in $G_2$. Since $u /neq w$, the value $f^*(u.w)$ will be computed
-        by the algorithm. By the min-cut theorem $f^*(u,w)$ equals the min cut size
-        between the pair $(u,w)$, which is at most $k$ since $S$ duscibbects $u$ and $w$.
-        Therefore, we have
+    But $c^{∗}$ cannot be smaller than k since that would imply a cut set of size smaller than k,
+    contradicting the fact that k is the edge connectivity. Therefore $c^{∗} = k$ and the algorithm
+    returns the edge connectivity of the graph correctly.
 
-        \begin{align}
-            c* \leq f^*(u,w) \leq k
-        \end{align}
+    \bigskip
 
-        But $c^{∗}$ cannot be smaller than k since that would imply a cut set of size smaller than k,
-        contradicting the fact that k is the edge connectivity. Therefore $c^{∗} = k$ and the algorithm
-        returns the edge connectivity of the graph correctly.
+    % \underline{\textbf{Rough Works:}}
 
-    \end{itemize}
+    % Let $G=(V,E)$ be an undirected graph.
+
+    % \bigskip
+
+    % I need to show how to determine the edge connectivity of $G$ by running a
+    % maximum-flow algorithm.
+
+    % \bigskip
+
+    % \begin{itemize}
+
+    %     \item Convert undirected graph to directed graph
+
+    %     \begin{mdframed}
+    %     First, I need to convert the undirected graph $G$ to a directed graph.
+
+    %     \bigskip
+
+    %     I do so by assigning $G'$ as a directed graph and transforming each edges in $G$
+    %     to two directed edges $(u,v)$ and $(v,u)$.
+    %     \end{mdframed}
+
+    %     \item Setup directed graph as a flow network
+
+    %     \begin{mdframed}
+    %     Second, I need to setup graph $G'$ as a flow network.
+
+    %     \bigskip
+
+    %     I do so by assigning each edge in $G'$ with capacity of 1 and flow of 1, and
+    %     assigning $f'$ as max-flow in $G'$ found using maximum-flow algorithm.
+
+    %     \bigskip
+
+    %     And together, I see that the directed graph $G'$ has $\mathcal{O}(V)$ vertices
+    %     and $\mathcal{O}(2E) = \mathcal{O}(E)$ edges.
+
+    %     \end{mdframed}
+
+    %     \item Find the minimum of max-flow in $G'$
+
+    %     \begin{mdframed}
+    %     Third, I need to find the edge connectivity of the directed graph $G'$. That is, the minimum number of edges
+    %     that must be removed to disconnect $G'$. In other words, the minimum number of edges
+    %     required to remove a vertex from graph $G'$.
+
+    %     \bigskip
+
+    %     And I do so by claiming that the edge connectivity of $G'$ or $G$ is
+    %     $\min_{u \neq v} f'(u,v)$. That is, the minimum of max-flows over $u \in V$ in graph $G'$.
+
+    %     \bigskip
+
+    %     Since this algorithm runs over all $u \in V$, it runs at most $\lvert V \rvert$ times.
+    %     \end{mdframed}
+
+    %     \item Prove correctness of Algorithm
+
+    %     \bigskip
+
+    %     Suppose $k$ is the edge connectivity of the graph and $S$ is the set of $k$
+    %     edges such that removal of $S$ will disconnect the graph into
+    %     2 non-empty subgraphs $G_1$ and $G_2$. WLOG assume the node $u \in G$.
+    %     Let $w$ be a node in $G_2$. Since $u /neq w$, the value $f^*(u.w)$ will be computed
+    %     by the algorithm. By the min-cut theorem $f^*(u,w)$ equals the min cut size
+    %     between the pair $(u,w)$, which is at most $k$ since $S$ duscibbects $u$ and $w$.
+    %     Therefore, we have
+
+    %     \begin{align}
+    %         c* \leq f^*(u,w) \leq k
+    %     \end{align}
+
+    %     But $c^{∗}$ cannot be smaller than k since that would imply a cut set of size smaller than k,
+    %     contradicting the fact that k is the edge connectivity. Therefore $c^{∗} = k$ and the algorithm
+    %     returns the edge connectivity of the graph correctly.
+
+    % \end{itemize}
     \bigskip
 
     \underline{\textbf{Notes}}
