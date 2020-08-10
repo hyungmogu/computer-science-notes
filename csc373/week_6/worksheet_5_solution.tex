@@ -1290,13 +1290,52 @@
     % \end{itemize}
     \bigskip
 
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    \color{red}
+    Construct a directed graph $G'$ from $G$ by replacing each edge $u,v$ in $G$ by
+    two directed edge $(u,v)$ and $(v,u)$ in $G'$. Let $f'(u,v)$ be the maximum flow value
+    from $u$ to $v$ through $G'$ with all edge capacities equal to 1. Pick an arbitrary node $u$
+    and compute $f'(u,v)$ for all $v \neq u$.
+
+    \bigskip
+
+    We claim that edge connectivity equals $c^{*} = min_{v \neq u} f'(u,v)$. Therefore,
+    the edge connectivity can be computed by running the maximum-flow algorithm $\lvert V \rvert - 1$
+    times on flow networks each having $\lvert V \lvert$ verticies and $2\lvert E \rvert$ edges.
+    \color{black}
+
+    \bigskip
+
+    Suppose $k$ is the edge connectivity of the graph and $S$ is the set of $k$
+    edges such that removal of $S$ will disconnect the graph into
+    2 non-empty subgraphs $G_1$ and $G_2$. WLOG assume the node $u \in G$.
+    Let $w$ be a node in $G_2$. Since $u /neq w$, the value $f^*(u.w)$ will be computed
+    by the algorithm. By the min-cut theorem $f^*(u,w)$ equals the min cut size
+    between the pair $(u,w)$, which is at most $k$ since $S$ duscibbects $u$ and $w$.
+    Therefore, we have
+
+    \begin{align}
+        c* \leq f^*(u,w) \leq k
+    \end{align}
+
+    But $c^{∗}$ cannot be smaller than k since that would imply a cut set of size smaller than k,
+    contradicting the fact that k is the edge connectivity. Therefore $c^{∗} = k$ and the algorithm
+    returns the edge connectivity of the graph correctly.
+    \end{mdframed}
+
+
+    \bigskip
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
         \item I feel that this maximum-flow algorithm maximizes flow value
         in a vertex with edges and antiparallel edges.
         \item I wonder what does this maximum-flow algorithm do.
-        \item I am wondering how I can
         \item \textbf{Maximum Flow:} Is a vertex in flow network with the maximum value of flow
 
 
