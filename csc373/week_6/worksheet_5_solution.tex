@@ -1161,6 +1161,17 @@
         to two directed edges $(u,v)$ and $(v,u)$.
         \end{mdframed}
 
+        \item Setup directed graph as a flow network
+
+        \begin{mdframed}
+        Second, I need to setup graph $G'$ as a flow network.
+
+        \bigskip
+
+        I do so by assigning each edge with capacity of 1 directed graph
+
+        \end{mdframed}
+
         \item Find the edge connectivity of new directed graph
 
         \begin{mdframed}
@@ -1193,7 +1204,8 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-
+        \item I feel that this maximum-flow algorithm maximizes flow value
+        in a vertex with edges and antiparallel edges.
         \item \textbf{Maximum Flow:} Is a vertex in flow network with the maximum value of flow
 
 
