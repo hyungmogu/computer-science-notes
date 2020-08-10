@@ -1425,6 +1425,12 @@
 
     \bigskip
 
+    Let $G = (V,E)$ be a flow network in integral capacities $c_e \geq 0$, $e \in E$.
+    We define the flow network $G' = (V,E)$ with edge capacities $c'_e \geq 0$, $e \in E$
+    and we set $c'_e := \lvert E \rvert \cdot c_e + 1$.
+
+    \bigskip
+
     \textbf{Claim:} Any min-cut in $G'$ is a min-cut of $G$ with a smallest number of edges.
 
     \bigskip
@@ -1446,8 +1452,22 @@
     \underline{\textbf{My Work}}
     \end{mdframed}
 
+    This is a contradction to $(S, V \setminus S)$ being a minimum cut of $G'$.
+    At * we used that all capacities are integers and thus the capacity of $(S', V\setminus S)$
+    is at least one smaller than the capacity of the cut $(S, V\setminus S)$.
 
+    \bigskip
 
+    Now, we know that $(S, V \setminus S)$ is a minimum cut of $G$. Now, assume that there
+    is a minimum cut $(S', V \setminus S')$ of $G$ that uses fewer edges than the cut $S$.
+    Again let $F'$ be the edges crossing this cut. Then we can perform a similar calulation
+    as above and we obtain that the cut $S'$ in $G'$ has capacity
+
+    \begin{mdframed}
+    \underline{\textbf{My Work}}
+    \end{mdframed}
+
+    This is a contradiction to $(S, V \setminus S)$ being a minimum cut of $G'$, which proves the claim.
 
     \bigskip
 
