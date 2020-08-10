@@ -1129,12 +1129,27 @@
 
     \bigskip
 
-    \underline{\textbf{Notes:}}
+    I need to show how to determine the edge connectivity of an undirected graph
+    $G = (V,E)$ by running a maximum-flow algorithm.
 
     \bigskip
 
+    \begin{lstlisting}[mathescape=true]
+    CHECK-EDGE-CONNECTIVITY(G,s,t)
+        for each edge $(u,v) \in G.E$
+            $(u,v).f = 0$
+
+
+    \end{lstlisting}
+
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
     \begin{itemize}
-        \item
+        \item \textbf{Edge Connectivity:} Is the minimum number $k$ of edges
+        that must be removed to disconnect the graph
     \end{itemize}
 
 \end{enumerate}
