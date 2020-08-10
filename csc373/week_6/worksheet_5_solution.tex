@@ -1144,6 +1144,31 @@
 
     \bigskip
 
+    \underline{\textbf{Rough Works:}}
+
+    \begin{mdframed}
+
+    \end{mdframed}
+
+    Suppose $k$ is the edge connectivity of the graph and $S$ is the set of $k$
+    edges such that removal of $S$ will disconnect the graph into
+    2 non-empty subgraphs $G_1$ and $G_2$. WLOG assume the node $u \in G$.
+    Let $w$ be a node in $G_2$. Since $u /neq w$, the value $f^*(u.w)$ will be computed
+    by the algorithm. By the min-cut theorem $f^*(u,w)$ equals the min cut size
+    between the pair $(u,w)$, which is at most $k$ since $S$ duscibbects $u$ and $w$.
+    Therefore, we have
+
+    \begin{align}
+        c* \leq f^*(u,w) \leq k
+    \end{align}
+
+    But $c^{∗}$ cannot be smaller than k since that would imply a cut set of size smaller than k,
+    contradicting the fact that k is the edge connectivity. Therefore $c$
+    ∗ = k and the algorithm
+returns the edge connectivity of the graph correctly.
+
+    \bigskip
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
