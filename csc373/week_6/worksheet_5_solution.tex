@@ -1139,18 +1139,26 @@
 
     \bigskip
 
-    I need to show how to determine the edge connectivity of an undirected graph
-    $G = (V,E)$ by running a maximum-flow algorithm.
+    \underline{\textbf{Rough Works:}}
+
+    Let $G=(V,E)$ be an undirected graph.
 
     \bigskip
 
-    \underline{\textbf{Rough Works:}}
+    I need to show how to determine the edge connectivity of $G$ by running a
+    maximum-flow algorithm.
 
     \begin{itemize}
 
         \item Convert undirected graph to directed graph
-        \begin{mdframed}
 
+        \begin{mdframed}
+        First, I need to convert the undirected graph $G$ to a directed graph.
+
+        \bigskip
+
+        I do so by assigning $G'$ as a directed graph and transforming each edges in $G$
+        to two directed edges $(u,v)$ and $(v,u)$.
         \end{mdframed}
 
         \item Find the edge connectivity of new directed graph
@@ -1186,7 +1194,9 @@
 
     \begin{itemize}
 
-        \item \textbf{Maximum Flow:}
+        \item \textbf{Maximum Flow:} Is a vertex in flow network with the maximum value of flow
+
+
         \item \textbf{Edge Connectivity:} Is the minimum number $k$ of edges
         that must be removed to disconnect the graph. That is, the \textbf{number of edges
         in a smallest cut set of G} $^{[2]}$
