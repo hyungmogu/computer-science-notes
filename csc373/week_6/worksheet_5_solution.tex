@@ -1148,6 +1148,8 @@
     I need to show how to determine the edge connectivity of $G$ by running a
     maximum-flow algorithm.
 
+    \bigskip
+
     \begin{itemize}
 
         \item Convert undirected graph to directed graph
@@ -1168,38 +1170,28 @@
 
         \bigskip
 
-        I do so by assigning each edge in $G'$ with capacity of 1 and flow of 1.
+        I do so by assigning each edge in $G'$ with capacity of 1 and flow of 1, and
+        assigning $f'$ as max-flow in $G'$ found using maximum-flow algorithm.
 
         \end{mdframed}
 
-        \item Find the edge connectivity of new directed graph
+        \item Find the minimum of max-flow in $G'$
 
         \begin{mdframed}
-        Third, I need to find the edge connectivity of new directed graph.
+        Third, I need to find the edge connectivity of the directed graph $G'$. That is, the minimum number of edges
+        that must be removed to disconnect $G'$. In other words, the minimum nunmber of edges
+        required to remove a vertex from graph $G'$.
 
         \bigskip
 
-        We first note that a directed graph is connected if there is a path between
-        every pair of verticies.
-
-        Thus, the edge connectivity implies the minimum number of edges required
-        to remove a vertex from graph $G'$.
-
-        So, I now show the minimum number of edges that must be removed to disconnect the graph.
+        And I do so by claiming that the edge connectivity of $G'$ or $G$ is
+        $\min_{u \neq v} f'(u,v)$. That is, the minimum of max-flows over $u \in V$ in graph $G'$.
 
         \bigskip
 
-        I note that a directed graph is connected if there is a path between
-        every pair of verticies.
+        Therefore, we can find edge over all vertices $u$ with $\lvert V \rvert - 1$
+        running time.
 
-        \bigskip
-
-        So I do so by using maximum flow algorithm to find the vertex $u$ with the minimum amount
-        of flow, and then cutting those edges to make the graph disconnected.
-
-        \bigskip
-
-        Thus, I claim that
         \end{mdframed}
 
         \item Prove correctness of Algorithm
