@@ -1134,12 +1134,22 @@
 
     \bigskip
 
+    I will modify basic-fold-fulkerson algorithm to achieve the goal.
+
     \begin{lstlisting}[mathescape=true]
     CHECK-EDGE-CONNECTIVITY(G,s,t)
-        for each edge $(u,v) \in G.E$
-            $(u,v).f = 0$
+        number_of_edges_removed = 1
+
+        while active
+            generate all possible combinations of edges with length i
+            for each combination of edges
+                remove the edges from graph G
+
+                if MAX-FLOW-ALGORITHM(G,s,t)
 
 
+
+        return number_of_edges_removed
     \end{lstlisting}
 
 
