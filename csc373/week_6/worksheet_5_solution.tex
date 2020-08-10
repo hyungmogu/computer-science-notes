@@ -1412,10 +1412,11 @@
 
     \item
 
+
     \bigskip
 
     \underline{\textbf{Rough Works}}
-
+    \setcounter{equation}{0}
     \bigskip
 
     Given the flow network $G$ we will produce a flow network $G'$ such that any minimum
@@ -1450,6 +1451,13 @@
 
     \begin{mdframed}
     \underline{\textbf{My Work}}
+
+    \begin{align}
+        \sum\limits_{e \in F'} c'_e &= \sum\limits_{e \in F'} (\lvert E \rvert \cdot c_e + 1)\\
+        &= \lvert E \rvert \sum\limits_{e \in F'} c_e + \sum\limits{e \in F'} 1\\
+        &= \lvert E \rvert \sum\limits_{e \in F'} c_e + \lvert F' \rvert\\
+        &\leq \lvert E \rvert \sum\limits_{e \in F} c_e + \lvert F' \rvert
+    \end{align}
     \end{mdframed}
 
     This is a contradction to $(S, V \setminus S)$ being a minimum cut of $G'$.
