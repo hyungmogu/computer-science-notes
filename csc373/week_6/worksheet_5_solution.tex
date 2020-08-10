@@ -1392,14 +1392,6 @@
         \begin{center}
         \includegraphics[width=\linewidth]{images/worksheet_5_solution_21.png}
         \end{center}
-
-        \item \textbf{Cut:}
-
-        \begin{itemize}
-            \item Is denoted $(S,T)$
-            \item Is a partition of $v$ into $S$ and $T = V - S$ such that $s \in S$ and
-            $t \in T$
-        \end{itemize}
     \end{itemize}
 
     \bigskip
@@ -1422,9 +1414,28 @@
     \bigskip
 
     \begin{itemize}
+        \item \textbf{Cut}
+
+        \begin{itemize}
+            \item Is denoted using `a cut $(S,T)$'.
+            \item Is a partition of $V$ into $S$ and $T = V - S$ such that $s \in S$ and
+            $t \in T$
+
+            \begin{itemize}
+                \item \textbf{Partition }means a grouping of its elements into non-empty
+                subsets, in such a way that every element is included in exactly one
+                subset $^{[2]}$
+            \end{itemize}
+
+            \begin{center}
+            \includegraphics[width=0.5\linewidth]{images/worksheet_5_solution_26.png}
+            \end{center}
+        \end{itemize}
+
         \item \textbf{Capacity of a Cut}
         \begin{itemize}
             \item Is used as an \textbf{upper bound} on the flow from source to sink
+            \item Arrow in reverse direction is ignored
             \item Is the \underline{maximum flow} that can cross the cut from source to sink
         \end{itemize}
 
@@ -1437,7 +1448,18 @@
         \item \textbf{Minimum Cut of a network}
 
         \begin{itemize}
-            \item Is a cut whose capacity is minimum over all cutes of the network
+            \item Is a cut whose capacity is minimum over all cuts of the network
+        \end{itemize}
+
+
+        \begin{center}
+        \includegraphics[width=0.5\linewidth]{images/worksheet_5_solution_25.png}
+        \end{center}
+
+        \item \textbf{Integral Capacity}
+
+        \begin{itemize}
+            \item Means capacity denoted by an integer value
         \end{itemize}
     \end{itemize}
 
@@ -1449,6 +1471,7 @@
 
     \begin{enumerate}[1)]
         \item University of Freiburg, Algorithm Theory, Winter Term 2016/17 Problem Set 5 Sample Solution, \href{http://ac.informatik.uni-freiburg.de/teaching/ws16_17/algo1617/solutions/algo_exercise05_solution.pdf}{link}
+        \item Wikipedia, Algorithm Theory, Partition of a set, \href{https://en.wikipedia.org/wiki/Partition_of_a_set#:~:text=In%20mathematics%2C%20a%20partition%20of,partition%20defines%20an%20equivalence%20relation.}{link}
     \end{enumerate}
 
 
