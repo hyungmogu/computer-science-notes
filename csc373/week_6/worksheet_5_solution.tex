@@ -1418,16 +1418,29 @@
 
     \bigskip
 
-    \begin{mdframed}
-    \underline{\textbf{My Work}}
-    \end{mdframed}
-
     \textbf{Claim:} Any min-cut in $G'$ is a min-cut of $G$ with a smallest number of edges.
 
     \bigskip
 
     Let $(S,V \setminus S)$ be a min cut in $G'$ and let $F$ be the set of edges
-    crossing the cut. Then the capacity of the cut in $G$ is
+    crossing the cut. Then the capacity of the cut in $G'$ is $\sum\limits_{e \in F} c'_e = \sum\limits_{c \in F} (\lvert E \rvert c_e + 1)
+    = \lvert F \rvert + \lvert E \rvert \sum\limits_{c \in F} c_e$ and the capacity of the
+    corresponding cut in $G$ is $C_G(S) := \sum\limits_{e \in F} c_e$.
+
+    \bigskip
+
+    We prove the claim by contradiction. At first assume that $(S, V \setminus S)$ is not
+    a min-cut in $G$, i.e. there is a cut $(S', V \setminus S')$ in $G$ with capacity smaller than
+    $C_G(S)$. Let $F'$ be the edges crossing this cut. Then the cut in $G'$ has capacity
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{My Work}}
+    \end{mdframed}
+
+
+
 
     \bigskip
 
@@ -1436,6 +1449,21 @@
     \bigskip
 
     \begin{itemize}
+        \item \textbf{$A := B$}
+
+        \begin{itemize}
+            \item Means $A$ and $B$ are equal by definition (i.e. $A$ is defined as $B$) $^{[3]}$
+            \item Feels like the assignment operator $=$ in programming languages
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            $i := 2$ Means $i$ is defined to have constant value $2$.
+        \end{itemize}
+
         \item \textbf{Cut}
 
         \begin{itemize}
@@ -1494,6 +1522,7 @@
     \begin{enumerate}[1)]
         \item University of Freiburg, Algorithm Theory, Winter Term 2016/17 Problem Set 5 Sample Solution, \href{http://ac.informatik.uni-freiburg.de/teaching/ws16_17/algo1617/solutions/algo_exercise05_solution.pdf}{link}
         \item Wikipedia, Algorithm Theory, Partition of a set, \href{https://en.wikipedia.org/wiki/Partition_of_a_set#:~:text=In%20mathematics%2C%20a%20partition%20of,partition%20defines%20an%20equivalence%20relation.}{link}
+        \item Wolfram Math World, Defined, \href{https://mathworld.wolfram.com/Defined.html}{link}
     \end{enumerate}
 
 
