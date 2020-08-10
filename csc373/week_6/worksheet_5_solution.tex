@@ -1175,7 +1175,31 @@
         \item Find the edge connectivity of new directed graph
 
         \begin{mdframed}
+        Third, I need to find the edge connectivity of new directed graph.
 
+        \bigskip
+
+        We first note that a directed graph is connected if there is a path between
+        every pair of verticies.
+
+        Thus, the edge connectivity implies the minimum number of edges required
+        to remove a vertex from graph $G'$.
+
+        So, I now show the minimum number of edges that must be removed to disconnect the graph.
+
+        \bigskip
+
+        I note that a directed graph is connected if there is a path between
+        every pair of verticies.
+
+        \bigskip
+
+        So I do so by using maximum flow algorithm to find the vertex $u$ with the minimum amount
+        of flow, and then cutting those edges to make the graph disconnected.
+
+        \bigskip
+
+        Thus, I claim that
         \end{mdframed}
 
         \item Prove correctness of Algorithm
@@ -1207,6 +1231,7 @@
         \item I feel that this maximum-flow algorithm maximizes flow value
         in a vertex with edges and antiparallel edges.
         \item I wonder what does this maximum-flow algorithm do.
+        \item I am wondering how I can
         \item \textbf{Maximum Flow:} Is a vertex in flow network with the maximum value of flow
 
 
