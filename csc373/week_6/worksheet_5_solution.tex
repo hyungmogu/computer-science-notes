@@ -1948,61 +1948,6 @@
 
         \item
 
-        \underline{\textbf{Rough Work}}
-
-        \bigskip
-
-        \textbf{Goal:} Find an efficient algorithm that solves the escape problem. That is,
-        there are $m$ vertex-disjoint paths from the starting points to any $m$ different
-        points on the boundary.
-
-        \bigskip
-
-        \textbf{Inputs:}
-
-        \begin{itemize}
-            \item Starting points $[(x_1, y_1), (x_2, y_2), (x_3, y_3) ..., (x_m,y_m)]$ where $m \leq n^2$
-            \item $n$ (for $n \times n$ Grid)
-        \end{itemize}
-
-        \bigskip
-
-        \textbf{Output:}
-
-        \begin{itemize}
-            \item Boolean
-            \begin{itemize}
-                \item True if there exists solution to grid escape problem
-                \item False otherwise
-            \end{itemize}
-        \end{itemize}
-
-        \bigskip
-
-        \underline{\textbf{Brute Force Solution:}}
-
-        \bigskip
-
-        \begin{enumerate}[1)]
-            \item Let $G$ be $n \times n$ grid
-            \item Mark starting points in grid as occupied
-            \item For each starting point
-
-            \begin{itemize}
-                \item Find a shortest path from the starting point to unoccupied boundary
-                \item If there is a path, mark those paths occupied
-                \item Else, return False
-            \end{itemize}
-
-            \item Continue 3) until there are no starting points remaining
-        \end{enumerate}
-
-        \bigskip
-
-        \underline{\textbf{Improved Solution}}
-
-        \bigskip
-
         Let $S$ be the list of starting points $[(x_1, y_1), ..., (x_m, y_m)]$.
 
         \bigskip
@@ -2027,7 +1972,7 @@
 
         \bigskip
 
-        I need to convert edmonds matrix to a flow network to analyze time complexity.
+        I need to convert edmonds matrix to a flow network to analyze its time complexity.
 
         \bigskip
 
@@ -2036,11 +1981,115 @@
         \bigskip
 
         Using the conversion procedure outlined in part a, we can write that an edge is generated
-        for every vertex capacity, giving total of $V$ edges.
+        for every vertex capacity, and as well, an extra vertex is generated for every vertex capacity.
 
         \bigskip
 
-        Thus, the total running time
+        So, the total number of edges is $V$ and vertex is $2V$.
+
+        \bigskip
+
+        Thus, the total running time of the bipartite matching algorithm is $\mathcal{O}(2VE) = \mathcal{O}(V^2) = \mathcal{O}(n^4)$.
+
+        \bigskip
+
+        % \underline{\textbf{Rough Work}}
+
+        % \bigskip
+
+        % \textbf{Goal:} Find an efficient algorithm that solves the escape problem. That is,
+        % there are $m$ vertex-disjoint paths from the starting points to any $m$ different
+        % points on the boundary.
+
+        % \bigskip
+
+        % \textbf{Inputs:}
+
+        % \begin{itemize}
+        %     \item Starting points $[(x_1, y_1), (x_2, y_2), (x_3, y_3) ..., (x_m,y_m)]$ where $m \leq n^2$
+        %     \item $n$ (for $n \times n$ Grid)
+        % \end{itemize}
+
+        % \bigskip
+
+        % \textbf{Output:}
+
+        % \begin{itemize}
+        %     \item Boolean
+        %     \begin{itemize}
+        %         \item True if there exists solution to grid escape problem
+        %         \item False otherwise
+        %     \end{itemize}
+        % \end{itemize}
+
+        % \bigskip
+
+        % \underline{\textbf{Brute Force Solution:}}
+
+        % \bigskip
+
+        % \begin{enumerate}[1)]
+        %     \item Let $G$ be $n \times n$ grid
+        %     \item Mark starting points in grid as occupied
+        %     \item For each starting point
+
+        %     \begin{itemize}
+        %         \item Find a shortest path from the starting point to unoccupied boundary
+        %         \item If there is a path, mark those paths occupied
+        %         \item Else, return False
+        %     \end{itemize}
+
+        %     \item Continue 3) until there are no starting points remaining
+        % \end{enumerate}
+
+        % \bigskip
+
+        % \underline{\textbf{Improved Solution}}
+
+        % \bigskip
+
+        % Let $S$ be the list of starting points $[(x_1, y_1), ..., (x_m, y_m)]$.
+
+        % \bigskip
+
+        % \begin{enumerate}[1)]
+        %     \item Construct $n \times n$ Edmonds matrix (call it A)
+
+        %     \begin{itemize}
+        %         \item Each traved vertex is marked as 1
+        %         \item Each vertex has vertex capacity of 1
+        %     \end{itemize}
+        %     \item Store in $M$ the value of a maximum flow using Ford-Fulkerson Method
+
+        %     \begin{itemize}
+        %         \item Here, a starting point $s_i$ is an element in $S$ and an end point $t_i$ is an element of the boundary of the matrix
+        %         (i.e. $[A[0][1], A[0][2], ... A[0][n], A[1][0], A[2][0], ... A[n][0]]$)
+        %     \end{itemize}
+        %     \item If $M != \lvert S \rvert$, return False
+        %     \item Else return True
+
+        % \end{enumerate}
+
+        % \bigskip
+
+        % I need to convert edmonds matrix to a flow network to analyze its time complexity.
+
+        % \bigskip
+
+        % We know that each edmonds matrix is a vertex capacity.
+
+        % \bigskip
+
+        % Using the conversion procedure outlined in part a, we can write that an edge is generated
+        % for every vertex capacity, and as well, an extra vertex is generated for every vertex capacity.
+
+        % \bigskip
+
+        % So, the total number of edges is $V$ and vertex is $2V$.
+
+        % \bigskip
+
+        % Thus, the total running time of the bipartite matching algorithm is $\mathcal{O}(2VE) = \mathcal{O}(V^2) = \mathcal{O}(n^4)$.
 
         \underline{\textbf{Notes}}
 
