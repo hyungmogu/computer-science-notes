@@ -1672,7 +1672,7 @@
         \bigskip
 
         \underline{\textbf{Rough Works}}
-
+        \setcounter{equation}{0}
         \bigskip
 
         We will construct $G'$ by splitting each vertex $v$ of $G$ into two verticies
@@ -1722,6 +1722,17 @@
 
         \begin{mdframed}
         \underline{\textbf{My Work 1}}
+
+        \bigskip
+
+        \begin{align}
+        \text{incoming flow $u_1$} &= \sum\limits_{v_2 \in V'} f'(v_2, u_1)\\
+        &= \sum\limits_{v \in V} f(v,u) & [\text{By construction}]\\
+        &= \sum\limits_{v \in V} f(u,v) & [\text{Since f satisfies flow consv.}]\\
+        &= \sum\limits_{v_1 \in V'} f'(u_2,v_1) & [\text{By construction}]\\
+        &= f'(u_1,u_2) & [\text{By construction}]\\
+        &= \text{outgoing flow $u_1$}
+        \end{align}
 
         \end{mdframed}
 
