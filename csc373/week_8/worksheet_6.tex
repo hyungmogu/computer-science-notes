@@ -53,7 +53,7 @@
 \maketitle
 
 \begin{enumerate}[1.]
-    \item \textbf{CLRS 29.1-4} Convert the following linear program into standard form:
+    \item \textbf{CLRS 29.1-4:} Convert the following linear program into standard form:
 
     \bigskip
 
@@ -71,6 +71,69 @@
         x_2 &\geq 0\\
         x_3 &\leq 0
     \end{align*}
+
+    \item \textbf{CLRS 29.1-5:} Convert the following linear program into slack form:
+
+    \bigskip
+
+    Maximize
+
+    \begin{align*}
+        2x_1 - 6x_3
+    \end{align*}
+
+    Subject to
+
+    \begin{align*}
+        x_1 + x_2 - x_3 &\leq 7\\
+        3x_1 - x_2 &\geq 7\\
+        -x_1 + 2x_2 + 2x_3 &\geq 0\\
+        x_1,x_2,x_3 &\geq 0
+    \end{align*}
+
+
+    \item \textbf{CLRS 29.1-6:} Show the following linear program is infeasible:
+
+    \bigskip
+
+    Maximize
+
+    \begin{align*}
+        3x_1 - 2x_2
+    \end{align*}
+
+    Subject to
+
+    \begin{align*}
+        x_1 + x_2 &\leq 2\\
+        -2x_1 - 2x_2 &\leq -10\\
+        x_1, x_2 &\geq 0
+    \end{align*}
+
+    \item \textbf{CLRS 29.1-7:} Show that the following linear program is unbounded:
+
+    \bigskip
+
+    Maximize
+
+    \begin{align*}
+        x_1 - x_2
+    \end{align*}
+
+    Subject to
+
+    \begin{align*}
+        -2x_1 + x_2 &\leq -1\\
+        -x_1 - 2x_2 &\leq -2\\
+        x_1,x_2 &\geq 0
+    \end{align*}
+
+    \item \textbf{CLRS 29.1-8:} Suppose that we have a general linear program with n variables and m constraints,
+    and suppose that we convert it into standard form. Give an upper bound on the
+    number of variables and constraints in the resulting linear program.
+
+    \item \textbf{CLRS 29.1-9:} Give an example of a linear program for which the feasible region is not bounded,
+    but the optimal objective value is finite.
 \end{enumerate}
 
 \end{document}
