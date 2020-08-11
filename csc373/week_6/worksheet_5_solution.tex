@@ -1965,6 +1965,8 @@
             \item $n$ (for $n \times n$ Grid)
         \end{itemize}
 
+        \bigskip
+
         \textbf{Output:}
 
         \begin{itemize}
@@ -1974,6 +1976,26 @@
                 \item False otherwise
             \end{itemize}
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Brute Force Solution:}}
+
+        \bigskip
+
+        \begin{enumerate}[1)]
+            \item Let $G$ be $n \times n$ grid
+            \item Mark starting points in grid as occupied
+            \item For each starting point
+
+            \begin{itemize}
+                \item Find a shortest path from the starting point to unoccupied boundary
+                \item If there is a path, mark those paths occupied
+                \item Else, return False
+            \end{itemize}
+
+            \item Continue 3) until there are no starting points remaining
+        \end{enumerate}
 
 
     \end{enumerate}
