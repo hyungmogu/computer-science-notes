@@ -2001,6 +2001,20 @@
 
         \underline{\textbf{Improved Solution}}
 
+        \bigskip
+
+        Let $S$ be the list of starting points $[(x_1, y_1), ..., (x_m, y_m)]$.
+
+        \bigskip
+
+        \begin{enumerate}[1)]
+            \item Construct $n \times n$ matrix
+            \item Store in $M$ the value of a maximum flow using Ford-Fulkerson Method
+            \item If $M != \lvert S \rvert$, return False
+            \item Else return True
+
+        \end{enumerate}
+
         \underline{\textbf{Notes}}
 
         \bigskip
@@ -2040,6 +2054,13 @@
                     \end{center}
                 \end{enumerate}
                 \item Solves a graph in $\mathcal{O}(VE)$ time
+            \end{itemize}
+
+            \item \textbf{Maximum Matching}
+
+            \begin{itemize}
+                \item Is a matching of maximum cardinality
+                \item Is represented using $M$
             \end{itemize}
         \end{itemize}
 
