@@ -1696,6 +1696,29 @@
 
         \bigskip
 
+        We readily see that there is a one-to-one correspondence between flows that respect
+        vertex capacities in $G$ and flows in $G'$. For the capacity constraint, every edge
+        in $G'$ of the form $(u_2, v_1)$ has a corresponding edge in $G$ with a corresponding
+        capacity and flow and thus satisfies the capacity constraint. For edges in $E'$ of
+        the form $(u_1, u_2)$, the capacities reflect the vertex capacities in $G$. Therefore,
+        for $u - V \{s,t\}$, we have $f'(u_1, u_2) = \sum\limits_{v \in V} f(u,v) \leq l(u) = c'(u_1, u_2)$.
+        We also have $f'(t_1, t_2) = \sum\limits_{v \in V} f(v,t) \leq l(t) = c'(t_1, t_2)$. Note
+        that this constraint also enforeces the vertex capacities in G.
+
+        \bigskip
+
+        Now, we prove flow conservation. By construction, every vertex of the form $u_1$
+        in $G'$ has exactly one outgoing edge $(u_1, u_2)$, and every incoming edge to $u_1$
+        corresponds to an incoming edge of $u \in G$. Thus, for all verticies $u \in V - \{s,t\}$,
+        we have
+
+        \begin{mdframed}
+        \underline{\textbf{My Work}}
+
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \bigskip
@@ -1705,6 +1728,7 @@
 
             \begin{center}
             \includegraphics[width=\linewidth]{images/worksheet_5_solution_27.png}
+            \includegraphics[width=\linewidth]{images/worksheet_5_solution_28.png}
             \end{center}
         \end{itemize}
 
