@@ -1436,10 +1436,6 @@
 
     \bigskip
 
-\
-
-    \bigskip
-
     Let $(S,V \setminus S)$ be a min cut in $G'$ and let $F$ be the set of edges
     crossing the cut. Then the capacity of the cut in $G'$ is $\sum\limits_{e \in F} c'_e = \sum\limits_{c \in F} (\lvert E \rvert c_e + 1)
     = \lvert F \rvert + \lvert E \rvert \sum\limits_{c \in F} c_e$ and the capacity of the
@@ -1485,7 +1481,10 @@
     \begin{align}
         \sum\limits_{e \in F'} c'_e &= \sum\limits_{e \in F'} (\lvert E \rvert \cdot c_e + 1)\\
         &= \sum\limits_{e \in F'} \lvert E \rvert \cdot c_e + \lvert F' \rvert\\
-        &\leq \sum\limits_{e \in F'} \lvert E \rvert \cdot c_e + \lvert F \rvert & [\text{Since $\lvert F' \rvert \leq \lvert F \rvert$}]\\
+        &\leq \sum\limits_{e \in F'} \lvert E \rvert \cdot c_e + \lvert F \rvert & [\text{Since $\lvert F' \rvert < \lvert F \rvert$}]\\
+        &= \sum\limits_{e \in F} \lvert E \rvert \cdot c_e + \lvert F \rvert & [\text{Since $\sum\limits_{e \in F'} c_e = \sum\limits_{e \in F} c_e$}]\\
+        &= \sum\limits_{e \in F}(\lvert E \rvert \cdot c_e + 1)\\
+        &= \sum\limits_{e \in F}c'_e\\
     \end{align}
     \end{mdframed}
 
