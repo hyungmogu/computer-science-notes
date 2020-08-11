@@ -1669,9 +1669,6 @@
 
         \item
 
-        \bigskip
-
-        \underline{\textbf{Rough Works}}
         \setcounter{equation}{0}
         \bigskip
 
@@ -1725,8 +1722,6 @@
         \begin{mdframed}
         \underline{\textbf{My Work 1}}
 
-        \bigskip
-
         \begin{align}
         \text{incoming flow $u_1$} &= \sum\limits_{v_2 \in V'} f'(v_2, u_1)\\
         &= \sum\limits_{v \in V} f(v,u) & [\text{By construction}]\\
@@ -1744,8 +1739,6 @@
 
         \begin{mdframed}
         \underline{\textbf{My Work 2}}
-
-        \bigskip
 
         \begin{align}
         \text{incoming flow $t_1$} &= \sum\limits_{v_2 \in V'} f'(v_2, t_1)\\
@@ -1783,7 +1776,134 @@
         \begin{mdframed}
         \underline{\textbf{My Work 4}}
 
+        \begin{align}
+        \lvert f' \rvert &= f'(s_1, s_2) & [\text{By construction}]\\
+        &= \sum\limits_{v \in V'} f'(s_2,v) & [\text{By construction}]\\
+        &= \sum\limits_{v \in V} f(s,v) & [\text{By construction}]\\
+        &= \lvert f \rvert
+        \end{align}
+
+
         \end{mdframed}
+
+        % \bigskip
+
+        % \underline{\textbf{Rough Works}}
+        % \setcounter{equation}{0}
+        % \bigskip
+
+        % We will construct $G'$ by splitting each vertex $v$ of $G$ into two verticies
+        % $v_1, v_2$, joined by an edge of capacity $l(v)$.All incoming edges of $v$ are now
+        % incoming edges to $v_1$. All outgoing edges from $v$ are now outgoing edges from $v_2$.
+
+        % \bigskip
+
+        % \begin{center}
+        % \includegraphics[width=\linewidth]{images/worksheet_5_solution_29.png}
+        % \includegraphics[width=\linewidth]{images/worksheet_5_solution_30.png}
+        % \includegraphics[width=\linewidth]{images/worksheet_5_solution_31.png}
+        % \end{center}
+
+        % \bigskip
+
+        % More formally, construct $G' = (V', E')$ with capacity function $c'$ as follows.
+        % For every $v \in V$, create two vertices $v_1, v_2 \in V'$. Add an edge $(v_1, v_2) \in E'$
+        % with $c'(v_1, v_2) = l(v)$. For every edge $(u,v) \in E$, create an edge $(u_2, v_1) \in E'$
+        % with capacity $c'(u_2, v_1) = c(u,v)$. Make $s_1$ and $t_2$ as the new source and target verticies
+        % in $G'$. Clearly,$\lvert V' \rvert = 2 \lvert V \rvert$ and $\lvert E' \rvert = \lvert E \rvert + \lvert V \rvert$.
+
+        % \bigskip
+
+        % Let $f$ be a flow in $G$ that respects vertex capacities. Create a flow function
+        % $f'$ in $G'$ as follows. For each edge $(u,v) \in G$, let $f'(u_2, v_1) = f(u,v)$.
+        % For each vertex $u \in V - \{t\}$, let $f'(u_1, u_2) = \sum\limits_{v \in V} f(u,v)$.
+        % Let $f'(t_1, t_2) = \sum\limits_{v \in V} f(v,t)$.
+
+        % \bigskip
+
+        % We readily see that there is a one-to-one correspondence between flows that respect
+        % vertex capacities in $G$ and flows in $G'$. For the capacity constraint, every edge
+        % in $G'$ of the form $(u_2, v_1)$ has a corresponding edge in $G$ with a corresponding
+        % capacity and flow and thus satisfies the capacity constraint. For edges in $E'$ of
+        % the form $(u_1, u_2)$, the capacities reflect the vertex capacities in $G$. Therefore,
+        % for $u - V \{s,t\}$, we have $f'(u_1, u_2) = \sum\limits_{v \in V} f(u,v) \leq l(u) = c'(u_1, u_2)$.
+        % We also have $f'(t_1, t_2) = \sum\limits_{v \in V} f(v,t) \leq l(t) = c'(t_1, t_2)$. Note
+        % that this constraint also enforeces the vertex capacities in G.
+
+        % \bigskip
+
+        % Now, we prove flow conservation. By construction, every vertex of the form $u_1$
+        % in $G'$ has exactly one outgoing edge $(u_1, u_2)$, and every incoming edge to $u_1$
+        % corresponds to an incoming edge of $u \in G$. Thus, for all verticies $u \in V - \{s,t\}$,
+        % we have
+
+        % \bigskip
+
+        % \begin{mdframed}
+        % \underline{\textbf{My Work 1}}
+
+        % \begin{align}
+        % \text{incoming flow $u_1$} &= \sum\limits_{v_2 \in V'} f'(v_2, u_1)\\
+        % &= \sum\limits_{v \in V} f(v,u) & [\text{By construction}]\\
+        % &= \sum\limits_{v \in V} f(u,v) & [\text{Since $f$ satisfies flow consv.}]\\
+        % &= \sum\limits_{v_1 \in V'} f'(u_2,v_1) & [\text{By construction}]\\
+        % &= f'(u_1,u_2) & [\text{By construction}]\\
+        % &= \text{outgoing flow $u_1$}
+        % \end{align}
+
+        % \end{mdframed}
+
+        % \bigskip
+
+        % For $t_1$ we have
+
+        % \begin{mdframed}
+        % \underline{\textbf{My Work 2}}
+
+        % \begin{align}
+        % \text{incoming flow $t_1$} &= \sum\limits_{v_2 \in V'} f'(v_2, t_1)\\
+        % &= \sum\limits_{v \in V} f(v, t) & [\text{By construction}]\\
+        % &= f'(t_1, t_2) & [\text{By construction}]\\
+        % &= \text{outgoing flow $t_1$}
+        % \end{align}
+
+        % \end{mdframed}
+
+        % \bigskip
+
+        % Verticies of the form $u_2$ has exactly one incoming edge $(u_1, u_2)$, and
+        % every outgoing edge of $u_2$ corresponds to an outgoing edge of $u \in G$. Thus,
+        % for $u_2 \neq t_2$,
+
+        % \begin{mdframed}
+        % \underline{\textbf{My Work 3}}
+
+        % \begin{align}
+        % \text{incoming flow $u_2$} &= f'(u_1, u_2)\\
+        % &= \sum\limits_{v \in V} f(v,u) & [\text{By construction}]\\
+        % &= \sum\limits_{v \in V} f(u,v) & [\text{Since $f$ satisfies flow consv.}]\\
+        % &= \text{Outgoing flow $u_2$}
+        % \end{align}
+
+        % \end{mdframed}
+
+        % \bigskip
+
+        % Finally, we prove that $\lvert f' \rvert = \lvert f \rvert$:
+
+        % \bigskip
+
+        % \begin{mdframed}
+        % \underline{\textbf{My Work 4}}
+
+        % \begin{align}
+        % \lvert f' \rvert &= f'(s_1, s_2) & [\text{By construction}]\\
+        % &= \sum\limits_{v \in V'} f'(s_2,v) & [\text{By construction}]\\
+        % &= \sum\limits_{v \in V} f(s,v) & [\text{By construction}]\\
+        % &= \lvert f \rvert
+        % \end{align}
+
+        % \end{mdframed}
 
         \bigskip
 
@@ -1795,18 +1915,13 @@
             \item \textbf{Flow (cont'd)}
 
             \begin{itemize}
-                \item Is represented using $\lvert \cdot \rvert$
+                \item Total flow out of the \ul{source} and into the source is represented using $\lvert \cdot \rvert$
 
                 \bigskip
 
-                \underline{\textbf{Example:}}
-
-                \bigskip
-
-                \begin{itemize}
-                    \item $\lvert f \rvert$ means flow $f$
-                    \item $\lvert f' \rvert$ means flow $f'$
-                \end{itemize}
+                \begin{align}
+                    \lvert f \rvert = \sum\limits_{v \in V} f(s,v) - \sum\limits_{v \in V} f(v,s)
+                \end{align}
             \end{itemize}
             \item Analysis of proof
 
