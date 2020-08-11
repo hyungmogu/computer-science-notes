@@ -1665,51 +1665,59 @@
 
     \item
 
-    \bigskip
+    \begin{enumerate}[a)]
 
-    \underline{\textbf{Rough Works}}
-
-    \bigskip
-
-    We will construct $G'$ by splitting each vertex $v$ of $G$ into two verticies
-    $v_1, v_2$, joined by an edge of capacity $l(v)$.All incoming edges of $v$ are now
-    incoming edges to $v_1$. All outgoing edges from $v$ are now outgoing edges from $v_2$.
-
-    \bigskip
-
-    More formally, construct $G' = (V', E')$ with capacity function $c'$ as follows.
-    For every $v \in V$, create two vertices $v_1, v_2 \in V'$. Add an edge $(v_1, v_2) \in E'$
-    with $c'(v_1, v_2) = l(v)$. For every edge $(u,v) \in E$, create an edge $(u_2, v_1) \in E'$
-    with capacity $c'(u_2, v_1) = c(u,v)$. Make $s_1$ and $t_2$ as the new source and target verticies
-    in $G'$. Clearly,$\lvert V' \rvert = 2 \lvert V \rvert$ and $\lvert E' \rvert = \lvert E \rvert + \lvert V \rvert$.
-
-    \bigskip
-
-
-
-    \bigskip
-
-    \underline{\textbf{Notes}}
-
-    \bigskip
-
-    \begin{itemize}
         \item
 
-        \begin{center}
+        \bigskip
+
+        \underline{\textbf{Rough Works}}
+
+        \bigskip
+
+        We will construct $G'$ by splitting each vertex $v$ of $G$ into two verticies
+        $v_1, v_2$, joined by an edge of capacity $l(v)$.All incoming edges of $v$ are now
+        incoming edges to $v_1$. All outgoing edges from $v$ are now outgoing edges from $v_2$.
+
+        \bigskip
+
+        More formally, construct $G' = (V', E')$ with capacity function $c'$ as follows.
+        For every $v \in V$, create two vertices $v_1, v_2 \in V'$. Add an edge $(v_1, v_2) \in E'$
+        with $c'(v_1, v_2) = l(v)$. For every edge $(u,v) \in E$, create an edge $(u_2, v_1) \in E'$
+        with capacity $c'(u_2, v_1) = c(u,v)$. Make $s_1$ and $t_2$ as the new source and target verticies
+        in $G'$. Clearly,$\lvert V' \rvert = 2 \lvert V \rvert$ and $\lvert E' \rvert = \lvert E \rvert + \lvert V \rvert$.
+
+        \bigskip
+
+        Let $f$ be a flow in $G$ that respects vertex capacities. Create a flow function
+        $f'$ in $G'$ as follows. For each edge $(u,v) \in G$, let $f'(u_2, v_1) = f(u,v)$.
+        For each vertex $u \in V - \{t\}$, let $f'(u_1, u_2) = \sum\limits_{v \in V} f(u,v)$.
+        Let $f'(t_1, t_2) = \sum\limits_{v \in V} f(v,t)$.
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \bigskip
+
+        \begin{itemize}
+            \item Analysis of proof
+
+            \begin{center}
             \includegraphics[width=\linewidth]{images/worksheet_5_solution_27.png}
             \end{center}
-    \end{itemize}
+        \end{itemize}
 
 
-    \bigskip
+        \bigskip
 
-    \underline{\textbf{References}}
+        \underline{\textbf{References}}
 
-    \bigskip
+        \bigskip
 
-    \begin{enumerate}[1)]
-        \item CLRS Instructor's manual, Solution to Exercise 26.1-7 \href{https://cdn.manesht.ir/19908___Introduction%20to%20Algorithms.pdf}{link}
+        \begin{enumerate}[1)]
+            \item CLRS Instructor's manual, Solution to Exercise 26.1-7 \href{https://cdn.manesht.ir/19908___Introduction%20to%20Algorithms.pdf}{link}
+        \end{enumerate}
     \end{enumerate}
 
 
