@@ -1999,6 +1999,8 @@
 
         \bigskip
 
+        \underline{\textbf{Improved Solution}}
+
         \underline{\textbf{Notes}}
 
         \bigskip
@@ -2011,7 +2013,7 @@
                 \item Is a set of the edges chosen in such a way that no two edges share an endpoint
 
                 \begin{center}
-                \includegraphics[width=\linewidth]{images/worksheet_5_solution_33.png}
+                \includegraphics[width=0.7\linewidth]{images/worksheet_5_solution_33.png}
                 \end{center}
 
                 \begin{itemize}
@@ -2025,8 +2027,17 @@
                 \item Steps
 
                 \begin{enumerate}[1.]
-                    \item Create a flow network $G'$
+                    \item Create a flow network $G'$ that correspond to matchings
+
+                    \begin{center}
+                    \includegraphics[width=0.5\linewidth]{images/worksheet_5_solution_34.png}
+                    \end{center}
+
                     \item Find the maximum flow using Ford-Fulkerson algorithm
+
+                    \begin{center}
+                    \includegraphics[width=0.5\linewidth]{images/worksheet_5_solution_35.png}
+                    \end{center}
                 \end{enumerate}
                 \item Solves a graph in $\mathcal{O}(VE)$ time
             \end{itemize}
