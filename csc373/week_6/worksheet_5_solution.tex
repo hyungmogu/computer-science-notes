@@ -2008,12 +2008,26 @@
         \bigskip
 
         \begin{enumerate}[1)]
-            \item Construct $n \times n$ matrix
+            \item Construct $n \times n$ Edmonds matrix (call it A)
+
+            \begin{itemize}
+                \item Each traved vertex is marked as 1
+                \item Each vertex has vertex capacity of 1
+            \end{itemize}
             \item Store in $M$ the value of a maximum flow using Ford-Fulkerson Method
+
+            \begin{itemize}
+                \item Here, a starting point $s_i$ is an element in $S$ and an end point $t_i$ is an element of the boundary of the matrix
+                (i.e. $[A[0][1], A[0][2], ... A[0][n], A[1][0], A[2][0], ... A[n][0]]$)
+            \end{itemize}
             \item If $M != \lvert S \rvert$, return False
             \item Else return True
 
         \end{enumerate}
+
+        \bigskip
+
+
 
         \underline{\textbf{Notes}}
 
