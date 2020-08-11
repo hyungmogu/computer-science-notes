@@ -1481,6 +1481,12 @@
 
     \begin{mdframed}
     \underline{\textbf{My Work}}
+
+    \begin{align}
+        \sum\limits_{e \in F'} c'_e &= \sum\limits_{e \in F'} (\lvert E \rvert \cdot c_e + 1)\\
+        &= \sum\limits_{e \in F'} \lvert E \rvert \cdot c_e + \lvert F' \rvert\\
+        &\leq \sum\limits_{e \in F'} \lvert E \rvert \cdot c_e + \lvert F \rvert & [\text{Since $\lvert F' \rvert \leq \lvert F \rvert$}]\\
+    \end{align}
     \end{mdframed}
 
     This is a contradiction to $(S, V \setminus S)$ being a minimum cut of $G'$, which proves the claim.
