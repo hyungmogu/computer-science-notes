@@ -1454,9 +1454,9 @@
 
     \begin{align}
         \sum\limits_{e \in F'} c'_e &= \sum\limits_{e \in F'} (\lvert E \rvert \cdot c_e + 1)\\
-        &= \lvert E \rvert \sum\limits_{e \in F'} c_e + \sum\limits{e \in F'} 1\\
+        &= \lvert E \rvert \sum\limits_{e \in F'} c_e + \sum\limits_{e \in F'} 1\\
         &= \lvert E \rvert \sum\limits_{e \in F'} c_e + \lvert F' \rvert\\
-        &\leq \lvert E \rvert \sum\limits_{e \in F} c_e + \lvert F' \rvert
+        &\leq \lvert E \rvert (\sum\limits_{e \in F}c_e - 1) + \lvert F' \rvert & [\text{Since $0 \leq \sum\limits_{e \in F'} c_e < \sum\limits_{e \in F}c_e$}]
     \end{align}
     \end{mdframed}
 
