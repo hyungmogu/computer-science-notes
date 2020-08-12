@@ -60,6 +60,56 @@
 
     \bigskip
 
+    \underline{\textbf{Rough Works:}}
+
+    \begin{enumerate}[1.]
+        \item Multiply objective function by - 1
+
+        \bigskip
+
+        \begin{mdframed}
+
+        Maximize
+
+        \begin{align*}
+            -2x_1 - 7x_2 - x_3
+        \end{align*}
+
+        Subject to
+
+        \begin{align*}
+            x_1 - x_3  &= 7\\
+            3x_1 + x_2 &\geq 7\\
+            x_2 &\geq 0\\
+            x_3 &\leq 0
+        \end{align*}
+
+        \end{mdframed}
+
+        \item Replace non-nonnegative constraints $x_1$
+
+        \begin{mdframed}
+
+        Maximize
+
+        \begin{align*}
+            -2x_1' + 2x_1'' - 7x_2 - x_3
+        \end{align*}
+
+        Subject to
+
+        \begin{align*}
+            x_1' - x_1'' - x_3  &= 7\\
+            3x_1' - 3x_1'' + x_2 &\geq 7\\
+            x_1', x_1'', x_2 &\geq 0\\
+            x_3 &\leq 0
+        \end{align*}
+
+        \end{mdframed}
+    \end{enumerate}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -128,18 +178,22 @@
                 $f(x_1, x_2, ..., x_n) \leq b$ and $f(x_1, x_2, ..., x_n) \geq b$
             \end{itemize}
 
+            \begin{center}
+            \includegraphics[width=0.9\linewidth]{images/worksheet_6_solution_5.png}
+            \end{center}
 
+            \item There might be \textbf{inequality constraints}, but instead of having a less-than-or-equal-to-sign
+
+            \begin{itemize}
+                \item Multiply incorrect inequality constraints by -1
+            \end{itemize}
 
             \begin{center}
             \includegraphics[width=0.9\linewidth]{images/worksheet_6_solution_4.png}
             \end{center}
 
-            \item There might be \textbf{inequality constraints}, but instead of having a less-than-or-equal-to-sign
+
         \end{enumerate}
-
-        \bigskip
-
-        \underline{\textbf{Example:}}
 
     \end{itemize}
 
