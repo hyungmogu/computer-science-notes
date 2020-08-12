@@ -58,10 +58,6 @@
 \begin{enumerate}[1.]
     \item
 
-    \bigskip
-
-    \underline{\textbf{Rough Works:}}
-
     \begin{enumerate}[1.]
         \item Multiply objective function by - 1
 
@@ -146,10 +142,143 @@
             x_1', x_1'', x_2, x_3', x_3'' &\geq 0\\
         \end{align*}
 
-        \item
+        \end{mdframed}
+
+        \item Correct greater-than-or-equal-to inequality constraints
+
+        \begin{mdframed}
+
+        Maximize
+
+        \begin{align*}
+            -2x_1' + 2x_1'' - 7x_2 - x_3' + x_3''
+        \end{align*}
+
+        Subject to
+
+        \begin{align*}
+            x_1' - x_1'' - x_3' + x_3''  &\leq 7\\
+            -x_1' + x_1'' + x_3' - x_3''  &\leq -7\\
+            -3x_1' + 3x_1'' - x_2 &\leq 7\\
+            x_1', x_1'', x_2, x_3', x_3'' &\geq 0\\
+        \end{align*}
+
 
         \end{mdframed}
     \end{enumerate}
+
+    % \bigskip
+
+    % \underline{\textbf{Rough Works:}}
+
+    % \begin{enumerate}[1.]
+    %     \item Multiply objective function by - 1
+
+    %     \bigskip
+
+    %     \begin{mdframed}
+
+    %     Maximize
+
+    %     \begin{align*}
+    %         -2x_1 - 7x_2 - x_3
+    %     \end{align*}
+
+    %     Subject to
+
+    %     \begin{align*}
+    %         x_1 - x_3  &= 7\\
+    %         3x_1 + x_2 &\geq 7\\
+    %         x_2 &\geq 0\\
+    %         x_3 &\leq 0
+    %     \end{align*}
+
+    %     \end{mdframed}
+
+    %     \item Replace non-nonnegative constraints $x_1$
+
+    %     \begin{mdframed}
+
+    %     Maximize
+
+    %     \begin{align*}
+    %         -2x_1' + 2x_1'' - 7x_2 - x_3
+    %     \end{align*}
+
+    %     Subject to
+
+    %     \begin{align*}
+    %         x_1' - x_1'' - x_3  &= 7\\
+    %         3x_1' - 3x_1'' + x_2 &\geq 7\\
+    %         x_1', x_1'', x_2 &\geq 0\\
+    %         x_3 &\leq 0
+    %     \end{align*}
+
+    %     \end{mdframed}
+
+    %     \item Replace non-nonnegative constraints $x_3$
+
+    %     \begin{mdframed}
+
+    %     Maximize
+
+    %     \begin{align*}
+    %         -2x_1' + 2x_1'' - 7x_2 - x_3' + x_3''
+    %     \end{align*}
+
+    %     Subject to
+
+    %     \begin{align*}
+    %         x_1' - x_1'' - x_3' + x_3''  &= 7\\
+    %         3x_1' - 3x_1'' + x_2 &\geq 7\\
+    %         x_1', x_1'', x_2, x_3', x_3'' &\geq 0\\
+    %     \end{align*}
+
+    %     \end{mdframed}
+
+    %     \item Replace equality constraints with $\geq$ and $\leq$
+
+    %     \begin{mdframed}
+
+    %     Maximize
+
+    %     \begin{align*}
+    %         -2x_1' + 2x_1'' - 7x_2 - x_3' + x_3''
+    %     \end{align*}
+
+    %     Subject to
+
+    %     \begin{align*}
+    %         x_1' - x_1'' - x_3' + x_3''  &\leq 7\\
+    %         x_1' - x_1'' - x_3' + x_3''  &\geq 7\\
+    %         3x_1' - 3x_1'' + x_2 &\geq 7\\
+    %         x_1', x_1'', x_2, x_3', x_3'' &\geq 0\\
+    %     \end{align*}
+
+    %     \end{mdframed}
+
+    %     \item Correct greater-than-or-equal-to inequality constraints
+
+    %     \begin{mdframed}
+
+    %     Maximize
+
+    %     \begin{align*}
+    %         -2x_1' + 2x_1'' - 7x_2 - x_3' + x_3''
+    %     \end{align*}
+
+    %     Subject to
+
+    %     \begin{align*}
+    %         x_1' - x_1'' - x_3' + x_3''  &\leq 7\\
+    %         -x_1' + x_1'' + x_3' - x_3''  &\leq -7\\
+    %         -3x_1' + 3x_1'' - x_2 &\leq 7\\
+    %         x_1', x_1'', x_2, x_3', x_3'' &\geq 0\\
+    %     \end{align*}
+
+
+    %     \end{mdframed}
+    % \end{enumerate}
 
     \bigskip
 
