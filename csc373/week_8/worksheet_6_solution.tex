@@ -683,10 +683,6 @@
 
     \item
 
-    \underline{\textbf{Rough Work:}}
-
-    \bigskip
-
     The following is an example of a linear program for which the feasible region
     is not bounded, but the optimal objective value is finite.
 
@@ -739,6 +735,85 @@
     \end{center}
 
     \end{proof}
+
+    % \underline{\textbf{Rough Work:}}
+
+    % \bigskip
+
+    % The following is an example of a linear program for which the feasible region
+    % is not bounded, but the optimal objective value is finite.
+
+    % \bigskip
+
+    % Minimum
+
+    % \begin{align*}
+    %     x_1 - x_2
+    % \end{align*}
+
+    % Subject to
+
+    % \begin{align*}
+    %     -2x_1 + x_2 &\leq -1\\
+    %     -x_1 + 2x_2 &\leq 10\\
+    %     x_1,x_2 &\geq 0
+    % \end{align*}
+
+    % \begin{proof}
+
+    % Let $x_1 = 2r$ and $x_2 = r$ where $r \geq 0$. Then, the inequality constraints become
+
+
+    % \begin{align}
+    %     -2(2r) + (r) = -3r &\leq -1\\
+    %     -(2r) + 2(r) = 0 &\leq 10\\
+    %     2r, r &\geq 0
+    % \end{align}
+
+    % which is valid.
+
+    % \bigskip
+
+    % Now, looking at the objective function, we have $2r - r = r$.
+
+    % \bigskip
+
+    % Since we are looking for the minimum value and $r \geq 0$, we can write $min(r) = 0$
+    % (if we are looking for the maximum, then $r$ is ever-increasing and the linear program is unbounded).
+
+    % \bigskip
+
+    % Thus, the optimal objective value in this example is finite.
+
+    % \bigskip
+
+    % \begin{center}
+    % \includegraphics[width=0.5\linewidth]{images/worksheet_6_solution_15.png}
+    % \end{center}
+
+    % \end{proof}
+
+    \bigskip
+
+    \underline{\textbf{Notes:}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item \textbf{Feasible Region}
+
+        \begin{itemize}
+            \item  Is the set of all possible points (sets of values of the choice variables) of an optimization problem that satisfy the problem's constraints. $^{[1]}$
+        \end{itemize}
+    \end{itemize}
+
+    \underline{\textbf{References:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Wikipedia, Feasible region, \href{https://en.wikipedia.org/wiki/Feasible_region#:~:text=In%20mathematical%20optimization%2C%20a%20feasible,%2C%20equalities%2C%20and%20integer%20constraints.}{link}
+    \end{enumerate}
 
 
 
