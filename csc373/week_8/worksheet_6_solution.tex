@@ -501,7 +501,7 @@
 
     \bigskip
 
-    Let$x_1 = 3r$ and $x_2 = r$ where $r \geq 0$. Then the inequality constraints become
+    Let $x_1 = 3r$ and $x_2 = r$ where $r \geq 0$. Then the inequality constraints become
 
     \begin{align*}
         -2 (3r) + (r) = -5r &\leq -1\\
@@ -683,27 +683,41 @@
 
     \item
 
-    \underline{\textbf{Rough Works:}}
+    \underline{\textbf{Rough Work:}}
 
     \bigskip
 
-    Consider the following example
+    The following is an example of a linear program for which the feasible region
+    is not bounded, but the optimal objective value is finite.
 
     \bigskip
 
-    Maximize
+    Minimum
 
     \begin{align*}
-        -2x_1 - x_2 + 10
+        x_1 - x_2
     \end{align*}
 
     Subject to
 
     \begin{align*}
         -2x_1 + x_2 &\leq -1\\
-        -x_1 - 2x_2 &\leq -2\\
+        -x_1 + 2x_2 &\leq 10\\
         x_1,x_2 &\geq 0
     \end{align*}
+
+    \begin{proof}
+
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.5\linewidth]{images/worksheet_6_solution_15.png}
+    \end{center}
+
+    \end{proof}
+
+
 
 \end{enumerate}
 
