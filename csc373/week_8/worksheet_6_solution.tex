@@ -599,20 +599,16 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Works}}
+    At worst case, the upper bound of variables and constraints in conversion to
+    standard form is $2n$ and $2m$.
+
+    \begin{proof}
+
+    Suppose a linear program has $n$ variables and $m$ constraints.
 
     \bigskip
 
-    Let a linear program has $n$ variables and $m$ constraints.
-
-    \bigskip
-
-    I need to give an upper bound on the number of variables and constraints in the resulting
-    linear program.
-
-    \bigskip
-
-    In conversion to standard form, the areas that affect the number of constraints
+    When converting to standard form, the areas that affect the number of constraints
     and variables are:
 
     \begin{enumerate}[1.]
@@ -622,6 +618,68 @@
 
     \bigskip
 
+    So, in worst case, all of the variables are not nonnegative, and all of the
+    expressions have equality constraints.
+
+    \bigskip
+
+    Since addressing each of non-nonnegative constraints adds an additional variable,
+    we can write there would be total of $2n$ variables at the end.
+
+    \bigskip
+
+    And since addressing each equality constraints result in 1 additional constraint,
+    we can conclude there would be total of $2m$ constraints.
+
+    \end{proof}
+
+    \bigskip
+
+    % \underline{\textbf{Rough Works}}
+
+    % \bigskip
+
+    % At worst case, the upper bound of variables and constraints in conversion to
+    % standard form is $2n$ and $2m$.
+
+    % \begin{proof}
+
+    % Suppose a linear program has $n$ variables and $m$ constraints.
+
+    % \bigskip
+
+    % When converting to standard form, the areas that affect the number of constraints
+    % and variables are:
+
+    % \begin{enumerate}[1.]
+    %     \item Variables without nonnegativity constraints
+    %     \item Existence of equality constraints
+    % \end{enumerate}
+
+    % \bigskip
+
+    % So, in worst case, all of the variables are not nonnegative, and all of the
+    % expressions have equality constraints.
+
+    % \bigskip
+
+    % Since addressing each of non-nonnegative constraints adds an additional variable,
+    % we can write there would be total of $2n$ variables at the end.
+
+    % \bigskip
+
+    % And since addressing each equality constraints result in 1 additional constraint,
+    % we can conclude there would be total of $2m$ constraints.
+
+    % \end{proof}
+
+    \underline{\textbf{References:}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item CLRS Solutions, 29.1 Standard and slack forms, \href{https://walkccc.github.io/CLRS/Chap29/29.1/}{link}
+    \end{enumerate}
 
 \end{enumerate}
 
