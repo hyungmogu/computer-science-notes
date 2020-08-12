@@ -708,6 +708,29 @@
 
     \begin{proof}
 
+    Let $x_1 = 2r$ and $x_2 = r$ where $r \geq 0$. Then, the inequality constraints become
+
+
+    \begin{align}
+        -2(2r) + (r) = -3r &\leq -1\\
+        -(2r) + 2(r) = 0 &\leq 10\\
+        2r, r &\geq 0
+    \end{align}
+
+    which is valid.
+
+    \bigskip
+
+    Now, looking at the objective function, we have $2r - r = r$.
+
+    \bigskip
+
+    Since we are looking for the minimum value and $r \geq 0$, we can write $min(r) = 0$
+    (if we are looking for the maximum, then $r$ is ever-increasing and the linear program is unbounded).
+
+    \bigskip
+
+    Thus, the optimal objective value in this example is finite.
 
     \bigskip
 
