@@ -853,12 +853,24 @@
         Here, we have
 
         \bigskip
-        \begin{align}
-            \begin{array}{c}
-            \text{Maximize}  & d_t & & \\
-            \text{Subject to}& d_v & \leq d_v & + w(u,v) & \\
-            \end{array}
-        \end{align}
+        \begin{alignat*}{2}
+            & \text{Maximize}   & \quad & d_t           \\
+            & \text{Subject To} &       & d_v \leq d_u + w(u,v) \\
+            &                   &       & d_s = 0
+        \end{alignat*}
+
+        \bigskip
+
+        Which gives us
+
+        \begin{alignat*}{2}
+            & \text{Maximize}   & \quad & d_t           \\
+            & \text{Subject To} &       & d_t - d_s \leq 6 \\
+            &                   &       & d_t - d_x \leq -2 \\
+            &                   &       & d_x - d_t \leq 5 \\
+            &                   &       & d_z - d_t \leq -4 \\
+            &                   &       & d_s = 0
+        \end{alignat*}
 
         \underline{\textbf{References:}}
 
