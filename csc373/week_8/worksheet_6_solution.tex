@@ -913,18 +913,9 @@
     \bigskip
 
     \begin{alignat*}{2}
-        & \text{Minimize}   & \quad & \sum\limits_{}           \\
-        & \text{Subject To} &       & d_t - d_s \leq 6 \\
-        &                   &       & d_t - d_x \leq -2 \\
-        &                   &       & d_x - d_t \leq 5 \\
-        &                   &       & d_x - d_y \leq -3 \\
-        &                   &       & d_x - d_z \leq 7 \\
-        &                   &       & d_y - d_t \leq 8 \\
-        &                   &       & d_y - d_s \leq 7 \\
-        &                   &       & d_z - d_t \leq -4 \\
-        &                   &       & d_z - d_y \leq 9 \\
-        &                   &       & d_s - d_z \leq 2 \\
-        &                   &       & d_s = 0
+        & \text{Minimize}   & \quad & \sum\limits_{u,v \in V} a(u,v)f_{uv}           \\
+        & \text{Subject To} &       & \\
+        &                   &       &
     \end{alignat*}
 
     \underline{\textbf{Notes:}}
@@ -962,29 +953,22 @@
             \item Applications $^{[3]}$
 
             \begin{enumerate}[1)]
-                \item Networks
-
-                \begin{itemize}
-                    \item Communication Networks
-                    \item Computer Networks
-                    \item Railway networks
-                    \item Distribution Networks
-                \end{itemize}
-
-                \item Arcs
-                \begin{itemize}
-                    \item Transmission lines
-                    \item Highways, railways, tracks
-                \end{itemize}
-
-                \item Flow
-
-                \begin{itemize}
-                    \item Data messages
-                    \item Trains
-                \end{itemize}
+                \item \textbf{Telephone Network} $\to$ Each call is a commodity with its own source and sink
+                \item \textbf{Transportation Network} $\to$ Each trip is its own commodity
+                \item \textbf{Supply Chain} $\to$ Different goods move through the network
             \end{enumerate}
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
         \end{itemize}
+
+        \item \textbf{Aggregate Flow}
+
+        \begin{itemize}
+            \item Is the sum of various commodity flows
+        \end{itemize}
+
     \end{itemize}
 
     \bigskip
@@ -994,7 +978,7 @@
     \begin{enumerate}[1)]
         \item Wikipedia, Minimum-cost flow problem, \href{https://en.wikipedia.org/wiki/Minimum-cost_flow_problem}{link}
         \item Wikipedia, Multicommodity flow problem, \href{https://en.wikipedia.org/wiki/Multi-commodity_flow_problem}{link}
-        \item MIT, Multicommodity flow problem, \href{https://ocw.mit.edu/courses/sloan-school-of-management/15-082j-network-optimization-fall-2010/lecture-notes/MIT15_082JF10_lec21.pdf}{link}
+        \item Rensselaer Polytechnique Institute, Math Models of OR Multicommodity Network Flow Problems, \href{http://eaton.math.rpi.edu/faculty/Mitchell/courses/matp4700/notesMATP4700/lecture18/18B_multicommoditybeamer.pdf}{link}
     \end{enumerate}
 
 \end{enumerate}
