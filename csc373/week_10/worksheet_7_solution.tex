@@ -72,6 +72,12 @@
 
         \bigskip
 
+        \item \textbf{Reduction Problem}
+
+        \begin{itemize}
+            \item
+        \end{itemize}
+
         \underline{\textbf{Example:}}
 
         \item \textbf{P}
@@ -113,26 +119,46 @@
             \item $P \subseteq NP$
         \end{itemize}
 
-        \item \textbf{NP-Complete:}
+        \bigskip
+
+        \underline{\textbf{Examples:}}
 
         \begin{itemize}
-            \item A decision problem is \textbf{NP-complete} if
+            \item Longest-path problems
+            \item Hamiltonian Cycle
+            \item Graph coloring
+        \end{itemize}
+
+        \bigskip
+
+        \item \textbf{NP-Complete Problems:}
+
+
+        \begin{itemize}
+            \item A decision problem A is NP-complete (NPC) if
 
             \begin{enumerate}[1)]
-                \item Decision problem L is in NP
-                \begin{itemize}
-                    \item A certificate (a solution constructed by student) can be
-                    verified (can be checked) to have polynominal time
-                \end{itemize}
-                \item
+                \item $A \in NP$ and
+                \item Every (other) problems $A'$ in NP is reducible to $A$
             \end{enumerate}
-
-            \item Is not likely that there is an algorithm solving it in polynominal number of steps $^{[3]}$
+            \item Has no efficient solution in polynominal number of steps (not yet) $^{[3]}$
+            \item Is not likely that there is an algorithm to make it efficient $^{[3]}$
         \end{itemize}
 
         \item \textbf{NP-Hard:}
 
         \bigskip
+
+        \begin{itemize}
+            \item A decision problem A is NP-hard if
+
+            \begin{enumerate}[1)]
+                \item $A \in NP$ (Not necessarily) and
+                \item Every (other) problems $A'$ in NP is reducible to $A$
+            \end{enumerate}
+            \item NP-Hard means ``at least as hard as any problems in NP''
+            \item Does not have to be about decision problems
+        \end{itemize}
 
         \underline{\textbf{Example:}}
 
@@ -154,6 +180,7 @@
         \item Encyclopedia Britannica, NP-Complete Problem, \href{https://www.britannica.com/science/NP-complete-problem}{link}
         \item Geeks for Geeks, NP-Completeness, \href{https://www.geeksforgeeks.org/np-completeness-set-1/}{link}
         \item Wikipedia, NP-complete, \href{https://simple.wikipedia.org/wiki/NP-complete}{link}
+        \item UCLA UC-Davis, ECS122A Handout on NP-Completeness, \href{https://web.cs.ucdavis.edu/~bai/ECS122A/npcnotes.pdf}{link}
     \end{enumerate}
 \end{enumerate}
 
