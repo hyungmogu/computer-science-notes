@@ -820,9 +820,21 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Works:}}
+    \begin{alignat*}{2}
+        & \text{Maximize}   & \quad & \sum\limits_{v \in V - \{s\}} d_v           \\
+        & \text{Subject To} &       & d_v - d_u \leq w(u,v) \text{ for each edge $(u,v) \in E$}\\
+        &                   &       & d_s = 0
+    \end{alignat*}
 
-    \bigskip
+    % \underline{\textbf{Rough Works:}}
+
+    % \bigskip
+
+    % \begin{alignat*}{2}
+    %     & \text{Maximize}   & \quad & \sum\limits_{v \in V - \{s\}} d_v           \\
+    %     & \text{Subject To} &       & d_v - d_u \leq w(u,v) \text{ for each edge $(u,v) \in E$}\\
+    %     &                   &       & d_s = 0
+    % \end{alignat*}
 
     \underline{\textbf{Notes:}}
 
