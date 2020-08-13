@@ -912,6 +912,21 @@
 
     \bigskip
 
+    \begin{alignat*}{2}
+        & \text{Minimize}   & \quad & \sum\limits_{}           \\
+        & \text{Subject To} &       & d_t - d_s \leq 6 \\
+        &                   &       & d_t - d_x \leq -2 \\
+        &                   &       & d_x - d_t \leq 5 \\
+        &                   &       & d_x - d_y \leq -3 \\
+        &                   &       & d_x - d_z \leq 7 \\
+        &                   &       & d_y - d_t \leq 8 \\
+        &                   &       & d_y - d_s \leq 7 \\
+        &                   &       & d_z - d_t \leq -4 \\
+        &                   &       & d_z - d_y \leq 9 \\
+        &                   &       & d_s - d_z \leq 2 \\
+        &                   &       & d_s = 0
+    \end{alignat*}
+
     \underline{\textbf{Notes:}}
 
     \bigskip
@@ -937,7 +952,32 @@
         \item \textbf{Multicommodity Flow Problem}
 
         \begin{itemize}
-            \item
+            \item Is a network flow problem with multiple commodities (flow demands) between different source and sink nodes.
+            \item Applications $^{[3]}$
+
+            \begin{enumerate}[1)]
+                \item Networks
+
+                \begin{itemize}
+                    \item Communication Networks
+                    \item Computer Networks
+                    \item Railway networks
+                    \item Distribution Networks
+                \end{itemize}
+
+                \item Arcs
+                \begin{itemize}
+                    \item Transmission lines
+                    \item Highways, railways, tracks
+                \end{itemize}
+
+                \item Flow
+
+                \begin{itemize}
+                    \item Data messages
+                    \item Trains
+                \end{itemize}
+            \end{enumerate}
         \end{itemize}
     \end{itemize}
 
@@ -947,6 +987,7 @@
 
     \begin{enumerate}[1)]
         \item Wikipedia, Minimum-cost flow problem, \href{https://en.wikipedia.org/wiki/Minimum-cost_flow_problem}{link}
+        \item Wikipedia, Multicommodity flow problem, \href{https://en.wikipedia.org/wiki/Multi-commodity_flow_problem}{link}
     \end{enumerate}
 
 \end{enumerate}
