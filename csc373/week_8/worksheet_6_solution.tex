@@ -965,21 +965,31 @@
             \end{center}
         \end{itemize}
 
-
-
         \item \textbf{Commodity}
 
         \begin{itemize}
             \item Is Symbolized by $K_i = (s_i, t_i, d_i)$
             \begin{itemize}
-                \item
+                \item $s_i$ $\to$ source of commodity $i$ (e.g. sender)
+                \item $t_i$ $\to$ sink of commodity $i$ (e.g. recipient)
+                \item $d_i$ $\to$ demand of commodity $i$ (e.g. number of items transported from $s$ to $t$)
+            \end{itemize}
+        \end{itemize}
+
+        \item \textbf{Flow of Commodity}
+
+        \begin{itemize}
+            \item Is symbolized by $f_{iuv}$
+            \begin{itemize}
+                \item Means the flow of commodity $i$ from vertex $u$ to vertex $v$
             \end{itemize}
         \end{itemize}
 
         \item \textbf{Aggregate Flow}
 
         \begin{itemize}
-            \item Is the sum of various commodity flows
+            \item Is the sum of various commodity flows (e.g sum of all shipments from $u$ to $v$)
+            \item Is symbolozed by $f_{uv} = \sum\limits_{i = 1}^k f_{iuv}$
         \end{itemize}
 
     \end{itemize}
