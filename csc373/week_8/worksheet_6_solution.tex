@@ -912,11 +912,13 @@
 
     \bigskip
 
-    \begin{alignat*}{3}
-        & \text{Minimize}   & \quad & \sum\limits_{u,v \in V} \sum\limits_{i \in K}^k a(u,v)f_{iuv} \\
-        & \text{Subject To} &       & \sum\limits_{i = 1}^k f_{iuv} \leq c(u,v) \begin{split}\text{ for each $u,v \in V$ and}\\\text{ for each $u \in V - \{s_i,t_i\}$}\end{split}\\
-        &                   &       & \sum\limits_{v \in V} f_{iuv} - \sum\limits_{v \in V} f_{iuv} = 0\\
-        &                   &       & f_{iuv} \geq 0
+    \begin{alignat*}{4}
+        & \text{Minimize}   & \quad & \sum\limits_{u,v \in V} \sum\limits_{i \in K}^k a(u,v)f_{iuv} & \\
+        & \text{Subject to} &       & \sum\limits_{i = 1}^k f_{iuv} \leq c(u,v) &\begin{split}\text{for each $u,v \in V$ and}\\\text{for each $u \in V - \{s_i,t_i\}$}\end{split}\\
+        &                   &       & \sum\limits_{v \in V} f_{iuv} - \sum\limits_{v \in V} f_{iuv} = 0 & \begin{split}\text{for each $u,v \in V$ and}\\\text{for each $u \in V - \{s_i,t_i\}$}\end{split}\\
+        &                   &       & \sum\limits_{v \in V} f_{i,s_i,v} - \sum\limits_{v \in V} f_{i,v,s_i} = d_i && \text{for each $i = 1,2,...,k$}\\
+        &                   &       & f_{iuv} \geq 0 &\begin{split}\text{for each $u,v \in V$ and}\\\text{for each $u \in V - \{s_i,t_i\}$}\end{split}\\
+        &                   &       & c(u,v) \geq 0 &&\text{for each $u,v \in V$}\\
     \end{alignat*}
 
     \underline{\textbf{Notes:}}
