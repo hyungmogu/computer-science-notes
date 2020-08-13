@@ -850,27 +850,27 @@
 
         \bigskip
 
-        Here, we have
-
-        \bigskip
-        \begin{alignat*}{2}
-            & \text{Maximize}   & \quad & d_t           \\
-            & \text{Subject To} &       & d_v \leq d_u + w(u,v) \\
-            &                   &       & d_s = 0
-        \end{alignat*}
-
-        \bigskip
-
-        Which gives us
-
         \begin{alignat*}{2}
             & \text{Maximize}   & \quad & d_t           \\
             & \text{Subject To} &       & d_t - d_s \leq 6 \\
             &                   &       & d_t - d_x \leq -2 \\
             &                   &       & d_x - d_t \leq 5 \\
+            &                   &       & d_x - d_y \leq -3 \\
+            &                   &       & d_x - d_z \leq 7 \\
+            &                   &       & d_y - d_t \leq 8 \\
+            &                   &       & d_y - d_s \leq 7 \\
             &                   &       & d_z - d_t \leq -4 \\
+            &                   &       & d_z - d_y \leq 9 \\
+            &                   &       & d_s - d_z \leq 2 \\
             &                   &       & d_s = 0
         \end{alignat*}
+
+        On continued calculation, the values of each variables should be $d_s = 0$, $d_y = 7$, $d_x = 4$,
+        $d_t = 2$, and $d_z = -2$.
+
+        \begin{center}
+        \includegraphics[width=0.4\linewidth]{images/worksheet_6_solution_18.png}
+        \end{center}
 
         \underline{\textbf{References:}}
 
