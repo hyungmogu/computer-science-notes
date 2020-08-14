@@ -1,0 +1,333 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[utf]{kotex}
+\usepackage{soul}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\rhead{CSC369 Assignment 3}
+
+\begin{document}
+\title{CSC369 Assignment 3 - File Systems}
+\maketitle
+
+\bigskip
+
+\section{Introduction}
+
+\bigskip
+
+\noindent In this assignment, you will explore the implementation of a particular file
+system, \hl{ext2}, and will write tools to modify \hl{ext2}-format virtual disks. To do
+this work, you will need to be comfortable working with binary data and will
+need to learn about the \hl{ext2 filesystem}.
+
+\bigskip
+
+\noindent This assignment contains some bonus features. While you cannot get more than
+100\% on this assignment, implementing a bonus will compensate for any possible
+marks lost in another section of the assignment.
+
+\bigskip
+
+\section{Requirements}
+
+\bigskip
+
+Your task is to write five programs (in C) that operate on an ext2 formatted
+virtual disk. The executables must be named \textit{ext2\_ls}, \textit{ext2\_cp},
+\textit{ext2\_mkdir}, \textit{ext2\_ln}, and \textit{ext2\_rm} and must take the
+specified arguments.
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{ext2\_ls:} This program takes two command line arguments. The
+    first is the name of an ext2 formatted virtual disk. The second is an
+    absolute path on the ext2 formatted disk. The program should work like ls -1
+    (that's number one "1", not lowercase letter "L"), printing each directory
+    entry on a separate line. If the flag "-a" is specified (after the disk
+    image argument), your program should also print the . and .. entries. In other
+    words, it will print one line for every directory entry in the directory
+    specified by the absolute path. If the path does not exist, print "No such
+    file or directory", and return an ENOENT. Directories passed as the second
+    argument may end in a "/" - in such cases the contents of the last directory
+    in the path (before the "/") should be printed (as ls would do). Additionally,
+    the path (the last argument) may be a file or link. In this case, your program
+    should simply print the file/link name (if it exists) on a single line, and
+    refrain from printing the . and ...
+
+    \item \textbf{ext2\_cp:} This program takes three command line arguments. The
+    first is the name of an ext2 formatted virtual disk. The second is the path
+    to a file on your native operating system, and the third is an absolute path
+    on your ext2 formatted disk. The program should work like cp, copying the
+    file on your native file system onto the specified location on the disk.
+    If the specified file or target location does not exist, then your program
+    should return the appropriate error (ENOENT). Please read the specifications
+    of ext2 carefully, some things you will not need to worry about (like permissions,
+    gid, uid, etc.), while setting other information in the inodes may be important
+    (e.g., \textit{i\_dtime}).
+
+    \item \textbf{ext2\_mkdir:} This program takes two command line arguments.
+    The first is the name of an ext2 formatted virtual disk. The second is an
+    absolute path on your ext2 formatted disk. The program should work like mkdir,
+    creating the final directory on the specified path on the disk. If any component
+    on the path to the location where the final directory is to be created does
+    not exist or if the specified directory already exists, then your program
+    should return the appropriate error (ENOENT or EEXIST). Again, please read
+    the specifications to make sure you're implementing everything correctly
+    (e.g., directory entries should be aligned to 4B, entry names are not
+    null-terminated, etc.).
+
+    \item \textbf{ext2\_ln:} This program takes three command line arguments. The
+    first is the name of an ext2 formatted virtual disk. The other two are absolute
+    paths on your ext2 formatted disk. The program should work like ln, creating
+    a link from the first specified file to the second specified path. If the
+    source file does not exist (ENOENT), if the link name already exists
+    (EEXIST), or if either location refers to a directory (EISDIR), then your
+    program should return the appropriate error. Note that this version of ln
+    only works with files. Additionally, this command may take a "-s" flag,
+    after the disk image argument. When this flag is used, your program must
+    create a symlink instead (other arguments remain the same). If in doubt
+    about correct operation of links, use the ext2 specs and ask on the discussion
+    board.
+
+    \item \textbf{ext2\_rm:} This program takes two command line arguments. The
+    first is the name of an ext2 formatted virtual disk, and the second is an
+    absolute path to a file or link (not a directory) on that disk. The program
+    should work like rm, removing the specified file from the disk. If the file
+    does not exist or if it is a directory, then your program should return the
+    appropriate error. Once again, please read the specifications of ext2
+    carefully, to figure out what needs to actually happen when a file or link
+    is removed (e.g., no need to zero out data blocks, must set \textit{i\_dtime} in the
+    inode, removing a directory entry need not shift the directory entries after
+    the one being deleted, etc.).
+
+    \bigskip
+
+    Bonus(5\% extra): Implement an additional "-r" flag (after the disk image argument),
+    which allows removing directories as well. In this case, you will have to recursively
+    remove all the contents of the directory specified in the last argument. If "-r" is
+    used with a regular file or link, then it should be ignored (the \textit{ext2\_rm}
+    operation should be carried out as if the flag had not been entered). If you
+    decide to do the bonus, make sure first that your \textit{ext2\_rm} works, then create
+    a new copy of it and rename it to \textit{ext2\_rm\_bonus.c}, and implement the
+    additional functionality in this separate source file.
+\end{itemize}
+
+All of these programs should be minimalist. Don't implement what isn't specified:
+only provide the required functionality and specified errors. (For example, don't
+implement wildcards. Also, can't delete directories? Too bad! Unless you want the
+bonus!)
+
+\bigskip
+
+You will find it very useful for these programs to share code. You will want a
+function that performs a path walk, for example. You will also want a function
+that opens a specific directory entry and writes to it.
+
+
+\bigskip
+
+\section{Learning about System}
+
+\bigskip
+
+Here are several sample virtual disk images:
+
+\bigskip
+
+\begin{itemize}
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/emptydisk.img}{emptydisk:} An empty virtual disk.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/onefile.img}{onefile:} A single text file has been added to emptydisk.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/deletedfile.img}{deletedfile:} The file from onefile has been removed.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/hardlink.img}{onedirectory:} A single directory containing a text file has been added to emptydisk.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/hardlink.img}{hardlink:} A hard link to the textfile in onedirectory was added.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/deleteddirectory.img}{deleteddirectory:} A recursive remove was used to remove the directory and file from onedirectory.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/twolevel.img}{twolevel:} The root directory contains a directory called level1 and a file called afile. level1 contains a directory called level2, and level2 contains a file called bfile.
+    \item \href{https://www.teach.cs.toronto.edu//~csc369h/summer/assignments/new-a3/images/largefile.img}{largefile:} A file larger than 13KB (13440 bytes) is in the root directory. This file requires the single indirect block in the inode.
+\end{itemize}
+
+\bigskip
+
+These disks were each created and formatted in the same way (on an ubuntu virtual machine):
+
+\bigskip
+
+\begin{lstlisting}[language=C]
+% dd if=/dev/zero of=~/DISKNAME.img bs=1024 count=128
+% mke2fs -N 32 DISKNAME.img
+% sudo mount -o loop ~/DISKNAME.img /home/reid/mntpoint
+% cd /home/reid/mntpoint
+% ...... normal linux commands to add/remove files/directories/links .....
+% cd ~
+% umount /home/reid/mntpoint
+\end{lstlisting}
+
+\bigskip
+
+Since we are creating images with mke2fs, the disks are formatted with the \href{https://en.wikipedia.org/wiki/Ext2}{ext2
+file system}. You may wish to read about this system before doing some exploration.
+The \href{http://en.wikipedia.org/wiki/Ext2}{wikipedia page for ext2} provides a
+good overview, but the \href{http://wiki.osdev.org/Ext2}{Ext2 wiki} and Dave
+Poirer's \href{http://www.nongnu.org/ext2-doc/index.html}{Second Extended File System}
+article provide more detail on how the system places data onto a disk. It's a good
+reference to keep on hand as you explore.
+
+\bigskip
+
+We are restricting ourselves to some simple parameters, so you can make the
+following assumptions when you write your code:
+
+\bigskip
+
+\begin{itemize}
+    \item A disk is 128 blocks where the block size is 1024 bytes.
+    \item There is only one block group.
+    \item There are 32 inodes.
+    \item You do not have to worry about permissions or modified time fields in
+    the \hl{inodes}. You should set the type (in \textit{i\_mode}), \textit{i\_size},
+    \textit{i\_links\_count}, \textit{i\_blocks(disk sectors)}, and the \textit{i\_block}
+    array.
+\end{itemize}
+
+We will not test your code on anything other than disk images that follow this
+specification, or on corrupted disk images.
+
+Other tips:
+
+\begin{itemize}
+    \item \hl{Inode} and disk block numbering starts at 1 instead of 0.
+    \item The root \hl{inode} is inode number 2 (at index 1)
+    \item The first 11 inodes are reserved.
+    \item There is always a lost+found directory in the root directory.
+    \item Disk sectors are 512 bytes. (This is relevant for the \textit{i\_blocks}
+    field of the \hl{inode}.)
+    \item You should be able to handle directories that require more than one block.
+    \item You should be able to handle a file that needs a single indirection
+    \item Although you can construct your own structs from the information in the
+    documentation above, you are welcome to use the \textit{ext2.h} file that I used for
+    the test code. I took out a bunch of components that we aren't using, but
+    there are still quite a few fields that are irrelevant for our purposes.
+\end{itemize}
+
+\bigskip
+
+However, you will probably also want to explore the disk images to get an intuitive
+sense of how they are structured. (The next three exercises will also help you
+explore the disk images and get started on the assignment.)
+
+\bigskip
+
+There are two good ways to interface with these images. The first way is to interact
+with it like a user by mounting the file system so that you can use standard
+commands (mkdir, cp, rm, ln) to interact with it. Details of how to do this are
+below. The second way is to interact with the disk as if it is a flat binary file.
+Use xxd to create hex dumps, diff to look for differences between the dumps, and
+your favorite text editor to view the diffs. For example (YMMV):
+
+\bigskip
+
+\begin{lstlisting}[language=C]
+% diff <(xxd emptydisk.img) <(xxd onefile.img) > empty-onefile.diff
+% vimdiff empty-onefile.diff
+\end{lstlisting}
+
+You should be able to use a combination of these techniques to understand how
+files are placed on disk and how they are removed. For example, you can create
+a new disk image, use mount to place files of various sizes on it, unmount it,
+and then use xxd and diff to see how the image differs from the other images
+you have.
+
+\bigskip
+
+\subsection{Mounting about File System}
+
+\bigskip
+
+If you have root access on a Linux machine (or Linux virtual machine), you can
+use mount to mount the disk into your file system and to peruse its contents.
+(Note: this requires sudo, so you will need to do this on a machine (or virtual
+machine) that you administer.
+
+\bigskip
+
+On CDF, you can use a tool called FUSE that allows you to mount a file system at
+user-level (from your regular account). It may not work on an \hl{NFS} mounted file
+system, so this will only work on the CDF workstations.
+
+\bigskip
+
+Note: \textless CDFID \textgreater should be replaced with your own CDF user id below.
+
+
+\begin{lstlisting}[language=bash]
+# create a directory in /tmp and go there
+mkdir -m 700 /tmp/<CDFID>-csc369h
+cd /tmp/<CDFID>-csc369h
+
+# to create your own disk image
+dd if=/dev/zero of=DISKNAME.img bs=1024 count=128
+/sbin/mke2fs -N 32 -F DISKNAME.img
+
+# create a mount point and mount the image
+# CWD is /tmp/<CDFID>-csc369h
+mkdir mnt
+fuseext2 -o rw+ DISKNAME.img mnt
+
+# check to see if it is mounted
+df -hl
+
+# now you can use the mounted file system, for example
+mkdir mnt/test
+
+# unmount the image
+fusermount -u mnt
+\end{lstlisting}
+
+\bigskip
+
+You can use the same strategy to mount one of the images provided above.
+
+\end{document}

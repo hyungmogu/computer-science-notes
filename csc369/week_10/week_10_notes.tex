@@ -1,0 +1,309 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[utf]{kotex}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{Hyungmo Gu}
+\rhead{CSC369 Week 10 Notes}
+
+\begin{document}
+\title{CSC369 Week 10 Notes}
+\author{Hyungmo Gu}
+\maketitle
+
+\begin{itemize}
+    % \item Remember Example from Last Week?
+    % \item Types of Resources
+    % \item Not Just an OS Problem
+    \item Deadlock Defined
+    \begin{itemize}
+        \item \textbf{Google Definition:} Is a situation one typically involving
+        opposing parties, in which no progress can be made.
+        \item Is permanent
+        \item Happens to set of processes that
+
+        \begin{itemize}
+            \item Compete for same system resources
+            \item Communicate with each other
+        \end{itemize}
+    \end{itemize}
+    \item Example of Deadlock
+    \begin{itemize}
+        \item Law passed by Kansas Legislature in in early 20th century
+        \begin{itemize}
+            \item ``When two trains approach each other at a crossing, both shall
+            come to a full stop and \underline{neither} shall start upon again
+            until the other is gone''
+        \end{itemize}
+    \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/week_10_notes_1_1.png}
+    \end{center}
+
+
+    % \item Example: Dining Philosopers
+    % \item Deadlock Continued
+    \item Conditions for Deadlock
+    \begin{itemize}
+        \item Neccesary and Sufficient Conditions
+        \begin{enumerate}[1.]
+            \item Mutual Exclusion
+            \begin{itemize}
+                \item Only one process may use a resource at a time
+            \end{itemize}
+            \item Hold and wait
+            \begin{itemize}
+                \item A process may hold allocated resources while awaitng
+                assignment of others
+            \end{itemize}
+            \item No preemption
+            \begin{itemize}
+                \item No Resource can be forcibly removed from a process holding
+                it
+            \end{itemize}
+            \item Circular wait
+            \begin{itemize}
+                \item Each process must be waiting for a resource which is being
+                held by another process, which in turn is waiting for the first
+                process to release the resource $^{[3]}$
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Aside}}
+
+        \bigskip
+
+        \begin{enumerate}
+            \item Wait. Necessary condition? $^{[1]}$
+            \begin{itemize}
+                \item We say $N$ is a necessary condition for $S$ if we don't have $N$,
+                we won't have $S$.
+            \end{itemize}
+            \item Wait. Sufficient condition? $^{[1]}$
+            \begin{itemize}
+                \item We say $S$ is a necessary condition for $N$ if we have $S$,
+                then we know that $N$ must follow, i.e. $S \Rightarrow N$
+            \end{itemize}
+            \item Hold on. How about necessary and sufficient condition?
+            \begin{itemize}
+                \item Is when necessary and sufficient conditions are put together
+                similar to if and only if $^{[2]}$
+
+                \begin{center}
+                    \includegraphics[width=0.8\linewidth]{images/week_10_notes_1_2.png}
+                \end{center}
+            \end{itemize}
+        \end{enumerate}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Fayetteville State University: Necessary and Sufficient Conditions, \href{http://faculty.uncfsu.edu/jyoung/necessary_and_sufficient_conditions.htm}{link}
+        \item Wikipedia: Necessity and Sufficiency, \href{https://en.wikipedia.org/wiki/Necessity_and_sufficiency}{link}
+        \item Wikipedia: Deadlock, \href{https://en.wikipedia.org/wiki/Deadlock#Necessary_conditions}{link}
+    \end{enumerate}
+    % \item One More Condition
+    \item Solutions
+    \begin{itemize}
+        \item Prevention
+        \begin{itemize}
+            \item Ensures that at least one of the necessary conditions to deadlock
+            will never occur $^{[1]}$
+        \end{itemize}
+        \item Avoidance
+        \begin{itemize}
+            \item Ensures that the system will not enter an unsafe mode $^{[1]}$
+        \end{itemize}
+        \item Detection and Recovery
+        \begin{itemize}
+            \item Ensures that the system recovers from deadlock if a deadlock has
+            occured in the system. $^{[2]}$
+        \end{itemize}
+        \item Do Nothing and hope
+        \begin{itemize}
+            \item Is done by Windows, Linux, and JVM
+            \item Works until eventually the deadlock snowballs, no longer functions,
+            and requires manual intervention (Press power, and restart) $^{[3]}$
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item pediaa: What is the Difference Between Deadlock Prevention and Deadlock Avoidance, \href{https://pediaa.com/what-is-the-difference-between-deadlock-prevention-and-deadlock-avoidance/}{link}
+        \item Geeks for Geeks: Recovery from Deadlock in Operating System, \href{https://www.geeksforgeeks.org/recovery-from-deadlock-in-operating-system/?ref=rp}{link}
+        \item Casanova H. (2018). \textit{Synchronization: Deadlocks}. Medium. \href{http://www2.hawaii.edu/~esb/2018fall.ics332/oct08.pdf}{link}
+    \end{enumerate}
+    % \item Deadlock Prevention
+    % \item Preventing Hold and Wait
+    % \item Preventing No-Preemption
+    % \item Preventing Circular Wait
+    % \item Deadlock Avoidance
+    % \item Two Avoidance Strategies
+    \item Safe States
+
+    \begin{itemize}
+        \item A state is \textbf{safe} if the system can allocate all resources
+        requested by all processes without entering a deadlocked state $^{[1]}$
+
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{images/week_10_notes_1_3.jpg}
+        \end{center}
+
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item University of Chicago: Deadlock Avoidance, \href{https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/7_Deadlocks.html}{link}
+    \end{enumerate}
+    \item Unsafe States \& Algorithm
+    \begin{itemize}
+        \item An \textbf{unsafe} state is one which is not safe
+    \end{itemize}
+    % \item Restrictions on Avoidance
+    % \item Deadlock Detection \& Recovery
+    % \item Draw Resource Alloc Graph
+    % \item Deadlock Detection
+    % \item Deadlock Recovery
+    % \item Reality Check
+    % \item Why does the Ostrich Algorithm Work?
+    \item What is Atomicity?
+    \begin{itemize}
+        \item \textbf{atomic} means without interruption (from week 2 notes)
+        \item e.g. Using outdoor ATM machine (Single account)
+        \begin{itemize}
+            \item Only one person can use the machine.
+            \item Others need to wait in line
+            \item None can interrupt the transaction
+        \end{itemize}
+    \end{itemize}
+
+    % \item Why would atomicity fail?
+    % \item Definitions for Transactions
+    % \item How to ensure atomicity in the face of failures?
+    % \item Write-ahead logging
+    % \item Problems with logging
+    % \item Concurrent Transactions
+    % \item Conflicting Operations
+    % \item Conflict Serializability
+    % \item Conflict Serializable?
+    % \item Ensuring Serializability
+    % \item Example 2 of Phase Locking
+    % \item Timestamp Protocols
+    % \item Timestamp Ordering
+    \item Deadlock and Starvation
+    \begin{itemize}
+        \item A set of threads is in a \textbf{deadlocked} state when every process in the
+        set is waiting for an event that can be caused only by another proess in the
+        set.
+
+        \begin{center}
+            \includegraphics[width=\linewidth]{images/week_10_notes_1_4.png}
+        \end{center}
+
+        \item A thread is suffering \textbf{starvation} if it is waiting indefinitely
+        because other threads are in some way preferred
+    \end{itemize}
+
+    \bigskip
+
+
+    % \item Communication Deadlocks
+    \item Livelock
+    \begin{itemize}
+        \item Occurs when a set of processes continually retry some failed operation
+        and prevent other processes in the set from making progress
+
+        \bigskip
+
+        \underline{\textbf{Example:}}
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Two people who meet face-to-face in a corridor, and both move
+            aside to let the other pass $^{[1]}$
+
+            \begin{center}
+                \includegraphics[width=\linewidth]{images/week_10_notes_1_5.png}
+                \includegraphics[width=\linewidth]{images/week_10_notes_1_6.png}
+                \includegraphics[width=\linewidth]{images/week_10_notes_1_7.png}
+                \includegraphics[width=\linewidth]{images/week_10_notes_1_8.png}
+            \end{center}
+        \end{enumerate}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Guru 99: Livelock: What is, Example, Difference with Deadlock, \href{https://www.guru99.com/what-is-livelock-example.html}{link}
+    \end{enumerate}
+\end{itemize}
+
+\end{document}
