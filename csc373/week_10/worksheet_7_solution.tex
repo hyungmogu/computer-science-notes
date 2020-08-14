@@ -69,14 +69,16 @@
 
     \bigskip
 
-    Formally, the problem is defined as
+    Formally, the language corresponding to the decision problem is as follows:
 
     \begin{align*}
         \begin{split}
             \text{LONGEST-SIMPLE-CYCLE} = \{\langle G,v_0,v_1,...,v_k,k\rangle: &\text{$G = (V,E)$ is an undirected graph}\\
-            &\text{$k \geq 3$ is an integer}\\
-            &\text{$v_0,v_1,...,v_k \in V$ are distinct}\\
-            &\text{$v_0 = v_k$}\}
+            &\text{$k \geq 3$ is an integer,}\\
+            &\text{$v_0,v_1,...,v_k \in V$ are distinct,}\\
+            &\text{$v_0 = v_k$,}\\
+            &\text{There should exist a simple cycle in G}\\
+            &\text{with at least $k$ edges}\}
         \end{split}
     \end{align*}
 
