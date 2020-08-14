@@ -410,47 +410,80 @@
 
     \bigskip
 
-    \underline{\textbf{Rough Works:}}
-
     I need to show whether the algorithm for 0-1 knapsack problem in exercise 16.2-2
     is a polynominal time algorithm.
 
-    \begin{enumerate}[1.]
-        \item State that 0-1 knapsack algorithm has running time of $\mathcal{O}(nW)$
+    \bigskip
 
-        \begin{mdframed}
-        Exercise 16.2-2 states that the algorithm has running time of $\mathcal{O}(nW)$
-        \end{mdframed}
+    Exercise 16.2-2 states that the algorithm has running time of $\mathcal{O}(nW)$
 
-        \item Check $W$ in $\mathcal{O}(nW)$ is polynominal
+    \bigskip
 
-        \begin{mdframed}
-        The definition of polynominals tells us it is of the form
+    The definition of polynominals tells us it is of the form
 
-        \begin{align}
-            a_nx^n + a_{n-1}x^{n-1} + ... + a_2x^2 + a_1x + a_0
-        \end{align}
+    \begin{align}
+        a_nx^n + a_{n-1}x^{n-1} + ... + a_2x^2 + a_1x + a_0
+    \end{align}
 
-        Since we know $W$ represents the total weight of knapsack and is a variable in the form of an integer,
-        we can write $W$ is a polynominal.
+    Since we know $W$ represents the total weight of knapsack and is a variable in the form of an integer,
+    we can write $W$ is a polynominal.
 
-        \end{mdframed}
+    \bigskip
 
-        \item Conclude 0-1 knapsack algorithm has polynominal running time
+    The rule of polynominals tells us product of two polynominals are a polynominal.
 
-        \begin{mdframed}
-        The rule of polynominals tells us product of two polynominals are a polynominal.
+    \bigskip
 
-        Since we know $n$ is a polynominal and $W$ is a polynominal,
-        we can conclude $\mathcal{O}(nW)$ is a polynominal.
+    Since we know $n$ is a polynominal and $W$ is a polynominal,
+    we can conclude $\mathcal{O}(nW)$ is a polynominal.
 
-        \bigskip
+    \bigskip
 
-        Thus, we can conclude the 0-1 knapsack problem has a polynominal running time.
+    Thus, we can conclude the 0-1 knapsack problem has a polynominal running time.
 
-        \end{mdframed}
+    \bigskip
 
-    \end{enumerate}
+    % \underline{\textbf{Rough Works:}}
+
+    % I need to show whether the algorithm for 0-1 knapsack problem in exercise 16.2-2
+    % is a polynominal time algorithm.
+
+    % \begin{enumerate}[1.]
+    %     \item State that 0-1 knapsack algorithm has running time of $\mathcal{O}(nW)$
+
+    %     \begin{mdframed}
+    %     Exercise 16.2-2 states that the algorithm has running time of $\mathcal{O}(nW)$
+    %     \end{mdframed}
+
+    %     \item Check $W$ in $\mathcal{O}(nW)$ is polynominal
+
+    %     \begin{mdframed}
+    %     The definition of polynominals tells us it is of the form
+
+    %     \begin{align}
+    %         a_nx^n + a_{n-1}x^{n-1} + ... + a_2x^2 + a_1x + a_0
+    %     \end{align}
+
+    %     Since we know $W$ represents the total weight of knapsack and is a variable in the form of an integer,
+    %     we can write $W$ is a polynominal.
+
+    %     \end{mdframed}
+
+    %     \item Conclude 0-1 knapsack algorithm has polynominal running time
+
+    %     \begin{mdframed}
+    %     The rule of polynominals tells us product of two polynominals are a polynominal.
+
+    %     Since we know $n$ is a polynominal and $W$ is a polynominal,
+    %     we can conclude $\mathcal{O}(nW)$ is a polynominal.
+
+    %     \bigskip
+
+    %     Thus, we can conclude the 0-1 knapsack problem has a polynominal running time.
+
+    %     \end{mdframed}
+
+    % \end{enumerate}
 
     \underline{\textbf{Notes}}
 
@@ -459,6 +492,15 @@
 
         \begin{itemize}
             \item Is expressed in the format $\mathcal{O}(n^k)$.
+            \item A language $L$ is \textbf{polynominal}
+        \end{itemize}
+
+        \item \textbf{Language (Cont')}
+
+        \begin{itemize}
+            \item A language is accepted in polynominal time by an algorithm $A$,
+            if it's accepted by $A$, and if in addition there exists a constant $k$ such that
+            for any length-n string $x \in L$, algorithm $A$ accepts $x$ in time $O(n^k)$.
         \end{itemize}
     \end{itemize}
 
