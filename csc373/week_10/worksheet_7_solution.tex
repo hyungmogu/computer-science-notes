@@ -61,39 +61,69 @@
     \bigskip
 
     \begin{mdframed}
-        \underline{\textbf{My Work}}
+    \underline{\textbf{My Work}}
 
-        \bigskip
+    \bigskip
 
-        The longest simple cycle problem is the problem of finding a cycle of maximum
-        length in a graph $^{[5]}$.
-        \end{mdframed}
+    The longest simple cycle problem is the problem of finding a cycle of maximum
+    length in a graph $^{[5]}$.
+    \end{mdframed}
 
-        \bigskip
+    \bigskip
 
-        The decision problem is, given $k$, to determine whether or not the instance graph
-        has a simple cycle of length at least $k$. If yes, output 1. Otherwise, output 0.
+    The decision problem is, given $k$, to determine whether or not the instance graph
+    has a simple cycle of length at least $k$. If yes, output 1. Otherwise, output 0.
 
-        \bigskip
+    \bigskip
 
-        \begin{mdframed}
-        \underline{\textbf{My Work}}
+    \begin{mdframed}
+    \underline{\textbf{My Work}}
 
-        \bigskip
+    \bigskip
 
-        The language corresponding to the decision problem is as follows:
+    The language corresponding to the decision problem is as follows:
 
-        \begin{align*}
-            \begin{split}
-                \text{LONGEST-SIMPLE-CYCLE} = \{\langle G,v_0,v_1,...,v_k,k\rangle: &\text{$G = (V,E)$ is an undirected graph}\\
-                &\text{$k \geq 3$ is an integer,}\\
-                &\text{$v_0,v_1,...,v_k \in V$ are distinct,}\\
-                &\text{$v_0 = v_k$,}\\
-                &\text{There should exist a simple cycle in G}\\
-                &\text{with at least $k$ edges}\}
-            \end{split}
-        \end{align*}
-        \end{mdframed}
+    \begin{align*}
+        \begin{split}
+            \text{LONGEST-SIMPLE-CYCLE} = \{\langle G,v_0,v_1,...,v_k,k\rangle: &\text{$G = (V,E)$ is an undirected graph}\\
+            &\text{$k \geq 3$ is an integer,}\\
+            &\text{$v_0,v_1,...,v_k \in V$ are distinct,}\\
+            &\text{$v_0 = v_k$,}\\
+            &\text{There should exist a simple cycle in G}\\
+            &\text{with at least $k$ edges}\}
+        \end{split}
+    \end{align*}
+    \end{mdframed}
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    The \color{red}problem LONGEST-SIMPLE-CYCLE is a relation that
+    associates each instacne of a graph with the longest simple cycle in that graph \color{black}\color{black}.
+
+    \bigskip
+
+    The decision problem is, given $k$, to determine whether or not the instance graph
+    has a simple cycle of length at least $k$. If yes, output 1. Otherwise, output 0.
+
+    \bigskip
+
+    The language corresponding to the decision problem is as follows:
+
+    \begin{align*}
+        \begin{split}
+            \text{LONGEST-SIMPLE-CYCLE} = \{\color{red}\langle G,k\rangle\color{black}: &\text{$G = (V,E)$ is an undirected graph}\\
+            &\text{$k \geq \color{red}0\color{black}$ is an integer,}\\
+            &\text{There should exist a simple cycle in G}\\
+            &\text{with at least $k$ edges}\}
+        \end{split}
+    \end{align*}
+    \end{mdframed}
+
 
     % \bigskip
 
