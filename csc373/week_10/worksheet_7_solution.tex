@@ -407,7 +407,7 @@
     \end{itemize}
 
     \item
-
+    \setcounter{equation}{0}
     \bigskip
 
     I need to show whether the algorithm for 0-1 knapsack problem in exercise 16.2-2
@@ -488,6 +488,13 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item I understand this proof is wrong.
+        \item I feel the need to understand the language $L$ in terms of 0-1 fractional knapsack problem
+        \item How can I give language to this problem?
+        \item What is the formal definition of 0-1 knapsack problem?
+        \item How can I show that this algorithm is accepted?
+        \item How can I show that there exists a constant $k$ such that for any
+        length-n string $x \in L$, algorithm $A$ accepts $x$ in time $\mathcal{O}(n^k)$.
         \item \textbf{Polynominal Time}
 
         \begin{itemize}
@@ -498,9 +505,10 @@
         \item \textbf{Language (Cont')}
 
         \begin{itemize}
-            \item A language is accepted in polynominal time by an algorithm $A$,
+            \item A \textbf{language is accepted in polynominal time} by an algorithm $A$,
             if it's accepted by $A$, and if in addition there exists a constant $k$ such that
             for any length-n string $x \in L$, algorithm $A$ accepts $x$ in time $O(n^k)$.
+            \item I feel this statement is saying "the algorith runs in polynominal time if the algorithm is correct and is expressed in $\mathcal{O}(n^k)$ for some constant $k$".
         \end{itemize}
     \end{itemize}
 
