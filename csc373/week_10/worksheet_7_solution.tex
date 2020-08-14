@@ -547,13 +547,36 @@
     \begin{enumerate}[1.]
         \item Showing $L_1 \cup L_2 \in P$
 
-        \begin{mdframed}
+        \bigskip
+
         Assume $L_1,L_2 \in P$.
 
         \bigskip
 
+        I need to prove $L_1 \cup L_2 \in P$. That is, $L_1 \cup L_2 \subseteq \Sigma^*$ and
+        $L_1 \cup L_2$ is accepted by polynominal time algorithm.
 
-        \end{mdframed}
+        \bigskip
+
+        \begin{itemize}
+            \item Show that $L_1 \cup L_2 \subseteq \Sigma^*$
+
+            \bigskip
+
+            First, I need to show $L_1 \cup L_2 \subseteq \Sigma^*$
+
+            \begin{mdframed}
+            And indeed this is true since $L_1 \subseteq \Sigma^*$ and $L_2 \subseteq \Sigma^*$ and
+            the union of the languages $L_1 \cup L_2$ have elements that's in $\Sigma^*$.
+            \end{mdframed}
+
+            \item Show that $L_1 \cup L_2$ is accepted by polynominal time algorithm
+            \item Conclude by writing that $L_1 \cup L_2 \in P$
+
+            \begin{mdframed}
+            Thus, $L_1 \cup L_2 \in P$.
+            \end{mdframed}
+        \end{itemize}
     \end{enumerate}
 
 \end{enumerate}
