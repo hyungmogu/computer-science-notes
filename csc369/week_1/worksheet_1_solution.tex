@@ -206,7 +206,7 @@
 
     \item
 
-    I need to write what happens when one is waiting for I/O.
+    I need to write what happens when one is waiting for I/O (SWITCH\_ON\_IO).
 
     \bigskip
 
@@ -218,6 +218,40 @@
 
     \begin{center}
     \includegraphics[width=\linewidth]{images/worksheet_1_solution_3.png}
+    \end{center}
+
+    \item
+
+    First, I need to write what happens when combination of processes (-I IO\_RUN\_LATER, SWITCH\_ON\_IO) are used.
+
+    \bigskip
+
+    There are total of four processes.
+
+    \bigskip
+
+    While process 1 is in blocked state for I/O, process 2 executes.
+
+    \bigskip
+
+    When process 1 finishes its first I/O operation, it doesn't execute the next right away. It waits for process 3 and 4
+    to finish until it finally gets its turn for more I/O operations.
+
+    \bigskip
+
+    Second, I need to write if the system resources are effectively utilized uder the combination of processes.
+
+    \bigskip
+
+    The answer is no.
+
+    \bigskip
+
+    System resources could have been utilized more effectively if process 3 and 4
+    are run while process 1 is performing it's I/O operation.
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/worksheet_1_solution_4.png}
     \end{center}
 
 
