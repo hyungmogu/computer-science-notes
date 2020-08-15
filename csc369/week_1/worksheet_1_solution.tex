@@ -144,6 +144,29 @@
             \end{enumerate}
         \end{itemize}
     \end{itemize}
+
+    \item
+
+    It takes total of 10 seconds to run.
+
+    \bigskip
+
+    The first task only uses CPU, and takes 4 seconds.
+
+    \bigskip
+
+    But, for the second task, on top of 4 seconds used for I/O, 1 second is used for preparing and initiating I/O,
+    and the other 1 second is used for signaling that I/O is done.
+
+    \bigskip
+
+    So in total, we have $4 + 4 + 1 + 1 = 10$ seconds.
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/worksheet_1_solution_1.png}
+    \end{center}
+
+
 \end{enumerate}
 
 \end{document}
