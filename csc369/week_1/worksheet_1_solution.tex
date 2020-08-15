@@ -362,9 +362,33 @@
 
             So, in this example, there is no difference between \texttt{-I IO\_RUN\_IMMEDIATE} and \texttt{-I IO\_RUN\_LATER}.
 
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_1_solution_8.png}
+            \end{center}
+
         \end{itemize}
 
         \item \texttt{-S SWITCH\_ON\_IO} vs \texttt{-S SWITCH\_ON\_END}
+
+        \begin{itemize}
+            \item \texttt{-s 3 -l 3:50,3:50}
+
+            \bigskip
+
+            When the processes are run with \texttt{-S SWITCH\_ON\_IO}, it will work the same as when ran with \texttt{-I IO\_RUN\_IMMEDIATE}.
+
+            \bigskip
+
+            However, when the processes are run with \texttt{-S SWITCH\_ON\_END}, process 2 won't start until
+            process 1 finishes.
+
+            \bigskip
+
+            And this happens at
+            \bigskip
+
+            This alternating pattern will repeat until all opeartions in two processes are complete.
+        \end{itemize}
     \end{itemize}
 
 \end{enumerate}
