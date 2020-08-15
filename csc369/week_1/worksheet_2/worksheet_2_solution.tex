@@ -120,8 +120,21 @@
         \item \texttt{./fork.py -s 10 -a 10 -f 0.9}
 
         \begin{center}
+        \includegraphics[width=\linewidth]{images/worksheet_2_solution_7.png}
+        \end{center}
+
+        \begin{center}
         \end{center}
     \end{itemize}
+
+    Based on the diagram above, I can deduce that the lower the fork percentage,
+    the more likely that \texttt{exit()} is executed by the childmost process, and the
+    final tree will either have a single node or none.
+
+    \bigskip
+
+    On the other hand, the higher the fork-percentage is, the more likely that \texttt{fork()}
+    is executed by the childmost process, and the final tree will have nodes that are deeply nested.
 \end{enumerate}
 
 \newpage
