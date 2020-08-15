@@ -65,9 +65,32 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item \textbf{Process tree}
+
+        \begin{itemize}
+            \item
+        \end{itemize}
+
         \item \textbf{fork()}
         \begin{itemize}
             \item Is used to create a new process
+            \item \textbf{Creator} $\to$ parent process
+            \item \textbf{Newly Created} $\to$ child process
+            \item Child process is nearly identical to parent process
+        \end{itemize}
+
+        \item \textbf{exec()}
+
+        \begin{itemize}
+            \item Allows a child to break free from its similarity to its parent and execute an entirely new program.
+        \end{itemize}
+
+
+        \item \textbf{wait()}
+        \begin{itemize}
+            \item Is used to let parent code delay its execution until the child finishes
+            executing.
+            \item Makes the output deterministic
         \end{itemize}
     \end{itemize}
 \end{enumerate}
