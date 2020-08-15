@@ -328,6 +328,40 @@
 
             \item \texttt{-s 2 -l 3:50,3:50}
 
+            \bigskip
+
+            When it is run with \texttt{-I IO\_RUN\_IMMEDIATE},
+            process 1 enters blocked state for I/O operation at time = 2, and
+            process 2 executes while process 1 is in blocked state between time = 2 and time = 5.
+
+            \bigskip
+
+            We know that each CPU operation takes 1 second and initialization of I/O operation takes 1 second.
+
+            \bigskip
+
+            Using this information, process 2 will enter blocked state for I/O operation at time = 3 until time = 6.
+
+            \bigskip
+
+            Then, at time = 6, process 1 will run another I/O operation and enter blocked state from time = 7 to time = 10.
+
+            \bigskip
+
+            Then, at time = 8, process 2 will run last I/O operation and enter blocked state from time = 9 to time = 12.
+
+            \bigskip
+
+            Then, at time = 11, process 1 will execute CPU operation, and will finish at the same time.
+
+            \bigskip
+
+            Now, when it is run with \texttt{-I IO\_RUN\_LATER}, the same happens as above.
+
+            \bigskip
+
+            So, in this example, there is no difference between \texttt{-I IO\_RUN\_IMMEDIATE} and \texttt{-I IO\_RUN\_LATER}.
+
         \end{itemize}
 
         \item \texttt{-S SWITCH\_ON\_IO} vs \texttt{-S SWITCH\_ON\_END}
