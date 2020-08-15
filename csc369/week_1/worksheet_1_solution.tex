@@ -296,6 +296,37 @@
 
             \bigskip
 
+            When it is run with \texttt{-I IO\_RUN\_IMMEDIATE}, the CPU part of process 1
+            executes while process 2 waits in ready state.
+
+            \bigskip
+
+            When process 1 enters blocked state for I/O, process 2 starts.
+
+            \bigskip
+
+            We know that process 1 stays in blocked state for 4 seconds for each I/O operation.
+
+            \bigskip
+
+            Since process 2 is all about CPU and takes 3 seconds to complete,
+            process 2 will finish before process 1's second I/O operation.
+
+            \bigskip
+
+            Now, when it is run with \texttt{-I IO\_RUN\_LATER}, the same happens as above.
+
+            \bigskip
+
+            So, in this example, there is no difference between \texttt{-I IO\_RUN\_IMMEDIATE} and \texttt{-I IO\_RUN\_LATER}.
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/worksheet_1_solution_7.png}
+            \end{center}
+
+            \item \texttt{-s 2 -l 3:50,3:50}
 
         \end{itemize}
 
