@@ -50,6 +50,7 @@
 
 \begin{document}
 \title{CSC373 Worksheet 1 Solution}
+
 \maketitle
 
 \bigskip
@@ -59,9 +60,47 @@
 
     \bigskip
 
+    The cpu utilization is 100\%.
+
+    \bigskip
+
+    The CPU utilization formula is given as
+
+    \begin{align}
+        \text{CPU Utilization} &= 1 - \prod\limits_{i} \text{ I/O blocked time of ith process}
+    \end{align}
+
+    \bigskip
+
+    Since the processes do no I/O, we can write there is no I/O blocked time.
+
+    \bigskip
+
+    Thus, we can conclude
+
+
+    \begin{align}
+        \text{CPU Utilization} &= 1 - 0\\
+        &= 1
+    \end{align}
+
+    which is 100\%.
+
+    \bigskip
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item \textbf{CPU Utilization}
+
+        \begin{itemize}
+            \item Means \% of time CPU is in use
+            \item Formula is
+
+            \begin{align}
+                \text{CPU Utilization} &= 1 - \prod\limits_{i} \text{ I/O blocked time of ith process}
+            \end{align}
+        \end{itemize}
         \item \textbf{Process}
 
         \begin{itemize}
@@ -81,8 +120,27 @@
 
             \begin{enumerate}[1.]
                 \item \textbf{Running:}
-                 \item \textbf{Ready:}
+                \begin{itemize}
+                    \item Is running on a processor
+                    \item Means `Is executing instructions'
+                \end{itemize}
+                \item \textbf{Ready:}
+
+                \begin{itemize}
+                    \item Is ready to run
+                    \item But, OS chosen to not to run it at the moment
+                \end{itemize}
                 \item \textbf{Blocked:}
+
+                \begin{itemize}
+                    \item Is not ready to run until some other event takes place
+
+                    \bigskip
+
+                    \underline{\textbf{Example}}
+
+                    Running an I/O request to disk $\to$ process blocked $\to$ other process can do their job while waiting
+                \end{itemize}
             \end{enumerate}
         \end{itemize}
     \end{itemize}
