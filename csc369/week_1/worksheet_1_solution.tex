@@ -261,6 +261,16 @@
 
     \bigskip
 
+    When the process is run with \texttt{-I IO\_RUN\_IMMEDIATE}, process 1 runs immediately one after another.
+    And in each of process 1's blocked state, other processes are executed (process 2, process 3, process 4).
+
+    \bigskip
+
+    This differs from \texttt{-I IO\_RUN\_LATER} where process 1
+    waits until other processes finish.
+
+    \bigskip
+
     Second, I need to write why running a process that just completed an I/O again is
     a good idea?
 
