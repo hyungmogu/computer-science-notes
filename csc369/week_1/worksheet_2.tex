@@ -58,6 +58,47 @@ Source: \href{http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf}{link}
 
 \bigskip
 
+\section{Homework (Simulation)}
+
+\bigskip
+
+\begin{enumerate}[1.]
+    \item Run \texttt{./fork.py -s 10} and see which actions are taken. Can you
+    predict what the process tree looks like at each step? Use the \texttt{-c}
+    flag to check your answers. Try some different random seeds (\texttt{-s})
+    or add more actions (\texttt{-a}) to get the hang of it.
+
+    \item One control the simulator gives you is the fork percentage, controlled by the \texttt{-f} flag. The higher it is, the more likely the next
+    action is a fork; the lower it is, the more likely the action is an
+    exit. Run the simulator with a large number of actions (e.g., \texttt{-a
+    100}) and vary the fork percentage from 0.1 to 0.9. What do you
+    think the resulting final process trees will look like as the percentage changes? Check your answer with \texttt{-c}.
+
+    \item Now, switch the output by using the \texttt{-t} flag (e.g., run \texttt{./fork.py
+    -t}). Given a set of process trees, can you tell which actions were
+    taken?
+
+    \item One interesting thing to note is what happens when a child exits;
+    what happens to its children in the process tree? To study this, let’s
+    create a specific example: \texttt{./fork.py -A a+b,b+c,c+d,c+e,c-}.
+    This example has process ’a’ create ’b’, which in turn creates ’c’,
+    which then creates ’d’ and ’e’. However, then, ’c’ exits. What do
+    you think the process tree should like after the exit? What if you
+    use the \texttt{-R} flag? Learn more about what happens to orphaned processes on your own to add more context.
+
+    \item One last flag to explore is the \texttt{-F} flag, which skips intermediate
+    steps and only asks to fill in the final process tree. Run \texttt{./fork.py}
+    \texttt{-F} and see if you can write down the final tree by looking at the
+    series of actions generated. Use different random seeds to try this a
+    few times.
+
+    \item Finally, use both \texttt{-t} and \texttt{-F} together. This shows the final process
+    tree, but then asks you to fill in the actions that took place. By looking at the tree, can you determine the exact actions that took place?
+    In which cases can you tell? In which can’t you tell? Try some different random seeds to delve into this question.
+\end{enumerate}
+
+\bigskip
+
 \section{Homework (Code)}
 
 \begin{enumerate}[1.]
