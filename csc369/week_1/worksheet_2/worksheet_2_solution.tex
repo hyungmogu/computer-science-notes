@@ -592,12 +592,36 @@
         \begin{itemize}
             \item \textbf{Syntax} \texttt{int pipe(int pipefd[2], int flags)}
             \begin{itemize}
-                \item \texttt{int pipefd[2]} represents an integer array of size 2.
-                \item Output written to \texttt{fd[1]} is read from \texttt{fd[0]}
+                \item \texttt{int pipefd[2]} is an integer array of size 2.
+                \item Is written to \texttt{fd[1]} using \textbf{write()} by one process
+                \item Is read from \texttt{fd[0]} using \textbf{read()} by another process
             \end{itemize}
+            \item \textbf{Syntax (Read):} \texttt{ssize\_t read(int fd, void *buf, size\_t count);}
+            \item \textbf{Syntax (Write):} \texttt{ssize\_t write(int fd, const void *buf, size\_t count);}
             \item Is used to communicate between two processes.
-            \item
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <unistd.h>
+    #define MSGSIZE 6
+
+    int main(void) {
+        char *msg1 = "hello";
+
+        int ret;
+        char *cmd[] = { "ls", "-l", NULL};
+        char *const env[] = {"HOME=/usr/moegu", "LOGNAME=moegu", NULL};
+        ret = execve ("/bin/ls", cmd, env);
+        return 0;
+    }
+\end{lstlisting}
     \end{itemize}
 
 
