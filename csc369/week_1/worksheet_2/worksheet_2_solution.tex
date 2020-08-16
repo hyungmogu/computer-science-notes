@@ -573,6 +573,33 @@
     \includegraphics[width=0.8\linewidth]{images/worksheet_2_solution_17.png}
     \end{center}
 
+    \item
+
+    I need to write a program that creates two children, and connects the standard
+    output of one of the standard input of the other, using the \texttt{pipe()} system call.
+
+    \bigskip
+
+    Please referr to file \texttt{question\_14.c}.
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Pipe}
+
+        \begin{itemize}
+            \item \textbf{Syntax} \texttt{int pipe(int pipefd[2], int flags)}
+            \begin{itemize}
+                \item \texttt{int pipefd[2]} represents an integer array of size 2.
+                \item Output written to \texttt{fd[1]} is read from \texttt{fd[0]}
+            \end{itemize}
+            \item Is used to communicate between two processes.
+            \item
+        \end{itemize}
+    \end{itemize}
+
 
 \end{enumerate}
 
