@@ -610,19 +610,45 @@
 \begin{lstlisting}[language=c]
     #include <stdio.h>
     #include <unistd.h>
-    #define MSGSIZE 6
+    #define MSGSIZE 16
+    char* msg1 = "hello, world #1";
+    char* msg2 = "hello, world #2";
+    char* msg3 = "hello, world #3";
 
-    int main(void) {
-        char *msg1 = "hello";
+    int main()
+    {
+        char inbuf[MSGSIZE];
+        int p[2], i;
 
-        int ret;
-        char *cmd[] = { "ls", "-l", NULL};
-        char *const env[] = {"HOME=/usr/moegu", "LOGNAME=moegu", NULL};
-        ret = execve ("/bin/ls", cmd, env);
+        if (pipe(p) < 0)
+            exit(1);
+
+        /* continued */
+        /* write pipe */
+
+        write(p[1], msg1, MSGSIZE);
+        write(p[1], msg2, MSGSIZE);
+        write(p[1], msg3, MSGSIZE);
+
+        for (i = 0; i < 3; i++) {
+            /* read pipe */
+            read(p[0], inbuf, MSGSIZE);
+            printf("% s\n", inbuf);
+        }
         return 0;
     }
 \end{lstlisting}
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    \begin{enumerate}[1)]
+        \item Geeks for Geeks, System Call, \href{https://www.geeksforgeeks.org/pipe-system-call/}{link}
+    \end{enumerate}
 
 
 \end{enumerate}
