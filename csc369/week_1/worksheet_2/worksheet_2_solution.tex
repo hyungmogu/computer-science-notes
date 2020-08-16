@@ -321,6 +321,16 @@
 
     \bigskip
 
+    Second, I need to answer why there are so many variants of the same basic call?
+
+    \bigskip
+
+    According to Wikipedia (\href{https://en.wikipedia.org/wiki/Exec_(system_call)#C_language_prototypes}{link}),
+    the variations of \texttt{exec()} are to satisfy requirements of various programming languages (e.g Python, BASH)
+    and operating systems (e.g Linux, Windows).
+
+    \bigskip
+
     \underline{\textbf{Notes}}
 
     \bigskip
@@ -329,10 +339,47 @@
         \item \textbf{execl}
 
         \begin{itemize}
-            \item Takes the path of the executable binary file
+            \item Doesn't use PATH (a shortcut command). Requires full path of the executable file.
+
+\begin{lstlisting}[language=c]
+    #include <unistd.h>
+
+    int main(void) {
+        char *binaryPath = "/bin/ls";
+        char *arg1 = "-lh";
+        char *arg2 = "/home";
+
+        execl(binaryPath, binaryPath, arg1, arg2, NULL);
+
+        return 0;
+    }
+\end{lstlisting}
+
         \end{itemize}
 
         \item \textbf{execlp}
+
+        \begin{itemize}
+            \item Uses PATH
+            \item Is structurally similar to \texttt{excel()}
+        \end{itemize}
+
+
+\begin{lstlisting}[language=c]
+    #include <unistd.h>
+
+    int main(void) {
+      char *programName = "ls";
+      char *arg1 = "-lh";
+      char *arg2 = "/home";
+
+      execlp(programName, programName, arg1, arg2, NULL);
+
+      return 0;
+    }
+\end{lstlisting}
+
+
         \item \textbf{execv}
         \item \textbf{execvp}
         \item \textbf{execle}

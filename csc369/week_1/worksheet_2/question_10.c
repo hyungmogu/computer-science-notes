@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     // child
         printf("I am a child\n");
         execl("/bin/ls", "-l", NULL);
+        execlp("ls", "-l", NULL);
         printf("--------");
     } else {
     // parent
