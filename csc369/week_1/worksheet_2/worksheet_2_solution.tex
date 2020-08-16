@@ -293,19 +293,17 @@
 
     \item
 
+    Yes. Both the child and parent can access the file descriptor returned by \texttt{open()}.
 
     \bigskip
 
-    \underline{\textbf{Notes}}
+    When they are writing to file concurrently, parent's write() is considered before children.
 
-    \begin{itemize}
-        \item \textbf{fopen}
+    \bigskip
 
-        \begin{itemize}
-            \item
-        \end{itemize}
-    \end{itemize}
-
+    \begin{center}
+    \includegraphics[width=0.5\linewidth]{images/worksheet_2_solution_16.png}
+    \end{center}
 
 
 \end{enumerate}
