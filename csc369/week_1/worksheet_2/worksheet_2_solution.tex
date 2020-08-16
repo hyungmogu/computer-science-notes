@@ -518,7 +518,8 @@
     Given the definition of \texttt{waitpid()}, \texttt{waitpid()} is useful when
 
     \begin{enumerate}[1)]
-        \item
+        \item Waiting for a specific child process
+        \item Waiting for child processes with specific group pid
     \end{enumerate}
 
     \bigskip
@@ -537,13 +538,16 @@
 
             The value of \texttt{pid} can be
             \begin{itemize}
-                \item \textbf{<-1:} wait for any child process whose process group ID is equal to
+                \item \textbf{$<-1$:} wait for any child process whose process group ID is equal to
                 the absolute value of \texttt{pid}
-                \item \textbf{-1:} wait for any child process
-                \item \textbf{0:} wait for any child process whose process group ID is equal to that of the
+                \item \textbf{$-1$:} wait for any child process
+                \item \textbf{$0$:} wait for any child process whose process group ID is equal to that of the
                 calling process.
-                \item \textbf{>0:} wait for the child whose process ID is equal to the value of PID
+                \item \textbf{$>0$:} wait for the child whose process ID is equal to the value of PID
             \end{itemize}
+
+            \item \textbf{stat\_loc} can have value \texttt{NULL} or one of its status options
+            \item \textbf{options} can have value \texttt{0} or one of its options
         \end{itemize}
     \end{itemize}
 
