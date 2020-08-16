@@ -321,7 +321,7 @@
 
     \bigskip
 
-    Second, I need to answer why there are so many variants of the same basic call?
+    Second, I need to write why there are so many variants of the same basic call?
 
     \bigskip
 
@@ -436,10 +436,34 @@
 \end{lstlisting}
         \end{itemize}
         \item \textbf{execve}
+        \begin{itemize}
+            \item Works simiarily to \texttt{execle()}
+            \item Can provide own environment variables along with \texttt{execv()}.
+
+
+\begin{lstlisting}[language=c]
+    #include <unistd.h>
+
+    int main(void) {
+
+        int ret;
+        char *cmd[] = { "ls", "-l", NULL};
+        char *const env[] = {"HOME=/usr/moegu", "LOGNAME=moegu", NULL};
+        ret = execve ("/bin/ls", cmd, env);
+        return 0;
+    }
+\end{lstlisting}
+        \end{itemize}
     \end{itemize}
 
+    \bigskip
 
+    \underline{\textbf{References}}
 
+    \begin{enumerate}[1)]
+        \item Linuxhunt, Exec System Call in C, \href{https://linuxhint.com/exec_linux_system_call_c/}{link}
+        \item SysTutorials, execle (3p) - Linux Man Pages, \href{https://www.systutorials.com/docs/linux/man/3p-execle/}{link}
+    \end{enumerate}
 
 \end{enumerate}
 

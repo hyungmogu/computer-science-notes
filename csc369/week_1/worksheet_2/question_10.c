@@ -11,16 +11,18 @@ int main(int argc, char *argv[]) {
     int rc = fork();
     assert(rc > -1);
     if (rc == 0) {
-    // child
+        // child
+        // Comment the rest of exec commands to continue
         printf("I am a child\n");
         execl("/bin/ls", "-l", NULL);
         execlp("ls", "-l", NULL);
         execle("/bin/ls", "ls", "-l", NULL, envp);
         execv("/bin/ls", cmd);
         execvp("ls", cmd);
+        execve("/bin/ls", cmd, envp);
         printf("--------");
     } else {
-    // parent
+        // parent
         printf("I am a parent\n");
     }
     return 0;
