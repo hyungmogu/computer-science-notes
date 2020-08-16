@@ -7,6 +7,7 @@
 
 int main(int argc, char *argv[]) {
     char *envp[] =  {"HOME=/usr/moegu", "LOGNAME=moegu", NULL}; // HOME - directory of user, LOGNAME - username
+    char *cmd[] = {"ls", "-l", NULL};
     int rc = fork();
     assert(rc > -1);
     if (rc == 0) {
@@ -15,6 +16,8 @@ int main(int argc, char *argv[]) {
         execl("/bin/ls", "-l", NULL);
         execlp("ls", "-l", NULL);
         execle("/bin/ls", "ls", "-l", NULL, envp);
+        execv("/bin/ls", cmd);
+        execvp("ls", cmd);
         printf("--------");
     } else {
     // parent

@@ -362,27 +362,26 @@
         \begin{itemize}
             \item Uses PATH
             \item Is structurally similar to \texttt{excel()}
-        \end{itemize}
-
 
 \begin{lstlisting}[language=c]
     #include <unistd.h>
 
     int main(void) {
-      char *programName = "ls";
-      char *arg1 = "-lh";
-      char *arg2 = "/home";
+        char *programName = "ls";
+        char *arg1 = "-lh";
+        char *arg2 = "/home";
 
-      execlp(programName, programName, arg1, arg2, NULL);
+        execlp(programName, programName, arg1, arg2, NULL);
 
-      return 0;
+        return 0;
     }
 \end{lstlisting}
+        \end{itemize}
+
         \item \textbf{execle}
         \begin{itemize}
             \item Works like \texttt{execl()}
             \item Can provide your own environment variables. (e.g. \texttt{\$PORT})
-        \end{itemize}
 
 \begin{lstlisting}[language=c]
     #include <unistd.h>
@@ -398,11 +397,48 @@
     return 0;
     }
 \end{lstlisting}
+        \end{itemize}
 
         \item \textbf{execv}
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{int execv(const char *path, char *const argv[]);}
+            \item Passes all arguements in array \texttt{argv}
+
+\begin{lstlisting}[language=c]
+    #include <unistd.h>
+
+    int main(void) {
+
+        int ret;
+        char *cmd[] = { "ls", "-l", NULL};
+        ret = execv ("/bin/ls", cmd);
+        return 0;
+    }
+\end{lstlisting}
+        \end{itemize}
+
         \item \textbf{execvp}
+
+        \begin{itemize}
+            \item Works the same as \texttt{execvp()}, but the PATH environment variable is used.
+
+
+\begin{lstlisting}[language=c]
+    #include <unistd.h>
+
+    int main(void) {
+
+        int ret;
+        char *cmd[] = { "ls", "-l", NULL};
+        ret = execv ("ls", cmd);
+        return 0;
+    }
+\end{lstlisting}
+        \end{itemize}
         \item \textbf{execve}
     \end{itemize}
+
+
 
 
 \end{enumerate}
