@@ -500,6 +500,30 @@
 
     (Please referr to \texttt{question\_11\_part\_2.c})
 
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \bigskip
+
+    \begin{itemize}
+        \item \textbf{waitpid}
+
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{pid\_t waitpid(pid\_t pid, int *stat\_loc, int options);}
+
+            \bigskip
+
+            The value of \texttt{pid} can be
+            \begin{itemize}
+                \item \textbf{-1:} wait for any child process
+                \item \textbf{>0:} wait for the child whose process ID is equal to the value of PID
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
