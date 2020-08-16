@@ -6,7 +6,7 @@
 #include <sys/wait.h>
 
 int main(int argc, char *argv[]) {
-    // create child process
+    char *envp[] =  {"HOME=/usr/moegu", "LOGNAME=moegu", NULL}; // HOME - directory of user, LOGNAME - username
     int rc = fork();
     assert(rc > -1);
     if (rc == 0) {
@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
         printf("I am a child\n");
         execl("/bin/ls", "-l", NULL);
         execlp("ls", "-l", NULL);
-        execle("/bin/bash", "-c", "echo ", NULL, {})
+        execle("/bin/ls", "ls", "-l", NULL, envp);
         printf("--------");
     } else {
     // parent
