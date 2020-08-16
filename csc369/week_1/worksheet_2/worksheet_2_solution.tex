@@ -502,6 +502,25 @@
 
     \item
 
+    First, I need to write a slight modification of the previous program, replacing
+    \texttt{wait()} with \texttt{waitpid()}.
+
+    \bigskip
+
+    The solution is attached in file \texttt{question\_12.c}.
+
+    \bigskip
+
+    Second, I need to write when \texttt{waitpid()} would be useful.
+
+    \bigskip
+
+    Given the definition of \texttt{waitpid()}, \texttt{waitpid()} is useful when
+
+    \begin{enumerate}[1)]
+        \item
+    \end{enumerate}
+
     \bigskip
 
     \underline{\textbf{Notes}}
@@ -518,7 +537,11 @@
 
             The value of \texttt{pid} can be
             \begin{itemize}
+                \item \textbf{<-1:} wait for any child process whose process group ID is equal to
+                the absolute value of \texttt{pid}
                 \item \textbf{-1:} wait for any child process
+                \item \textbf{0:} wait for any child process whose process group ID is equal to that of the
+                calling process.
                 \item \textbf{>0:} wait for the child whose process ID is equal to the value of PID
             \end{itemize}
         \end{itemize}
