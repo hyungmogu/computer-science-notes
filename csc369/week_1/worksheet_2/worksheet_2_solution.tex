@@ -147,11 +147,49 @@
     \item
 
     I need to write what happens when a child exits; what happens to its
-    children in the process tree .
+    children in the process tree.
 
     \bigskip
 
     When a child exists, all of its children will also exit.
+
+    \bigskip
+
+    I am not sure what happens when \texttt{-R} flag is used.
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+    I need to write what happens when a child exits; what happens to its
+    children in the process tree.
+
+    \bigskip
+
+    \color{red}When a child exists, its parentmost child, along with its children,
+    will be attached to the parentmost node\color{black}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/worksheet_2_solution_9.png}
+    \end{center}
+
+    \bigskip
+
+    \color{red}When \texttt{-R} flag is used (i.e \texttt{./fork.py -A a+b,b+c,c+d,c+e,c- -R}) and
+    a child exists, its parentmost child, along with its children will be attached to
+    the parent node of the child that exits\color{black}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/worksheet_2_solution_10.png}
+    \end{center}
+
+
+    \end{mdframed}
 
 
 \end{enumerate}
