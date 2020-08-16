@@ -6,7 +6,6 @@
 #include <sys/wait.h>
 
 int main(int argc, char *argv[]) {
-    // setup open()
     // create child process
     int rc = fork();
     assert(rc > -1);
@@ -15,6 +14,7 @@ int main(int argc, char *argv[]) {
         printf("I am a child\n");
         execl("/bin/ls", "-l", NULL);
         execlp("ls", "-l", NULL);
+        execle("/bin/bash", "-c", "echo ", NULL, {})
         printf("--------");
     } else {
     // parent
