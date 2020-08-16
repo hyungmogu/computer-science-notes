@@ -250,11 +250,15 @@
 \begin{enumerate}[1.]
     \item
 
+    Let $x = 1000$.
+
+    \bigskip
+
     First, I need to write the value of the variable $x$ in the child process.
 
     \bigskip
 
-    The value of $x$ in child process is the same as the parent.
+    The value of $x$ in child process is the same as the parent (source code is provided in \texttt{question\_7\_part\_1.c}).
 
     \bigskip
 
@@ -262,15 +266,29 @@
     \includegraphics[width=0.5\linewidth]{images/worksheet_2_solution_14.png}
     \end{center}
 
+    \bigskip
+
+    Second, I need to write what happens to variable $x$ when both child and the
+    parent change the value of $x$ (source code is provided in \texttt{question\_7\_part\_2.c}).
 
     \bigskip
+
+    Upon change of the value of $x$ in both child and parent, each possesses their own values
+    as if it's their own.
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.5\linewidth]{images/worksheet_2_solution_15.png}
+    \end{center}
+
 
     \bigskip
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item File can be compiled via command \texttt{gcc -o OUTPUT\_FILE\_NAME SOURCE\_FILE\_NAME.c}
+        \item C file can be compiled via command \texttt{gcc -o OUTPUT\_FILE\_NAME SOURCE\_FILE\_NAME.c}
     \end{itemize}
 \end{enumerate}
 
