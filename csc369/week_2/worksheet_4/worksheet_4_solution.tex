@@ -398,6 +398,24 @@
     SJF delivers the same response time as RR when the length of each job is the same
     as the quantum length of each job.
 
+    \item
+
+    As job lengths increase, the average response time also increases.
+
+    \bigskip
+
+    The following simulations are done to demonstrate the relationship between
+    job lengths and average response time
+
+    \begin{itemize}
+        \item ./scheduler.py -p SJF -j 3 -l 100,100,100 -c
+        \item ./scheduler.py -p SJF -j 3 -l 200,200,200 -c
+        \item ./scheduler.py -p SJF -j 3 -l 300,300,300 -c
+        \item ./scheduler.py -p SJF -j 3 -l 400,400,400 -c
+    \end{itemize}
+
+
+
 \end{enumerate}
 
 \end{document}
