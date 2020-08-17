@@ -55,16 +55,45 @@
 \bigskip
 
 \begin{enumerate}[1.]
-    \item \texttt{-M 0} turns off I/O in \texttt{mlfq.py}
-    \item \texttt{-n 2} sets number of queues to 2
-    \item \texttt{-j 2} sets number of jobs to 2
+    \item
+
+    \bigskip
+
+    I need to run randomly-generated problems with two jobs and two queues using
+    file \texttt{mlfq.py} with I/O turned off, and compute the MLFQ execution trace for each.
+
+    \bigskip
+
+    Using the command \texttt{./mlfq.py -s 1 -m 10 -n 2 -j 2 -M 0}, we have
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{images/worksheet_5_solution_3.png}
+    \end{center}
+
+    with
+
+    \begin{itemize}
+        \item allotment time for queue 1 is 1
+        \item quantum length for queue 1 is 10
+        \item allotment time for queue 0 is 1
+        \item quantum length for queue 0 is 10
+        \item no priority boost
+    \end{itemize},
+
+    the exeuction trace is:
 
     \bigskip
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item
+        \item \texttt{-m 10} sets the maximum runtime of a job to 10
+        \item \texttt{-M 0} turns off I/O in \texttt{mlfq.py}
+        \item \texttt{-n 2} sets number of queues to 2
+        \item \texttt{-j 2} sets number of jobs to 2
+
         \item \textbf{Multi-level Feeback Queue (MLFQ):}
 
         \begin{itemize}
