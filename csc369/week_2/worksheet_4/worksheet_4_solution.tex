@@ -414,6 +414,36 @@
         \item ./scheduler.py -p SJF -j 3 -l 400,400,400 -c
     \end{itemize}
 
+    \item
+
+    First, I need to answer what happens to response time with RR as quantum length
+    increases.
+
+    \bigskip
+
+    As quantum length increases, the response time with RR also increases.
+
+    \bigskip
+
+    Second, I need to write an equation that gives the worst-case response time, given
+    $N$ jobs.
+
+    \bigskip
+
+    Let $m_i$ where $i = 1,...,n$ represent the length of $i^{th}$ job.
+
+    \bigskip
+
+    Since the response time is highest when all of their quantum length are equal to their corresponding job length,
+    the worst-case response time is
+
+
+    \begin{align}
+        \frac{\sum\limits_{i=1}^{N-1}\sum\limits_{j=1}^{i} m_j}{N}
+    \end{align}
+
+    seconds.
+
 
 
 \end{enumerate}
