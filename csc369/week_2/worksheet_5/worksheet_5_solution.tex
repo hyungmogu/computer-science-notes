@@ -89,6 +89,30 @@
         \includegraphics[width=0.8\linewidth]{images/worksheet_5_solution_1.png}
         \end{center}
 
+        \item \textbf{Attemp \#1: How to Change Priority}
+
+        \begin{itemize}
+            \item \textbf{Rule 3:} When a job enters the system, it is placed at the \underline{highest}
+            priority (the topmost queue)
+            \item \textbf{Rule 4a:} If a job uses up an entire time slice while running , its' priority is
+            \underline{reduced} (i.e. it moves down on queue).
+            \item \textbf{Rule 4b:} If a job gives up the CPU before the time slice is up, it stays
+            at the \underline{same} priority level (e.g I/O Operation)
+
+            \bigskip
+
+            \underline{\textbf{Example (Shortest Running Job):}}
+
+            \bigskip
+
+            \begin{enumerate}[1)]
+                \item A job $A$ enters system
+                \item Job is placed on highest Queue $Q_2$
+                \item After time-slice (e.g. 10 ms) in $Q_2$, $A$ is placed on lower queue $Q_1$
+                \item After time-slice in $Q_1$, $A$ is placed in lowest priority queue $Q_0$
+            \end{enumerate}
+        \end{itemize}
+
 
     \end{itemize}
 \end{enumerate}
