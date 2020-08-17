@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <unistd.h> // fork, write, close, excel
 #include <assert.h> // assert
-#include <time.h>   // delay
+#include <string.h> // strlen
 #include <sys/wait.h>
 
 int main(int argc, char *argv[]) {
     int fd[2], rc, rc2;
-
+    char *msg1 = "hello world";
     // create pipe
     int p1 = pipe(fd);
     assert(p1 > -1);
@@ -19,12 +19,10 @@ int main(int argc, char *argv[]) {
         // Child
         // close standard input (STDIN_FILENO)
         close(STDIN_FILENO);
-        // duplicate the input end of pipe (fd[1])
-        dup(fd[1]);
-        // close unused pipe ends
-        close(fd[0]);
-        close(fd[1]);
+        // close unused pipe ends (fd[STDOUT_FILENO])
+        close(fd[STDOUT_FILENO]);
         // establish the output of this process as the input for pipe
+        write(fd[STDIN_FILENO], msg1, strlen(msg1) + 1);
         return 0;
     }
 
@@ -33,16 +31,15 @@ int main(int argc, char *argv[]) {
     assert(rc2 > -1);
     if (rc == 0) {
         // Child
-        // close standard output (STDOUT_FILENO)
-        close(STDOUT_FILENO);
-        // duplicate the output end of pipe (fd[0])
-        dup(fd[0]);
-        // duplicate and close unused pipe ends
+        char response[strlen(msg1) + 1];
+        // close unused pipe ends (fd[STDIN_FILENO])
+        close(fd[STDIN_FILENO]);
         // establish the input of this process as the output for pipe
-        close(STDOUT_FILENO);
-        printf("I am a child\n");
+        read(fd[STDOUT_FILENO], response, strlen(response) + 1);
+        printf("RESULT: %s", response);
         return 0;
     }
+    printf("**Parent process ending**");
     close(fd[0]);
 	close(fd[1]);
     return 0;
