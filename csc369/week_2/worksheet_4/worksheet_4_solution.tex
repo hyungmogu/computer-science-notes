@@ -57,7 +57,15 @@
 \begin{enumerate}[1.]
     \item
 
-    Assume all arrive jobs at the same time.
+    The following assumptions are made before calculation:
+
+    \begin{itemize}
+        \item Each job runs for the same amount of time
+        \item All jobs arrive at the same time
+        \item Once started, each job runs to completion
+        \item All jobs only use the CPU (i.e they perform no I/O)
+        \item The run-time of each job is known
+    \end{itemize}
 
     \bigskip
 
@@ -71,7 +79,7 @@
     \bigskip
 
     \begin{itemize}
-        \item \textbf{Part 1:} Calculating turnaroundtime with FIFO schedulers
+        \item \textbf{Part 1:} Calculating turnaround time with FIFO schedulers
 
         \begin{align}
             \frac{200 + 400 + 600}{3} = 400
@@ -79,7 +87,7 @@
 
         seconds.
 
-        \item \textbf{Part 2:} Calculating turnaroundtime with SJF schedulers
+        \item \textbf{Part 2:} Calculating turnaround time with SJF schedulers
 
         \begin{align}
             \frac{200 + 400 + 600}{3} = 400
@@ -92,6 +100,26 @@
     with the SJF and FIFO schedulers.
 
     \bigskip
+
+    I will do so in parts
+
+    \begin{itemize}
+        \item \textbf{Part 1:} Calculating response time with FIFO schedulers
+
+        \begin{align}
+            \frac{0 + 200 + 400}{3} = 200
+        \end{align}
+
+        seconds.
+
+        \item \textbf{Part 2:} Calculating response time with SJF schedulers
+
+        \begin{align}
+            \frac{0 + 200 + 400}{3} = 200
+        \end{align}
+
+        seconds.
+    \end{itemize}
 
     \underline{\textbf{Notes}}
 
@@ -179,6 +207,23 @@
             \item $T_{firstrun}$ $\to$ First time a job is scheduled
             \item $T_{arrival}$ $\to$ Time at which the job arrived in the system
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \begin{center}
+        \includegraphics[width=0.6\linewidth]{images/worksheet_4_solution_3.png}
+        \end{center}
+
+        \bigskip
+
+        Here, the average response time is
+
+        \begin{align}
+            \frac{0 + 5 + 10}{3} = 5
+        \end{align}
+
     \end{itemize}
 
     \bigskip
