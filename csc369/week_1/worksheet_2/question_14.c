@@ -17,29 +17,29 @@ int main(int argc, char *argv[]) {
     assert(rc > -1);
     if (rc == 0) {
         // Child
-        // close standard input (STDIN_FILENO)
-        close(STDIN_FILENO);
-        // close unused pipe ends (fd[STDOUT_FILENO])
-        close(fd[STDOUT_FILENO]);
-        // establish the output of this process as the input for pipe
-        write(fd[STDIN_FILENO], msg1, strlen(msg1) + 1);
-        return 0;
+        // close read end of pipe (fd[0])
+        close(fd[0]);
+        // write to pipe
+        write(fd[1], msg1, strlen(msg1) + 1);
+        close(fd[1]);
+        exit(0);
     }
 
     // Create child process 2
     rc2 = fork();
     assert(rc2 > -1);
-    if (rc == 0) {
+    if (rc2 == 0) {
         // Child
         char response[strlen(msg1) + 1];
-        // close unused pipe ends (fd[STDIN_FILENO])
-        close(fd[STDIN_FILENO]);
-        // establish the input of this process as the output for pipe
-        read(fd[STDOUT_FILENO], response, strlen(response) + 1);
-        printf("RESULT: %s", response);
-        return 0;
+        // close write end of pipe (fd[1])
+        close(fd[1]);
+        // read pipe
+        read(fd[0], response, strlen(msg1) + 1);
+        printf("RESULT: %s\n", response);
+        close(fd[0]);
+        exit(0);
     }
-    printf("**Parent process ending**");
+    printf("**Parent process ending**\n");
     close(fd[0]);
 	close(fd[1]);
     return 0;
