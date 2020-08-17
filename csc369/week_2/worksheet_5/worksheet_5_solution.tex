@@ -99,6 +99,10 @@
             \item \textbf{Rule 4b:} If a job gives up the CPU before the time slice is up, it stays
             at the \underline{same} priority level (e.g I/O Operation)
 
+            \begin{itemize}
+                \item Means that the shifting down of priority level only depends on CPU time
+            \end{itemize}
+
             \bigskip
 
             \underline{\textbf{Example (Along Came a Short Job):}}
@@ -115,6 +119,17 @@
             \begin{center}
             \includegraphics[width=0.8\linewidth]{images/worksheet_5_solution_2.png}
             \end{center}
+        \end{itemize}
+
+        \item \textbf{Attemp \#2: The Priority Boost}
+
+        \begin{itemize}
+            \item \textbf{Rule 5:} After some time period $S$, move all the jobs in the system
+            to the topmost queue.
+
+            \begin{itemize}
+                \item This is to prevent starvation (i.e. a job never being run)
+            \end{itemize}
         \end{itemize}
 
 
