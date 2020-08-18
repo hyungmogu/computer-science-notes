@@ -86,11 +86,28 @@
 
     \bigskip
 
+\begin{lstlisting}
+    [time 0] Job begins by job 0
+    [time 0] Job begins by job 1
+    [time 0] Run job 0 at priority 1 [Ticks 9, Allotment 1, Time 1 (of 2)]
+    [time 1] Run job 0 at priority 1 [Ticks 8, Allotment 1, Time 0 (of 2)]
+    [time 2] Finished JOB 0
+    [time 2] Run job 1 at priority 1 [Ticks 9, Allotment 1, Time 6 (of 7)]
+    [time 3] Run job 1 at priority 1 [Ticks 8, Allotment 1, Time 5 (of 7)]
+    [time 4] Run job 1 at priority 1 [Ticks 7, Allotment 1, Time 4 (of 7)]
+    [time 5] Run job 1 at priority 1 [Ticks 6, Allotment 1, Time 3 (of 7)]
+    [time 6] Run job 1 at priority 1 [Ticks 5, Allotment 1, Time 2 (of 7)]
+    [time 7] Run job 1 at priority 1 [Ticks 4, Allotment 1, Time 1 (of 7)]
+    [time 8] Run job 1 at priority 1 [Ticks 3, Allotment 1, Time 0 (of 7)]
+    [time 9] Finished JOB 1
+\end{lstlisting}
 
+    \bigskip
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item Learned that notification and subsequent job execution happen at the same time.
         \item The reason why round robin doesn't occur despite $\text{Priority(A)} = \text{Priority(B)}$
         is because allotment of queue is 1 (i.e. only one job can be in a queue)
         \item \textbf{allotment} means the amount of something allocated to a person/object (i.e. the size of queue)
