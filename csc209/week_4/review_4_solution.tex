@@ -260,6 +260,24 @@
         *q = temp;
     }
 \end{lstlisting}
+
+    \item
+
+\begin{lstlisting}[language=c]
+    void split_time(long total_sec, int *hr, int *min, int *sec) {
+        int hours, mins, seconds, min_sec;
+
+        hours = total_sec % 60;
+        min_sec = total_sec - hours;
+        mins = min_sec % 60;
+        seconds = min_sec - mins;
+
+        *hr = hours;
+        *min = mins;
+        *sec = seconds;
+    }
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
