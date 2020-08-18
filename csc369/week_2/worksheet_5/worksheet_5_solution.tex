@@ -241,7 +241,11 @@
 
         Combining together we have
 
+        \bigskip
+
         \texttt{./mlfq.py -l 0,200,0 -n 3 -j 1 -c}
+
+        \bigskip
 
         \item Example 2: Along Came A Short Job
 
@@ -268,7 +272,11 @@
 
         Combining together we have
 
+        \bigskip
+
         \texttt{./mlfq.py -l 0,180,0:100,20,0 -n 3 -j 2 -c}
+
+        \bigskip
 
         \item Example 3: What About I/O
 
@@ -282,18 +290,26 @@
             \item \texttt{10ms} as quantum length for queue 1
             \item \texttt{10ms} as quantum length for queue 2
             \item \texttt{10ms} as quantum length for queue 3
-            \item \texttt{200ms} as run time for job 1
             \item \texttt{0ms} as the starting time for job 1
-            \item \texttt{50ms} as the starting time for job 2
-            \item \texttt{10ms} as the I/O time for job 2
-            \item \texttt{10ms} as the frequency of I/O request
+            \item \texttt{185ms} as run time for job 1
             \item no I/O operations for job 1
+            \item \texttt{50ms} as the starting time for job 2
+            \item \texttt{15ms} as run time for job 2
+            \item \texttt{1ms} as the frequency of I/O request (Start immediately)
+            \item \texttt{9ms} as the I/O time for job 2
             \item no priority boost
+            \item Uses older rules (Rule 4.a, Rule 4.b)
         \end{itemize}
 
         \bigskip
 
+        Combining together we have
 
+        \bigskip
+
+        \texttt{./mlfq.py -l 0,185,0:50,15,1 -i 9 -n 3 -j 2 -S -c}
+
+        \bigskip
     \end{itemize}
 
 
