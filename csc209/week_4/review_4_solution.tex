@@ -202,6 +202,20 @@
 
     \bigskip
 
+\begin{lstlisting}[language=c]
+    void avg_sum(double a[], int n, double *avg, double *sum)
+    {
+        int i;
+
+        *sum = 0.0;
+        for (i = 0; i < n; i++)
+            *sum += a[i];
+        *avg = *sum / n;
+    }
+\end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Notes:}}
 
     \begin{itemize}
@@ -222,12 +236,16 @@
             \includegraphics[width=\linewidth]{images/review_4_solution_7.png}
             \end{center}
 
+            \bigskip
+
             \item When using the prototype, pass variable to prototype by reference
             using \& operator (points to variable's memory location)
 
             \begin{center}
             \includegraphics[width=\linewidth]{images/review_4_solution_6.png}
             \end{center}
+
+            \bigskip
         \end{itemize}
     \end{itemize}
 \end{enumerate}
