@@ -220,6 +220,33 @@
 
     \bigskip
 
+    \begin{itemize}
+        \item Example 1: A Single Long-Running Job
+
+        \bigskip
+
+        Here, the example has
+
+        \begin{itemize}
+            \item 3 queues
+            \item 1 job
+            \item \texttt{10ms} as quantum length for queue 1
+            \item \texttt{10ms} as quantum length for queue 2
+            \item \texttt{10ms} as quantum length for queue 3
+            \item \texttt{200ms} as run time for job 1
+            \item no priority boost
+        \end{itemize}
+
+        \bigskip
+
+        Combining together we have
+
+        \texttt{./mlfq.py -l 0,200,0 -n 3 -j 1 -M 0 -c}
+
+        \item Example 2: Along Came A Short Job
+        \item Example 3: What About I/O
+    \end{itemize}
+
 
 \end{enumerate}
 
