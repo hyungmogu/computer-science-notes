@@ -96,11 +96,8 @@
 
             \bigskip
 
-            The following is another alias of \texttt{i}
-
-            \bigskip
-
-            \texttt{p = *\&i}
+            \texttt{int i, p*;\\
+            p = *\&i /* *p is an alias of i */}
         \end{itemize}
     \end{itemize}
 
@@ -124,7 +121,34 @@
 
             \bigskip
 
-            \item
+            \begin{itemize}
+                \item Means the memory address of \texttt{p} is pointing to memory address of \texttt{i}
+            \end{itemize}
+
+            \bigskip
+
+            \item The following is another valid example of pointer assignment
+
+            \bigskip
+
+            \texttt{int i, j, *p. *q;\\
+            p = \&i;\\
+            q = p;
+            }
+
+            \bigskip
+
+            \begin{itemize}
+                \item Means memory address of \texttt{q} is the memory address of \texttt{p} (which is the memory address of \texttt{i})
+            \end{itemize}
+
+            \begin{center}
+            \includegraphics[width=0.6\linewidth]{images/review_4_solution_1.png}
+            \end{center}
+
+            \begin{itemize}
+                \item
+            \end{itemize}
         \end{itemize}
     \end{itemize}
 \end{enumerate}
