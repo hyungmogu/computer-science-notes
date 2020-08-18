@@ -278,17 +278,17 @@
 
         \begin{itemize}
             \item 3 queues
-            \item 1 job
+            \item 2 jobs
             \item \texttt{10ms} as quantum length for queue 1
             \item \texttt{10ms} as quantum length for queue 2
             \item \texttt{10ms} as quantum length for queue 3
             \item \texttt{200ms} as run time for job 1
-            \item 0ms as the starting time for job 1
+            \item \texttt{0ms} as the starting time for job 1
+            \item \texttt{50ms} as the starting time for job 2
+            \item \texttt{10ms} as the I/O time for job 2
+            \item \texttt{10ms} as the frequency of I/O request
             \item no I/O operations for job 1
             \item no priority boost
-            \item \texttt{1ms} as the runtime of I/O operations for job 1
-            \item \texttt{50ms} as the starting time of I/O operations for job 1
-            \item
         \end{itemize}
 
         \bigskip
