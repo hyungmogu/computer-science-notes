@@ -55,7 +55,7 @@
 \bigskip
 
 \begin{enumerate}[1.]
-    \item \textbf{K.K. 11.2} If $i$ is a variable and $p$ points to $i$,
+    \item \textbf{K.K. 11.1:} If $i$ is a variable and $p$ points to $i$,
     which of the following expressions are aliases for $i$?
 
     \begin{enumerate}[a)]
@@ -69,8 +69,65 @@
         \item \texttt{\&*i}
     \end{enumerate}
 
-    \item \textbf{K.K 11.3} If $i$ is an int variable and $p$ and $q$ are pointers to \texttt{int}
+    \item \textbf{K.K 11.2:} If $i$ is an int variable and $p$ and $q$ are pointers to \texttt{int}
     which of the following assignments are legal?
+
+    \begin{enumerate}[a)]
+        \item \texttt{p = i;}
+        \item \texttt{*p = \&i;}
+        \item \texttt{\&p =q;}
+        \item \texttt{p = \&q;}
+        \item \texttt{p = *\&q;}
+        \item \texttt{p = q;}
+        \item \texttt{p = *q;}
+        \item \texttt{*p = q;}
+        \item \texttt{*p = *q;}
+    \end{enumerate}
+
+    \item \textbf{K.K.11.3:} The following function supposedly computes the sum and average of the
+    numbers in the array \texttt{a}, which has length \texttt{n. avg} and sum point to variables
+    that the function should modify. Unfortunately, the function contains several errors; find
+    and correct them
+
+\begin{lstlisting}[language=c]
+    void avg_sum(double a[], int n, double *avg, double *sum)
+    {
+        int i;
+
+        sum = 0.0;
+        for (i = 0; i < n; i++)
+            sum += a[i];
+        avg = sum / n;
+    }
+\end{lstlisting}
+
+    \item \textbf{K.K.11.4:} Write the following function
+
+    \bigskip
+
+    \texttt{void swap(int *p, int *q);}
+
+    \bigskip
+
+    When passed the addresses of two variables, \texttt{swap} should exchange the values of the variables:
+
+    \bigskip
+
+    \texttt{swap(\&i, \&j); /* Exchanges values of i and j */}
+
+    \bigskip
+
+    \item \textbf{K.K.11.5:} Write the following function
+
+    \bigskip
+
+    \texttt{void split\_time(long total\_sec, int *hr, int *min, int *sec);}
+
+    \bigskip
+
+    \texttt{total\_sec} is a time represented as the number of seconds since midnight.
+    hr, min and sec are pointers to variables in which the function will store the
+    equivalent time in hours (0-23), minutes (0-59) and seconds (0-59), respectively.
 
 
 \end{enumerate}
