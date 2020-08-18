@@ -109,11 +109,20 @@
     \begin{itemize}
         \item Learned that when alloted time is up, the next job starts immediately
 
+        (\texttt{./mlfq.py -s 20 -m 20 -n 2 -j 2 -M 0 -c})
+
         \begin{center}
         \includegraphics[width=0.9\linewidth]{images/worksheet_5_solution_4.png}
         \end{center}
 
         \item Learned that when all jobs are at the bottom, without priority boost, jobs finishes by round robin
+
+        (\texttt{./mlfq.py -s 20 -m 20 -n 2 -j 2 -M 0 -c})
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/worksheet_5_solution_5.png}
+        \end{center}
+
         \item Learned that notification and subsequent job execution happen at the same time.
         \item The reason why round robin doesn't occur despite $\text{Priority(A)} = \text{Priority(B)}$
         is because allotment of queue is 1 (i.e. only one job can be in a queue)
