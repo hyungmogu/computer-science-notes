@@ -75,9 +75,9 @@
     with
 
     \begin{itemize}
-        \item allotment time for queue 1 is 1
+        \item allotments for queue 1 is 1
         \item quantum length for queue 1 is 10
-        \item allotment time for queue 0 is 1
+        \item allotments for queue 0 is 1
         \item quantum length for queue 0 is 10
         \item no priority boost
     \end{itemize},
@@ -86,9 +86,14 @@
 
     \bigskip
 
+
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item The reason why round robin doesn't occur despite $\text{Priority(A)} = \text{Priority(B)}$
+        is because allotment of queue is 1 (i.e. only one job can be in a queue)
+        \item \textbf{allotment} means the amount of something allocated to a person/object (i.e. the size of queue)
         \item \texttt{-m 10} sets the maximum runtime of a job to 10
         \item \texttt{-M 0} turns off I/O in \texttt{mlfq.py}
         \item \texttt{-n 2} sets number of queues to 2
