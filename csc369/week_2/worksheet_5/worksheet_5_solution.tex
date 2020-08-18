@@ -257,13 +257,43 @@
             \item \texttt{10ms} as quantum length for queue 3
             \item \texttt{180ms} as run time for job 1
             \item \texttt{20ms} as run time for job 2
+            \item 0ms as the starting time for job 1
+            \item 100ms as the starting time for job 2
+            \item no I/O operations for job 1
+            \item no I/O operations for job 2
             \item no priority boost
         \end{itemize}
 
         \bigskip
 
+        Combining together we have
+
+        \texttt{./mlfq.py -l 0,180,0:100,20,0 -n 3 -j 2 -c}
 
         \item Example 3: What About I/O
+
+        \bigskip
+
+        Here, the example has
+
+        \begin{itemize}
+            \item 3 queues
+            \item 1 job
+            \item \texttt{10ms} as quantum length for queue 1
+            \item \texttt{10ms} as quantum length for queue 2
+            \item \texttt{10ms} as quantum length for queue 3
+            \item \texttt{200ms} as run time for job 1
+            \item 0ms as the starting time for job 1
+            \item no I/O operations for job 1
+            \item no priority boost
+            \item \texttt{1ms} as the runtime of I/O operations for job 1
+            \item \texttt{50ms} as the starting time of I/O operations for job 1
+            \item
+        \end{itemize}
+
+        \bigskip
+
+
     \end{itemize}
 
 
