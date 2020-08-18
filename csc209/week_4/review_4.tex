@@ -54,6 +54,8 @@
 
 \bigskip
 
+\section{Exercises}
+
 \begin{enumerate}[1.]
     \item \textbf{K.K. 11.1:} If $i$ is a variable and $p$ points to $i$,
     which of the following expressions are aliases for $i$?
@@ -168,7 +170,61 @@
 
     When passed an array \texttt{a} of length \texttt{n}, the function will return a pointer to
     the array's largest element.
+\end{enumerate}
 
+\section{Programming Projects}
+
+
+\begin{enumerate}[1.]
+    \item Modify Programming Project 7 from Chapter 2 so that it includes the following
+    function:
+
+    \bigskip
+
+    \texttt{void pay\_amount(int dollars, int *twenties, int *tens, int *fives, int *ones);}
+
+    \bigskip
+
+    The function determines the smallest number of \$20, \$10, \$5 and \$1 bills
+    necessary to pay the amount represented by the \texttt{dollars} parameter. The \texttt{twenties}
+    parameter points to a variable in which the function will store the number of
+    \$20 bills required. The \texttt{tens}, \texttt{fives} and \texttt{ones} parameters are similar.
+
+    \bigskip
+
+    \item Modify Programming Project 8 from Chapter 5 so that it includes the
+    following function:
+
+    \bigskip
+
+    \texttt{void find\_closest\_flight(int desired\_time, int *departure\_time, int *arrival\_time);}
+
+    \bigskip
+
+    This function wil find the flight whose departure time is closest to \texttt{desired\_time}
+    (expressed in minutes sinces midnight). It will store the departure and arrival times of
+    this flight (also expressed in minutes since midnight) in the variables pointed to by
+    \texttt{departure\_time} and \texttt{arrival\_time}, respectively.
+
+    \item Modify Programming Project 3 from Chapter 6 so that it includes the
+    following function:
+
+    \bigskip
+
+    \texttt{void reduce(int numerator, int denominator, int *reduced\_numerator,\\
+    int *reduced\_denominator);}
+
+    \bigskip
+
+    \texttt{numerator} and \texttt{denominator} are the numerator and denominator
+    of a fraction. \texttt{reduced\_numerator} and \texttt{reduced\_denominator} are pointers to
+    variables in which the function will store the numerator and denominator of
+    the fraction once it has been reduced to lowest terms.
+
+    \item Modify the \texttt{poker.c} program of Section 10.5 by moving all external variables
+    into main and modifying functions so that they communicate by passing arguments.
+    The \texttt{analyze\_hand} function needs to change the straight, flush, four, three
+    and pairs variables, so it will have to be passed pointers to those variables.
 
 \end{enumerate}
 
