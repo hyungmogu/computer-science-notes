@@ -373,6 +373,27 @@
         Is there a formula behind the CPU calculation?
     \end{itemize}
 
+    \item
+
+    I need to write the effect of \texttt{-I} flag on scheduling once I/O finishes.
+
+    \bigskip
+
+    The \texttt{-I} flag allows a process after an I/O operation to be placed at the
+    front of current queue.
+
+    \bigskip
+
+    With this flag, the job 1 in question 4 can truly achieve 99\% CPU time.
+
+    \bigskip
+
+    The following is the command used to achieve 99\% of CPU time.
+
+    \bigskip
+
+    \texttt{./mlfq.py -l 0,100,9:0,100,0 -i 1 -n 3 -j 2 -I -S -c}
+
 
 \end{enumerate}
 
