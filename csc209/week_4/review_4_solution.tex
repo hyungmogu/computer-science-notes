@@ -304,19 +304,32 @@
     \item
 
 \begin{lstlisting}[language=c]
-    #include <stdbool.h>
+    #include <stdbool.h> // bool
+    #include <limits.h>  // INT_MIN
 
-    bool is_largest(...);
-    bool is_second_largest(...);
+    bool is_largest(int current_max, int val);
 
     void find_two_largest (int a[], int n, int *largest, int* second_largest) {
+        int current_max = INT_MIN;
+        int current_second_max = INT_MIN;
+
         for (int i = 0; i < n; i++) {
-            if (is_largest(...)) {
-                *largest = a[i];
-            } else if (is_second_largest(...)) {
-                *second_largest = a[i];
+            if (is_largest(current_max, a[i])) {
+                current_second_max = current_max;
+                current_max = a[i];
             }
         }
+
+        *largest = current_max;
+        *second_largest = current_second_max;
+    }
+
+    bool is_largest(int current_max, int val) {
+        if (val > current_max) {
+            return true;
+        }
+
+        return false;
     }
 \end{lstlisting}
 
