@@ -181,7 +181,8 @@
 
     \bigskip
 
-    \texttt{void pay\_amount(int dollars, int *twenties, int *tens, int *fives, int *ones);}
+    \texttt{void pay\_amount(int dollars, int *twenties, int *tens, int *fives,\\
+    int *ones);}
 
     \bigskip
 
@@ -197,7 +198,8 @@
 
     \bigskip
 
-    \texttt{void find\_closest\_flight(int desired\_time, int *departure\_time, int *arrival\_time);}
+    \texttt{void find\_closest\_flight(int desired\_time, int *departure\_time,\\
+    int *arrival\_time);}
 
     \bigskip
 
@@ -217,14 +219,14 @@
     \bigskip
 
     \texttt{numerator} and \texttt{denominator} are the numerator and denominator
-    of a fraction. \texttt{reduced\_numerator} and \texttt{reduced\_denominator} are pointers to
+    of a fraction.\\ \texttt{reduced\_numerator} and \texttt{reduced\_denominator} are pointers to
     variables in which the function will store the numerator and denominator of
     the fraction once it has been reduced to lowest terms.
 
     \item Modify the \texttt{poker.c} program of Section 10.5 by moving all external variables
     into main and modifying functions so that they communicate by passing arguments.
-    The \texttt{analyze\_hand} function needs to change the straight, flush, four, three
-    and pairs variables, so it will have to be passed pointers to those variables.
+    The \texttt{analyze\_hand} function needs to change the \texttt{straight}, \texttt{flush}, \texttt{four}, \texttt{three}
+    and \texttt{pairs} variables, so it will have to be passed pointers to those variables.
 
 \end{enumerate}
 
