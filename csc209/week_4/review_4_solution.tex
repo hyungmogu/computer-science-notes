@@ -57,6 +57,8 @@
 \begin{enumerate}[1.]
     \item
 
+    The answer is \texttt{a) *p} and \texttt{g) *\&i}.
+
     \bigskip
 
     \underline{\textbf{Notes}}
@@ -64,7 +66,7 @@
     \bigskip
 
     \begin{itemize}
-        \item \textbf{Pointer}
+        \item \textbf{Address and Indirection Pointers}
 
         \begin{itemize}
             \item If \texttt{x} is a variable, \texttt{\&x} points to its memory address
@@ -76,7 +78,29 @@
         \item \textbf{Aliases}
 
         \begin{itemize}
-            \item Allows the same memory location can be accessed using different variable names.
+            \item Is the situation where the value in same memory location can be accessed using different variable names.
+
+            \bigskip
+
+            \underline{\textbf{Example 1:}}
+
+            \bigskip
+
+            \texttt{int i, p*;\\
+            p = \& i;\\
+            printf("\%d$\backslash$n", *p); /* *p is an alias of i */}
+
+            \bigskip
+
+            \underline{\textbf{Example 2:}}
+
+            \bigskip
+
+            The following is another alias of \texttt{i}
+
+            \bigskip
+
+            \texttt{p = *\&i}
         \end{itemize}
     \end{itemize}
 \end{enumerate}
