@@ -312,6 +312,24 @@
         \bigskip
     \end{itemize}
 
+    \item
+
+    I need to answer the question how would \texttt{.mlfq.py} be configured to
+    behave just like round-robin scheduler.
+
+    \bigskip
+
+    The round-robin scheduler occurs when jobs are at bottom most priority
+    with no priority boost and I/O operations (i.e. jobs are at same priority until completion).
+
+    \bigskip
+
+    So, the configuration is:
+
+    \bigskip
+
+    \texttt{./mlfq.py -l 0,100,0:0,100,0 -n 1 -j 2 -c}
+
 
 \end{enumerate}
 
