@@ -390,6 +390,24 @@
 
     \bigskip
 
+\begin{lstlisting}[language=c]
+    int *find_largest(int a[], int n) {
+        int curr_max = a[0];
+        int i_max = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] > curr_max) {
+                curr_max = a[i];
+                i_max = i;
+            }
+        }
+
+        return &a[i_max];
+    }
+\end{lstlisting}
+
+    \bigskip
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
@@ -404,19 +422,50 @@
 
             \bigskip
 
-            \begin{center}
-            \includegraphics[width=\linewidth]{images/review_4_solution_8.png}
-            \end{center}
+\begin{lstlisting}[language=c]
+    int *max(int *a, int *b) {
+        if (*a > *b)
+            return a;
+        else
+            return b;
+    }
 
+    ...
+
+    int *p, i, j;
+    p = max(&i, &j);
+\end{lstlisting}
+
+            \bigskip
+
+            \underline{\textbf{Example 2}}
+
+            \bigskip
+
+\begin{lstlisting}[language=c]
+    int *find_middle(int a[], int n) {
+        return &a[n/2];
+    }
+\end{lstlisting}
+
+            \bigskip
 
             \item Never return a pointer to an \texttt{automatic} local variable
 
             \bigskip
 
-            \texttt{int *f(void) \{\\
-                int i;\\
-                ...\\
-                return \&i;\}}
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+
+\begin{lstlisting}[language=c]
+    int *f(void) {
+        int i;
+        ...
+        return &i;
+    }}
+\end{lstlisting}
 
             \bigskip
 
