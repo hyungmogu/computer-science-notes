@@ -386,7 +386,45 @@
     }
 \end{lstlisting}
 
+    \item
 
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Pointers as Return Values}
+
+        \begin{itemize}
+            \item Must return one of parameter's value of type pointer to T as return value
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/review_4_solution_8.png}
+            \end{center}
+
+
+            \item Never return a pointer to an \texttt{automatic} local variable
+
+            \bigskip
+
+            \texttt{int *f(void) \{\\
+                int i;\\
+                ...\\
+                return \&i;\}}
+
+            \bigskip
+
+            \begin{itemize}
+                \item Because variable \texttt{i} doesn't exist once \texttt{f} returns.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
