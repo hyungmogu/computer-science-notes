@@ -18,14 +18,8 @@
 #define NUM_SUITS 4
 #define NUM_CARDS 5
 
-/* external variables */
-int num_in_rank[NUM_RANKS];
-int num_in_suit[NUM_SUITS];
-bool straight, flush, four, three;
-int pairs;   /* can be 0, 1, or 2 */
-
 /* prototypes */
-void read_cards(void);
+void read_cards(int num_in_rank[], int num_in_suit[]);
 void analyze_hand(void);
 void print_result(void);
 
@@ -35,8 +29,13 @@ void print_result(void);
  **********************************************************/
 int main(void)
 {
+    int num_in_rank[NUM_RANKS];
+    int num_in_suit[NUM_SUITS];
+    bool straight, flush, four, three;
+    int pairs;   /* can be 0, 1, or 2 */
+
   for (;;) {
-    read_cards();
+    read_cards(num_in_rank, num_in_suit);
     analyze_hand();
     print_result();
   }
@@ -47,7 +46,7 @@ int main(void)
  *             variables num_in_rank and num_in_suit;     *
  *             checks for bad cards and duplicate cards.  *
  **********************************************************/
-void read_cards(void)
+void read_cards(int num_in_rank[], int num_in_suit[])
 {
   bool card_exists[NUM_RANKS][NUM_SUITS];
   char ch, rank_ch, suit_ch;
