@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+void find_closest_flight(int desired_time, int *departure_time, int *arrival_time) {
 
     int user_time,
         hour,
@@ -36,6 +36,4 @@ int main(void) {
         printf("7:00 p.m., arriving at 9:20 p.m.\n");
     else
         printf("9:45 p.m., arriving at 11:58 p.m.\n");
-
-    return 0;
 }
