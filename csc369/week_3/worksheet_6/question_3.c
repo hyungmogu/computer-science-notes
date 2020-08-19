@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     // convert argument (amount of memory used) from string to integer
     // calculate the size of array n needed to fill the requested amount of memory
     n = 10;
-    // create array of size n (using stack memory)
+    // create array of size n (using heap memory)
     int array[n];
 
     // setup time
