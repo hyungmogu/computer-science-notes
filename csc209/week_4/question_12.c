@@ -20,14 +20,15 @@
 
 /* prototypes */
 void read_cards(int num_in_rank[], int num_in_suit[],
-                int num_ranks, int num_suits);
+                int num_ranks, int num_suits, int num_cards);
 
 void analyze_hand(bool *straight, bool *flush, bool *four,
-                  bool *three, bool *pairs, int num_in_rank[],
+                  bool *three, int *pairs, int num_in_rank[],
                   int num_in_suit[], int num_suit, int num_cards,
                   int num_ranks);
 
-void print_result(void);
+void print_result(bool *straight, bool *flush, bool *four, bool *three,
+                  int *pairs);
 
 /**********************************************************
  * main: Calls read_cards, analyze_hand, and print_result *
@@ -41,11 +42,11 @@ int main(void)
     int pairs;   /* can be 0, 1, or 2 */
 
   for (;;) {
-    read_cards(num_in_rank, num_in_suit, NUM_RANKS, NUM_SUITS);
+    read_cards(num_in_rank, num_in_suit, NUM_RANKS, NUM_SUITS, NUM_CARDS);
     analyze_hand(&straight, &flush, &four, &three, &pairs,
                 num_in_rank, num_in_suit, NUM_SUITS, NUM_CARDS,
                 NUM_RANKS);
-    print_result();
+    print_result(&straight, &flush, &four, &three, &pairs);
   }
 }
 
@@ -55,7 +56,7 @@ int main(void)
  *             checks for bad cards and duplicate cards.  *
  **********************************************************/
 void read_cards(int num_in_rank[], int num_in_suit[],
-                int num_ranks, int num_suits)
+                int num_ranks, int num_suits, int num_cards)
 {
   bool card_exists[num_ranks][num_suits];
   char ch, rank_ch, suit_ch;
@@ -72,7 +73,7 @@ void read_cards(int num_in_rank[], int num_in_suit[],
   for (suit = 0; suit < num_suits; suit++)
     num_in_suit[suit] = 0;
 
-  while (cards_read < num_ranks) {
+  while (cards_read < num_cards) {
     bad_card = false;
 
     printf("Enter a card: ");
@@ -130,7 +131,7 @@ void read_cards(int num_in_rank[], int num_in_suit[],
  *               four, three, and pairs.                  *
  **********************************************************/
 void analyze_hand(bool *straight, bool *flush, bool *four,
-                  bool *three, bool *pairs, int num_in_rank[],
+                  bool *three, int *pairs, int num_in_rank[],
                   int num_in_suit[], int num_suit, int num_cards,
                   int num_ranks)
 {
@@ -162,7 +163,7 @@ void analyze_hand(bool *straight, bool *flush, bool *four,
   for (rank = 0; rank < num_ranks; rank++) {
     if (num_in_rank[rank] == 4) *four = true;
     if (num_in_rank[rank] == 3) *three = true;
-    if (num_in_rank[rank] == 2) *pairs++;
+    if (num_in_rank[rank] == 2) *pairs = *pairs + 1;
   }
 }
 
@@ -172,17 +173,18 @@ void analyze_hand(bool *straight, bool *flush, bool *four,
  *               variables straight, flush, four, three,  *
  *               and pairs.                               *
  **********************************************************/
-void print_result(void)
+void print_result(bool *straight, bool *flush, bool *four,
+                  bool *three, int *pairs)
 {
-  if (straight && flush) printf("Straight flush");
-  else if (four)         printf("Four of a kind");
-  else if (three &&
-           pairs == 1)   printf("Full house");
-  else if (flush)        printf("Flush");
-  else if (straight)     printf("Straight");
-  else if (three)        printf("Three of a kind");
-  else if (pairs == 2)   printf("Two pairs");
-  else if (pairs == 1)   printf("Pair");
+  if (*straight && *flush) printf("Straight flush");
+  else if (*four)         printf("Four of a kind");
+  else if (*three &&
+           *pairs == 1)   printf("Full house");
+  else if (*flush)        printf("Flush");
+  else if (*straight)     printf("Straight");
+  else if (*three)        printf("Three of a kind");
+  else if (*pairs == 2)   printf("Two pairs");
+  else if (*pairs == 1)   printf("Pair");
   else                   printf("High card");
 
   printf("\n\n");
