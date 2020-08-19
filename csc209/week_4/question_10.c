@@ -38,14 +38,19 @@ void find_closest_flight(int desired_time, int *departure_time, int *arrival_tim
         *departure_time = 11 * 60 + 19;
         *arrival_time = 13 * 60 + 31;
     } else if (desired_time < d4 + (d5 - d4) / 2) {
-        printf("12:47 p.m., arriving at 3:00 p.m.\n");
+        *departure_time = 12 * 60 + 47;
+        *arrival_time = 15 * 60;
     } else if (desired_time < d5 + (d6 - d5) / 2) {
-        printf("2:00 p.m., arriving at 4:08 p.m.\n");
+        *departure_time = 14 * 60;
+        *arrival_time = 16 * 60 + 8;
     } else if (desired_time < d6 + (d7 - d6) / 2) {
-        printf("3:45 p.m., arriving at 5:55 p.m.\n");
+        *departure_time = 15 * 60 + 45;
+        *arrival_time = 17 * 60 + 55;
     } else if (desired_time < d7 + (d8 - d7) / 2) {
-        printf("7:00 p.m., arriving at 9:20 p.m.\n");
+        *departure_time = 19 * 60;
+        *arrival_time = 21 * 60 + 20;
     } else {
-        printf("9:45 p.m., arriving at 11:58 p.m.\n");
+        *departure_time = 21 * 60 + 45;
+        *arrival_time = 23 * 60 + 58;
     }
 }
