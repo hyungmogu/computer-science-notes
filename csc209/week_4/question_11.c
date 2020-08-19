@@ -1,14 +1,32 @@
 #include <stdio.h>
 
+void reduce(int numerator, int denominator, int *reduced_numerator, int *reduced_denominator);
+
 int main(void) {
 
-    int num, denom, n, m, r;
+    int numerator,
+        denominator,
+        reduced_denominator,
+        reduced_numerator;
 
     printf("Enter a fraction: ");
-    scanf("%d /%d", &num, &denom);
+    scanf("%d /%d", &numerator, &denominator);
 
-    m = num;
-    n = denom;
+    reduce(numerator, denominator, &reduced_numerator, &reduced_denominator);
+
+    printf("In lowest terms: %d/%d\n", reduced_numerator, reduced_denominator);
+
+    return 0;
+}
+
+void reduce(int numerator, int denominator,
+            int *reduced_numerator,
+            int *reduced_denominator) {
+
+    int n, m, r;
+
+    m = numerator;
+    n = denominator;
 
     while (n != 0) {
         r = m % n;
@@ -16,7 +34,6 @@ int main(void) {
         n = r;
     }
 
-    printf("In lowest terms: %d/%d\n", num / m, denom / m);
-
-    return 0;
+    *reduced_numerator = numerator / m;
+    *reduced_denominator = denominator / m;
 }
