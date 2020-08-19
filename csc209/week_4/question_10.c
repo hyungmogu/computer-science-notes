@@ -4,7 +4,15 @@ void find_closest_flight(int desired_time, int *departure_time, int *arrival_tim
 
 int main(void) {
 
-    int hour, minute, desired_time, departure_time, arrival_time;
+    int hour,
+        minute,
+        departure_hour,
+        departure_minutes,
+        arrival_hour,
+        arrival_minutes,
+        desired_time,
+        departure_time,
+        arrival_time;
 
     printf("Enter a 24-hour time: ");
     scanf("%d :%d", &hour, &minute);
@@ -12,7 +20,12 @@ int main(void) {
 
     find_closest_flight(desired_time, &departure_time, &arrival_time);
 
+    departure_hour = departure_time / 60;
+    departure_minutes = departure_time % 60;
+
     printf("Closest departure time is ");
+
+
 
     return 0;
 }
