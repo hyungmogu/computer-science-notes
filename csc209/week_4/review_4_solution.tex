@@ -349,7 +349,34 @@
 
 
 \begin{lstlisting}[language=c]
+    void split_date (int day_of_year, int year, int *month, int *day) {
 
+        for (let i = 1; i < 13; i++) {
+            *month = i
+
+            if (i == 1 ||
+                i == 3 ||
+                i == 5 ||
+                i == 7 ||
+                i == 8 ||
+                i == 10 ||
+                i == 12
+            ) {
+                day_of_year -= 31;
+            } else if (
+                i == 4 ||
+                i == 6 ||
+                i == 9 ||
+                i == 11
+            ) {
+                day_of_year -= 30;
+            } else {
+                day_of_year -= 28;
+            }
+
+
+        }
+    }
 \end{lstlisting}
 
 
