@@ -20,12 +20,24 @@ int main(void) {
 
     find_closest_flight(desired_time, &departure_time, &arrival_time);
 
+    // convert to 24 hour time
     departure_hour = departure_time / 60;
     departure_minutes = departure_time % 60;
 
+    arrival_hour = arrival_time / 60;
+    arrival_minutes = arrival_time % 60;
+
     printf("Closest departure time is ");
 
+    // convert to 12 hour time
 
+    printf("%02d:%02d %s., arriving at %02d:%02d %s.\n",
+            departure_hour > 12 ? departure_hour - 12 : departure_hour,
+            departure_minutes,
+            departure_hour >= 12 ? "P.M" : "A.M",
+            arrival_hour > 12 ? arrival_hour - 12 : arrival_hour,
+            arrival_minutes,
+            arrival_hour >= 12 ? "P.M" : "A.M");
 
     return 0;
 }
