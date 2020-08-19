@@ -22,15 +22,15 @@ int main(int argc, char *argv[]) {
             // indefinitely traverse through the array, touching elements
             array[n] = i % 5;
             // display current index:
-            printf("Current index: %d", i);
+            printf("Current index: %d\n", i);
             // display time elapsed:
             curr_t = clock() - start_t;
-            printf("Time elapsed: %f seconds", ((float)curr_t)/CLOCKS_PER_SEC);
+            printf("Time elapsed: %f seconds\n", ((float)curr_t)/CLOCKS_PER_SEC);
             // display amount of memory allocated:
 
-            printf("Amount of memory allocated: %f MB");
+            printf("Amount of memory allocated: %f MB\n");
             // display "press Cmd + Z to kill program"
-
+            printf("Press ctrl + z (or cmd + z) to terminate program\n");
             // refresh screen
         }
     }
