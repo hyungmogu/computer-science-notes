@@ -48,6 +48,9 @@ int main(int argc, char *argv[]) {
                 system("cls");
             #endif
 
+
+            printf("\n");
+
             // indefinitely traverse through the array, touching elements
             array[n] = i % 5;
             // display current index:
