@@ -45,6 +45,12 @@ int main(int argc, char *argv[]) {
             #endif
 
             // add a child process for displaying memory
+            int rc = fork();
+            if (rc < 0) {
+                perror("ERROR: Fork failed");
+                exit(1);
+            }
+
             #if defined(__APPLE__)
                 execlp("sysctl", "sysctl", "vm.swapusage", NULL);
             #endif
