@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
                 #if defined(__linux__)
                     execlp("free", "free", "-m", NULL);
                 #endif
-                return 0;
+                exit(0);
             }
 
             printf("\n");
@@ -62,14 +62,15 @@ int main(int argc, char *argv[]) {
                 perror("ERROR: Fork failed");
                 exit(1);
             } else if (rc2 == 0) {
-                char pid[sizeof(getpid()) + 1];
-                snprintf(pid, sizeof(getpid()), "%d", getpid());
+                char ppid[sizeof(getppid()) + 1];
+                snprintf(ppid, sizeof(getppid()), "%d", getppid());
 
-                printf("%s\n", pid);
+                printf("%s\n", ppid);
                 #if defined(__linux__)
-                    execlp("pmap", "pmap", "-X", pid, NULL);
+                    printf("I am here\n");
+                    execlp("pmap", "pmap", "-X", ppid, NULL);
                 #endif
-                return 0;
+                exit(0);
             }
 
 
