@@ -283,14 +283,16 @@
     From information found in this \href{http://books.gigatux.nl/mirror/kerneldevelopment/0672327201/ch14.html}{source},
     we can write that modern linux memory space consists of the following:
 
-
-
-
-    and there is more
-
-
-
-
+    \begin{itemize}
+        \item Text section
+        \item Data section
+        \item BSS Section
+        \item A memory map of 0s
+        \item An additional text, data and bss section for each shared library
+        \item Any memory mapped files
+        \item Any shared memory segments
+        \item Any anonymous memmory mappings
+    \end{itemize}
 
 \end{enumerate}
 
