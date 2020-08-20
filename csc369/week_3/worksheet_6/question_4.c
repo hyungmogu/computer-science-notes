@@ -75,6 +75,8 @@ int main(int argc, char *argv[]) {
             printf("Size of array: %d \n", n);
             // display "press Cmd + Z to kill program"
             printf("Press ctrl + z to terminate program\n");
+
+            sleep(1);
         }
     }
 
