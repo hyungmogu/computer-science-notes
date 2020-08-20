@@ -4,6 +4,7 @@
 #include <math.h>   // ceil
 #include <string.h> // strncmp
 #include <unistd.h>
+#include <sys/wait.h> // wait
 
 int main(int argc, char *argv[]) {
     int n,
@@ -56,6 +57,7 @@ int main(int argc, char *argv[]) {
             }
 
             printf("\n");
+            wait(NULL);
 
             int rc2 = fork();
             if (rc2 < 0) {
@@ -63,11 +65,9 @@ int main(int argc, char *argv[]) {
                 exit(1);
             } else if (rc2 == 0) {
                 char ppid[sizeof(getppid()) + 1];
-                snprintf(ppid, sizeof(getppid()), "%d", getppid());
+                snprintf(ppid, sizeof(getppid()) + 1, "%d", getppid());
 
-                printf("%s\n", ppid);
                 #if defined(__linux__)
-                    printf("I am here\n");
                     execlp("pmap", "pmap", "-X", ppid, NULL);
                 #endif
                 exit(0);
