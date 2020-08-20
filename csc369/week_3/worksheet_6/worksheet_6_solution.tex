@@ -199,7 +199,27 @@
 
     \bigskip
 
-    Once it runs out, it returs "Resource temporarily unavailable" error.
+    Once it runs out, it returns "Resource temporarily unavailable" error.
+
+    \bigskip
+
+    Third, I need to answer what happens to memory when program is killed.
+
+    \bigskip
+
+    In the current solution, I am using heap memory, and I haven't set it up
+    for the array to be freed on kill signal. So, the lost memory is not reclaimed once killed.
+
+    \bigskip
+
+    Fourth, I need to answer what happens when a large amount of memory is used.
+
+    \bigskip
+
+    The answer is the same as second part of the question. It tries to fill up, but
+    once available memory runs out, it force terminates with "Resource unavailable"
+    error.
+
 
     \begin{center}
     \includegraphics[width=\linewidth]{images/worksheet_6_solution_4.png}

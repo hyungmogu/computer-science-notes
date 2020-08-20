@@ -430,7 +430,7 @@
 
         int ret;
         char *cmd[] = { "ls", "-l", NULL};
-        ret = execv ("ls", cmd);
+        ret = execvp ("ls", cmd);
         return 0;
     }
 \end{lstlisting}
