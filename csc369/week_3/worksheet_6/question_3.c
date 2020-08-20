@@ -1,6 +1,6 @@
 #include <stdio.h>  // printf
 #include <stdlib.h> // atoi
-#include <time.h>   // clock_t, clock, CLOCKS_PER_SEC
+#include <time.h>   // time_t, time
 #include <math.h>   // ceil
 #include <string.h> // strncmp
 #include <unistd.h>
@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
         size_in_mb,
         *array;
 
-    clock_t start_t, curr_t;
+    time_t start_t, curr_t;
 
     // get arguments
     if (argc != 3) {
@@ -35,10 +35,11 @@ int main(int argc, char *argv[]) {
     array = malloc(sizeof(int) * n);
 
     // setup time
-    start_t = clock();
+    start_t = time(NULL);
 
     while(1) {
         for (int i = 0; i < n; i++) {
+            // refresh screen
             #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
                 system("clear");
             #endif
@@ -52,16 +53,14 @@ int main(int argc, char *argv[]) {
             // display current index:
             printf("Current index: %d\n", i);
             // display time elapsed:
-            curr_t = clock() - start_t;
-            printf("Time elapsed: %f seconds\n", ((float)curr_t)/CLOCKS_PER_SEC);
+            curr_t = time(NULL);
+            printf("Time elapsed: %ld seconds\n", (curr_t - start_t));
             // display amount of memory allocated:
             printf("Amount of memory allocated: %d MB\n", size_in_mb);
             // display size n:
             printf("Size of array: %d \n", n);
             // display "press Cmd + Z to kill program"
-            printf("Press ctrl + z (or cmd + z) to terminate program\n");
-            // refresh screen
-            sleep(1);
+            printf("Press ctrl + z to terminate program\n");
         }
     }
 
