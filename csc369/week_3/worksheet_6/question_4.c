@@ -49,11 +49,16 @@ int main(int argc, char *argv[]) {
             if (rc < 0) {
                 perror("ERROR: Fork failed");
                 exit(1);
-            }
+            } else if (rc == 0) {
+                free(array);
 
-            #if defined(__APPLE__)
-                execlp("sysctl", "sysctl", "vm.swapusage", NULL);
-            #endif
+                #if defined(__APPLE__)
+                    execlp("sysctl", "sysctl", "vm.swapusage", NULL);
+                #elif defined(__linux__)
+                    execlp("free", "free", "-m", NULL);
+                #endif
+
+            }
 
             printf("\n");
 
