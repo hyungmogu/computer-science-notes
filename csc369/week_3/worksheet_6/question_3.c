@@ -3,10 +3,19 @@
 #include <unistd.h>
 
 int main(int argc, char *argv[]) {
-    int n, size_in_bytes, size_in_mb;
+    int n,
+        size_in_bytes,
+        size_in_mb,
+        *array;
+
     clock_t start_t, curr_t;
 
     // get arguments
+    if (argc != 3) {
+        perror("Argument must be of format ./question_3 -m <SIZE IN INTEGER>");
+        return(-1);
+    }
+
 
     // convert argument (requested amount of memory) from string to integer
 
@@ -15,7 +24,7 @@ int main(int argc, char *argv[]) {
     // calculate the size of array n needed to fill the requested amount of memory
     n = ceil(size_in_bytes / sizeof(int));
     // create array of size n (using heap memory)
-    int array[n];
+    array = malloc(sizeof(int) * n);
 
     // setup time
     start_t = clock();
@@ -35,6 +44,12 @@ int main(int argc, char *argv[]) {
             // display "press Cmd + Z to kill program"
             printf("Press ctrl + z (or cmd + z) to terminate program\n");
             // refresh screen
+            fflush(stdout);
+            sleep(1);
         }
     }
+
+    free(array);
+
+    return 0;
 }
