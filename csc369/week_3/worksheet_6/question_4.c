@@ -40,14 +40,14 @@ int main(int argc, char *argv[]) {
     while(1) {
         for (int i = 0; i < n; i++) {
             // refresh screen
-            #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+            #if defined(__linux__) || defined(__APPLE__)
                 system("clear");
             #endif
 
-            #if defined(_WIN32) || defined(_WIN64)
-                system("cls");
+            // add a child process for displaying memory
+            #if defined(__APPLE__)
+                execlp("sysctl", "sysctl", "vm.swapusage", NULL);
             #endif
-
 
             printf("\n");
 
