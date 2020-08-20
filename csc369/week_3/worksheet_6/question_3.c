@@ -15,12 +15,12 @@ int main(int argc, char *argv[]) {
 
     // get arguments
     if (argc != 3) {
-        perror("Argument must be of format ./question_3 -m <SIZE IN INTEGER>");
+        perror("ERROR: Argument must be of format ./question_3 -m <SIZE IN INTEGER>\n");
         return(-1);
     }
 
     if (strncmp(argv[1],"-m", 2) != 0) {
-        perror("Argument must be of format ./question_3 -m <SIZE IN INTEGER>");
+        perror("ERROR: Argument must be of format ./question_3 -m <SIZE IN INTEGER>\n");
         return(-1);
     }
 
@@ -39,6 +39,14 @@ int main(int argc, char *argv[]) {
 
     while(1) {
         for (int i = 0; i < n; i++) {
+            #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+                system("clear");
+            #endif
+
+            #if defined(_WIN32) || defined(_WIN64)
+                system("cls");
+            #endif
+
             // indefinitely traverse through the array, touching elements
             array[n] = i % 5;
             // display current index:
@@ -48,10 +56,11 @@ int main(int argc, char *argv[]) {
             printf("Time elapsed: %f seconds\n", ((float)curr_t)/CLOCKS_PER_SEC);
             // display amount of memory allocated:
             printf("Amount of memory allocated: %d MB\n", size_in_mb);
+            // display size n:
+            printf("Size of array: %d \n", n);
             // display "press Cmd + Z to kill program"
             printf("Press ctrl + z (or cmd + z) to terminate program\n");
             // refresh screen
-            fflush(stdout);
             sleep(1);
         }
     }
