@@ -3,14 +3,17 @@
 #include <unistd.h>
 
 int main(int argc, char *argv[]) {
-    int n;
+    int n, size_in_bytes, size_in_mb;
     clock_t start_t, curr_t;
 
     // get arguments
 
-    // convert argument (amount of memory used) from string to integer
+    // convert argument (requested amount of memory) from string to integer
+
+    // convert size in megabytes to bytes
+    size_in_bytes = size_in_mb * 1000000;
     // calculate the size of array n needed to fill the requested amount of memory
-    n = 10;
+    n = ceil(size_in_bytes / sizeof(int));
     // create array of size n (using heap memory)
     int array[n];
 
