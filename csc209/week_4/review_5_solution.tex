@@ -649,10 +649,8 @@ double inner_product(const double *a, const double *b, int n) {
         for (p = &ident[0][0]; p < &ident[N-1][N-1]; p++) {
             if (is_row_eq_col(i, N)) {
                 *p = 1.0;
-                printf("%f", *p);
             } else {
                 *p = 0.0;
-                printf("%f", *p);
             }
             i++;
         }
@@ -675,7 +673,8 @@ double inner_product(const double *a, const double *b, int n) {
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item
+        \item Learned that the memory address of each row in two dimensional array are placed
+        right next to each other
     \end{itemize}
 
 
