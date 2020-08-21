@@ -640,8 +640,8 @@ double inner_product(const double *a, const double *b, int n) {
     double ident[N][N];
     p = ident
 
-    while (p++ < p + N) {
-        if (i % N == 0) {
+    while (i < N * N) {
+        if (i % (N + 1) == 0) {
             *(p + i) = 1.0;
         } else {
             *(p + i) = 0.0;
