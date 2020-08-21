@@ -154,6 +154,35 @@
     \begin{align}
         \texttt{middle} = \frac{\texttt{low $+$ high}}{2}
     \end{align}
+
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Combining the * and ++ Operators}
+
+        \begin{itemize}
+            \item \texttt{*p++} or \texttt{*{p++}} $\to$ Value of expression is \texttt{*p} before increment; increment \texttt{p} later
+            \item \texttt{(*p)++} $\to$ Value of expression is \texttt{*p} before increment; increment \texttt{*p} later
+            \item \texttt{*++p} or \texttt{*(++p)} $\to$ Increment \texttt{p} first; value of expression is \texttt{*p} after increment
+            \item \texttt{++*p} or \texttt{++(*p)} $\to$ Increment \texttt{*p} first; value of expression is \texttt{*p} after increment
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+        \texttt{a[i++] = j}
+
+        \bigskip
+
+        Means assign the value \texttt{j} to \texttt{a[i]} before increment
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
