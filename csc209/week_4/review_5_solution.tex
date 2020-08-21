@@ -907,19 +907,14 @@ double inner_product(const double *a, const double *b, int n) {
         char array[SIZE], c;
         int i = 0;
 
+        printf("Enter a message: ");
+
         // fill array
-        while (i < sizeof(array) / sizeof(char)) {
-            printf("Enter character: ");
-
+        do {
             c = getchar();
-
-            if (c == '\n') {
-                break;
-            }
-
             array[i] = c;
             i++;
-        }
+        } while (c != '\n');
 
         // reverse characters in array
 
