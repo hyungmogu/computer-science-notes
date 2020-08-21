@@ -395,6 +395,39 @@
     }
 \end{lstlisting}
 
+    \item
+
+    Here, I need to re-write the following function to use pointer arithmetic
+    instead of array subscripting.
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    void store_zeros(cost int a[], int n) {
+        int i;
+
+        for (i = 0; i < n; i++) {
+            a[i] = 0;
+        }
+    }
+\end{lstlisting}
+
+    \bigskip
+
+    After re-writing above code, we have
+
+\begin{lstlisting}[language=c]
+    void store_zeros(cost int a[], int n) {
+        int *p;
+
+        for (p = a; p < a + n; p++) {
+            *p = 0;
+        }
+    }
+\end{lstlisting}
+
+
+
 
 \end{enumerate}
 
