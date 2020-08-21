@@ -268,13 +268,36 @@
 
     \item
 
-    I need to identify which
+    First, I need to identify which of the following expressions are illegal
+    because of mismatched types.
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item \texttt{p $==$ a[0]}
+        \item \texttt{p $==$ \&a[0]}
+        \item \texttt{*p $==$ a[0]}
+        \item \texttt{p[0] == a[0]}
+    \end{enumerate}
+
+    \bigskip
+
+    Here, only \texttt{a)} is illegal.
+
+    \bigskip
+
+    Second, I need to write which of the remaining expressions are true.
+
+    \bigskip
+
+    Here, the expressions that return true are \texttt{b)}, \texttt{c)} and \texttt{d)}.
 
     \bigskip
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item \texttt{*p} and \texttt{a[]} are the same given \texttt{p $==$ a}
         \item \textbf{Using an Array Name as a Pointer}
 
         \begin{itemize}
@@ -291,6 +314,21 @@
             \bigskip
 
             \texttt{*a = 7; /* stores 7 in a[0] */}
+
+            \bigskip
+
+            \texttt{*(a+1) = 12; /* stores 7 in a[1] */}
+
+            \bigskip
+
+            \underline{\textbf{Example 2}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/review_5_solution_6.png}
+            \end{center}
+
         \end{itemize}
     \end{itemize}
 
