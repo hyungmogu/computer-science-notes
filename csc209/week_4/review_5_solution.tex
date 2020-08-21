@@ -1007,14 +1007,42 @@ double inner_product(const double *a, const double *b, int n) {
 
 \begin{lstlisting}[language=c]
     #include <stdio.h>
+    #include <ctype.h>
 
     #define SIZE 10
 
     int main(void) {
+        char array[SIZE], c, temp;
+        int i = 0, n;
+
         // Read characters
         // Put characters into array
+        printf("Enter a message: ");
+
+        do {
+            c = getchar();
+
+            if (c == '\n') {
+                break;
+            }
+
+            if (!isaplha(c)) {
+                continue;
+            }
+
+            array[i] = tolower(c);
+            i++;
+        } while (i < SIZE);
+
+        array[SIZE - 1] = i;
 
         // Check if characters in array is palindrome
+        if (is_palindrome(...)) {
+            printf("Palindrome");
+        } else {
+            printf("Not a Palindrome");
+        }
+
 
         return 0;
     }
