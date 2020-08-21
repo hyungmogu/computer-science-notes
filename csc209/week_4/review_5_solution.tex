@@ -54,7 +54,7 @@
 
 \bigskip
 
-\begin{enumerate}[1)]
+\begin{enumerate}[1.]
     \item
 
     \bigskip
@@ -134,6 +134,26 @@
 
 
     \end{itemize}
+
+    \item
+
+    \bigskip
+
+    \texttt{low} and \texttt{high} are memory addresses.
+
+    \bigskip
+
+    So, \texttt{low $+$ high} is out of bound, and it could potentially point to an undesirable or wrong value.
+
+    \bigskip
+
+    To fix this, we subtract the from high value to the low value:
+
+    \bigskip
+
+    \begin{align}
+        \texttt{middle} = \frac{\texttt{low $+$ high}}{2}
+    \end{align}
 \end{enumerate}
 
 \end{document}
