@@ -538,6 +538,12 @@ double inner_product(const double *a, const double *b, int n) {
 
     using pointer arithmetic.
 
+    \bigskip
+
+    The solution to this exercise is:
+
+    \bigskip
+
 
 \begin{lstlisting}[language=c]
     #include <stdbool.h> // bool
@@ -552,7 +558,7 @@ double inner_product(const double *a, const double *b, int n) {
         for (int i = 0; i < n; i++) {
             if (is_largest(current_max, a[i])) {
                 current_second_max = current_max;
-                current_max = a[i];
+                current_max = *(a + i);
             }
         }
 
