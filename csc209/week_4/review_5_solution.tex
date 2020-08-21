@@ -502,6 +502,31 @@ double inner_product(const double *a, const double *b, int n) {
         return a + (n/2)
     }
 \end{lstlisting}
+
+    \item
+
+    Here I need to modify the function \texttt{find\_largest} function so that it
+    uses pointer arithmetic - not subscripting - to visit array elements
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    int *find_largest(int a[], int n) {
+        int *p, *max;
+
+        max = a;
+
+        for (p = a; p < a + n; p++){
+            if (*p > *max) {
+                max = p;
+            }
+        }
+
+        return *max;
+    }
+\end{lstlisting}
+
+
 \end{enumerate}
 
 \end{document}
