@@ -702,6 +702,30 @@ double inner_product(const double *a, const double *b, int n) {
 
 \end{lstlisting}
 
+    \item
+
+    Create a loop that prints all temperature readings in row \texttt{i} of the
+    following array using a pointer to visit each element of the row.
+
+    \bigskip
+
+    \texttt{inte temperatures[7][24]}
+
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    int *p;
+
+    for (p = &a[i]; p < &a[i] + 24; p++) {
+        printf("%d", *p);
+    }
+
+\end{lstlisting}
+
 
 
 \end{enumerate}
