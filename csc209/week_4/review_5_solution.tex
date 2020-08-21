@@ -463,6 +463,29 @@
     }
 \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+double inner_product(const double *a, const double *b, int n) {
+    double sum = 0, *p;
+
+    p = a;
+
+    while (p++ < a + n) {
+        sum += *a++ * *b++;
+    }
+
+    return sum;
+}
+\end{lstlisting}
+
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
