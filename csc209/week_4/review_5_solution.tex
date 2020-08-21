@@ -625,6 +625,31 @@ double inner_product(const double *a, const double *b, int n) {
     }
 \end{lstlisting}
 
+    \bigskip
+
+    The solution to this exercise is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    #define N 10
+
+    int i = 0;
+    int *p;
+
+    double ident[N][N];
+    p = ident
+
+    while (p++ < p + N) {
+        if (i % N == 0) {
+            *(p + i) = 1.0;
+        } else {
+            *(p + i) = 0.0;
+        }
+        i++;
+    }
+\end{lstlisting}
+
 
 
 \end{enumerate}
