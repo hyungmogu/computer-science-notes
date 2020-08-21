@@ -804,6 +804,63 @@ double inner_product(const double *a, const double *b, int n) {
         }
     \end{lstlisting}
 
+    \item
+
+    I need to rewrite the \texttt{evaluation\_position} function described in
+    exercise 13 of chapter 9 using pointer arithmatic and single loop.
+
+    \bigskip
+
+    The solution to this problem is:
+
+\begin{lstlisting}[language=c]
+    int evaluate_position(char board[8][8]) {
+
+        int i, j, white = 0, black = 0;
+
+        for (i = 0; i < 8; i++) {
+            for (j = 0; j < 8; j++) {
+                switch(board[i][j]) {
+                    case 'Q':
+                        white += 9;
+                        break;
+                    case 'q':
+                        black += 9;
+                        break;
+                    case 'R':
+                        white += 5;
+                        break;
+                    case 'r':
+                        black += 5;
+                        break;
+                    case 'B':
+                        white += 3;
+                        break;
+                    case 'b':
+                        black += 3;
+                        break;
+                    case 'N':
+                        white += 3;
+                        break;
+                    case 'n':
+                        black += 3;
+                        break;
+                    case 'P':
+                        white++;
+                        break;
+                    case 'p':
+                        black++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        return white - black;
+    }
+\end{lstlisting}
+
 
 
 \end{enumerate}
