@@ -726,6 +726,26 @@ double inner_product(const double *a, const double *b, int n) {
 
 \end{lstlisting}
 
+    \item
+
+    I need to write a loop that prints the highest temperature in the \texttt{temperatures}
+    array for each day of the week using \texttt{find\_largest} function.
+
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    int *p, *val;
+
+    for (p = &temperatures[i]; p < &temperatures[i] + 24; p++) {
+        val = find_largest(p, 24);
+        printf("%d\n", *val);
+    }
+
+\end{lstlisting}
 
 
 \end{enumerate}
