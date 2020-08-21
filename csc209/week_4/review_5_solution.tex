@@ -690,13 +690,16 @@ double inner_product(const double *a, const double *b, int n) {
     \bigskip
 
 \begin{lstlisting}[language=c]
-    #include <stdio.h>
-    #include <stdbool.h>
+    int row = 0;
 
-    int main() {
-
-        return 0;
+    for (int row = 0; row < 7; row++) {
+        if (search(temperatures[row], 24, 32)) {
+            return true
+        }
     }
+
+    return false;
+
 \end{lstlisting}
 
 
