@@ -368,6 +368,32 @@
     }
 \end{lstlisting}
 
+    \item
+
+    I need to write the following using pointer arithematic so it finds an element
+    in \texttt{a} that matches to value \texttt{key}. I need to return
+    true if there is a match.
+
+    \bigskip
+
+    \texttt{bool search(const int a[], int n, int key);}
+
+    \bigskip
+
+    And the solution is:
+
+\begin{lstlisting}[language=c]
+    bool search(cost int a[], int n, int key) {
+
+        for (int i = 0; i < n; i++) {
+            if (*(a+i) == key) {
+                return true
+            }
+        }
+
+        return false;
+    }
+\end{lstlisting}
 
 
 \end{enumerate}
