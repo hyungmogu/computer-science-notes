@@ -601,6 +601,31 @@ double inner_product(const double *a, const double *b, int n) {
 
     \end{mdframed}
 
+    \item
+
+    I need to rewrite the following program such that it uses a single pointer through
+    the array one element at a time.
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    #define N 10
+
+    double ident[N][N];
+    int row, col;
+
+    for (row = 0; row < N; row++) {
+        for (col = 0; col < N; col++) {
+            if (row == col) {
+                ident[row][col] = 1.0;
+            } else {
+                ident[row][col] = 0.0;
+            }
+        }
+    }
+\end{lstlisting}
+
+
 
 \end{enumerate}
 
