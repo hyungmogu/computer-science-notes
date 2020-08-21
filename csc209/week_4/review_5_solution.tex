@@ -974,7 +974,7 @@ double inner_product(const double *a, const double *b, int n) {
         // reverse characters in array
         char *q = &array[0], *r = &array[n-1];
 
-        while (p < q) {
+        while (q < r) {
             temp = *q;
             *q++ = *r;
             *r-- = temp;
@@ -982,8 +982,8 @@ double inner_product(const double *a, const double *b, int n) {
 
         printf("Reversal is: ");
 
-        while (array < array + SIZE) {
-            printf("%c", *array);
+        for (p = &array[0]; p < array + n; p++) {
+            printf("%c", *p);
         }
 
         return 0;
