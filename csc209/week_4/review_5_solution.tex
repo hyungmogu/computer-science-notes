@@ -632,23 +632,41 @@ double inner_product(const double *a, const double *b, int n) {
     \bigskip
 
 \begin{lstlisting}[language=c]
+    #include <stdbool.h>
+    #include <stdio.h>
+
     #define N 10
 
-    int i = 0;
-    int *p, j;
+    bool is_row_eq_col(int i, int n);
 
-    double ident[N][N];
-    p = ident
+    int main(void) {
 
-    for (p = a; p < a + NUM_ROWS; p++) {
-        j = i % N;
+        int i = 0;
+        int *p, j;
 
-        if (i % (N + 1) == 0) {
-            *(p)[j] = 1.0;
-        } else {
-            *(p)[j] = 0.0;
+        double ident[N][N];
+        p = ident
+
+        for (p = a; p < a + NUM_ROWS; p++) {
+            j = i % N;
+
+            if (is_row_eq_col(i, N)) {
+                *(p)[j] = 1.0;
+            } else {
+                *(p)[j] = 0.0;
+            }
+            i++;
         }
-        i++;
+
+        return 0;
+    }
+
+    bool is_row_eq_col(int i, int n) {
+        if (i % (N+1) != 0) {
+            return false;
+        }
+
+        return true;
     }
 \end{lstlisting}
 
