@@ -763,6 +763,29 @@ double inner_product(const double *a, const double *b, int n) {
 
 \end{lstlisting}
 
+    \item
+
+    I need to rewrite the following function to use pointer arithmetic
+    and single loop, instead of array subscripting.
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    int sum_two_dimensional_array(const int a[][LEN], int n) {
+        int i, j, sum = 0;
+
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < LEN; j++) {
+                sum += a[i][j];
+            }
+        }
+
+        return sum;
+    }
+
+\end{lstlisting}
+
+
 
 \end{enumerate}
 
