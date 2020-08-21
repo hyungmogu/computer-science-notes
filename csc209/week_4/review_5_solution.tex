@@ -426,8 +426,42 @@
     }
 \end{lstlisting}
 
+    \item
 
+    Here, I need to write the function
 
+    \bigskip
+
+    \texttt{double inner\_product(const double *a, const double *b, int n)}
+
+    \bigskip
+
+    using pointer arithmetic such that it returns \texttt{a[0] * b[0] + a[1] *
+    b[1] + a[2] * b[2] + ... + a[n-1] * b[n-1]}.
+
+    \bigskip
+
+    The solution is provided below
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    double inner_product(const double *a, const double *b, int n) {
+        double sum = 0, p*;
+
+        p = a;
+
+        while (p < a + n) {
+            sum += *a * *b;
+
+            a++;
+            b++;
+            p++;
+        }
+
+        return sum;
+    }
+\end{lstlisting}
 
 \end{enumerate}
 
