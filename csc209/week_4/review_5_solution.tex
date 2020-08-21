@@ -1060,6 +1060,72 @@ double inner_product(const double *a, const double *b, int n) {
     }
 \end{lstlisting}
 
+        \item
+
+        I need to rewrite above program to use pointers instead of integers to keep
+        track of position in the array.
+
+        \bigskip
+
+        The solution to this problem is:
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdbool.h>
+    #include <ctype.h>
+
+    #define SIZE 100
+
+    bool is_palindrome(char array[], int n);
+
+    int main(void) {
+        char c, array[SIZE], *p = &array[0];
+        int n = 0;
+
+        // Read characters
+        // Put characters into array
+        printf("Enter a message: ");
+
+        do {
+            c = getchar();
+
+            if (c == '\n') {
+                break;
+            }
+
+            if (!isalpha(c)) {
+                continue;
+            }
+
+            *p++ = tolower(c);
+            n++;
+        } while (n < SIZE);
+
+        // Check if characters in array is palindrome
+        if (is_palindrome(array, n)) {
+            printf("Palindrome");
+        } else {
+            printf("Not a Palindrome");
+        }
+
+        return 0;
+    }
+
+    bool is_palindrome(char array[], int n) {
+        char *p = &array[0],
+             *q = &array[n-1];
+
+        while (p < q) {
+            if (*p++ != *q--) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+\end{lstlisting}
+
+
     \end{enumerate}
 \end{enumerate}
 
