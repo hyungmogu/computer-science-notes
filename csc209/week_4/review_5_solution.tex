@@ -1127,6 +1127,65 @@ double inner_product(const double *a, const double *b, int n) {
 
 
     \end{enumerate}
+
+    \item
+
+    I need to simplify programming project 1(b) by using the fact that
+    array name can be used as a pointer.
+
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+
+    #define SIZE 10
+
+    int main(void) {
+
+        char array[SIZE], c, temp, *p;
+        int i = 0, n;
+
+        p = &array[0];
+
+        printf("Enter a message: ");
+
+        // fill array
+        do {
+            c = getchar();
+
+            if (c == '\n') {
+                break;
+            }
+
+            *p++ = c;
+            i++;
+        } while (p < array + SIZE);
+
+        n = i;
+
+        // reverse characters in array
+        char *q = &array[0], *r = &array[n-1];
+
+        while (q < r) {
+            temp = *q;
+            *q++ = *r;
+            *r-- = temp;
+        }
+
+        printf("Reversal is: ");
+
+        for (p = &array[0]; p < array + n; p++) {
+            printf("%c", *p);
+        }
+
+        return 0;
+    }
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{enumerate}
