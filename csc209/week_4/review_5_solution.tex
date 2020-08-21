@@ -785,6 +785,25 @@ double inner_product(const double *a, const double *b, int n) {
 
 \end{lstlisting}
 
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+
+    \begin{lstlisting}[language=c]
+        int sum_two_dimensional_array(const int a[][LEN], int n) {
+            int *p, sum = 0;
+
+            for (p = a[0][0]; i < a[n-1][LEN-1]; p++) {
+                sum += *p;
+            }
+
+            return sum;
+        }
+    \end{lstlisting}
+
 
 
 \end{enumerate}
