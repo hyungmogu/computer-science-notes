@@ -643,18 +643,17 @@ double inner_product(const double *a, const double *b, int n) {
 
         int i = 0;
 
-        double ident[N][N], *p[NUM_ROWS];
-        p = ident;
+        double ident[N][N], *p;
 
-        while (i < N * N) {
+
+        for (p = &ident[0][0]; p < &ident[N-1][N-1]; p++) {
             if (is_row_eq_col(i, N)) {
-                *p++ = 1.0;
+                *p = 1.0;
                 printf("%f", *p);
             } else {
-                *p++ = 0.0;
+                *p = 0.0;
                 printf("%f", *p);
             }
-
             i++;
         }
 
