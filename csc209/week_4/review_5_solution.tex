@@ -575,6 +575,32 @@ double inner_product(const double *a, const double *b, int n) {
     }
 \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    void find_two_largest(const int *a, int n, int *largest, int *second_largest) {
+
+        const int *p = a;
+        *largest = *second_largest = *a;
+
+        while (p++ < a + n) {
+            if (*p > *largest) {
+                *second_largest = *largest;
+                *largest = *p;
+            } else if (*p > *second_largest)
+                *second_largest = *p;
+        }
+    }
+\end{lstlisting}
+
+    \end{mdframed}
+
 
 \end{enumerate}
 
