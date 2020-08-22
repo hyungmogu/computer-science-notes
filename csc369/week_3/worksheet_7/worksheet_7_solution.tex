@@ -257,6 +257,29 @@
         \end{itemize}
     \end{itemize}
 
+    \item
+
+    I need to run the same problem as above, but with larger address space \texttt{-a}
+    and physical memories \texttt{-p}.
+
+    \bigskip
+
+    Running the command \texttt{./relocation.py -s 1 -n 10 -l 100 -a 2k -p 20k},
+    we see the following
+
+    \begin{center}
+    \includegraphics[width=0.4\linewidth]{images/worksheet_7_solution_7.png}
+    \end{center}
+
+    \bigskip
+
+    Using this information, the maximum value of base is:
+
+    \begin{align}
+        \texttt{base} &= \texttt{physical address} - \texttt{virtual address}\\
+        &= 16000 - \color{red}1000\color{black}\\
+        &= \color{red}15000 \texttt{ or 15k}\color{black}
+    \end{align}
 
 \end{enumerate}
 
