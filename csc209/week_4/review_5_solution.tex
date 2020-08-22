@@ -1284,33 +1284,41 @@ double inner_product(const double *a, const double *b, int n) {
                 continue;
             }
 
-            q = &*p;
-            while(q >= words || ( q > words && *(q-1) != ' ')) {
+            q = p;
+            while(q >= words) {
+                if (q == words) {
+                    break;
+                }
+
+                if (*q == ' ') {
+                    break;
+                }
+
                 q--;
             }
 
             // print word
-            r = &*q;
+            r = q+1;
             printf("r: %p\n", r);
             printf("p: %p\n", p);
             printf("q: %p\n", q);
             printf("-----");
             printf("%s\n", r <= p ? "true" : "false");
-            while (r <= p) {
-                printf("%c\n", *r);
-                printf("r: %p\n", r);
-                printf("p: %p\n", p);
-                printf("q: %p\n", q);
-                printf("=====\n");
-                r++;
-            }
+            // while (r <= p) {
+            //     printf("%c\n", *r);
+            //     printf("r: %p\n", r);
+            //     printf("p: %p\n", p);
+            //     printf("q: %p\n", q);
+            //     printf("=====\n");
+            //     r++;
+            // }
 
             // add space
             if (q > words) {
                 printf(" ");
             }
 
-            p = &*q;
+            p = q;
         }
 
         printf("%c\n", terminating_char);
