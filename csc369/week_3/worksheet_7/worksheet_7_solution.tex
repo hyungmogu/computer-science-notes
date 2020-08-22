@@ -164,8 +164,6 @@
 
     \item
 
-    \bigskip
-
     I need to run the command \texttt{./relocation.py -s 0 -n 10}, and determine which
     value of \texttt{-l} covers all the genereated virtual addresses
 
@@ -180,6 +178,25 @@
     \bigskip
 
     And the minimum value that covers all generated virtual addreses are: 930.
+
+
+    \item
+
+    I need to run the command \texttt{./relocation.py -s 1 -n 10 -l 100} and write
+    the maximum value of base such that all the address space fits into physical memory.
+
+    \bigskip
+
+    Running the command, I see that
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/worksheet_7_solution_5.png}
+    \end{center}
+
+    \bigskip
+
+    And the maximum value of base is:
+
 
 \end{enumerate}
 
