@@ -1278,43 +1278,31 @@ double inner_product(const double *a, const double *b, int n) {
 
         p--;
         printf("Reversal of sentence: ");
-        while (p >= words) {
+        while (p > words) {
             if (*p == ' ') {
                 p--;
                 continue;
             }
 
             q = p;
+            // find the starting character
             while(q >= words) {
-                if (q == words) {
-                    break;
-                }
-
                 if (*q == ' ') {
                     break;
                 }
-
                 q--;
             }
 
             // print word
             r = q+1;
-            printf("r: %p\n", r);
-            printf("p: %p\n", p);
-            printf("q: %p\n", q);
-            printf("-----");
-            printf("%s\n", r <= p ? "true" : "false");
-            // while (r <= p) {
-            //     printf("%c\n", *r);
-            //     printf("r: %p\n", r);
-            //     printf("p: %p\n", p);
-            //     printf("q: %p\n", q);
-            //     printf("=====\n");
-            //     r++;
-            // }
+
+            while (r <= p) {
+                printf("%c", *r);
+                r++;
+            }
 
             // add space
-            if (q > words) {
+            if (q != words) {
                 printf(" ");
             }
 
