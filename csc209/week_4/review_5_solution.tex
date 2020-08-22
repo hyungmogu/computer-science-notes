@@ -1142,14 +1142,11 @@ double inner_product(const double *a, const double *b, int n) {
 \begin{lstlisting}[language=c]
     #include <stdio.h>
 
-    #define SIZE 10
+    #define SIZE 100
 
     int main(void) {
 
-        char array[SIZE], c, temp, *p;
-        int i = 0, n;
-
-        p = &array[0];
+        char array[SIZE], c, *p = &array[0];
 
         printf("Enter a message: ");
 
@@ -1162,24 +1159,14 @@ double inner_product(const double *a, const double *b, int n) {
             }
 
             *p++ = c;
-            i++;
         } while (p < array + SIZE);
 
-        n = i;
-
-        // reverse characters in array
-        char *q = &array[0], *r = &array[n-1];
-
-        while (q < r) {
-            temp = *q;
-            *q++ = *r;
-            *r-- = temp;
-        }
-
+        p--;
         printf("Reversal is: ");
 
-        for (p = &array[0]; p < array + n; p++) {
+        while (p >= array) {
             printf("%c", *p);
+            p--;
         }
 
         return 0;
