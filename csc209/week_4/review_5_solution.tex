@@ -1191,11 +1191,12 @@ double inner_product(const double *a, const double *b, int n) {
 
     #define SIZE 100
 
-    bool is_palindrome(char array[], int n);
+    bool is_palindrome(char *p, char *q);
 
     int main(void) {
-        char c, array[SIZE], *p = &array[0];
-        int n = 0;
+        char c, array[SIZE],
+             *p = array,
+             *q = array;
 
         // Read characters
         // Put characters into array
@@ -1212,12 +1213,12 @@ double inner_product(const double *a, const double *b, int n) {
                 continue;
             }
 
-            *p++ = tolower(c);
-            n++;
-        } while (n < SIZE);
-
+            *q++ = tolower(c);
+        } while (q < array + SIZE);
+        // Set pointer to last element in the array
+        q--;
         // Check if characters in array is palindrome
-        if (is_palindrome(array, n)) {
+        if (is_palindrome(p,q)) {
             printf("Palindrome");
         } else {
             printf("Not a Palindrome");
@@ -1226,10 +1227,7 @@ double inner_product(const double *a, const double *b, int n) {
         return 0;
     }
 
-    bool is_palindrome(char array[], int n) {
-        char *p = &array[0],
-             *q = &array[n-1];
-
+    bool is_palindrome(char *p, char *q) {
         while (p < q) {
             if (*p++ != *q--) {
                 return false;
