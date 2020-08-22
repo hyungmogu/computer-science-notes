@@ -1328,6 +1328,72 @@ double inner_product(const double *a, const double *b, int n) {
     Here, I need to modify \texttt{qsort.c} program of section 9.6 so \texttt{low},
     \texttt{high} and \texttt{middle} are pointers to array elements than integers.
 
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    /* qsort.c (Chapter 9, page 207) */
+    /* Sorts an array of integers using Quicksort algorithm */
+
+    #include <stdio.h>
+
+    #define N 10
+
+    void quicksort(int a[], int low, int high);
+    int split(int a[], int low, int high);
+
+    int main(void)
+    {
+      int a[N], i, *pa = &a[0];
+
+      printf("Enter %d numbers to be sorted: ", N);
+      for (pa = a; pa < a + N; pa++)
+        scanf("%d", pa);
+
+      quicksort(a, 0, N - 1);
+
+      printf("In sorted order: ");
+      for (i = 0; i < N; i++)
+        printf("%d ", a[i]);
+      printf("\n");
+
+      return 0;
+    }
+
+    void quicksort(int a[], int low, int high)
+    {
+      int middle;
+
+      if (low >= high) return;
+      middle = split(a, low, high);
+      quicksort(a, low, middle - 1);
+      quicksort(a, middle + 1, high);
+    }
+
+    int split(int a[], int low, int high)
+    {
+      int part_element = a[low];
+
+      for (;;) {
+        while (low < high && part_element <= a[high])
+          high--;
+        if (low >= high) break;
+        a[low++] = a[high];
+
+        while (low < high && a[low] <= part_element)
+          low++;
+        if (low >= high) break;
+        a[high--] = a[low];
+      }
+
+      a[high] = part_element;
+      return high;
+    }
+\end{lstlisting}
+
 \end{enumerate}
 
 
