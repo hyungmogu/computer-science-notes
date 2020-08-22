@@ -1263,13 +1263,21 @@ double inner_product(const double *a, const double *b, int n) {
              words[MAX_VALUE] = {0};
 
         printf("Enter a sentence: ");
-        for (i = 0; (c = getchar()) != '\n' && i < MAX_VALUE; i++) {
+        do {
+            c = getchar();
+
+            if (c == '\n') {
+                break;
+            }
+
             if (c == '.' || c == '!' || c == '?') {
                 terminating_char = c;
                 break;
             }
+
             words[i] = c;
-        }
+            i++;
+        } while (i < MAX_VALUE);
 
         printf("Reversal of sentence: ");
         while (i >= 0) {
@@ -1287,6 +1295,14 @@ double inner_product(const double *a, const double *b, int n) {
         return 0;
     }
 \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item Githib (William Gherman), c-solutions (Chapter 8 Exercise 14), \href{https://github.com/williamgherman/c-solutions/blob/master/08/projects/14/14.c}{link}
+    \end{enumerate}
 
 \end{enumerate}
 
