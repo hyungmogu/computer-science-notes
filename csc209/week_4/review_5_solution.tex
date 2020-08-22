@@ -1291,9 +1291,17 @@ double inner_product(const double *a, const double *b, int n) {
 
             // print word
             r = &*q;
+            printf("r: %p\n", r);
+            printf("p: %p\n", p);
+            printf("q: %p\n", q);
+            printf("-----");
+            printf("%s\n", r <= p ? "true" : "false");
             while (r <= p) {
-                printf("%c", *r);
-                printf("%c", *q);
+                printf("%c\n", *r);
+                printf("r: %p\n", r);
+                printf("p: %p\n", p);
+                printf("q: %p\n", q);
+                printf("=====\n");
                 r++;
             }
 
