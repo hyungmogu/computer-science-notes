@@ -1256,8 +1256,8 @@ double inner_product(const double *a, const double *b, int n) {
 
     int main(void) {
 
-        int i = 0, j;
-        char c, terminating_char, words[MAX_VALUE] ;
+        char c, terminating_char, words[MAX_VALUE],
+             *p = &words[0], *q;
 
         printf("Enter a sentence: ");
         do {
@@ -1272,26 +1272,24 @@ double inner_product(const double *a, const double *b, int n) {
                 break;
             }
 
-            words[i] = c;
-            i++;
-        } while (i < MAX_VALUE);
-        i--;
+            *p++ = c;
+        } while (p < words + MAX_VALUE);
 
         printf("Reversal of sentence: ");
-        while (i >= 0) {
-            if (words[i] == ' ') {
-                i--;
+        while (p-- >= words) {
+            if (*p == ' ') {
+                p--;
                 continue;
             }
 
-            j = i;
-            while(j >= 0 || ( j > 0 && words[j-1] != ' ')) {
-                printf("%c", words[j]);
-                j--;
+            q = p;
+            while(q >= words || ( q > words && *(q-1) != ' ')) {
+                printf("%c", *q);
+                q--;
             }
 
             printf(" ");
-            i = j;
+            p = q;
         }
 
         printf("%c\n", terminating_char);
