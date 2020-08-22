@@ -205,6 +205,34 @@
 
     \bigskip
 
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+    I need to run the command \texttt{./relocation.py -s 1 -n 10 -l 100} and write
+    the maximum value of base such that all the address space fits into physical memory.
+
+    \bigskip
+
+    Running the command, I see that
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/worksheet_7_solution_5.png}
+    \end{center}
+
+    \bigskip
+
+    And the maximum value of base is:
+
+    \begin{align}
+        \texttt{base} &= \texttt{physical address} - \texttt{virtual address}\\
+        &= 16000 - \color{red}1000\color{black}\\
+        &= \color{red}15000 \texttt{ or 15k}\color{black}
+    \end{align}
+
+    \end{mdframed}
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
