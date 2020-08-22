@@ -68,8 +68,59 @@
 
     \begin{itemize}
         \item \texttt{./relocation.py -s 1}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/worksheet_7_solution_1.png}
+        \end{center}
+
+        \bigskip
+
+        Here, the following is inbound:
+
+        \begin{itemize}
+            \item VA  1: 0x00000105 (decimal:  261), since it's less than the limit of 290
+        \end{itemize}
+
+
+        and the following is out of bound:
+
+        \begin{itemize}
+            \item VA  0: 0x0000030e (decimal:  782)
+            \item VA  2: 0x000001fb (decimal:  507)
+            \item VA  3: 0x000001cc (decimal:  460)
+            \item VA  4: 0x0000029b (decimal:  667)
+        \end{itemize}
+
         \item \texttt{./relocation.py -s 2}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/worksheet_7_solution_2.png}
+        \end{center}
+
+        \bigskip
+
+        Here, the following is inbound:
+
+        \begin{itemize}
+            \item VA  0: 0x00000039 (decimal:   57)
+            \item VA  1: 0x00000056 (decimal:   86)
+        \end{itemize}
+
+
+        and the following is out of bound:
+
+        \begin{itemize}
+            \item VA  2: 0x00000357 (decimal:  855)
+            \item VA  3: 0x000002f1 (decimal:  753)
+            \item VA  4: 0x000002ad (decimal:  685)
+        \end{itemize}
+
+
         \item \texttt{./relocation.py -s 3}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/worksheet_7_solution_3.png}
+        \end{center}
     \end{itemize}
 
 

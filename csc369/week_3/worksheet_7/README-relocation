@@ -33,7 +33,7 @@ thus the hardware would raise an exception.
 To run with the default flags, type relocation.py at the command line. The
 result should be something like this:
 
-prompt> ./relocation.py 
+prompt> ./relocation.py
 ...
 Base-and-Bounds register information:
 
@@ -47,9 +47,9 @@ Virtual Address Trace
   VA  3: 0x019e (decimal:414) -> PA or violation?
   VA  4: 0x0322 (decimal:802) -> PA or violation?
 
-For each virtual address, either write down the physical address it 
-translates to OR write down that it is an out-of-bounds address 
-(a segmentation violation). For this problem, you should assume a 
+For each virtual address, either write down the physical address it
+translates to OR write down that it is an out-of-bounds address
+(a segmentation violation). For this problem, you should assume a
 simple virtual address space of a given size.
 
 As you can see, the homework simply generates randomized virtual
