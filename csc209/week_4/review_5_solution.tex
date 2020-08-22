@@ -1285,7 +1285,7 @@ double inner_product(const double *a, const double *b, int n) {
             }
 
             q = p;
-            // find the starting character
+            // find the start of a word
             while(q >= words) {
                 if (*q == ' ') {
                     break;
@@ -1302,7 +1302,7 @@ double inner_product(const double *a, const double *b, int n) {
             }
 
             // add space
-            if (q != words) {
+            if (q > words) {
                 printf(" ");
             }
 
