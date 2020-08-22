@@ -1251,13 +1251,15 @@ double inner_product(const double *a, const double *b, int n) {
 
 \begin{lstlisting}[language=c]
     #include <stdio.h>
+    #include <string.h>
 
     #define MAX_VALUE 100
 
     int main(void) {
 
         char c, terminating_char, words[MAX_VALUE],
-             *p = &words[0], *q;
+             *p = &words[0], *q, buffer[MAX_VALUE],
+             *r = &buffer[0];
 
         printf("Enter a sentence: ");
         do {
@@ -1275,8 +1277,9 @@ double inner_product(const double *a, const double *b, int n) {
             *p++ = c;
         } while (p < words + MAX_VALUE);
 
+        p--;
         printf("Reversal of sentence: ");
-        while (p-- >= words) {
+        while (p >= words) {
             if (*p == ' ') {
                 p--;
                 continue;
@@ -1284,12 +1287,22 @@ double inner_product(const double *a, const double *b, int n) {
 
             q = p;
             while(q >= words || ( q > words && *(q-1) != ' ')) {
-                printf("%c", *q);
+                *r++ = *q;
                 q--;
             }
 
-            printf(" ");
+
+            // add space
+            if (q > words) {
+                *r++ = ' ';
+            }
+
             p = q;
+        }
+
+        r--;
+        while (r >= buffer) {
+            printf("%c", *r--);
         }
 
         printf("%c\n", terminating_char);
