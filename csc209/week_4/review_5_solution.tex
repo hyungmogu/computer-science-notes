@@ -1278,16 +1278,29 @@ double inner_product(const double *a, const double *b, int n) {
             words[i] = c;
             i++;
         } while (i < MAX_VALUE);
+        i--;
 
         printf("Reversal of sentence: ");
         while (i >= 0) {
-            while (words[--i] != ' ' && i != 0)
-                ;
-            j = i == 0 ? 0 : i + 1;
-            while (words[j] != ' ' && words[j] != '\0')
-                putchar(words[j++]);
-            if (i >= 0)
-                putchar(' ');
+
+            if (i == 0) {
+                break;
+            }
+
+            if (words[i] == ' ') {
+                continue;
+            }
+
+            j = i;
+
+            while(j-1 != 0 || words[j-1] != ' ') {
+                printf("%c", words[j]);
+                j--;
+            }
+
+            if (j != 0) {
+
+            }
         }
 
         printf("\b%c\n", terminating_char);
