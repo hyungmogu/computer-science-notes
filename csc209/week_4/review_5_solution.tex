@@ -1258,8 +1258,7 @@ double inner_product(const double *a, const double *b, int n) {
     int main(void) {
 
         char c, terminating_char, words[MAX_VALUE],
-             *p = &words[0], *q, buffer[MAX_VALUE],
-             *r = &buffer[0];
+             *p = &words[0], *q, *r;
 
         printf("Enter a sentence: ");
         do {
@@ -1285,24 +1284,25 @@ double inner_product(const double *a, const double *b, int n) {
                 continue;
             }
 
-            q = p;
+            q = &*p;
             while(q >= words || ( q > words && *(q-1) != ' ')) {
-                *r++ = *q;
                 q--;
             }
 
+            // print word
+            r = &*q;
+            while (r <= p) {
+                printf("%c", *r);
+                printf("%c", *q);
+                r++;
+            }
 
             // add space
             if (q > words) {
-                *r++ = ' ';
+                printf(" ");
             }
 
-            p = q;
-        }
-
-        r--;
-        while (r >= buffer) {
-            printf("%c", *r--);
+            p = &*q;
         }
 
         printf("%c\n", terminating_char);
