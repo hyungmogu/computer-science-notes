@@ -1283,7 +1283,7 @@ double inner_product(const double *a, const double *b, int n) {
         printf("Reversal of sentence: ");
         while (i >= 0) {
 
-            if (i == 0) {
+            if (i <= 0) {
                 break;
             }
 
@@ -1299,11 +1299,11 @@ double inner_product(const double *a, const double *b, int n) {
             }
 
             if (j != 0) {
-
+                printf(" ");
             }
         }
 
-        printf("\b%c\n", terminating_char);
+        printf("%c\n", terminating_char);
 
         return 0;
     }
