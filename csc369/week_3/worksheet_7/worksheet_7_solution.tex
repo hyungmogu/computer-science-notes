@@ -78,9 +78,10 @@
         Here, the following is inbound:
 
         \begin{itemize}
-            \item VA  1: 0x00000105 (decimal:  261), since it's less than the limit of 290
+            \item VA  1: 0x00000105 (decimal:  261) --> PA 0x00003741 (decimal 14145)
         \end{itemize}
 
+        \bigskip
 
         and the following is out of bound:
 
@@ -102,10 +103,11 @@
         Here, the following is inbound:
 
         \begin{itemize}
-            \item VA  0: 0x00000039 (decimal:   57)
-            \item VA  1: 0x00000056 (decimal:   86)
+            \item VA  0: 0x00000039 (decimal:   57) --> PA 0x00003CE2 (decimal 15586)
+            \item VA  1: 0x00000056 (decimal:   86) --> PA 0x00003CFF (decimal 15615)
         \end{itemize}
 
+        \bigskip
 
         and the following is out of bound:
 
@@ -121,6 +123,25 @@
         \begin{center}
         \includegraphics[width=0.8\linewidth]{images/worksheet_7_solution_3.png}
         \end{center}
+
+        \bigskip
+
+        Here, the following is inbound:
+
+        \begin{itemize}
+            \item VA  3: 0x00000043 (decimal:   67) --> PA 0x00002317 (decimal 8983)
+            \item VA  4: 0x0000000d (decimal:   13) --> PA 0x000022E1 (decimal 8929)
+        \end{itemize}
+
+        \bigskip
+
+        and the following is out of bound:
+
+        \begin{itemize}
+            \item VA  0: 0x0000017a (decimal:  378)
+            \item VA  1: 0x0000026a (decimal:  618)
+            \item VA  2: 0x00000280 (decimal:  640)
+        \end{itemize}
     \end{itemize}
 
 
@@ -132,6 +153,8 @@
     \underline{\textbf{Notes}}
 
     \begin{enumerate}[1.]
+        \item Decimal to hexadecimal link \href{https://www.binaryhexconverter.com/decimal-to-hex-converter}{here}
+        \item The prefix \texttt{0x} in \texttt{0x00003ca9} is to indicate that the number is written in hex
         \item Simulation is run with command
         \item Reality $\to$ many programs share memory at the same time
         \item Virtualization $\to$ creates illution that program has its own private
