@@ -72,9 +72,24 @@
 
     The solution to this problem is:
 
+\begin{lstlisting}[language=c]
+    void *my_malloc(int n) {
+        void *p;
+
+        p = malloc(n);
+
+        if (!p) {
+            printf("ERROR: Malloc allocation failed");
+        }
+
+        return p;
+    }
+\end{lstlisting}
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item Learned that void function can return value
         \item \textbf{Dynamic Storage Allocation}
 
         \begin{itemize}
