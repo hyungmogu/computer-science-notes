@@ -59,7 +59,15 @@
 \begin{enumerate}[1.]
     \item
 
+    I need to write which of the supplied function calls don't work and explain why.
+
     \bigskip
+
+    \begin{itemize}
+        \item \texttt{b)} String format in \texttt{printf} expects character constant, but string literal is used instead
+        \item \texttt{c)} String format in \texttt{printf} expects string but character constrant is used instead
+        \item \texttt{}
+    \end{itemize}
 
     \underline{\textbf{Notes}}
 
@@ -84,7 +92,10 @@
 
         \item \textbf{String Literal}
         \begin{itemize}
-            \item Is a sequence of characters enclosed within double quotes
+            \item \textbf{Syntax:} \texttt{" ... "}
+            \item Has a sequence of characters inside
+            \item Ends with \texttt{$\backslash$0}
+            \item Is represented by a \underline{pointer}
 
             \bigskip
 
