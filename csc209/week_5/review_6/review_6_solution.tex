@@ -490,7 +490,7 @@
 
         \item
 
-        I need to write a function named \texttt{censor} that modifies a string by replacing
+        I need to write a function \texttt{censor} that modifies a string by replacing
         every occurence of \texttt{foo} with \texttt{***}.
 
         \bigskip
@@ -509,7 +509,27 @@
         \bigskip
 
 \begin{lstlisting}[language=c]
+    #include <string.h> \\ strlen
 
+    void censor(char s[]) {
+        char *p;
+
+        if (strlen(s) < 3) {
+            return;
+        }
+
+        for (p = &s[2]; p < s + strlen(s); p++) {
+            if (tolower(*p) == 'o' &&
+                tolower(*(p-1)) == 'o' &&
+                tolower(*(p-2)) == 'f') {
+
+                *p = '*';
+                *(p-1) = '*';
+                *(p-2) = '*';
+            }
+        }
+
+    }
 \end{lstlisting}
 
 
