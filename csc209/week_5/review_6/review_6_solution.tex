@@ -573,7 +573,7 @@ void censor(char s[]) {
     The solution to this problem is:
 
     \begin{itemize}
-        \item
+        \item \texttt{d)} All of the other statments are about making \texttt{str} null or empty.
     \end{itemize}
 
     \bigskip
@@ -581,12 +581,30 @@ void censor(char s[]) {
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item \texttt{*str = 0} makes pointer \texttt{NULL}
         \item \textbf{strcpy}
 
         \begin{itemize}
             \item \textbf{Syntax:} \texttt{char *strcpy (char *s1, const char *s2)}
             \item Copies string \texttt{s2} to the string \texttt{s1}
         \end{itemize}
+
+        \item \textbf{strcat}
+
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{char *strcat(char *s1, const char *s2)}
+            \item appends the contents of the string \texttt{s2} to the end of the string \texttt{s1}
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/review_6_solution_4.png}
+        \end{center}
     \end{itemize}
 
 
