@@ -153,9 +153,107 @@
 
     \bigskip
 
-    The solution to this problem is included in file \texttt{question\_2.c}
+    The solution to this problem is:
 
     \bigskip
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdlib.h>  // malloc
+    #include <string.h>  // strlen
+
+    char *duplicate(const char *str);
+
+    int main(void) {
+        char s[] = "hello world", *p;
+
+        p = duplicate (s);
+
+        printf("Duplicate: %s\n", p);
+
+        free(p);
+        return 0;
+    }
+
+
+    char *duplicate(const char *str) {
+        char *p, *q;
+        const char *r;
+
+        int n = strlen(str);
+
+        p = (char *)malloc(n + 1);
+
+        if (!p) {
+            return p;
+        }
+
+        r = str;
+        q = p;
+        while (r < str + n) {
+            *q = *r;
+            q++;
+            r++;
+        }
+
+        *q = '\0';
+
+        return p;
+    }
+\end{lstlisting}
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdlib.h>  // malloc
+    #include <string.h>  // strlen
+
+    char *duplicate(const char *str);
+
+    int main(void) {
+        char s[] = "hello world", *p, *q;
+        ;
+        p = duplicate (s);
+
+        printf("Duplicate: %s\n", p);
+
+        free(p);
+        return 0;
+    }
+
+
+    char *duplicate(const char *str) {
+        char *p, *q;
+        const char *r;
+
+        int n = strlen(str);
+
+        p = (char *)malloc(n + 1);
+
+        if (!p) {
+            p = ((void*)0);
+            return p;
+        }
+
+        r = str;
+        q = p;
+        while (r < str + n) {
+            *q = *r;
+            q++;
+            r++;
+        }
+
+        *q = '\0';
+
+        return p;
+    }
+\end{lstlisting}
+
+    \end{mdframed}
 
     \underline{\textbf{Note}}
 
@@ -168,6 +266,10 @@
             \item changes the parameter to pass by value
         \end{itemize}
     \end{itemize}
+
+    \item
+
+
 \end{enumerate}
 
 \end{document}
