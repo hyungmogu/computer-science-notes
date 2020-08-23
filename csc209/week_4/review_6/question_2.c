@@ -9,7 +9,7 @@ int main(void) {
 
     p = duplicate (s);
 
-    printf("Duplicate: %s", *p);
+    printf("Duplicate: %s\n", p);
 
     free(p);
     return 0;
@@ -17,8 +17,8 @@ int main(void) {
 
 
 char *duplicate(const char *str) {
-    char *p;
-    const char *q;
+    char *p, *q;
+    const char *r;
 
     int n = strlen(str);
 
@@ -28,12 +28,15 @@ char *duplicate(const char *str) {
         return p;
     }
 
-    q = str;
-    while (q < str + n) {
-        *p++ = *q++;
+    r = str;
+    q = p;
+    while (r < str + n) {
+        *q = *r;
+        q++;
+        r++;
     }
 
-    *p = '\0';
+    *q = '\0';
 
     return p;
 }
