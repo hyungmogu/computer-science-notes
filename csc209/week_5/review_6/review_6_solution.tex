@@ -180,7 +180,7 @@
     I need to modify the following \texttt{read\_line} function in the following ways:
 
     \begin{center}
-    \includegraphics[width=0.5\linewidth]{images/review_6_solution_1.png}
+    \includegraphics[width=0.7\linewidth]{images/review_6_solution_1.png}
     \end{center}
 
     \begin{enumerate}[a)]
@@ -389,11 +389,30 @@
 
         \bigskip
 
+        The requirement for this function is:
+
+        \bigskip
+
+        \begin{itemize}
+            \item Array subscripting must be used to access each character in string
+        \end{itemize}
+
+        \bigskip
+
         The solution to this problem is:
 
+        \bigskip
 
 \begin{lstlisting}[language=c]
+    #include <ctype.h> // toupper
 
+    void capitalize(char *s)
+    {
+
+        for (int i = 0; s[i] != '\0'; i++) {
+            s[i] = toupper(s[i]);
+        }
+    }
 \end{lstlisting}
 
         \bigskip
@@ -412,6 +431,12 @@
 
                 \bigskip
 
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/review_6_solution_2.png}
+                \end{center}
+
+                \bigskip
+
                 \item Using pointer
 
                 \bigskip
@@ -420,10 +445,50 @@
 
                 \bigskip
 
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/review_6_solution_3.png}
+                \end{center}
 
+                \bigskip
 
             \end{enumerate}
         \end{itemize}
+
+        \item
+
+        I need to write a function named \texttt{capitalize} that capitalizes all
+        letters in its argument.
+
+        \bigskip
+
+        The requirement for this function is:
+
+        \bigskip
+
+        \begin{itemize}
+            \item pointer must be used to access each character in string
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h> // toupper
+
+    void capitalize(char *s)
+    {
+        char *p = s;
+        while (*p != '\0') {
+            *p = toupper(*p);
+            p++;
+        }
+    }
+\end{lstlisting}
+
+
     \end{enumerate}
 
 \end{enumerate}
