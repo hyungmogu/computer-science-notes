@@ -196,6 +196,53 @@
 
     \begin{enumerate}[a)]
         \item
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h>
+    #include <stdbool.h>
+
+    ...
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+        bool non_space_char_exists = false;
+
+        while ((ch = getchar()) != '\n')
+            if (isspace(ch) && non_space_char_exists){
+                continue;
+            }
+
+            if (i < n)
+                str[i++] = ch;
+                non_space_char_exists = true;
+        str[i] = '\0';
+        return i;
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h>
+
+    ...
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+
+        while ((ch = getchar()) != '\n')
+            if (isspace(ch)){
+                break;
+            }
+
+            if (i < n)
+                str[i++] = ch;
+        str[i] = '\0';
+        return i;
+    }
+\end{lstlisting}
     \end{enumerate}
 
 \end{enumerate}
