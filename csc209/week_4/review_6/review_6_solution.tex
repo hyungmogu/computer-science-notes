@@ -80,14 +80,44 @@
         \begin{itemize}
             \item Allows to allocate storage during program execution
             \item Allows to create data structures and shink and grow array as needed
+            \item e.g. \texttt{malloc}, \texttt{calloc}, \texttt{realloc}
         \end{itemize}
         \item \textbf{Memory Allocation Functions}
 
         \begin{itemize}
-            \item \texttt{malloc}
-            \item \texttt{calloc}
-            \item \texttt{realloc}
+            \item \texttt{malloc} - Allocates a block of memory but doesn't initialize it
+
+            \begin{itemize}
+                \item doesn't initialize the allocated memory
+                \item more efficient than \texttt{calloc}
+                \item accessing the content $\to$ segmentation fault (accessing value at invalid mem. location)
+                or garbage values
+            \end{itemize}
+
+            \item \texttt{calloc} - Allocates a block of memory and clears it
+
+            \begin{itemize}
+                \item allocates memory and \underline{initializes the memory block} to zero
+                \item accessing the content of blocks would return 0
+            \end{itemize}
+
+            \item \texttt{realloc} - Resizes a previously allocated block of memory
         \end{itemize}
+
+        \item \textbf{Null Pointer}
+
+        \begin{itemize}
+            \item is returned when it fails to allocate a block of memory large
+            enough to satisfy the request
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/review_6_solution_1.png}
+        \end{center}
     \end{itemize}
 \end{enumerate}
 
