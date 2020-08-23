@@ -300,6 +300,85 @@
 
     \end{enumerate}
 
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+    \begin{itemize}
+
+        \item \texttt{c)}
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h>
+
+    ...
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+
+        do {
+            ch = getchar()
+
+            if (ch == '\n'){
+                break;
+            }
+
+            if (i < n)
+                str[i++] = ch;
+
+        } while (ch !== '\n');
+
+        str[i] = '\0';
+        return i;
+    }
+\end{lstlisting}
+
+        \item \texttt{d)}
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h>
+
+    ...
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+        int n = strlen(str) + 1;
+
+        do {
+            ch = getchar();
+
+            if (ch == '\n') {
+                break;
+            }
+
+            str[i++] = ch;
+
+        } while (i < (n - 1));
+
+        str[i] = '\0';
+        return i;
+    }
+\end{lstlisting}
+
+
+    \end{itemize}
+
+
+    \end{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item Learned that \texttt{getchar()} always ends with \texttt{$\backslash$n}
+    \end{itemize}
+
 \end{enumerate}
 
 
