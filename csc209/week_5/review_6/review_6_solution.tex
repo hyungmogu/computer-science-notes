@@ -64,9 +64,11 @@
     \bigskip
 
     \begin{itemize}
-        \item \texttt{b)} String format in \texttt{printf} expects character constant, but string literal is used instead
-        \item \texttt{c)} String format in \texttt{printf} expects string but character constrant is used instead
-        \item \texttt{}
+        \item \texttt{b)} String format in \texttt{printf} expects character constant, but string literal is used
+        \item \texttt{c)} String format in \texttt{printf} expects string but character constrant is used
+        \item \texttt{e)} The first argument in \texttt{printf} expects pointer but character constrant (an integer) is used isntead
+        \item \texttt{h)} The first argument in \texttt{putchar} expects a character, but string literal (a pointer to character) is used
+        \item \texttt{i)} The first argument in \texttt{puts} expects a pointer to character, but character constant (an integer) is used
     \end{itemize}
 
     \underline{\textbf{Notes}}
@@ -88,6 +90,13 @@
             \item Writes a string to stdout up to but not including the null character
             \item Appends a newline character to the output.
             \item Is similar to printf but for string
+        \end{itemize}
+
+        \item \textbf{Character Constant}
+
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{' ... '}
+            \item Is represented by an \underline{integer}
         \end{itemize}
 
         \item \textbf{String Literal}
