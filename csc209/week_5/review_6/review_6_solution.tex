@@ -488,52 +488,83 @@
     }
 \end{lstlisting}
 
-        \item
+    \end{enumerate}
 
-        I need to write a function \texttt{censor} that modifies a string by replacing
-        every occurence of \texttt{foo} with \texttt{***}.
+    \item
 
-        \bigskip
+    I need to write a function \texttt{censor} that modifies a string by replacing
+    every occurence of \texttt{foo} with \texttt{***}.
 
-        The additional requirement of this function are:
+    \bigskip
 
-        \begin{itemize}
-            \item I need to make the function as short as possible without sacrificing
-            clarity.
-        \end{itemize}
+    The additional requirement of this function are:
 
-        \bigskip
+    \begin{itemize}
+        \item I need to make the function as short as possible without sacrificing
+        clarity.
+    \end{itemize}
 
-        The solution to this problem is:
+    \bigskip
 
-        \bigskip
+    The solution to this problem is:
+
+    \bigskip
 
 \begin{lstlisting}[language=c]
-    #include <string.h> \\ strlen
+#include <string.h> \\ strlen
 
-    void censor(char s[]) {
-        char *p;
+void censor(char s[]) {
+    char *p;
 
-        if (strlen(s) < 3) {
-            return;
-        }
-
-        for (p = &s[2]; p < s + strlen(s); p++) {
-            if (tolower(*p) == 'o' &&
-                tolower(*(p-1)) == 'o' &&
-                tolower(*(p-2)) == 'f') {
-
-                *p = '*';
-                *(p-1) = '*';
-                *(p-2) = '*';
-            }
-        }
-
+    if (strlen(s) < 3) {
+        return;
     }
+
+    for (p = &s[2]; p < s + strlen(s); p++) {
+        if (tolower(*p) == 'o' &&
+            tolower(*(p-1)) == 'o' &&
+            tolower(*(p-2)) == 'f') {
+
+            *p = '*';
+            *(p-1) = '*';
+            *(p-2) = '*';
+        }
+    }
+
+}
 \end{lstlisting}
 
+    \bigskip
 
-    \end{enumerate}
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+    \begin{lstlisting}[language=c]
+        #include <string.h> \\ strlen
+
+        void censor(char s[]) {
+            if (strlen(s) < 3) {
+                return;
+            }
+
+            for (char *p = &s[2]; *p != '\0'; p++) {
+                if (tolower(*p) == 'o' &&
+                    tolower(*(p-1)) == 'o' &&
+                    tolower(*(p-2)) == 'f') {
+
+                    *p = *(p-1) = *(p-2) = '*';
+                }
+            }
+
+        }
+        \end{lstlisting}
+
+    \end{mdframed}
+
+
 
 \end{enumerate}
 
