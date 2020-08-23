@@ -644,17 +644,35 @@ void censor(char s[]) {
 
     \item
 
-    I need to write the value of the string \texttt{s1} after the execution of the following statements:
-
-    \bigskip
-
-    \begin{center}
-    \includegraphics[width=0.5\linewidth]{images/review_6_solution_6.png}
-    \end{center}
+    I need to write the value of the string \texttt{s1} after the executing the provided statements:
 
     \bigskip
 
     The solution to this problem is:
+
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{strcmp}
+
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{int strcmp(const char *s1, const char *s2)}
+
+            \begin{itemize}
+                \item Compares string \texttt{s1} and \texttt{s2}
+                \item Returns
+
+                \begin{itemize}
+                    \item \texttt{0} - if \texttt{s1} and \texttt{s2} are equal
+                    \item \texttt{$>$0} - if \texttt{s1} is greater than \texttt{s2}
+                    \item \texttt{$<$0} - if \texttt{s1} is less than \texttt{s2}
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
 
 
 \end{enumerate}
