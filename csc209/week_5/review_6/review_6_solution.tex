@@ -243,6 +243,61 @@
         return i;
     }
 \end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h>
+
+    ...
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+
+        while ((ch = getchar()) != '\n')
+            if (ch == '\n'){
+                break;
+            }
+
+            if (i < n)
+                str[i++] = ch;
+
+        str[i] = '\n';
+        str[i+1] = '\0';
+        return i;
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    #include <ctype.h>
+
+    ...
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+        int n = strlen(str) + 1;
+
+        do {
+            ch = getchar();
+
+            if (!ch) {
+                break;
+            }
+
+            str[i++] = ch;
+
+        } while (i < (n - 1));
+
+        str[i] = '\0';
+        return i;
+    }
+\end{lstlisting}
+
+
     \end{enumerate}
 
 \end{enumerate}
