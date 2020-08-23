@@ -685,6 +685,14 @@ void censor(char s[]) {
         \end{itemize}
     \end{itemize}
 
+    \item
+
+    I need to write what's wrong with the provided function.
+
+    \bigskip
+
+    The solution to this problem is that the pointer \texttt{*q} hasn't
+    allocated memory, and because of that, the function call \texttt{strcpy(q,p)} would result in segmentation fault.
 
 \end{enumerate}
 
