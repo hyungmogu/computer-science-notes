@@ -57,12 +57,37 @@
 \begin{enumerate}[1.]
     \item
 
+    I need to create a wrapper function \texttt{my\_malloc} that does the following:
+
     \bigskip
+
+    \begin{itemize}
+        \item ask \texttt{my\_malloc} it to allocate \texttt{n} bytes
+        \item call \texttt{malloc}
+        \item test \texttt{malloc} doesn't have a null pointer
+        \item return pointer from \texttt{malloc}
+    \end{itemize}
+
+    \bigskip
+
+    The solution to this problem is:
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item
+        \item \textbf{Dynamic Storage Allocation}
+
+        \begin{itemize}
+            \item Allows to allocate storage during program execution
+            \item Allows to create data structures and shink and grow array as needed
+        \end{itemize}
+        \item \textbf{Memory Allocation Functions}
+
+        \begin{itemize}
+            \item \texttt{malloc}
+            \item \texttt{calloc}
+            \item \texttt{realloc}
+        \end{itemize}
     \end{itemize}
 \end{enumerate}
 
