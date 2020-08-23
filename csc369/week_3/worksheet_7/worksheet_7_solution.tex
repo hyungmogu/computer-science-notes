@@ -281,6 +281,38 @@
         &= 18000 \texttt{ or 18k}
     \end{align}
 
+    \item
+
+    I need to make a graph concerning what fraction of virtual addresses are
+    valid with graph running with different random seeds with limits ranging from 0
+    to maximum size of the address space.
+
+    \bigskip
+
+    Using the following commands, we can write
+
+    \begin{itemize}
+        \item \texttt{./relocation.py -s 1 -n 10 -a 500 -l 0}
+        \item \texttt{./relocation.py -s 2 -n 10 -a 500 -l 0}
+        \item \texttt{./relocation.py -s 3 -n 10 -a 500 -l 0}
+        \item \texttt{./relocation.py -s 1 -n 10 -a 500 -l 100}
+        \item \texttt{./relocation.py -s 2 -n 10 -a 500 -l 100}
+        \item \texttt{./relocation.py -s 3 -n 10 -a 500 -l 100}
+        \item \texttt{./relocation.py -s 1 -n 10 -a 500 -l 200}
+        \item \texttt{./relocation.py -s 2 -n 10 -a 500 -l 200}
+        \item \texttt{./relocation.py -s 3 -n 10 -a 500 -l 200}
+        \item \texttt{./relocation.py -s 1 -n 10 -a 500 -l 300}
+        \item \texttt{./relocation.py -s 2 -n 10 -a 500 -l 300}
+        \item \texttt{./relocation.py -s 3 -n 10 -a 500 -l 300}
+        \item \texttt{./relocation.py -s 1 -n 10 -a 500 -l 400}
+        \item \texttt{./relocation.py -s 2 -n 10 -a 500 -l 400}
+        \item \texttt{./relocation.py -s 3 -n 10 -a 500 -l 400}
+        \item \texttt{./relocation.py -s 1 -n 10 -a 500 -l 500}
+        \item \texttt{./relocation.py -s 2 -n 10 -a 500 -l 500}
+        \item \texttt{./relocation.py -s 3 -n 10 -a 500 -l 500}
+    \end{itemize}
+
+
 \end{enumerate}
 
 \end{document}
