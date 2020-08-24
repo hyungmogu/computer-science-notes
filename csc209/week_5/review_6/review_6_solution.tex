@@ -878,7 +878,33 @@ void censor(char s[]) {
 
         \bigskip
 
-        It returns the number of consequtive characters in \texttt{s} that's also in \texttt{t}.
+        The answer to this problem is: it returns the number of consequtive characters in \texttt{s} that's also in \texttt{t}.
+
+        \item
+
+        I need to use the techniques of section 13.6 to condense the function \texttt{count\_spaces}
+        in section 13.4
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    int count_spaces(const char s[])
+    {
+        int count = 0;
+
+        do {
+            if (*s == ' ') {
+                count++;
+            }
+        } while (*s++);
+
+        return count;
+    }
+\end{lstlisting}
     \end{enumerate}
 
 
