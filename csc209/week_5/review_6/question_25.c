@@ -2,10 +2,18 @@
 
 int main(void) {
 
-    int n;
+    char *tens[] = {"Ten", "Eleven", "Twelve", "Thirteen"
+                    "Fourteen", "Fifteen", "Sixteen",
+                    "Seventeen", "Eighteen", "Nineteen"};
+
+    int first_digit, second_digit;
 
     printf("Enter a two-digit number: ");
-    scanf("%d", &n);
+    scanf("%d%d", &first_digit, &second_digit);
+
+    if (*first_digit == 1) {
+
+    }
 
     switch (n / 10) {
         case 1:
