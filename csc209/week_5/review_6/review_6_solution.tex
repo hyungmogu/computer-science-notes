@@ -798,7 +798,13 @@ void censor(char s[]) {
 
     \bigskip
 
-    The solution to this problem is:
+    The solution to this problem is: \texttt{Grinch}
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+
+\end{lstlisting}
 
     \bigskip
 
@@ -807,11 +813,14 @@ void censor(char s[]) {
     \bigskip
 
     \begin{itemize}
+        \item \texttt{--*p} means decrement \texttt{*p} first; the value of expression is \texttt{*p} after decrement
         \item Idioms are good to know. It's used by a lot of C programmers.
         \item \textbf{String Idioms - Searching for the end of string}
 
         \begin{itemize}
             \item The following function \texttt{strlen} are equal
+
+            \bigskip
 
             \begin{center}
             \includegraphics[width=0.9\linewidth]{images/review_6_solution_6.png}
@@ -819,11 +828,24 @@ void censor(char s[]) {
 
             \bigskip
 
-
+            It takes advantage of the fact that the end of string is \texttt{*s = '$\backslash$0' = 0}
 
         \end{itemize}
 
         \item \textbf{String Idioms - Copying string}
+
+        \begin{itemize}
+            \item The following function \texttt{strlen} are equal
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.9\linewidth]{images/review_6_solution_7.png}
+            \end{center}
+
+            \bigskip
+
+        \end{itemize}
     \end{itemize}
 
 
