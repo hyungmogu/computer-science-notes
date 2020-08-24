@@ -746,7 +746,16 @@ void censor(char s[]) {
     \bigskip
 
 \begin{lstlisting}[language=c]
+    void get_extension(const char *file_name, char *extension) {
+        int i = strlen(file_name) - 1;
 
+        for (; i >= 0; i--) {
+            if (*(file_name+i) == '.') {
+                break;
+            }
+        }
+        strcpy(extension, file_name + (i+1));
+    }
 \end{lstlisting}
 
 
