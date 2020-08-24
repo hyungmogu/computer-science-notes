@@ -27,6 +27,11 @@ int main(void)
     if (day == 0)
       break;
 
+    if (day < 0 || day > 31) {
+      printf("ERROR: Please enter day between 1 and 31\n");
+      continue;
+    }
+
     scanf("%2d:%2d", &hours, &minutes);
     sprintf(day_str, "%2d %02d:%02d", day, hours, minutes);
     read_line(msg_str, MSG_LEN);
