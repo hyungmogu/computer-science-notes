@@ -781,6 +781,17 @@ void censor(char s[]) {
 
     The solution to this problem is:
 
+    \bigskip
+
+
+\begin{lstlisting}[language=c]
+    void build_index_url (const char *domain, char *index_url) {
+        strcat(index_url, "http://www.");
+        strcat(index_url, domain);
+        strcat(index_url, "/index.html");
+    }
+\end{lstlisting}
+
 
 \end{enumerate}
 
