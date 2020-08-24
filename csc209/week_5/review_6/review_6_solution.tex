@@ -1125,6 +1125,60 @@ int count_spaces(const char s[])
         \end{itemize}
     \end{itemize}
 
+    \item
+
+    I need to write a program that satisfies the following requirements:
+
+    \begin{itemize}
+        \item The program should echoe its command-line arguments in reverse
+    \end{itemize}
+
+    \bigskip
+
+    The solution to this problem is included in file \texttt{./question\_22.c}.
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Command Line Arguments}
+
+        \begin{itemize}
+            \item \textbf{Syntax}
+
+            \begin{center}
+            \includegraphics[width=0.6\linewidth]{images/review_6_solution_10.png}
+            \end{center}
+
+            \bigskip
+
+            \begin{itemize}
+                \item \texttt{argc} Means `arguement count'
+                \item \texttt{argv} Means `argument vector' or an array of pointers to the command-line arguements
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \texttt{ls -l remind.c}
+
+            \bigskip
+
+            Here,
+
+            \begin{itemize}
+                \item \texttt{argc} is 3
+                \item \texttt{argv[0]} is \texttt{ls}
+                \item \texttt{argv[1]} is \texttt{-l}
+                \item \texttt{argv[2]} is \texttt{remind.c}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+
 
 \end{enumerate}
 
