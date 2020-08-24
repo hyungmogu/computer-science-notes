@@ -11,7 +11,7 @@ int main(void) {
 
     do {
         printf("Enter word: ");
-        scanf("%s", s); // ask user to enter words
+        scanf("%s", s);
 
         if (largest_word[0] == '\0') {
             strcpy(largest_word, s);
@@ -23,13 +23,13 @@ int main(void) {
             printf("%s\n", s);
         }
 
-        // if (strcmp(s, largest_word) > 0) { // determine and store the largest word
-        //     strcpy(largest_word, s);
-        // } else if (strcmp(s, smallest_word) < 0) { // determine and store the smallest word
-        //     strcpy(smallest_word, s);
-        // }
+        if (strcmp(s, largest_word) > 0) {
+            strcpy(largest_word, s);
+        } else if (strcmp(s, smallest_word) < 0) {
+            strcpy(smallest_word, s);
+        }
 
-    } while (strlen(s) != 4); // stop program when user enters four letter words
+    } while (strlen(s) != 4);
 
 
     printf("Smallest word: %s\n", smallest_word);
