@@ -694,6 +694,34 @@ void censor(char s[]) {
     The solution to this problem is that the pointer \texttt{*q} hasn't
     allocated memory, and because of that, the function call \texttt{strcpy(q,p)} would result in segmentation fault.
 
+    \item
+
+    Here I need to modify \texttt{strcmp} function to use pointer arithmetic.
+
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    int strcmp (char *s, char *t) {
+        char *p = s, *q = t;
+
+        while (*p == *q) {
+            if (*p == '\0') {
+                return 0;
+            }
+            p++;
+            q++;
+        }
+
+        return *p - *q;
+    }
+\end{lstlisting}
+
+    \bigskip
+
 \end{enumerate}
 
 
