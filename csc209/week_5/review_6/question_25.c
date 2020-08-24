@@ -2,121 +2,36 @@
 
 int main(void) {
 
-    char *tens[] = {"Ten", "Eleven", "Twelve", "Thirteen"
-                    "Fourteen", "Fifteen", "Sixteen",
-                    "Seventeen", "Eighteen", "Nineteen"};
+    char *s1[] = {"ten", "eleven", "twelve", "thirteen"
+                    "fourteen", "fifteen", "sixteen",
+                    "seventeen", "eighteen", "nineteen"};
+
+    char *sf[] = {
+        "twenty", "thirty", "forty", "fifty",
+        "sixty", "seventy", "eighty", "ninety"
+    };
+
+    char *ss[] = {
+        "one", "two", "three", "four", "five", "six",
+        "sven", "eight", "nine"
+    };
 
     int first_digit, second_digit;
 
     printf("Enter a two-digit number: ");
-    scanf("%d%d", &first_digit, &second_digit);
+    scanf("%1d%1d", &first_digit, &second_digit);
 
-    if (*first_digit == 1) {
-
+    if (first_digit == 1) {
+        printf("You entered the number %s", s1[second_digit]);
+        return 0;
     }
 
-    switch (n / 10) {
-        case 1:
-            switch (n % 10) {
-                case 0:
-                    printf("You entered the number ten\n");
-                    break;
-                case 1:
-                    printf("You entered the number eleven\n");
-                    break;
-                case 2:
-                    printf("You entered the number twelve\n");
-                    break;
-                case 3:
-                    printf("You entered the number thirteen\n");
-                    break;
-                case 4:
-                    printf("You entered the number fourteen\n");
-                    break;
-                case 5:
-                    printf("You entered the number fifteen\n");
-                    break;
-                case 6:
-                    printf("You entered the number sixteen\n");
-                    break;
-                case 7:
-                    printf("You entered the number seventeen\n");
-                    break;
-                case 8:
-                    printf("You entered the number eighteen\n");
-                    break;
-                case 9:
-                    printf("You entered the number nineteen\n");
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 2:
-            printf("You entered the number twenty");
-            break;
-        case 3:
-            printf("You entered the number thirty");
-            break;
-        case 4:
-            printf("You entered the number forty");
-            break;
-        case 5:
-            printf("You entered the number fifty");
-            break;
-        case 6:
-            printf("You entered the number sixty");
-            break;
-        case 7:
-            printf("You entered the number seventy");
-            break;
-        case 8:
-            printf("You entered the number eighty");
-            break;
-        case 9:
-            printf("You entered the number ninety");
-            break;
-        default:
-            printf("Your number is out of range 10-99\n");
-            return 0;
+    if (second_digit == 0) {
+        printf("You entered the number %s", sf[first_digit-1]);
+        return 0;
     }
 
-    if (n / 10 != 1) {
-        switch (n % 10) {
-            case 0:
-                printf("\n");
-                break;
-            case 1:
-                printf("-one\n");
-                break;
-            case 2:
-                printf("-two\n");
-                break;
-            case 3:
-                printf("-three\n");
-                break;
-            case 4:
-                printf("-four\n");
-                break;
-            case 5:
-                printf("-five\n");
-                break;
-            case 6:
-                printf("-six\n");
-                break;
-            case 7:
-                printf("-seven\n");
-                break;
-            case 8:
-                printf("-eight\n");
-                break;
-            case 9:
-                printf("-nine\n");
-                break;
-            default:
-                break;
-        }
-    }
+    printf("You entered the number %s-%s", sf[first_digit-1], ss[second_digit]);
 
     return 0;
 }
