@@ -880,32 +880,51 @@ void censor(char s[]) {
 
         The answer to this problem is: it returns the number of consequtive characters in \texttt{s} that's also in \texttt{t}.
 
-        \item
+    \end{enumerate}
 
-        I need to use the techniques of section 13.6 to condense the function \texttt{count\_spaces}
-        in section 13.4
+    \item
 
-        \bigskip
+    I need to use the techniques of section 13.6 to condense the function \texttt{count\_spaces}
+    in section 13.4
 
-        The solution to this problem is:
+    \bigskip
 
-        \bigskip
+    The solution to this problem is:
+
+    \bigskip
 
 \begin{lstlisting}[language=c]
-    int count_spaces(const char s[])
-    {
-        int count = 0;
+int count_spaces(const char s[])
+{
+    int count = 0;
 
-        do {
-            if (*s == ' ') {
-                count++;
-            }
-        } while (*s++);
+    do {
+        if (*s == ' ') {
+            count++;
+        }
+    } while (*s++);
 
-        return count;
-    }
+    return count;
+}
 \end{lstlisting}
-    \end{enumerate}
+
+    \item
+
+    I need to write the following function
+
+    \bigskip
+
+    \texttt{bool test\_extension (const char *file\_name, const char *extension)}
+
+    \bigskip
+
+    satisfying the following requiremnts
+
+    \begin{itemize}
+        \item \texttt{test\_extension} should return \texttt{true} if the file's extension matches the string
+        pointed to by \texttt{extension}.
+        \item \texttt{test\_extension} should ignore the case of letters
+    \end{itemize}
 
 
 
