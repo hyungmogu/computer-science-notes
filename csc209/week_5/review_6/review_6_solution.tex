@@ -924,8 +924,26 @@ int count_spaces(const char s[])
         \item \texttt{test\_extension} should return \texttt{true} if the file's extension matches the string
         pointed to by \texttt{extension}.
         \item \texttt{test\_extension} should ignore the case of letters
+        \item \texttt{test\_extension} should use ``search for the end of a string'' idiom
+        \item \texttt{test\_extension} should use \texttt{toupper} to make the process case-insensitive
     \end{itemize}
 
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    bool test_extension (const char *file_name, const char *extension)
+    {
+        while (*file_name++ != '.')
+            ;
+
+        while ()
+        return count;
+    }
+\end{lstlisting}
 
 
 \end{enumerate}
