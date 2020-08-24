@@ -3,8 +3,12 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <stdbool.h>
 
 #define NUM_PLANETS 9
+
+bool my_strcmp(const char *arg, const char *planet);
 
 int main(int argc, char *argv[])
 {
@@ -12,17 +16,10 @@ int main(int argc, char *argv[])
                      "mars", "jupiter", "saturn",
                      "uranus", "neptune", "pluto"};
   int i, j;
-  char **p;
-
-  for (i = 1; i < argc; i++) {
-      for (p = &argv[i]; *p != '\0'; *p++) {
-          **p = tolower(**p);
-      }
-  }
 
   for (i = 1; i < argc; i++) {
     for (j = 0; j < NUM_PLANETS; j++)
-      if (strcmp(argv[i], planets[j]) == 0) {
+      if (my_strcmp(argv[i], planets[j])) {
         printf("%s is planet %d\n", argv[i], j + 1);
         break;
       }
@@ -31,4 +28,25 @@ int main(int argc, char *argv[])
   }
 
   return 0;
+}
+
+bool my_strcmp(const char *s, const char *planet) {
+    // turn all characters in arg to lower case
+    int n = strlen(s);
+
+    char sa[n+1], *p;
+
+    strcpy(sa, s);
+
+    for (p = sa; p < sa + n; p++) {
+        *p = tolower(*p);
+    }
+
+    // if equal, return true
+    if (strcmp(sa, planet) == 0) {
+        return true;
+    }
+
+    // if not equal, return false
+    return false;
 }
