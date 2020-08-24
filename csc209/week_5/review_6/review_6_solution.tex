@@ -951,6 +951,52 @@ int count_spaces(const char s[])
     }
 \end{lstlisting}
 
+    \item
+
+    I need to write the function
+
+    \bigskip
+
+    \texttt{void remove\_filename(char *url)}
+
+    \bigskip
+
+    satisfying the following requirements
+
+    \begin{itemize}
+        \item \texttt{remove\_filename} shold modify the string in \texttt{url} by
+        removing the file name and the preceding slash
+
+        \bigskip
+
+        \texttt{http://www.knking.com/index.html} $\to$ \texttt{http://www.knking.com/}
+
+        \item \texttt{remove\_filename} should use "search for the end of a string" idiom
+    \end{itemize}
+
+    \bigskip
+
+    The solution to this problem is:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    void remove_filename(char *url)
+    {
+        char *p = url;
+
+        while (*p++)
+            ;
+
+        while (p-- > url) {
+            if (*p == '/') {
+                *p = '\0';
+                return;
+            }
+        }
+    }
+\end{lstlisting}
+
 
 \end{enumerate}
 
