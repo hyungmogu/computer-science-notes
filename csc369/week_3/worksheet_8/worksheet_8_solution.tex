@@ -63,10 +63,36 @@
     I need to translate the addresses in the following sets of parameters
 
     \begin{itemize}
-        \item \texttt{segmentation.py -a 128 -p 512 -b 0 -l 20 -B 512 -L 20 -s 0}
-        \item \texttt{segmentation.py -a 128 -p 512 -b 0 -l 20 -B 512 -L 20 -s 1}
-        \item \texttt{segmentation.py -a 128 -p 512 -b 0 -l 20 -B 512 -L 20 -s 2}
+        \item \texttt{./segmentation.py -a 128 -p 512 -b 0 -l 20 -B 512 -L 20 -s 0}
+        \item \texttt{./segmentation.py -a 128 -p 512 -b 0 -l 20 -B 512 -L 20 -s 1}
+        \item \texttt{./segmentation.py -a 128 -p 512 -b 0 -l 20 -B 512 -L 20 -s 2}
     \end{itemize}
+
+    \bigskip
+
+    The solution to the problem is:
+
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Segmentation}
+
+        \begin{itemize}
+            \item Is about the big chunk of space in the middle
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/worksheet_8_solution_1.png}
+            \end{center}
+
+            \item Allows the OS to place each one of the logical segments (i.e. stack, heap, program code)
+            in different parts of physical memory, and avoid filling physical memory with unused virtual address space
+        \end{itemize}
+    \end{itemize}
+
+
 \end{enumerate}
 
 \end{document}
