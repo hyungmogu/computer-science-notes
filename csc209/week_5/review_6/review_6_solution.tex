@@ -941,14 +941,10 @@ int count_spaces(const char s[])
             ;
 
 
-        while (toupper(*file_name++) == toupper(*extension++))
-            ;
-
-        printf("%c\n", *file_name-1);
-        printf("%c\n", *extension-1);
-
-        if (*file_name-1 == '\0' && *extension-1 == '\0') {
-            return true;
+        while (toupper(*file_name++) == toupper(*extension++)) {
+            if (*file_name == '\0' && *extension == '\0') {
+                return true;
+            }
         }
 
         return false;
