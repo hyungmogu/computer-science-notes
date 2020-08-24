@@ -7,7 +7,7 @@ int main(void) {
                     "seventeen", "eighteen", "nineteen"};
 
     char *sf[] = {
-        "twenty", "thirty", "forty", "fifty",
+        "twenty", "thirty", "fourty", "fifty",
         "sixty", "seventy", "eighty", "ninety"
     };
 
@@ -27,11 +27,11 @@ int main(void) {
     }
 
     if (second_digit == 0) {
-        printf("You entered the number %s", sf[first_digit-1]);
+        printf("You entered the number %s", sf[first_digit-2]);
         return 0;
     }
 
-    printf("You entered the number %s-%s", sf[first_digit-1], ss[second_digit]);
+    printf("You entered the number %s-%s", sf[first_digit-2], ss[second_digit-1]);
 
     return 0;
 }
