@@ -382,6 +382,37 @@
                 \texttt{struct part part1 = \{528, "Disk Drive", 10\}}
             \end{itemize}
         \end{itemize}
+
+        \item
+
+        I need to write a function named \texttt{add\_complex} that satisfies the following:
+
+        \begin{itemize}
+            \item The function \texttt{add\_complex} should have 2 parameters of type \texttt{struct complex}
+            \item The function \texttt{add\_complex} should add the corresponding members of its arguments
+            \item The function \texttt{add\_complex} should return the result of type \texttt{struct complex}
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct complex {
+        double real, imaginary;
+    };
+
+    struct complex add_complex (struct complex c1, struct complex c2) {
+        struct complex c3;
+
+        c3.real = c1.real + c2.real;
+        c3.imaginary = c1.imaginary + c2.imaginary;
+
+        return c3;
+    }
+\end{lstlisting}
     \end{enumerate}
 \end{enumerate}
 
