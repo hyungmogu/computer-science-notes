@@ -263,6 +263,17 @@
 
         \bigskip
 
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct complex {
+        double real, imaginary;
+    };
+\end{lstlisting}
+
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -278,6 +289,62 @@
             \begin{center}
             \includegraphics[width=0.6\linewidth]{images/review_7_solution_5.png}
             \end{center}
+        \end{itemize}
+
+        \item
+
+        I need to use the \texttt{complex} tag to declare variables named \texttt{c1},
+        \texttt{c2}, \texttt{c3}.
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct complex {
+        double real, imaginary;
+    } c1, c2, c3;
+\end{lstlisting}
+
+        \item
+
+        I need to write a function named \texttt{make\_complex} that satisfies the following:
+
+        \begin{itemize}
+            \item The function \texttt{make\_complex} should have two parameters (\texttt{real}, \texttt{imaginary}) of type \texttt{double}
+            \item The function \texttt{make\_complex} should store the two arguments in \texttt{complex} struct
+            \item The function \texttt{make\_complex} should return the struct
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct complex {
+        double real, imaginary;
+    };
+
+    struct complex (double real, double imaginary) {
+        struct complex c1;
+
+        c1.real = real;
+        c1.imaginary = imaginary;
+
+        return c1;
+    }
+\end{lstlisting}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
