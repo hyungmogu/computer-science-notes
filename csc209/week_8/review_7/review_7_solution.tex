@@ -94,6 +94,7 @@
 
     The answer is yes. Each structure has a separate name space for it's members.
 
+    \bigskip
 
     \underline{\textbf{Notes}}
 
@@ -168,6 +169,51 @@
     } c1 = {0.0, 1.0},
       c2 = {1.0, 0.0},
       c3;
+\end{lstlisting}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Designated Initializer}
+
+            \begin{itemize}
+                \item Allows specific member variable to be initialized
+                \item Allows member variables to be initialized in any order
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/review_7_solution_3.png}
+            \end{center}
+        \end{itemize}
+
+        \item
+
+        I need to write statements that add the corresponding members of \texttt{c1}
+        and \texttt{c2} and store the result in \texttt{c3}.
+
+        \bigskip
+
+        The solution to this problem is:
+
+
+\begin{lstlisting}[language=c]
+    struct {
+        double real, imaginary;
+    } c1 = {0.0, 1.0},
+        c2 = {1.0, 0.0},
+        c3;
+
+    ...
+
+    c3 = c1 + c2;
 \end{lstlisting}
 
     \end{enumerate}
