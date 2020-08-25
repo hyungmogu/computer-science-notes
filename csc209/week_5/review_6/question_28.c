@@ -22,12 +22,13 @@ int main(void) {
 
 void reverse_name(char *name) {
     int n = strlen(name);
-    char first_name[n], last_name[n], *p;
+    char first_name[n], last_name[n], *pa = name,
+         *pb = first_name, *pc = last_name;
 
     bool is_first_name = true;
 
-    for (p = name; *p != '\0'; p++) {
-        if (*p == ' ') {
+    for (; *pa != '\0'; pa++) {
+        if (*pa == ' ') {
             is_first_name = false;
             continue;
         }
