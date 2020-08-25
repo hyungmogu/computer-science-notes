@@ -14,8 +14,8 @@ int evaluate_RPN_expression(const char *expression);
 void make_empty(void);
 bool is_empty(void);
 bool is_full(void);
-void push(char i);
-char pop(void);
+void push(double i);
+double pop(void);
 void stack_overflow(void);
 void stack_underflow(void);
 
@@ -33,11 +33,13 @@ int main(void) {
         }
 
         *p = '\0';
-
+        printf("%s\n", expression);
         result = evaluate_RPN_expression(expression);
 
         printf("Value of expression: %d\n", result);
     }
+
+    return 0;
 }
 
 void make_empty(void) {
@@ -52,44 +54,45 @@ bool is_full(void) {
     return top == STACK_SIZE;
 }
 
-void push(char i) {
+void push(double i) {
 
-    if (is_full())
+    if (is_full()) {
         stack_overflow();
-    else
+    } else {
         contents[top++] = i;
+    }
 }
 
-char pop(void) {
+double pop(void) {
 
-    if (is_empty())
+    if (is_empty()) {
         stack_underflow();
-    else
-        return contents[--top];
+    }
+
+    return contents[--top];
 }
 
 void stack_overflow(void) {
-    printf("\nExpression is too complex\n");
+    printf("Expression is too complex\n");
     exit(EXIT_FAILURE);
 }
 
 void stack_underflow(void) {
-    printf("\nNot enough operands in expression\n");
+    printf("Not enough operands in expression\n");
     exit(EXIT_FAILURE);
 }
 
 int evaluate_RPN_expression(const char *expression) {
     double result;
     int op1, op2;
-
     while (*expression != '\0') {
         if (isdigit(*expression)) {
             push(*expression - '0'); // converts character to integer
+
         } else {
             if (*expression == '=') {
                 result = pop();
-                return result;
-                break;
+                return (int)result;
             }
 
             switch(*expression) {
@@ -109,12 +112,14 @@ int evaluate_RPN_expression(const char *expression) {
                 case '/':
                     op1 = pop();
                     op2 = pop();
-                    push(op1 / op2);
+                    push(op2 / op1);
                     break;
                 default:
                     exit(EXIT_FAILURE);
             }
         }
+
+        expression++;
     }
 
     exit(EXIT_FAILURE);
