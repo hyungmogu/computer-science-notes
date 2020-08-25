@@ -8,34 +8,60 @@ bool are_anagrams(const char *word1, const char *word2);
 
 int main(void) {
 
-    char c, word1[SIZE], word2[SIZE];
+    char c, word1[SIZE], word2[SIZE],
+         *pa = word1, *pb = word2;
+
 
     printf("Enter first word: ");
     while ((c = getchar()) != '\n') {
-        if (isalpha(c))
-
-            letters[toupper(c) - 'A']++;
-    }
-    printf("Enter second word: ");
-    while ((c = getchar()) != '\n') {
-        if (isalpha(c))
-            letters[toupper(c) - 'A']--;
-    }
-
-    for (i = 0; i < 26; i++) {
-        if (letters[i] != 0) {
-            same = 0;
-            break;
+        if (isalpha(c)) {
+            *pa++ = c;
         }
     }
-    if (are_anagram(word1, word2)) {
-        printf("The words are anagrams.\n");
-        return 0;
+
+    *pa = '\0';
+
+    printf("Enter second word: ");
+    while ((c = getchar()) != '\n') {
+        if (isalpha(c)) {
+            *pb++ = c;
+        }
     }
-    printf("The words are not anagrams.\n");
+
+    *pb = '\0';
+
+    printf("%s\n", word1);
+    printf("%s\n", word2);
+
+
+    if (are_anagrams(word1, word2)) {
+        printf("The words are anagrams.\n");
+    } else {
+        printf("The words are not anagrams.\n");
+    }
+
     return 0;
 }
 
 bool are_anagrams(const char *word1, const char *word2) {
+    printf("I am here");
+    int letters[26] = {0}, *p;
 
+    while (*word1 != '\0') {
+        letters[toupper(*word1) - 'A']++;
+        printf("%d", letters[toupper(*word1) - 'A']);
+        word1++;
+    }
+
+    while (*word2 != '\0') {
+        letters[toupper(*word2) - 'A']--;
+    }
+
+    for (p = letters; p < letters + 26; p++) {
+        if (*p != 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
