@@ -7,7 +7,7 @@
 #define STACK_SIZE 100
 
 /* external variables */
-char contents[STACK_SIZE] = {0};
+double contents[STACK_SIZE] = {0};
 int top = 0;
 
 int evaluate_RPN_expression(const char *expression);
@@ -21,7 +21,7 @@ void stack_underflow(void);
 
 int main(void) {
 
-    char c, op1, op2, expression[SIZE], *p;
+    char c, expression[SIZE], *p;
     int result;
 
 
@@ -80,30 +80,42 @@ void stack_underflow(void) {
 
 int evaluate_RPN_expression(const char *expression) {
     double result;
+    int op1, op2;
+
     while (*expression != '\0') {
         if (isdigit(*expression)) {
-            push(*expression - '0');
+            push(*expression - '0'); // converts character to integer
         } else {
-            switch(c) {
-                case '+': push(pop() + pop());
-                            break;
-                case '-': op2 = pop();
-                            op1 = pop();
-                            push(op1 - op2);
-                            break;
-                case '*': push(pop() * pop());
-                            break;
-                case '/': op2 = pop();
-                            op1 = pop();
-                            push(op1 / op2);
-                            break;
-                case '=': printf("Value of expression: %d\n", pop());
-                            break;
-                case ' ': break;
-                default:  exit(EXIT_FAILURE);
+            if (*expression == '=') {
+                result = pop();
+                return result;
+                break;
+            }
+
+            switch(*expression) {
+                case '+':
+                    op1 = pop();
+                    op2 = pop();
+                    push(op1 + op2);
+                    break;
+                case '-':
+                    op1 = pop();
+                    op2 = pop();
+                    push(op1 - op2);
+                    break;
+                case '*':
+                    push(pop() * pop());
+                    break;
+                case '/':
+                    op1 = pop();
+                    op2 = pop();
+                    push(op1 / op2);
+                    break;
+                default:
+                    exit(EXIT_FAILURE);
             }
         }
     }
 
-    return
+    exit(EXIT_FAILURE);
 }
