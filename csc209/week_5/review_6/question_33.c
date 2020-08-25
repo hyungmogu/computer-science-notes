@@ -32,6 +32,8 @@ int main(void) {
             *p++ = c;
         }
 
+        *p = '\0';
+
         result = evaluate_RPN_expression(expression);
 
         printf("Value of expression: %d\n", result);
@@ -77,10 +79,11 @@ void stack_underflow(void) {
 }
 
 int evaluate_RPN_expression(const char *expression) {
-    while ((c = getchar()) != '\n') {
-        if (isdigit(c))
-            push(c - '0');
-        else
+    double result;
+    while (*expression != '\0') {
+        if (isdigit(*expression)) {
+            push(*expression - '0');
+        } else {
             switch(c) {
                 case '+': push(pop() + pop());
                             break;
@@ -99,5 +102,8 @@ int evaluate_RPN_expression(const char *expression) {
                 case ' ': break;
                 default:  exit(EXIT_FAILURE);
             }
+        }
     }
+
+    return
 }
