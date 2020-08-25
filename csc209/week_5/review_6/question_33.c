@@ -9,6 +9,7 @@
 char contents[STACK_SIZE] = {0};
 int top = 0;
 
+int evaluate_RPN_expression(const char *expression);
 void make_empty(void);
 bool is_empty(void);
 bool is_full(void);
@@ -86,4 +87,8 @@ void stack_overflow(void) {
 void stack_underflow(void) {
     printf("\nNot enough operands in expression\n");
     exit(EXIT_FAILURE);
+}
+
+int evaluate_RPN_expression(const char *expression) {
+
 }
