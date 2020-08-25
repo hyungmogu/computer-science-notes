@@ -2,6 +2,8 @@
 
 #define MAX_VALUE 80
 
+void encrypt(char *message, int shift);
+
 int main(void) {
 
     char c, sentence[MAX_VALUE] = {0};
@@ -29,4 +31,8 @@ int main(void) {
     printf("\n");
 
     return 0;
+}
+
+void encrypt(char *message, int shift) {
+
 }
