@@ -423,6 +423,58 @@
 
     \begin{enumerate}[a)]
         \item
+
+\begin{lstlisting}[language=c]
+    typedef struct {
+        double real, imaginary;
+    } Complex;
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    typedef struct {
+        double real, imaginary;
+    } Complex;
+
+    ...
+
+    Complex c1, c2, c3;
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    typedef struct {
+        double real, imaginary;
+    } Complex;
+
+    Complex make_complex(double real, double imaginary) {
+        Complex c;
+
+        c.real = real;
+        c.imaginary = imaginary;
+
+        return c;
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    typedef struct {
+        double real, imaginary;
+    } Complex;
+
+    Complex add_complex(Complex c1, Complex c2) {
+        Complex c3;
+
+        c3.real = c1.real + c2.real;
+        c3.imaginary = c1.imaginary + c2.imaginary;
+
+        return c3;
+    }
+\end{lstlisting}
     \end{enumerate}
 
     \underline{\textbf{Notes}}
@@ -432,7 +484,22 @@
 
         \begin{itemize}
             \item Is an alternative to declaring a structure tag
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.5\linewidth]{images/review_7_solution_7.png}
+            \end{center}
+
             \item Allows us to define a genuine type name
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \texttt{Part part1, part2;}
             \item Once declared, cannot define a structure tag with the same name
         \end{itemize}
     \end{itemize}
