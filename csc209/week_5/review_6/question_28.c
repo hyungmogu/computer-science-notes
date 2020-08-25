@@ -1,23 +1,24 @@
 #include <stdio.h>
 
+#define SIZE 50
+
+void reverse_name(char *name);
+
 int main(void) {
 
-    char c, initial;
+    char first_name[SIZE], last_name[SIZE], full_name[SIZE];
 
     printf("Enter a first and last name: ");
-    scanf(" %c", &initial);
+    scanf("%s", first_name);
+    scanf("%s", last_name);
 
-    while ((c = getchar()) != ' ')
-        ;
-
-    while ((c = getchar()) == ' ')
-        ;
-
-    do {
-        putchar(c);
-    } while ((c = getchar()) != '\n' && c != ' ');
-
-    printf(", %c.\n", initial);
+    strcat(full_name, first_name);
+    strcat(full_name, " ");
+    strcat(full_name, last_name);
 
     return 0;
+}
+
+void reverse_name(char *name) {
+
 }
