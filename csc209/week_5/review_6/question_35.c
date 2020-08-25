@@ -7,31 +7,22 @@
 bool is_palindrome(const char *message);
 
 int main(void) {
-    char c, array[SIZE],
-            *p = array,
-            *q = array;
+    char c, message[SIZE], *p = message;
 
-    // Read characters
-    // Put characters into array
     printf("Enter a message: ");
 
-    do {
-        c = getchar();
-
-        if (c == '\n') {
-            break;
-        }
-
+    while ((c = getchar()) != '\n') {
         if (!isalpha(c)) {
             continue;
         }
 
-        *q++ = tolower(c);
-    } while (q < array + SIZE);
-    // Set pointer to last element in the array
-    q--;
+        *p++ = tolower(c);
+    }
+
+    *p = '\0';
+
     // Check if characters in array is palindrome
-    if (is_palindrome(p,q)) {
+    if (is_palindrome(message)) {
         printf("Palindrome");
     } else {
         printf("Not a Palindrome");
@@ -41,9 +32,18 @@ int main(void) {
 }
 
 bool is_palindrome(const char *message) {
-    char *p, *q;
+    char const *p = message;
+    char const *q = message;
+
+    while(*q++)
+        ;
 
     while (p < q) {
+        if (*q == '\0') {
+            q--;
+            continue;
+        }
+
         if (*p++ != *q--) {
             return false;
         }
