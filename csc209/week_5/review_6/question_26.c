@@ -1,15 +1,28 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#define SIZE 100
+
+int compute_scrabble_value(const char *word);
+
 int main(void) {
 
-    char c;
-    int sum;
+    char word[SIZE];
 
     printf("Enter a word: ");
+    scanf("%s", word);
 
-    while ((c = getchar()) != '\n') {
-        switch (toupper(c)) {
+
+    printf("Scrabble value: %d\n", compute_scrabble_value(word));
+    return 0;
+}
+
+int compute_scrabble_value(const char *word) {
+
+    int sum = 0;
+
+    while (*word) {
+        switch (toupper(*word)) {
             case 'A': case 'E': case 'I': case 'L': case 'N': case 'O':
             case 'R': case 'S': case 'T': case 'U':
                 sum++;
@@ -35,7 +48,9 @@ int main(void) {
             default:
                 break;
         }
+
+        word++;
     }
-    printf("Scrabble value: %d\n", sum);
-    return 0;
+
+    return sum;
 }
