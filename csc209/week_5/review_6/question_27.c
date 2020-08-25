@@ -11,13 +11,11 @@ int main(void) {
     int vowels;
 
     printf("Enter a sentence: ");
-    while ((ch = getchar()) != EOF) {
-        if (ch == '\n') {
-            break;
-        }
-
+    while ((ch = getchar()) != '\n') {
         *p++ = ch;
     }
+
+    *p = '\0';
 
     vowels = compute_vowel_count(sentence);
 
@@ -36,7 +34,7 @@ int compute_vowel_count(const char *sentence) {
             default:
                 break;
         }
-    } while (*sentence++);
+    } while(*sentence++);
 
     return count;
 }
