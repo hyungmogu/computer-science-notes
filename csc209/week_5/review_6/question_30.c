@@ -7,9 +7,10 @@
 int main(void) {
 
     char sentence[MAX_WORDS][MAX_SIZE], c,
-         terminating_char, **p = *sentence;
+         terminating_char, (*p)[MAX_SIZE];
 
     int i = 0;
+    p = sentence;
 
     printf("Enter a sentence: ");
     while((c = getchar()) != '\n') {
@@ -18,7 +19,7 @@ int main(void) {
             p++;
             break;
         } else if (c == ' ') {
-            **p='\0';
+            **p ='\0';
             p++;
         } else {
             **p++ = c;
