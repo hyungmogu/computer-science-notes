@@ -30,9 +30,6 @@ int main(void) {
 
     *pb = '\0';
 
-    printf("%s\n", word1);
-    printf("%s\n", word2);
-
 
     if (are_anagrams(word1, word2)) {
         printf("The words are anagrams.\n");
@@ -44,17 +41,16 @@ int main(void) {
 }
 
 bool are_anagrams(const char *word1, const char *word2) {
-    printf("I am here");
     int letters[26] = {0}, *p;
 
     while (*word1 != '\0') {
         letters[toupper(*word1) - 'A']++;
-        printf("%d", letters[toupper(*word1) - 'A']);
         word1++;
     }
 
     while (*word2 != '\0') {
         letters[toupper(*word2) - 'A']--;
+        word2++;
     }
 
     for (p = letters; p < letters + 26; p++) {
