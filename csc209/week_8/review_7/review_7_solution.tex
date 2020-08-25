@@ -74,23 +74,56 @@
 
 \begin{lstlisting}[language=c]
     struct {
-            int x;
-            int y;
+        int x;
+        int y;
     } x;
 \end{lstlisting}
 
-    and `x' beside struct represents variable of that type.
+    and `x' beside struct represents variable of that type. It is used to declare struct
+    and access members of the struct (e.g. \texttt{x.x},, \texttt{x.y}).
+
+    \bigskip
+
+    The same is true for \texttt{struct \{int x, y;\} y;}.
+
+    \bigskip
+
+    Second, I need to answer if both declarations of struct can appear in a program.
+
+    \bigskip
+
+    The answer is yes. Each structure has a separate name space for it's members.
+
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
         \item \textbf{Declaring Structure Variables}
 
+        \begin{itemize}
+            \item Struct can have many variables that represent the same struct
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/review_7_solution_1.png}
+            \end{center}
+        \end{itemize}
+
         \bigskip
 
-        \begin{center}
-        \includegraphics[width=\linewidth]{images/review_7_solution_1.png}
-        \end{center}
+        \item \textbf{Initializing Structure Variables}
+
+        \begin{itemize}
+            \item Struct can be initialized with preset values (like python class under \_\_init\_\_)
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/review_7_solution_2.png}
+            \end{center}
+
+        \end{itemize}
     \end{itemize}
 \end{enumerate}
 
