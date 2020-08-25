@@ -8,18 +8,13 @@ void reverse_name(char *name);
 
 int main(void) {
 
-    char name[SIZE], *p = name;
+    char name[SIZE], first_name[SIZE], last_name[SIZE];
 
     printf("Enter a first and last name: ");
-    scanf("%s", p);
-    printf("%s\n", name);
+    scanf("%s", first_name);
+    scanf("%s", last_name);
 
-    strcat(p, " ");
-
-    while(*p++)
-        ;
-
-    scanf("%s", p);
+    sprintf(name, "%s %s", first_name, last_name);
 
     reverse_name(name);
 
@@ -32,7 +27,6 @@ void reverse_name(char *name) {
     char first_name[n], last_name[n], *pa = name,
          *pb = first_name, *pc = last_name;
 
-    printf("%s\n", name);
     bool is_first_name = true;
 
     for (; *pa != '\0'; pa++) {
@@ -42,7 +36,6 @@ void reverse_name(char *name) {
         }
 
         if (is_first_name) {
-            printf("I am here\n");
             *pb = *pa;
             pb++;
         } else {
@@ -53,9 +46,6 @@ void reverse_name(char *name) {
 
     *pb = '\0';
     *pc = '\0';
-
-    printf("%s\n", last_name);
-    printf("%s\n", first_name);
 
     sprintf(name, "%s, %c.", last_name, first_name[0]);
 }
