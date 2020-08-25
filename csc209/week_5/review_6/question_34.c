@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define SIZE 10
+#define SIZE 50
 
 void reverse(char *message);
 
@@ -33,15 +33,14 @@ void reverse (char *message) {
     while (*r++)
         ;
 
-    r--;
-    // while (q < r) {
-    //     if (*r == '\0') {
-    //         r--;
-    //         continue;
-    //     }
+    while (q < r) {
+        if (*r == '\0') {
+            r--;
+            continue;
+        }
 
-    //     temp = *q;
-    //     *q++ = *r;
-    //     *r-- = temp;
-    // }
+        temp = *q;
+        *q++ = *r;
+        *r-- = temp;
+    }
 }
