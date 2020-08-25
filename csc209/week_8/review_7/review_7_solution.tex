@@ -125,6 +125,52 @@
 
         \end{itemize}
     \end{itemize}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        I need to declare structure variables named \texttt{c1}, \texttt{c2} and \texttt{c3},
+        each having members \texttt{real} and \texttt{imaginary} of type \texttt{double}.
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct {
+        double real, imaginary;
+    } c1, c2, c3;
+\end{lstlisting}
+
+        \item
+
+        I need to modify the declaration in part a) so that
+
+        \begin{itemize}
+            \item \texttt{c1}'s members initially have the values 0.0 and 1.0
+            \item \texttt{c2}'s members initially have the values 1.0 and 0.0
+            \item \texttt{c3} is not initialized
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct {
+        double real, imaginary;
+    } c1 = {0.0, 1.0},
+      c2 = {1.0, 0.0},
+      c3;
+\end{lstlisting}
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
