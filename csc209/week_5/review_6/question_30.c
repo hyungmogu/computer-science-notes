@@ -6,34 +6,38 @@
 
 int main(void) {
 
+    int i = 0;
     char sentence[MAX_WORDS][MAX_SIZE], c,
          terminating_char, (*p)[MAX_SIZE];
 
-    int i = 0;
     p = sentence;
 
     printf("Enter a sentence: ");
+
     while((c = getchar()) != '\n') {
         if (c == '.' || c == '!' || c == '?') {
             terminating_char = c;
+            (*p)[i] ='\0';
             p++;
             break;
         } else if (c == ' ') {
-            **p ='\0';
+            (*p)[i] ='\0';
+            i = 0;
             p++;
         } else {
-            **p++ = c;
+            (*p)[i] = c;
+            i++;
         }
     }
 
     while (p < sentence + MAX_WORDS) {
-        **p = '\0';
+        (*p)[0] = '\0';
         p++;
     }
 
     printf("Reversal of sentence: ");
-    while (p-- >= sentence) {
-        if (**p == '\0') {
+    while (--p >= sentence) {
+        if ((*p)[0] == '\0') {
             continue;
         }
 
