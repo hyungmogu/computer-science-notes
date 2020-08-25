@@ -69,10 +69,28 @@
 
     \bigskip
 
+    The struct \texttt{struct \{int x, y;\} x;} is legal. \texttt{struct \{int x, y;\} x;}
+    is equivalent to
+
+\begin{lstlisting}[language=c]
+    struct {
+            int x;
+            int y;
+    } x;
+\end{lstlisting}
+
+    and `x' beside struct represents variable of that type.
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item
+        \item \textbf{Declaring Structure Variables}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/review_7_solution_1.png}
+        \end{center}
     \end{itemize}
 \end{enumerate}
 
