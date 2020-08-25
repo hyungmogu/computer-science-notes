@@ -6,20 +6,26 @@ void encrypt(char *message, int shift);
 
 int main(void) {
 
-    char c, sentence[MAX_VALUE] = {0};
+    char c, message[MAX_VALUE], *p;
 
-    int i, shift, length;
+    int shift;
 
     printf("Enter message to be encrypted: ");
-    for (i = 0, length = 0; (c = getchar()) != '\n' && i < MAX_VALUE; i++) {
-        length++;
-        sentence[i] = c;
+    for (p = message; (c = getchar()) != '\n'; p++) {
+        if (p == message + (MAX_VALUE-1)) {
+            break;
+        }
+        *p = c;
     }
+
+    *p = '\0';
 
     printf("Enter shift amount (1-25): ");
     scanf("%d", &shift);
 
-    printf("Encrypted message: %s", encrypt(message, shift));
+    encrypt(message, shift);
+
+    printf("Encrypted message: %s", &message);
 
     printf("\n");
 
@@ -27,12 +33,11 @@ int main(void) {
 }
 
 void encrypt(char *message, int shift) {
-    for (i = 0; i < length; i++) {
-        if (message[i] >= 'A' && message[i] <= 'Z')
-            message[i] = ((message[i] - 'A') + shift) % 26 + 'A';
-        else if (sentence[i] >= 'a' && message[i] <= 'z')
-            message[i] = ((message[i] - 'a') + shift) % 26 + 'a';
-
-        putchar(message[i]);
+    char *p;
+    for (p = message; *p !=  '\0'; p++) {
+        if (*p >= 'A' && *p <= 'Z')
+            *p = ((*p - 'A') + shift) % 26 + 'A';
+        else if (*p >= 'a' && *p <= 'z')
+            *p = ((*p - 'a') + shift) % 26 + 'a';
     }
 }
