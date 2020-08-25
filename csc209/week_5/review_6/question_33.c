@@ -3,6 +3,7 @@
 #include <ctype.h>   /* isdigit */
 #include <stdbool.h> /* C99+ only */
 
+#define SIZE 50
 #define STACK_SIZE 100
 
 /* external variables */
@@ -20,37 +21,23 @@ void stack_underflow(void);
 
 int main(void) {
 
-    char c, op1, op2;
+    char c, op1, op2, expression[SIZE], *p;
+    int result;
+
 
     while(true) {
-
+        p = expression;
         printf("Enter an RPN expression: ");
-
         while ((c = getchar()) != '\n') {
-            if (isdigit(c))
-                push(c - '0');
-            else
-                switch(c) {
-                    case '+': push(pop() + pop());
-                              break;
-                    case '-': op2 = pop();
-                              op1 = pop();
-                              push(op1 - op2);
-                              break;
-                    case '*': push(pop() * pop());
-                              break;
-                    case '/': op2 = pop();
-                              op1 = pop();
-                              push(op1 / op2);
-                              break;
-                    case '=': printf("Value of expression: %d\n", pop());
-                              break;
-                    case ' ': break;
-                    default:  exit(EXIT_FAILURE);
-                }
+            *p++ = c;
         }
+
+        result = evaluate_RPN_expression(expression);
+
+        printf("Value of expression: %d\n", result);
     }
 }
+
 void make_empty(void) {
     top = 0;
 }
@@ -90,5 +77,27 @@ void stack_underflow(void) {
 }
 
 int evaluate_RPN_expression(const char *expression) {
-
+    while ((c = getchar()) != '\n') {
+        if (isdigit(c))
+            push(c - '0');
+        else
+            switch(c) {
+                case '+': push(pop() + pop());
+                            break;
+                case '-': op2 = pop();
+                            op1 = pop();
+                            push(op1 - op2);
+                            break;
+                case '*': push(pop() * pop());
+                            break;
+                case '/': op2 = pop();
+                            op1 = pop();
+                            push(op1 / op2);
+                            break;
+                case '=': printf("Value of expression: %d\n", pop());
+                            break;
+                case ' ': break;
+                default:  exit(EXIT_FAILURE);
+            }
+    }
 }
