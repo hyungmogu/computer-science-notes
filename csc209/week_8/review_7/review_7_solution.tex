@@ -708,30 +708,31 @@
 
     ...
 
-    void reduce (struct fraction *f) {
+    struct fraction reduce (struct fraction f) {
 
         int gcd;
-        struct fraction *fPtr;
 
-        fPtr = f;
+        struct fraction f2;
 
-        if (fPtr->numerator >= fPtr->denominator) {
-            gcd = fPtr->denominator;
+        if (f.numerator >= f.denominator) {
+            gcd = f.denominator;
         } else {
-            gcd = fPtr->numerator;
+            gcd = f.numerator;
         }
 
         while (gcd > 0) {
-            if ((fPtr->numerator % gcd == 0) &&
-                (fPtr->denominator % gcd == 0)) {
+            if ((f.numerator % gcd == 0) &&
+                (f.denominator % gcd == 0)) {
                 break;
             }
 
             gcd--;
         }
 
-        fPtr->denominator = fPtr->denominator/gcd;
-        fPtr->numerator = fPtr->numerator/gcd;
+        f2.denominator = f.denominator/gcd;
+        f2.numerator = f.numerator/gcd;
+
+        return f2;
     }
 \end{lstlisting}
 
@@ -761,7 +762,7 @@
             f3.numerator = f2->numerator + f1->numerator;
         }
 
-        reduce(&f3);
+        f3 = reduce(f3);
 
         return f3;
     }
@@ -782,7 +783,7 @@
 
     ...
 
-    struct fraction subtract (struct fraction *f2, struct fraction *f1) {
+    struct fraction subtract (struct fraction *f1, struct fraction *f2) {
 
         struct fraction f3;
 
@@ -793,12 +794,41 @@
             f3.numerator = f2->numerator - f1->denominator;
         }
 
-        reduce(&f3);
+        f3 = reduce(f3);
 
         return f3;
     }
 \end{lstlisting}
 
+        \item
+
+        I need to create a function that divides fractions \texttt{f1} by fraction \texttt{f2}.
+
+        \bigskip
+
+        The solution to this problem is:
+
+\begin{lstlisting}[language=c]
+    struct fraction {
+        int numerator, denominator;
+    };
+
+    ...
+
+    struct fraction divide (struct fraction *f1, struct fraction *f2) {
+
+        struct fraction f3;
+
+        f3.denominator = f1->denominator * f2->numerator;
+        f3.numerator = f1->numerator * f2->denominator;
+
+        f3 = reduce(f3);
+
+        return f3;
+    }
+
+
+\end{lstlisting}
 
     \end{enumerate}
 
