@@ -1020,8 +1020,8 @@
     struct color brighter(struct color c) {
 
         if((c.red == 0 ) &&
-           (c.green == 0) &&
-           (c.blue == 0)) {
+            (c.green == 0) &&
+            (c.blue == 0)) {
 
             c.red = 3;
             c.green = 3;
@@ -1029,6 +1029,25 @@
 
             return c;
         }
+
+        if ((c.red < 3) ||
+            (c.green <3) ||
+            (c.blue < 3)) {
+
+            c.red = c.red < 3 ? (int)(3/0.7) : c.red;
+            c.green = c.green < 3 ? (int)(3/0.7) : c.green;
+            c.blue = c.blue < 3 ? (int)(3/0.7) : c.blue;
+
+            return c;
+        }
+
+        c.red = (int)(c.red/0.7);
+        c.green = (int)(c.green/0.7);
+        c.blue = (int)(c.blue/0.7);
+
+        c.red = c.red > 255 ? 255 : c.red;
+        c.green = c.green > 255 ? 255 : c.green;
+        c.blue = c.blue > 255 ? 255 : c.blue;
 
         return c;
     }
