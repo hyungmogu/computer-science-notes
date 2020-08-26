@@ -615,20 +615,7 @@
         int month, day, year;
     };
 
-    int compare_dates (struct date d1, struct date d2);
-
-    int main(void) {
-        int day;
-        struct date d1 = {3, 1, 2019};
-        struct date d2 = {2, 2, 2019};
-
-        day = compare_dates(d1,d2);
-
-        printf("%d\n", day);
-
-        return 0;
-    }
-
+    ...
 
     int compare_dates (struct date d1, struct date d2) {
         char s1[9], s2[9];
@@ -715,24 +702,11 @@
         \bigskip
 
 \begin{lstlisting}[language=c]
-    #include <stdio.h>
-
     struct fraction {
         int numerator, denominator;
     };
 
-    void reduce (struct fraction *f);
-
-    int main(void) {
-
-        struct fraction f = {7, 35};
-
-        reduce(&f);
-
-        printf("%d/%d", f.numerator, f.denominator);
-
-        return 0;
-    }
+    ...
 
     void reduce (struct fraction *f) {
 
@@ -770,25 +744,11 @@
         The solution to this problem is:
 
 \begin{lstlisting}[language=c]
-    #include <stdio.h>
-
     struct fraction {
         int numerator, denominator;
     };
 
-    void reduce (struct fraction *f);
-    struct fraction add (struct fraction *f1, struct fraction *f2);
-
-    int main(void) {
-
-        struct fraction f1 = {5, 4}, f2 = {10, 5}, f3;
-
-        f3 = add(&f1, &f2);
-
-        printf("%d/%d", f3.numerator, f3.denominator);
-
-        return 0;
-    }
+    ...
 
     struct fraction add (struct fraction *f1, struct fraction *f2) {
 
@@ -797,39 +757,48 @@
         if (f1->denominator != f2->denominator) {
             f3.numerator = (f1->numerator * f2->denominator) + (f2->numerator * f1->denominator);
             f3.denominator = f1->denominator * f2->denominator;
+        } else {
+            f3.numerator = f2->numerator + f1->numerator;
         }
 
         reduce(&f3);
 
         return f3;
     }
+\end{lstlisting}
 
-    void reduce (struct fraction *f) {
+        \item
 
-        int gcd;
-        struct fraction *fPtr;
+        I need to create a function that subtracts two fractions \texttt{f1} and \texttt{f2}.
 
-        fPtr = f;
+        \bigskip
 
-        if (fPtr->numerator >= fPtr->denominator) {
-            gcd = fPtr->denominator;
+        The solution to this problem is:
+
+\begin{lstlisting}[language=c]
+    struct fraction {
+        int numerator, denominator;
+    };
+
+    ...
+
+    struct fraction subtract (struct fraction *f2, struct fraction *f1) {
+
+        struct fraction f3;
+
+        if (f1->denominator != f2->denominator) {
+            f3.numerator = (f2->numerator * f1->denominator) - (f1->numerator * f2->denominator);
+            f3.denominator = f1->denominator * f2->denominator;
         } else {
-            gcd = fPtr->numerator;
+            f3.numerator = f2->numerator - f1->denominator;
         }
 
-        while (gcd > 0) {
-            if ((fPtr->numerator % gcd == 0) &&
-                (fPtr->denominator % gcd == 0)) {
-                break;
-            }
+        reduce(&f3);
 
-            gcd--;
-        }
-
-        fPtr->denominator = fPtr->denominator/gcd;
-        fPtr->numerator = fPtr->numerator/gcd;
+        return f3;
     }
 \end{lstlisting}
+
 
     \end{enumerate}
 
