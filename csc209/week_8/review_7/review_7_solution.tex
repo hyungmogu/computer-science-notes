@@ -607,7 +607,36 @@
         The solution to this problem is:
 
 \begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdbool.h>
 
+    struct date {
+        int month, day, year;
+    };
+
+    int compare_dates (struct date d1, struct date d2);
+
+    int main(void) {
+        int day;
+        struct date d = {3, 1, 2019};
+
+        day = day_of_year(d);
+
+        printf("%d\n", day);
+
+        return 0;
+    }
+
+
+    int compare_dates (struct date d1, struct date d2) {
+        char s1[9], s2[9];
+
+        sprintf(s1,"%4d%2d%2d", &d1.year, &d1.month, &d1.day);
+        sprintf(s2,"%4d%2d%2d", &d2.year, &d2.month, &d2.day);
+
+        // return days
+        return strcmp(s1,s2);
+    }
 \end{lstlisting}
     \end{enumerate}
 
