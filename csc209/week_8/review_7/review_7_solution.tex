@@ -666,6 +666,8 @@
 
 \begin{lstlisting}[language=c]
     #include <stdio.h>
+    #include <string.h>
+    #include <stdbool.h>
 
     struct time {
         int hours, minutes, seconds;
@@ -675,10 +677,21 @@
 
     ...
 
-    struct time split_time (structlong total_seconds) {
+    struct time split_time (long total_seconds) {
         struct time t;
+        int s = (int)total_seconds;
 
+        printf("%d\n", s);
 
+        t.hours = s / 3600;
+        s = s - (t.hours * 3600);
+
+        t.minutes = s / 60;
+        s = s - (t.minutes * 60);
+
+        t.seconds = s;
+
+        printf("%d %d %d\n", t.hours, t.minutes, t.seconds);
 
         return t;
     }
