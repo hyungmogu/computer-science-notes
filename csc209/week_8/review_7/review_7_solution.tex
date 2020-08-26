@@ -1014,7 +1014,25 @@
 
         The solution to this problem is:
 
+        \bigskip
 
+\begin{lstlisting}[language=c]
+    struct color brighter(struct color c) {
+
+        if((c.red == 0 ) &&
+           (c.green == 0) &&
+           (c.blue == 0)) {
+
+            c.red = 3;
+            c.green = 3;
+            c.blue = 3;
+
+            return c;
+        }
+
+        return c;
+    }
+\end{lstlisting}
 
     \end{enumerate}
 
