@@ -1145,7 +1145,12 @@
 
 \begin{lstlisting}[language=c]
     bool inside_rectangle(struct rectangle r, struct point p) {
+        if ((p.x > r.upper_left.x && p.x < r.lower_right.x) &&
+            (p.y > r.lower_right.y && p.y < r.upper_left.y)) {
+                return true;
+            }
 
+        return false;
     }
 \end{lstlisting}
 
