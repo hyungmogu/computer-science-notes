@@ -834,18 +834,21 @@
 
     \item
 
-    I need to write a declaration for a \texttt{const} variable named \texttt{MAGNETA}
-    of type \texttt{struct color} that satisfies the following
+    \begin{enumerate}[a)]
+        \item
 
-    \begin{itemize}
-        \item \texttt{red} has value 255
-        \item \texttt{green} has value 0
-        \item \texttt{blue} has value 255
-    \end{itemize}
+        I need to write a declaration for a \texttt{const} variable named \texttt{MAGNETA}
+        of type \texttt{struct color} that satisfies the following
 
-    \bigskip
+        \begin{itemize}
+            \item \texttt{red} has value 255
+            \item \texttt{green} has value 0
+            \item \texttt{blue} has value 255
+        \end{itemize}
 
-    The solution to this problem is:
+        \bigskip
+
+        The solution to this problem is:
 
 \begin{lstlisting}[language=c]
     struct color {
@@ -856,6 +859,33 @@
 
     const struct color MAGNETA = {255, 0, 255}
 \end{lstlisting}
+        \item
+
+        I need to rewrite above to use a designated initializer that doesn't specify the value
+        of \texttt{green}.
+
+        \bigskip
+
+        The solution to this problem is:
+
+\begin{lstlisting}[language=c]
+    struct color {
+        int red;
+        int green;
+        int blue;
+    };
+
+    const struct color MAGNETA = {.red = 255, .blue = 255};
+\end{lstlisting}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \texttt{int} variable prints 0, if nothing is in it
+        \end{itemize}
+    \end{enumerate}
 
 \end{enumerate}
 
