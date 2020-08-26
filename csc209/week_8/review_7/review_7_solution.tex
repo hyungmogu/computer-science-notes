@@ -832,6 +832,31 @@
 
     \end{enumerate}
 
+    \item
+
+    I need to write a declaration for a \texttt{const} variable named \texttt{MAGNETA}
+    of type \texttt{struct color} that satisfies the following
+
+    \begin{itemize}
+        \item \texttt{red} has value 255
+        \item \texttt{green} has value 0
+        \item \texttt{blue} has value 255
+    \end{itemize}
+
+    \bigskip
+
+    The solution to this problem is:
+
+\begin{lstlisting}[language=c]
+    struct color {
+        int red;
+        int green;
+        int blue;
+    };
+
+    const struct color MAGNETA = {255, 0, 255}
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
