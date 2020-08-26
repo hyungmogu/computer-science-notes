@@ -691,11 +691,71 @@
 
         t.seconds = s;
 
-        printf("%d %d %d\n", t.hours, t.minutes, t.seconds);
-
         return t;
     }
 \end{lstlisting}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+        I need to write a function that satisfies the following requirements:
+
+        \begin{itemize}
+            \item The function should reduce the fraction \texttt{f} to lowest terms
+            \item The struct \texttt{fraction} contains two members: \texttt{numberator} and \texttt{denominator}, and
+            both are type \texttt{int}
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdbool.h>
+
+    struct fraction {
+        int numerator, denominator;
+    };
+
+    void reduce (struct fraction *f);
+
+    int main(void) {
+
+        struct fraction f = {7, 35};
+
+        reduce(f);
+
+        printf("%d/%d", f.numerator, f.denominator);
+
+        return 0;
+    }
+
+    void reduce (struct fraction *f) {
+
+        int gcd;
+
+        if (*f.numerator >= *f.denominator) {
+            gcd = *f.denominator;
+        } else {
+            gcd = *f.numerator;
+        }
+
+        while (gcd > 0) {
+            if ( (*f.numerator /) )
+        }
+
+        return f;
+    }
+\end{lstlisting}
+
+
+    \end{enumerate}
 
 \end{enumerate}
 
