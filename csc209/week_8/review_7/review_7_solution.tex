@@ -535,6 +535,40 @@
 
 \begin{lstlisting}[language=c]
 
+    struct date {
+        int month, day, year;
+    };
+
+    int day_of_year (struct date d);
+
+    ...
+
+    int day_of_year (struct date d) {
+        bool leap_year = false;
+        int days_in_month[] = {31, 28, 31, 30,
+                            31, 30, 31, 31,
+                            30, 31, 30, 31}
+
+        // check if it's the leap year
+        if (((d.year % 4 == 0) &&
+            (d.year % 100 != 0)) ||
+            (year modulo 400 is 0)) {
+
+                leap_year = true;
+            }
+
+
+        // add days from months
+
+
+        // add days
+
+
+        // add 1 more day if month > 2 and it's leap year
+
+
+        // return days
+    }
 \end{lstlisting}
     \end{enumerate}
 
