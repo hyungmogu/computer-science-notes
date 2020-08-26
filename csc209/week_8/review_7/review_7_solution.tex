@@ -716,8 +716,6 @@
 
 \begin{lstlisting}[language=c]
     #include <stdio.h>
-    #include <string.h>
-    #include <stdbool.h>
 
     struct fraction {
         int numerator, denominator;
@@ -725,32 +723,32 @@
 
     void reduce (struct fraction *f);
 
-    int main(void) {
-
-        struct fraction f = {7, 35};
-
-        reduce(f);
-
-        printf("%d/%d", f.numerator, f.denominator);
-
-        return 0;
-    }
+    ...
 
     void reduce (struct fraction *f) {
 
         int gcd;
+        struct fraction *fPtr;
 
-        if (*f.numerator >= *f.denominator) {
-            gcd = *f.denominator;
+        fPtr = f;
+
+        if (fPtr->numerator >= fPtr->denominator) {
+            gcd = fPtr->denominator;
         } else {
-            gcd = *f.numerator;
+            gcd = fPtr->numerator;
         }
 
         while (gcd > 0) {
-            if ( (*f.numerator /) )
+            if ((fPtr->numerator % gcd == 0) &&
+                (fPtr->denominator % gcd == 0)) {
+                break;
+            }
+
+            gcd--;
         }
 
-        return f;
+        fPtr->denominator = fPtr->denominator/gcd;
+        fPtr->numerator = fPtr->numerator/gcd;
     }
 \end{lstlisting}
 
