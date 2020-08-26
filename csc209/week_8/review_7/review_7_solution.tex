@@ -770,7 +770,65 @@
         The solution to this problem is:
 
 \begin{lstlisting}[language=c]
+    #include <stdio.h>
 
+    struct fraction {
+        int numerator, denominator;
+    };
+
+    void reduce (struct fraction *f);
+    struct fraction add (struct fraction *f1, struct fraction *f2);
+
+    int main(void) {
+
+        struct fraction f1 = {5, 4}, f2 = {10, 5}, f3;
+
+        f3 = add(&f1, &f2);
+
+        printf("%d/%d", f3.numerator, f3.denominator);
+
+        return 0;
+    }
+
+    struct fraction add (struct fraction *f1, struct fraction *f2) {
+
+        struct fraction f3;
+
+        if (f1->denominator != f2->denominator) {
+            f3.numerator = (f1->numerator * f2->denominator) + (f2->numerator * f1->denominator);
+            f3.denominator = f1->denominator * f2->denominator;
+        }
+
+        reduce(&f3);
+
+        return f3;
+    }
+
+    void reduce (struct fraction *f) {
+
+        int gcd;
+        struct fraction *fPtr;
+
+        fPtr = f;
+
+        if (fPtr->numerator >= fPtr->denominator) {
+            gcd = fPtr->denominator;
+        } else {
+            gcd = fPtr->numerator;
+        }
+
+        while (gcd > 0) {
+            if ((fPtr->numerator % gcd == 0) &&
+                (fPtr->denominator % gcd == 0)) {
+                break;
+            }
+
+            gcd--;
+        }
+
+        fPtr->denominator = fPtr->denominator/gcd;
+        fPtr->numerator = fPtr->numerator/gcd;
+    }
 \end{lstlisting}
 
     \end{enumerate}
