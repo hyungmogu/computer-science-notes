@@ -1232,10 +1232,6 @@
 
     \item
 
-    \texttt{a)}, \texttt{b)} and \texttt{d)} are legal.
-
-    \bigskip
-
     \begin{itemize}
         \item \texttt{a)} legal
         \item \texttt{b)} legal
@@ -1244,6 +1240,25 @@
         \item \texttt{e)} correction: \texttt{s.u.circle.radius = 5;}
         \item \texttt{f)} correction: \texttt{s.u.circle.radius = 5;}
     \end{itemize}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item
+
+\begin{lstlisting}[language=c]
+    #include <math.h>
+    #define M_PI 3.14159265358979323846
+
+    double area (struct shape s) {
+        if (s.shape_kind == RECTANGLE) {
+            return s.u.rectangle.height * s.u.rectangle.width;
+        } else {
+            return M_PI * pow(s.u.circle.radius, 2);
+        }
+    }
+\end{lstlisting}
+    \end{enumerate}
 
 \end{enumerate}
 
