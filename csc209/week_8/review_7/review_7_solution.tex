@@ -989,6 +989,31 @@
     }
 \end{lstlisting}
 
+        \item
+
+        I need to write the function
+
+        \bigskip
+
+        \texttt{struct color brighter(struct color c)}
+
+        \bigskip
+
+        satisfying the following requirement
+
+        \begin{itemize}
+            \item if all members of \texttt{c} are zero, then return color whose all
+            members have value 3
+            \item If any member of \texttt{c} is greater than 0 but less than 3, it is replaced
+            by 3 before the division by 0.7
+            \item if any member of \texttt{c} is greater than equal to 3, than, divide by 0.7
+            \item if diving by 0.7 exceeds 255, then replace it with 255
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
 
 
     \end{enumerate}
