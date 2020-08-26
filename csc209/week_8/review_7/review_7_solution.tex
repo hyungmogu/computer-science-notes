@@ -1126,6 +1126,29 @@
     }
 \end{lstlisting}
 
+        \item
+
+\begin{lstlisting}[language=c]
+    struct rectangle translate(struct rectangle r, int x, int y) {
+
+        r.upper_left.x += x;
+        r.upper_left.y += y;
+
+        r.lower_right.x += x;
+        r.lower_right.y += y;
+
+        return r;
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    bool inside_rectangle(struct rectangle r, struct point p) {
+
+    }
+\end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
