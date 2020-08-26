@@ -954,6 +954,42 @@
     }
 \end{lstlisting}
 
+        \item
+
+        I need to write the function
+
+        \bigskip
+
+        \texttt{bool equal\_color(struct color color1, struct color color2)}
+
+        \bigskip
+
+        satisfying the following requirement
+
+        \begin{itemize}
+            \item The function \texttt{equal\_color} returns true if the corresponding members of
+            \texttt{color1} and \texttt{color2} are equal
+        \end{itemize}
+
+        \bigskip
+
+        The solution to this problem is:
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    bool equal_color(struct color color1, struct color color2) {
+        if ((color1.red == color2.red) &&
+            (color1.green == color2.green) &&
+            (color1.blue == color2.blue)) {
+            return true;
+        }
+
+        return false;
+    }
+\end{lstlisting}
+
+
 
     \end{enumerate}
 
