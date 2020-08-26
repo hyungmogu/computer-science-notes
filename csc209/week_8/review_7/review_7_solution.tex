@@ -1258,6 +1258,59 @@
         }
     }
 \end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    #include <math.h>
+    #define M_PI 3.14159265358979323846
+
+    double area (struct shape s) {
+        if (s.shape_kind == RECTANGLE) {
+            return s.u.rectangle.height * s.u.rectangle.width;
+        } else {
+            return M_PI * pow(s.u.circle.radius, 2);
+        }
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    struct shape translate (struct shape s, int x, int y) {
+        s.center.x += x;
+        s.center.y += y;
+
+        return s;
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    struct shape translate (struct shape s, int x, int y) {
+        s.center.x += x;
+        s.center.y += y;
+
+        return s;
+    }
+\end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    struct shape scale (struct shape s, double c) {
+        if (s.shape_kind == RECTANGLE) {
+            s.u.rectangle.height *=  c;
+            s.u.rectangle.width *= c;
+        } else {
+            s.u.circle.radius *= c;
+        }
+
+        return s;
+    }
+\end{lstlisting}
+
     \end{enumerate}
 
 \end{enumerate}
