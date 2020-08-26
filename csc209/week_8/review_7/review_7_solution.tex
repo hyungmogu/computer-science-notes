@@ -545,29 +545,39 @@
 
     int day_of_year (struct date d) {
         bool leap_year = false;
-        int days_in_month[] = {31, 28, 31, 30,
-                            31, 30, 31, 31,
-                            30, 31, 30, 31}
+        int days = 0, days_in_month[] = {
+            31, 28, 31, 30,
+            31, 30, 31, 31,
+            30, 31, 30, 31};
 
         // check if it's the leap year
         if (((d.year % 4 == 0) &&
             (d.year % 100 != 0)) ||
-            (year modulo 400 is 0)) {
+            (d.year % 400 == 0)) {
 
                 leap_year = true;
             }
 
 
         // add days from months
+        for (int i = 0; i < d.month; i++) {
+            if (i == d.month-1) {
+                days += d.day;
+                continue;
+            }
 
-
-        // add days
+            days += days_in_month[i];
+        }
 
 
         // add 1 more day if month > 2 and it's leap year
+        if (leap_year && d.month > 2) {
+            days += 1;
+        }
 
 
         // return days
+        return days;
     }
 \end{lstlisting}
     \end{enumerate}
