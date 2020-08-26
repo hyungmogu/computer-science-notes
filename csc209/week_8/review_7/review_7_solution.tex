@@ -1084,28 +1084,49 @@
 
     \bigskip
 
+    \begin{enumerate}[a)]
+
+        \item
+
 \begin{lstlisting}[language=c]
-    int rectangle area(struct rectangle r) {
+    int area(struct rectangle r) {
         return ((r.upper_left.y - r.lower_right.y) *
-                (r.upper_left.x - r.lower_right.x));
+                (r.lower_right.x - r.upper_left.x));
     }
 \end{lstlisting}
 
-    \underline{\textbf{Notes}}
+        \bigskip
 
-    \begin{itemize}
-        \item \textbf{Nested Structure}
+        \underline{\textbf{Notes}}
 
         \begin{itemize}
-            \item Works just like a nested class
+            \item \textbf{Nested Structure}
 
-            \bigskip
+            \begin{itemize}
+                \item Works just like a nested class
 
-            \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/review_7_solution_8.png}
-            \end{center}
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/review_7_solution_8.png}
+                \end{center}
+            \end{itemize}
         \end{itemize}
-    \end{itemize}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    struct point center(struct rectangle r) {
+        struct point pt;
+
+        pt.x = (int)((r.upper_left.y - r.lower_right.y)/2);
+        pt.y = (int)((r.lower_right.x - r.upper_left.x)/2);
+
+        return pt;
+    }
+\end{lstlisting}
+
+    \end{enumerate}
 
 \end{enumerate}
 
