@@ -665,7 +665,23 @@
     The solution to this problem is:
 
 \begin{lstlisting}[language=c]
+    #include <stdio.h>
 
+    struct time {
+        int hours, minutes, seconds;
+    };
+
+    struct time split_time (long total_seconds);
+
+    ...
+
+    struct time split_time (structlong total_seconds) {
+        struct time t;
+
+
+
+        return t;
+    }
 \end{lstlisting}
 
 \end{enumerate}
