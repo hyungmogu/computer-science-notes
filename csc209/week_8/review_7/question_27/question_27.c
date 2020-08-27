@@ -8,12 +8,16 @@ struct flight_times {
 };
 
 
-int find_closest_departure_time(int user_time, const struct flight_times ft[]);
+int find_closest_departure_time(int user_time, const struct flight_times ft[], int n);
 
 int main(void) {
     int user_time,
         hour,
-        minute;
+        minute,
+        departure_hour,
+        departure_minutes,
+        arrival_hour,
+        arrival_minutes;
 
     struct flight_times ft[N] = {
         {480, 616}, {583, 712}, {679, 811}, {767, 900},
@@ -26,7 +30,22 @@ int main(void) {
 
     int index = find_closest_departure_time(user_time, ft, N);
 
+    // convert to 24 hour time
+    departure_hour = ft[index].departure_time / 60;
+    departure_minutes = ft[index].departure_time % 60;
+
+    arrival_hour = ft[index].arrival_time / 60;
+    arrival_minutes = ft[index].arrival_time % 60;
+
     printf("Closest departure time is ");
+
+    printf("%02d:%02d %s., arriving at %02d:%02d %s.\n",
+        departure_hour > 12 ? departure_hour - 12 : departure_hour,
+        departure_minutes,
+        departure_hour >= 12 ? "P.M" : "A.M",
+        arrival_hour > 12 ? arrival_hour - 12 : arrival_hour,
+        arrival_minutes,
+        arrival_hour >= 12 ? "P.M" : "A.M");
 
     return 0;
 }
