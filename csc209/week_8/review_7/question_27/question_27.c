@@ -1,9 +1,12 @@
 #include <stdio.h>
 
-struct flight_time {
+struct flight_times {
     int departure_time;
     int arrival_time;
 };
+
+
+int find_closest_departure_time(int user_time, const struct flight_times ft[]);
 
 int main(void) {
 
@@ -11,15 +14,23 @@ int main(void) {
         hour,
         minute;
 
-    struct flight_time ft = {
-        {480}, {583}, {679}, {767}, {840}, {945}, {1140}, {1305}
+    struct flight_times ft[8] = {
+        {480, 616}, {583, 712}, {679, 811}, {767, 900},
+        {840, 968}, {945, 1075}, {1140, 1280}, {1305, 1438}
     };
 
     printf("Enter a 24-hour time: ");
     scanf("%d :%d", &hour, &minute);
     user_time = hour * 60 + minute;
 
+    int index = find_closest_departure_time(user_time, ft);
+
     printf("Closest departure time is ");
+
+    return 0;
+}
+
+int find_closest_departure_time(int user_time, const struct flight_times ft[]) {
 
     if (user_time <= d1 + (d2 - d1) / 2)
         printf("8:00 a.m., arriving at 10:16 a.m.\n");
@@ -38,5 +49,4 @@ int main(void) {
     else
         printf("9:45 p.m., arriving at 11:58 p.m.\n");
 
-    return 0;
 }
