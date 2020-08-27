@@ -1483,6 +1483,69 @@
             break;
 \end{lstlisting}
 
+        \item
+
+        \begin{enumerate}[a)]
+            \item
+
+            \begin{itemize}
+                \item \texttt{NUL}: 0
+                \item \texttt{SOH}: 1
+                \item \texttt{STX}: 2
+                \item \texttt{ETX}: 3
+            \end{itemize}
+
+            \item
+
+            \begin{itemize}
+                \item \texttt{VT}: 11
+                \item \texttt{FF}: 12
+                \item \texttt{CR}: 13
+            \end{itemize}
+
+            \item
+
+            \begin{itemize}
+                \item \texttt{SO}: 14
+                \item \texttt{SI}: 15
+                \item \texttt{DLE}: 16
+                \item \texttt{CAN}: 24
+                \item \texttt{EM}: 25
+            \end{itemize}
+
+            \item
+
+            \begin{itemize}
+                \item \texttt{ENQ}: 45
+                \item \texttt{ACK}: 46
+                \item \texttt{BEL}: 47
+                \item \texttt{LF}: 37
+                \item \texttt{ETB}: 38
+                \item \texttt{ESC}: 39
+            \end{itemize}
+        \end{enumerate}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item enumeration value increments by 1 from the value of previous
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \texttt{enum \{VT = 11, FF, CR = 5, FR\}}
+
+            \begin{itemize}
+                \item \texttt{FF} has value 12
+                \item \texttt{FR} has value 6
+            \end{itemize}
+        \end{itemize}
+
 \end{enumerate}
 
 \end{document}
