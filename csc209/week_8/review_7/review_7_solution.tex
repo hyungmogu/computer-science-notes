@@ -1417,7 +1417,7 @@
 
         \bigskip
 
-        \texttt{typedef enum \{PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING, EMPTY\} Piece;}
+        \texttt{typedef enum \{EMPTY, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING\} Piece;}
 
         \bigskip
 
@@ -1426,7 +1426,7 @@
         \item
 
 \begin{lstlisting}[language=c]
-    typdef struct {
+    typedef struct {
         Piece piece;
         Color color;
     } Square;
@@ -1443,9 +1443,9 @@
         { {},{},{},{},{},{},{},{} },
         { {},{},{},{},{},{},{},{} },
         { {},{},{},{},{},{},{},{} },
-        { {PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{},{PAWN, BLACK} },
-        { {},{},{},{},{},{},{},{} },
-    }
+        { {PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK},{PAWN, BLACK} },
+        { {ROOK, BLACK},{KNIGHT, BLACK},{BISHOP, BLACK},{QUEEN, BLACK},{KING, BLACK},{BISHOP, BLACK},{KNIGHT, BLACK},{ROOK, BLACK} },
+    };
 \end{lstlisting}
     \end{enumerate}
 \end{enumerate}
