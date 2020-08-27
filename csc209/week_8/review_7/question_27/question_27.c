@@ -1,18 +1,19 @@
 #include <stdio.h>
 
+struct flight_time {
+    int departure_time;
+    int arrival_time;
+};
+
 int main(void) {
 
     int user_time,
         hour,
-        minute,
-        d1 = 480,
-        d2 = 583,
-        d3 = 679,
-        d4 = 767,
-        d5 = 840,
-        d6 = 945,
-        d7 = 1140,
-        d8 = 1305;
+        minute;
+
+    struct flight_time ft = {
+        {480}, {583}, {679}, {767}, {840}, {945}, {1140}, {1305}
+    };
 
     printf("Enter a 24-hour time: ");
     scanf("%d :%d", &hour, &minute);
