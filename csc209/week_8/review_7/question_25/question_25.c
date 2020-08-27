@@ -7,7 +7,7 @@
 #define NAME_LEN 25
 #define MAX_PARTS 100
 
-int find_part(int number);
+int find_part(int number, int num_parts, const struct part inventory[]);
 void insert(void);
 void search(void);
 void update(void);
@@ -58,7 +58,7 @@ int main(void)
  *            array. Returns the array index if the part  *
  *            number is found; otherwise, returns -1.     *
  **********************************************************/
-int find_part(int number)
+int find_part(int number, int num_parts, const struct part inventory[])
 {
   int i;
 
