@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define N 8
+
 struct flight_times {
     int departure_time;
     int arrival_time;
@@ -9,12 +11,11 @@ struct flight_times {
 int find_closest_departure_time(int user_time, const struct flight_times ft[]);
 
 int main(void) {
-
     int user_time,
         hour,
         minute;
 
-    struct flight_times ft[8] = {
+    struct flight_times ft[N] = {
         {480, 616}, {583, 712}, {679, 811}, {767, 900},
         {840, 968}, {945, 1075}, {1140, 1280}, {1305, 1438}
     };
@@ -23,30 +24,26 @@ int main(void) {
     scanf("%d :%d", &hour, &minute);
     user_time = hour * 60 + minute;
 
-    int index = find_closest_departure_time(user_time, ft);
+    int index = find_closest_departure_time(user_time, ft, N);
 
     printf("Closest departure time is ");
 
     return 0;
 }
 
-int find_closest_departure_time(int user_time, const struct flight_times ft[]) {
+int find_closest_departure_time(int user_time, const struct flight_times ft[], int n) {
 
-    if (user_time <= d1 + (d2 - d1) / 2)
-        printf("8:00 a.m., arriving at 10:16 a.m.\n");
-    else if (user_time < d2 + (d3 - d2) / 2)
-        printf("9:43 a.m., arriving at 11:52 a.m.\n");
-    else if (user_time < d3 + (d4 - d3) / 2)
-        printf("11:19 a.m., arriving at 1:31 p.m.\n");
-    else if (user_time < d4 + (d5 - d4) / 2)
-        printf("12:47 p.m., arriving at 3:00 p.m.\n");
-    else if (user_time < d5 + (d6 - d5) / 2)
-        printf("2:00 p.m., arriving at 4:08 p.m.\n");
-    else if (user_time < d6 + (d7 - d6) / 2)
-        printf("3:45 p.m., arriving at 5:55 p.m.\n");
-    else if (user_time < d7 + (d8 - d7) / 2)
-        printf("7:00 p.m., arriving at 9:20 p.m.\n");
-    else
-        printf("9:45 p.m., arriving at 11:58 p.m.\n");
+    int closest_index, closest_time_distance = 2000, curr_time_distance;
 
+    for (int i = 0; i < n; i++) {
+        curr_time_distance = user_time - ft[i].departure_time;
+        if ((curr_time_distance > 0) &&
+            (curr_time_distance < closest_time_distance)) {
+                closest_index = i;
+                closest_time_distance = curr_time_distance;
+            }
+    }
+
+
+    return closest_index;
 }
