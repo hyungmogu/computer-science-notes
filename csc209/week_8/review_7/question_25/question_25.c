@@ -16,8 +16,8 @@ struct part {
 int find_part(int number, int num_parts, const struct part inventory[]);
 void insert(int *num_parts, struct part inventory[]);
 void search(int num_parts, const struct part inventory[]);
-void update(void);
-void print(void);
+void update(int num_parts, struct part inventory[]);
+void print(int num_parts, const struct part inventory[]);
 
 /**********************************************************
  * main: Prompts the user to enter an operation code,     *
@@ -42,9 +42,9 @@ int main(void)
                 break;
       case 's': search(num_parts, inventory);
                 break;
-      case 'u': update();
+      case 'u': update(num_parts, inventory);
                 break;
-      case 'p': print();
+      case 'p': print(num_parts, inventory);
                 break;
       case 'q': return 0;
       default:  printf("Illegal code\n");
@@ -86,7 +86,7 @@ void insert(int *num_parts, struct part inventory[])
 
   printf("Enter part number: ");
   scanf("%d", &part_number);
-  if (find_part(part_number, num_parts, inventory) >= 0) {
+  if (find_part(part_number, *num_parts, inventory) >= 0) {
     printf("Part already exists.\n");
     return;
   }
@@ -106,7 +106,7 @@ void insert(int *num_parts, struct part inventory[])
   read_line(inventory[i].name, NAME_LEN);
   printf("Enter quantity on hand: ");
   scanf("%d", &inventory[i].on_hand);
-  *num_parts++;
+  *num_parts += 1;
 }
 
 /**********************************************************
@@ -136,7 +136,7 @@ void search(int num_parts, const struct part inventory[])
  *         change in quantity on hand and updates the     *
  *         database.                                      *
  **********************************************************/
-void update(void)
+void update(int num_parts, struct part inventory[])
 {
   int i, number, change;
 
@@ -158,7 +158,7 @@ void update(void)
  *        order in which they were entered into the       *
  *        database.                                       *
  **********************************************************/
-void print(void)
+void print(int num_parts, const struct part inventory[])
 {
   int i;
 
