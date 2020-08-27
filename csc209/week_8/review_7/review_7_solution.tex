@@ -1459,6 +1459,30 @@
         int players;
     }
 \end{lstlisting}
+
+        \item
+
+\begin{lstlisting}[language=c]
+    enum {NORTH, SOUTH, EAST, WEST} direction;
+
+    int x;
+    int y;
+
+    switch(direction):
+        case NORTH:
+            y++;
+            break;
+        case SOUTH:
+            y--;
+            break;
+        case EAST:
+            x++;
+            break;
+        case WEST:
+            x--;
+            break;
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
