@@ -77,7 +77,7 @@ int find_part(int number)
  **********************************************************/
 void insert(void)
 {
-  int part_number;
+  int part_number, i, j;
 
   if (num_parts == MAX_PARTS) {
     printf("Database is full; can't add more parts.\n");
@@ -91,11 +91,21 @@ void insert(void)
     return;
   }
 
-  inventory[num_parts].number = part_number;
+  for (i = 0; i < num_parts; i++) {
+    if (part_number < inventory[i].number) {
+      break;
+    }
+  }
+
+  for (j = num_parts; j > i; j--) {
+    inventory[j] = inventory[j-1];
+  }
+
+  inventory[i].number = part_number;
   printf("Enter part name: ");
-  read_line(inventory[num_parts].name, NAME_LEN);
+  read_line(inventory[i].name, NAME_LEN);
   printf("Enter quantity on hand: ");
-  scanf("%d", &inventory[num_parts].on_hand);
+  scanf("%d", &inventory[i].on_hand);
   num_parts++;
 }
 
