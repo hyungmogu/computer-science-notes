@@ -538,17 +538,25 @@
 \begin{lstlisting}[language=c]
     #include <stdbool.h>
 
-    struct node *ll;
+    struct node *top;
 
     void make_empty(void) {
+        struct node *p;
 
+        for (;p;) {
+
+        }
     }
 
-    void is_empty(void) {
+    bool is_empty(void) {
+        if (top == NULL) {
+            return true;
+        }
 
+        return false;
     }
 
-    bool push (int n, struct node *ll) {
+    bool push (int n, struct node *top) {
         struct node *new_node;
 
         new_node = malloc(sizeof(struct node));
@@ -559,6 +567,12 @@
 
         new_node->value = n;
 
+        if (top == NULL) {
+            top = new_node;
+        } else {
+            new_node->next = top->next;
+            top->next = new_node;
+        }
 
         return true;
     }
