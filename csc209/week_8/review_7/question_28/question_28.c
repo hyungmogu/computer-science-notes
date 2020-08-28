@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <string.h>
 
 struct date {
     int year;
@@ -19,16 +20,25 @@ int main(void) {
     scanf("%d/%d/%d", &date2.month, &date2.day, &date2.year);
 
 
-    if (compare_dates(date1, date2)) {
-        printf("%d/%d/%.2d is earlier than %d/%d/%.2d\n", m2, d2, y2, m1, d1, y1);
+    if (compare_dates(date1, date2) < 0) {
+        printf("%02d/%02d/%04d is earlier than %02d/%02d/%04d\n",
+                date1.month, date1.day, date1.year,
+                date2.month, date2.day, date2.year);
     } else {
-        printf("%d/%d/%.2d is earlier than %d/%d/%.2d\n", m2, d2, y2, m1, d1, y1);
+        printf("%02d/%02d/%04d is earlier than %02d/%02d/%04d\n",
+                date2.month, date2.day, date2.year,
+                date1.month, date1.day, date1.year);
     }
 
     return 0;
 }
 
-int compare_dates(const struct date date1, struct date date2)
+int compare_dates(struct date date1, struct date date2)
 {
+    char d1[9], d2[9];
 
+    sprintf(d1, "%04d%02d%02d", date1.year, date1.month, date1.day);
+    sprintf(d2, "%04d%02d%02d", date2.year, date2.month, date2.day);
+
+    return strcmp(d1, d2);
 }
