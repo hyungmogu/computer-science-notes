@@ -316,7 +316,64 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item \textbf{-$>$ Operator}
+        \item \textbf{Linked Lists}
+
+        \begin{itemize}
+            \item \textbf{Declaring Node Type}
+
+            \begin{itemize}
+                \item \textbf{Syntax (Node structure):}
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/review_8_solution_2.png}
+                \end{center}
+
+            \end{itemize}
+
+            \item \textbf{Creating a Node}
+
+            \begin{itemize}
+                \item \textbf{Syntax (Allocating using malloc):}
+
+                \bigskip
+
+                \texttt{struct node *new\_node;}
+
+                \texttt{new\_node = malloc(sizeof(struct node));}
+
+                \bigskip
+
+                \item Assigning value
+
+                \bigskip
+
+                \texttt{(*new\_node).value = 10;}
+
+                \bigskip
+
+            \end{itemize}
+            \item \textbf{-$>$ Operator}
+
+            \begin{itemize}
+                \item is a short form of \texttt{(*STRUCT\_NAME).MEMBER\_NAME}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \texttt{(*new\_node).value = 10;}
+
+                \bigskip
+
+                Is the same as
+
+                \bigskip
+
+                \texttt{new\_node-$>$value = 10;}
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 \end{enumerate}
 
