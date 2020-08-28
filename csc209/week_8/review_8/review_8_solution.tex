@@ -272,11 +272,30 @@
 
 \begin{lstlisting}[language=c]
     int *create_array(int n, int initial_value) {
-
+        return
     }
 \end{lstlisting}
 
 
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Dynamically Allocated Arrays}
+        \begin{itemize}
+            \item \textbf{Syntax:}
+
+            \bigskip
+
+            \texttt{int *a;}
+
+            \texttt{a = malloc(n * sizeof(int));}
+
+            \bigskip
+            \item returns null pointer if allocation fails
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
