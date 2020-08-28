@@ -623,11 +623,11 @@
 
     ...
 
-    void print_part(struct part p)
+    void print_part(struct part *p)
     {
-        printf("Part number: %d\n", p.number);
-        printf("Part name: %s\n", p.name);
-        printf("quantity on hand: %d\n", p.on_hand);
+        printf("Part number: %d\n", p->number);
+        printf("Part name: %s\n", p->name);
+        printf("quantity on hand: %d\n", p->on_hand);
     }
 \end{lstlisting}
 \end{enumerate}
