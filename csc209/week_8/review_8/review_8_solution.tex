@@ -536,9 +536,10 @@
     \item
 
 \begin{lstlisting}[language=c]
+    #include <stdio.h>
     #include <stdbool.h>
     #include <stdlib.h>
-    #include <stddef.h>
+    #include <stddef.h> // NULL
 
     struct node {
         int value;
@@ -610,6 +611,25 @@
     \bigskip
 
     Thus, \texttt{x.a} is the same as \texttt{(\&x)-$>$a}.
+
+    \item
+
+\begin{lstlisting}[language=c]
+    struct part {
+        int number;
+        char name[NAME_LEN+1];
+        int on_hand;
+    };
+
+    ...
+
+    void print_part(struct part p)
+    {
+        printf("Part number: %d\n", p.number);
+        printf("Part name: %s\n", p.name);
+        printf("quantity on hand: %d\n", p.on_hand);
+    }
+\end{lstlisting}
 \end{enumerate}
 
 \end{document}
