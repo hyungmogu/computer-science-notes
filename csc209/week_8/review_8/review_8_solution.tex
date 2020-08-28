@@ -641,6 +641,32 @@
         struct node *next;
     };
 
+    int count_occurences (struct node *list, int n)
+    {
+        int count;
+        struct node *top;
+
+        for (top=list; top != NULL; top = top->next) {
+            if (top->value == n) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+\end{lstlisting}
+
+
+    \item
+
+\begin{lstlisting}[language=c]
+    #include <stddef.h>
+
+    struct node {
+        int value;
+        struct node *next;
+    };
+
     struct node *find_last (struct node *list, int n)
     {
         struct node *last = NULL, *top;
@@ -654,6 +680,8 @@
         return last;
     }
 \end{lstlisting}
+
+    \item
 
 \end{enumerate}
 
