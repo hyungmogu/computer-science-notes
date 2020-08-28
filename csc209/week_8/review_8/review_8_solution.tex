@@ -515,6 +515,23 @@
 
     \bigskip
 
+    As a result, the remaining nodes cannot be removed, and this is not good.
+
+    \bigskip
+
+    To fix the problem, the pointer \texttt{p} must move to the next before removing
+    the current node, as shown below:
+
+
+\begin{lstlisting}[language=c]
+    struct node *to_be_freed;
+
+    for (p = first; p != NULL;) {
+        to_be_freed = p;
+        p = p->next;
+        free(p);
+    }
+\end{lstlisting}
 \end{enumerate}
 
 \end{document}
