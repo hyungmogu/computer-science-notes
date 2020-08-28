@@ -272,7 +272,19 @@
 
 \begin{lstlisting}[language=c]
     int *create_array(int n, int initial_value) {
-        return
+        int *array;
+
+        array = malloc(n * sizeof(int));
+
+        if (array == NULL) {
+            return array;
+        }
+
+        for(int i = 0; i < n; i++){
+            array[i] = initial_value;
+        }
+
+        return array
     }
 \end{lstlisting}
 
