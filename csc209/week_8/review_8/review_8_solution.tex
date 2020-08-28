@@ -769,7 +769,7 @@
 
             \bigskip
 
-            Passing a pointer \texttt{*first} that points to \texttt{struct node}
+            Passing a pointer \texttt{*first} that points to \texttt{malloc(struct node)} (a pointer pointing to malloc)
             to function \texttt{*add\_to\_list(struct node *list, int n)} (nono).
 
             \bigskip
@@ -782,6 +782,10 @@
 
                 \texttt{*add\_to\_list(struct node **list, int n)}
             \end{itemize}
+
+            \item \texttt{**list} refers to value in \texttt{malloc(struct node)}
+            \item \texttt{*list} refers to the address of variable (\texttt{first}) that points to \texttt{malloc(struct node)}
+            \item \texttt{\&list} refers to address of variable list
         \end{itemize}
     \end{itemize}
 
