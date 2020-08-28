@@ -729,21 +729,29 @@
 \begin{lstlisting}[language=c]
     void delete_from_list(struct node **list, int n)
     {
-        struct node *cur, *prev;
+        struct node *cur, *prev = NULL;
+        cur = *list;
 
+        while (cur != NULL) {
+            if (cur->value == n) {
+                break;
+            }
 
-        for (cur = *list, prev = NULL;
-             cur != NULL && cur->value != n;
-             prev = cur, cur = cur->next)
-             ;
+            prev = cur;
+            cur = cur->next;
 
-        if (prev == NULL) {
-            *list = (*list)->next;
-        } else {
-            prev->next = cur->next;
         }
 
-        free(cur);
+        printf("%d\n", prev->value);
+        printf("%d\n", cur->value);
+
+        // if (prev == NULL) {
+        //     *list = (*list)->next;
+        // } else {
+        //     prev->next = cur->next;
+        // }
+
+        // free(cur);
     }
 \end{lstlisting}
 
@@ -775,6 +783,7 @@
             \bigskip
 
             \begin{itemize}
+                \item at point of call, \texttt{first} is copied to \texttt{list}
                 \item \texttt{*list} is a pointer that must point to \texttt{*first}. So, this is invalid form.
                 For above to be valid, double pointer must be used.
 
