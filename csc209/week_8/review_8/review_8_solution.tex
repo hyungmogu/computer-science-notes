@@ -536,8 +536,9 @@
     \item
 
 \begin{lstlisting}[language=c]
-    int contents[100];
-    int top = 0;
+    #include <stdbool.h>
+
+    struct node *ll;
 
     void make_empty(void) {
 
@@ -547,8 +548,19 @@
 
     }
 
-    void push (int i) {
+    bool push (int i, struct node *ll) {
+        struct node *new_node;
 
+        new_node = malloc(sizeof(struct node));
+
+        if (new_node == NULL) {
+            return false;
+        }
+
+        for ()
+
+
+        return true;
     }
 
     int pop(void) {
