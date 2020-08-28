@@ -426,6 +426,19 @@
 
     \item
 
+\begin{lstlisting}[language=c]
+    struct node *delete_from_list(struct node *list, int n)
+    {
+        struct node *cur;
+
+        for (cur = list; curr != NULL & cur->value != n; curr = curr->next) {
+            if (curr->next != NULL && curr->next->value == n) {
+                break;
+            }
+        }
+    }
+\end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Notes}}
@@ -465,8 +478,25 @@
                 \end{itemize}
 
                 \item Alter the previous node so that it "bypasses" the deleted node
+
+                \begin{center}
+                \includegraphics[width=0.6\linewidth]{images/review_8_solution_5.png}
+                \end{center}
+
                 \item Call \texttt{free} to reclaim the space occupied by the deleted code
+
+                \begin{center}
+                \includegraphics[width=0.6\linewidth]{images/review_8_solution_6.png}
+                \end{center}
             \end{enumerate}
+
+            \bigskip
+
+            Putting together, we have
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/review_8_solution_7.png}
+            \end{center}
         \end{itemize}
     \end{itemize}
 
