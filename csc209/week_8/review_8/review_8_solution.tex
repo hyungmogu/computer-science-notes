@@ -449,7 +449,24 @@
         \item \textbf{Deleting Node from a List}
 
         \begin{itemize}
-            \item
+            \item Steps
+
+            \begin{enumerate}[1.]
+                \item Locate the node to be deleted
+
+                \begin{itemize}
+                    \item \textbf{Syntax (Searching for the node of value \texttt{n} to be deleted):}
+
+                    \bigskip
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{images/review_8_solution_4.png}
+                    \end{center}
+                \end{itemize}
+
+                \item Alter the previous node so that it "bypasses" the deleted node
+                \item Call \texttt{free} to reclaim the space occupied by the deleted code
+            \end{enumerate}
         \end{itemize}
     \end{itemize}
 
