@@ -429,13 +429,21 @@
 \begin{lstlisting}[language=c]
     struct node *delete_from_list(struct node *list, int n)
     {
-        struct node *cur;
+        struct node *curr, *to_be_freed;
 
-        for (cur = list; curr != NULL & cur->value != n; curr = curr->next) {
+        for (curr = list; curr != NULL && curr->value != n; curr = curr->next) {
             if (curr->next != NULL && curr->next->value == n) {
-                break;
+                to_be_freed = curr->next;
+                curr->next = curr->next->next;
+                free(to_be_freed);
+
+                return list;
             }
         }
+
+
+        return list;
+
     }
 \end{lstlisting}
 
