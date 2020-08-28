@@ -700,16 +700,10 @@
     {
         struct node *cur, *prev;
 
-
         for (cur = list, prev = NULL;
              cur != NULL && cur->value < new_node->value;
-             prev=cur, cur = cur->next) {
-
-            if (cur == NULL) {
-                cur = new_node;
-                return list;
-            }
-        }
+             prev=cur, cur = cur->next)
+             ;
 
         prev->next = new_node;
         new_node->next = cur;
@@ -717,6 +711,18 @@
     }
 
 \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item Passing \texttt{NULL} results in segmentation fault
+
+        \bigskip
+
+        \texttt{insert_ordered_list(NULL, 4);}
+    \end{itemize}
 
 \end{enumerate}
 
