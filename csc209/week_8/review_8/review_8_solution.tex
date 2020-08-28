@@ -537,14 +537,23 @@
 
 \begin{lstlisting}[language=c]
     #include <stdbool.h>
+    #include <stdlib.h>
+    #include <stddef.h>
 
-    struct node *top;
+    struct node {
+        int value;
+        struct node *next;
+    };
 
-    void make_empty(void) {
-        struct node *p;
+    struct node *top = NULL;
 
-        for (;p;) {
+    void make_empty(struct node *top) {
+        struct node *temp;
 
+        while (top != NULL) {
+            temp = top;
+            top = top->next;
+            free(temp);
         }
     }
 
@@ -578,7 +587,15 @@
     }
 
     int pop(void) {
+        struct node *temp;
+        int return_val;
 
+        temp = top;
+        return_val = temp->value;
+        top = top->next;
+        free(temp);
+
+        return return_val;
     }
 \end{lstlisting}
 \end{enumerate}
