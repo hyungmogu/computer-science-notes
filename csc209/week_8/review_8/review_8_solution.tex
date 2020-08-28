@@ -742,16 +742,14 @@
 
         }
 
-        printf("%d\n", prev->value);
-        printf("%d\n", cur->value);
 
-        // if (prev == NULL) {
-        //     *list = (*list)->next;
-        // } else {
-        //     prev->next = cur->next;
-        // }
+        if (prev == NULL) {
+            *list = (*list)->next;
+        } else {
+            prev->next = cur->next;
+        }
 
-        // free(cur);
+        free(cur);
     }
 \end{lstlisting}
 
