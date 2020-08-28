@@ -683,6 +683,36 @@
 
     \item
 
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stddef.h>
+
+    struct node {
+        int value;
+        struct node *next;
+    };
+
+    struct node *insert_into_ordered_list (struct node *list,
+                                           struct node *new_node)
+    {
+        struct node *cur = list , *prev = NULL;
+
+        if (cur == NULL) {
+            cur = new_node;
+            return list;
+        }
+
+        while (cur -> value <= new_node->value && cur != NULL) {
+            prev = cur;
+            cur = cur->next;
+        }
+
+        prev->next = new_node;
+        new_node->next = cur;
+        return list;
+    }
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
