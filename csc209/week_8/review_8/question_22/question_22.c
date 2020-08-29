@@ -20,6 +20,7 @@ struct part *find_part(int number);
 void insert(void);
 void search(void);
 void update(void);
+void erase(void);
 void print(void);
 
 /**********************************************************
@@ -46,6 +47,8 @@ int main(void)
       case 'u': update();
                 break;
       case 'p': print();
+                break;
+      case 'e': erase();
                 break;
       case 'q': return 0;
       default:  printf("Illegal code\n");
@@ -159,6 +162,40 @@ void update(void)
   } else
     printf("Part not found.\n");
 }
+
+/**********************************************************
+ * erase: Prompts the user to enter a part number.        *
+ *         Prints an error message if the part doesn't    *
+ *         exist; otherwise, deletes the entered part     *
+ *         number from the database                       *
+ **********************************************************/
+void erase(void)
+{
+  int number;
+  struct part *cur, *prev;
+
+  printf("Enter part number: ");
+  scanf("%d", &number);
+
+  for (cur = inventory, prev = NULL;
+        cur->number != number && cur != NULL;
+        prev = cur, cur = cur->next)
+    ;
+
+  if (cur == NULL) {
+    printf("Part not found.\n");
+    return;
+  }
+
+  if (prev == NULL) {
+    inventory = inventory->next;
+  } else {
+    prev->next = cur->next;
+  }
+
+  free(cur);
+}
+
 
 /**********************************************************
  * print: Prints a listing of all parts in the database,  *
