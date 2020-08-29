@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "readline.h"
 
 #define NAME_LEN 25
@@ -51,10 +52,10 @@ int main(void)
         update(num_parts, inventory);
         break;
       case 'p':
+        qsort(inventory, num_parts, sizeof(inventory[0]), compare_parts);
         print(num_parts, inventory);
         break;
       case 'q':
-        qsort(inventory, num_parts, sizeof(inventory[0]), compare_parts);
         free(inventory);
         return 0;
       default:  printf("Illegal code\n");
@@ -64,7 +65,9 @@ int main(void)
 }
 
 int compare_parts(const void * a, const void * b) {
-
+  return (
+      ((struct part *)a)->number -
+      ((struct part *)b)->number);
 }
 
 /**********************************************************
