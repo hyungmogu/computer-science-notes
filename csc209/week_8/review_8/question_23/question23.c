@@ -14,24 +14,25 @@ struct word {
 
 
 // char line[MAX_LINE_LEN+1];
-struct word *line, *p;
+struct word *line;
 int line_len = 0;
 int num_words = 0;
 
 void clear_line(void)
 {
-  line[0] = '\0';
+  struct word *to_be_removed;
+
+  while (line != NULL) {
+    to_be_removed = line;
+    line = line->next;
+    free(to_be_removed);
+  }
   line_len = 0;
   num_words = 0;
 }
 
 void add_word(const char *word)
 {
-  // if (num_words > 0) {
-  //   line[line_len] = ' ';
-  //   line[line_len+1] = '\0';
-  //   line_len++;
-  // }
   struct word *new_word;
   new_word = malloc(sizeof(struct word));
 
@@ -48,13 +49,13 @@ void add_word(const char *word)
 
   if (num_words == 0) {
     line = new_word;
-    p = line;
+    line_len += strlen(word);
+  } else {
+    new_word->next = line;
+    line = new_word;
+    line_len += strlen(word) + 1; // +1 for space
   }
 
-  p->next = new_word;
-  p = p->next;
-
-  line_len += strlen(word) + 1; // +1 for space
   num_words++;
 }
 
