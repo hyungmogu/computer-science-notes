@@ -2,7 +2,7 @@
 /* Formats a file of text */
 
 #include <string.h>
-#include "line.h"
+#include "question23.h"
 #include "word.h"
 
 #define MAX_WORD_LEN 20

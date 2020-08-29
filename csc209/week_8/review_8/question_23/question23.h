@@ -1,7 +1,7 @@
 /* line.h (Chapter 15, page 362) */
 
-#ifndef LINE_H
-#define LINE_H
+#ifndef QUESTION23_H
+#define QUESTION23_H
 
 /**********************************************************
  * clear_line: Clears the current line.                   *

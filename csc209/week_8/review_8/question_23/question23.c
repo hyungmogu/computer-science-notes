@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "line.h"
+#include "question23.h"
 
 #define MAX_LINE_LEN 60
 
