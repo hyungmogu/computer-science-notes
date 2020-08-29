@@ -1,6 +1,6 @@
 /* justify.c (Chapter 15, page 363) */
 /* Formats a file of text */
-
+#include <stdio.h>
 #include <string.h>
 #include "question23.h"
 #include "word.h"
@@ -23,9 +23,12 @@ int main(void)
     if (word_len > MAX_WORD_LEN)
       word[MAX_WORD_LEN] = '*';
     if (word_len + 1 > space_remaining()) {
+      printf("I am here1\n");
       write_line();
+      printf("I am here2\n");
       clear_line();
     }
+    printf("I am here3\n");
     add_word(word);
   }
 }

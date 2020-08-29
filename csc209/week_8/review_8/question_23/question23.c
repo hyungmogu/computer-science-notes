@@ -16,16 +16,17 @@ struct word {
 
 
 // char line[MAX_LINE_LEN+1];
-struct word *line, *cur;
+struct word *line = NULL, *cur = NULL;
 int line_len = 0;
 int num_words = 0;
 
 void clear_line(void)
 {
-  struct word *to_be_removed;
-
+  struct word **to_be_removed;
+  printf("I am here");
   while (line != NULL) {
-    to_be_removed = line;
+    printf("%s\n", line->value);
+    *to_be_removed = line;
     line = line->next;
     free(to_be_removed);
   }
@@ -43,6 +44,7 @@ void add_word(const char *word)
     exit(1);
   }
 
+  new_word->next = NULL;
   strcpy(new_word->value, word);
 
   if (strlen(word) == MAX_SIZE) {
