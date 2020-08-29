@@ -85,7 +85,7 @@ void insert(int *num_parts, int *max_parts, struct part inventory[])
 
   if (*num_parts == *max_parts) {
     *max_parts = *max_parts * 2;
-    realloc(inventory, max_parts);
+    inventory = realloc(inventory, *max_parts * sizeof(inventory[0]));
   }
 
   printf("Enter part number: ");
