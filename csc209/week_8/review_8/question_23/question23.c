@@ -1,7 +1,9 @@
 /* line.c (Chapter 15, page 364) */
 
 #include <stdio.h>
+#include <stdlib.h> // free, malloc
 #include <string.h>
+#include <stddef.h> // NULL
 #include "question23.h"
 
 #define MAX_SIZE 60
@@ -14,7 +16,7 @@ struct word {
 
 
 // char line[MAX_LINE_LEN+1];
-struct word *line;
+struct word *line, *cur;
 int line_len = 0;
 int num_words = 0;
 
@@ -49,13 +51,13 @@ void add_word(const char *word)
 
   if (num_words == 0) {
     line = new_word;
+    cur = new_word;
     line_len += strlen(word);
   } else {
-    new_word->next = line;
-    line = new_word;
+    cur->next = new_word;
+    cur = cur->next;
     line_len += strlen(word) + 1; // +1 for space
   }
-
   num_words++;
 }
 
@@ -73,7 +75,7 @@ void write_line(void)
 
   for (p = line; p != NULL; p = p->next) {
 
-    puts(p->value);
+    printf("%s", p->value);
 
     spaces_to_insert = extra_spaces / (num_words - 1);
     for (j = 1; j <= spaces_to_insert + 1; j++)
@@ -91,7 +93,7 @@ void flush_line(void)
 
   if (line_len > 0) {
     for (p = line; p != NULL; p++) {
-      puts(p->value);
+      printf("%s", p->value);
       if (p->next != NULL) {
         putchar(' ');
       }
