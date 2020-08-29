@@ -963,7 +963,24 @@
         }
     }
 \end{lstlisting}
+
     \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    void run_command(char *str) {
+        for (int i = 0; i < sizeof(file_cmd)/sizeof(file_cmd[0]); i++) {
+            if (strcmp((file_cmd[i].cmd_name), str) == 0) {
+                (*file_cmd[i].cmd_pointer)();
+            }
+        }
+    }
+\end{lstlisting}
+    \end{mdframed}
 
     \underline{\textbf{Notes}}
 
