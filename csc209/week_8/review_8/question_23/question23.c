@@ -43,11 +43,7 @@ void add_word(const char *word)
     exit(1);
   }
 
-  printf("%s\n", word);
-
   strcpy(new_word->value, word);
-
-  printf("%s\n", new_word->value);
 
   if (strlen(word) == MAX_SIZE) {
     new_word->value[MAX_SIZE - 1] = '\0';
@@ -60,13 +56,10 @@ void add_word(const char *word)
   } else {
     cur->next = new_word;
     cur = cur->next;
-    printf("%lu\n", strlen(word));
+
     line_len += strlen(word) + 1; // +1 for space
   }
 
-  // printf("%s\n", cur->value);
-  printf("%d\n", line_len);
-  // printf("%d", num_words);
   num_words++;
 }
 
@@ -79,18 +72,17 @@ void write_line(void)
 {
   int extra_spaces, spaces_to_insert, i, j;
 
-  struct word *p;
+  struct word *p, *char_count;
   extra_spaces = MAX_LINE_LEN - line_len;
 
-  for (p = line; p != NULL; p = p->next) {
-    printf("%s\n", p->value);
+  for (p = line; p != NULL && num_words > 0; p = p->next, num_words--) {
+    printf("%s", p->value);
 
-    if (num_words != 1) {
+    if (num_words > 1) {
       spaces_to_insert = extra_spaces / (num_words - 1);
       for (j = 1; j <= spaces_to_insert + 1; j++)
         putchar(' ');
       extra_spaces -= spaces_to_insert;
-      num_words--;
     }
   }
   putchar('\n');
