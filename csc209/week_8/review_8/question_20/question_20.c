@@ -5,18 +5,16 @@
 #include <stdlib.h>
 #include "readline.h"
 
-#define SIZE 10
 #define NAME_LEN 25
-#define MAX_PARTS 100
 
 struct part {
   int number;
   char name[NAME_LEN+1];
   int on_hand;
-} inventory[MAX_PARTS];
+};
 
 int find_part(int number, int num_parts, const struct part inventory[]);
-void insert(int *num_parts, struct part inventory[]);
+void insert(int *num_parts, int *max_parts, struct part inventory[]);
 void search(int num_parts, const struct part inventory[]);
 void update(int num_parts, struct part inventory[]);
 void print(int num_parts, const struct part inventory[]);
@@ -31,8 +29,9 @@ void print(int num_parts, const struct part inventory[]);
 int main(void)
 {
   char code;
+  int max_parts = 10;
 
-  struct part *inventory = malloc(SIZE * sizeof(struct part));
+  struct part *inventory = malloc(max_parts * sizeof(struct part));
   int num_parts = 0;   /* number of parts currently stored */
 
   for (;;) {
@@ -41,7 +40,7 @@ int main(void)
     while (getchar() != '\n')   /* skips to end of line */
       ;
     switch (code) {
-      case 'i': insert(&num_parts, inventory);
+      case 'i': insert(&num_parts, &max_parts, inventory);
                 break;
       case 's': search(num_parts, inventory);
                 break;
@@ -80,13 +79,13 @@ int find_part(int number, int num_parts, const struct part inventory[])
  *         prematurely if the part already exists or the  *
  *         database is full.                              *
  **********************************************************/
-void insert(int *num_parts, struct part inventory[])
+void insert(int *num_parts, int *max_parts, struct part inventory[])
 {
   int part_number, i, j;
 
-  if (*num_parts == MAX_PARTS) {
-    printf("Database is full; can't add more parts.\n");
-    return;
+  if (*num_parts == *max_parts) {
+    *max_parts = *max_parts * 2;
+    realloc(inventory, max_parts);
   }
 
   printf("Enter part number: ");
