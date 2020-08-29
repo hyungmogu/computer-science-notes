@@ -4,16 +4,17 @@
 #include <string.h>
 #include "question23.h"
 
+#define MAX_SIZE 60
 #define MAX_LINE_LEN 60
 
-struct quote {
-  char word[MAX_LINE_LEN];
-  struct quote *next;
+struct word {
+  char value[MAX_SIZE];
+  struct word *next;
 };
 
 
-char line[MAX_LINE_LEN+1];
-struct quote *line, *p = line;
+// char line[MAX_LINE_LEN+1];
+struct word *line, *p;
 int line_len = 0;
 int num_words = 0;
 
@@ -31,9 +32,29 @@ void add_word(const char *word)
   //   line[line_len+1] = '\0';
   //   line_len++;
   // }
-  printf("%s\n", line);
-  strcat(line, word);
-  line_len += strlen(word);
+  struct word *new_word;
+  new_word = malloc(sizeof(struct word));
+
+  if (new_word == NULL) {
+    printf("ERROR: Cannot allocate space for struct word");
+    exit(1);
+  }
+
+  strcpy(new_word->value, word);
+
+  if (strlen(word) == MAX_SIZE) {
+    new_word->value[MAX_SIZE - 1] = '\0';
+  }
+
+  if (num_words == 0) {
+    line = new_word;
+    p = line;
+  }
+
+  p->next = new_word;
+  p = p->next;
+
+  line_len += strlen(word) + 1; // +1 for space
   num_words++;
 }
 
