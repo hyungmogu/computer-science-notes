@@ -68,13 +68,12 @@ void write_line(void)
 {
   int extra_spaces, spaces_to_insert, i, j;
 
-  struct word *p = line, *cur;
+  struct word *p;
   extra_spaces = MAX_LINE_LEN - line_len;
 
-  while (p != NULL) {
-    cur = p;
-    puts(cur->value);
-    p = p->next;
+  for (p = line; p != NULL; p = p->next) {
+
+    puts(p->value);
 
     spaces_to_insert = extra_spaces / (num_words - 1);
     for (j = 1; j <= spaces_to_insert + 1; j++)
@@ -88,6 +87,14 @@ void write_line(void)
 
 void flush_line(void)
 {
-  if (line_len > 0)
-    puts(line);
+  struct word *p;
+
+  if (line_len > 0) {
+    for (p = line; p != NULL; p++) {
+      puts(p->value);
+      if (p->next != NULL) {
+        putchar(' ');
+      }
+    }
+  }
 }
