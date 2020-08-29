@@ -835,17 +835,6 @@
 
             \begin{itemize}
                 \item The function is passed to another normally like other variables
-
-                \bigskip
-
-                \underline{\textbf{Example}}
-
-                \bigskip
-
-                \begin{center}
-                \includegraphics[width=\linewidth]{images/review_8_solution_9.png}
-                \end{center}
-
                 \item The passed function can be used as follows
 
                 \bigskip
@@ -874,6 +863,8 @@
     \item
 
 \begin{lstlisting}[language=c]
+    void qsort(void *base, size_t nmemb, size_t size,
+               int (*compar) (const void *, cocnst void *))
 
 \end{lstlisting}
 
@@ -882,12 +873,14 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item Realized that when K. N king said to write \texttt{qsort} that
+        sorts the first 50 elements, he meant to replace the parameters with arguments
+        in a function call :(.
         \item \textbf{Quick Sort}
 
-        \begin{itemize}
-            \item Pick last element as pivot
-            \item
-        \end{itemize}
+        \begin{center}
+        \includegraphics[width=0.9\linewidth]{images/review_8_solution_10.png}
+        \end{center}
     \end{itemize}
 
 
