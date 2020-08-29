@@ -800,6 +800,21 @@
 
     \bigskip
 
+    The answer is \texttt{3}.
+
+    \bigskip
+
+    \textbf{How it Works:}
+
+    \begin{itemize}
+        \item \texttt{f2} is passed to function \texttt{f1}
+        \item \texttt{f1} iterates while loop starting at \texttt{n = 0}
+        \item \texttt{n} in while loop is incremented because \texttt{0 * 0 + 0 -12 = -12},
+        and non-zero values are regarded as true.
+        \item texttt{f1} continues to iterate while loop until \texttt{n = 3}
+        (here it stops, becuase \texttt{3 * 3 + 3 - 12 = 0}), and 0 is false.
+    \end{itemize}
+
     \underline{\textbf{Notes:}}
 
     \begin{itemize}
@@ -819,6 +834,18 @@
             \end{center}
 
             \begin{itemize}
+                \item The function is passed to another normally like other variables
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/review_8_solution_9.png}
+                \end{center}
+
                 \item The passed function can be used as follows
 
                 \bigskip
