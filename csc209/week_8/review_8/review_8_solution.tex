@@ -860,7 +860,14 @@
 
 \begin{lstlisting}[language=c]
     int sum(int (*f)(int), int start, int end) {
+        int i = start, total = 0;
 
+        while (i <= end) {
+            total += (*f)(i);
+            i++;
+        }
+
+        return total;
     }
 \end{lstlisting}
 
