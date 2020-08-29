@@ -920,6 +920,26 @@
     }
 \end{lstlisting}
 
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    Assuming numbers in array are positive:
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    int compare_parts (const *p, const void *q)
+    {
+        return ((struct part *) q)->number - ((struct part *)p)->number;
+    }
+\end{lstlisting}
+
+    \end{mdframed}
+
 
 \end{enumerate}
 
