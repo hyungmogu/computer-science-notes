@@ -866,11 +866,32 @@
     qsort(&a[50], 50, sizeof(int), compare_parts);
 \end{lstlisting}
 
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+\begin{lstlisting}[language=c]
+    qsort(&a[50], 50, sizeof(a[0]), compare_parts);
+\end{lstlisting}
+
+
+    \end{mdframed}
+
     \bigskip
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item Learned that the third parameter \texttt{size\_t size} represents
+        the size of data structure, which in this case is the size of an array slot or \texttt{a[0]}.
+
+        \bigskip
+
+        In terms of linked list, the \texttt{size} is the size of a \texttt{struct node}
         \item Realized that when K. N king said to write \texttt{qsort} that
         sorts the first 50 elements, he meant to replace the parameters with arguments
         in a function call :(.
