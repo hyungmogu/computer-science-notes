@@ -12,21 +12,16 @@
 struct word {
   char value[MAX_SIZE];
   struct word *next;
-};
+} *line = NULL, *cur = NULL;
 
-
-// char line[MAX_LINE_LEN+1];
-struct word *line = NULL, *cur = NULL;
 int line_len = 0;
 int num_words = 0;
 
 void clear_line(void)
 {
-  struct word **to_be_removed;
-  printf("I am here");
+  struct word *to_be_removed;
   while (line != NULL) {
-    printf("%s\n", line->value);
-    *to_be_removed = line;
+    to_be_removed = line;
     line = line->next;
     free(to_be_removed);
   }
@@ -93,9 +88,8 @@ void write_line(void)
 void flush_line(void)
 {
   struct word *p;
-
   if (line_len > 0) {
-    for (p = line; p != NULL; p++) {
+    for (p = line; p != NULL; p = p->next) {
       printf("%s", p->value);
       if (p->next != NULL) {
         putchar(' ');
