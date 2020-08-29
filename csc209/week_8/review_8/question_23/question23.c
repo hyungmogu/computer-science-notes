@@ -60,10 +60,12 @@ void add_word(const char *word)
   } else {
     cur->next = new_word;
     cur = cur->next;
+    printf("%lu\n", strlen(word));
     line_len += strlen(word) + 1; // +1 for space
   }
 
-  printf("%s\n", cur->value);
+  // printf("%s\n", cur->value);
+  printf("%d\n", line_len);
   // printf("%d", num_words);
   num_words++;
 }
@@ -80,16 +82,16 @@ void write_line(void)
   struct word *p;
   extra_spaces = MAX_LINE_LEN - line_len;
 
-  printf("%d\n", extra_spaces);
   for (p = line; p != NULL; p = p->next) {
-    printf("%s", p->value);
+    printf("%s\n", p->value);
 
-    spaces_to_insert = extra_spaces / (num_words - 1);
-    // for (j = 1; j <= spaces_to_insert + 1; j++)
-    //   putchar(' ');
-    // extra_spaces -= spaces_to_insert;
-    num_words--;
-
+    if (num_words != 1) {
+      spaces_to_insert = extra_spaces / (num_words - 1);
+      for (j = 1; j <= spaces_to_insert + 1; j++)
+        putchar(' ');
+      extra_spaces -= spaces_to_insert;
+      num_words--;
+    }
   }
   putchar('\n');
 }
