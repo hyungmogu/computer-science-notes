@@ -49,6 +49,7 @@ void write_line(void)
       extra_spaces -= spaces_to_insert;
       num_words--;
     }
+    printf("%s\n", line);
   }
   putchar('\n');
 }
