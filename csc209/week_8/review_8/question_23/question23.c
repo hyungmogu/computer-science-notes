@@ -6,7 +6,14 @@
 
 #define MAX_LINE_LEN 60
 
+struct quote {
+  char word[MAX_LINE_LEN];
+  struct quote *next;
+};
+
+
 char line[MAX_LINE_LEN+1];
+struct quote *line, *p = line;
 int line_len = 0;
 int num_words = 0;
 
@@ -19,11 +26,12 @@ void clear_line(void)
 
 void add_word(const char *word)
 {
-  if (num_words > 0) {
-    line[line_len] = ' ';
-    line[line_len+1] = '\0';
-    line_len++;
-  }
+  // if (num_words > 0) {
+  //   line[line_len] = ' ';
+  //   line[line_len+1] = '\0';
+  //   line_len++;
+  // }
+  printf("%s\n", line);
   strcat(line, word);
   line_len += strlen(word);
   num_words++;
@@ -49,7 +57,6 @@ void write_line(void)
       extra_spaces -= spaces_to_insert;
       num_words--;
     }
-    printf("%s\n", line);
   }
   putchar('\n');
 }
