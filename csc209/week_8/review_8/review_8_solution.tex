@@ -1014,6 +1014,37 @@
     \item
 
     Please see file \texttt{question\_20.c}
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{realloc}
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{void *realloc(void *ptr, size\_t size);}
+            \item Resizes array allocated by \texttt{malloc} or \texttt{calloc}
+            \item \texttt{ptr} must point to the memory address of array
+            \item \texttt{size} represents the new size of block
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \texttt{int *p;}
+
+            \texttt{p = malloc(5 * sizeof(int));}
+
+            \texttt{p = realloc(p, 11 * sizeof(int));}
+        \end{itemize}
+    \end{itemize}
+
+    \item
+
+    Please see file \texttt{question\_21.c}
+
 \end{enumerate}
 
 \end{document}
