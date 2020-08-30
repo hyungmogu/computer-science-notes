@@ -1089,11 +1089,22 @@
 
             \begin{itemize}
                 \item Solves the traditional problem with limit on the length of string, and waste of memory
-                \item Solution
 
                 \begin{center}
                 \includegraphics[width=0.4\linewidth]{images/review_8_solution_12.png}
                 \end{center}
+
+                \item Solution
+
+                \begin{itemize}
+                    \item By allocating more memory than should
+                    \item Use the remaining space for memory
+                    \item If more memory is required, extend using \texttt{realloc}
+
+                    \begin{center}
+                    \includegraphics[width=\linewidth]{images/review_8_solution_13.png}
+                    \end{center}
+                \end{itemize}
             \end{itemize}
         \end{itemize}
     \end{itemize}
