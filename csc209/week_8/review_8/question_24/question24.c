@@ -34,7 +34,7 @@ int main(void) {
         }
     }
 
-    // sort_words(struct node words[], int n);
+    sort_words(struct node words[], int n);
 
     // printf("In sorted order");
     // print_words(struct node words[], int n);

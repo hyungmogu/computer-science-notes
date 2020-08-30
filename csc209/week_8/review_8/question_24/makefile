@@ -6,6 +6,3 @@ question_24.o: question24.c readline.h readline.c
 
 readline.o: readline.c readline.h
 			gcc -c readline.c
-
-sortwords.o: sortwords.c sortwords.h
-			gcc -c sortwords.c
