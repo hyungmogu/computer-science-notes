@@ -182,13 +182,17 @@
             \item \texttt{$\vert$}: Bitwise \textit{inclusive or}
         \end{itemize}
 
-        \item 0
+        \item 1
 
         \bigskip
 
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item \texttt{~i} is \texttt{1111111111111110}
+            \item \texttt{j} is \texttt{0000000000000000}
+            \item \texttt{~i \& j} is \texttt{0000000000000000} or 1
+            \item \texttt{~i \& j \^{} k} is 1
             \item \texttt{\^{}}: Bitwise XOR
 
             \bigskip
@@ -220,6 +224,18 @@
 
     so, 7 ^ 4 = 3
     \end{lstlisting}
+        \end{itemize}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \begin{itemize}
+            \item \texttt{i} is \texttt{0000000000000111}
+            \item \texttt{j} is \texttt{0000000000001000}
+            \item \texttt{i \^{} j} is \texttt{0000000000000000} or 0
         \end{itemize}
     \end{enumerate}
 
