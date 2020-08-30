@@ -59,52 +59,170 @@
 
     \begin{enumerate}[a)]
         \item 0
-        \item
-    \end{enumerate}
 
-    \bigskip
+        \bigskip
 
-    \underline{\textbf{Notes}}
-
-    \begin{itemize}
-        \item \texttt{a)} is 0 because  (\texttt{i $>>$ 1 + j $>>$ 1 $=$ i $>>$ 10 $>>$ 1 = 0})
-        \item
-        \textbf{Bitwise Shift Operators}
+        \underline{\textbf{Notes}}
 
         \begin{itemize}
-            \item has lower precedence than arithematic operators
+            \item \texttt{a)} is 0 because  (\texttt{i $>>$ 1 + j $>>$ 1 $=$ i $>>$ 10 $>>$ 1 = 0})
+            \item
+            \textbf{Bitwise Shift Operators}
 
-            \bigskip
+            \begin{itemize}
+                \item has lower precedence than arithematic operators
 
-            \underline{\textbf{Example:}}
+                \bigskip
 
-            \bigskip
+                \underline{\textbf{Example:}}
 
-            \texttt{i $<<$ 2 + 1} means \texttt{i $<<$ (2+1)} and not \texttt{(i $<<$ 2) + 1}
+                \bigskip
 
-            \bigskip
+                \texttt{i $<<$ 2 + 1} means \texttt{i $<<$ (2+1)} and not \texttt{(i $<<$ 2) + 1}
 
-
-            \item $<<$ : Left Shift
-            \item $>>$ : Right Shift
-            \item \textit{Tip:} Always shift only on \underline{unsigned} numbers for portability
+                \bigskip
 
 
-            \bigskip
+                \item $<<$ : Left Shift
+                \item $>>$ : Right Shift
+                \item \textit{Tip:} Always shift only on \underline{unsigned} numbers for portability
 
-            \underline{\textbf{Example}}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.9\linewidth]{images/review_9_solution_1.png}
+                \end{center}
+
+                \item \texttt{$>>=$} / \texttt{$<<=$} : Are bitwise shift equivalent of \texttt{$+=$}
+            \end{itemize}
+
+
+        \end{itemize}
+
+        \item 0
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \texttt{~i} is \texttt{1111111111111111}
+            \item \texttt{i} is \texttt{0000000000000000}
+            \item so \texttt{~i \& i $=$ 0}
+            \item \texttt{~}: Bitwise complement (NOT)
 
             \bigskip
 
             \begin{center}
-            \includegraphics[width=0.9\linewidth]{images/review_9_solution_1.png}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & $\sim$ a\\
+                    \hline
+                    0 & 1\\
+                    1 & 0\\
+                    \hline
+                \end{tabular}
             \end{center}
 
-            \item \texttt{$>>=$} / \texttt{$<<=$} : Are bitwise shift equivalent of \texttt{$+=$}
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+\begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    --------------
+    1   0   0   0   //<- this is 8
+
+    so, ~ 7 = 8
+\end{lstlisting}
+
+
+            \bigskip
+            \item \texttt{\&}: Bitwise \textit{and}
+
+            \bigskip
+
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & b & a \& b\\
+                    \hline
+                    0 & 0  & 0 \\
+                    0 & 1  & 1 \\
+                    1 & 0  & 0 \\
+                    1 & 1  & 1 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+\begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    0   1   0   0   //<- this is 4
+    --------------
+    0   1   0   0   //<- this is 4
+
+    so, 7 & 4 = 4
+\end{lstlisting}
+
+            \bigskip
+            \item \texttt{\textrm}: Bitwise \textit{exclusive or}
+            \item \texttt{$\vert$}: Bitwise \textit{inclusive or}
         \end{itemize}
 
+        \item 0
 
-    \end{itemize}
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \texttt{\^{}}: Bitwise XOR
+
+            \bigskip
+
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    a & b & a \^{} b\\
+                    \hline
+                    0 & 0  & 0 \\
+                    0 & 1  & 1 \\
+                    1 & 0  & 1 \\
+                    1 & 1  & 0 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+            \bigskip
+
+            \textbf{Example:}
+
+            \bigskip
+
+    \begin{lstlisting}[language=c]
+    0   1   1   1   //<- this is 7
+    0   1   0   0   //<- this is 4
+    --------------
+    0   0   1   1   //<- this is 3
+
+    so, 7 ^ 4 = 3
+    \end{lstlisting}
+        \end{itemize}
+    \end{enumerate}
+
 \end{enumerate}
 
 \end{document}
