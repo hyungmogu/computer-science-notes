@@ -1,8 +1,11 @@
-question_24: question_24.o readline.o
-			gcc -o question_24 question_24.o readline.o
+question_24: question24.o readline.o
+			gcc -o question24 question24.o readline.o
 
-question_24.o: question_24.c readline.h readline.c
-			gcc -c question_24.c
+question_24.o: question24.c readline.h readline.c
+			gcc -c question24.c
 
 readline.o: readline.c readline.h
 			gcc -c readline.c
+
+sortwords.o: sortwords.c sortwords.h
+			gcc -c sortwords.c

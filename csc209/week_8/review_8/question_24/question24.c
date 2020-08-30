@@ -15,6 +15,10 @@ int main(void) {
     // create dynamically allocated array
     words = malloc(arr_size * sizeof(struct node));
 
+    if (words == NULL) {
+        printf("ERROR: Memory failed to allocate for words");
+    }
+
     for(n = 0;;n++) {
         // double the size of array if at capacity
         if (n == arr_size) {
@@ -23,17 +27,17 @@ int main(void) {
         }
 
         // read and store each word
-        word_length = read_line(words[i]->name, MAX_LENGTH);
+        word_length = read_line((words[n])->name, MAX_LENGTH);
 
         if(word_length == 0) {
             break;
         }
     }
 
-    sort_words(struct node words[], int n);
+    // sort_words(struct node words[], int n);
 
-    printf("In sorted order");
-    print_words(struct node words[], int n);
+    // printf("In sorted order");
+    // print_words(struct node words[], int n);
 
     return 0;
 }
