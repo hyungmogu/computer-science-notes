@@ -67,10 +67,38 @@
         \textbf{Bitwise Shift Operators}
 
         \begin{itemize}
+            \item has lower precedence than arithematic operators
+
+            \bigskip
+
+            \underline{\textbf{Example:}}
+
+            \bigskip
+
+            \texttt{i $<<$ 2 + 1} means \texttt{i $<<$ (2+1)} and not \texttt{(i $<<$ 2) + 1}
+
+            \bigskip
+
+
             \item $<<$ : Left Shift
             \item $>>$ : Right Shift
             \item \textit{Tip:} Always shift only on \underline{unsigned} numbers for portability
+
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.9\linewidth]{images/review_9_solution_1.png}
+            \end{center}
+
+            \item \texttt{$>>=$} / \texttt{$<<=$} : Are bitwise shift equivalent of \texttt{$+=$}
         \end{itemize}
+
+
     \end{enumerate}
 \end{enumerate}
 
