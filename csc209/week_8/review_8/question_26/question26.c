@@ -20,7 +20,7 @@ int main(void)
   char day_str[3], msg_str[MSG_LEN+1];
   int day, i, j, num_remind = 0, string_length = 0;
 
-  struct vstring *reminders[MAX_REMIND], *p = reminders;
+  struct vstring *reminders[MAX_REMIND];
 
   for (;;) {
     if (num_remind == MAX_REMIND) {
@@ -56,6 +56,10 @@ int main(void)
   printf("\nDay Reminder\n");
   for (i = 0; i < num_remind; i++)
     printf(" %s\n", (*reminders[i]).chars);
+
+  for (i = 0; i < num_remind; i++) {
+    free(reminders[i]);
+  }
 
   return 0;
 }
