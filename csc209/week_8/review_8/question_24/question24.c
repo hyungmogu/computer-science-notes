@@ -5,26 +5,35 @@
 #define MAX_LENGTH 20
 
 struct node {
-    char word[MAX_LENGTH];
+    char name[MAX_LENGTH];
 };
 
 int main(void) {
-    int arr_size = 10;
+    int arr_size = 10, n, word_length;
     struct node *words;
 
     // create dynamically allocated array
     words = malloc(arr_size * sizeof(struct node));
 
-    for(;;;) {
-        //
+    for(n = 0;;n++) {
+        // double the size of array if at capacity
+        if (n == arr_size) {
+            arr_size *= 2;
+            words = realloc(words, arr_size * sizeof(words[0]));
+        }
 
-        // readline
+        // read and store each word
+        word_length = read_line(words[i]->name, MAX_LENGTH);
 
-        // store words
-        if () {
-
+        if(word_length == 0) {
+            break;
         }
     }
+
+    sort_words(struct node words[], int n);
+
+    printf("In sorted order");
+    print_words(struct node words[], int n);
 
     return 0;
 }
