@@ -10,7 +10,7 @@ struct node {
 
 int main(void) {
     int arr_size = 10, n, word_length;
-    struct node *words;
+    struct node *words, *p;
 
     // create dynamically allocated array
     words = malloc(arr_size * sizeof(struct node));
@@ -34,16 +34,21 @@ int main(void) {
             break;
         }
     }
+    p = words;
+
     printf("%s\n", (*words).name);
+    printf("%s\n", (*p).name);
     printf("In sorted order:");
-    print_words(words, int n);
+    for (int i = 0; i < n; i++)
+    {
+        printf("%s", (words[i]).name);
+
+        if (i != n-1) {
+            putchar(' ');
+        }
+    }
 
     free(words);
 
     return 0;
-}
-
-print_words(struct node words, int n)
-{
-
 }
