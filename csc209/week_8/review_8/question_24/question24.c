@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "readline.h"
 
@@ -37,9 +38,9 @@ int main(void) {
         }
     }
 
-    // qsort(words, n, sizeof(words[0]), compare_parts);
+    qsort(words, n, sizeof(words[0]), compare_parts);
 
-    printf("In sorted order:");
+    printf("In sorted order: ");
     for (int i = 0; i < n; i++)
     {
         printf("%s", (words[i]).name);
@@ -48,6 +49,8 @@ int main(void) {
             putchar(' ');
         }
     }
+
+    printf("\n");
 
     free(words);
 
@@ -58,5 +61,5 @@ int compare_parts(const void *p, const void *q) {
     const struct node *p1 = p;
     const struct node *q1 = q;
 
-    return strcmp((*p1).name, (*q1).name));
+    return strcmp((*p1).name, (*q1).name);
 }
