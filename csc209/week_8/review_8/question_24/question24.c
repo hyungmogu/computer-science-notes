@@ -8,6 +8,8 @@ struct node {
     char name[MAX_LENGTH];
 };
 
+int compare_parts(const void *p, const void *q);
+
 int main(void) {
     int arr_size = 10, n, word_length;
     struct node *words, *p;
@@ -34,10 +36,9 @@ int main(void) {
             break;
         }
     }
-    p = words;
 
-    printf("%s\n", (*words).name);
-    printf("%s\n", (*p).name);
+    // qsort(words, n, sizeof(words[0]), compare_parts);
+
     printf("In sorted order:");
     for (int i = 0; i < n; i++)
     {
@@ -51,4 +52,11 @@ int main(void) {
     free(words);
 
     return 0;
+}
+
+int compare_parts(const void *p, const void *q) {
+    const struct node *p1 = p;
+    const struct node *q1 = q;
+
+    return strcmp((*p1).name, (*q1).name));
 }
