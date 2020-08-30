@@ -40,10 +40,10 @@ int main(void)
     read_line(msg_str, MSG_LEN);
 
     for (i = 0; i < num_remind; i++)
-      if (strcmp(day_str, get_str(&reminders, i)) < 0)
+      if (strcmp(day_str, reminders[i].chars) < 0)
         break;
     for (j = num_remind; j > i; j--)
-      reminders[j] = reminders[j-1];
+      strcpy(reminders[j].chars, reminders[j-1].chars);
 
     reminders[i] = malloc(2 + strlen(msg_str) + 1);
     if (reminders[i] == NULL) {
