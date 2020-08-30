@@ -14,15 +14,17 @@ struct vstring {
 };
 
 int read_line(char str[], int n);
-char *get_str(char **array, int index);
 
 int main(void)
 {
-  struct vstring *reminders;
   char day_str[3], msg_str[MSG_LEN+1];
   int day, i, j, num_remind = 0, string_length = 0;
 
-  reminders = malloc(MAX_REMIND * (sizeof(struct vstring) + string_length - 1));
+  struct vstring reminders[MAX_REMIND], *p;
+
+  for(p = reminders; p < reminders + MAX_REMIND; p++) {
+    p = malloc(sizeof(struct vstring) + string_length - 1);
+  }
 
   for (;;) {
     if (num_remind == MAX_REMIND) {
@@ -38,7 +40,7 @@ int main(void)
     read_line(msg_str, MSG_LEN);
 
     for (i = 0; i < num_remind; i++)
-      if (strcmp(day_str, reminders[i]) < 0)
+      if (strcmp(day_str, get_str(&reminders, i)) < 0)
         break;
     for (j = num_remind; j > i; j--)
       reminders[j] = reminders[j-1];
@@ -71,8 +73,4 @@ int read_line(char str[], int n)
       str[i++] = ch;
   str[i] = '\0';
   return i;
-}
-
-char *get_str(char **array, int index) {
-  return *array[index];
 }
