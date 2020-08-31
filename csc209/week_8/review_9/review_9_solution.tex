@@ -279,7 +279,7 @@
 
             \bigskip
 
-            \texttt{i $\lvert$= 1 $<<$ 0;}
+            \texttt{i $\lvert$= 1 $<<$ 0;} where \texttt{i = 0x0000;}
 
             \item toggling from 1 to 0
 
@@ -300,9 +300,53 @@
 
         \bigskip
 
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+        \begin{itemize}
+            \item toggling from 0 to 1 of \color{red}4th bit\color{black}
+
+            \bigskip
+
+            \color{red}\texttt{i = 0x0010;}\color{black}
+
+            \texttt{i \^{}= 0x0000;}
+
+            \bigskip
+
+            or
+
+            \bigskip
+
+            \texttt{i \^{}= 1 $<<$ 4;} where \texttt{i = 0x0000;}
+
+            \item toggling from 1 to 0 of \color{red}4th bit\color{black}
+
+            \bigskip
+
+            \texttt{i = 0x0010;}
+
+            \texttt{i \^{}= 0x0010;}
+
+            \bigskip
+
+            or
+
+            \bigskip
+
+            \texttt{i \^{}= (1 $<<$ 4);} where \texttt{i = 0x0010;}
+        \end{itemize}
+
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item Toggling can be done using bitwise XOR
+
+
             \item \textbf{Setting a bit}
 
             \begin{itemize}
