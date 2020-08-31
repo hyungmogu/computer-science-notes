@@ -534,11 +534,8 @@
 
 \begin{lstlisting}[language=c]
     unsigned short swap_bytes(unsigned short i) {
-        unsigned short j;
 
-        j = i & 0x077; // extract first byte
-
-        i = (i >> 8) | j << 8;
+        i = i >> 8 | i << 8;
 
         return i;
     }
