@@ -264,6 +264,24 @@
 
         \item
 
+        \begin{itemize}
+            \item toglling from 0 to 1
+
+            \bigskip
+
+            \texttt{i = 0x0000;}
+
+            \texttt{i $\lvert$= 0x0001;}
+
+            \bigskip
+
+            or
+
+            \bigskip
+
+            \texttt{i $\lvert$= 1 $<<$ 0;}
+        \end{itemize}
+
         \bigskip
 
         \underline{\textbf{Notes}}
@@ -272,11 +290,25 @@
             \item \textbf{Setting a bit}
 
             \begin{itemize}
-                \item Is done using $\vert$ or OR
+                \item Is done using $\vert$ or bitwise OR
 
                 \begin{center}
                 \includegraphics[width=\linewidth]{images/review_9_solution_3.png}
                 \end{center}
+
+                \item The idiom of above is \texttt{i $\lvert=$ 1 $<<$ j}
+            \end{itemize}
+
+            \item \textbf{Clearing a bit}
+
+            \begin{itemize}
+                \item Is done using $\vert$ or bitwise AND
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/review_9_solution_5.png}
+                \end{center}
+
+                \item The idiom of above is \texttt{i \&= $\sim$(i $<<$ j)}
             \end{itemize}
         \end{itemize}
 
