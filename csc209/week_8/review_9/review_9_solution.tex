@@ -388,9 +388,17 @@
 
     \item
 
-    \texttt{\#define MK\_COLOR(r,g,b) (r $>>$, ,)}
+    \texttt{\#define MK\_COLOR(r,g,b) (b, b \& $\sim$0x070,)}
 
     \bigskip
+
+    \underline{\textbf{Rough Work}}
+
+    \begin{enumerate}[1.]
+        \item store \texttt{r} in bit 7~8
+        \item store \texttt{g} in bit 4~6
+        \item store \texttt{b} in bit 0~2
+    \end{enumerate}
 
     \underline{\textbf{Notes}}
 
