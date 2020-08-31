@@ -388,7 +388,7 @@
 
     \item
 
-    \texttt{\#define MK\_COLOR(r,g,b) (b, b $\vert$ g $<<$ 8, b $\lvert$ r $<<$ 16)}
+    \texttt{\#define MK\_COLOR(r,g,b) (long) ( (b | (g $<<$ 8)) | (b | (r $<<$ 16)))}
 
     \bigskip
 
