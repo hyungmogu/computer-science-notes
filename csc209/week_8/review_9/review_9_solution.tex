@@ -621,6 +621,22 @@
     \begin{enumerate}[a)]
         \item
 
+\begin{lstlisting}[language=c]
+    unsigned int count_ones(unsigned char *ch)
+    {
+        unsigned char *p;
+        unsigned int count;
+
+        for (p = ch; *p != '\0'; p++){
+            if (*p == '1') {
+                count++;
+            }
+        }
+
+        return count;
+    }
+\end{lstlisting}
+
         \bigskip
 
         \underline{\textbf{Notes}}
