@@ -450,13 +450,61 @@
 
         \texttt{\#define GET\_RED(c) (long) (c \& 0x007)}
 
+        \bigskip
+
         \item \texttt{GET\_GREEN}
+
+        \bigskip
+
+        \texttt{\#define GET\_GREEN(c) (long) ((c $>>$ 8) \& 0x007)}
 
         \bigskip
 
         \item \texttt{GET\_BLUE}
 
         \bigskip
+
+        \texttt{\#define GET\_BLUE(c) (long) ((c $>>$ 16) \& 0x007)}
+
+        \bigskip
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \texttt{0x0007} in binary is \texttt{0x0000000000001111}
+        \item \texttt{c $>>$ 4} shifts \texttt{c} to right by 4 bits and return
+        overlapping value between {c $>>$ 4} and \texttt{0x0000000000001111} (\texttt{0x007})
+        \item Test code is below
+
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    #define MK_COLOR(r,g,b) (long) ( (r | (g << 8)) | (r | (b << 16)))
+    #define GET_RED(c) (long) (c & 0x007)
+    #define GET_GREEN(c) (long) ((c >> 8) & 0x007)
+    #define GET_BLUE(c) (long) ((c >> 16) & 0x007)
+
+    int main() {
+        long i, r = 4, g = 5, b = 6, r2, g2, b2;
+
+        i = MK_COLOR(r,g,b);
+
+        r2 = GET_RED(i);
+        g2 = GET_GREEN(i);
+        b2 = GET_BLUE(i);
+
+        printf("%ld\n", i);
+        printf("%ld\n", r2);
+        printf("%ld\n", g2);
+        printf("%ld\n", b2);
+
+        return 0;
+    }
+\end{lstlisting}
     \end{itemize}
 
 \end{enumerate}
