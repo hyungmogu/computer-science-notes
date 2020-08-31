@@ -419,14 +419,20 @@
         \bigskip
     \end{enumerate}
 
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+    \texttt{\#define MK\_COLOR(r,g,b) (long) ((\color{red}r\color{black} | (g $<<$ 8)) | (\color{red}r\color{black} | (\color{red}b\color{black} $<<$ 16)))\color{black}}
+    \end{mdframed}
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item \textbf{Using the Bitwise Operators to Access Bit-Fields}
-
-        \begin{itemize}
-            \item
-        \end{itemize}
+        \item
     \end{itemize}
 
 \end{enumerate}
