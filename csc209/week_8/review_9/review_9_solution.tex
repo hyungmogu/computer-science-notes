@@ -588,18 +588,16 @@
     unsigned int rotate_left(unsigned int i, int n) {
         unsigned int j;
 
-        for(...) {
-            // check if last byte exists
-            j = i & 0xF
+        for(int index = 0; index < n; n++) {
+            // if exists, store last byte a separate variable
+            j = i & 0xF;
 
-            // if exists, store in a separate variable
-
-
-            // shift everything by 1
+            // shift everything by 4 bits
+            i = i << 4;
 
             // add value in the first byte of hex
             if ((j)) {
-                i |= j << 0;
+                i |= j;
             }
 
         }
