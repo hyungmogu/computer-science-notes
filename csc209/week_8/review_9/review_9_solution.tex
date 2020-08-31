@@ -589,9 +589,8 @@
         return i >> 28 | i << n;
     }
 
-    unsigned int rotate_rightt(unsigned int i, int n) {
-
-        return i;
+    unsigned int rotate_right(unsigned int i, int n) {
+        return i << 28 | i >> n;
     }
 \end{lstlisting}
 
