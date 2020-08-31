@@ -526,9 +526,30 @@
 
         \bigskip
 
+        \texttt{j = i \& 0x0007}
+
+        \texttt{i = i $>>$ 4}
+
+        \texttt{k = i \& 0x0007}
+
+        \bigskip
 
         \item Shift later two bytes down
-        \item Edd first two bytes to last two bytes
+
+        \bigskip
+
+        \texttt{i = i $>>$ 8}
+
+        \bigskip
+
+        \item Add first two bytes to last two bytes
+
+        \bigskip
+
+        \texttt{i = i $>>$ 2}
+
+        \bigskip
+
     \end{enumerate}
 
 \end{enumerate}
