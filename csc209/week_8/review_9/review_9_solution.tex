@@ -586,23 +586,7 @@
 
 \begin{lstlisting}[language=c]
     unsigned int rotate_left(unsigned int i, int n) {
-        unsigned int j;
-
-        for(int index = 0; index < n; index++) {
-            // if exists, store last byte a separate variable
-            j = i & (1 << 28);
-            printf("%x\n", j);
-            // shift everything by 4 bits
-            i = i << 1;
-
-            // add value in the first byte of hex
-            if (j) {
-                i |= j;
-            }
-
-        }
-
-        return i;
+        return i >> 28 | i << n;
     }
 
     unsigned int rotate_rightt(unsigned int i, int n) {
