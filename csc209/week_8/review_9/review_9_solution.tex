@@ -514,13 +514,15 @@
         unsigned short j, k;
 
         j = i & 0x007; // extract first byte
+
         i = i >> 4;
         k = i & 0x007; // extract second byte
 
-        i = i >> 8; // shift down layter two bytes
+        i = i >> 4; // shift down layter two bytes
 
-        i |= j << 16; // add first byte to position of fourth byte
+        i |= j << 12; // add first byte to position of fourth byte
         i |= k << 8; // add second byte to position of third byte
+
     }
 \end{lstlisting}
 
@@ -547,7 +549,7 @@
 
         \bigskip
 
-        \texttt{i = i $>>$ 8}
+        \texttt{i = i $>>$ 4}
 
         \bigskip
 
@@ -557,7 +559,7 @@
 
         \texttt{i |= j $<<$ 8};
 
-        \texttt{i |= k $<<$ 16};
+        \texttt{i |= k $<<$ 12};
 
         \bigskip
 
