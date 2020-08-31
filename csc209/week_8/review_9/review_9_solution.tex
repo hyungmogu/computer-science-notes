@@ -265,7 +265,7 @@
         \item
 
         \begin{itemize}
-            \item toglling from 0 to 1
+            \item toggling from 0 to 1
 
             \bigskip
 
@@ -280,6 +280,22 @@
             \bigskip
 
             \texttt{i $\lvert$= 1 $<<$ 0;}
+
+            \item toggling from 1 to 0
+
+            \bigskip
+
+            \texttt{i = 0x0001;}
+
+            \texttt{i $\&$= $\sim$0x0001;}
+
+            \bigskip
+
+            or
+
+            \bigskip
+
+            \texttt{i $\&$= $\sim$(1 $<<$ 0);} where \texttt{i = 0x0001;}
         \end{itemize}
 
         \bigskip
