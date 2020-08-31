@@ -509,29 +509,9 @@
 
     \item
 
-\begin{lstlisting}[language=c]
-    unsigned short swap_bytes(unsigned short i) {
-        unsigned short j, k;
+    \begin{enumerate}[a)]
 
-        j = i & 0x007; // extract first byte
-
-        i = i >> 4;
-        k = i & 0x007; // extract second byte
-
-        i = i >> 4; // shift down layter two bytes
-
-        i |= j << 12; // add first byte to position of fourth byte
-        i |= k << 8; // add second byte to position of third byte
-
-    }
-\end{lstlisting}
-
-    \bigskip
-
-    \begin{mdframed}
-    \underline{\textbf{Correct Solution}}
-
-    \bigskip
+        \item
 
 \begin{lstlisting}[language=c]
     unsigned short swap_bytes(unsigned short i) {
@@ -550,8 +530,21 @@
     }
 \end{lstlisting}
 
+        \item
 
-    \end{mdframed}
+\begin{lstlisting}[language=c]
+    unsigned short swap_bytes(unsigned short i) {
+        unsigned short j;
+
+        j = i & 0x077; // extract first byte
+
+        i = (i >> 8) | j << 8;
+
+        return i;
+    }
+\end{lstlisting}
+
+    \end{enumerate}
 
     \bigskip
 
