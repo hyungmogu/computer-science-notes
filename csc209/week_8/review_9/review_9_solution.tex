@@ -388,16 +388,35 @@
 
     \item
 
-    \texttt{\#define MK\_COLOR(r,g,b) (b, b \& $\sim$0x070,)}
+    \texttt{\#define MK\_COLOR(r,g,b) (b, b $\vert$ g $<<$ 8, b $\lvert$ r $<<$ 16)}
 
     \bigskip
 
     \underline{\textbf{Rough Work}}
 
     \begin{enumerate}[1.]
-        \item store \texttt{r} in bit 7~8
-        \item store \texttt{g} in bit 4~6
-        \item store \texttt{b} in bit 0~2
+
+        \item store \texttt{b} in bit 0
+
+        \bigskip
+
+        \texttt{b}
+
+        \bigskip
+
+        \item store \texttt{g} in bit 8
+
+        \bigskip
+
+        \texttt{b $\lvert$ g $<<$ 8}
+
+        \bigskip
+
+        \item store \texttt{r} in bit 16
+
+        \texttt{ b $\lvert$  r $<<$ 16}
+
+        \bigskip
     \end{enumerate}
 
     \underline{\textbf{Notes}}
