@@ -586,15 +586,22 @@
 
 \begin{lstlisting}[language=c]
     unsigned int rotate_left(unsigned int i, int n) {
+        unsigned int j;
 
         for(...) {
             // check if last byte exists
+            j = i & 0xF
 
             // if exists, store in a separate variable
+
 
             // shift everything by 1
 
             // add value in the first byte of hex
+            if ((j)) {
+                i |= j << 0;
+            }
+
         }
 
         return i;
