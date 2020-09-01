@@ -800,6 +800,19 @@
             \includegraphics[width=0.8\linewidth]{images/review_9_solution_9.png}
             \end{center}
 
+            \item [\color{red}WARNING\color{black}] bit-fields don't have addresses
+
+            \begin{itemize}
+                \item C doesn't allow address operator \texttt{\&} to a bit field
+            \end{itemize}
+
+        \end{itemize}
+
+        \item \textbf{How Bit-Fields Are Stored}
+
+        \begin{itemize}
+            \item C allows to omit the name of bit-field.
+            \item Bit-field without name acts as a  padding
         \end{itemize}
     \end{itemize}
 
