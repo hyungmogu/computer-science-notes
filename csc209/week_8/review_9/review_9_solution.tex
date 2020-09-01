@@ -764,11 +764,14 @@
 
     \end{mdframed}
 
+    \item
 
 \begin{lstlisting}[language=c]
     struct float {
         unsigned int sign: 1;
-        unsigned int
+        unsigned int exponent: 8;
+        unsigned int : 0;
+        unsigned int fraction: 23;
     }
 \end{lstlisting}
 
