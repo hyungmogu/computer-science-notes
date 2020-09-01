@@ -918,6 +918,22 @@
             \begin{itemize}
                 \item Unions are used in C for an entirely different purpose:
                 viewing a block of memory in two or more different ways
+
+                \item Programs that deal with memory at low level must be
+                aware of the order in which bytes are stored
+            \end{itemize}
+
+            \item \textbf{Little Endian / Big Endian}
+
+            \begin{itemize}
+                \item \textbf{Little Endian} stores most significant byte (closest to 0x) of a word at the smallest memory address (address closest to 0)
+                \item \textbf{Big Endian} stores he least-significant byte at the smallest address (address closest to 0)
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/review_9_solution_12.png}
+                \end{center}
             \end{itemize}
         \end{itemize}
     \end{itemize}
