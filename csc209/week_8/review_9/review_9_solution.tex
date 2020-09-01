@@ -812,12 +812,22 @@
 
         \begin{itemize}
             \item C allows to omit the name of bit-field.
-            \item Bit-field without name acts as a  padding
+            \item Bit-field without name acts as a padding
 
             \bigskip
 
             \begin{center}
             \includegraphics[width=\linewidth]{images/review_9_solution_10.png}
+            \end{center}
+
+            \item 0 bit-field padding pushes non-empty bit-field as far as possible
+            in left, or right or both directions
+            \item 0 bit-field must be unnamed
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/review_9_solution_11.png}
             \end{center}
         \end{itemize}
     \end{itemize}
