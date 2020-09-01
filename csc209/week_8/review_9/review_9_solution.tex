@@ -891,8 +891,27 @@
 
         \color{red}Another way is by adding an extra member \texttt{sign} of size 1 to \texttt{struct}.
         This will aloow flag to have value -1, 0 and 1.
+
+        \bigskip
+
+\begin{lstlisting}[language=c]
+    struct float {
+        int sign: 1;
+        int flag: 1;
+    }
+\end{lstlisting}
     \end{enumerate}
     \end{mdframed}
+
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Other Low Level Technique}
+    \end{itemize}
 
 \end{enumerate}
 
