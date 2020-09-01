@@ -909,7 +909,6 @@
     typedef unsigned long DWORD;
 
     /* order switched because x86 processor is little endian */
-    /* we want eax, ebx, ecx, edx to be stored first */
     union {
         struct {
             BYTE al, ah, bl, bh, cl, ch, dl, dh;
@@ -922,6 +921,36 @@
         } dword;
     }
 \end{lstlisting}
+
+    \bigskip
+
+    \begin{mdframed}
+
+    \underline{\textbf{Correct Solution:}}
+
+\begin{lstlisting}[language=c]
+    typedef unsigned short WORD;
+    typedef unsigned long DWORD;
+    typedef unsigned char BYTE;
+
+    union {
+        // located furthest from 0x (stored closest to 0x)
+        struct {
+            DWORD eax, ebx, ecx, edx;
+        } dword;
+        struct {
+            WORD ax, axe, bx, bxe, cx, cxe, dxe;
+        } word;
+
+        // located closest to 0x (stored furthest from 0x)
+        struct {
+            BYTE al, ah, ale, ahe, bl, bh, ble, bhe, cl, ch,
+                 cle, che, dl, dh, dle, dhe;
+        } byte;
+    }
+\end{lstlisting}
+
+    \end{mdframed}
 
     \bigskip
 
