@@ -677,12 +677,29 @@
 
     \item
 
+\begin{lstlisting}[language=c]
+    unsigned int reverse_bits (unsigned int n)
+    {
+        int m = 15, p = 0;
+
+        unsigned int byte_left_end, byte_right_end;
+
+        while (m > p) {
+            n = n >> (15-m) | n << (15-p);
+
+            m--;
+            p++;
+        }
+        return n;
+    }
+\end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Rough Work}}
 
     \begin{itemize}
-        \item Start at \texttt{n = 16}, \texttt{m = 0}
+        \item Start at \texttt{n = 15}, \texttt{m = 0}
         \item Swap bit at \texttt{n} with \texttt{m}
         \item Repeat until \texttt{m > n}
     \end{itemize}
