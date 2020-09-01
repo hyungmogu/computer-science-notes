@@ -938,9 +938,13 @@
                 \end{center}
             \end{itemize}
 
-            \item \textbf{Data Registers}
+            \item \textbf{AX / BX / CX / DX}
 
             \begin{itemize}
+                \item Are called \textbf{Data registers}
+                \begin{itemize}
+                    \item Stores data for processing without access to memory
+                \end{itemize}
                 \item Are used to speed up processor operations $^{[1]}$
 
                 \begin{itemize}
@@ -948,15 +952,13 @@
                     \item Brute force method sends data to control bus \& memory storage unit
                     \item Brute focre method slows down the processor
                 \end{itemize}
-                \item Stores data for processing without access to memory
-                \item Has four 16-bit registers
 
                 \bigskip
 
                 \textbf{AX (Primary Accumulator):}
 
                 \begin{itemize}
-                    \item
+                    \item Is used in input/output and most arithmetic instructions
                 \end{itemize}
 
                 \bigskip
@@ -980,7 +982,16 @@
                 \textbf{DX (Data Register):}
                 \begin{itemize}
                     \item Is also used for Input/Output operations.
+                    \item Is used with AX register for multiply and divide operations
+                    involving large values
                 \end{itemize}
+
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/review_9_solution_13.png}
+                \end{center}
             \end{itemize}
         \end{itemize}
     \end{itemize}
