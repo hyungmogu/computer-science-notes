@@ -714,6 +714,27 @@
         \item unsigned int has 4 bytes or (0x0000) or (0000000000000000, 16 bits)
     \end{itemize}
 
+    \item
+
+    The precedence of \&, \^{}, and | is lower than the precedence of the relational
+    and equality operators.
+
+    \bigskip
+
+    As a result, the expression will first evaluate
+
+    \bigskip
+
+    \texttt{(SHIFT\_BIT | CTRL\_BIT | ALT\_BIT) == 0}
+
+    \bigskip
+
+    first.
+
+    \bigskip
+
+    The work around is to put parenthesis around \texttt{key\_code \& (SHIFT\_BIT | CTRL\_BIT | ALT\_BIT)}.
+
 \end{enumerate}
 
 \end{document}
