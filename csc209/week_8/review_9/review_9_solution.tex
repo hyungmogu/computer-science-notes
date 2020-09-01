@@ -905,6 +905,24 @@
 
     \item
 
+\begin{lstlisting}[language=c]
+    typedef unsigned long DWORD;
+
+    /* order switched because x86 processor is little endian */
+    /* we want eax, ebx, ecx, edx to be stored first */
+    union {
+        struct {
+            BYTE al, ah, bl, bh, cl, ch, dl, dh;
+        } byte;
+        struct {
+            WORD ax, bx, cx, dx;
+        } word;
+        struct {
+            DWORD eax, ebx, ecx, edx;
+        } dword;
+    }
+\end{lstlisting}
+
     \bigskip
 
     \underline{\textbf{Notes}}
@@ -993,12 +1011,6 @@
                 \includegraphics[width=0.8\linewidth]{images/review_9_solution_13.png}
                 \includegraphics[width=0.8\linewidth]{images/review_9_solution_14.png}
                 \end{center}
-
-                \bigskip
-
-                \underline{\textbf{Example}}
-
-                \bigskip
             \end{itemize}
         \end{itemize}
     \end{itemize}
@@ -1011,6 +1023,7 @@
 
     \begin{enumerate}[1)]
         \item TutorialsPoint, Asssembly - Registers, \href{https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm}{link}
+        \item All About Circuits, Union in C Language for Packing and Unpacking Data, \href{https://www.allaboutcircuits.com/technical-articles/union-in-c-language-for-packing-and-unpacking-data/}{link}
     \end{enumerate}
 
 \end{enumerate}
