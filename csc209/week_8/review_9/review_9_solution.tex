@@ -870,6 +870,30 @@
         To avoid the problem, use \texttt{unsigned int} instead of \texttt{int} in \texttt{struct}.
     \end{enumerate}
 
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \bigskip
+
+    \begin{enumerate}[a)]
+        \item
+
+        Some compilers print -1 instead of 1 because it's value of sign is set at different value.
+
+        \item
+
+        To avoid the problem, use \texttt{unsigned int} instead of \texttt{int} in \texttt{struct}.
+        \color{red}This will allow flag to have value 0 and 1\color{black}.
+
+        \bigskip
+
+        \color{red}Another way is by adding an extra member \texttt{sign} of size 1 to \texttt{struct}.
+        This will aloow flag to have value -1, 0 and 1.
+    \end{enumerate}
+    \end{mdframed}
+
 \end{enumerate}
 
 \end{document}
