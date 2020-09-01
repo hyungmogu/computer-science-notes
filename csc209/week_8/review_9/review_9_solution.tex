@@ -735,6 +735,15 @@
 
     The work around is to put parenthesis around \texttt{key\_code \& (SHIFT\_BIT | CTRL\_BIT | ALT\_BIT)}.
 
+    \item
+
+    The function tries to insert \texttt{low\_byte} to \texttt{high\_byte} after
+    shifting \texttt{low\_byte} by 8 bits to left.
+
+    \bigskip
+
+    It doesn't work because of improper use of bitwise operators.
+
 \end{enumerate}
 
 \end{document}
