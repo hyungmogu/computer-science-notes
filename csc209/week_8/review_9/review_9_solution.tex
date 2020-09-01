@@ -261,118 +261,118 @@
             \includegraphics[width=0.4\linewidth]{images/review_9_solution_2.png}
             \end{center}
         \end{itemize}
-
-        \item
-
-        \begin{itemize}
-            \item toggling from 0 to 1
-
-            \bigskip
-
-            \texttt{i = 0x0000;}
-
-            \texttt{i $\lvert$= 0x0001;}
-
-            \bigskip
-
-            or
-
-            \bigskip
-
-            \texttt{i $\lvert$= 1 $<<$ 0;} where \texttt{i = 0x0000;}
-
-            \item toggling from 1 to 0
-
-            \bigskip
-
-            \texttt{i = 0x0001;}
-
-            \texttt{i $\&$= $\sim$0x0001;}
-
-            \bigskip
-
-            or
-
-            \bigskip
-
-            \texttt{i $\&$= $\sim$(1 $<<$ 0);} where \texttt{i = 0x0001;}
-        \end{itemize}
-
-        \bigskip
-
-        \begin{mdframed}
-        \underline{\textbf{Correct Solution}}
-
-        \begin{itemize}
-            \item toggling from 0 to 1 of \color{red}4th bit\color{black}
-
-            \bigskip
-
-            \color{red}\texttt{i = 0x0010;}\color{black}
-
-            \texttt{i \^{}= 0x0000;}
-
-            \bigskip
-
-            or
-
-            \bigskip
-
-            \texttt{i \^{}= 1 $<<$ 4;} where \texttt{i = 0x0000;}
-
-            \item toggling from 1 to 0 of \color{red}4th bit\color{black}
-
-            \bigskip
-
-            \texttt{i = 0x0010;}
-
-            \texttt{i \^{}= 0x0010;}
-
-            \bigskip
-
-            or
-
-            \bigskip
-
-            \texttt{i \^{}= (1 $<<$ 4);} where \texttt{i = 0x0010;}
-        \end{itemize}
-
-        \end{mdframed}
-
-        \bigskip
-
-        \underline{\textbf{Notes}}
-
-        \begin{itemize}
-            \item Toggling can be done using bitwise XOR
-
-
-            \item \textbf{Setting a bit}
-
-            \begin{itemize}
-                \item Is done using $\vert$ or bitwise OR
-
-                \begin{center}
-                \includegraphics[width=\linewidth]{images/review_9_solution_3.png}
-                \end{center}
-
-                \item The idiom of above is \texttt{i $\lvert=$ 1 $<<$ j}
-            \end{itemize}
-
-            \item \textbf{Clearing a bit}
-
-            \begin{itemize}
-                \item Is done using $\vert$ or bitwise AND
-
-                \begin{center}
-                \includegraphics[width=\linewidth]{images/review_9_solution_5.png}
-                \end{center}
-
-                \item The idiom of above is \texttt{i \&= $\sim$(i $<<$ j)}
-            \end{itemize}
-        \end{itemize}
-
     \end{enumerate}
+
+    \item
+
+    \begin{itemize}
+        \item toggling from 0 to 1
+
+        \bigskip
+
+        \texttt{i = 0x0000;}
+
+        \texttt{i $\lvert$= 0x0001;}
+
+        \bigskip
+
+        or
+
+        \bigskip
+
+        \texttt{i $\lvert$= 1 $<<$ 0;} where \texttt{i = 0x0000;}
+
+        \item toggling from 1 to 0
+
+        \bigskip
+
+        \texttt{i = 0x0001;}
+
+        \texttt{i $\&$= $\sim$0x0001;}
+
+        \bigskip
+
+        or
+
+        \bigskip
+
+        \texttt{i $\&$= $\sim$(1 $<<$ 0);} where \texttt{i = 0x0001;}
+    \end{itemize}
+
+    \bigskip
+
+    \begin{mdframed}
+    \underline{\textbf{Correct Solution}}
+
+    \begin{itemize}
+        \item toggling from 0 to 1 of \color{red}4th bit\color{black}
+
+        \bigskip
+
+        \color{red}\texttt{i = 0x0010;}\color{black}
+
+        \texttt{i \^{}= 0x0000;}
+
+        \bigskip
+
+        or
+
+        \bigskip
+
+        \texttt{i \^{}= 1 $<<$ 4;} where \texttt{i = 0x0000;}
+
+        \item toggling from 1 to 0 of \color{red}4th bit\color{black}
+
+        \bigskip
+
+        \texttt{i = 0x0010;}
+
+        \texttt{i \^{}= 0x0010;}
+
+        \bigskip
+
+        or
+
+        \bigskip
+
+        \texttt{i \^{}= (1 $<<$ 4);} where \texttt{i = 0x0010;}
+    \end{itemize}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item Toggling can be done using bitwise XOR
+
+
+        \item \textbf{Setting a bit}
+
+        \begin{itemize}
+            \item Is done using $\vert$ or bitwise OR
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/review_9_solution_3.png}
+            \end{center}
+
+            \item The idiom of above is \texttt{i $\lvert=$ 1 $<<$ j}
+        \end{itemize}
+
+        \item \textbf{Clearing a bit}
+
+        \begin{itemize}
+            \item Is done using $\vert$ or bitwise AND
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/review_9_solution_5.png}
+            \end{center}
+
+            \item The idiom of above is \texttt{i \&= $\sim$(i $<<$ j)}
+        \end{itemize}
+    \end{itemize}
+
 
     \item It swaps the elements between \texttt{x} and \texttt{y}.
 
@@ -911,6 +911,15 @@
 
     \begin{itemize}
         \item \textbf{Other Low Level Technique}
+
+        \begin{itemize}
+            \item \textbf{Using Unions to Provide Multiple Views of Data}
+
+            \begin{itemize}
+                \item Unions are used in C for an entirely different purpose:
+                viewing a block of memory in two or more different ways
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 
 \end{enumerate}
