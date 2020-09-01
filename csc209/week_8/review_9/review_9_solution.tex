@@ -738,11 +738,17 @@
     \item
 
     The function tries to insert \texttt{low\_byte} to \texttt{high\_byte} after
-    shifting \texttt{low\_byte} by 8 bits to left.
+    shifting \texttt{high\_byte} by 8 bits to left.
 
     \bigskip
 
-    It doesn't work because of improper use of bitwise operators.
+    It doesn't work because \texttt{+} sign takes precedence over \texttt{$<<$}.
+
+    \bigskip
+
+    To fix this issue, a parenthesis is required around \texttt{high\_byte $<<$ 8}.
+
+    \bigskip
 
 \end{enumerate}
 
