@@ -1059,7 +1059,12 @@
 
 \begin{lstlisting}[language=c]
     union {
-
+        float value;
+        struct float {
+            unsigned int fraction: 23;
+            unsigned int exponent: 8;
+            unsigned int sign: 1;
+        }
     }
 \end{lstlisting}
 
