@@ -680,17 +680,20 @@
 \begin{lstlisting}[language=c]
     unsigned int reverse_bits (unsigned int n)
     {
+        printf("%x\n", n);
         int m = 15, p = 0;
-
-        unsigned int byte_left_end, byte_right_end;
+        unsigned int byte_left_end, byte_right_end, res = 0;
 
         while (m > p) {
-            n = n >> (15-m) | n << (15-p);
+            byte_left_end = n >> m & 1;
+            byte_right_end = n >> p & 1;
+
+            res |= byte_left_end << (15 - m) | byte_right_end << (15 - p);
 
             m--;
             p++;
         }
-        return n;
+        return res;
     }
 \end{lstlisting}
 
