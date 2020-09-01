@@ -764,7 +764,13 @@
 
     \end{mdframed}
 
-    \item
+
+\begin{lstlisting}[language=c]
+    struct float {
+        unsigned int sign: 1;
+        unsigned int
+    }
+\end{lstlisting}
 
     \bigskip
 
@@ -803,7 +809,7 @@
             \item [\color{red}WARNING\color{black}] bit-fields don't have addresses
 
             \begin{itemize}
-                \item C doesn't allow address operator \texttt{\&} to a bit field
+                \item C \color{red}doesn't\color{black}\:allow address operator \texttt{\&} to a bit field
             \end{itemize}
 
         \end{itemize}
@@ -820,8 +826,7 @@
             \includegraphics[width=\linewidth]{images/review_9_solution_10.png}
             \end{center}
 
-            \item 0 bit-field padding pushes non-empty bit-field as far as possible
-            in left, or right or both directions
+            \item 0 bit-field padding cause the next field to be aligned on the \underline{next container boundary}
             \item 0 bit-field must be unnamed
 
             \bigskip
