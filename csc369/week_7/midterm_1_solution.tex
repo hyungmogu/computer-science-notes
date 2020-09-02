@@ -140,8 +140,8 @@
                 as if it's a single atomic instruction
 
                 \begin{center}
-                    \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
-                    \end{center}
+                \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
+                \end{center}
                 \item Is a variable with two states
 
                 \begin{itemize}
@@ -155,7 +155,22 @@
             \begin{itemize}
                 \item Is very easy to understand, but hard to program
                 \item Is an abstract data types that provide synchronizaion
-                \item
+                \item Uses integer variable \texttt{count} with two atomic operations
+
+                \begin{enumerate}[1.]
+                    \item (\texttt{wait/P/decrement}) - block until \texttt{count $>$ 0} then decrement variable
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_2.png}
+                    \end{center}
+
+                    \item (\texttt{signal/V/increment}) - increment \texttt{count}, unblock a waiting thread
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_3.png}
+                    \end{center}
+                \end{enumerate}
+
             \end{itemize}
         \end{itemize}
     \end{enumerate}
