@@ -63,14 +63,6 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
-            \item \textbf{System Call}
-            \begin{itemize}
-                \item Are interrupt signals sent by software
-                \item Is a programmatic way of a program requesting for service to kernel of operating system
-                \item i.e. Accessing a hard-disk drive
-                \item Transfers control into the OS while simultaneously raising \textbf{hardware previlege level}
-            \end{itemize}
-
             \item \textbf{Previliged Instructions}
 
             \begin{itemize}
@@ -82,13 +74,17 @@
 
             \begin{itemize}
                 \item Is a special hardware instruction
+                \item Is a type of synchronous interrupt $^{[1]}$
+                \item Is caused by an exceptional condition $^{[1]}$
+                \item Usually results in a switch to \textbf{kernel mode} $\to$ Operating system performs action $\to$
+                Returns control to oroginal process
             \end{itemize}
 
             \item \textbf{Trap Instruction}
 
             \begin{itemize}
                 \item Is executed when a user wants to invoke a service from the operating system (i.e. reading hard drive)
-                \item
+                in \textbf{user mode}
             \end{itemize}
 
             \item \textbf{User Mode}
@@ -99,6 +95,14 @@
 
             \item \textbf{Kernel Mode}
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[a)]
+            \item Wikipedia, Trap (computing), \href{https://en.wikipedia.org/wiki/Trap_(computing)#:~:text=In%20computing%20and%20operating%20systems,zero%2C%20invalid%20memory%20access).}{link}
+        \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 
