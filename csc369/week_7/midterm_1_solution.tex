@@ -148,12 +148,30 @@
                     \item 1 - (available/unlock/free)
                     \item 0 - (acquired/locked/held)
                 \end{itemize}
+
+                \item Has two operations
+
+                \begin{enumerate}[1.]
+                    \item \texttt{acquire()}
+
+                    \bigskip
+
+                    \begin{center}
+                    \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
+                    \end{center}
+
+
+                    \item \texttt{release()}
+
+                    \bigskip
+                \end{enumerate}
             \end{itemize}
 
             \item \textbf{Semaphore}
 
             \begin{itemize}
                 \item Is very easy to understand, but hard to program
+                \item Is used in concurrent programming
                 \item Is an abstract data types that provide synchronizaion
                 \item Uses integer variable \texttt{count} with two atomic operations
 
