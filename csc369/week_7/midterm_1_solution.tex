@@ -71,10 +71,11 @@
                 \item Transfers control into the OS while simultaneously raising \textbf{hardware previlege level}
             \end{itemize}
 
-            \item \textbf{Tranp Instruction}
+            \item \textbf{Previliged Instructions}
 
             \begin{itemize}
-                \item Is executed when a user wants to invoke a service from the operating system (i.e. reading hard drive)
+                \item Is the instruction that can run only in \textbf{kernel mode}
+                \item Attempt at execution in \textbf{user mode} $\to$ treated as an illegal operation \& will not run.
             \end{itemize}
 
             \item \textbf{Trap}
@@ -82,6 +83,21 @@
             \begin{itemize}
                 \item Is a special hardware instruction
             \end{itemize}
+
+            \item \textbf{Trap Instruction}
+
+            \begin{itemize}
+                \item Is executed when a user wants to invoke a service from the operating system (i.e. reading hard drive)
+                \item
+            \end{itemize}
+
+            \item \textbf{User Mode}
+
+            \begin{itemize}
+                \item
+            \end{itemize}
+
+            \item \textbf{Kernel Mode}
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
