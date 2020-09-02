@@ -214,11 +214,23 @@
 
         \item
 
+        All shared variable of threads are located in heap memory, and if multiple threads
+        access the variable at the same time, a race condition would occur.
+
         \bigskip
 
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item What is concurrency error? Where and when does it occur?
+            \item \textbf{Race condition}
+
+            \begin{itemize}
+                \item if multiple threads of execution enter the critical section
+                roughly at the same time; both attempt to update the shared data structure,
+                leading to a supring result
+            \end{itemize}
+
             \item \textbf{Concurrency}
 
             \begin{itemize}
@@ -226,6 +238,13 @@
                 or problem to be \underline{executed out of order}, \underline{without affecting the final
                 outcome}. $^{[1]}$
             \end{itemize}
+
+            \item \textbf{Concurrency Error}
+
+            \begin{itemize}
+                \item Two types of concurrency errors
+            \end{itemize}
+
             \item \textbf{Thread}
 
             \begin{itemize}
