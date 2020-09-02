@@ -214,8 +214,7 @@
 
         \item
 
-        All shared variable of threads are located in heap memory, and if multiple threads
-        access the variable at the same time, a race condition would occur.
+        If both access are read, then concurrency error will not occur.
 
         \bigskip
 
@@ -223,13 +222,6 @@
 
         \begin{itemize}
             \item What is concurrency error? Where and when does it occur?
-            \item \textbf{Race condition}
-
-            \begin{itemize}
-                \item if multiple threads of execution enter the critical section
-                roughly at the same time; both attempt to update the shared data structure,
-                leading to a supring result
-            \end{itemize}
 
             \item \textbf{Concurrency}
 
@@ -242,7 +234,31 @@
             \item \textbf{Concurrency Error}
 
             \begin{itemize}
-                \item Two types of concurrency errors
+                \item Two types of concurrency errors $^{[3]}$
+
+                \begin{enumerate}[1.]
+                    \item \textbf{Deadlock:} A situation wherein two or more processes
+                    are never able to proceed because each is waiting for the others
+                    to do something
+
+                    \bigskip
+
+                    Key: Circular wait
+
+                    \bigskip
+
+                    \item \textbf{Race Condition:} a timing dependent error
+                    involving shared state
+
+                    \begin{itemize}
+                        \item \textbf{Data Race:} Concurrent accesses to a shared variable
+                        and at least one access is a write
+                        \item \textbf{Atomicity Bugs:} Code does not enforce the atomicity
+                        programmers intended for a group of memory access
+                        \item \textbf{Order Bugs:} Code does not enforce the order programmers
+                        intended for a group of memory access
+                    \end{itemize}
+                \end{enumerate}
             \end{itemize}
 
             \item \textbf{Thread}
@@ -268,7 +284,19 @@
         \begin{enumerate}[1)]
             \item Wikipedia, Concurrency (computer science), \href{https://en.wikipedia.org/wiki/Concurrency_(computer_science)}{link}
             \item Wikipedia, Thread, \href{https://en.wikipedia.org/wiki/Thread_(computing)#:~:text=In%20computer%20science%2C%20a%20thread,part%20of%20the%20operating%20system.}{link}
+            \item Columbia University, Concurrency Errors, \href{https://www.cs.columbia.edu/~junfeng/13fa-w4118/lectures/l11-concurrency-error.pdf}{link}
         \end{enumerate}
+
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item
+        \end{itemize}
 
 
     \end{enumerate}
