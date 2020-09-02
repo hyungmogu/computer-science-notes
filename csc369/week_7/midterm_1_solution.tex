@@ -126,7 +126,9 @@
 
         \item
 
-        Lock
+        No. Lock uses a variable with binary states 0 (acquired) and 1 (available), where as
+        semaphore uses counter variable that can have value greater than 1 to
+        keep track of the amount of resource remaining.
 
         \bigskip
 
@@ -198,7 +200,6 @@
                 \end{enumerate}
 
                 \item Can be signaled by any thread $^{[2]}$
-
             \end{itemize}
         \end{itemize}
 
@@ -210,6 +211,16 @@
             \item Wikipedia, Semaphore (programming), \href{https://en.wikipedia.org/wiki/Semaphore_(programming)}{link}
             \item Stack Overflow, Difference between binary semaphore and mutex, \href{https://stackoverflow.com/questions/62814/difference-between-binary-semaphore-and-mutex}{link}
         \end{enumerate}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Thread}
+        \end{itemize}
 
     \end{enumerate}
 \end{enumerate}
