@@ -1058,13 +1058,25 @@
     \item
 
 \begin{lstlisting}[language=c]
+    #include <stdio.h>
+
     union {
         float value;
-        struct float {
+        struct {
             unsigned int fraction: 23;
             unsigned int exponent: 8;
             unsigned int sign: 1;
-        }
+        }p;
+    } float_struc;
+
+    int main(void)
+    {
+        float_struc.p.fraction = 0;
+        float_struc.p.exponent = 128;
+        float_struc.p.sign = 1;
+
+        printf("%f\n", float_struc.value);
+        return 0;
     }
 \end{lstlisting}
 
