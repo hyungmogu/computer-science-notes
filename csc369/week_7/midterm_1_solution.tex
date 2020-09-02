@@ -76,6 +76,12 @@
                 \item Is a special hardware instruction
                 \item Is a type of synchronous interrupt $^{[1]}$
                 \item Is caused by an exceptional condition $^{[1]}$
+
+                \begin{enumerate}[1.]
+                    \item Division by zero $^{[1]}$
+                    \item Invalid memory access (segmentation fault) $^{[1]}$
+                    \item Previleged instruction by \textbf{user mode} code $^{[2]}$
+                \end{enumerate}
                 \item Usually results in a switch to \textbf{kernel mode} $\to$ Operating system performs action $\to$
                 Returns control to oroginal process
             \end{itemize}
@@ -90,10 +96,19 @@
             \item \textbf{User Mode}
 
             \begin{itemize}
-                \item
+                \item Executing code has no ability to \textit{directly} access
+                hardware or reference memory $^{[3]}$
+                \item Crashes are always recoverable $^{[3]}$
+                \item Is where most of the code on our computer are executed $^{[3]}$
             \end{itemize}
 
             \item \textbf{Kernel Mode}
+            \begin{itemize}
+                \item Executing code has complete and unrestricted access to the underlying hardware $^{[3]}$
+                \item Is generally reserved for the lowest-level, most trusted functions of the operating
+                system $^{[3]}$
+                \item Is fatal to crash; it will halt the entire PC (i.e the blue screen of death) $^{[3]}$
+            \end{itemize}
         \end{itemize}
 
         \bigskip
@@ -102,6 +117,8 @@
 
         \begin{enumerate}[a)]
             \item Wikipedia, Trap (computing), \href{https://en.wikipedia.org/wiki/Trap_(computing)#:~:text=In%20computing%20and%20operating%20systems,zero%2C%20invalid%20memory%20access).}{link}
+            \item University of Utah, CS5460: Operating Systems Lecture 3 - OS Organization, \href{https://my.eng.utah.edu/~cs5460/slides/Lecture03.pdf}{link}
+            \item Coding Horror, Understanding User and Kernel Mode, \href{https://blog.codinghorror.com/understanding-user-and-kernel-mode/}{link}
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
