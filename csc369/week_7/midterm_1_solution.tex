@@ -99,14 +99,16 @@
             \item \textbf{User Mode}
 
             \begin{itemize}
+                \item Is restricted
                 \item Executing code has no ability to \textit{directly} access
                 hardware or reference memory $^{[3]}$
                 \item Crashes are always recoverable $^{[3]}$
-                \item Is where most of the code on our computer are executed $^{[3]}$
+                \item Is where most of the code on our computer / applications are executed $^{[3]}$
             \end{itemize}
 
             \item \textbf{Kernel Mode}
             \begin{itemize}
+                \item Is previleged (non-restricted)
                 \item Executing code has complete and unrestricted access to the underlying hardware $^{[3]}$
                 \item Is generally reserved for the lowest-level, most trusted functions of the operating
                 system $^{[3]}$
@@ -333,9 +335,43 @@
                     aspect of the room is restricted
                 \end{itemize}
             \end{itemize}
+
+            \item \textbf{Trap Handlers}
+
+            \begin{itemize}
+                \item Is instruction that tells the hardware what to run when certain exceptions occur
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                What code to run when
+
+                \begin{enumerate}[1.]
+                    \item Hard disk interrupt occurs
+                    \item Keyboard interrupt occrs
+                    \item Program makes a system call?
+                \end{enumerate}
+
+            \end{itemize}
+
+            \item \textbf{Timer Interrupt}
+
+            \begin{itemize}
+                \item Is a hardware mechanism that ensures the user program does not run forever
+                \item Is emitted at regular intervals by a timer chip $^{[1]}$
+            \end{itemize}
         \end{itemize}
 
+        \bigskip
 
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[1)]
+            \item Wikibooks, Operating System Design/Processes/Interrupt, \href{https://en.wikibooks.org/wiki/Operating_System_Design/Processes/Interrupt#:~:text=Perhaps%20the%20most%20important%20interrupt,processor%20executing%20a%20specific%20instruction.}{link}
+        \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 
