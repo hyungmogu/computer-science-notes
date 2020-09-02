@@ -126,6 +126,8 @@
 
         \item
 
+        Lock
+
         \bigskip
 
         \underline{\textbf{Notes}}
@@ -134,15 +136,7 @@
             \item \textbf{Locks}
 
             \begin{itemize}
-                \item Is very primitive, and has minimal semantics
-                \item Is used in concurrent programming
-                \item Is put around critical section to ensure critical section executes
-                as if it's a single atomic instruction
-
-                \begin{center}
-                \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
-                \end{center}
-                \item Is a variable with two states
+                \item Is a variable with two boolean states
 
                 \begin{itemize}
                     \item 1 - (available/unlock/free)
@@ -157,40 +151,66 @@
                     \bigskip
 
                     \begin{center}
-                    \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
+                    \includegraphics[width=0.7\linewidth]{images/midterm_1_solution_4.png}
                     \end{center}
 
+                    \bigskip
 
                     \item \texttt{release()}
 
                     \bigskip
+
+                    \begin{center}
+                    \includegraphics[width=0.7\linewidth]{images/midterm_1_solution_5.png}
+                    \end{center}
+
+                    \bigskip
                 \end{enumerate}
+                \item Is put around critical section to ensure critical section executes
+                as if it's a single atomic instruction
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
+                \end{center}
+                \item Can only be released by the thread that acquired it
+                \item Is used to protect shared resource (e.g. from race condition in files and data structure) $^{[2]}$
             \end{itemize}
 
             \item \textbf{Semaphore}
 
             \begin{itemize}
-                \item Is very easy to understand, but hard to program
-                \item Is used in concurrent programming
-                \item Is an abstract data types that provide synchronizaion
-                \item Uses integer variable \texttt{count} with two atomic operations
+                \item Is an abstract data types suitable for synchronization problems $^{[2]}$
+                \item Has variable \texttt{count} that allows arbitrary resource count $^{[1]}$
+                \item Has two atomic operations
 
                 \begin{enumerate}[1.]
                     \item (\texttt{wait/P/decrement}) - block until \texttt{count $>$ 0} then decrement variable
 
                     \begin{center}
-                    \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_2.png}
+                    \includegraphics[width=0.7\linewidth]{images/midterm_1_solution_2.png}
                     \end{center}
 
                     \item (\texttt{signal/V/increment}) - increment \texttt{count}, unblock a waiting thread
 
                     \begin{center}
-                    \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_3.png}
+                    \includegraphics[width=0.7\linewidth]{images/midterm_1_solution_3.png}
                     \end{center}
                 \end{enumerate}
 
+                \item Can be signaled by any thread $^{[2]}$
+
             \end{itemize}
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[1)]
+            \item Wikipedia, Semaphore (programming), \href{https://en.wikipedia.org/wiki/Semaphore_(programming)}{link}
+            \item Stack Overflow, Difference between binary semaphore and mutex, \href{https://stackoverflow.com/questions/62814/difference-between-binary-semaphore-and-mutex}{link}
+        \end{enumerate}
+
     \end{enumerate}
 \end{enumerate}
 
