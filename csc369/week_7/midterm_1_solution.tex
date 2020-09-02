@@ -304,7 +304,34 @@
             \item \textbf{Limited Direct Execution}
 
             \begin{itemize}
-                \item
+                \item Idea: Just run the program you want to run on the CPU,
+                but first make sure to set up the hardware so as to limit what
+                process can do without OS assistance
+                \item baby proofs the CPU by
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Setting up trap handlers
+                    \item Starts an interrupt timer
+                    \item Run processes in a restricted mode
+                \end{enumerate}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                Baby proofing a room:
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Locking cabinets containing dangerous stuff and covering electrical sockets.
+                    \item When room is readied, let your baby roam free in knowledge that all the dangerous
+                    aspect of the room is restricted
+                \end{itemize}
             \end{itemize}
         \end{itemize}
 
