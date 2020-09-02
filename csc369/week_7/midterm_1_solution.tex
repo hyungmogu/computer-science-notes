@@ -394,13 +394,36 @@
             \end{itemize}
             \item \textbf{Index-based File System}
 
+            \begin{center}
+
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_8.png}
+            \end{center}
+
             \begin{itemize}
                 \item Has following parts
 
                 \begin{itemize}
                     \item Data Region
                     \item Inodes
+                    \item Inode Bitmap
+                    \item Data Bitmap
+                    \item Superblock
                 \end{itemize}
+            \end{itemize}
+
+            \item \textbf{Superblock}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_9.png}
+            \end{center}
+
+            \begin{itemize}
+                \item contains information about the file system, including
+
+                \begin{enumerate}[1.]
+                    \item the number of inodes and data blocks in a particular file system
+                    \item the magic number of some kind to identify the file system type (e.g NFS, FFS, VSFS)
+                \end{enumerate}
             \end{itemize}
 
             \item \textbf{External Fragmentation}
