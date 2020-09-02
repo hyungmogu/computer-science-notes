@@ -135,13 +135,25 @@
 
             \begin{itemize}
                 \item Is very primitive, and has minimal semantics
-                \item
+                \item Is used in concurrent programming
+                \item Is put around critical section to ensure critical section executes
+                as if it's a single atomic instruction
+
+                \begin{center}
+                    \includegraphics[width=\linewidth]{images/midterm_1_solution_1.png}
+                    \end{center}
+                \item Is a variable with two states
+
+                \begin{itemize}
+                    \item 1 - (available/unlock/free)
+                    \item 0 - (acquired/locked/held)
+                \end{itemize}
             \end{itemize}
 
             \item \textbf{Semaphore}
 
             \begin{itemize}
-                \item
+                \item Is very easy to understand, but hard to program
             \end{itemize}
         \end{itemize}
     \end{enumerate}
