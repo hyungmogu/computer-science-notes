@@ -590,7 +590,7 @@
         \item \textbf{Fields}
 
         \begin{itemize}
-            \item is the members in a structure
+            \item Is the members in a structure
 
             \bigskip
 
@@ -602,15 +602,24 @@
         \item \textbf{Process List}
 
         \begin{itemize}
-            \item is a data structure in kernel or OS
-            \item contains information about all the processes running in the system
+            \item Is a data structure in kernel or OS
+            \item Contains information about all the processes running in the system
         \end{itemize}
 
         \item \textbf{Process Control Block}
 
         \begin{itemize}
-            \item is a data structure in kernel or OS
-            \item stores information about a process
+            \item Is a data structure in kernel or OS
+            \item Contains all information about a process
+            \item Is where the OS keeps all of a process' hardware execution state
+            \item Generally includes
+
+            \begin{enumerate}[1.]
+                \item Process state (ready, running, blocked)
+                \item Process number
+                \item Program counter:
+                \item CPU Registers
+            \end{enumerate}
         \end{itemize}
     \end{itemize}
 
