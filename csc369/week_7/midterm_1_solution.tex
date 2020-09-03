@@ -453,7 +453,7 @@
             \begin{itemize}
                 \item Is a short form for \textbf{index node}
                 \item Contains disk block location of the object's data $^{[1]}$
-                \item Contains all the information you need about a file
+                \item Contains all the information you need about a file (i.e. metadata)
 
                 \begin{itemize}
                     \item File Type
@@ -466,7 +466,11 @@
                     \begin{itemize}
                         \item such as who owns the file, as well as who can access it
                     \end{itemize}
-                    \item Time information (e.g. When file was created, modified, or last accessed)
+                    \item Time information
+                    \begin{itemize}
+                        \item e.g. When file was created, modified, or last accessed
+                    \end{itemize}
+                    \item Location of data blocks reside on disk
                 \end{itemize}
             \end{itemize}
 
@@ -478,6 +482,12 @@
 
             \begin{itemize}
                 \item Is the region of disk we use for user data
+            \end{itemize}
+
+            \item \textbf{Multi-Level Index}
+
+            \begin{itemize}
+                \item
             \end{itemize}
 
             \item \textbf{External Fragmentation}
