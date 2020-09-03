@@ -425,7 +425,27 @@
                     \item the magic number of some kind to identify the file system type (e.g NFS, FFS, VSFS)
                 \end{enumerate}
 
-                \item The OS reads superblock \underline{first} to initialize various parameters
+                \item The OS reads superblock \underline{first} to initialize various parameters,
+                and then attach volume to the file-system tree
+            \end{itemize}
+
+            \item \textbf{Bitmap}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_10.png}
+            \end{center}
+
+            \begin{itemize}
+                \item Tracks whether inode or data blocks are free or allocated
+                \item Is a simple and popuar structure
+                \item Uses each bit
+                \begin{itemize}
+                    \item \texttt{0} means free
+                    \item \texttt{1} means in use
+                \end{itemize}
+
+                \item \textbf{Data Bitmap} is bitmap for data region
+                \item \textbf{Inode Bitmap} is bitmap for inode region
             \end{itemize}
 
             \item \textbf{External Fragmentation}
