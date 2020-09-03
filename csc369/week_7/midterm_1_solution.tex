@@ -750,7 +750,15 @@
                 \item Basic Idea: For the most part, let the program run directly on the hardware;
                 however, at certain key points in time (e.g. system call, timer interrupt), arrange
                 so that the OS gets involved and make sure the 'Right' thing happens.
-                \item
+                \item Like CPU, many programs are sharing the memory at the same time
+                \item Like CPU, the goal is to create an illusion that it has its own code and data
+                \item Like CPU, the memory also needs low-level machinery called \textbf{mechanism}
+            \end{itemize}
+
+            \item \textbf{Address Translation}
+
+            \begin{itemize}
+                \item Is a mechanism of memory virtualization
             \end{itemize}
         \end{itemize}
 
