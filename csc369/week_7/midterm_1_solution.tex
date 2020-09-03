@@ -706,8 +706,6 @@
 
             \begin{itemize}
                 \item is an act of creating an illusion that there are as many hardware resource as each program needs.
-                \item the OS takes a physical resource (processor, memory or disk) and
-                transforms it into a more general, powerful, easy-to-use virtual form of itself
             \end{itemize}
 
             \item \textbf{Virtualizing CPU}
@@ -719,21 +717,25 @@
                 called \textbf{mechanism} and high level intelligence called \textbf{policies}
 
                 \bigskip
+            \end{itemize}
 
-                \begin{enumerate}[1.]
-                    \item \textbf{Limited direct execution} is a mechanism of CPU virtualization
+            \item \textbf{Limited direct execution}
 
-                    \begin{itemize}
-                        \item Idea: First make sure to setup hardwre to limit what the process can do without OS assistance
-                        (trap handler, timer interrupt), and just run the program on the CPU
-                    \end{itemize}
+            \begin{itemize}
+                \item Is a mechanism of CPU virtualization
+                \item Baby proofs the CPU by setting up hardwre to limit what the process can do without OS assistance
+                \item Runs program in CPU once baby proofed
+                \item Does so by
+                \begin{itemize}
+                    \item Setting up trap handler
+                    \item Starting an interrupt timer (so process won't last forever)
+                \end{itemize}
+            \end{itemize}
 
-                    \item \textbf{Scheduling policies} are polices of CPU virtualization
+            \item \textbf{Scheduling policies}
 
-                    \begin{itemize}
-                        \item
-                    \end{itemize}
-                \end{enumerate}
+            \begin{itemize}
+                \item are polices of CPU virtualization
             \end{itemize}
 
             \item \textbf{Virtualizing Memory}
