@@ -584,55 +584,81 @@
 
     \bigskip
 
-    \begin{enumerate}[1)]
-        \item Process State
-        \item Process Number
-        \item CPU scheduling information / Process Priority
+    \begin{enumerate}[a)]
+
+        \item
+
+        \begin{enumerate}[1)]
+            \item Process State
+            \item Process Number
+            \item CPU scheduling information / Process Priority
+        \end{enumerate}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Fields}
+
+            \begin{itemize}
+                \item Is the members in a structure
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_15.png}
+                \end{center}
+            \end{itemize}
+
+            \item \textbf{Process List}
+
+            \begin{itemize}
+                \item Is a data structure in kernel or OS
+                \item Contains information about all the processes running in the system
+            \end{itemize}
+
+            \item \textbf{Process Control Block}
+
+            \begin{itemize}
+                \item Is a data structure in kernel or OS
+                \item Contains all information about a process
+                \item Is where the OS keeps all of a process' hardware execution state
+                \item Generally includes
+
+                \begin{enumerate}[1.]
+                    \item Process state (ready, running, blocked)
+                    \item Process number
+                    \item Program counter:
+                    \item CPU Registers: is saved at an interrupt
+                    \item CPU scheduling information: process priority
+                    \item Memory management info: page tables
+                    \item I/O status information: list of open files
+                \end{enumerate}
+            \end{itemize}
+        \end{itemize}
+
+        \item
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Context Switch}
+
+            \begin{itemize}
+                \item is the process of storing the state of a process or thread,
+                so it can be restored and resume execution at a later point $^{[1]}$
+            \end{itemize}
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[1)]
+            \item Wikipedia: Context switch, \href{https://en.wikipedia.org/wiki/Context_switch}{link}
+        \end{enumerate}
     \end{enumerate}
-
-    \bigskip
-
-    \underline{\textbf{Notes}}
-
-    \begin{itemize}
-        \item \textbf{Fields}
-
-        \begin{itemize}
-            \item Is the members in a structure
-
-            \bigskip
-
-            \begin{center}
-            \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_15.png}
-            \end{center}
-        \end{itemize}
-
-        \item \textbf{Process List}
-
-        \begin{itemize}
-            \item Is a data structure in kernel or OS
-            \item Contains information about all the processes running in the system
-        \end{itemize}
-
-        \item \textbf{Process Control Block}
-
-        \begin{itemize}
-            \item Is a data structure in kernel or OS
-            \item Contains all information about a process
-            \item Is where the OS keeps all of a process' hardware execution state
-            \item Generally includes
-
-            \begin{enumerate}[1.]
-                \item Process state (ready, running, blocked)
-                \item Process number
-                \item Program counter:
-                \item CPU Registers: is saved at an interrupt
-                \item CPU scheduling information: process priority
-                \item Memory management info: page tables
-                \item I/O status information: list of open files
-            \end{enumerate}
-        \end{itemize}
-    \end{itemize}
 
     \bigskip
 \end{enumerate}
