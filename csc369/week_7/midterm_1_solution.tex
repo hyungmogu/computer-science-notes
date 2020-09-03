@@ -584,6 +584,14 @@
 
     \bigskip
 
+    \begin{enumerate}[1)]
+        \item Process State
+        \item Process Number
+        \item CPU scheduling information / Process Priority
+    \end{enumerate}
+
+    \bigskip
+
     \underline{\textbf{Notes}}
 
     \begin{itemize}
@@ -618,7 +626,10 @@
                 \item Process state (ready, running, blocked)
                 \item Process number
                 \item Program counter:
-                \item CPU Registers
+                \item CPU Registers: is saved at an interrupt
+                \item CPU scheduling information: process priority
+                \item Memory management info: page tables
+                \item I/O status information: list of open files
             \end{enumerate}
         \end{itemize}
     \end{itemize}
