@@ -403,11 +403,11 @@
                 \item Has following parts
 
                 \begin{itemize}
-                    \item Data Region
-                    \item Inodes
+                    \item Superblock
                     \item Inode Bitmap
                     \item Data Bitmap
-                    \item Superblock
+                    \item Inodes
+                    \item Data Region
                 \end{itemize}
             \end{itemize}
 
@@ -424,6 +424,8 @@
                     \item the number of inodes and data blocks in a particular file system
                     \item the magic number of some kind to identify the file system type (e.g NFS, FFS, VSFS)
                 \end{enumerate}
+
+                \item The OS reads superblock \underline{first} to initialize various parameters
             \end{itemize}
 
             \item \textbf{External Fragmentation}
