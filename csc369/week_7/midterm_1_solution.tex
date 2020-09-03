@@ -382,6 +382,12 @@
 
         \bigskip
 
+        No, alhtough data blocks are fragmented, it doesn't suffer from external
+        fragmentation because indexed file system has pointers in inodes that
+        points to each data block.
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -488,8 +494,8 @@
             \item \textbf{Multi-Level Index}
 
             \begin{center}
-                \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
-                \end{center}
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
+            \end{center}
 
             \begin{itemize}
                 \item Is for supporting bigger files
@@ -529,6 +535,49 @@
             and internal fragmentation, \href{https://courses.cs.washington.edu/courses/cse451/00sp/misc/quiz2sol.txt}{link}
             \item Wikipedia, Inode pointer structure, \href{https://en.wikipedia.org/wiki/Inode_pointer_structure}{link}
         \end{enumerate}
+
+        \item
+
+        \bigskip
+
+        No, extent-based file system requires less disk block access, because unlike
+        index-based file system (which consumes disk space for many indirect pointers
+        in addition to data blocks for large files), extent-based file system only
+        requires one pointer plus contiguous data blocks.
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Extent Based File System}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_14.png}
+            \end{center}
+
+            \begin{itemize}
+                \item Is simply a disk pointer plus a length (in blocks)
+                \begin{itemize}
+                    \item Together, is called \textbf{extent}
+                \end{itemize}
+                \item Often allows more than one extent
+                \begin{itemize}
+                    \item resolve problem of finding continuous free blocks
+                \end{itemize}
+                \item Is less flexible but more compact
+                \item Works well when there is enough free space on the disk and
+                files can be laid out contiguously
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            Linux's ext4 file system
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
