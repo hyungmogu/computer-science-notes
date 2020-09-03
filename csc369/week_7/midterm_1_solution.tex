@@ -633,6 +633,8 @@
                     \item CPU Registers: is saved at an interrupt
                     \item CPU scheduling information: process priority
                     \item Memory management info: page tables
+                    \item Accounting information: amount of CPU used for process
+                    execution, time limits, execution ID
                     \item I/O status information: list of open files
                 \end{enumerate}
             \end{itemize}
@@ -651,9 +653,13 @@
                 \item is the process of storing the state of a process or thread,
                 so it can be restored and resume execution at a later point $^{[1]}$
                 \item happens during a timer interrupt or system call
-                \item saves the following during context switch
+                \item process context switch needs to save the following $^{[2]}$
 
                 \begin{itemize}
+                    \item Process State
+                    \item Process Counter,
+                    \item CPU Registers
+                    \item Memory management info
                     \item
                 \end{itemize}
             \end{itemize}
