@@ -487,8 +487,19 @@
 
             \item \textbf{Multi-Level Index}
 
+            \begin{center}
+                \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
+                \end{center}
+
             \begin{itemize}
-                \item
+                \item Is for supporting bigger files
+                \item Uses \textbf{indirect pointer} in inode that points to more pointers
+                \item Uses \textbf{double indirect pointer} for even larger files
+
+                \begin{itemize}
+                    \item is a pointer in inode that points to a block that contains
+                    pointers to indirect blocks
+                \end{itemize}
             \end{itemize}
 
             \item \textbf{External Fragmentation}
@@ -516,6 +527,7 @@
             \item Wikipedia: inode, \href{https://en.wikipedia.org/wiki/Inode}{link}
             \item Washington University, Explain the difference between external fragmentation
             and internal fragmentation, \href{https://courses.cs.washington.edu/courses/cse451/00sp/misc/quiz2sol.txt}{link}
+            \item Wikipedia, Inode pointer structure, \href{https://en.wikipedia.org/wiki/Inode_pointer_structure}{link}
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
