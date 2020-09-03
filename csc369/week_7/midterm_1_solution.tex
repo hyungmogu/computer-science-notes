@@ -633,14 +633,23 @@
                     \item CPU Registers: is saved at an interrupt
                     \item CPU scheduling information: process priority
                     \item Memory management info: page tables
-                    \item Accounting information: amount of CPU used for process
-                    execution, time limits, execution ID
                     \item I/O status information: list of open files
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
 
         \item
+
+        When process context switch is taking place, the following needs to be saved
+
+        \begin{itemize}
+            \item Process Number
+            \item Process State
+            \item Process Counter,
+            \item CPU Registers
+            \item Memory management info
+            \item I/O status Information
+        \end{itemize}
 
         \underline{\textbf{Notes}}
 
@@ -656,11 +665,19 @@
                 \item process context switch needs to save the following $^{[2]}$
 
                 \begin{itemize}
+                    \item Process Number
                     \item Process State
                     \item Process Counter,
                     \item CPU Registers
                     \item Memory management info
-                    \item
+                    \item I/O status Information
+                \end{itemize}
+
+                \item thread context switch needs to save the following
+
+                \begin{itemize}
+                    \item Process Counter,
+                    \item CPU Registers
                 \end{itemize}
             \end{itemize}
         \end{itemize}
