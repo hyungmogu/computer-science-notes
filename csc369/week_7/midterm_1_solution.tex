@@ -1192,8 +1192,20 @@
             \item \textbf{Crash Consistency}
 
             \begin{itemize}
-                \item
+                \item Goal: How to update persistent data structures despite the presence of
+                a \textbf{power loss} or \textbf{system crash}?
             \end{itemize}
+
+            \item \textbf{Crash Scenarios}
+
+            \begin{enumerate}[1)]
+                \item Just the data block (Db) is written to disk
+                \item Just the updated inode (I[v2]) is written to disk
+                \item Just the updated bitmap (B[v2]) is written to disk
+                \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
+                \item Inode (I[v2]) and data block (Db) are written, but not the bit map
+                \item Bitmap (B[v2]) and data block (Db) are written, but not the inode (I[v2])
+            \end{enumerate}
         \end{itemize}
     \end{enumerate}
 \end{enumerate}
