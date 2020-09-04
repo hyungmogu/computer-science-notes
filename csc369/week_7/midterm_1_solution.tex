@@ -1094,7 +1094,15 @@
             \item Directories Step
 
             \begin{enumerate}[1)]
-                \item
+                \item Find the \textbf{cylinder group} with a low number of allocated directories
+                and a high number of free inodes
+
+                \begin{itemize}
+                    \item low number of allocated directories $\to$ to balance directories
+                    across groups
+                    \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
+                \end{itemize}
+                \item Put directory data and inode to the \textbf{cylinder group}
             \end{enumerate}
 
             \item Files Step
