@@ -970,14 +970,29 @@ s
         \item \textbf{inode}
 
         \begin{itemize}
+            \item total size may vary
             \item Has 12 pointers to data blocks
-            \item Has 1 \textbf{indirect pointer}
-            \item Has 1 \textbf{double indirect Pointer}
-            \item Has 1 \textbf{triple indirect Pointer}
+            \item inode pointer has size of 4 byte
+            \item Has 1 \textbf{indirect pointer} [when file grows large enough]
+            \item Has 1 \textbf{double indirect Pointer} [when file grows large enough]
+            \item Has 1 \textbf{triple indirect Pointer} [when file grows large enough]
         \end{itemize}
 
         \item \textbf{Indirect Pointers}
+
+        \begin{itemize}
+            \item is allocated to data-block if file grows large enough
+            \item has total size of 4 KB or 4096 bytes
+            \item Has $4096/4 = 1024$ pointers
+            \item each pointer points to 4KB data-block
+        \end{itemize}
+
         \item \textbf{Double Indirect Pointers}
+
+        \begin{itemize}
+            \item
+        \end{itemize}
+
         \item \textbf{Triple Indirect Pointers}
     \end{itemize}
 \end{enumerate}
