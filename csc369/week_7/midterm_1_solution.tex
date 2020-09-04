@@ -1059,12 +1059,14 @@
     \begin{itemize}
         \item \textbf{Old UNIX File system}
         \begin{itemize}
-            \item has terrible performance
             \item was simple, and looked like the following on disk
 
             \begin{center}
             \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_16.png}
             \end{center}
+            \item has terrible performance
+            \item suffers from \textbf{external fragmentation}
+            \item had small data block (512 bytes) and transfer of data took too long
         \end{itemize}
 
         \item \textbf{FFS Policies: How to Allocate Files and Directories}
