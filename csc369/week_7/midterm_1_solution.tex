@@ -971,8 +971,8 @@ s
 
         \begin{itemize}
             \item total size may vary
-            \item Has 12 pointers to data blocks
             \item inode pointer has size of 4 byte
+            \item Has 12 \textbf{direct pointers} to 4KB data blocks
             \item Has 1 \textbf{indirect pointer} [when file grows large enough]
             \item Has 1 \textbf{double indirect Pointer} [when file grows large enough]
             \item Has 1 \textbf{triple indirect Pointer} [when file grows large enough]
@@ -981,19 +981,35 @@ s
         \item \textbf{Indirect Pointers}
 
         \begin{itemize}
-            \item is allocated to data-block if file grows large enough
-            \item has total size of 4 KB or 4096 bytes
+            \item Is allocated to data-block if file grows large enough
+            \item Has total size of 4 KB or 4096 bytes
             \item Has $4096/4 = 1024$ pointers
-            \item each pointer points to 4KB data-block
+            \item Each pointer points to 4KB data-block
+            \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
         \end{itemize}
 
         \item \textbf{Double Indirect Pointers}
 
         \begin{itemize}
-            \item
+            \item is allocated when single indirect pointer is not large enough
+            \item each pointer in first pointer block points to another pointer block
+            \item has $1024^2$ pointers
+            \item each of $1024^2$ pointers point to 4KB data block
+            \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
+            \end{center}
         \end{itemize}
 
         \item \textbf{Triple Indirect Pointers}
+
+        \begin{itemize}
+            \item is allocated when double indirect pointer is not large enough
+            \item has $1024^3$ pointers
+            \item each of $1024^3$ pointers point to 4KB data block
+            \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
+        \end{itemize}
     \end{itemize}
 \end{enumerate}
 
