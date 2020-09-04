@@ -905,7 +905,14 @@
         \item \textbf{Reading a File From Disk}
 
         \begin{itemize}
-            \item
+            \item When \texttt{open("/foo/bar", O\_READONLY)} is called, the system first finds the inode
+            for the file \texttt{bar} to read basic information about the file
+
+            \begin{itemize}
+                \item This includes permission, information, file size etc
+            \end{itemize}
+
+            \item Begin traversal at the root of the file system, in the \textbf{root directory}
         \end{itemize}
     \end{itemize}
 \end{enumerate}
