@@ -757,7 +757,27 @@
                 \item Steps
 
                 \begin{enumerate}[1.]
-                    \item Use address translation to
+                    \item Use \textbf{address translation} to transform each memory access,
+                    changing \textbf{virtual address} provided by instruction to \textbf{physical address}
+                    \begin{itemize}
+                        \item Memory access includes instruction fetch, load, or store
+                        \item Is done using hardware
+                    \end{itemize}
+                    \item Invove OS at key points to \textbf{manage memory}
+
+                    \bigskip
+
+                    Memory management includes
+
+                    \bigskip
+
+                    \begin{enumerate}[1.]
+                        \item Setting up hardware so correct translations take place
+                        \item Keeping track of which locations are free and which are in use
+                        \item Judiciously intervening to maintain control over how memory is used
+                    \end{enumerate}
+
+                    \bigskip
                 \end{enumerate}
             \end{itemize}
 
@@ -769,30 +789,30 @@
                 \item Is the technique of transforming virtual address to physical address
             \end{itemize}
 
-            \item \textbf{Dynamic (Hardware-based) Relocation}
+            % \item \textbf{Dynamic (Hardware-based) Relocation}
 
-            \begin{itemize}
-                \item Is a type of address translation
-                \item Occured in 1950's
-                \item Is also referred as \textbf{base and bounds}
-                \item Need \textbf{base register} and the \textbf{bounds}
+            % \begin{itemize}
+            %     \item Is a type of address translation
+            %     \item Occured in 1950's
+            %     \item Is also referred as \textbf{base and bounds}
+            %     \item Need \textbf{base register} and the \textbf{bounds}
 
-                \begin{itemize}
-                    \item \textbf{base register} transforms virtual address to physical address
-                    \item \textbf{bound} ensures addresses are within confines of the address space
-                \end{itemize}
-                \item Steps
+            %     \begin{itemize}
+            %         \item \textbf{base register} transforms virtual address to physical address
+            %         \item \textbf{bound} ensures addresses are within confines of the address space
+            %     \end{itemize}
+            %     \item Steps
 
-                \begin{enumerate}[1.]
-                    \item Write and compile program as if it is loaded at address zero
-                    \item Allow OS to decide where in physical memory it should be loaded
-                    and set base register to that value
+            %     \begin{enumerate}[1.]
+            %         \item Write and compile program as if it is loaded at address zero
+            %         \item Allow OS to decide where in physical memory it should be loaded
+            %         and set base register to that value
 
-                    \bigskip
+            %         \bigskip
 
-                    \texttt{physical address = virtual address + base}
-                \end{enumerate}
-            \end{itemize}
+            %         \texttt{physical address = virtual address + base}
+            %     \end{enumerate}
+            % \end{itemize}
         \end{itemize}
 
 
