@@ -699,6 +699,22 @@
 
         \bigskip
 
+        One concrete example is CPU virtualization.
+
+        \bigskip
+
+        In this case, CPU is virtualized, and OS achieves CPU virtualization by
+
+        \bigskip
+
+        \begin{enumerate}[1)]
+            \item Limiting the process can do without OS assistance by setting up trap handler and starting an interrupt timer
+            \item Intervening at key points in time to perform privileged operations and
+            switch out processes/operations that monopolized the CPU too long
+        \end{enumerate}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -715,7 +731,25 @@
                 allows many programs to seemingly run at once
                 \item To implement CPU virtualization, the OS needs low-level machinery
                 called \textbf{mechanism} and high level intelligence called \textbf{policies}
+                \item Steps
 
+                \begin{enumerate}[1.]
+                    \item Involve OS to setup hardware hardwre to limit what the process can do without OS assistance
+                    (\textbf{Limited Direct Execution})
+
+                    \bigskip
+
+                    This is done so by
+
+                    \bigskip
+
+                    \begin{enumerate}[1.]
+                        \item Setting up trap handler
+                        \item Starting an interrupt timer (so process won't last forever)
+                    \end{enumerate}
+                    \item Involve OS to intervene at key points to perform previleged operations
+                    or switch out operations when they have monopolized the CPU too long
+                \end{enumerate}
                 \bigskip
             \end{itemize}
 
@@ -742,6 +776,7 @@
                     \item \textbf{Shortest Job First}
                     \item \textbf{Shortest Time-to-completion First}
                     \item \textbf{Round Robin}
+                    \item \textbf{Multi-level Feedback Queue}
                 \end{itemize}
             \end{itemize}
 
