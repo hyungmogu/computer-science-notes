@@ -752,7 +752,8 @@
                 so that the OS gets involved and make sure the 'Right' thing happens.
                 \item Like CPU, many programs are sharing the memory at the same time
                 \item Like CPU, the goal is to create an illusion that it has its own code and data
-                \item Like CPU, the memory also needs low-level machinery called \textbf{mechanism}
+                \item Like CPU, the memory also needs low-level machinery called \textbf{mechanism},
+                and high level intelligence called \textbf{policies}
             \end{itemize}
 
             \item \textbf{Address Translation}
@@ -767,10 +768,16 @@
                 \item Is a type of address translation
                 \item Occured in 1950's
                 \item Is also referred as \textbf{base and bounds}
+                \item Need \textbf{base register} and the \textbf{bounds}
+                \begin{itemize}
+                    \item
+                \end{itemize}
                 \item Steps
 
                 \begin{enumerate}[1.]
-                    \item
+                    \item Write and compile program as if it is loaded at address zero
+                    \item Allow OS to decide where in physical memory it should be loaded
+                    and set base register to that value
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
