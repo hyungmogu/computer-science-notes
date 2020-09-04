@@ -894,9 +894,19 @@
 
         1 for root, 1 for \texttt{a}, 1 for \texttt{b}
 
-        \item
+        \item 1 indirect block, 1 double indirect blocks
 
         \bigskip
+
+        Data block we are seeking is positioned is located $(1034 \times 4096)/ 1024 = 4136 \text{KB}$.
+
+        \bigskip
+
+        This is more than the capacity of single indirect block ($(12 + 1024) * 4 \text{K} = 4144\text{KB}$)
+
+        \bigskip
+
+        Thus, we need to look into data block in double indirect pointers.
 
         \item 1
 
