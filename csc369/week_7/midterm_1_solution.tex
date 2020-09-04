@@ -902,9 +902,16 @@
             \end{itemize}
         \end{itemize}
 
-        \item \textbf{i-number}
+        \item \textbf{Kilobyte}
+
         \begin{itemize}
-            \item
+            \item 1 kilobyte is \underline{1024 bytes}
+        \end{itemize}
+
+        \item \textbf{file}
+        \begin{itemize}
+            \item is an array of bytes which can be created, read, written and deleted
+            \item low-level name is called \textbf{i-number}
         \end{itemize}
         \item \textbf{Reading a File From Disk}
 
@@ -920,10 +927,10 @@
 
                 \item Begin traversal at the root of the file system, in the \textbf{root directory}
 
-                \item Find \texttt{inode} by
+                \item Find \texttt{inode} by looking for \texttt{i-number}
 
                 \begin{itemize}
-                    \item Looking for \texttt[i-number]
+                    \item \texttt{i-number} is found in it's parent directoy
                 \end{itemize}
             \end{enumerate}
         \end{itemize}
