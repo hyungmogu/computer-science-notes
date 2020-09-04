@@ -915,16 +915,31 @@
         \end{itemize}
         \item \textbf{Reading a File From Disk}
 
-        \begin{itemize}
+        \bigskip
 
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+        When
+
+        \bigskip
+
+        \texttt{open("/foo/bar", O\_READONLY)}
+
+        \bigskip
+
+        is called
+
+        \bigskip
+
+        \begin{itemize}
+            \item the goal is to find the inode of the file \texttt{bar} to read its basic information
+            (i.e. includes permission, information, file size etc)
+            \item done by traversing the pathname and locate the desired inode
             \item Steps
 
             \begin{enumerate}[1.]
-                \item When \texttt{open("/foo/bar", O\_READONLY)} is called, the system first finds the inode
-            for the file \texttt{bar} to read basic information about the file
-
-                \item This includes permission, information, file size etc
-
                 \item Begin traversal at the root of the file system, in the \textbf{root directory}
 
                 \item Find \texttt{inode} by looking for \texttt{i-number}
@@ -932,6 +947,11 @@
                 \begin{itemize}
                     \item \texttt{i-number} is found in it's parent directoy
                 \end{itemize}
+
+                \item Once \texttt{inode} is read, can look inside to find pointers
+                to data blocks
+
+                \item
             \end{enumerate}
         \end{itemize}
     \end{itemize}
