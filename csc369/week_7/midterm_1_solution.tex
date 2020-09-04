@@ -1054,79 +1054,93 @@
 
     \bigskip
 
-    \underline{\textbf{Notes}}
+    \begin{enumerate}[a)]
+        \item
 
-    \begin{itemize}
-        \item \textbf{Old UNIX File system}
-        \begin{itemize}
-            \item was simple, and looked like the following on disk
+        All of the above
 
-            \begin{center}
-            \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_16.png}
-            \end{center}
-            \item has terrible performance
-            \item suffers from \textbf{external fragmentation}
-            \item had small data block (512 bytes) and transfer of data took too long
-        \end{itemize}
+        \bigskip
 
-        \item \textbf{Fast File System}
+        \underline{\textbf{Notes}}
 
         \begin{itemize}
-            \item modern file system has same APIS (\texttt{read()}, \texttt{write()}, \texttt{open()}, \texttt{close()})
-            \item divides into a number of \textbf{cylinder groups}
+            \item \textbf{Old UNIX File system}
+            \begin{itemize}
+                \item was simple, and looked like the following on disk
 
-            \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_17.png}
-            \end{center}
-            \item each \textbf{block group} or \textbf{cylinder group} is consecutive
-            portion of disk's address
+                \begin{center}
+                \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_16.png}
+                \end{center}
+                \item has terrible performance
+                \item suffers from \textbf{external fragmentation}
+                \item had small data block (512 bytes) and transfer of data took too long
+            \end{itemize}
 
-            \begin{center}
-            \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_18.png}
-            \end{center}
+            \item \textbf{Fast File System}
+
+            \begin{itemize}
+                \item modern file system has same APIS (\texttt{read()}, \texttt{write()}, \texttt{open()}, \texttt{close()})
+                \item divides into a number of \textbf{cylinder groups}
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_17.png}
+                \end{center}
+                \item each \textbf{block group} or \textbf{cylinder group} is consecutive
+                portion of disk's address
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_18.png}
+                \end{center}
+            \end{itemize}
+
+            \item \textbf{Bitmap}
+
+            \begin{itemize}
+                \item Are excellent way to \underline{manage free space}
+                \item tracks whether inodes/data block of the group are allocated
+            \end{itemize}
+
+            \item \textbf{FFS Policies: Allocating Files and Directories}
+
+            \begin{itemize}
+                \item Basic Idea: keep related stuff together, and keep related stuff
+                far apart
+                \item Directories Step
+
+                \begin{enumerate}[1)]
+                    \item Find the \textbf{cylinder group} with a low number of allocated directories
+                    and a high number of free inodes
+
+                    \begin{itemize}
+                        \item low number of allocated directories $\to$ to balance directories
+                        across groups
+                        \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
+                    \end{itemize}
+                    \item Put directory data and inode to the \textbf{cylinder group}
+                \end{enumerate}
+
+                \item Files Step
+
+                \begin{enumerate}[1)]
+                    \item Allocate the data blocks of a file in the same \textbf{cylinder group} as its inode
+                    \item Place all files in the same directory in the cylinder group of the directory they are in
+
+                    \bigskip
+
+                    \underline{\textbf{Example}}
+
+                    \bigskip
+
+                    On putting \texttt{/a/c}, \texttt{/a/d}, \texttt{/b/f}, FFS would place
+
+                    \begin{itemize}
+                        \item \texttt{/a/c}, \texttt{/a/d} as close as possible in the same \textbf{cylinder group},
+                        \item \texttt{/b/f} located far away (in some other \textbf{cylinder group})
+                    \end{itemize}
+                \end{enumerate}
+            \end{itemize}
         \end{itemize}
-
-        \item \textbf{Bitmap}
-
-        \begin{itemize}
-            \item Are excellent way to \underline{manage free space}
-            \item tracks whether inodes/data block of the group are allocated
-        \end{itemize}
-
-        \item \textbf{FFS Policies: Allocating Files and Directories}
-
-        \begin{itemize}
-            \item Basic Idea: keep related stuff together, and keep related stuff
-            far apart
-            \item Directories Step
-
-            \begin{enumerate}[1)]
-                \item Find the \textbf{cylinder group} with a low number of allocated directories
-                and a high number of free inodes
-
-                \begin{itemize}
-                    \item low number of allocated directories $\to$ to balance directories
-                    across groups
-                    \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
-                \end{itemize}
-                \item Put directory data and inode to the \textbf{cylinder group}
-            \end{enumerate}
-
-            \item Files Step
-
-            \begin{enumerate}[1)]
-                \item Find the \textbf{cylinder group} with a low number of allocated directories
-                and a high number of free inodes
-
-                \begin{itemize}
-                    \item low number of allocated directories $\to$ to balance directories
-                    across groups
-                    \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
-                \end{itemize}
-                \item Put directory data and inode to the \textbf{cylinder group}
-            \end{enumerate}
-        \end{itemize}
-    \end{itemize}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
