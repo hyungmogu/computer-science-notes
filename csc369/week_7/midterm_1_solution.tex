@@ -951,10 +951,17 @@
                 \end{itemize}
 
                 \item Read the \textbf{inode} of root directory
-                \item Once \textbf{inode} is read, look inside to find pointers
+                \item Once its \textbf{inode} is read, look inside to find pointers
                 to data blocks
                 \item Recursively traverse the pathname until the desired inode is found (e.g \texttt{foo} $\to$ \texttt{bar})
-                \item Read load
+                \item Issue a \texttt{read()} system call to read from file
+
+                \begin{itemize}
+                    \item \texttt{fd} with offset \texttt{0} reads the first file block (e.g. \texttt{bar data[0]})
+                    \item \texttt{lseek(..., offset\_amt * size\_of\_file\_block)} is used to offset/move to desired block in \texttt{bar}
+                \end{itemize}
+
+                \item
             \end{enumerate}
         \end{itemize}
     \end{itemize}
