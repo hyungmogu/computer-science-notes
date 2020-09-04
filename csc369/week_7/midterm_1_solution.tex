@@ -942,18 +942,19 @@
             \begin{enumerate}[1.]
                 \item Begin traversal at the root of the file system, in the \textbf{root directory}
 
-                \item Find \texttt{inode} of the root directory by looking for \texttt{i-number}
+                \item Find \textbf{inode} of the root directory by looking for \texttt{i-number}
 
                 \begin{itemize}
-                    \item \texttt{i-number} is found in it's parent directoy
+                    \item \textbf{i-number} is found in it's parent directoy
                     \item for root directory, there is no parent directory
                     \item it's inode number is 2 (for UNIX file systems)
                 \end{itemize}
 
-                \item Once \texttt{inode} is read, look inside to find pointers
+                \item Read the \textbf{inode} of root directory
+                \item Once \textbf{inode} is read, look inside to find pointers
                 to data blocks
-
-                \item
+                \item Recursively traverse the pathname until the desired inode is found (e.g \texttt{foo} $\to$ \texttt{bar})
+                \item Read load
             \end{enumerate}
         \end{itemize}
     \end{itemize}
