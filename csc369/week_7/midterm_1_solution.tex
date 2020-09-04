@@ -1086,7 +1086,14 @@
             \end{center}
         \end{itemize}
 
-        \item \textbf{FFS Policies: How to Allocate Files and Directories}
+        \item \textbf{Bitmap}
+
+        \begin{itemize}
+            \item Are excellent way to \underline{manage free space}
+            \item tracks whether inodes/data block of the group are allocated
+        \end{itemize}
+
+        \item \textbf{FFS Policies: Allocating Files and Directories}
 
         \begin{itemize}
             \item Basic Idea: keep related stuff together, and keep related stuff
@@ -1106,6 +1113,18 @@
             \end{enumerate}
 
             \item Files Step
+
+            \begin{enumerate}[1)]
+                \item Find the \textbf{cylinder group} with a low number of allocated directories
+                and a high number of free inodes
+
+                \begin{itemize}
+                    \item low number of allocated directories $\to$ to balance directories
+                    across groups
+                    \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
+                \end{itemize}
+                \item Put directory data and inode to the \textbf{cylinder group}
+            \end{enumerate}
         \end{itemize}
     \end{itemize}
 \end{enumerate}
