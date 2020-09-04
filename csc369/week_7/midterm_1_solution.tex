@@ -754,12 +754,19 @@
                 \item Like CPU, the goal is to create an illusion that it has its own code and data
                 \item Like CPU, the memory also needs low-level machinery called \textbf{mechanism},
                 and high level intelligence called \textbf{policies}
+                \item Steps
+
+                \begin{enumerate}[1.]
+                    \item Use address translation to
+                \end{enumerate}
             \end{itemize}
 
             \item \textbf{Address Translation}
 
             \begin{itemize}
+                \item Is also called \textbf{hardware-based address translation}
                 \item Is a mechanism of memory virtualization
+                \item Is the technique of transforming virtual address to physical address
             \end{itemize}
 
             \item \textbf{Dynamic (Hardware-based) Relocation}
@@ -769,8 +776,10 @@
                 \item Occured in 1950's
                 \item Is also referred as \textbf{base and bounds}
                 \item Need \textbf{base register} and the \textbf{bounds}
+
                 \begin{itemize}
-                    \item
+                    \item \textbf{base register} transforms virtual address to physical address
+                    \item \textbf{bound} ensures addresses are within confines of the address space
                 \end{itemize}
                 \item Steps
 
@@ -778,6 +787,10 @@
                     \item Write and compile program as if it is loaded at address zero
                     \item Allow OS to decide where in physical memory it should be loaded
                     and set base register to that value
+
+                    \bigskip
+
+                    \texttt{physical address = virtual address + base}
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
