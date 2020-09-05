@@ -467,6 +467,474 @@ Linux's ext4 file system
     \item May hinder performance
 \end{itemize}
 
+\section*{Virtualization}
+
+\begin{itemize}
+    \item is an act of creating an illusion that there are as many hardware resource as each program needs.
+\end{itemize}
+
+\section*{Virtualizing CPU}
+
+\begin{itemize}
+    \item Turns a single CPU into a seemingly infinite number of CPUS, and
+    allows many programs to seemingly run at once
+    \item To implement CPU virtualization, the OS needs low-level machinery
+    called \textbf{mechanism} and high level intelligence called \textbf{policies}
+    \item Steps
+
+    \begin{enumerate}[1.]
+        \item Involve OS to setup hardware hardwre to limit what the process can do without OS assistance
+        (\textbf{Limited Direct Execution})
+
+        \bigskip
+
+        This is done so by
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Setting up trap handler
+            \item Starting an interrupt timer (so process won't last forever)
+        \end{enumerate}
+        \item Involve OS to intervene at key points to perform previleged operations
+        or switch out operations when they have monopolized the CPU too long
+    \end{enumerate}
+    \bigskip
+\end{itemize}
+
+\section*{Limited direct execution}
+
+\begin{itemize}
+    \item Is a mechanism of CPU virtualization
+    \item Baby proofs the CPU by setting up hardwre to limit what the process can do without OS assistance
+    \item Runs program in CPU once baby proofed
+    \item Does so by
+    \begin{itemize}
+        \item Setting up trap handler
+        \item Starting an interrupt timer (so process won't last forever)
+    \end{itemize}
+\end{itemize}
+
+\section*{Scheduling policies}
+
+\begin{itemize}
+    \item Are series of polices of CPU virtualization
+
+    \begin{itemize}
+        \item \textbf{First In First Out}
+        \item \textbf{Shortest Job First}
+        \item \textbf{Shortest Time-to-completion First}
+        \item \textbf{Round Robin}
+        \item \textbf{Multi-level Feedback Queue}
+    \end{itemize}
+\end{itemize}
+
+\section*{Virtualizing Memory}
+\begin{itemize}
+    \item Basic Idea: For the most part, let the program run directly on the hardware;
+    however, at certain key points in time (e.g. system call, timer interrupt), arrange
+    so that the OS gets involved and make sure the 'Right' thing happens.
+    \item Like CPU, many programs are sharing the memory at the same time
+    \item Like CPU, the goal is to create an illusion that it has its own code and data
+    \item Like CPU, the memory also needs low-level machinery called \textbf{mechanism},
+    and high level intelligence called \textbf{policies}
+    \item Steps
+
+    \begin{enumerate}[1.]
+        \item Use \textbf{address translation} to transform each memory access,
+        changing \textbf{virtual address} provided by instruction to \textbf{physical address}
+        \begin{itemize}
+            \item Memory access includes instruction fetch, load, or store
+            \item Is done using hardware
+        \end{itemize}
+        \item Invove OS at key points to \textbf{manage memory}
+
+        \bigskip
+
+        Memory management includes
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item Setting up hardware so correct translations take place
+            \item Keeping track of which locations are free and which are in use
+            \item Judiciously intervening to maintain control over how memory is used
+        \end{enumerate}
+
+        \bigskip
+    \end{enumerate}
+\end{itemize}
+
+\section*{Address Translation}
+
+\begin{itemize}
+    \item Is also called \textbf{hardware-based address translation}
+    \item Is a mechanism of memory virtualization
+    \item Is the technique of transforming virtual address to physical address
+\end{itemize}
+
+\section*{Dynamic (Hardware-based) Relocation}
+
+\begin{itemize}
+    \item Is a type of address translation
+    \item Occured in 1950's
+    \item Is also referred as \textbf{base and bounds}
+    \item Need \textbf{base register} and the \textbf{bounds}
+
+    \begin{itemize}
+        \item \textbf{base register} transforms virtual address to physical address
+        \item \textbf{bound} ensures addresses are within confines of the address space
+    \end{itemize}
+    \item Steps
+
+    \begin{enumerate}[1.]
+        \item Write and compile program as if it is loaded at address zero
+        \item Allow OS to decide where in physical memory it should be loaded
+        and set base register to that value
+
+        \bigskip
+
+        \texttt{physical address = virtual address + base}
+    \end{enumerate}
+\end{itemize}
+
+
+\section*{Block}
+
+\begin{itemize}
+    \item Size of each block is 4KB
+\end{itemize}
+
+\section*{lseek}
+
+\begin{itemize}
+    \item \textbf{Syntax:} \texttt{off\_t lseek(int fildes, off\_t offset, int whence)}
+
+    \begin{itemize}
+        \item \texttt{fildes} - file descriptor
+        \item \texttt{offset} - file offset to a particular position in file
+    \end{itemize}
+\end{itemize}
+
+\section*{Kilobyte}
+
+\begin{itemize}
+    \item 1 kilobyte is \underline{1024 bytes}
+\end{itemize}
+
+\section*{file}
+\begin{itemize}
+    \item is an array of bytes which can be created, read, written and deleted
+    \item low-level name is called \textbf{inode number} or \textbf{i-number}
+\end{itemize}
+\section*{Reading a File From Disk}
+
+\bigskip
+
+\underline{\textbf{Example}}
+
+\bigskip
+
+When
+
+\bigskip
+
+\texttt{open("/foo/bar", O\_READONLY)}
+
+\bigskip
+
+is called
+
+\bigskip
+
+\begin{itemize}
+    \item the goal is to find the inode of the file \texttt{bar} to read its basic information
+    (i.e. includes permission, information, file size etc)
+    \item done by traversing the pathname and locate the desired inode
+    \item Steps
+
+    \begin{enumerate}[1.]
+        \item Begin traversal at the root of the file system, in the \textbf{root directory}
+
+        \item Find \textbf{inode} of the root directory by looking for \texttt{i-number}
+
+        \begin{itemize}
+            \item \textbf{i-number} is found in it's parent directoy
+            \item for root directory, there is no parent directory
+            \item it's inode number is 2 (for UNIX file systems)
+        \end{itemize}
+
+        \item Read the \textbf{inode} of root directory
+        \item Once its \textbf{inode} is read, look inside to find pointers
+        to data blocks
+        \item Recursively traverse the pathname until the desired inode is found (e.g \texttt{foo} $\to$ \texttt{bar})
+        \item Issue a \texttt{read()} system call to read from file
+
+        \begin{itemize}
+            \item \texttt{fd} with offset \texttt{0} reads the first file block (e.g. \texttt{bar data[0]})
+            \item \texttt{lseek(..., offset\_amt * size\_of\_file\_block)} is used to offset/move to desired block in \texttt{bar}
+        \end{itemize}
+
+        \item Trasnfer data to \texttt{buf} data block
+
+        \item Close \texttt{fd}. No I/O is read.
+    \end{enumerate}
+\end{itemize}
+
+\section*{inode}
+
+\begin{itemize}
+    \item total size may vary
+    \item inode pointer has size of 4 byte
+    \item Has 12 \textbf{direct pointers} to 4KB data blocks
+    \item Has 1 \textbf{indirect pointer} [when file grows large enough]
+    \item Has 1 \textbf{double indirect Pointer} [when file grows large enough]
+    \item Has 1 \textbf{triple indirect Pointer} [when file grows large enough]
+\end{itemize}
+
+\section*{Indirect Pointers}
+
+\begin{itemize}
+    \item Is allocated to data-block if file grows large enough
+    \item Has total size of 4 KB or 4096 bytes
+    \item Has $4096/4 = 1024$ pointers
+    \item Each pointer points to 4KB data-block
+    \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
+\end{itemize}
+
+\section*{Double Indirect Pointers}
+
+\begin{itemize}
+    \item is allocated when single indirect pointer is not large enough
+    \item each pointer in first pointer block points to another pointer block
+    \item has $1024^2$ pointers
+    \item each of $1024^2$ pointers point to 4KB data block
+    \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
+    \end{center}
+\end{itemize}
+
+\section*{Triple Indirect Pointers}
+
+\begin{itemize}
+    \item is allocated when double indirect pointer is not large enough
+    \item has $1024^3$ pointers
+    \item each of $1024^3$ pointers point to 4KB data block
+    \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
+\end{itemize}
+
+\section*{Old UNIX File system}
+\begin{itemize}
+    \item was simple, and looked like the following on disk
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_16.png}
+    \end{center}
+    \item has terrible performance
+    \item suffers from \textbf{external fragmentation}
+    \item had small data block (512 bytes) and transfer of data took too long
+\end{itemize}
+
+\section*{Fast File System}
+
+\begin{itemize}
+    \item modern file system has same APIS (\texttt{read()}, \texttt{write()}, \texttt{open()}, \texttt{close()})
+    \item divides into a number of \textbf{cylinder groups}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_17.png}
+    \end{center}
+    \item each \textbf{block group} or \textbf{cylinder group} is consecutive
+    portion of disk's address
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_18.png}
+    \end{center}
+\end{itemize}
+
+\section*{Bitmap}
+
+\begin{itemize}
+    \item Are excellent way to \underline{manage free space}
+    \item tracks whether inodes/data block of the group are allocated
+\end{itemize}
+
+\section*{FFS Policies: Allocating Files and Directories}
+
+\begin{itemize}
+    \item Basic Idea: keep related stuff together, and keep related stuff
+    far apart
+    \item Directories Step
+
+    \begin{enumerate}[1)]
+        \item Find the \textbf{cylinder group} with a low number of allocated directories
+        and a high number of free inodes
+
+        \begin{itemize}
+            \item low number of allocated directories $\to$ to balance directories
+            across groups
+            \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
+        \end{itemize}
+        \item Put directory data and inode to the \textbf{cylinder group}
+    \end{enumerate}
+
+    \item Files Step
+
+    \begin{enumerate}[1)]
+        \item Allocate the data blocks of a file in the same \textbf{cylinder group} as its inode
+        \item Place all files in the same directory in the cylinder group of the directory they are in
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+        On putting \texttt{/a/c}, \texttt{/a/d}, \texttt{/b/f}, FFS would place
+
+        \begin{itemize}
+            \item \texttt{/a/c}, \texttt{/a/d} as close as possible in the same \textbf{cylinder group},
+            \item \texttt{/b/f} located far away (in some other \textbf{cylinder group})
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+
+\section*{Inode}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_12.png}
+\end{center}
+
+\begin{itemize}
+    \item Is a short form for \textbf{index node}
+    \item Contains disk block location of the object's data $^{[1]}$
+    \item Contains all the information you need about a file (i.e. metadata)
+
+    \begin{itemize}
+        \item File Type
+        \begin{itemize}
+            \item e.g. regular file, directory, etc
+        \end{itemize}
+        \item Size
+        \item Number of blocks allocated to it
+        \item Protection information
+        \begin{itemize}
+            \item such as who owns the file, as well as who can access it
+        \end{itemize}
+        \item Time information
+        \begin{itemize}
+            \item e.g. When file was created, modified, or last accessed
+        \end{itemize}
+        \item Location of data blocks reside on disk
+    \end{itemize}
+\end{itemize}
+
+\section*{Crash Consistency}
+
+\begin{itemize}
+    \item Goal: How to update persistent data structures despite the presence of
+    a \textbf{power loss} or \textbf{system crash}?
+\end{itemize}
+
+\section*{Crash Scenarios}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_19.png}
+\end{center}
+
+
+\begin{enumerate}[1)]
+    \item Just the data block (Db) is written to disk
+
+    \bigskip
+
+    \begin{itemize}
+        \item No inode that points to it
+        \item No bitmap that says the block is allocated
+        \item It is as if the write never occured
+        \item There is no problem here. All is well. (In file system's point of view)
+    \end{itemize}
+
+    \bigskip
+
+    \item Just the updated inode (I[v2]) is written to disk
+
+    \bigskip
+
+    \begin{itemize}
+        \item Inode points to the disk where \texttt{Db} is about to be written
+        \item No bitmap that says the block is allocated
+        \item No \texttt{Db} is written
+        \item Garbage data will be read
+        \item Also creates \textbf{File-system Inconsistency}
+
+        \begin{itemize}
+            \item Caused by on-disk bitmap telling us Db 5 is not allocated,
+            but inode saying it does
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \item Just the updated bitmap (B[v2]) is written to disk
+
+    \bigskip
+
+    \begin{itemize}
+        \item Bitmap indicates tht block 5 is allocated
+        \item No inode exists at block 5
+        \item Creates \textbf{file-system inconsistency}
+        \item Creates \textbf{space-leak} if left as is
+
+        \begin{itemize}
+            \item block 5 can never be used by the file system
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
+
+    \bigskip
+
+    \begin{itemize}
+        \item File system metadata is completely consistent (in perspective of file system)
+        \item Garbage data will be read
+    \end{itemize}
+
+    \bigskip
+
+    \item Inode (I[v2]) and data block (Db) are written, but not the bit map
+
+    \bigskip
+
+    \begin{itemize}
+        \item Creates \textbf{file-system inconsistency}
+        \item Needs to be resolved before using file system again
+    \end{itemize}
+
+    \bigskip
+
+    \item Bitmap (B[v2]) and data block (Db) are written, but not the inode (I[v2])
+
+    \bigskip
+
+    \begin{itemize}
+        \item Creates \textbf{file-system inconsistency} between inode and data bitmap
+        \item Creates \textbf{space-leak} if left as is
+        \begin{itemize}
+            \item Inode block is lost for future use
+        \end{itemize}
+        \item Creates \textbf{data-leak} if left as is
+
+        \begin{itemize}
+            \item Data block is lost for future use
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
 \bigskip
 
 \underline{\textbf{References}}
@@ -487,354 +955,5 @@ Linux's ext4 file system
 \end{enumerate}
 
 -------------
-
-\begin{itemize}
-    \item The solution is written that \texttt{c)} can be read with 1 indirect pointers.
-    I need to clarify with professor on this information.
-    \item \textbf{Block}
-
-    \begin{itemize}
-        \item Size of each block is 4KB
-    \end{itemize}
-
-    \item \textbf{lseek}
-
-    \begin{itemize}
-        \item \textbf{Syntax:} \texttt{off\_t lseek(int fildes, off\_t offset, int whence)}
-
-        \begin{itemize}
-            \item \texttt{fildes} - file descriptor
-            \item \texttt{offset} - file offset to a particular position in file
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Kilobyte}
-
-    \begin{itemize}
-        \item 1 kilobyte is \underline{1024 bytes}
-    \end{itemize}
-
-    \item \textbf{file}
-    \begin{itemize}
-        \item is an array of bytes which can be created, read, written and deleted
-        \item low-level name is called \textbf{inode number} or \textbf{i-number}
-    \end{itemize}
-    \item \textbf{Reading a File From Disk}
-
-    \bigskip
-
-    \underline{\textbf{Example}}
-
-    \bigskip
-
-    When
-
-    \bigskip
-
-    \texttt{open("/foo/bar", O\_READONLY)}
-
-    \bigskip
-
-    is called
-
-    \bigskip
-
-    \begin{itemize}
-        \item the goal is to find the inode of the file \texttt{bar} to read its basic information
-        (i.e. includes permission, information, file size etc)
-        \item done by traversing the pathname and locate the desired inode
-        \item Steps
-
-        \begin{enumerate}[1.]
-            \item Begin traversal at the root of the file system, in the \textbf{root directory}
-
-            \item Find \textbf{inode} of the root directory by looking for \texttt{i-number}
-
-            \begin{itemize}
-                \item \textbf{i-number} is found in it's parent directoy
-                \item for root directory, there is no parent directory
-                \item it's inode number is 2 (for UNIX file systems)
-            \end{itemize}
-
-            \item Read the \textbf{inode} of root directory
-            \item Once its \textbf{inode} is read, look inside to find pointers
-            to data blocks
-            \item Recursively traverse the pathname until the desired inode is found (e.g \texttt{foo} $\to$ \texttt{bar})
-            \item Issue a \texttt{read()} system call to read from file
-
-            \begin{itemize}
-                \item \texttt{fd} with offset \texttt{0} reads the first file block (e.g. \texttt{bar data[0]})
-                \item \texttt{lseek(..., offset\_amt * size\_of\_file\_block)} is used to offset/move to desired block in \texttt{bar}
-            \end{itemize}
-
-            \item Trasnfer data to \texttt{buf} data block
-
-            \item Close \texttt{fd}. No I/O is read.
-        \end{enumerate}
-    \end{itemize}
-
-    \item \textbf{inode}
-
-    \begin{itemize}
-        \item total size may vary
-        \item inode pointer has size of 4 byte
-        \item Has 12 \textbf{direct pointers} to 4KB data blocks
-        \item Has 1 \textbf{indirect pointer} [when file grows large enough]
-        \item Has 1 \textbf{double indirect Pointer} [when file grows large enough]
-        \item Has 1 \textbf{triple indirect Pointer} [when file grows large enough]
-    \end{itemize}
-
-    \item \textbf{Indirect Pointers}
-
-    \begin{itemize}
-        \item Is allocated to data-block if file grows large enough
-        \item Has total size of 4 KB or 4096 bytes
-        \item Has $4096/4 = 1024$ pointers
-        \item Each pointer points to 4KB data-block
-        \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
-    \end{itemize}
-
-    \item \textbf{Double Indirect Pointers}
-
-    \begin{itemize}
-        \item is allocated when single indirect pointer is not large enough
-        \item each pointer in first pointer block points to another pointer block
-        \item has $1024^2$ pointers
-        \item each of $1024^2$ pointers point to 4KB data block
-        \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
-
-        \begin{center}
-        \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
-        \end{center}
-    \end{itemize}
-
-    \item \textbf{Triple Indirect Pointers}
-
-    \begin{itemize}
-        \item is allocated when double indirect pointer is not large enough
-        \item has $1024^3$ pointers
-        \item each of $1024^3$ pointers point to 4KB data block
-        \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
-    \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-    \item \textbf{Old UNIX File system}
-    \begin{itemize}
-        \item was simple, and looked like the following on disk
-
-        \begin{center}
-        \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_16.png}
-        \end{center}
-        \item has terrible performance
-        \item suffers from \textbf{external fragmentation}
-        \item had small data block (512 bytes) and transfer of data took too long
-    \end{itemize}
-
-    \item \textbf{Fast File System}
-
-    \begin{itemize}
-        \item modern file system has same APIS (\texttt{read()}, \texttt{write()}, \texttt{open()}, \texttt{close()})
-        \item divides into a number of \textbf{cylinder groups}
-
-        \begin{center}
-        \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_17.png}
-        \end{center}
-        \item each \textbf{block group} or \textbf{cylinder group} is consecutive
-        portion of disk's address
-
-        \begin{center}
-        \includegraphics[width=0.8\linewidth]{images/midterm_1_solution_18.png}
-        \end{center}
-    \end{itemize}
-
-    \item \textbf{Bitmap}
-
-    \begin{itemize}
-        \item Are excellent way to \underline{manage free space}
-        \item tracks whether inodes/data block of the group are allocated
-    \end{itemize}
-
-    \item \textbf{FFS Policies: Allocating Files and Directories}
-
-    \begin{itemize}
-        \item Basic Idea: keep related stuff together, and keep related stuff
-        far apart
-        \item Directories Step
-
-        \begin{enumerate}[1)]
-            \item Find the \textbf{cylinder group} with a low number of allocated directories
-            and a high number of free inodes
-
-            \begin{itemize}
-                \item low number of allocated directories $\to$ to balance directories
-                across groups
-                \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
-            \end{itemize}
-            \item Put directory data and inode to the \textbf{cylinder group}
-        \end{enumerate}
-
-        \item Files Step
-
-        \begin{enumerate}[1)]
-            \item Allocate the data blocks of a file in the same \textbf{cylinder group} as its inode
-            \item Place all files in the same directory in the cylinder group of the directory they are in
-
-            \bigskip
-
-            \underline{\textbf{Example}}
-
-            \bigskip
-
-            On putting \texttt{/a/c}, \texttt{/a/d}, \texttt{/b/f}, FFS would place
-
-            \begin{itemize}
-                \item \texttt{/a/c}, \texttt{/a/d} as close as possible in the same \textbf{cylinder group},
-                \item \texttt{/b/f} located far away (in some other \textbf{cylinder group})
-            \end{itemize}
-        \end{enumerate}
-    \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-    \item \textbf{Inode}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_12.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Is a short form for \textbf{index node}
-        \item Contains disk block location of the object's data $^{[1]}$
-        \item Contains all the information you need about a file (i.e. metadata)
-
-        \begin{itemize}
-            \item File Type
-            \begin{itemize}
-                \item e.g. regular file, directory, etc
-            \end{itemize}
-            \item Size
-            \item Number of blocks allocated to it
-            \item Protection information
-            \begin{itemize}
-                \item such as who owns the file, as well as who can access it
-            \end{itemize}
-            \item Time information
-            \begin{itemize}
-                \item e.g. When file was created, modified, or last accessed
-            \end{itemize}
-            \item Location of data blocks reside on disk
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-    \item \textbf{Crash Consistency}
-
-    \begin{itemize}
-        \item Goal: How to update persistent data structures despite the presence of
-        a \textbf{power loss} or \textbf{system crash}?
-    \end{itemize}
-
-    \item \textbf{Crash Scenarios}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_19.png}
-    \end{center}
-
-
-    \begin{enumerate}[1)]
-        \item Just the data block (Db) is written to disk
-
-        \bigskip
-
-        \begin{itemize}
-            \item No inode that points to it
-            \item No bitmap that says the block is allocated
-            \item It is as if the write never occured
-            \item There is no problem here. All is well. (In file system's point of view)
-        \end{itemize}
-
-        \bigskip
-
-        \item Just the updated inode (I[v2]) is written to disk
-
-        \bigskip
-
-        \begin{itemize}
-            \item Inode points to the disk where \texttt{Db} is about to be written
-            \item No bitmap that says the block is allocated
-            \item No \texttt{Db} is written
-            \item Garbage data will be read
-            \item Also creates \textbf{File-system Inconsistency}
-
-            \begin{itemize}
-                \item Caused by on-disk bitmap telling us Db 5 is not allocated,
-                but inode saying it does
-            \end{itemize}
-        \end{itemize}
-
-        \bigskip
-
-        \item Just the updated bitmap (B[v2]) is written to disk
-
-        \bigskip
-
-        \begin{itemize}
-            \item Bitmap indicates tht block 5 is allocated
-            \item No inode exists at block 5
-            \item Creates \textbf{file-system inconsistency}
-            \item Creates \textbf{space-leak} if left as is
-
-            \begin{itemize}
-                \item block 5 can never be used by the file system
-            \end{itemize}
-        \end{itemize}
-
-        \bigskip
-
-        \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
-
-        \bigskip
-
-        \begin{itemize}
-            \item File system metadata is completely consistent (in perspective of file system)
-            \item Garbage data will be read
-        \end{itemize}
-
-        \bigskip
-
-        \item Inode (I[v2]) and data block (Db) are written, but not the bit map
-
-        \bigskip
-
-        \begin{itemize}
-            \item Creates \textbf{file-system inconsistency}
-            \item Needs to be resolved before using file system again
-        \end{itemize}
-
-        \bigskip
-
-        \item Bitmap (B[v2]) and data block (Db) are written, but not the inode (I[v2])
-
-        \bigskip
-
-        \begin{itemize}
-            \item Creates \textbf{file-system inconsistency} between inode and data bitmap
-            \item Creates \textbf{space-leak} if left as is
-            \begin{itemize}
-                \item Inode block is lost for future use
-            \end{itemize}
-            \item Creates \textbf{data-leak} if left as is
-
-            \begin{itemize}
-                \item Data block is lost for future use
-            \end{itemize}
-        \end{itemize}
-
-        \bigskip
-    \end{enumerate}
-\end{itemize}
-
 
 \end{document}
