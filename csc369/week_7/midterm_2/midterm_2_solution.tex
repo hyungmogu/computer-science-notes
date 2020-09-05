@@ -59,7 +59,8 @@
     \begin{enumerate}[a)]
         \item False
         \item True
-        \item
+        \item True
+        \item True
     \end{enumerate}
 
     \bigskip
@@ -199,11 +200,41 @@
             \item Has two types
             \begin{itemize}
                 \item \textbf{User-level Threads:}
+
+                \begin{itemize}
+                    \item Are implemented by users and kernel is not aware of the existence of these threads
+                    \item Are represented by a program counter(PC), stack, registers and a small process control block
+                    \item Are small and much faster than kernel level threads
+                \end{itemize}
                 \item \textbf{Kernel-level Threads:}
+
+                \begin{itemize}
+                    \item Are handled by the operating system directly
+                    \item Thread management is done by the kernel
+                    \item Are slower than user-level threads
+                \end{itemize}
             \end{itemize}
         \end{itemize}
 
-        \item \textbf{}
+        \item \textbf{Process}
+
+        \begin{itemize}
+            \item
+        \end{itemize}
+
+        \item \textbf{Signals}
+
+        \begin{itemize}
+            \item Provides a way to communicate with the process
+            \item Can cause job to stop, continue, or terminate
+            \item Can be delivered to an application
+
+            \begin{itemize}
+                \item Stops the application from whatever its doing
+                \item Runs Signal handler (some code in application to handle the signal)
+                \item When finished, the process resumes previous behavior
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 
     \bigskip
