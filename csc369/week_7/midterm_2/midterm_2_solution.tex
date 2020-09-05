@@ -355,9 +355,12 @@
     \item
 
     \begin{enumerate}[a)]
-        \item
+        \item Is a simple form of lock. It allows a single thread to enter ciritical section at a time. It
+        spins using CPU cycles until lock becomes available. It uses variable \texttt{lock} with two values (0 for available, 1 for acquired) with
+        operations \texttt{acquire()} and \texttt{release()}.
         \item Is a fraction of total turnaround time for a process. Is used by round-robin
-        scheduling algorithm to have a good response time, and free-of-starvation.
+        scheduling algorithm. A process under RR has equal parts of these. Furthermore, scheduling quantum
+        assigned to a process to be multiples of timer-interrupt period
 
         \item Is the programmatic way in which user requests for previleged service in operating system.
         On system call, the current process states (program counter, CPU register, kernal state) are saved,
@@ -377,10 +380,11 @@
             \item measures the interactive performance between users and the system
         \end{itemize}
 
-        \item \textbf{Round Robin}
+        \item \textbf{Turnaround Time}
 
         \begin{itemize}
-            \item Has good \textbf{response time}, but bad \textbf{turn around time}
+            \item \textbf{Formula} $T_{turnaround} = T_{completion} - T_{arrival}$
+            \item measures the amount of time taken to complete a process
         \end{itemize}
 
         \item \textbf{System Call}
