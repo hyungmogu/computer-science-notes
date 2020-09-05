@@ -62,6 +62,7 @@
         \item True
         \item True
         \item True
+        \item False
     \end{enumerate}
 
     \bigskip
@@ -319,8 +320,18 @@
                 \item \textbf{Round Robin}
 
                 \begin{itemize}
-                    \item
+                    \item Runs job for a \textbf{time slice} or \textbf{quantum}
+                    \item Each job gets equal share of CPU time
+                    \item Is clock-driven $^{[6]}$
+                    \item Is starvation-free $^{[7]}$
+                    \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
                 \end{itemize}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
+                \end{center}
                 \item \textbf{Multi-level Feedback Queue}
             \end{itemize}
         \end{itemize}
@@ -337,6 +348,8 @@
         \item Kansas State University, Glossary, \href{http://faculty.salina.k-state.edu/tim/ossg/glossary.html#term-context-switch}{link}
         \item Tutorials Point, User-level threads and Kernel-level threads, \href{https://www.tutorialspoint.com/user-level-threads-and-kernel-level-threads}{link}
         \item Science Direct, Scheduling Policy, \href{https://www.sciencedirect.com/topics/computer-science/scheduling-policy#:~:text=Scheduling%20policies%20are%20algorithms%20for,nature%20of%20applications%20%5B1%5D.}{link}
+        \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
+        \item Wikipedia: Round-robin Scheduling, \href{https://en.wikipedia.org/wiki/Round-robin_scheduling}{link}
     \end{enumerate}
 \end{enumerate}
 
