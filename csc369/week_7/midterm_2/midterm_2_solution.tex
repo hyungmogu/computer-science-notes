@@ -372,7 +372,13 @@
 
             \begin{enumerate}[1)]
                 \item Setup \textbf{trap tables} on boot
-                \item Save
+                \item Execute system call
+                \item Save \textit{Program Counter}, \textit{CPU registers}, \textit{kernal stack} (so process can resume after \textbf{return-from-trap}
+                or \textbf{context switch})
+                \item Switch from \textbf{user mode} to \textbf{kernel mode}
+                \item Perform previleged operations
+                \item Finish and execute \textbf{return-from-trap} instruction
+                \item Return from \textbf{kernel mode} to \textbf{user mode} and resume user program
             \end{enumerate}
         \end{itemize}
     \end{itemize}
