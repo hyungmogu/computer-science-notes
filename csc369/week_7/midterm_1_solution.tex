@@ -1223,8 +1223,8 @@
 
                 \begin{itemize}
                     \item Inode points to the disk where \texttt{Db} is about to be written
-                    \item \texttt{Db} is not written
                     \item No bitmap that says the block is allocated
+                    \item No \texttt{Db} is written
                     \item Garbage data will be read
                     \item Also creates \textbf{File-system Inconsistency}
 
@@ -1237,6 +1237,20 @@
                 \bigskip
 
                 \item Just the updated bitmap (B[v2]) is written to disk
+
+                \begin{itemize}
+                    \item Bitmap indicates tht block 5 is allocated
+                    \item No inode exists at block 5
+                    \item creates \textbf{file-system inconsistency}
+                    \item would result in \textbf{space-leak} if left as is
+
+                    \begin{itemize}
+                        \item block 5 can never be used by the file system
+                    \end{itemize}
+                \end{itemize}
+
+                \bigskip
+
                 \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
                 \item Inode (I[v2]) and data block (Db) are written, but not the bit map
                 \item Bitmap (B[v2]) and data block (Db) are written, but not the inode (I[v2])
