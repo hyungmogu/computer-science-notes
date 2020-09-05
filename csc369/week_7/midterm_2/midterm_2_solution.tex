@@ -356,6 +356,14 @@
 
     \begin{enumerate}[a)]
         \item
+        \item Is a fraction of total turnaround time for a process. Is used by round-robin
+        scheduling algorithm to have a good response time, and free-of-starvation.
+
+        \item Is the programmatic way in which user requests for previleged service in operating system.
+        On system call, the current process states (program counter, CPU register, kernal state) are saved,
+        enters kernel mode, performs previleged operations such as reading the disk,
+        executes return-from-trap instructions, and returns back to user mode and resumes
+        the program with the attained result
     \end{enumerate}
 
     \bigskip
@@ -363,6 +371,18 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item \textbf{Response Time}
+        \begin{itemize}
+            \item \textbf{Formula} $T_{response} = T_{firstrun} - T_{arrival}$
+            \item measures the interactive performance between users and the system
+        \end{itemize}
+
+        \item \textbf{Round Robin}
+
+        \begin{itemize}
+            \item Has good \textbf{response time}, but bad \textbf{turn around time}
+        \end{itemize}
+
         \item \textbf{System Call}
 
         \begin{itemize}
