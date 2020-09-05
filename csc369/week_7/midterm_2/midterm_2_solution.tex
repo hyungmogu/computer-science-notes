@@ -228,8 +228,26 @@
                 \item CPU Registers
                 \item Program Counter
                 \item Stack Pointer
-                \item I/O
+                \item I/O Information
             \end{itemize}
+
+            (wait. this is PCB)
+
+            \item Exists in one of many different \textbf{process states}, including
+
+            \begin{enumerate}[1.]
+                \item Running
+                \item Ready to Run
+                \item Blocked
+            \end{enumerate}
+
+            \bigskip
+
+            \begin{itemize}
+                \item Different events (Getting Scheduled, descheduled, or waiting for I/O)
+                transitions one of these states to the other
+            \end{itemize}
+
         \end{itemize}
 
         \item \textbf{Signals}
