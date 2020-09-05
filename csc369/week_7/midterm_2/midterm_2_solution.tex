@@ -460,13 +460,28 @@
 
         \begin{itemize}
             \item Is the problem that occurs when high priority processes keep
-            executing and low priority processes get blocked for indefinite time
+            executing and low priority processes get blocked for indefinite time $^{[1]}$
+        \end{itemize}
+
+        \item \textbf{Convoy Effect}
+
+        \begin{itemize}
+            \item Is the problem where number of relatively-short potential consumers
+            of a resource get queued behind a heavy weight consumer
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_5.png}
+            \end{center}
         \end{itemize}
 
         \item \textbf{First In First Out}
 
         \begin{itemize}
             \item Is the most basic scheduling algorithm
+            \item Is vulnerable to \textbf{convoy effect}
+            \item No \textbf{starvation} as long as every process eventually completes
         \end{itemize}
 
         \item \textbf{Shortest Job First}
@@ -490,6 +505,14 @@
         \item \textbf{Multi-level Feedback Queue}
 
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
