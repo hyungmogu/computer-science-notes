@@ -457,37 +457,37 @@
 
     \begin{itemize}
         \item \textbf{Starvation}
-        \item \textbf{Scheduling policies}
 
         \begin{itemize}
-            \item Are algorithms for allocating CPU resources to concurrent tasks
-            deployed on (i.e., allocated to) a processor (i.e., computing resource)
-            or a shared pool of processors $^{[5]}$
-            \item Are sometimes called \textbf{Discipline}
-            \item Covers the following algorithms in textbook
-
-            \begin{itemize}
-                \item \textbf{First In First Out}
-                \item \textbf{Shortest Job First}
-                \item \textbf{Shortest Time-to-completion First}
-                \item \textbf{Round Robin}
-
-                \begin{itemize}
-                    \item Runs job for a \textbf{time slice} or \textbf{quantum}
-                    \item Each job gets equal share of CPU time
-                    \item Is clock-driven $^{[6]}$
-                    \item Is starvation-free $^{[7]}$
-                    \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
-                \end{itemize}
-
-                \bigskip
-
-                \begin{center}
-                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
-                \end{center}
-                \item \textbf{Multi-level Feedback Queue}
-            \end{itemize}
+            \item Is the problem that occurs when high priority processes keep
+            executing and low priority processes get blocked for indefinite time
         \end{itemize}
+
+        \item \textbf{First In First Out}
+
+        \begin{itemize}
+            \item Is the most basic scheduling algorithm
+        \end{itemize}
+
+        \item \textbf{Shortest Job First}
+        \item \textbf{Shortest Time-to-completion First}
+        \item \textbf{Round Robin}
+
+        \begin{itemize}
+            \item Has good \textbf{response time} but terrible \textbf{turnaround time}
+            \item Runs job for a \textbf{time slice} or \textbf{quantum}
+            \item Each job gets equal share of CPU time
+            \item Is clock-driven $^{[6]}$
+            \item Is starvation-free $^{[7]}$
+            \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
+        \end{itemize}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
+        \end{center}
+        \item \textbf{Multi-level Feedback Queue}
 
     \end{itemize}
 \end{enumerate}

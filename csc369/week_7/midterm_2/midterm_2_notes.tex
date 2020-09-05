@@ -153,6 +153,23 @@
 
 \bigskip
 
+\begin{itemize}
+    \item Is the programmatic way in which a computer program requests a previleged service from the kernel of the operating system
+    \item i.e. Reading from disk
+    \item Steps
+
+    \begin{enumerate}[1)]
+        \item Setup \textbf{trap tables} on boot
+        \item Execute system call
+        \item Save \textit{Program Counter}, \textit{CPU registers}, \textit{kernal stack} (so process can resume after \textbf{return-from-trap}
+        or \textbf{context switch})
+        \item Switch from \textbf{user mode} to \textbf{kernel mode}
+        \item Perform previleged operations
+        \item Finish and execute \textbf{return-from-trap} instruction
+        \item Return from \textbf{kernel mode} to \textbf{user mode} and resume user program
+    \end{enumerate}
+\end{itemize}
+
 \underline{\textbf{Example}}
 
 \begin{itemize}
@@ -281,6 +298,20 @@
     \item Allows a single thread to enter critical section at a time
     \item Spins using CPU cycles until the lock becomes available.
     \item May spin forever
+\end{itemize}
+
+
+\section{Response Time}
+\begin{itemize}
+    \item \textbf{Formula} $T_{response} = T_{firstrun} - T_{arrival}$
+    \item measures the interactive performance between users and the system
+\end{itemize}
+
+\section{Turnaround Time}
+
+\begin{itemize}
+    \item \textbf{Formula} $T_{turnaround} = T_{completion} - T_{arrival}$
+    \item measures the amount of time taken to complete a process
 \end{itemize}
 
 \section{Scheduling policies}
