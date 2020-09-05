@@ -61,6 +61,7 @@
         \item True
         \item True
         \item True
+        \item True
     \end{enumerate}
 
     \bigskip
@@ -267,7 +268,39 @@
         \item \textbf{Spinlock}
         \begin{itemize}
             \item Is the simplest lock to build
+            \item Uses a lock variable
+
+            \begin{itemize}
+                \item 0 - (available/unlock/free)
+                \item 1 - (acquired/locked/held)
+            \end{itemize}
+
+            \item Has two operations
+
+            \begin{enumerate}[1.]
+                \item \texttt{acquire()}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_3.png}
+                \end{center}
+
+                \bigskip
+
+                \item \texttt{release()}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
+                \end{center}
+
+                \bigskip
+            \end{enumerate}
+            \item Allows a single thread to enter critical section at a time
             \item Spins using CPU cycles until the lock becomes available.
+            \item May spin forever
         \end{itemize}
     \end{itemize}
 
