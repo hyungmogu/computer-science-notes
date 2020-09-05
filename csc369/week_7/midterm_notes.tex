@@ -174,6 +174,299 @@
     \item A process can have multiple threads
 \end{itemize}
 
+\section*{Virtualization of CPU}
+
+\begin{itemize}
+    \item
+\end{itemize}
+\section*{Limited Direct Execution}
+
+\begin{itemize}
+    \item Idea: Just run the program you want to run on the CPU,
+    but first make sure to set up the hardware so as to limit what
+    process can do without OS assistance
+    \item baby proofs the CPU by
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Setting up trap handlers
+        \item Starts an interrupt timer
+        \item Run processes in a restricted mode
+    \end{enumerate}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    Baby proofing a room:
+
+    \bigskip
+
+    \begin{itemize}
+        \item Locking cabinets containing dangerous stuff and covering electrical sockets.
+        \item When room is readied, let your baby roam free in knowledge that all the dangerous
+        aspect of the room is restricted
+    \end{itemize}
+\end{itemize}
+
+\section*{Trap Handlers}
+
+\begin{itemize}
+    \item Is instruction that tells the hardware what to run when certain exceptions occur
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    What code to run when
+
+    \begin{enumerate}[1.]
+        \item Hard disk interrupt occurs
+        \item Keyboard interrupt occrs
+        \item Program makes a system call?
+    \end{enumerate}
+
+\end{itemize}
+
+\section*{Timer Interrupt}
+
+\begin{itemize}
+    \item Is a hardware mechanism that ensures the user program does not run forever
+    \item Is emitted at regular intervals by a timer chip $^{[6]}$
+\end{itemize}
+
+
+\section*{Index-based File System}
+
+\begin{center}
+
+\includegraphics[width=\linewidth]{images/midterm_1_solution_8.png}
+\end{center}
+
+\begin{itemize}
+    \item Has following parts
+
+    \begin{itemize}
+        \item Superblock
+        \item Inode Bitmap
+        \item Data Bitmap
+        \item Inodes
+        \item Data Region
+    \end{itemize}
+
+    \item Each block in file system is 4KB
+    \item Uses a large amount of metadata per file (especially for large files)
+\end{itemize}
+
+\section*{Superblock}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_9.png}
+\end{center}
+
+\begin{itemize}
+    \item contains information about the file system, including
+
+    \begin{enumerate}[1.]
+        \item the number of inodes and data blocks in a particular file system
+        \item the magic number of some kind to identify the file system type (e.g NFS, FFS, VSFS)
+    \end{enumerate}
+
+    \item The OS reads superblock \underline{first} to initialize various parameters,
+    and then attach volume to the file-system tree
+\end{itemize}
+
+\section*{Bitmap}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_10.png}
+\end{center}
+
+\begin{itemize}
+    \item Tracks whether inode or data blocks are free or allocated
+    \item Is a simple and popuar structure
+    \item Uses each bit
+    \begin{itemize}
+        \item \texttt{0} means free
+        \item \texttt{1} means in use
+    \end{itemize}
+
+    \item \textbf{Data Bitmap} is bitmap for data region
+    \item \textbf{Inode Bitmap} is bitmap for inode region
+\end{itemize}
+
+\section*{Inode}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_12.png}
+\end{center}
+
+\begin{itemize}
+    \item Is a short form for \textbf{index node}
+    \item Contains disk block location of the object's data $^{[7]}$
+    \item Contains all the information you need about a file (i.e. metadata)
+
+    \begin{itemize}
+        \item File Type
+        \begin{itemize}
+            \item e.g. regular file, directory, etc
+        \end{itemize}
+        \item Size
+        \item Number of blocks allocated to it
+        \item Protection information
+        \begin{itemize}
+            \item such as who owns the file, as well as who can access it
+        \end{itemize}
+        \item Time information
+        \begin{itemize}
+            \item e.g. When file was created, modified, or last accessed
+        \end{itemize}
+        \item Location of data blocks reside on disk
+    \end{itemize}
+\end{itemize}
+
+\section*{Data Region}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_11.png}
+\end{center}
+
+\begin{itemize}
+    \item Is the region of disk we use for user data
+\end{itemize}
+
+\section*{Multi-Level Index}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
+\end{center}
+
+\begin{itemize}
+    \item Is for supporting bigger files
+    \item Uses \textbf{indirect pointer} in inode that points to more pointers
+    \item Uses \textbf{double indirect pointer} for even larger files
+
+    \begin{itemize}
+        \item is a pointer in inode that points to a block that contains
+        pointers to indirect blocks
+    \end{itemize}
+\end{itemize}
+
+\section*{External Fragmentation}
+
+\begin{itemize}
+    \item Is various free holes that are generated in either your
+    memory or disk space. $^{[8]}$
+    \item Are available for allocation, but may be too small to be of
+    any use $^{[8]}$
+\end{itemize}
+
+\section*{Internal Fragmentation}
+
+\begin{itemize}
+    \item Is wasted space within each allocated block $^{[8]}$
+    \item Occurs when more computer memory is allocated than is needed
+\end{itemize}
+
+
+\*section{Extent Based File System}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/midterm_1_solution_14.png}
+\end{center}
+
+\begin{itemize}
+    \item Is simply a disk pointer plus a length (in blocks)
+    \begin{itemize}
+        \item Together, is called \textbf{extent}
+    \end{itemize}
+    \item Often allows more than one extent
+    \begin{itemize}
+        \item resolve problem of finding continuous free blocks
+    \end{itemize}
+    \item Is less flexible but more compact
+    \item Works well when there is enough free space on the disk and
+    files can be laid out contiguously
+\end{itemize}
+
+\bigskip
+
+\underline{\textbf{Example}}
+
+\bigskip
+
+Linux's ext4 file system
+
+\*section{Fields}
+
+\begin{itemize}
+    \item Is the members in a structure
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_15.png}
+    \end{center}
+\end{itemize}
+
+\*section{Process List}
+
+\begin{itemize}
+    \item Is a data structure in kernel or OS
+    \item Contains information about all the processes running in the system
+\end{itemize}
+
+\*section{Process Control Block}
+
+\begin{itemize}
+    \item Is a data structure in kernel or OS
+    \item Contains all information about a process
+    \item Is where the OS keeps all of a process' hardware execution state
+    \item Generally includes
+
+    \begin{enumerate}[1.]
+        \item Process state (ready, running, blocked)
+        \item Process number
+        \item Program counter: address of the next instruction
+        \item CPU Registers: is saved at an interrupt
+        \item CPU scheduling information: process priority
+        \item Memory management info: page tables
+        \item I/O status information: list of open files
+    \end{enumerate}
+\end{itemize}
+
+\*section{Context Switch}
+
+\begin{itemize}
+    \item is the process of storing the state of a process or thread,
+    so it can be restored and resume execution at a later point $^{[10]}$
+    \item happens during a timer interrupt or system call
+    \item process context switch needs to save the following $^{[11]}$
+
+    \begin{itemize}
+        \item Process Number
+        \item Process State
+        \item Process Counter,
+        \item CPU Registers
+        \item Memory management info
+        \item I/O status Information
+    \end{itemize}
+
+    \item thread context switch needs to save the following
+
+    \begin{itemize}
+        \item Process Counter,
+        \item CPU Registers
+    \end{itemize}
+
+    \item May hinder performance
+\end{itemize}
+
 \bigskip
 
 \underline{\textbf{References}}
@@ -184,474 +477,16 @@
     \item Wikipedia, Concurrency (computer science), \href{https://en.wikipedia.org/wiki/Concurrency_(computer_science)}{link}
     \item Wikipedia, Thread, \href{https://en.wikipedia.org/wiki/Thread_(computing)#:~:text=In%20computer%20science%2C%20a%20thread,part%20of%20the%20operating%20system.}{link}
     \item Columbia University, Concurrency Errors, \href{https://www.cs.columbia.edu/~junfeng/13fa-w4118/lectures/l11-concurrency-error.pdf}{link}
-\end{enumerate}
-
--------------
-
-\begin{itemize}
-    \item \textbf{Virtualization of CPU}
-
-    \begin{itemize}
-        \item
-    \end{itemize}
-    \item \textbf{Limited Direct Execution}
-
-    \begin{itemize}
-        \item Idea: Just run the program you want to run on the CPU,
-        but first make sure to set up the hardware so as to limit what
-        process can do without OS assistance
-        \item baby proofs the CPU by
-
-        \bigskip
-
-        \begin{enumerate}[1.]
-            \item Setting up trap handlers
-            \item Starts an interrupt timer
-            \item Run processes in a restricted mode
-        \end{enumerate}
-
-        \bigskip
-
-        \underline{\textbf{Example}}
-
-        \bigskip
-
-        Baby proofing a room:
-
-        \bigskip
-
-        \begin{itemize}
-            \item Locking cabinets containing dangerous stuff and covering electrical sockets.
-            \item When room is readied, let your baby roam free in knowledge that all the dangerous
-            aspect of the room is restricted
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Trap Handlers}
-
-    \begin{itemize}
-        \item Is instruction that tells the hardware what to run when certain exceptions occur
-
-        \bigskip
-
-        \underline{\textbf{Example}}
-
-        \bigskip
-
-        What code to run when
-
-        \begin{enumerate}[1.]
-            \item Hard disk interrupt occurs
-            \item Keyboard interrupt occrs
-            \item Program makes a system call?
-        \end{enumerate}
-
-    \end{itemize}
-
-    \item \textbf{Timer Interrupt}
-
-    \begin{itemize}
-        \item Is a hardware mechanism that ensures the user program does not run forever
-        \item Is emitted at regular intervals by a timer chip $^{[1]}$
-    \end{itemize}
-\end{itemize}
-
-\bigskip
-
-\underline{\textbf{References}}
-
-\begin{enumerate}[1)]
     \item Wikibooks, Operating System Design/Processes/Interrupt, \href{https://en.wikibooks.org/wiki/Operating_System_Design/Processes/Interrupt#:~:text=Perhaps%20the%20most%20important%20interrupt,processor%20executing%20a%20specific%20instruction.}{link}
-\end{enumerate}
-
-\begin{itemize}
-
-    \item \textbf{Index-based File System}
-
-    \begin{center}
-
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_8.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Has following parts
-
-        \begin{itemize}
-            \item Superblock
-            \item Inode Bitmap
-            \item Data Bitmap
-            \item Inodes
-            \item Data Region
-        \end{itemize}
-
-        \item Each block in file system is 4KB
-        \item Uses a large amount of metadata per file (especially for large files)
-    \end{itemize}
-
-    \item \textbf{Superblock}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_9.png}
-    \end{center}
-
-    \begin{itemize}
-        \item contains information about the file system, including
-
-        \begin{enumerate}[1.]
-            \item the number of inodes and data blocks in a particular file system
-            \item the magic number of some kind to identify the file system type (e.g NFS, FFS, VSFS)
-        \end{enumerate}
-
-        \item The OS reads superblock \underline{first} to initialize various parameters,
-        and then attach volume to the file-system tree
-    \end{itemize}
-
-    \item \textbf{Bitmap}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_10.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Tracks whether inode or data blocks are free or allocated
-        \item Is a simple and popuar structure
-        \item Uses each bit
-        \begin{itemize}
-            \item \texttt{0} means free
-            \item \texttt{1} means in use
-        \end{itemize}
-
-        \item \textbf{Data Bitmap} is bitmap for data region
-        \item \textbf{Inode Bitmap} is bitmap for inode region
-    \end{itemize}
-
-    \item \textbf{Inode}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_12.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Is a short form for \textbf{index node}
-        \item Contains disk block location of the object's data $^{[1]}$
-        \item Contains all the information you need about a file (i.e. metadata)
-
-        \begin{itemize}
-            \item File Type
-            \begin{itemize}
-                \item e.g. regular file, directory, etc
-            \end{itemize}
-            \item Size
-            \item Number of blocks allocated to it
-            \item Protection information
-            \begin{itemize}
-                \item such as who owns the file, as well as who can access it
-            \end{itemize}
-            \item Time information
-            \begin{itemize}
-                \item e.g. When file was created, modified, or last accessed
-            \end{itemize}
-            \item Location of data blocks reside on disk
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Data Region}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_11.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Is the region of disk we use for user data
-    \end{itemize}
-
-    \item \textbf{Multi-Level Index}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_13.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Is for supporting bigger files
-        \item Uses \textbf{indirect pointer} in inode that points to more pointers
-        \item Uses \textbf{double indirect pointer} for even larger files
-
-        \begin{itemize}
-            \item is a pointer in inode that points to a block that contains
-            pointers to indirect blocks
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{External Fragmentation}
-
-    \begin{itemize}
-        \item Is various free holes that are generated in either your
-        memory or disk space. $^{[2]}$
-        \item Are available for allocation, but may be too small to be of
-        any use $^{[2]}$
-    \end{itemize}
-
-    \item \textbf{Internal Fragmentation}
-
-    \begin{itemize}
-        \item Is wasted space within each allocated block $^{[2]}$
-        \item Occurs when more computer memory is allocated than is needed
-    \end{itemize}
-\end{itemize}
-
-\bigskip
-
-\underline{\textbf{References}}
-
-\begin{enumerate}[1)]
     \item Wikipedia: inode, \href{https://en.wikipedia.org/wiki/Inode}{link}
     \item Washington University, Explain the difference between external fragmentation
     and internal fragmentation, \href{https://courses.cs.washington.edu/courses/cse451/00sp/misc/quiz2sol.txt}{link}
     \item Wikipedia, Inode pointer structure, \href{https://en.wikipedia.org/wiki/Inode_pointer_structure}{link}
-\end{enumerate}
-
-\begin{itemize}
-    \item \textbf{Extent Based File System}
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/midterm_1_solution_14.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Is simply a disk pointer plus a length (in blocks)
-        \begin{itemize}
-            \item Together, is called \textbf{extent}
-        \end{itemize}
-        \item Often allows more than one extent
-        \begin{itemize}
-            \item resolve problem of finding continuous free blocks
-        \end{itemize}
-        \item Is less flexible but more compact
-        \item Works well when there is enough free space on the disk and
-        files can be laid out contiguously
-    \end{itemize}
-
-    \bigskip
-
-    \underline{\textbf{Example}}
-
-    \bigskip
-
-    Linux's ext4 file system
-\end{itemize}
-
-\begin{itemize}
-    \item \textbf{Fields}
-
-    \begin{itemize}
-        \item Is the members in a structure
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=0.6\linewidth]{images/midterm_1_solution_15.png}
-        \end{center}
-    \end{itemize}
-
-    \item \textbf{Process List}
-
-    \begin{itemize}
-        \item Is a data structure in kernel or OS
-        \item Contains information about all the processes running in the system
-    \end{itemize}
-
-    \item \textbf{Process Control Block}
-
-    \begin{itemize}
-        \item Is a data structure in kernel or OS
-        \item Contains all information about a process
-        \item Is where the OS keeps all of a process' hardware execution state
-        \item Generally includes
-
-        \begin{enumerate}[1.]
-            \item Process state (ready, running, blocked)
-            \item Process number
-            \item Program counter: address of the next instruction
-            \item CPU Registers: is saved at an interrupt
-            \item CPU scheduling information: process priority
-            \item Memory management info: page tables
-            \item I/O status information: list of open files
-        \end{enumerate}
-    \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-    \item I am reading that process needs to save resource information
-    before context switch. I need to verify with professor regarding this information.
-    \item \textbf{Context Switch}
-
-    \begin{itemize}
-        \item is the process of storing the state of a process or thread,
-        so it can be restored and resume execution at a later point $^{[1]}$
-        \item happens during a timer interrupt or system call
-        \item process context switch needs to save the following $^{[2]}$
-
-        \begin{itemize}
-            \item Process Number
-            \item Process State
-            \item Process Counter,
-            \item CPU Registers
-            \item Memory management info
-            \item I/O status Information
-        \end{itemize}
-
-        \item thread context switch needs to save the following
-
-        \begin{itemize}
-            \item Process Counter,
-            \item CPU Registers
-        \end{itemize}
-
-        \item May hinder performance
-    \end{itemize}
-\end{itemize}
-
-\bigskip
-
-\underline{\textbf{References}}
-
-\begin{enumerate}[1)]
     \item Wikipedia: Context switch, \href{https://en.wikipedia.org/wiki/Context_switch}{link}
     \item University of Washington, CSE 451, Spring 2000 Solutions to Homework 2, \href{https://courses.cs.washington.edu/courses/cse451/00sp/homeworks/hw2soln.txt}{link}
 \end{enumerate}
 
-\begin{itemize}
-    \item \textbf{Virtualization}
-
-    \begin{itemize}
-        \item is an act of creating an illusion that there are as many hardware resource as each program needs.
-    \end{itemize}
-
-    \item \textbf{Virtualizing CPU}
-
-    \begin{itemize}
-        \item Turns a single CPU into a seemingly infinite number of CPUS, and
-        allows many programs to seemingly run at once
-        \item To implement CPU virtualization, the OS needs low-level machinery
-        called \textbf{mechanism} and high level intelligence called \textbf{policies}
-        \item Steps
-
-        \begin{enumerate}[1.]
-            \item Involve OS to setup hardware hardwre to limit what the process can do without OS assistance
-            (\textbf{Limited Direct Execution})
-
-            \bigskip
-
-            This is done so by
-
-            \bigskip
-
-            \begin{enumerate}[1.]
-                \item Setting up trap handler
-                \item Starting an interrupt timer (so process won't last forever)
-            \end{enumerate}
-            \item Involve OS to intervene at key points to perform previleged operations
-            or switch out operations when they have monopolized the CPU too long
-        \end{enumerate}
-        \bigskip
-    \end{itemize}
-
-    \item \textbf{Limited direct execution}
-
-    \begin{itemize}
-        \item Is a mechanism of CPU virtualization
-        \item Baby proofs the CPU by setting up hardwre to limit what the process can do without OS assistance
-        \item Runs program in CPU once baby proofed
-        \item Does so by
-        \begin{itemize}
-            \item Setting up trap handler
-            \item Starting an interrupt timer (so process won't last forever)
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Scheduling policies}
-
-    \begin{itemize}
-        \item Are series of polices of CPU virtualization
-
-        \begin{itemize}
-            \item \textbf{First In First Out}
-            \item \textbf{Shortest Job First}
-            \item \textbf{Shortest Time-to-completion First}
-            \item \textbf{Round Robin}
-            \item \textbf{Multi-level Feedback Queue}
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Virtualizing Memory}
-    \begin{itemize}
-        \item Basic Idea: For the most part, let the program run directly on the hardware;
-        however, at certain key points in time (e.g. system call, timer interrupt), arrange
-        so that the OS gets involved and make sure the 'Right' thing happens.
-        \item Like CPU, many programs are sharing the memory at the same time
-        \item Like CPU, the goal is to create an illusion that it has its own code and data
-        \item Like CPU, the memory also needs low-level machinery called \textbf{mechanism},
-        and high level intelligence called \textbf{policies}
-        \item Steps
-
-        \begin{enumerate}[1.]
-            \item Use \textbf{address translation} to transform each memory access,
-            changing \textbf{virtual address} provided by instruction to \textbf{physical address}
-            \begin{itemize}
-                \item Memory access includes instruction fetch, load, or store
-                \item Is done using hardware
-            \end{itemize}
-            \item Invove OS at key points to \textbf{manage memory}
-
-            \bigskip
-
-            Memory management includes
-
-            \bigskip
-
-            \begin{enumerate}[1.]
-                \item Setting up hardware so correct translations take place
-                \item Keeping track of which locations are free and which are in use
-                \item Judiciously intervening to maintain control over how memory is used
-            \end{enumerate}
-
-            \bigskip
-        \end{enumerate}
-    \end{itemize}
-
-    \item \textbf{Address Translation}
-
-    \begin{itemize}
-        \item Is also called \textbf{hardware-based address translation}
-        \item Is a mechanism of memory virtualization
-        \item Is the technique of transforming virtual address to physical address
-    \end{itemize}
-
-    % \item \textbf{Dynamic (Hardware-based) Relocation}
-
-    % \begin{itemize}
-    %     \item Is a type of address translation
-    %     \item Occured in 1950's
-    %     \item Is also referred as \textbf{base and bounds}
-    %     \item Need \textbf{base register} and the \textbf{bounds}
-
-    %     \begin{itemize}
-    %         \item \textbf{base register} transforms virtual address to physical address
-    %         \item \textbf{bound} ensures addresses are within confines of the address space
-    %     \end{itemize}
-    %     \item Steps
-
-    %     \begin{enumerate}[1.]
-    %         \item Write and compile program as if it is loaded at address zero
-    %         \item Allow OS to decide where in physical memory it should be loaded
-    %         and set base register to that value
-
-    %         \bigskip
-
-    %         \texttt{physical address = virtual address + base}
-    %     \end{enumerate}
-    % \end{itemize}
-\end{itemize}
+-------------
 
 \begin{itemize}
     \item The solution is written that \texttt{c)} can be read with 1 indirect pointers.
