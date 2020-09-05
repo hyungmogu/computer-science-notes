@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{courier}
+\usepackage[utf]{kotex}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{CSC 369}
+\rhead{Midterm 2 Notes}
+
+\begin{document}
+\title{CSC 369 Midterm 2 Notes}
+
+
+\section{Introduction}
+\subsection{What is an operating system?}
+\subsection{Operating system structures.}
+
+\bigskip
+
+\section{Processes and Threads}
+\subsection{Process states}
+\subsection{Process resources (CB)}
+\subsection{Threads}
+
+\bigskip
+
+\section{Concurrency}
+\subsection{Introduction to synchronization problems}
+\subsection{Traditional problems: race conditions, producer-consumer, critical sections}
+\subsection{Hardware and software solutions to the critical section problem}
+\subsection{Semaphores}
+\subsection{Monitors}
+
+\bigskip
+
+\section*{Deadlock}
+    Necessary Conditions
+    Prevention
+    Avoidance
+    Detection and Recovery
+\section*{Scheduling}
+    Metrics for evaluation
+    Algorithms
+\section*{Memory Management}
+    Logical and Physical Addresses
+    Allocation, paging, swapping, fragmentation, TLBs.
+\section*{Virtual Memory}
+    Page replacement algorithms.
+\section*{File Systems and Disks}
+    File and directory structures
+    File system structure
+    Allocation strategies
+    Disk structures
+    Disk scheduling
+    File caching
+    Alternate file systems structures such as Log Based File Systems (optional)
+
+
+\end{document}
