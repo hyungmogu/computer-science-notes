@@ -1198,14 +1198,44 @@
 
             \item \textbf{Crash Scenarios}
 
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_1_solution_19.png}
+            \end{center}
+
+
             \begin{enumerate}[1)]
                 \item Just the data block (Db) is written to disk
 
-                \begin{center}
-                \includegraphics[width=\linewidth]{images/midterm_1_solution_19.png}
-                \end{center}
+                \bigskip
+
+                \begin{itemize}
+                    \item No inode that points to it
+                    \item No bitmap that says the block is allocated
+                    \item It is as if the write never occured
+                    \item There is no problem here. All is well.
+                \end{itemize}
+
+                \bigskip
 
                 \item Just the updated inode (I[v2]) is written to disk
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Inode points to the disk where \texttt{Db} is about to be written
+                    \item \texttt{Db} is not written
+                    \item No bitmap that says the block is allocated
+                    \item Garbage data will be read
+                    \item Also creates \textbf{File-system Inconsistency}
+
+                    \begin{itemize}
+                        \item Caused by on-disk bitmap telling us Db 5 is not allocated,
+                        but inode saying it does
+                    \end{itemize}
+                \end{itemize}
+
+                \bigskip
+
                 \item Just the updated bitmap (B[v2]) is written to disk
                 \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
                 \item Inode (I[v2]) and data block (Db) are written, but not the bit map
