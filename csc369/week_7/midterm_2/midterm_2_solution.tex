@@ -58,6 +58,7 @@
 
     \begin{enumerate}[a)]
         \item False
+        \item True
         \item
     \end{enumerate}
 
@@ -155,6 +156,37 @@
         \begin{itemize}
             \item Is switching from running a user level process to the OS kernel and often
             to other user processes before the current process is resumed
+            \item Happens during a timer interrupt or system call
+            \item Saves the following states for a process during a context switch
+            \begin{itemize}
+                \item Stack Pointer
+                \item Program Counter
+                \item User Registers
+                \item Kernel State
+            \end{itemize}
+            \item May hinder performance
+        \end{itemize}
+
+        \item \textbf{System Call}
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \begin{itemize}
+            \item \texttt{yield()}
+            \begin{itemize}
+                \item Is a system call
+                \item Causes the calling thread to relinquish the CPU
+                \item Places the current thread at the end of the run queue
+                \item Schedules another thread to run
+            \end{itemize}
+        \end{itemize}
+
+        \item \textbf{Threads}
+
+        \begin{itemize}
+            \item
         \end{itemize}
     \end{itemize}
 
