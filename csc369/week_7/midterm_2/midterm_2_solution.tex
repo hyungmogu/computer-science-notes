@@ -621,9 +621,29 @@
             \item \textbf{Thread API}
 
             \begin{itemize}
+
+                \item \texttt{pthread\_cond\_wait}
+
+                \begin{itemize}
+                    \item Puts the calling thread to sleep (a blocked state)
+                    \item Waits for some other thread to signal it
+                \end{itemize}
+
                 \item \texttt{pthread\_cond\_signal}
 
+                \begin{itemize}
+                    \item Is used to \underline{unblocks at least one} of the threads that
+                    are blocked on the specified condition variable cond
+                \end{itemize}
+
+
                 \bigskip
+
+                \underline{\textbf{Example}}
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_9.png}
+                \end{center}
             \end{itemize}
         \end{itemize}
     \end{enumerate}
