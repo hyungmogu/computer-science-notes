@@ -835,11 +835,26 @@
                         before \texttt{swap\_lock} before \texttt{mapping->tree\_lock}
 
                     \end{itemize}
-                    \item \textbf{Mutual Exclusion}
-                    \begin{itemize}
-                        \item
-                    \end{itemize}
+
                     \item \textbf{Hold-and-wait}
+                    \begin{itemize}
+                        \item Can be avoided by acquiring all locks at once
+                        \item Can be problematic
+                        \item Must know which lock must be held and acquire ahead of time
+                        \item Is likely to decrease concurrency (since all need to be acquired over their needs)
+
+                        \bigskip
+
+                        \underline{\textbf{Example}}
+
+                        \bigskip
+
+                        \begin{center}
+                        \includegraphics[width=\linewidth]{images/midterm_2_solution_13.png}
+                        \end{center}
+                    \end{itemize}
+
+                    \item \textbf{Mutual Exclusion}
                     \begin{itemize}
                         \item
                     \end{itemize}
