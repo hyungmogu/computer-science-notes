@@ -858,6 +858,25 @@
                     \begin{itemize}
                         \item Can be avoided by adding code that force unlock if not available
 
+                        \begin{center}
+                        \includegraphics[width=0.8\linewidth]{images/midterm_2_solution_14.png}
+                        \end{center}
+
+                        \item \texttt{pthread\_mutex\_trylock} tries to lock the speicied mutex.
+                        \item \texttt{pthread\_mutex\_trylock} returns 0 if lock is available
+                        \item \texttt{pthread\_mutex\_trylock} returns the following error if occupied
+
+                        \bigskip
+
+                        \quad \texttt{EBUSY} - Mutex is already locked
+
+                        \bigskip
+
+                        \quad \texttt{EINVAL} - Is not initialized mutex
+
+                        \bigskip
+
+                        \quad \texttt{EFAULT} - Is in valid pointer
 
                     \end{itemize}
 
