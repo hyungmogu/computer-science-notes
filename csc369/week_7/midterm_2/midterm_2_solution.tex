@@ -763,12 +763,27 @@
                 \item Conditions for Deadlock (All four must be met)
 
                 \begin{itemize}
-                    \item \textbf{Mutual Exclusion} Threads claim exclusive control of resources that
-                    they require (e.g. thread grabing a lock)
-
+                    \item \textbf{Mutual Exclusion}
+                    \begin{itemize}
+                        \item Occurs when threads claim exclusive control of resources that
+                        they require (e.g. thread grabing a lock)
+                    \end{itemize}
                     \item \textbf{Hold-and-wait}
+                    \begin{itemize}
+                        \item Occurs when threads hold resources allocated to them (e.g locks that they have already acquired)
+                        while waiting for additional resources (e.g. locks that they wish to acquire)
+                    \end{itemize}
+
                     \item \textbf{No Preemption}
+                    \begin{itemize}
+                        \item Occurs when resource cannot be forcibly removed from threads that are holding them
+                    \end{itemize}
                     \item \textbf{Circular Wait}
+                    \begin{itemize}
+                        \item Occurs when there exists a circular chain of threads such that
+                        each threads hold one or more resources (e.g. locks) that are being
+                        requested by the next thread in the chain.
+                    \end{itemize}
                 \end{itemize}
 
                 \bigskip
