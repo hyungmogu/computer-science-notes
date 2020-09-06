@@ -576,6 +576,12 @@
 
         \item
 
+        Nothing. \texttt{pthread\_cond\_signal} unblocks at least one of the thread
+        that are blocked on the specified condition variable \texttt{cond}. Since
+        there are no other threads waiting on \texttt{cv1}, there are no threads to awake.
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -629,14 +635,6 @@
                     \item Waits for some other thread to signal it
                 \end{itemize}
 
-                \item \texttt{pthread\_cond\_signal}
-
-                \begin{itemize}
-                    \item Is used to \underline{unblocks at least one} of the threads that
-                    are blocked on the specified condition variable cond
-                \end{itemize}
-
-
                 \bigskip
 
                 \underline{\textbf{Example}}
@@ -644,6 +642,14 @@
                 \begin{center}
                 \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_9.png}
                 \end{center}
+
+                \item \texttt{pthread\_cond\_signal}
+
+                \begin{itemize}
+                    \item Is used to \underline{unblocks at least one} of the threads that
+                    are blocked on the specified condition variable cond
+                \end{itemize}
+
             \end{itemize}
         \end{itemize}
     \end{enumerate}
