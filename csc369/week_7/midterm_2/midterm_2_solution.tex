@@ -16,6 +16,7 @@
 \usepackage{courier}
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
+\usepackage{soul}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -578,6 +579,13 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item \textbf{Critical Section}
+
+            \begin{itemize}
+                \item Is a piece of code that accesses a \textit{shared} resource,
+                \ul{usually a variable or data structure}
+            \end{itemize}
+
             \item \textbf{Thread}
 
             \begin{itemize}
@@ -608,6 +616,14 @@
                         \item Are slower than user-level threads
                     \end{itemize}
                 \end{itemize}
+            \end{itemize}
+
+            \item \textbf{Thread API}
+
+            \begin{itemize}
+                \item \texttt{pthread\_cond\_signal}
+
+                \bigskip
             \end{itemize}
         \end{itemize}
     \end{enumerate}
