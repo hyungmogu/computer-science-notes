@@ -751,6 +751,14 @@
                 \item
             \end{itemize}
 
+            \item \textbf{Livelock}
+
+            \begin{itemize}
+                \item Two or more threads reapeatedly attempting this code over and over (e.g acquiring lock), but progress is
+                not being made (e.g acquiring lock)
+                \item Solution: Add a random delay before trying again (decrease odd of livelock)
+            \end{itemize}
+
             \item \textbf{Deadlock}
 
             \begin{center}
@@ -759,7 +767,7 @@
 
             \begin{itemize}
                 \item Is a state in which each member of a group is waiting for
-                another member including itself, to take action
+                another member including itself, to take action (e.g. releasing lock)
                 \item Conditions for Deadlock (All four must be met)
 
                 \begin{itemize}
@@ -878,6 +886,7 @@
 
                         \quad \texttt{EFAULT} - Is in valid pointer
 
+                        \item May result in \textbf{live lock}
                     \end{itemize}
 
                     \item \textbf{Mutual Exclusion}
