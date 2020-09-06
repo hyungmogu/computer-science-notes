@@ -740,6 +740,13 @@
     \begin{enumerate}[a)]
 
         \item
+
+        I am not too sure on this one. My guess is that account one enters the critical section
+        and while it's in critical section, account 2 switches context and goes to blocked state.
+
+        \bigskip
+
+        Then, account 1 need to wait for account 2. Thus, deadlock.
         \bigskip
 
         \underline{\textbf{Notes}}
