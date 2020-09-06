@@ -453,120 +453,163 @@
 
     \item
 
-    \underline{\textbf{Notes}}
+    \begin{enumerate}[a)]
 
-    \begin{itemize}
-        \item \textbf{Starvation}
-
-        \begin{itemize}
-            \item Is the problem that occurs when high priority processes keep
-            executing and low priority processes get blocked for indefinite time $^{[1]}$
-        \end{itemize}
-
-        \item \textbf{Convoy Effect}
-
-        \begin{itemize}
-            \item Is the problem where number of relatively-short potential consumers
-            of a resource get queued behind a heavy weight consumer
-
-            \bigskip
-
-            \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_5.png}
-            \end{center}
-        \end{itemize}
-
-        \item \textbf{First In First Out}
-
-        \begin{itemize}
-            \item Is the most basic scheduling algorithm
-            \item Is vulnerable to \textbf{convoy effect}
-            \item No \textbf{starvation} as long as every process eventually completes
-        \end{itemize}
-
-        \item \textbf{Shortest Job First}
-
-        \begin{itemize}
-            \item Improves average \textbf{turnaround time} given processes of uneven length
-            \item Is a general scheduling principle useful in situation where turnaround time
-            per process matters
-            \item Is vulnerable to \textbf{convoy effect}
-
-            \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_6.png}
-            \end{center}
-
-            \item Is vulnerable to \textbf{starvation}
-            \begin{itemize}
-                \item When only short-term jobs come in while a long term job is in queue
-            \end{itemize}
-        \end{itemize}
-        \item \textbf{Shortest Time-to-completion First}
-
-        \begin{itemize}
-            \item Addresses \textbf{convoy effect} in \textbf{Shortest Job First}
-            \item Determines which of the remaining+new jobs has least time left, and
-            schedule accordingly at \underline{any time}
-
-            \bigskip
-
-            \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_7.png}
-            \end{center}
-
-            \item Is vulnerable to \textbf{starvation}
-            \begin{itemize}
-                \item When only short-term jobs come in while a long term job is in queue
-            \end{itemize}
-
-        \end{itemize}
-
-        \item \textbf{Round Robin}
-
-        \begin{itemize}
-            \item Has good \textbf{response time} but terrible \textbf{turnaround time}
-            \item Runs job for a \textbf{time slice} or \textbf{quantum}
-            \item Each job gets equal share of CPU time
-            \item Is clock-driven $^{[6]}$
-            \item Is starvation-free $^{[7]}$
-            \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
-        \end{itemize}
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
-        \end{center}
-        \item \textbf{Multi-level Feedback Queue}
-
-        \begin{itemize}
-            \item Is the most well known approaches to shceduling
-            \item Optimizes \textbf{turnaround time}, and minimizes \textbf{response time}
-            \item Observees the execution of a job and priortizes accordingly without prior knowledge
-            \item Rules
-
-            \begin{itemize}
-                \item \textbf{Rule 1:} If Priority(A) $>$ Priority(B), A runs (B doesn't)
-                \item \textbf{Rule 2:} If Priority(A) $=$ Priority(B). A \& B run in round-robin
-                fashion using the time slice (quantum length) of the given queue
-                \item \textbf{Rule 3:} When a job enters the system, it is placed at the highest
-                priority(the top most queue)
-                \item \textbf{Rule 4:} Once a job uses up its time allotment at a given level
-                (regardless of how many times it has given up the CPU), its priority is reduced
-                (it moves down on queue)
-                \item \textbf{Rule 5:} After some time period S, move all the jobs in the system to the
-                topmost queue.
-            \end{itemize}
-        \end{itemize}
-
-    \end{itemize}
-
-    \bigskip
-
-    \underline{\textbf{References}}
-
-    \begin{enumerate}[1)]
         \item
+
+        \texttt{(b)} is the only scheduling algorithm that causes starvation
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Starvation}
+
+            \begin{itemize}
+                \item Is the problem that occurs when high priority processes keep
+                executing and low priority processes get blocked for indefinite time $^{[1]}$
+            \end{itemize}
+
+            \item \textbf{Convoy Effect}
+
+            \begin{itemize}
+                \item Is the problem where number of relatively-short potential consumers
+                of a resource get queued behind a heavy weight consumer
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_5.png}
+                \end{center}
+            \end{itemize}
+
+            \item \textbf{First In First Out}
+
+            \begin{itemize}
+                \item Is the most basic scheduling algorithm
+                \item Is vulnerable to \textbf{convoy effect}
+                \item No \textbf{starvation} as long as every process eventually completes
+            \end{itemize}
+
+            \item \textbf{Shortest Job First}
+
+            \begin{itemize}
+                \item Improves average \textbf{turnaround time} given processes of uneven length
+                \item Is a general scheduling principle useful in situation where turnaround time
+                per process matters
+                \item Is vulnerable to \textbf{convoy effect}
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_6.png}
+                \end{center}
+
+                \item Is vulnerable to \textbf{starvation}
+                \begin{itemize}
+                    \item When only short-term jobs come in while a long term job is in queue
+                \end{itemize}
+            \end{itemize}
+            \item \textbf{Shortest Time-to-completion First}
+
+            \begin{itemize}
+                \item Addresses \textbf{convoy effect} in \textbf{Shortest Job First}
+                \item Determines which of the remaining+new jobs has least time left, and
+                schedule accordingly at \underline{any time}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_7.png}
+                \end{center}
+
+                \item Is vulnerable to \textbf{starvation}
+                \begin{itemize}
+                    \item When only short-term jobs come in while a long term job is in queue
+                \end{itemize}
+
+            \end{itemize}
+
+            \item \textbf{Round Robin}
+
+            \begin{itemize}
+                \item Has good \textbf{response time} but terrible \textbf{turnaround time}
+                \item Runs job for a \textbf{time slice} or \textbf{quantum}
+                \item Each job gets equal share of CPU time
+                \item Is clock-driven $^{[6]}$
+                \item Is starvation-free $^{[7]}$
+                \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
+            \end{itemize}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
+            \end{center}
+            \item \textbf{Multi-level Feedback Queue}
+
+            \begin{itemize}
+                \item Is the most well known approaches to shceduling
+                \item Optimizes \textbf{turnaround time}, and minimizes \textbf{response time}
+                \item Observees the execution of a job and priortizes accordingly without prior knowledge
+                \item Rules
+
+                \begin{itemize}
+                    \item \textbf{Rule 1:} If Priority(A) $>$ Priority(B), A runs (B doesn't)
+                    \item \textbf{Rule 2:} If Priority(A) $=$ Priority(B). A \& B run in round-robin
+                    fashion using the time slice (quantum length) of the given queue
+                    \item \textbf{Rule 3:} When a job enters the system, it is placed at the highest
+                    priority(the top most queue)
+                    \item \textbf{Rule 4:} Once a job uses up its time allotment at a given level
+                    (regardless of how many times it has given up the CPU), its priority is reduced
+                    (it moves down on queue)
+                    \item \textbf{Rule 5:} After some time period S, move all the jobs in the system to the
+                    topmost queue.
+                \end{itemize}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_8.png}
+                \end{center}
+            \end{itemize}
+
+        \end{itemize}
+
+        \item
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Thread}
+
+            \begin{itemize}
+                \item Is a lightweight process that can be managed independently by a schdeduler $^{[4]}$
+                \item Improves the application performance using parallelism. (e.g peach)
+
+                \begin{center}
+                \includegraphics[width=0.4\linewidth]{images/midterm_2_solution_1.png}
+                \includegraphics[width=\linewidth]{images/midterm_2_solution_2.png}
+                \end{center}
+
+                \item A thread is bound to a single process
+                \item A process can have multiple threads
+                \item Has two types
+                \begin{itemize}
+                    \item \textbf{User-level Threads:}
+
+                    \begin{itemize}
+                        \item Are implemented by users and kernel is not aware of the existence of these threads
+                        \item Are represented by a program counter(PC), stack, registers and a small process control block
+                        \item Are small and much faster than kernel level threads
+                    \end{itemize}
+                    \item \textbf{Kernel-level Threads:}
+
+                    \begin{itemize}
+                        \item Are handled by the operating system directly
+                        \item Thread management is done by the kernel
+                        \item Are slower than user-level threads
+                    \end{itemize}
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 
