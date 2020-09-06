@@ -73,7 +73,7 @@
 \section{Interrupt}
 
 \begin{itemize}
-    \item Are signals sent to the CPU by external devices, normally I/O devices. $^{[2]}$
+    \item is caused by hardware (e.g. keyboard, mouse etc.) or software (page fault, protection violation, system call, etc.)
     \item Tells the CPU to stop its current activities and execute the appropriate part of the operating system (\textbf{Interrupt Handler}). $^{[2]}$
     \item Has three different types $^{[2]}$
 
@@ -156,6 +156,7 @@
 \begin{itemize}
     \item Is the programmatic way in which a computer program requests a previleged service from the kernel of the operating system
     \item i.e. Reading from disk
+    \item Is strictly a subset of software interrupts
     \item Steps
 
     \begin{enumerate}[1)]
@@ -212,6 +213,42 @@
             \item Are slower than user-level threads
         \end{itemize}
     \end{itemize}
+\end{itemize}
+
+\section{Thread API}
+
+\begin{itemize}
+
+    \item \texttt{pthread\_cond\_wait}
+
+    \begin{itemize}
+        \item Puts the calling thread to sleep (a blocked state)
+        \item Waits for some other thread to signal it
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_9.png}
+    \end{center}
+
+    \item \texttt{pthread\_cond\_signal}
+
+    \begin{itemize}
+        \item Is used to \underline{unblocks at least one} of the threads that
+        are blocked on the specified condition variable cond
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/midterm_2_solution_10.png}
+    \end{center}
+
 \end{itemize}
 
 \section{Process}
