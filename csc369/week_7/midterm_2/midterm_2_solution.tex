@@ -749,6 +749,37 @@
         Then, account 1 need to wait for account 2. Thus, deadlock.
         \bigskip
 
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+        \bigskip
+
+        \color{red}
+        There are two scenarios.
+
+        \begin{enumerate}[1.]
+            \item When two accounts transfer at the same time.
+            \begin{itemize}
+                \item \texttt{user\_1} executes \texttt{transfer\_amount(user\_2, user\_1)}
+                \item \texttt{user\_2} executes \texttt{transfer\_amount(user\_1, user\_2)}
+                \item Each will acquire their own lock at \texttt{pthread\_mutex\_lock(a1->lock)}
+                \item But because they are already locked \texttt{pthread\_mutex\_lock(a2->lock)} can't execute,
+                thus deadlock
+            \end{itemize}
+            \item When performing self transfer
+
+            \begin{itemize}
+                \item \texttt{user\_1} executes \texttt{transfer\_amount(user\_1, user\_1)}
+                \item \texttt{user\_1} will acquire own lock at \texttt{pthread\_mutex\_lock(a1->lock)}
+                \item But because user\_1 is already locked, \texttt{pthread\_mutex\_lock(a2->lock)} can't execute,
+                thus deadlock
+            \end{itemize}
+        \end{enumerate}
+        \color{black}
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
