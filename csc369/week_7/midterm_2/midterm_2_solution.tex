@@ -801,6 +801,7 @@
                     \begin{itemize}
                         \item Write code such that circular wait is never induced
                         \item Is the most practical prevention technique
+                        \item Requires deep understanding of the code base
                         \item \textbf{Total Ordering} (Most starightforward)
 
                         \bigskip
@@ -815,6 +816,24 @@
                         \bigskip
 
                         \item \textbf{Partial Ordering} (Applied to complex systems)
+
+                        \bigskip
+
+                        \underline{\textbf{Example}}
+
+                        \bigskip
+
+                        Memory mapping code in Linux (has then different groups).
+
+                        \bigskip
+
+                        (Simple) \texttt{i\_mutex} before \texttt{i\_mmap\_mutex}
+
+                        \bigskip
+
+                        (More complex) \texttt{i\_mmap\_mutex} before \texttt{private\_lock}
+                        before \texttt{swap\_lock} before \texttt{mapping->tree\_lock}
+
                     \end{itemize}
                     \item \textbf{Mutual Exclusion}
                     \begin{itemize}
