@@ -694,7 +694,15 @@
 
         \item
 
-        No. I don't agree.
+        No. I don't agree. I tried to find the reasons regarding inner workings
+        of kernel threads and user threads without success :(
+
+        \item
+
+        There are 3 additional processes in totoal. \texttt{fork()} produces a child
+        process of \texttt{run\_itself} and one \texttt{exec()} produces a process for the
+        command \texttt{ls -l} and the other \texttt{exec()} produces a process for
+        command \texttt{cat /proc/cpuinfo}
 
     \end{enumerate}
 \end{enumerate}
