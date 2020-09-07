@@ -122,6 +122,8 @@
                     \begin{itemize}
                         \item Is long-lived
                         \item Allocation and deallocation are managed by user
+                        \item Creates \textbf{memory leak} if memory not freed
+                        \item \textbf{valgrind} is a useful heap memoery debugging tool \href{https://www.valgrind.org/docs/manual/quick-start.html}{link}
                     \end{itemize}
                 \end{enumerate}
 
@@ -132,7 +134,32 @@
                     and if successful, returns a pointer to it
                     \item Returns \texttt{NULL} if memory allocation is unsuccessful
                 \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \texttt{int *x = malloc(10 * sizeof(int));}
+
+                \bigskip
                 \item \texttt{free()}
+                \begin{itemize}
+                    \item Frees heap memory that is no longer in use
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \texttt{int *x = malloc(10 * sizeof(int));}\\
+                \texttt{...}\\
+                \texttt{free(x);}
+
+
             \end{itemize}
         \end{itemize}
     \end{enumerate}
