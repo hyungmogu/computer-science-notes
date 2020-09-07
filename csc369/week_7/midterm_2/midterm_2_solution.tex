@@ -976,11 +976,42 @@
                 state of execution is not as desired (so it can be put to sleep)
                 \item when states are changed, one or more of the waiting threads can be
                 awaken and be allowed to continue (done by \textbf{signaling} the condition)
+                \item queue is \textbf{FIFO}
+                \item \texttt{wait()} call is used to put thread to sleep
+                \item \texttt{singal()} call is used to awake thread from sleep
                 \item \textbf{Syntax (initialization):}
 
                 \bigskip
 
                 \texttt{pthread\_cont\_t c = PTHREAD\_COND\_INITIALIZER}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{images/midterm_2_solution_16.png}
+                \end{center}
+
+                \item
+
+                \textbf{Syntax (Wait):}
+
+                \bigskip
+
+                \texttt{Pthread\_cond\_wait(pthread\_cond\_t *c, pthread\_mutex\_t *m)}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+                \item \textbf{Syntax (Signal):}
+
+                \bigskip
+
+                \texttt{Pthread\_cond\_signal(pthread\_cond\_t *c)}
+
+                \underline{\textbf{Example}}
+
             \end{itemize}
         \end{itemize}
     \end{enumerate}
