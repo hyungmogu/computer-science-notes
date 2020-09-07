@@ -1156,12 +1156,31 @@ void transfer_amount (account *a1, account *a2, float amount) {
 
     \item
 
+    \begin{enumerate}[a)]
+        \item
+
+        The algorithm will favor I/O bound process.
+
+        \bigskip
+
+        CPU bound processes are ones that implement an algorithm that requires a
+        large amount of processing time (e.g. algorithm that takes a long time to compute)
+
+        \bigskip
+
+        I/O bound processes are interactive process, and it mostly waiting for the completion of input and output.
+
+        \bigskip
+
+        A short run time of I/O bound process is expected, which means it won't consume a lot of processor time.
+    \end{enumerate}
+
     \bigskip
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item \textbf{CPU-bound process}
+        \item \textbf{CPU-bound process} $^{[1]}$
 
         \begin{itemize}
             \item CPU Bound processes are ones that are implementing algorithms
@@ -1170,7 +1189,7 @@ void transfer_amount (account *a1, account *a2, float amount) {
             \item Users do not typically expect an immediate response from the computer when running CPU bound programs.
             \item They should be given a lower priority by the scheduler.
         \end{itemize}
-        \item \textbf{I/O-bound process}
+        \item \textbf{I/O-bound process} $^{[1]}$
 
         \begin{itemize}
             \item Processes that are mostly waiting for the completion of input or output (I/O) are I/O Bound.
@@ -1179,6 +1198,14 @@ void transfer_amount (account *a1, account *a2, float amount) {
             \item They should be given high priority by the scheduler.
         \end{itemize}
     \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{References}}
+
+    \begin{enumerate}[1)]
+        \item Kansas State University, The Process Scheduler, \href{http://faculty.salina.k-state.edu/tim/ossg/Process/scheduler/scheduler.html#:~:text=CPU%20Bound%20processes%20are%20ones,the%20life%20of%20the%20process.}{link}
+    \end{enumerate}
 
 \end{enumerate}
 
