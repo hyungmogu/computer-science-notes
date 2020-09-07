@@ -52,6 +52,201 @@
 \begin{document}
 \title{CSC 369 Midterm 2 Notes}
 
+\section{Limited Direct Execution}
+
+\begin{itemize}
+    \item Idea: Just run the program you want to run on the CPU,
+    but first make sure to set up the hardware so as to limit what
+    process can do without OS assistance
+    \item baby proofs the CPU by
+
+    \bigskip
+
+    \begin{enumerate}[1.]
+        \item Setting up trap handlers
+        \item Starts an interrupt timer
+        \item Run processes in a restricted mode
+    \end{enumerate}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    Baby proofing a room:
+
+    \bigskip
+
+    \begin{itemize}
+        \item Locking cabinets containing dangerous stuff and covering electrical sockets.
+        \item When room is readied, let your baby roam free in knowledge that all the dangerous
+        aspect of the room is restricted
+    \end{itemize}
+\end{itemize}
+
+\section{Trap Handlers}
+
+\begin{itemize}
+    \item Is instruction that tells the hardware what to run when certain exceptions occur
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    What code to run when
+
+    \begin{enumerate}[1.]
+        \item Hard disk interrupt occurs
+        \item Keyboard interrupt occrs
+        \item Program makes a system call?
+    \end{enumerate}
+
+\end{itemize}
+
+\section{Timer Interrupt}
+
+\begin{itemize}
+    \item Is a hardware mechanism that ensures the user program does not run forever
+    \item Is emitted at regular intervals by a timer chip $^{[6]}$
+\end{itemize}
+
+\section{Response Time}
+\begin{itemize}
+    \item \textbf{Formula} $T_{response} = T_{firstrun} - T_{arrival}$
+    \item measures the interactive performance between users and the system
+\end{itemize}
+
+\section{Turnaround Time}
+
+\begin{itemize}
+    \item \textbf{Formula} $T_{turnaround} = T_{completion} - T_{arrival}$
+    \item measures the amount of time taken to complete a process
+\end{itemize}
+
+\section{Starvation}
+
+\begin{itemize}
+    \item Is the problem that occurs when high priority processes keep
+    executing and low priority processes get blocked for indefinite time $^{[1]}$
+\end{itemize}
+
+\section{Convoy Effect}
+
+\begin{itemize}
+    \item Is the problem where number of relatively-short potential consumers
+    of a resource get queued behind a heavy weight consumer
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_5.png}
+    \end{center}
+\end{itemize}
+
+\section{Scheduling policies}
+
+\begin{itemize}
+    \item Are algorithms for allocating CPU resources to concurrent tasks
+    deployed on (i.e., allocated to) a processor (i.e., computing resource)
+    or a shared pool of processors $^{[5]}$
+    \item Are sometimes called \textbf{Discipline}
+    \item Covers the following algorithms in textbook
+
+    \begin{itemize}
+        \item \textbf{First In First Out}
+
+        \begin{itemize}
+            \item Is the most basic scheduling algorithm
+            \item Is vulnerable to \textbf{convoy effect}
+            \item No \textbf{starvation} as long as every process eventually completes
+        \end{itemize}
+
+        \item \textbf{Shortest Job First}
+
+        \begin{itemize}
+            \item Improves average \textbf{turnaround time} given processes of uneven length
+            \item Is a general scheduling principle useful in situation where turnaround time
+            per process matters
+            \item Is vulnerable to \textbf{convoy effect}
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_6.png}
+            \end{center}
+
+            \item Is vulnerable to \textbf{starvation}
+            \begin{itemize}
+                \item When only short-term jobs come in while a long term job is in queue
+            \end{itemize}
+        \end{itemize}
+        \item \textbf{Shortest Time-to-completion First}
+
+        \begin{itemize}
+            \item Addresses \textbf{convoy effect} in \textbf{Shortest Job First}
+            \item Determines which of the remaining+new jobs has least time left, and
+            schedule accordingly at \underline{any time}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_7.png}
+            \end{center}
+
+            \item Is vulnerable to \textbf{starvation}
+            \begin{itemize}
+                \item When only short-term jobs come in while a long term job is in queue
+            \end{itemize}
+
+        \end{itemize}
+
+        \item \textbf{Round Robin}
+
+        \begin{itemize}
+            \item Has good \textbf{response time} but terrible \textbf{turnaround time}
+            \item Runs job for a \textbf{time slice} or \textbf{quantum}
+            \item Each job gets equal share of CPU time
+            \item Is clock-driven $^{[6]}$
+            \item Is starvation-free $^{[7]}$
+            \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
+        \end{itemize}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
+        \end{center}
+        \item \textbf{Multi-level Feedback Queue}
+
+        \begin{itemize}
+            \item Is the most well known approaches to shceduling
+            \item Optimizes \textbf{turnaround time}, and minimizes \textbf{response time}
+            \item Observees the execution of a job and priortizes accordingly without prior knowledge
+            \item Rules
+
+            \begin{itemize}
+                \item \textbf{Rule 1:} If Priority(A) $>$ Priority(B), A runs (B doesn't)
+                \item \textbf{Rule 2:} If Priority(A) $=$ Priority(B). A \& B run in round-robin
+                fashion using the time slice (quantum length) of the given queue
+                \item \textbf{Rule 3:} When a job enters the system, it is placed at the highest
+                priority(the top most queue)
+                \item \textbf{Rule 4:} Once a job uses up its time allotment at a given level
+                (regardless of how many times it has given up the CPU), its priority is reduced
+                (it moves down on queue)
+                \item \textbf{Rule 5:} After some time period S, move all the jobs in the system to the
+                topmost queue.
+            \end{itemize}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_8.png}
+            \end{center}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 \section{User Mode}
 
 \begin{itemize}
@@ -184,6 +379,39 @@
     \end{itemize}
 \end{itemize}
 
+\section{Signals}
+
+\begin{itemize}
+    \item Provides a way to communicate with the process
+    \item Can cause job to stop, continue, or terminate
+    \item Can be delivered to an application
+
+    \begin{itemize}
+        \item Stops the application from whatever its doing
+        \item Runs Signal handler (some code in application to handle the signal)
+        \item When finished, the process resumes previous behavior
+    \end{itemize}
+\end{itemize}
+
+\section{CPU-bound process} $^{[8]}$
+
+\begin{itemize}
+    \item CPU Bound processes are ones that are implementing algorithms
+    with a large number of calculations
+    \item Programs such as simulations may be CPU bound for most of the life of the process.
+    \item Users do not typically expect an immediate response from the computer when running CPU bound programs.
+    \item They should be given a lower priority by the scheduler.
+\end{itemize}
+\section{I/O-bound process} $^{[8]}$
+
+\begin{itemize}
+    \item Processes that are mostly waiting for the completion of input or output (I/O) are I/O Bound.
+    \item Interactive processes, such as office applications are mostly I/O bound the entire life of the process. Some processes may be I/O bound for only a few short periods of time.
+    \item The expected short run time of I/O bound processes means that they will not stay the running the process for very long.
+    \item They should be given high priority by the scheduler.
+\end{itemize}
+
+
 \section{Critical Section}
 
 \begin{itemize}
@@ -227,6 +455,59 @@
 
 \begin{itemize}
 
+    \item \texttt{pthread\_create}
+
+    \begin{itemize}
+        \item \textbf{syntax:}
+
+        \bigskip
+\begin{lstlisting}[language=c]
+int pthread_create(pthread_t *thread,
+               const pthread_attr_t *attr,
+               void * (*start_routine)(void*),
+               void * arg)
+\end{lstlisting}
+
+        \begin{itemize}
+            \item \texttt{thread}
+
+            \begin{itemize}
+                \item is a pointer to a structure of type \texttt{pthread\_t}
+            \end{itemize}
+            \item \texttt{attr}
+
+            \begin{itemize}
+                \item is used to specify any attributes this thread might have
+                \item is initialized with a separate call \texttt{pthread\_attr\_init()}
+                \item set default by passing \texttt{NULL}
+            \end{itemize}
+
+            \item \texttt{(start\_routine)}
+
+            \begin{itemize}
+                \item means which function this thread should start running in?
+                \item setting void pointer \texttt{(void *)} as an argument to function \texttt{start\_routine}
+                allows us to pass in \underline{any} type of argument
+                \item setting void pointer \texttt{(void *)} as return type allows us to return
+                \underline{any} type of result
+            \end{itemize}
+
+            \item \texttt{args}
+
+            \begin{itemize}
+                \item is where to pass the arguments for the function pointer \texttt((start\_routine))
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_2_solution_19.png}
+            \end{center}
+        \end{itemize}
+    \end{itemize}
+
     \item \texttt{pthread\_cond\_wait}
 
     \begin{itemize}
@@ -257,6 +538,97 @@
     \includegraphics[width=0.8\linewidth]{images/midterm_2_solution_10.png}
     \end{center}
 
+\end{itemize}
+
+\section{Condition Variable}
+
+\begin{itemize}
+    \item is an explicit queue that threads can put themselves on when some
+    state of execution is not as desired (so it can be put to sleep)
+    \item when states are changed, one or more of the waiting threads can be
+    awaken and be allowed to continue (done by \textbf{signaling} the condition)
+    \item queue is \textbf{FIFO}
+    \item \texttt{wait()} call is used to put thread to sleep
+    \item \texttt{singal()} call is used to awake thread from sleep
+    \item \textbf{Syntax (initialization):}
+
+    \bigskip
+
+    \texttt{pthread\_cont\_t c = PTHREAD\_COND\_INITIALIZER}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/midterm_2_solution_16.png}
+    \end{center}
+
+    \item
+
+    \textbf{Syntax (Wait):}
+
+    \bigskip
+
+    \texttt{Pthread\_cond\_wait(pthread\_cond\_t *c, pthread\_mutex\_t *m)}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/midterm_2_solution_17.png}
+    \end{center}
+    \item \textbf{Syntax (Signal):}
+
+    \bigskip
+
+    \texttt{Pthread\_cond\_signal(pthread\_cond\_t *c)}
+
+    \underline{\textbf{Example}}
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/midterm_2_solution_18.png}
+    \end{center}
+
+\end{itemize}
+
+\section{Spinlock}
+\begin{itemize}
+    \item Is the simplest lock to build
+    \item Uses a lock variable
+
+    \begin{itemize}
+        \item 0 - (available/unlock/free)
+        \item 1 - (acquired/locked/held)
+    \end{itemize}
+
+    \item Has two operations
+
+    \begin{enumerate}[1.]
+        \item \texttt{acquire()}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_3.png}
+        \end{center}
+
+        \bigskip
+
+        \item \texttt{release()}
+
+        \bigskip
+
+        \begin{center}
+        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
+        \end{center}
+
+        \bigskip
+    \end{enumerate}
+    \item Allows a single thread to enter critical section at a time
+    \item Spins using CPU cycles until the lock becomes available.
+    \item May spin forever
 \end{itemize}
 
 \section{Livelock}
@@ -458,200 +830,6 @@
 
 \end{itemize}
 
-\section{Signals}
-
-\begin{itemize}
-    \item Provides a way to communicate with the process
-    \item Can cause job to stop, continue, or terminate
-    \item Can be delivered to an application
-
-    \begin{itemize}
-        \item Stops the application from whatever its doing
-        \item Runs Signal handler (some code in application to handle the signal)
-        \item When finished, the process resumes previous behavior
-    \end{itemize}
-\end{itemize}
-
-\section{Spinlock}
-\begin{itemize}
-    \item Is the simplest lock to build
-    \item Uses a lock variable
-
-    \begin{itemize}
-        \item 0 - (available/unlock/free)
-        \item 1 - (acquired/locked/held)
-    \end{itemize}
-
-    \item Has two operations
-
-    \begin{enumerate}[1.]
-        \item \texttt{acquire()}
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_3.png}
-        \end{center}
-
-        \bigskip
-
-        \item \texttt{release()}
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
-        \end{center}
-
-        \bigskip
-    \end{enumerate}
-    \item Allows a single thread to enter critical section at a time
-    \item Spins using CPU cycles until the lock becomes available.
-    \item May spin forever
-\end{itemize}
-
-\section{Deadlock}
-
-\begin{itemize}
-    \item
-\end{itemize}
-
----------------
-
-\section{Response Time}
-\begin{itemize}
-    \item \textbf{Formula} $T_{response} = T_{firstrun} - T_{arrival}$
-    \item measures the interactive performance between users and the system
-\end{itemize}
-
-\section{Turnaround Time}
-
-\begin{itemize}
-    \item \textbf{Formula} $T_{turnaround} = T_{completion} - T_{arrival}$
-    \item measures the amount of time taken to complete a process
-\end{itemize}
-
-\section{Starvation}
-
-\begin{itemize}
-    \item Is the problem that occurs when high priority processes keep
-    executing and low priority processes get blocked for indefinite time $^{[1]}$
-\end{itemize}
-
-\section{Convoy Effect}
-
-\begin{itemize}
-    \item Is the problem where number of relatively-short potential consumers
-    of a resource get queued behind a heavy weight consumer
-
-    \bigskip
-
-    \begin{center}
-    \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_5.png}
-    \end{center}
-\end{itemize}
-
-\section{Scheduling policies}
-
-\begin{itemize}
-    \item Are algorithms for allocating CPU resources to concurrent tasks
-    deployed on (i.e., allocated to) a processor (i.e., computing resource)
-    or a shared pool of processors $^{[5]}$
-    \item Are sometimes called \textbf{Discipline}
-    \item Covers the following algorithms in textbook
-
-    \begin{itemize}
-        \item \textbf{First In First Out}
-
-        \begin{itemize}
-            \item Is the most basic scheduling algorithm
-            \item Is vulnerable to \textbf{convoy effect}
-            \item No \textbf{starvation} as long as every process eventually completes
-        \end{itemize}
-
-        \item \textbf{Shortest Job First}
-
-        \begin{itemize}
-            \item Improves average \textbf{turnaround time} given processes of uneven length
-            \item Is a general scheduling principle useful in situation where turnaround time
-            per process matters
-            \item Is vulnerable to \textbf{convoy effect}
-
-            \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_6.png}
-            \end{center}
-
-            \item Is vulnerable to \textbf{starvation}
-            \begin{itemize}
-                \item When only short-term jobs come in while a long term job is in queue
-            \end{itemize}
-        \end{itemize}
-        \item \textbf{Shortest Time-to-completion First}
-
-        \begin{itemize}
-            \item Addresses \textbf{convoy effect} in \textbf{Shortest Job First}
-            \item Determines which of the remaining+new jobs has least time left, and
-            schedule accordingly at \underline{any time}
-
-            \bigskip
-
-            \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_7.png}
-            \end{center}
-
-            \item Is vulnerable to \textbf{starvation}
-            \begin{itemize}
-                \item When only short-term jobs come in while a long term job is in queue
-            \end{itemize}
-
-        \end{itemize}
-
-        \item \textbf{Round Robin}
-
-        \begin{itemize}
-            \item Has good \textbf{response time} but terrible \textbf{turnaround time}
-            \item Runs job for a \textbf{time slice} or \textbf{quantum}
-            \item Each job gets equal share of CPU time
-            \item Is clock-driven $^{[6]}$
-            \item Is starvation-free $^{[7]}$
-            \item \underline{Must} have the length of a time slice (\textbf{quantum}) as multiple of timer-interrupt period
-        \end{itemize}
-
-        \bigskip
-
-        \begin{center}
-        \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_4.png}
-        \end{center}
-        \item \textbf{Multi-level Feedback Queue}
-
-        \begin{itemize}
-            \item Is the most well known approaches to shceduling
-            \item Optimizes \textbf{turnaround time}, and minimizes \textbf{response time}
-            \item Observees the execution of a job and priortizes accordingly without prior knowledge
-            \item Rules
-
-            \begin{itemize}
-                \item \textbf{Rule 1:} If Priority(A) $>$ Priority(B), A runs (B doesn't)
-                \item \textbf{Rule 2:} If Priority(A) $=$ Priority(B). A \& B run in round-robin
-                fashion using the time slice (quantum length) of the given queue
-                \item \textbf{Rule 3:} When a job enters the system, it is placed at the highest
-                priority(the top most queue)
-                \item \textbf{Rule 4:} Once a job uses up its time allotment at a given level
-                (regardless of how many times it has given up the CPU), its priority is reduced
-                (it moves down on queue)
-                \item \textbf{Rule 5:} After some time period S, move all the jobs in the system to the
-                topmost queue.
-            \end{itemize}
-
-            \bigskip
-
-            \begin{center}
-            \includegraphics[width=0.7\linewidth]{images/midterm_2_solution_8.png}
-            \end{center}
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
 \bigskip
 
 \underline{\textbf{References}}
@@ -664,6 +842,7 @@
     \item Science Direct, Scheduling Policy, \href{https://www.sciencedirect.com/topics/computer-science/scheduling-policy#:~:text=Scheduling%20policies%20are%20algorithms%20for,nature%20of%20applications%20%5B1%5D.}{link}
     \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
     \item Wikipedia: Round-robin Scheduling, \href{https://en.wikipedia.org/wiki/Round-robin_scheduling}{link}
+    \item Kansas State University, The Process Scheduler, \href{http://faculty.salina.k-state.edu/tim/ossg/Process/scheduler/scheduler.html#:~:text=CPU%20Bound%20processes%20are%20ones,the%20life%20of%20the%20process.}{link}
 \end{enumerate}
 
 \end{document}
