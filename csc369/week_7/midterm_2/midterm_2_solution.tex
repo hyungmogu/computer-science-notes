@@ -964,7 +964,21 @@
 
         \item
 
+\begin{lstlisting}[language=c]
+typedef struct acct {
+    float balance;
+    pthread_mutex *lock;
+} account;
 
+void transfer_amount (account *a1, account *a2, float amount) {
+
+    if (pthread_mutex_trylock(a1->lock) != 0) {
+
+    } else {
+
+    }
+}
+\end{lstlisting}
 
         \bigskip
 
@@ -1002,6 +1016,7 @@
                     \item \texttt{(start\_routine)}
 
                     \begin{itemize}
+                        \item means which function this thread should start running in?
                         \item setting void pointer \texttt{(void *)} as an argument to function \texttt{start\_routine}
                         allows us to pass in \underline{any} type of argument
                         \item setting void pointer \texttt{(void *)} as return type allows us to return
