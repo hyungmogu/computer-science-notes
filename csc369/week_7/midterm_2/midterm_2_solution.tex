@@ -978,8 +978,10 @@
                 \item \textbf{syntax (creation):}
 
                 \bigskip
-
-                \texttt{pthread\_create()}
+\begin{lstlisting}[language=c]
+    int pthread_create(pthread_t *thread,
+                       const pthread_attr_t *attr,)
+\end{lstlisting}
             \end{itemize}
             \item \textbf{Condition Variable}
 
