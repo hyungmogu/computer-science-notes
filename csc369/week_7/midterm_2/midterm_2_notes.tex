@@ -74,7 +74,7 @@
 \section{Interrupt}
 
 \begin{itemize}
-    \item is caused by hardware (e.g. keyboard, mouse etc.) or software (page fault, protection violation, system call, etc.)
+    \item i is a signals are sent by hardware (keyboardm mouse, etc.), or software (page fault, protection violation, system call)
     \item Tells the CPU to stop its current activities and execute the appropriate part of the operating system (\textbf{Interrupt Handler}). $^{[2]}$
     \item Has three different types $^{[2]}$
 
@@ -257,6 +257,171 @@
     \includegraphics[width=0.8\linewidth]{images/midterm_2_solution_10.png}
     \end{center}
 
+\end{itemize}
+
+\section{Livelock}
+
+\begin{itemize}
+    \item Two or more threads reapeatedly attempting this code over and over (e.g acquiring lock), but progress is
+    not being made (e.g acquiring lock)
+    \item Solution: Add a random delay before trying again (decrease odd of livelock)
+\end{itemize}
+
+\section{Deadlock}
+
+\begin{center}
+\includegraphics[width=0.6\linewidth]{images/midterm_2_solution_11.png}
+\end{center}
+
+\begin{itemize}
+    \item Is a state in which each member of a group is waiting for
+    another member including itself, to take action (e.g. releasing lock)
+    \item Conditions for Deadlock (All four must be met)
+
+    \begin{itemize}
+        \item \textbf{Mutual Exclusion}
+        \begin{itemize}
+            \item Occurs when threads claim exclusive control of resources that
+            they require (e.g. thread grabing a lock)
+        \end{itemize}
+        \item \textbf{Hold-and-wait}
+        \begin{itemize}
+            \item Occurs when threads hold resources allocated to them (e.g locks that they have already acquired)
+            while waiting for additional resources (e.g. locks that they wish to acquire)
+        \end{itemize}
+
+        \item \textbf{No Preemption}
+        \begin{itemize}
+            \item Occurs when resource cannot be forcibly removed from threads that are holding them
+        \end{itemize}
+        \item \textbf{Circular Wait}
+        \begin{itemize}
+            \item Occurs when there exists a circular chain of threads such that
+            each threads hold one or more resources (e.g. locks) that are being
+            requested by the next thread in the chain.
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \begin{center}
+    \includegraphics[width=0.9\linewidth]{images/midterm_2_solution_12.png}
+    \end{center}
+
+    \item Preventions
+
+    \begin{itemize}
+        \item \textbf{Circular Wait}
+        \begin{itemize}
+            \item Write code such that circular wait is never induced
+            \item Is the most practical prevention technique
+            \item Requires deep understanding of the code base
+            \item \textbf{Total Ordering} (Most starightforward)
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            Given two locks in the system (\texttt{L1} and \texttt{L2}), always
+            acuiqure \texttt{L1} before \texttt{L2}
+
+            \bigskip
+
+            \item \textbf{Partial Ordering} (Applied to complex systems)
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            Memory mapping code in Linux (has then different groups).
+
+            \bigskip
+
+            (Simple) \texttt{i\_mutex} before \texttt{i\_mmap\_mutex}
+
+            \bigskip
+
+            (More complex) \texttt{i\_mmap\_mutex} before \texttt{private\_lock}
+            before \texttt{swap\_lock} before \texttt{mapping->tree\_lock}
+
+        \end{itemize}
+
+        \item \textbf{Hold-and-wait}
+        \begin{itemize}
+            \item Can be avoided by acquiring all locks at once
+            \item Can be problematic
+            \item Must know which lock must be held and acquire ahead of time
+            \item Is likely to decrease concurrency (since all need to be acquired over their needs)
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_2_solution_13.png}
+            \end{center}
+        \end{itemize}
+
+        \item \textbf{No Preemption}
+        \begin{itemize}
+            \item Can be avoided by adding code that force unlock if not available
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{images/midterm_2_solution_14.png}
+            \end{center}
+
+            \item \texttt{pthread\_mutex\_trylock} tries to lock the speicied mutex.
+            \item \texttt{pthread\_mutex\_trylock} returns 0 if lock is available
+            \item \texttt{pthread\_mutex\_trylock} returns the following error if occupied
+
+            \bigskip
+
+            \quad \texttt{EBUSY} - Mutex is already locked
+
+            \bigskip
+
+            \quad \texttt{EINVAL} - Is not initialized mutex
+
+            \bigskip
+
+            \quad \texttt{EFAULT} - Is in valid pointer
+
+            \item May result in \textbf{live lock}
+        \end{itemize}
+
+        \item \textbf{Mutual Exclusion}
+        \begin{itemize}
+            \item Idea: Avoid the mutual exclusion at all
+            \item Use \textbf{lock-free}/\textbf{wait-free} approach:
+            building data structures in a manner that does not require explicit locking
+            using hardware instructions
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{images/midterm_2_solution_15.png}
+            \end{center}
+
+        \end{itemize}
+    \end{itemize}
+
+    \item Avoidance
+
+    \begin{itemize}
+        \item \textbf{Banker's Algorithm}
+    \end{itemize}
 \end{itemize}
 
 \section{Process}
