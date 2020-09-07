@@ -980,8 +980,31 @@
                 \bigskip
 \begin{lstlisting}[language=c]
     int pthread_create(pthread_t *thread,
-                       const pthread_attr_t *attr,)
+                       const pthread_attr_t *attr,
+                       void * (*start_routine)(void*),
+                       void * arg)
 \end{lstlisting}
+
+                \begin{itemize}
+                    \item \texttt{thread}
+
+                    \begin{itemize}
+                        \item is a pointer to a structure of type \texttt{pthread\_t}
+                    \end{itemize}
+                    \item \texttt{attr}
+
+                    \begin{itemize}
+                        \item is used to specify any attributes this thread might have
+                        \item is initialized with a separate call \texttt{pthread\_attr\_init()}
+                        \item set default by passing \texttt{NULL}
+                    \end{itemize}
+
+                    \item \texttt{args}
+
+                    \begin{itemize}
+                        \item
+                    \end{itemize}
+                \end{itemize}
             \end{itemize}
             \item \textbf{Condition Variable}
 
