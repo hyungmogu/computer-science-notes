@@ -129,6 +129,7 @@
 
                 \item \texttt{malloc()}
                 \begin{itemize}
+                    \item Is a C library call
                     \item \textbf{Syntax:} \texttt{void *malloc(size\_t size)}
                     \item Allocates a block of \texttt{size} bytes to \textbf{heap memory}
                     and if successful, returns a pointer to it
@@ -146,6 +147,7 @@
                 \bigskip
                 \item \texttt{free()}
                 \begin{itemize}
+                    \item Is a C library call
                     \item Frees heap memory that is no longer in use
                 \end{itemize}
 
@@ -160,6 +162,17 @@
                 \texttt{free(x);}
 
 
+            \end{itemize}
+
+            \item \textbf{Buffer overflow}
+            \begin{itemize}
+                \item is an error that occurs when not enough heap memory is allocated
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_3_solution_2.png}
+                \end{center}
             \end{itemize}
         \end{itemize}
     \end{enumerate}
