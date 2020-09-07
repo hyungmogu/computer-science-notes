@@ -98,6 +98,10 @@
 
         \item
 
+        Malloc allocates heap memory, free deallocates heap memory, and it is user's
+        responsibility to manage heap memory.
+
+
         \bigskip
 
         \underline{\textbf{Notes}}
@@ -161,6 +165,13 @@
                 \texttt{...}\\
                 \texttt{free(x);}
 
+                \bigskip
+
+                \item \texttt{brk(), sbrk(), mmap()}
+
+                \begin{itemize}
+                    \item Are system calls for memory management
+                \end{itemize}
 
             \end{itemize}
 
