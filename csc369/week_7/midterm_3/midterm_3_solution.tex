@@ -98,8 +98,8 @@
 
         \item
 
-        Malloc allocates heap memory, free deallocates heap memory, and it is user's
-        responsibility to manage heap memory.
+        It is user's responsibility to keep track of allocated blocks of heap memory,
+        and memory leak occurs if user fails to deallocate allocated blocks of heap memory
 
 
         \bigskip
@@ -186,6 +186,12 @@
                 \end{center}
             \end{itemize}
         \end{itemize}
+
+        \item
+
+        No. If the access by two threads are both about reading the stored value (as opposed to write),
+        then concurrency error will not occur.
+
     \end{enumerate}
 
 
