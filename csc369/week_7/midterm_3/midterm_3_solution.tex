@@ -72,10 +72,10 @@
                 \item Is issued by a client
                 \item Is the only entry points into the kernel system
                 \item Provides services via API or Application Program Interface
-                \item Has five different types
+                \item Has five different types of calls
 
                 \begin{center}
-                \includegraphics[width=0.7\linewidth]{../images/midterm_3_solution_1.png}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_3_solution_1.png}
                 \end{center}
             \end{itemize}
 
@@ -126,6 +126,12 @@
                 \end{enumerate}
 
                 \item \texttt{malloc()}
+                \begin{itemize}
+                    \item \textbf{Syntax:} \texttt{void *malloc(size\_t size)}
+                    \item Allocates a block of \texttt{size} bytes to \textbf{heap memory}
+                    and if successful, returns a pointer to it
+                    \item Returns \texttt{NULL} if memory allocation is unsuccessful
+                \end{itemize}
                 \item \texttt{free()}
             \end{itemize}
         \end{itemize}
