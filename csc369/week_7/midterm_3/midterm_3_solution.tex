@@ -199,12 +199,15 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item \textbf{Coarse-grained-locking}
+            \item \textbf{Fine-grained-locking}
             \item \textbf{Hand-over-hand locking}
 
             \begin{itemize}
                 \item Idea: instead of having a single lock for the entire list, a lock per node
                 of the list is added; when traversing the list, the list grabs the next node's lock,
                 and releases the current node's lock
+                \item Is a fine-grained-locking
                 \item Holds at most 2 locks at a time
             \end{itemize}
         \end{itemize}
