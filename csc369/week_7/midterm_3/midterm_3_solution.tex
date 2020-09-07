@@ -106,7 +106,27 @@
             \item \textbf{Memory API}
 
             \begin{itemize}
-                \item
+                \item Has two types of memory
+
+                \begin{enumerate}[1.]
+                    \item \textbf{Stack}
+
+                    \begin{itemize}
+                        \item Is also called \textbf{automatic memory}
+                        \item Allocations and deallocations are managed by compiler
+                        \item Deallocates memory by the end of function call
+                    \end{itemize}
+
+                    \item \textbf{Heap}
+
+                    \begin{itemize}
+                        \item Is long-lived
+                        \item Allocation and deallocation are managed by user
+                    \end{itemize}
+                \end{enumerate}
+
+                \item \texttt{malloc()}
+                \item \texttt{free()}
             \end{itemize}
         \end{itemize}
     \end{enumerate}
