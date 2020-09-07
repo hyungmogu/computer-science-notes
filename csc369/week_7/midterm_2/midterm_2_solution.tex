@@ -1173,6 +1173,24 @@ void transfer_amount (account *a1, account *a2, float amount) {
         \bigskip
 
         A short run time of I/O bound process is expected, which means it won't consume a lot of processor time.
+
+        \bigskip
+
+        It follows from above that the algorithm will favour I/O bound process over
+        CPU-bound process.
+
+        \item
+
+        This algorithm can permanently starve CPU-bound process.
+
+        \bigskip
+
+        This will happen when a constant stream of I/O bound processes occur over CPU bound process.
+
+        \bigskip
+
+        The CPU bound process will never get its time to comlpete its process.
+
     \end{enumerate}
 
     \bigskip
