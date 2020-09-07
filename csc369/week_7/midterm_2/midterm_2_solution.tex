@@ -1005,6 +1005,44 @@ void transfer_amount (account *a1, account *a2, float amount) {
 
         \bigskip
 
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+\begin{lstlisting}[language=c]
+    typedef struct acct {
+        float balance;
+        pthread_mutex *lock;
+        pthread_cond_t *cond;
+    } account;
+
+    void transfer_amount (account *a1, account *a2, float amount) {
+
+        pthread_mutex_lock(a1->lock);
+
+        while(a1->balance - amount < 0) {
+            pthread_cond_wait(a1->cond, a1->lock);
+        }
+
+        a1->balance -= amount;
+
+        pthread_mutex_unlock(a1->lock);
+
+
+        pthread_mutex_lock(a2->lock);
+
+        a2->balance += amount;
+
+        pthread_cond_broadcast(a2->cond);
+
+        pthread_mutex_unlock(a2->lock);
+
+
+    }
+\end{lstlisting}
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
