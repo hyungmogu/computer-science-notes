@@ -1162,7 +1162,22 @@ void transfer_amount (account *a1, account *a2, float amount) {
 
     \begin{itemize}
         \item \textbf{CPU-bound process}
+
+        \begin{itemize}
+            \item CPU Bound processes are ones that are implementing algorithms
+            with a large number of calculations
+            \item Programs such as simulations may be CPU bound for most of the life of the process.
+            \item Users do not typically expect an immediate response from the computer when running CPU bound programs.
+            \item They should be given a lower priority by the scheduler.
+        \end{itemize}
         \item \textbf{I/O-bound process}
+
+        \begin{itemize}
+            \item Processes that are mostly waiting for the completion of input or output (I/O) are I/O Bound.
+            \item Interactive processes, such as office applications are mostly I/O bound the entire life of the process. Some processes may be I/O bound for only a few short periods of time.
+            \item The expected short run time of I/O bound processes means that they will not stay the running the process for very long.
+            \item They should be given high priority by the scheduler.
+        \end{itemize}
     \end{itemize}
 
 \end{enumerate}
