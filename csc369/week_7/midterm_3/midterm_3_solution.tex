@@ -202,9 +202,34 @@
             \item \textbf{Coarse-grained-locking}
 
             \begin{itemize}
-                \item
+                \item Is one big lock that is used any time any critical section is accessed
+                \item Is easy to write
+                \item Is easy to prove correctness
+                \item No fault-tolerance but deadlock-free
+                \item Perfoms poorly when contention (the need for performance due to load) is high
+                \begin{itemize}
+                    \item No concurrent access
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
             \end{itemize}
             \item \textbf{Fine-grained-locking}
+
+            \begin{itemize}
+                \item Uses different locks to often protect different data and data strutures
+                \item Allows more threads to be in locded code at once
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+            \end{itemize}
             \item \textbf{Hand-over-hand locking}
 
             \begin{itemize}
