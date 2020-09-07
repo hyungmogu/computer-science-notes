@@ -381,6 +381,8 @@
 \begin{itemize}
     \item Is the programmatic way in which a computer program requests a previleged service from the kernel of the operating system
     \item i.e. Reading from disk
+    \item Provides services via API or Application Program Interface
+    \item Is the only entry points into the kernel system
     \item Is strictly a subset of software interrupts
     \item Steps
 
@@ -394,6 +396,12 @@
         \item Finish and execute \textbf{return-from-trap} instruction
         \item Return from \textbf{kernel mode} to \textbf{user mode} and resume user program
     \end{enumerate}
+
+    \item Has five different types
+
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{../images/midterm_3_solution_1.png}
+    \end{center}
 \end{itemize}
 
 \underline{\textbf{Example}}
