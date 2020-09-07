@@ -972,7 +972,15 @@
             \item \textbf{Condition Variable}
 
             \begin{itemize}
-                \item
+                \item is an explicit queue that threads can put themselves on when some
+                state of execution is not as desired (so it can be put to sleep)
+                \item when states are changed, one or more of the waiting threads can be
+                awaken and be allowed to continue (done by \textbf{signaling} the condition)
+                \item \textbf{Syntax (initialization):}
+
+                \bigskip
+
+                \texttt{pthread\_cont\_t c = PTHREAD\_COND\_INITIALIZER}
             \end{itemize}
         \end{itemize}
     \end{enumerate}
