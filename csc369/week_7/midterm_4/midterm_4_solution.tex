@@ -183,74 +183,96 @@
             \item I wonder how system call for deleting file/directory works in UNIX
             \item I wonder how system call for creatubg file/directory works in UNIX
 
-            \item \textbf{Creating Files}
-
+            \item \textbf{File API}
             \begin{itemize}
-                \item \textbf{Syntax:}
+                \item \texttt{open} (create)
+                \begin{itemize}
+                    \item Is a system call
+                    \item \textbf{Syntax:}
 
-                \bigskip
+                    \bigskip
 
-                \texttt{int fd = open("foo". O\_CREAT|O\_WRONLY|O\_TRUNC, S\_IRUSR|S\_IWUSR)}
+                    \texttt{int fd = open("foo". O\_CREAT|O\_WRONLY|O\_TRUNC, S\_IRUSR|S\_IWUSR)}
 
-                \bigskip
+                    \bigskip
+
+                    \begin{itemize}
+                        \item \texttt{O\_CREAT} - Creates file "foo" if does not exist
+                        \item \texttt{O\_WRONLY} - Open file for writing only (default)
+                        \item \texttt{O\_TRUNC} - Overwrites existing file \color{red}Need example/Clarification\color{black}
+                        \item Can have multiple flags
+                    \end{itemize}
+                    \item Returns \textbf{file descriptor} or \texttt{fd} for short
+
+                    \begin{itemize}
+                        \item Is an integer
+                        \item Is \underline{private} per process
+                        \item Can be used to \texttt{read()} and \texttt{write()} files
+                    \end{itemize}
+
+                    \bigskip
+
+                    \underline{\textbf{Example}}
+
+                    \bigskip
+
+                    \begin{center}
+                    \includegraphics[width=\linewidth]{../images/midterm_4_solution_2.png}
+                    \end{center}
+                \end{itemize}
+
+                \item \texttt(read)
+                \begin{itemize}
+                    \item Is a system call
+                    \item \textbf{Syntax:}
+
+                    \bigskip
+
+                    \texttt{ssize\_t read (int fd, void *buf, size\_t count)}
+
+                    \bigskip
+
+                    \begin{itemize}
+                        \item \texttt{fd} - file descriptor (from \texttt{open()})
+                        \item \texttt{buf} - container for the read data
+                        \item \texttt{count} - number of bytes to read
+                    \end{itemize}
+                    \item Returns number of bytes read, if successful
+                    \item Returns 0 if is at, or past the end of file
+
+                    \bigskip
+
+                    \underline{\textbf{Example}}
+
+                    \bigskip
+
+                    \begin{center}
+                    \includegraphics[width=\linewidth]{../images/midterm_4_solution_3.png}
+                    \end{center}
+
+                \end{itemize}
+
+                \item \texttt{write}
 
                 \begin{itemize}
                     \item Is a system call
-                    \item \texttt{O\_CREAT} - Creates file "foo" if does not exist
-                    \item \texttt{O\_WRONLY} - Open file for writing only (default)
-                    \item \texttt{O\_TRUNC} - Overwrites existing file \color{red}Need example/Clarification\color{black}
-                    \item Can have multiple flags
+                    \item Writes data out of a buffer
+                    \item \textbf{Syntax:}
+
+                    \bigskip
+
+                    \texttt{ssize\_t write (int fd, const void * buf, size\_t nbytes)}
+
+                    \bigskip
+
+                    \begin{itemize}
+                        \item \texttt{fd} - file descriptor
+                        \item \texttt{buf} - A pointer to a buffer to write to file
+                        \item \texttt{nbytes} - number of bytes to write. If smaller than buffer, the output is truncated
+                    \end{itemize}
+
+
                 \end{itemize}
-                \item Returns \textbf{file descriptor} or \texttt{fd} for short
-
-                \begin{itemize}
-                    \item Is an integer
-                    \item Is \underline{private} per process
-                    \item Can be used to \texttt{read()} and \texttt{write()} files
-                \end{itemize}
-
-                \bigskip
-
-                \underline{\textbf{Example}}
-
-                \bigskip
-
-                \begin{center}
-                \includegraphics[width=\linewidth]{../images/midterm_4_solution_2.png}
-                \end{center}
-
-                \item
-            \end{itemize}
-
-            \item \textbf{Reading File}
-            \begin{itemize}
-                \item \textbf{Syntax:}
-
-                \bigskip
-
-                \texttt{ssize\_t read (int fd, void *buf, size\_t count)}
-
-                \bigskip
-
-                \begin{itemize}
-                    \item Is a system call
-                    \item \texttt{fd} - file descriptor (from \texttt{open()})
-                    \item \texttt{buf} - container for the read data
-                    \item \texttt{count} - number of bytes to read
-                \end{itemize}
-                \item Returns number of bytes read, if successful
-                \item Returns 0 if is at, or past the end of file
-
-                \bigskip
-
-                \underline{\textbf{Example}}
-
-                \bigskip
-
-                \begin{center}
-                \includegraphics[width=\linewidth]{../images/midterm_4_solution_3.png}
-                \end{center}
-
             \end{itemize}
 
             \item \textbf{Reading and Writing Files}
