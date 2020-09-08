@@ -129,6 +129,32 @@
             remember which information inode has
         \end{itemize}
 
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item I wonder how system call for deleting file in UNIX works
+            \item I wonder how system call for adding file in UNIX works
+            \item \textbf{Creash Scenarios}
+
+            \begin{itemize}
+                \item When only new data block is written to disk
+
+                \begin{itemize}
+                    \item This is fine in system's point of view
+                    \item No inode points to it (it doesn't contain any information about file)
+                    \item No bitmap points to it
+                    \item Is as if write never occured
+                \end{itemize}
+                \item When only the updated inode is written to disk
+                \item When only inode bitmap is written to disk
+                \item When only data bitmap is written to disk
+            \end{itemize}
+        \end{itemize}
+
     \end{enumerate}
 \end{enumerate}
 
