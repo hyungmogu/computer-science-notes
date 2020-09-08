@@ -61,17 +61,17 @@
 
         \item
         \begin{enumerate}[1)]
-            \item 4 inode blocks. 1 for the file \texttt{c}, and 3 for the
+            \item 4 - inode blocks. 1 for the file \texttt{c}, and 3 for the
             directdories \texttt{/}, \texttt{a}, \texttt{b}
 
-            \item 3 directory blocks - one for root \texttt{/}, one for \texttt{a},
+            \item 3 - directory blocks - one for root \texttt{/}, one for \texttt{a},
             the other for \texttt{b}
 
-            \item 1 single indirect block as far as we know. The file definitely has more than
+            \item 1 - single indirect block as far as we know. The file definitely has more than
             12 blocks (\# of data blocks pointed by direct pounters), but less than 1036 (\# of data blocks pointed
             by direct pointers and single indirect pointers). We are reading block 1034.
 
-            \item 1 data block for file \texttt{c}
+            \item 1 - data block for file \texttt{c}
         \end{enumerate}
 
         \item
@@ -85,18 +85,48 @@
         \begin{itemize}
             \item \textbf{Inode}
 
+            \begin{center}
+            \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_1.png}
+            \end{center}
+
             \begin{itemize}
                 \item Is short form of \textbf{index node}
-                \item describes a file system object such as file or data
-                \item contains all information about a file/directory, including
+                \item Describes a file system object such as file or data
+                \item Contains all information about a file/directory, including
                 \begin{itemize}
                     \item File Type,
                     \item Size
+                    \item Number of blocks allocated to it
+                    \item Protection information
                     \item Time information (e.g time created, time modified)
                     \item Location of data blocks residing on disk
                 \end{itemize}
 
             \end{itemize}
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[1)]
+            \item Wikipedia, Inode, \href{https://en.wikipedia.org/wiki/Inode}{link}
+            \item Machanick, Philip. (2016). Teaching Operating Systems: Just Enough Abstraction. 642. 10.1007/978-3-319-47680-3\_10., \href{https://www.researchgate.net/figure/Conceptual-index-node-inode-The-top-level-block-contains-file-attributes-12-direct_fig1_306347325}{link}
+        \end{enumerate}
+
+        \item
+
+        Size, the location of data blocks that reside on disk
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item I wonder what information about blocks inode has. Is it total number
+            of blocks both inode and data, or just data?
+            \item I struggled a bit on this one. I should find an easier way to
+            remember which information inode has
         \end{itemize}
 
     \end{enumerate}
