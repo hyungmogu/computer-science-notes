@@ -184,6 +184,25 @@
             \item I wonder how system call for creatubg file/directory works in UNIX
 
             \item \textbf{Creating Files}
+
+            \begin{itemize}
+                \item \textbf{Syntax:}
+
+                \bigskip
+
+                \texttt{int fd = open("foo". O\_CREAT|O\_WRONLY|O\_TRUNC, S\_IRUSR|S\_IWUSR)}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item Is a system call
+                    \item \texttt{O\_CREAT} - Creates file "foo" if does not exist
+                    \item \texttt{O\_WRONLY} - Open file for writing only (default)
+                    \item \texttt{O\_TRUNC} - Overwrites existing file \color{red}Need example/Clarification\color{black}
+                    \item Can have multiple flags
+                \end{itemize}
+                \item
+            \end{itemize}
             \item \textbf{Reading and Writing Files}
             \item \textbf{Reading and Writing Files}
             \item \textbf{Renaming Files}
