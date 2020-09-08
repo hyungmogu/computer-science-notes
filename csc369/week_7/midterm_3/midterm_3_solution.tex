@@ -64,12 +64,30 @@
         and they are the only way to interact between computer program and OS kernel.
         \bigskip
 
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+        \bigskip
+
+        \color{red}A system call \underline{traps} into the kernel so that priviliged
+        instruction can be run. A function call jumps into another instruction in user-mode\color{black}
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item \textbf{Function Call}
+
+            \begin{itemize}
+                \item jumps into another instruction in user mode
+            \end{itemize}
+
             \item \textbf{System Calls}
             \begin{itemize}
                 \item Is issued by a client
+                \item \underline{traps} into the kernel so that priviliged instruction can be run
                 \item Is the only entry points into the kernel system
                 \item Provides services via API or Application Program Interface
                 \item Has five different types of calls
