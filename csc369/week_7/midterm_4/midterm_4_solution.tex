@@ -136,6 +136,7 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item I wonder how system call for reading file in UNIX works. Does it check for bitmap?
             \item I wonder how system call for deleting file in UNIX works
             \item I wonder how system call for adding file in UNIX works
             \item \textbf{Creash Scenarios}
@@ -150,6 +151,13 @@
                     \item Is as if write never occured
                 \end{itemize}
                 \item When only the updated inode is written to disk
+                \begin{itemize}
+                    \item There is no bitmap that's pointing to it
+                    \item There is new inode where existing inode is
+                    \item The data block \texttt{Db} hasn't been created
+                    \item Reading data where \texttt{Db} is will return garbage data
+                    \item there is a term for this. Is called \textbf{File-System inconsistency}
+                \end{itemize}
                 \item When only inode bitmap is written to disk
                 \item When only data bitmap is written to disk
             \end{itemize}
