@@ -366,6 +366,17 @@
 
         \bigskip
 
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+        \bigskip
+
+        \color{red}A user level process needs to be able to call trap so trap instruction
+        is executed to switch into kernel mode (it's a user-level operation)\color{black}
+        \end{mdframed}
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -373,6 +384,7 @@
             \begin{itemize}
                 \item Is an exception in a user process $^{[1]}$
                 \item Is an interrupt caused by an exceptional condition (breakpoint, division by zero, invalid memory access) $^{[2]}$
+                \item Is called by user
                 \item Usually results in kernel mode by invoking \textbf{trap instruction}$^{[2]}$
             \end{itemize}
 
@@ -384,6 +396,14 @@
                 level to kernel mode
             \end{itemize}
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[1)]
+            \item StackOverflow, What is the difference between Trap and Interrupt?, \href{https://stackoverflow.com/questions/3149175/what-is-the-difference-between-trap-and-interrupt}{link}
+        \end{enumerate}
 
     \end{enumerate}
 
