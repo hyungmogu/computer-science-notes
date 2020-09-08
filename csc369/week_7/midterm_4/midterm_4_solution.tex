@@ -200,13 +200,13 @@
                     \item \texttt{O\_WRONLY} - Open file for writing only (default)
                     \item \texttt{O\_TRUNC} - Overwrites existing file \color{red}Need example/Clarification\color{black}
                     \item Can have multiple flags
-                    \item Returns \textbf{file descriptor} or \texttt{fd} for short
+                \end{itemize}
+                \item Returns \textbf{file descriptor} or \texttt{fd} for short
 
-                    \begin{itemize}
-                        \item Is an integer
-                        \item Is \underline{private} per process
-                        \item Can be used to \texttt{read()} and \texttt{write()} files
-                    \end{itemize}
+                \begin{itemize}
+                    \item Is an integer
+                    \item Is \underline{private} per process
+                    \item Can be used to \texttt{read()} and \texttt{write()} files
                 \end{itemize}
 
                 \bigskip
@@ -219,7 +219,6 @@
                 \includegraphics[width=\linewidth]{../images/midterm_4_solution_2.png}
                 \end{center}
 
-
                 \item
             \end{itemize}
 
@@ -229,13 +228,29 @@
 
                 \bigskip
 
-                \texttt{read (int fd, void *buf, size\_t count)}
+                \texttt{ssize\_t read (int fd, void *buf, size\_t count)}
+
+                \bigskip
 
                 \begin{itemize}
                     \item Is a system call
                     \item \texttt{fd} - file descriptor (from \texttt{open()})
-                    \item \texttt{buf} -
+                    \item \texttt{buf} - container for the read data
+                    \item \texttt{count} - number of bytes to read
                 \end{itemize}
+                \item Returns number of bytes read, if successful
+                \item Returns 0 if is at, or past the end of file
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{../images/midterm_4_solution_3.png}
+                \end{center}
+
             \end{itemize}
 
             \item \textbf{Reading and Writing Files}
