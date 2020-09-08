@@ -206,6 +206,7 @@
 
                     \begin{itemize}
                         \item Is an integer
+                        \item Is used to access a file
                         \item Is \underline{private} per process
                         \item Can be used to \texttt{read()} and \texttt{write()} files
                     \end{itemize}
@@ -248,6 +249,7 @@
 
                     \begin{center}
                     \includegraphics[width=\linewidth]{../images/midterm_4_solution_3.png}
+                    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_5.png}
                     \end{center}
 
                 \end{itemize}
@@ -308,8 +310,22 @@
                         \quad \texttt{SEEK\_END} - offset from the end of file
                     \end{itemize}
 
-                    \item Returns the offset of the pointer (in bytes) from the beginning of file
+                    \item Returns offset amount (in bytes) from the \underline{beginning} of file
+                    \item Returns -1 if error
                 \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_6.png}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_7.png}
+                \end{center}
+
+
             \end{itemize}
 
             \item \textbf{Reading and Writing Files}
