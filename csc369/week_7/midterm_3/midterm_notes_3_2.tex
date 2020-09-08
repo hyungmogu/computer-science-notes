@@ -279,6 +279,13 @@ int pthread_create(pthread_t *thread,
     \item Solution: Add a random delay before trying again (decrease odd of livelock)
 \end{itemize}
 
+\section{Mutual Exclusion}
+
+\begin{itemize}
+    \item Is a guarentee that is one thread is executing within the critical section,
+    the others will be prevented from doing so.
+\end{itemize}
+
 \section{Deadlock}
 
 \begin{center}
@@ -470,19 +477,73 @@ int pthread_create(pthread_t *thread,
 
 \end{itemize}
 
-\bigskip
+\item \textbf{Coarse-grained-locking}
 
-\underline{\textbf{References}}
+\begin{itemize}
+    \item Is one big lock that is used any time any critical section is accessed
+    \item Is easy to write
+    \item Is easy to prove correctness
+    \item No fault-tolerance but deadlock-free
+    \item Perfoms poorly when contention (the need for performance due to load) is high
+    \begin{itemize}
+        \item No concurrent access
+    \end{itemize}
 
-\begin{enumerate}[1)]
-    \item Coding Horror, Understanding User and Kernel Mode, \href{https://blog.codinghorror.com/understanding-user-and-kernel-mode/}{link}
-    \item Kansas State University, Basics of How Operating Systems Work, \href{http://faculty.salina.k-state.edu/tim/ossg/Introduction/OSworking.html#:~:text=Interrupts%20are%20signals%20sent%20to,part%20of%20the%20operating%20system.&text=Hardware%20Interupts%20are%20generated%20by,some%20attention%20from%20the%20OS.}{link}
-    \item Kansas State University, Glossary, \href{http://faculty.salina.k-state.edu/tim/ossg/glossary.html#term-context-switch}{link}
-    \item Tutorials Point, User-level threads and Kernel-level threads, \href{https://www.tutorialspoint.com/user-level-threads-and-kernel-level-threads}{link}
-    \item Science Direct, Scheduling Policy, \href{https://www.sciencedirect.com/topics/computer-science/scheduling-policy#:~:text=Scheduling%20policies%20are%20algorithms%20for,nature%20of%20applications%20%5B1%5D.}{link}
-    \item Guru 99: What is CPU Scheduling?, \href{https://www.guru99.com/cpu-scheduling-algorithms.html#8}{link}
-    \item Wikipedia: Round-robin Scheduling, \href{https://en.wikipedia.org/wiki/Round-robin_scheduling}{link}
-    \item Kansas State University, The Process Scheduler, \href{http://faculty.salina.k-state.edu/tim/ossg/Process/scheduler/scheduler.html#:~:text=CPU%20Bound%20processes%20are%20ones,the%20life%20of%20the%20process.}{link}
-\end{enumerate}
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_10.png}
+    \end{center}
+\end{itemize}
+
+
+\section{Fine-grained-locking}
+
+\begin{itemize}
+    \item Uses different locks to often protect different data and data strutures
+    \item Allows more threads to be in locked code at once
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_11.png}
+    \end{center}
+
+\end{itemize}
+\section{Hand-over-hand locking}
+
+\begin{itemize}
+    \item Idea: instead of having a single lock for the entire list, a lock per node
+    of the list is added; when traversing the list, the list grabs the next node's lock,
+    and releases the current node's lock
+    \item Is a fine-grained-locking
+    \item Holds at most 2 locks at a time
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_3.png}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_4.png}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_5.png}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_6.png}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_7.png}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_8.png}
+    \includegraphics[width=\linewidth]{../images/midterm_3_solution_9.png}
+    \end{center}
+
+\end{itemize}
+
 
 \end{document}

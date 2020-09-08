@@ -358,7 +358,23 @@
     \end{enumerate}
 \end{itemize}
 
-\section{Content Switch}
+\section{Trap}
+\begin{itemize}
+    \item Is an exception in a user process $^{[1]}$
+    \item Is an interrupt caused by an exceptional condition (breakpoint, division by zero, invalid memory access) $^{[2]}$
+    \item Is called by user
+    \item Usually results in kernel mode by invoking \textbf{trap instruction}$^{[2]}$
+\end{itemize}
+
+\section{Trap Instruction}
+
+\begin{itemize}
+    \item when \textbf{Trap} or \textbf{System call} is invoked, \textbf{Trap instruction}
+    simultaneously jumps into the kernel and raise the previlege
+    level to kernel mode
+\end{itemize}
+
+\section{Context Switch}
 
 \begin{itemize}
     \item Is switching from running a user level process to the OS kernel and often
@@ -381,6 +397,7 @@
 \begin{itemize}
     \item Is the programmatic way in which a computer program requests a previleged service from the kernel of the operating system
     \item i.e. Reading from disk
+    \item \underline{traps} into the kernel so that priviliged instruction can be run
     \item Provides services via API or Application Program Interface
     \item Is the only entry points into the kernel system
     \item Is strictly a subset of software interrupts
@@ -416,6 +433,14 @@
     \end{itemize}
 \end{itemize}
 
+\bigskip
+
+\underline{\textbf{Example}}
+
+\bigskip
+
+\texttt{open()}, \texttt{read()}, \texttt{write()}, \texttt{close()}, \texttt{mkdir()} are other examples of system calls
+
 \section{Signals}
 
 \begin{itemize}
@@ -446,6 +471,85 @@
     \item Interactive processes, such as office applications are mostly I/O bound the entire life of the process. Some processes may be I/O bound for only a few short periods of time.
     \item The expected short run time of I/O bound processes means that they will not stay the running the process for very long.
     \item They should be given high priority by the scheduler.
+\end{itemize}
+
+\section{Memory API}
+
+\begin{itemize}
+    \item Has two types of memory
+
+    \begin{enumerate}[1.]
+        \item \textbf{Stack}
+
+        \begin{itemize}
+            \item Is also called \textbf{automatic memory}
+            \item Allocations and deallocations are managed by compiler
+            \item Deallocates memory by the end of function call
+        \end{itemize}
+
+        \item \textbf{Heap}
+
+        \begin{itemize}
+            \item Is long-lived
+            \item Allocation and deallocation are managed by user
+            \item Creates \textbf{memory leak} if memory not freed
+            \item \textbf{valgrind} is a useful heap memoery debugging tool \href{https://www.valgrind.org/docs/manual/quick-start.html}{link}
+        \end{itemize}
+    \end{enumerate}
+
+    \item \texttt{malloc()}
+    \begin{itemize}
+        \item Is a C library call
+        \item \textbf{Syntax:} \texttt{void *malloc(size\_t size)}
+        \item Allocates a block of \texttt{size} bytes to \textbf{heap memory}
+        and if successful, returns a pointer to it
+        \item Returns \texttt{NULL} if memory allocation is unsuccessful
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    \texttt{int *x = malloc(10 * sizeof(int));}
+
+    \bigskip
+    \item \texttt{free()}
+    \begin{itemize}
+        \item Is a C library call
+        \item Frees heap memory that is no longer in use
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    \texttt{int *x = malloc(10 * sizeof(int));}\\
+    \texttt{...}\\
+    \texttt{free(x);}
+
+    \bigskip
+
+    \item \texttt{brk(), sbrk(), mmap()}
+
+    \begin{itemize}
+        \item Are system calls for memory management
+    \end{itemize}
+
+\end{itemize}
+
+\section{Buffer overflow}
+\begin{itemize}
+    \item is an error that occurs when not enough heap memory is allocated
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_3_solution_2.png}
+    \end{center}
 \end{itemize}
 
 \section{Virtualizing Memory}
