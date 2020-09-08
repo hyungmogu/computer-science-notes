@@ -225,7 +225,17 @@
 
             \item \textbf{Reading File}
             \begin{itemize}
-                \item \textbf{Syntax:} \texttt{cat [FILE] ...}
+                \item \textbf{Syntax:}
+
+                \bigskip
+
+                \texttt{read (int fd, void *buf, size\_t count)}
+
+                \begin{itemize}
+                    \item Is a system call
+                    \item \texttt{fd} - file descriptor (from \texttt{open()})
+                    \item \texttt{buf} -
+                \end{itemize}
             \end{itemize}
 
             \item \textbf{Reading and Writing Files}
