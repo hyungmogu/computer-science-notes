@@ -331,6 +331,9 @@
 
         \item
 
+        Trap instruction is a non-previleged operation performed in user mode that
+        raises system's previlege level to kernel mode.
+
         \bigskip
 
         \underline{\textbf{Notes}}
@@ -338,13 +341,17 @@
         \begin{itemize}
             \item \textbf{Trap}
             \begin{itemize}
-                \item Is an exception in a user process
+                \item Is an exception in a user process $^{[1]}$
+                \item Is an interrupt caused by an exceptional condition (breakpoint, division by zero, invalid memory access) $^{[2]}$
+                \item Usually results in kernel mode by invoking \textbf{trap instruction}$^{[2]}$
             \end{itemize}
 
             \item \textbf{Trap Instruction}
 
             \begin{itemize}
-                \item
+                \item when \textbf{Trap} or \textbf{System call} is invoked, \textbf{Trap instruction}
+                simultaneously jumps into the kernel and raise the previlege
+                level to kernel mode
             \end{itemize}
         \end{itemize}
 
