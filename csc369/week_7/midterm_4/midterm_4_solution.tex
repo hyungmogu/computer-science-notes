@@ -133,12 +133,9 @@
 
         \bigskip
 
-        \underline{\textbf{Notes}}
+        \underline{\textbf{Rough Work}}
 
         \begin{itemize}
-            \item I wonder how system call for reading file in UNIX works. Does it check for bitmap?
-            \item I wonder how system call for deleting file in UNIX works
-            \item I wonder how system call for adding file in UNIX works
             \item \textbf{Creash Scenarios}
 
             \begin{itemize}
@@ -159,8 +156,43 @@
                     \item there is a term for this. Is called \textbf{File-System inconsistency}
                 \end{itemize}
                 \item When only inode bitmap is written to disk
+
+                \begin{itemize}
+                    \item inode block pointed by bitmap is assumed to be allocated
+                    \item But there is no desired inode where it's pointing
+                    \item This is another example of \textbf{File-System-Inconsistency}
+                    \item If left as is, then space cannot be used for future use (\textbf{inode leak})
+                \end{itemize}
                 \item When only data bitmap is written to disk
+
+                \begin{itemize}
+                    \item data block pointed by bitmap is assumed to be allocated
+                    \item But there is no desired inode where it's pointing
+                    \item This is another example of \textbf{File-System-Inconsistency}
+                    \item If left as is, then space cannot be used for future use (\textbf{data leak})
+                \end{itemize}
             \end{itemize}
+        \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item I wonder how system call for reading file/directory works in UNIX. Does it check for bitmap?
+            \item I wonder how system call for deleting file/directory works in UNIX
+            \item I wonder how system call for creatubg file/directory works in UNIX
+
+            \item \textbf{Creating Files}
+            \item \textbf{Reading and Writing Files}
+            \item \textbf{Reading and Writing Files}
+            \item \textbf{Renaming Files}
+            \item \textbf{Removing Files}
+            \item \textbf{Making Directories}
+            \item \textbf{Reading Directories}
+            \item \textbf{Removing Directories}
+            \item \textbf{Hard Links}
+            \item \textbf{Symbolic Links}
         \end{itemize}
 
     \end{enumerate}
