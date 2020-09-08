@@ -200,6 +200,13 @@
                     \item \texttt{O\_WRONLY} - Open file for writing only (default)
                     \item \texttt{O\_TRUNC} - Overwrites existing file \color{red}Need example/Clarification\color{black}
                     \item Can have multiple flags
+                    \item Returns \textbf{file descriptor} or \texttt{fd} for short
+
+                    \begin{itemize}
+                        \item Is an integer
+                        \item Is \underline{private} per process
+                        \item Can be used to \texttt{read()} and \texttt{write()} files
+                    \end{itemize}
                 \end{itemize}
 
                 \bigskip
@@ -215,6 +222,12 @@
 
                 \item
             \end{itemize}
+
+            \item \textbf{Reading File}
+            \begin{itemize}
+                \item \textbf{Syntax:} \texttt{cat [FILE] ...}
+            \end{itemize}
+
             \item \textbf{Reading and Writing Files}
             \item \textbf{Reading and Writing Files}
             \item \textbf{Renaming Files}
