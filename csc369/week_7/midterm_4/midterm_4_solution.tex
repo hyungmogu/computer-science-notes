@@ -60,6 +60,15 @@
     \begin{enumerate}[a)]
         \item 4 inode blocks. 1 for the file \texttt{c}, and 3 for the
         directdories \texttt{/}, \texttt{a}, \texttt{b}
+
+        \item 3 directory blocks - one for root \texttt{/}, one for \texttt{a},
+        the other for \texttt{b}
+
+        \item 1 single indirect block as far as we know. The file definitely has more than
+        12 blocks (\# of data blocks pointed by direct pounters), but less than 1036 (\# of data blocks pointed
+        by direct pointers and single indirect pointers). We are reading block 1034.
+
+        \item 1 data block for file \texttt{c}
     \end{enumerate}
 \end{enumerate}
 
