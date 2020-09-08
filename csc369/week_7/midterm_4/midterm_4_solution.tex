@@ -270,8 +270,45 @@
                         \item \texttt{buf} - A pointer to a buffer to write to file
                         \item \texttt{nbytes} - number of bytes to write. If smaller than buffer, the output is truncated
                     \end{itemize}
+                \end{itemize}
 
+                \bigskip
 
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{../images/midterm_4_solution_4.png}
+                \end{center}
+
+                \item \texttt{lseek}
+
+                \begin{itemize}
+                    \item Reads or write to a specific offset within a file
+                    \item \textbf{Syntax:}
+
+                    \bigskip
+
+                    \texttt{off\_t lseek (int fd, off\_t offset, int whence)}
+
+                    \bigskip
+
+                    \begin{itemize}
+                        \item \texttt{fd} - file descriptor
+                        \item \texttt{offset} - the offset of pointer within file (in bytes)
+                        \item \texttt{whence} - the method of offset
+
+                        \bigskip
+
+                        \quad \texttt{SEEK\_SET}  - offset from the start of file (absolute)
+
+                        \quad \texttt{SEEK\_CUR} - offset from current location + offset bytes (relative)
+
+                        \quad \texttt{SEEK\_END} - offset from the end of file
+                    \end{itemize}
+
+                    \item Returns the offset of the pointer (in bytes) from the beginning of file
                 \end{itemize}
             \end{itemize}
 
