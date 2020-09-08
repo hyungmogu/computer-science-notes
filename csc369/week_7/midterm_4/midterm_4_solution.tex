@@ -407,7 +407,38 @@
         return 0;
     }
 \end{lstlisting}
+
+            \bigskip
+
+            The result of above is:
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{../images/midterm_4_solution_10.png}
+            \end{center}
             \end{itemize}
+
+            \item \texttt{unlink} (remove)
+
+            \begin{itemize}
+                \item Is a system call
+                \item Removes a \underline{file} (including symbolic link) from the system
+                \item \textbf{Syntax:} \texttt{int unlink(const char *pathname)}
+
+                \begin{itemize}
+                    \item \texttt{pathname} - path to file
+                \end{itemize}
+
+                \item Returns 0 if successful
+                \item Returns -1 if error
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{../images/midterm_4_solution_11.png}
+            \end{center}
         \end{itemize}
 
         \bigskip
