@@ -695,13 +695,39 @@
                 \item What is a sector? What is a sector address?
                 \item \textbf{inode}
                 \begin{itemize}
-                    \item
+                    \item Inode block computation
+
+                    \begin{align}
+                    \texttt{block number} = (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}
+                    \end{align}
+
+                    \bigskip
+
+                    \underline{\textbf{Example}}
+
+                    \bigskip
+
+                    Target: inode \#32
+
+                    Inode Size: 256 bytes
+
+                    Block Size: 4096 bytes
+
+                    \bigskip
+
+                    \begin{align}
+                    \texttt{block number} &= (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}\\
+                    &= \frac{32 * 256}{4096}\\
+                    &= 2
+                    \end{align}
+
+
                 \end{itemize}
                 \item \textbf{inode bitmap}
                 \begin{itemize}
                     \item uses bit to indicate whether the corres object/block is free
                     \begin{itemize}
-                        \item 0 meanas free
+                        \item 0 means free
                         \item 1 means in use
                     \end{itemize}
                 \end{itemize}
