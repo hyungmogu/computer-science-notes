@@ -172,46 +172,93 @@
 
         \bigskip
 
-        \underline{\textbf{Rough Work}}
+        \begin{mdframed}
+        \underline{\textbf{Correct Solution}}
+
+        \bigskip
 
         \begin{itemize}
-            \item \textbf{Creash Scenarios}
+            \item \textbf{Inode Bitmap and Data Block Bitmap}
 
-            \begin{itemize}
-                \item When only new data block is written to disk
+            \bigskip
 
-                \begin{itemize}
-                    \item This is fine in system's point of view
-                    \item No inode points to it (it doesn't contain any information about file)
-                    \item No bitmap points to it
-                    \item Is as if write never occured
-                \end{itemize}
-                \item When only the updated inode is written to disk
-                \begin{itemize}
-                    \item There is no bitmap that's pointing to it
-                    \item There is new inode where existing inode is
-                    \item The data block \texttt{Db} hasn't been created
-                    \item Reading data where \texttt{Db} is will return garbage data
-                    \item there is a term for this. Is called \textbf{File-System inconsistency}
-                \end{itemize}
-                \item When only inode bitmap is written to disk
+            \texttt{(b) - Data Leak}
 
-                \begin{itemize}
-                    \item inode block pointed by bitmap is assumed to be allocated
-                    \item But there is no desired inode where it's pointing
-                    \item This is another example of \textbf{File-System-Inconsistency}
-                    \item If left as is, then space cannot be used for future use (\textbf{inode leak})
-                \end{itemize}
-                \item When only data bitmap is written to disk
+            \texttt{(c) - Inode Leak}
 
-                \begin{itemize}
-                    \item data block pointed by bitmap is assumed to be allocated
-                    \item But there is no desired inode where it's pointing
-                    \item This is another example of \textbf{File-System-Inconsistency}
-                    \item If left as is, then space cannot be used for future use (\textbf{data leak})
-                \end{itemize}
-            \end{itemize}
+            \item \textbf{New Directory Inode}
+
+            \bigskip
+
+            \texttt{(a) - No inconsistency}
+
+            \item \textbf{Inode Bitmap}, \textbf{Data Block Bitmap}, \textbf{Existing Directory Data},
+            \textbf{New Directory Inode}, and \textbf{New Directory Data}
+
+            \bigskip
+
+            \texttt{(e) - Inconsistent inode data}
+
+            \item \textbf{Inode Bitmap}, and \textbf{New Directory Inode}
+
+            \bigskip
+
+            \texttt{(c) - Inode leak}
+
+            \item \textbf{New Directory Inode}, \textbf{Existing Directory Inode}, \textbf{Existing Directory Data}
+
+            \bigskip
+
+            \color{red}\texttt{(d) - Multiple file paths may point to same inode}\color{black}
+
+            \texttt{(f) - Something points to garbage}
         \end{itemize}
+
+
+        \end{mdframed}
+
+        \bigskip
+
+        % \underline{\textbf{Rough Work}}
+
+        % \begin{itemize}
+        %     \item \textbf{Creash Scenarios}
+
+        %     \begin{itemize}
+        %         \item When only new data block is written to disk
+
+        %         \begin{itemize}
+        %             \item This is fine in system's point of view
+        %             \item No inode points to it (it doesn't contain any information about file)
+        %             \item No bitmap points to it
+        %             \item Is as if write never occured
+        %         \end{itemize}
+        %         \item When only the updated inode is written to disk
+        %         \begin{itemize}
+        %             \item There is no bitmap that's pointing to it
+        %             \item There is new inode where existing inode is
+        %             \item The data block \texttt{Db} hasn't been created
+        %             \item Reading data where \texttt{Db} is will return garbage data
+        %             \item there is a term for this. Is called \textbf{File-System inconsistency}
+        %         \end{itemize}
+        %         \item When only inode bitmap is written to disk
+
+        %         \begin{itemize}
+        %             \item inode block pointed by bitmap is assumed to be allocated
+        %             \item But there is no desired inode where it's pointing
+        %             \item This is another example of \textbf{File-System-Inconsistency}
+        %             \item If left as is, then space cannot be used for future use (\textbf{inode leak})
+        %         \end{itemize}
+        %         \item When only data bitmap is written to disk
+
+        %         \begin{itemize}
+        %             \item data block pointed by bitmap is assumed to be allocated
+        %             \item But there is no desired inode where it's pointing
+        %             \item This is another example of \textbf{File-System-Inconsistency}
+        %             \item If left as is, then space cannot be used for future use (\textbf{data leak})
+        %         \end{itemize}
+        %     \end{itemize}
+        % \end{itemize}
 
         \bigskip
 
@@ -221,7 +268,6 @@
             \item I wonder how system call for reading file/directory works in UNIX. Does it check for bitmap?
             \item I wonder how system call for deleting file/directory works in UNIX
             \item I wonder how system call for creatubg file/directory works in UNIX
-
             \item \textbf{File API}
             \begin{itemize}
                 \item \texttt{open} (create/access file)
