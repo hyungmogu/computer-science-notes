@@ -888,13 +888,33 @@
             \item \textbf{Static Partitioning}
 
             \begin{itemize}
-                \item
+                \item Advantages
+                \begin{itemize}
+                    \item Ensures each user receives some share of the resource
+                    \item Delivers more predictable performance (usually)
+                    \item Easier to implement
+                \end{itemize}
             \end{itemize}
 
             \item \textbf{Dynamic Partitioning}
 
             \begin{itemize}
-                \item
+                \item Advantages
+                \begin{itemize}
+                    \item Can achieve better utilization than \textbf{static partitioning}
+                    \begin{itemize}
+                        \item By letting resource-hungry users consume idle resources
+                    \end{itemize}
+                \end{itemize}
+                \item Disadvantages
+                \begin{itemize}
+                    \item More complex to implement
+                    \item Could lead to worse performance
+                    \begin{itemize}
+                        \item e.g idle resource got consumed by others and take long
+                        time to reclaim it when needed (the perodic frozen feeling when loading screen)
+                    \end{itemize}
+                \end{itemize}
             \end{itemize}
 
         \end{itemize}
