@@ -439,6 +439,25 @@
             \begin{center}
             \includegraphics[width=\linewidth]{../images/midterm_4_solution_11.png}
             \end{center}
+
+            \item \texttt{mkdir}
+
+            \begin{itemize}
+                \item Is a system call
+                \item \textbf{Syntax:} \texttt{int mkdir(const char *path, mode\_t mode)}
+                \begin{itemize}
+                    \item \texttt{path} - path of directory (including name)
+                    \item \texttt{mode} - permission group
+                \end{itemize}
+                \item Returns 0 if successful
+                \item Returns -1 if error
+                \item directories can never be written directly
+                \begin{itemize}
+                    \item directory is in format called \textbf{File System Metadata}
+                    \item directory can \underline{only} be updated directly
+                \end{itemize}
+                \item creates two directories on creation \texttt{.} (current) and \texttt{..} (parent)
+            \end{itemize}
         \end{itemize}
 
         \bigskip
@@ -447,6 +466,7 @@
 
         \begin{enumerate}[1)]
             \item codewiki, stat, \href{http://codewiki.wikidot.com/c:system-calls:stat}{link}
+            \item The Open Group Base Specification, unlink, \href{https://pubs.opengroup.org/onlinepubs/009695399/functions/unlink.html}{link}
         \end{enumerate}
 
     \end{enumerate}
