@@ -695,12 +695,9 @@
                 \item What is a sector? What is a sector address?
                 \item How can I get to specific inode from block (e.g inode \# 32 on block 2)?
                 \item \textbf{Index Based File System}
-
                 \begin{itemize}
-                    \item Disadvantages
-                    \begin{enumerate}[1.]
-                        \item Uses a large amount of metadata per file (especially for large files)
-                    \end{enumerate}
+                    \item Has 15 blocks of pointers that points to either inode, indirect pointers, or data block
+                    \item No external fragmentation
                 \end{itemize}
 
                 \bigskip
@@ -781,6 +778,14 @@
                     \end{itemize}
                 \end{itemize}
             \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{References}}
+
+            \begin{enumerate}[1)]
+                \item Columbia University, Operating Systems, \href{https://www.cs.columbia.edu/~junfeng/10sp-w4118/lectures/l25-fs.pdf}{link}
+            \end{enumerate}
        \end{enumerate}
 
     \end{enumerate}
