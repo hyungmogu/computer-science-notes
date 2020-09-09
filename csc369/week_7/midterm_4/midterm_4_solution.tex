@@ -185,7 +185,7 @@
 
             \item \textbf{File API}
             \begin{itemize}
-                \item \texttt{open} (create)
+                \item \texttt{open} (create/access file)
                 \begin{itemize}
                     \item Is a system call
                     \item \textbf{Syntax:}
@@ -222,7 +222,7 @@
                     \end{center}
                 \end{itemize}
 
-                \item \texttt(read)
+                \item \texttt(read) (read file)
                 \begin{itemize}
                     \item Is a system call
                     \item \textbf{Syntax:}
@@ -254,7 +254,7 @@
 
                 \end{itemize}
 
-                \item \texttt{write}
+                \item \texttt{write} (write file)
 
                 \begin{itemize}
                     \item Is a system call
@@ -322,7 +322,7 @@
                 \includegraphics[width=\linewidth]{../images/midterm_4_solution_7.png}
                 \end{center}
 
-                \item \texttt{rename}
+                \item \texttt{rename} (update file name)
 
                 \begin{itemize}
                     \item Is a system call
@@ -346,7 +346,7 @@
                 \includegraphics[width=\linewidth]{../images/midterm_4_solution_8.png}
                 \end{center}
 
-                \item \texttt{stat}
+                \item \texttt{stat} (get file info)
 
                 \begin{itemize}
                     \item displays metadata of a certain file stored in \textbf{inode}
@@ -381,7 +381,7 @@
                 \end{center}
             \end{itemize}
 
-            \item \texttt{unlink} (remove)
+            \item \texttt{unlink} (removing file)
 
             \begin{itemize}
                 \item Is a system call
@@ -404,7 +404,7 @@
             \includegraphics[width=\linewidth]{../images/midterm_4_solution_12.png}
             \end{center}
 
-            \item \texttt{mkdir}
+            \item \texttt{mkdir} (creating directory)
 
             \begin{itemize}
                 \item Is a system call
@@ -436,8 +436,39 @@
             \begin{itemize}
                 \item Are system calls
                 \item Are under \texttt{$<$dirent.h$>$} library
+                \item Requires \texttt{struct dirent} data structure
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{../images/midterm_4_solution_14.png}
+                \end{center}
+
                 \item \textbf{Syntax (opendir): } \texttt{DIR *opendir(const char *dirname)}
+                \begin{itemize}
+                    \item \texttt{dirname} - directory path
+                    \item Returns directory
+                \end{itemize}
                 \item \textbf{Syntax (readdir): } \texttt{struct dirent *readdir(DIR *dirp);}
+                \begin{itemize}
+                    \item \texttt{dirp} - directory stream
+                \end{itemize}
+                \item \textbf{Syntax (closedir): } \texttt{int closedir(DIR *dirp));}
+                \begin{itemize}
+                    \item \texttt{dirp} - directory stream
+                    \item Returns 0 if successful
+                    \item Returns -1 otherwise
+                \end{itemize}
+
+                \bigskip
+
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=\linewidth]{../images/midterm_4_solution_15.png}
+                \end{center}
+
+
             \end{itemize}
         \end{itemize}
 
