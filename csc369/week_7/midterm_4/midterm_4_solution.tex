@@ -853,10 +853,10 @@
                 \item Each write generates five I/Os:
 
                 \begin{itemize}
-                    \item Read data Bitmap
-                    \item Write data bitmap
-                    \item Write inode bitmap
-                    \item Two more to read
+                    \item Read inode bitmap (to find free inode)
+                    \item Write inode bitmap (to mark it allocated)
+                    \item Create new inode (to initialize it)
+                    \item Create one data block (to link high-level name of file \texttt{bar} to its inode number)
                     \item Write the inode
                 \end{itemize}
             \end{itemize}
