@@ -849,17 +849,36 @@
 
             \item \textbf{Writing to Disk}
 
+            \begin{center}
+            \includegraphics[width=\linewidth]{../images/midterm_4_solution_30.png}
+            \end{center}
+
+            \bigskip
+
+            Given a call
+
+            \bigskip
+
+            \texttt{create(...)}
+
+            \bigskip
+
             \begin{itemize}
-                \item Each write generates five I/Os:
+                \item Five I/Os are generated per write to file:
 
                 \begin{itemize}
                     \item Read inode bitmap (to find free inode)
                     \item Write inode bitmap (to mark it allocated)
-                    \item Create new inode (to initialize it)
+                    \item Create one new inode (to initialize it)
                     \item Create one data block (to link high-level name of file \texttt{bar} to its inode number)
-                    \item Write the inode
+                    \item Perform one read and write to the directory inode and update it
                 \end{itemize}
             \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
         \end{itemize}
 
         \bigskip
