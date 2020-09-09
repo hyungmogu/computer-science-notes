@@ -445,11 +445,14 @@
                 \item \textbf{Syntax (opendir): } \texttt{DIR *opendir(const char *dirname)}
                 \begin{itemize}
                     \item \texttt{dirname} - directory path
-                    \item Returns directory
+                    \item Returns a pointer to the directory stream
+                    \item The stream is positioned at \underline{the first entry} in the directory.
                 \end{itemize}
                 \item \textbf{Syntax (readdir): } \texttt{struct dirent *readdir(DIR *dirp);}
                 \begin{itemize}
                     \item \texttt{dirp} - directory stream
+                    \item Returns a pointer to a dirent structure representing the next directory entry in the directory stream
+                    \item Returns NULL on reaching the end of the directory stream
                 \end{itemize}
                 \item \textbf{Syntax (closedir): } \texttt{int closedir(DIR *dirp));}
                 \begin{itemize}
@@ -467,7 +470,6 @@
                 \begin{center}
                 \includegraphics[width=\linewidth]{../images/midterm_4_solution_15.png}
                 \end{center}
-
 
             \end{itemize}
         \end{itemize}
