@@ -506,12 +506,40 @@
             \includegraphics[width=\linewidth]{../images/midterm_4_solution_16.png}
             \end{center}
 
-            \item \texttt{unlink}
+            \item \texttt{unlink} (Remove file)
 
             \begin{itemize}
+                \item Remove a link to a file
                 \item Is called \textbf{unlink} because it decrements \textbf{reference count} in inode
-                \item deletes file completely when reference count within the inode number is 0
+                \begin{itemize}
+                    \item Deletes file completely when reference count within the inode number is 0
+                \end{itemize}
+                \item \textbf{Syntax:}
+
+                \bigskip
+                \texttt{\#include $<$unistd.h$>$}
+
+                \bigskip
+
+                \texttt{int unlink(const char *pathname);}
+
+                \bigskip
+
+                \begin{itemize}
+                    \item \texttt{pathname} - pathname to file
+                \end{itemize}
+                \item Returns 0 if successful
+                \item Returns -1 if error
+                \item Is used by linux command \texttt{rm}
             \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{../images/midterm_4_solution_17.png}
+            \end{center}
         \end{itemize}
 
         \bigskip
