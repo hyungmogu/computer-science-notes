@@ -695,9 +695,15 @@
                 \item What is a sector? What is a sector address?
                 \item How can I get to specific inode from block (e.g inode \# 32 on block 2)?
                 \item \textbf{Index Based File System}
+
+                \begin{center}
+                \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_29.png}
+                \end{center}
+
                 \begin{itemize}
                     \item Has 15 blocks of pointers that points to either inode, indirect pointers, or data block
                     \item No external fragmentation
+                    \item Files can be easily grown
                 \end{itemize}
 
                 \bigskip
@@ -776,6 +782,12 @@
                         \item 0 means free
                         \item 1 means in use
                     \end{itemize}
+                \end{itemize}
+
+                \item \textbf{Reading a File from Disk}
+
+                \begin{itemize}
+                    \item \texttt{open} reads target inode to memory
                 \end{itemize}
             \end{itemize}
 
