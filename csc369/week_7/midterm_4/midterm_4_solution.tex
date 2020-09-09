@@ -786,7 +786,56 @@
 
                 \item \textbf{Reading a File from Disk}
 
+                \underline{\textbf{Example}}
+
+                \bigskip
+
+                When
+
+                \bigskip
+
+                \texttt{open("/foo/bar", O\_READONLY)}
+
+                \bigskip
+
+                is called
+
+                \bigskip
+
                 \begin{itemize}
+                    \item the goal is to find the inode of the file \texttt{bar} to read its basic information
+                    (i.e. includes permission, information, file size etc)
+                    \item done by traversing the pathname and locate the desired inode
+                    \item Steps
+
+                    \begin{enumerate}[1.]
+                        \item Find \textbf{inode} of the root directory by looking for \texttt{i-number}
+                        \begin{itemize}
+                            \item \textbf{i-number} is found in it's parent directoy
+                            \item for root directory, there is no parent directory
+                            \item it's inode number is 2 (for UNIX file systems)
+                        \end{itemize}
+
+                        \item Read the \textbf{inode} of root directory
+                        \item Once its \textbf{inode} is read, look inside to find pointers
+                        to data blocks
+                        \item Read through directory data until the inode number of \texttt{foo} is found (e.g 42)
+                        \item Recursively traverse the pathname until the desired inode is found (e.g \texttt{foo} $\to$ \texttt{bar})
+                        \item Issue a \texttt{read()} system call to read from file
+
+                        \begin{itemize}
+                            \item \texttt{fd} with offset \texttt{0} reads the first file block (e.g. \texttt{bar data[0]})
+                            \item \texttt{lseek(..., offset\_amt * size\_of\_file\_block)} is used to offset/move to desired block in \texttt{bar}
+                        \end{itemize}
+
+                        \item Trasnfer data to \texttt{buf} data block
+
+                        \item Close \texttt{fd}. No I/O is read.
+                    \end{enumerate}
+                \end{itemize}
+
+                \begin{itemize}
+                    \item [correction]: Read through directory data until the inode number of \texttt{foo} is found
                     \item \texttt{open} reads target inode to memory
                 \end{itemize}
             \end{itemize}
