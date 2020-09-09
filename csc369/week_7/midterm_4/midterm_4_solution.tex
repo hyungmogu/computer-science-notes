@@ -701,6 +701,16 @@
                         \item 1 means in use
                     \end{itemize}
                 \end{itemize}
+                \item \textbf{superblock}
+                \begin{itemize}
+                    \item Contains information about the following
+                    \begin{itemize}
+                        \item The number of inodes and data blocks in a particular file system
+                        \item The magic number of some knd to identify the file system type
+                        \item Where the inode table begins
+                    \end{itemize}
+                    \item Is read first on mount before attaching to file system
+                \end{itemize}
                 \item \textbf{data bitmap}
             \end{itemize}
        \end{enumerate}
