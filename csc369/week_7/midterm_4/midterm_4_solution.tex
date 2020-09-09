@@ -146,7 +146,28 @@
 
             \texttt{(a) - No inconsistency}
 
-            \item \textbf{}
+            \item \textbf{Inode Bitmap}, \textbf{Data Block Bitmap}, \textbf{Existing Directory Data},
+            \textbf{New Directory Inode}, and \textbf{New Directory Data}
+
+            \bigskip
+
+            \texttt{(e) - Inconsistent inode data}
+
+            \item \textbf{Inode Bitmap}, and \textbf{New Directory Inode}
+
+            \bigskip
+
+            \texttt{(c) - Inode leak}
+
+            \texttt{(d) - Multiple file paths may point to same inode}
+
+            \item \textbf{New Directory Inode}, \textbf{Existing Directory Inode}, \textbf{Existing Directory Data}
+
+            \bigskip
+
+            \texttt{(e) - Inconsistent inode data}
+
+            \texttt{(f) - Something points to garbage}
         \end{itemize}
 
         \bigskip
