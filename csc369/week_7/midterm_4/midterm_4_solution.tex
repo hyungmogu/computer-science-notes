@@ -696,6 +696,13 @@
                 \item How can I get to specific inode from block (e.g inode \# 32 on block 2)?
                 \item \textbf{Index Based File System}
 
+                \begin{itemize}
+                    \item Disadvantages
+                    \begin{enumerate}[1.]
+                        \item Uses a large amount of metadata per file (especially for large files)
+                    \end{enumerate}
+                \end{itemize}
+
                 \bigskip
 
                 \underline{\textbf{Example}}
@@ -711,9 +718,19 @@
                 \end{center}
 
                 \begin{itemize}
+                    \item Requires only a disk pointer + length (in blocks)
                     \item Is also called \textbf{contiguous allocation}
-                    \item Less flexible but more compact
+                    \item Is simple
+                    \item Is less flexible but more compact
                     \item Works well when there is enough free space on the disk and files can be laid out contiguously
+
+                    \bigskip
+
+                    \underline{\textbf{Example}}
+
+                    \bigskip
+
+                    Linux's ext 4
                 \end{itemize}
                 \item \textbf{inode}
                 \begin{itemize}
@@ -745,14 +762,6 @@
 
 
                 \end{itemize}
-                \item \textbf{inode bitmap}
-                \begin{itemize}
-                    \item uses bit to indicate whether the corres object/block is free
-                    \begin{itemize}
-                        \item 0 means free
-                        \item 1 means in use
-                    \end{itemize}
-                \end{itemize}
                 \item \textbf{superblock}
                 \begin{itemize}
                     \item Contains information about the following
@@ -763,7 +772,14 @@
                     \end{itemize}
                     \item Is read first on mount before attaching to file system
                 \end{itemize}
-                \item \textbf{data bitmap}
+                \item \textbf{inode/data bitmap}
+                \begin{itemize}
+                    \item uses bit to indicate whether the corres object/block is free
+                    \begin{itemize}
+                        \item 0 means free
+                        \item 1 means in use
+                    \end{itemize}
+                \end{itemize}
             \end{itemize}
        \end{enumerate}
 
