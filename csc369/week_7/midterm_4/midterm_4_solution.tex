@@ -188,6 +188,14 @@
                 \item \texttt{open} (create/access file)
                 \begin{itemize}
                     \item Is a system call
+                    \item Does three things on creation
+
+                    \begin{enumerate}[1)]
+                        \item make structure (inode) that racks all relevant information about file
+                        \item link human readible name to the file, and put that link to a directory
+                        \item increment \textbf{reference count} in inode
+                    \end{enumerate}
+
                     \item \textbf{Syntax:}
 
                     \bigskip
@@ -497,6 +505,13 @@
             \begin{center}
             \includegraphics[width=\linewidth]{../images/midterm_4_solution_16.png}
             \end{center}
+
+            \item \texttt{unlink}
+
+            \begin{itemize}
+                \item Is called \textbf{unlink} because it decrements \textbf{reference count} in inode
+                \item deletes file completely when reference count within the inode number is 0
+            \end{itemize}
         \end{itemize}
 
         \bigskip
