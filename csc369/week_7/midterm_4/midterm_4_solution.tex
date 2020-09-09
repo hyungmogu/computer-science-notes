@@ -327,6 +327,7 @@
                 \begin{itemize}
                     \item Is a system call
                     \item Changes the name of file
+                    \item Is \textbf{atomic} (after crash, it will be either old or new, but not in-between)
                     \item \textbf{Syntax:} \texttt{int rename(const char *old, const char *new)}
 
                     \begin{itemize}
@@ -472,6 +473,30 @@
                 \end{center}
 
             \end{itemize}
+
+            \item \text{rmdir} (Deleting Directories)
+
+            \begin{itemize}
+                \item Removes a directory whose name is given by path
+                \item Is performed only when directory is empty
+                \item Is included in \texttt{$<$unistd.h$>$} library
+                \item Fails if is symbolic link
+                \item \textbf{Syntax:} \texttt{int rmdir(const char *path)}
+
+                \begin{itemize}
+                    \item \texttt{path} - path of directory
+                \end{itemize}
+                \item Returns 0 if successful
+                \item Returns -1 if error
+            \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \begin{center}
+            \includegraphics[width=\linewidth]{../images/midterm_4_solution_16.png}
+            \end{center}
         \end{itemize}
 
         \bigskip
