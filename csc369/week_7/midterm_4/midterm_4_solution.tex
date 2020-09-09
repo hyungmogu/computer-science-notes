@@ -785,7 +785,11 @@
             \end{itemize}
             \item \textbf{inode/data bitmap}
             \begin{itemize}
-                \item uses bit to indicate whether the corres object/block is free
+                \item Accessed only when allocation/deallocation is needed
+                \begin{itemize}
+                    \item \texttt{Read()} $\to$ no bitmap required
+                \end{itemize}
+                \item Uses bit to indicate whether the corres object/block is free
                 \begin{itemize}
                     \item 0 means free
                     \item 1 means in use
@@ -846,7 +850,15 @@
             \item \textbf{Writing to Disk}
 
             \begin{itemize}
-                \item
+                \item Each write generates five I/Os:
+
+                \begin{itemize}
+                    \item Read data Bitmap
+                    \item Write data bitmap
+                    \item Write inode bitmap
+                    \item Two more to read
+                    \item Write the inode
+                \end{itemize}
             \end{itemize}
         \end{itemize}
 
