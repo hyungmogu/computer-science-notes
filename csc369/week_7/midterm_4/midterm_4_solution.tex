@@ -684,13 +684,26 @@
 
         \item
 
-        \bigskip
-
-        \underline{\textbf{Notes}}
-
-        \begin{itemize}
+       \begin{enumerate}[a)]
             \item
-        \end{itemize}
+
+            \bigskip
+
+            \underline{\textbf{Notes}}
+
+            \begin{itemize}
+                \item \textbf{inode}
+                \item \textbf{inode bitmap}
+                \begin{itemize}
+                    \item uses bit to indicate whether the corres object/block is free
+                    \begin{itemize}
+                        \item 0 meanas free
+                        \item 1 means in use
+                    \end{itemize}
+                \end{itemize}
+                \item \textbf{data bitmap}
+            \end{itemize}
+       \end{enumerate}
 
     \end{enumerate}
 \end{enumerate}
