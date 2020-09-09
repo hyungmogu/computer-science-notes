@@ -867,7 +867,11 @@
                 \item 5 I/Os are generated per write
 
                 \begin{itemize}
-                    \item
+                    \item Read inode (to traverse to the location of new data block)
+                    \item Reading data bitmap
+                    \item Writing data bitmap
+                    \item Write data block
+                    \item Write inode (to update data block's location in inode)
                 \end{itemize}
                 \item 10 I/Os are generated per file creation:
 
