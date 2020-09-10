@@ -267,6 +267,42 @@
 
     \item
 
+\begin{lstlisting}[language=c]
+    struct node {
+        int value;
+
+    }
+
+    void print_part(struct part *p)
+    {
+        printf("Part number: %d\n", p->number);
+        printf("Part name: %s\n", p->name);
+        printf("Quantity on hand: %d\n", p->on_hand);
+    }
+\end{lstlisting}
+
+    \item
+
+\begin{lstlisting}[language=c]
+    struct node {
+        int value;
+
+    }
+
+    void *find_last(struct node *list, int n)
+    {
+        struct node *res = NULL, *p;
+
+        for (p = list; p != NULL; p = p->next) {
+            if (p->value == n) {
+                res = p;
+            }
+        }
+    }
+\end{lstlisting}
+
+    Please see file \texttt{question\_12.c} for details.
+
 
 
 \end{enumerate}
