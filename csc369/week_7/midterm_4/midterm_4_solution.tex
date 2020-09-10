@@ -958,6 +958,31 @@
 
         \begin{enumerate}[i)]
             \item all of the above
+            \item
+
+            To minimize damage, it should be updated in order of
+
+            \texttt{Data Region}-\texttt{Inode Table}-
+
+            \begin{enumerate}[1.]
+                \item Data Region
+                \item Inode Table
+                \item Data Bitmap
+                \item Inode Bitmap
+            \end{enumerate}
+
+            The reason is that when data block and/or inode block are set and
+            crash happens, the file system treats as if nothing had happened.
+
+            \bigskip
+
+            And the reason is that before data/inode block is allocated, it first checks
+            the inode and data bitmap, which contains information about whether the block is occupied or not.
+
+            \bigskip
+
+            Once they are allocated, we risk data/inode leak, and if done improperly,
+            the data/inode block would not be available until actions are taken.
         \end{enumerate}
     \end{enumerate}
 
