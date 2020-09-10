@@ -70,8 +70,30 @@
     }
 \end{lstlisting}
 
+    \bigskip
+
+    Please see \texttt{question\_1.c} for details.
+
     \item
 
+\begin{lstlisting}[language=c]
+    char *duplicate(char *str) {
+        char *res;
+
+        res = malloc(strlen(str) + 1);
+        if (res == NULL) {
+            return res;
+        }
+
+        strcpy(res, str);
+
+        return res;
+    }
+\end{lstlisting}
+
+    \bigskip
+
+    Please see \texttt{question\_2.c} for details.
 
 \end{enumerate}
 
