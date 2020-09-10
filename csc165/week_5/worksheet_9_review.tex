@@ -1,0 +1,575 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{tabularx}
+
+\begin{document}
+\title{Worksheet 9 Review}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    For every set of size 0 has 0 subsets of size 2.
+
+    \item
+
+    Let $n = 0$. Let $S$ be an arbitrary set. Assume $S$ has size 0.
+
+    \bigskip
+
+    Since $S$ has size 0, empty subsets are the \textbf{only} subsets that can be included
+    in S.
+
+    \bigskip
+
+    Then, because we know empty subsets have size 0, we can conclude there are 0
+    subsets of size 2.
+
+    \bigskip
+
+    It follows from above that the base case holds.
+
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
+
+        \color{red}
+        \textbf{We want to show every set S of size 0 has 0 subsets of size 2}.
+        \color{black}
+
+        \bigskip
+
+        Since $S$ has size 0, empty subsets are the \textbf{only} subsets that can be included
+        in S.
+
+        \bigskip
+
+        Then, because we know an empty subset have size 0, we can conclude there are 0
+        subsets of size 2.
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item Professor specifically mentions \textbf{We want to show every set
+        S of size 0 has 0 subsets of size 2}
+        \item Professor doesn't include conclusion at the end of proof
+        \item Under which cases conclusion to a proof are included.
+    \end{itemize}
+
+    \item
+
+    Now we will prove inductive step.
+
+    \bigskip
+
+    Let $k \in \mathbb{N}$. Assume every set of size $k$ has $\frac{k(k-1)}{2}$
+    subsets of size 2.
+
+    \bigskip
+
+    We want to show a set of size $k+1$ has $\frac{(k+1)k}{2}$ subsets of size 2.
+
+    \bigskip
+
+    \underline{\textbf{Part 1: counting subsets of $S$ of size 2 that contain $s_{k+1}$}}
+
+    \bigskip
+
+    It follows from the table below,
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        k & Sets & Subsets of Size 2 with $s_{k+1}$\\
+        \hline
+        0 & $\{0,1\}$ & 1\\
+        \hline
+        1 & $\{0,1,2\}$ & 2\\
+        \hline
+        2 & $\{0,1,2,3\}$ & 3\\
+        \hline
+        2 & $\{0,1,2,3,4\}$ & 4\\
+        \hline
+    \end{tabular}
+
+    that the number of subsets of size 2 that contain $s_{k+1}$ is $k+1$.
+
+    \bigskip
+
+    \underline{\textbf{Part 2: counting subsets of $S$ of size 2 that doesn't contain $s_{k+1}$}}
+
+    \bigskip
+
+    Because we know the subset of $S$ that doesn't contain $s_{k+1}$ is a set S
+    of size k, we can conclude using induction hypothesis that there are
+
+    \begin{align}
+        \frac{k(k+1)}{2}
+    \end{align}
+
+    subsets of size 2.
+
+    \bigskip
+
+    \underline{\textbf{Part 3: Putting the counts together}}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{k(k+1)}{2} + (k+1) &= \frac{(k+1)(k+2)}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from proof by induction that the statement '$\forall n \in \mathbb{N}$,
+    every set of size n has $\frac{n(n-1)}{2}$ subsets of size 2' is true for all
+    natural numbers n.
+
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
+
+        \underline{\textbf{Part 1: counting subsets of $S$ of size 2 that contain $s_{k+1}$}}
+
+        \bigskip
+
+        It follows from the table below,
+
+        \color{red}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            k & Sets & Subsets of Size 2 with $s_{k+1}$\\
+            \hline
+            2 & $\{0,1\}$ & 1\\
+            \hline
+            3 & $\{0,1,2\}$ & 2\\
+            \hline
+            4 & $\{0,1,2,3\}$ & 3\\
+            \hline
+            5 & $\{0,1,2,3,4\}$ & 4\\
+            \hline
+        \end{tabular}
+        \color{black}
+
+        that the number of subsets of size 2 that contain $s_{k+1}$ is \color{red}\textbf{$k$}\color{black}.
+
+        \bigskip
+
+        \underline{\textbf{Part 2: counting subsets of $S$ of size 2 that doesn't contain $s_{k+1}$}}
+
+        \bigskip
+
+        Because we know the subset of $S$ that doesn't contain $s_{k+1}$ is a set S
+        of size $k$, we can conclude using induction hypothesis that there are
+
+        \color{red}
+        \begin{align}
+            \frac{k(k-1)}{2}
+        \end{align}
+        \color{black}
+
+        subsets of size 2.
+
+        \bigskip
+
+        \underline{\textbf{Part 3: Putting the counts together}}
+
+        \bigskip
+
+        Then,
+
+        \color{red}
+        \begin{align}
+            \frac{k(k-1)}{2} + k &= \frac{(k+1)k}{2}
+        \end{align}
+        \color{black}
+
+        \bigskip
+
+        Then, it follows from proof by induction that the statement '$\forall \color{red}k\color{black} \in \mathbb{N}$,
+        every set of size \color{red}$k$\color{black} has \color{red}$\frac{k(k-1)}{2}$\color{black} subsets of size 2' is true for all
+        natural numbers \color{red}$k$\color{black}.
+
+    \end{mdframed}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item I forgot that k represents number of elements in a set.
+    \end{itemize}
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{itemize}
+    \item
+
+    \textbf{Statement:} For every $n \in \mathbb{N}$, every finite set $S$ of size $n$,
+    has
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \frac{n(n-1)(n-2)}{6}
+    \end{align}
+
+    subsets of size 3.
+
+    \bigskip
+
+    We will prove this statement by using induction on $n$.
+
+    \bigskip
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    Then, only the empty subsets can be included in $S$.
+
+    \bigskip
+
+    Because an empty subset has size 0, there are 0 subsets of size 3 in S.
+
+    \bigskip
+
+    Then, since
+
+    \begin{align}
+        \frac{0 \cdot (0-1)(0-2)}{6} &= 0
+    \end{align}
+
+    the base case holds.
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $k \in \mathbb{N}$. Assume every finite set $S$ of size $k$ has exactly
+    $\frac{k(k-1)(k-2)}{6}$ subsets of size 3.
+
+    \bigskip
+
+    We want to show finite set $S$ of size $k+1$ contains $\frac{(k+1)k(k-1)}{6}$
+    subsets of size 3.
+
+    \bigskip
+
+    It follows from the table below
+
+    \bigskip
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        k & Sets & \# of Subsets of Size 3 & \# of Subsets of Size 2\\
+        \hline
+        0 & $\{\}$ & 0 & 0\\
+        \hline
+        1 & $\{s_0\}$ & 0 & 0\\
+        \hline
+        2 & $\{s_0,s_1\}$ & 0 & 1\\
+        \hline
+        3 & $\{s_0,s_1,s_2\}$ & 1 & 3\\
+        \hline
+        4 & $\{s_0,s_1,s_2,s_3\}$ & 4 & 6\\
+        \hline
+        5 & $\{s_0,s_1,s_2,s_3,s_4\}$ & 10 & 10\\
+        \hline
+    \end{tabular}
+
+    we can deduce that given a set S size $k+1$, the number of subsets of size 3
+    containing $s_{k+1}$ is the sum of \# of subsets of size 3 that doesn't
+    contain $s_{k+1})$ and \# of subsets of size 2 that doesn't contain $s_{k+1}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \frac{k(k-1)(k-2)}{6} + \frac{k(k-1)}{2} &= \frac{k(k-1)(k-2)}{6} + \frac{3k(k-1)}{6}\\
+        &= \frac{k(k-1)(k-2+3)}{6}\\
+        &= \frac{k(k-1)(k+1)}{6}
+    \end{align}
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Attempt \#2:}}
+
+        \bigskip
+
+        \textbf{Statement:} For every $n \in \mathbb{N}$, every finite set $S$ of size $n$,
+        has
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \frac{n(n-1)(n-2)}{6}
+        \end{align}
+
+        subsets of size 3.
+
+        \bigskip
+
+        We will prove this statement by using induction on $n$.
+
+        \bigskip
+
+        \textbf{Base Case:}
+
+        \bigskip
+
+        Let $n = 0$.
+
+        \bigskip
+
+        Then, only the empty subsets can be included in $S$.
+
+        \bigskip
+
+        Because an empty subset has size 0, there are 0 subsets of size 3 in S.
+
+        \bigskip
+
+        Then, since
+
+        \begin{align}
+            \frac{0 \cdot (0-1)(0-2)}{6} &= 0
+        \end{align}
+
+        the base case holds.
+
+        \bigskip
+
+        \textbf{Inductive Case:}
+
+        \bigskip
+
+        Let $k \in \mathbb{N}$. Assume every finite set $S$ of size $k$ has exactly
+        $\frac{k(k-1)(k-2)}{6}$ subsets of size 3.
+
+        \bigskip
+
+        \color{red}
+        We want to show finite set $S$ of size $k+1$ contains $\frac{(k+1)k(k-1)}{6}$
+        subsets of size 3. We will do that by determining the number of subsets of size
+        3 including $s_{k+1}$, and the number of subsets of size 3 not including $s_{k+1}$,
+        and then combining them together.
+
+        \bigskip
+
+        First, we will show the number of subsets of size 3 including $s_{k+1}$
+        is $\frac{n(n-1)}{2}$.
+
+        \bigskip
+
+        Because we know the number of subsets of size 3 (i.e $\{a_1,a_2,s_{k+1}\}$)
+        containing $s_{k+1}$ depends on the unique combination of first two elements $a_1$ and $a_2$,
+        and because we know
+
+        \begin{enumerate}[1.]
+            \item $a_1 \neq a_2$
+            \item $a_1,a_2 \in \{s_0,s_1,\dots,s_k\}$
+        \end{enumerate}
+
+        , we can conclude that the number of subsets of size 3 containing $s_{k+1}$
+        is exactly the number of subsets of size 2 in a set $S$ of size $k$ or
+
+        \begin{align}
+            \frac{n(n-1)}{2}
+        \end{align}
+
+        \bigskip
+
+        Second, we will show the number of subsets of size 3 not including $s_{k+1}$
+        is $\frac{n(n-1)(n-2)}{6}$.
+
+        \bigskip
+
+        Since the number of subsets of size 3 not containing $s_{k+1}$ must contain
+        3 elements from $\{s_0,\dots,s_k\}$, this is exactly number of subsets of size
+        3 in a set S of size $k$, or
+
+        \begin{align}
+            \frac{n(n-1)(n-2)}{6}
+        \end{align}
+
+        by induction hypothesis.
+
+        \bigskip
+
+        \color{black}
+
+        Then,
+
+        \begin{align}
+            \frac{n(n-1)}{2} + \frac{n(n-1)(n-2)}{6} &= \frac{3n(n-1)}{6} + \frac{n(n-1)(n-2)}{6}\\
+            &= \frac{n(n-1)}{6} \cdot (3 + n - 2)\\
+            &= \frac{n(n-1)(n+1)}{6}
+        \end{align}
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item I wonder if table like above can be used in a proof. If not, why
+        can't it be done? If yes, when is the use of table not valid? How should
+        it be constructed that it's valid?
+
+        \item Can I put a subheader like 'Part 1: counting subsets of $S$ of size 2
+        that contain $s_{k+1}$' in a proof? If so, are there anything that I should be
+        aware/be careful of?
+
+        \item Is it alright to play with examples when I don't know how to proceed?
+        What's the danger to this approach?
+
+        \item Noticed that professor lays out the big ideas of proof (proof by induction
+        evaluating number of $s_{k+1}$ and $s_k$) and then fills in the missing detail
+    \end{itemize}
+
+\end{itemize}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    \underline{\textbf{Subsets that contain 3:}}
+
+    \bigskip
+
+    $\{ \{3\}, \{1,3\}, \{2,3\}, \{1,2,3\} \}$
+
+    \bigskip
+
+    \underline{\textbf{Subsets that doesn't contain 3:}}
+
+    \bigskip
+
+    $\{ \{\}, \{1\}, \{2\}, \{1,2\} \}$
+
+    \item
+
+    Let $n \in \mathbb{N}$.
+
+    We will prove the statement using induction on $n$.
+
+    \bigskip
+
+    \textbf{Base Case:}
+
+    \bigskip
+
+    Let $n = 0$.
+
+    \bigskip
+
+    We will show $\mid \mathcal{P}(\{\}) \mid$ and $2^0$ are equal.
+
+    \bigskip
+
+    Because we know $S$ with size 0 is an empty set and $\mathcal{P}(\{\}) = \{\{\}\}$,
+    we can conclude
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \mid \mathcal{P}(\{\}) \mid &= \mid \{\{\}\} \mid\\
+        &= 1
+    \end{align}
+
+    \bigskip
+
+    Because we know $2^{(0)} = 1$, we can conclude $\mid \mathcal{P}(\{\}) \mid = 2^0$
+
+    \bigskip
+
+    \textbf{Inductive Case:}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$. Assume $\mid \mathcal{P}(\{s_0,\dots,s_n\}) \mid = 2^n$.
+
+    \bigskip
+
+    We will show $\mid \mathcal{P}(\{s_0,\dots,s_n,s_{n+1}\}) \mid = 2^{n+1}$ by
+    finding the number of subsets containing $s_{n+1}$ and the number of subsets
+    not containing $s_{n+1}$, and then combining the result together.
+
+    \bigskip
+
+    \textbf{Part 1 Determining number of subsets containing $s_{n+1}$}:
+
+    Because we know a subset containing $s_{n+1}$ can be decomposed into two parts
+    $S_n' \cup \{s_{n+1}\}$ where $S_n'$ is a subset with combination of elements in
+    $\{\phi, s_0,\dots,s_n\}$, we can conclude that the number of subsets containing
+    $s_{n+1}$ is exactly $\mid \mathcal{P}(\{s_0,\dots,s_n\}) \mid$, or
+
+    \begin{align}
+        2^n
+    \end{align}
+
+    using induction hypothesis.
+
+    \bigskip
+
+    \textbf{Part 2 Determining number of subsets not containing $s_{n+1}$}:
+
+    Because we know the subsets don't have $s_{n+1}$, we can conclude that
+    the subsets are combination of elements in $\{\phi, s_0,\dots,s_n\}$.
+
+    \bigskip
+
+    Since this is exactly, $\mid \mathcal{P}(\{s_0,\dots,s_n\}) \mid$, using induction
+    hypothesis, we can conclude that the number of subsets not containing $s_{n+1}$
+    is
+
+    \begin{align}
+        2^n
+    \end{align}
+
+    \bigskip
+
+    \textbf{Part 3 Combining together}:
+
+    Since $\mid \mathcal{P}(s_0,\dots,s_n,s_{n+1}) \mid$ is the sum of the
+    number of subsets containing $s_{n+1}$ and the number of subsets not containing
+    $s_{n+1}$, we have
+
+    \begin{align}
+        \mid \mathcal{P}(s_0,\dots,s_n,s_{n+1}) \mid &= 2^n + 2^n
+    \end{align}
+
+    Then, it follows from the fact $2^n + 2^n = 2^{n+1}$ that
+
+    \begin{align}
+        \mid \mathcal{P}(s_0,\dots,s_n,s_{n+1}) \mid &= 2^{n+1}
+    \end{align}
+
+    \textbf{Notes:}
+    \begin{itemize}
+        \item How can the phrase 'every set $S$ of size n' be described using
+        predicate logic?
+        \item Noticed professor approaches the problem by unraveling definition
+        just enough to gain more insight and information about how to proceed.
+        \item How we know if we are over doing/over thinking it? How do we know
+        if a proof is not enough or has missing detail or jumping to conclusion?
+    \end{itemize}
+
+\end{enumerate}
+
+\end{document}

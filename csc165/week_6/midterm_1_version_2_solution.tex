@@ -1,0 +1,247 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Midterm 1 Version 2 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    Since
+
+    $S_1 = \{1,2,3,5,7,11,13,17,19,23,29\}$, and $S_2 = \{1,2,3,5,6,10,15,30\}$,
+
+    $S_1 \cap S_2 = \{1,2,3,5\}$
+
+    \item
+
+    See the table below
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $p$ & $q$ & $r$ & $\neg p$ & $\neg p \Leftrightarrow q$ & $(\neg p \Leftrightarrow q) \Rightarrow r$\\
+        \hline
+        T & T & T & F & F & T\\
+        \hline
+        T & T & F & F & F & T\\
+        \hline
+        T & F & T & F & T & T\\
+        \hline
+        F & T & T & T & T & F\\
+        \hline
+        T & F & F & F & T & F\\
+        \hline
+        F & F & T & T & F & T\\
+        \hline
+        F & F & F & T & F & T
+    \end{tabular}
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $p$ & $q$ & $r$ & $\neg p$ & $\neg p \Leftrightarrow q$ & $(\neg p \Leftrightarrow q) \Rightarrow r$\\
+        \hline
+        T & T & T & F & F & T\\
+        \hline
+        T & T & F & F & F & T\\
+        \hline
+        T & F & T & F & T & T\\
+        \hline
+        *F & *T & *T & *T & *T & *T\\
+        \hline
+        T & F & F & F & T & F\\
+        \hline
+        *F & *T & *F & *T & *T & *F\\
+        \hline
+        F & F & T & T & F & T\\
+        \hline
+        F & F & F & T & F & T
+    \end{tabular}
+
+    $* = \text{Incorrect/missing solution}$
+
+    \item
+
+    Let $x \in \mathbb{N}$. Assume $P(x)$.
+
+    \bigskip
+
+    We will prove that there is a natural number $y$ such that the predicate
+    $Q(x,y)$ is true.
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    Let $x \in \mathbb{N}$, and $y = \underline{\hspace{1.5cm}}$. Assume $P(x)$.
+
+    \bigskip
+
+    We will prove that the predicate $Q(x,y)$ is true.
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    $\forall x \in P,\:Cat(x) \land Loves(x,x)$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $\forall x \in P,\:Cat(x) \Rightarrow Loves(x,x)$
+
+    \item
+
+    $\forall x \in P,\: \exists y \in P,\: Cat(x) \land Cute(y) \land Loves(x,y)$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $\forall x \in P,\: Cat(x) \land Cute(x) \Rightarrow (\forall y \in P, Cat(y)
+    \Rightarrow Cute(y))$
+
+    \item
+
+    $\exists x \in P,\: Cat(x) \land Cute(x) \Rightarrow \forall y \in P, Cat(y)
+    \land Cute(y)$
+
+    \item
+
+    $\forall p_1,p_2 \in P,\:p_1 \neq p_2 \land Loves(p_1,p_2) \land Loves(p_2,p_1)
+    \Rightarrow (Cat(p_1) \land \neg Cat(p_2)) \lor (\neg Cat(p_1) \land Cat(p_2))$
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    $\exists n \in \mathbb{N},\: n > 1 \Rightarrow \forall x \in \mathbb{R},\:
+    \lfloor nx \rfloor = n \lfloor x \rfloor$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $\exists n \in \mathbb{N},\:n>1 \land (\forall x \in \mathbb{R}^{+},\:
+    \lfloor nx \rfloor = n \lfloor x \rfloor)$
+
+    \item
+
+    \textbf{Negation:} $\forall n \in \mathbb{N},\: n > 1 \land (\exists x \in
+    \mathbb{R},\: \lfloor nx \rfloor \neq n \lfloor x \rfloor)$
+
+    \bigskip
+
+    Let $n = 2$, $x = 0.5$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \lfloor nx \rfloor &= \lfloor 2(0.5) \rfloor\\
+        &= 1
+    \end{align}
+
+    And,
+
+    \begin{align}
+        n \lfloor x \rfloor &= 2 \lfloor 0.5 \rfloor\\
+        &= 2(0)\\
+        &= 0
+    \end{align}
+
+    Since $\lfloor nx \rfloor \neq n \lfloor x \rfloor$,the predicate logic is
+    false.
+
+    \bigskip
+
+    \textbf{Correction, First Case ($n \leq 1$):}
+
+    \bigskip
+
+    Assume $n \leq 1$. Then, the first case of the negation is true.
+
+    \bigskip
+
+    \textbf{Correction, Second Case ($\exists x \in \mathbb{R}, n \lfloor x \rfloor
+    \neq \lfloor nx \rfloor$):}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$, $x = \frac{1}{n}$. Assume $n > 1$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        n \lfloor x \rfloor &= n \lfloor \frac{1}{n} \rfloor\\
+        &= 0
+    \end{align}
+
+    And,
+
+    \begin{align}
+        \lfloor nx \rfloor &= \lfloor \frac{1}{n} \rfloor\\
+        &= \lfloor 1 \rfloor\\
+        &= 1
+    \end{align}
+
+    Since $n\lfloor x \rfloor \neq \lfloor nx \rfloor$, the second case of negation
+    is also false.
+
+    \bigskip
+
+    Then, it follows from the negation that the statement is false.
+
+\end{enumerate}
+
+\section*{Question 4}
+\begin{itemize}
+    \item
+
+    Let $a,b \in \mathbb{N}$. Assume $b \mid a$ and $b \mid (a + 2)$.
+
+    \bigskip
+
+    Then, $\exists k,l \in \mathbb{Z}$,
+    \setcounter{equation}{0}
+    \begin{align}
+        a &= kb\\
+        (a + 2) &= lb
+    \end{align}
+
+    by the definition of divisibility.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        2 &= (l - k)b
+    \end{align}
+
+    \bigskip
+
+    Since $(l - k) \in \mathbb{Z}$ and $b \in \mathbb{N}$, the only possible
+    combinations that make up 2 are 1 and 2.
+
+    \bigskip
+
+    Then it follows from above that $b = 1$ or $b = 2$.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Midterm 1 Version 1 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    $S_1 = \{aa,bb,cc,aaa,aab,aac,bba,bbb,bbc,cca,ccb,ccc,\dots\}$
+
+    \bigskip
+
+    Since $S_2$ is a set of elements with length 3,
+
+    $S_1 \cap S_2 = \{aaa,aab,aac,bba,bbb,bbc,cca,ccb,ccc\}$
+
+    \item
+
+    See below
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $p$ & $q$ & $r$ & $\neg r$ & $(p \lor q)$ & $(p \lor q) \Rightarrow \neg r$\\
+        \hline
+        T & T & T & F & T & F\\
+        \hline
+        T & F & F & T & T & T\\
+        \hline
+        F & T & F & T & T & T\\
+        \hline
+        F & F & T & F & F & T\\
+        \
+        T & T & F & T & T & T\\
+        \hline
+        T & F & T & F & T & T\\
+        \hline
+        F & T & T & F & T & T\\
+        \hline
+        F & F & F & T & F & F
+    \end{tabular}
+
+    \item
+
+    \textbf{Negation:} $\exists x \in \mathbb{N}, \forall y \in \mathbb{N}, \neg
+    P(x,y) \land \neg Q(x,y)$.
+
+    \bigskip
+
+    Let $x = \underline{\hspace{1.5cm}}$, and $y \in \mathbb{N}$.
+
+    \bigskip
+
+    We will prove that predicate $P$ and $Q$ are not true.
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    $\exists x \in P,\: Student(x) \land Attends(x)$
+
+    \item
+
+    $\forall x \in P,\:\exists y \in P,\:Student(y) \land Attends(y) \land Loves(x,y)$
+
+    \item
+
+    $\forall x \in P,\: Student(x) \land Attends(x) \Rightarrow Loves(x,x)$
+
+    \item
+
+    $\forall x_1,x_2 \in P,\:x_1 \neq x_2 \land Loves(x_1,x_2) \Rightarrow
+    (Attends(x_1) \land \neg Attends(x_2)) \lor (\neg Attends(x_2) \land Attends(x_1))$
+
+    \bigskip
+
+    \textbf{Correct Solution:}
+
+    $\forall x_1,x_2 \in P,\:x_1 \neq x_2 \land Loves(x_1,x_2) \land Loves(x_1,x_2) \Rightarrow
+    \neg Attends(x_1) \lor \neg Attends(x_2)$
+
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    $\forall a,b,c \in \mathbb{Z},\:\exists k,l \in \mathbb{Z},\:b = ka \land c = lb
+    \Rightarrow \exists m \in \mathbb{Z},\:c = ma$
+
+    \item
+
+    Let $a,b,c \in \mathbb{Z}$, and $k = \frac{b}{a},\:l = \frac{c}{b} \in \mathbb{Z}$.
+    Assume, $b = ka$ and $c = lb$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        c &= lb\\
+        &= \left( \frac{c}{b} \right) a\\
+        &= \left( \frac{c}{b} \right) \left( \frac{b}{a} \right) a\\
+        &= \left[ \left( \frac{c}{b} \right) \left( \frac{b}{a} \right) \right] a
+    \end{align}
+
+    \bigskip
+
+    Since $\left( \frac{c}{b} \right),\:\left( \frac{b}{a} \right) \in \mathbb{Z}$,
+    $\left( \frac{c}{b} \right) \left( \frac{b}{a} \right) \in \mathbb{Z}$.
+
+    \bigskip
+
+    Then, it follows from the definition of divisibility that $a$ divides $c$.
+
+\end{enumerate}
+
+\section*{Question 4}
+\begin{itemize}
+    \item
+
+    Let $x,y \in \mathbb{R}$.
+
+    \bigskip
+
+    Then, there exists $\epsilon_1,\:\epsilon_2 \in \mathbb{R},\:0 \leq
+    \epsilon_1,\:\epsilon_2 < 1 \land x = \lfloor x \rfloor + \epsilon_1 \land y =
+    \lfloor y \rfloor + \epsilon_2$ by fact 1.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        \lfloor x + y \rfloor &= \Big\lfloor \lfloor x \rfloor + \epsilon_1 = \lfloor y \rfloor + \epsilon_2 \Big\rfloor\\
+        &= \Big\lfloor (\lfloor x \rfloor + \lfloor y \rfloor) + (\epsilon_1 + \epsilon_2) \Big\rfloor
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \Big\lfloor (\lfloor x \rfloor + \lfloor y \rfloor) + (\epsilon_1 + \epsilon_2) \Big\rfloor &= (\lfloor x \rfloor + \lfloor y \rfloor) + \Big\lfloor \epsilon_1 + \epsilon_2 \Big\rfloor
+    \end{align}
+
+    by fact 2.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \lfloor x + y \rfloor &\geq \lfloor x \rfloor + \lfloor y \rfloor
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall x,y\in \mathbb{R}, \lfloor x + y
+    \rfloor \geq \lfloor x \rfloor + \lfloor y \rfloor$ is true.
+
+
+\end{itemize}
+
+\end{document}

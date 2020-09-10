@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Worksheet 12 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    $c,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\: n \geq n_0 \Rightarrow
+    g(n) \leq c$, where $g: \mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+    \item
+
+    Let $c = \frac{277}{2}$, $n_0 = 1$, $n \in \mathbb{N}$, $f,g: \mathbb{N} \to
+    \mathbb{R}^{\geq 0}$, $g(n) = 100 + \frac{77}{n+1}$, $f(n) = 1$. Assume $n \geq n_0$
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        g(n) = 100 + \frac{77}{n+1} &\leq 100 + \frac{77}{n+1}\\
+        &\leq 100 + \frac{77}{2}\\
+        &\leq \frac{277}{2}\\
+        &\leq c \cdot 1\\
+        &\leq c f(x)
+    \end{align}
+
+    \bigskip
+
+    The, it follows from the definition of Big-Oh that the statement $100 +
+    \frac{77}{n+1} \in \mathcal{O}(1)$ is true.
+\end{enumerate}
+
+\section*{Question 2}
+\begin{itemize}
+    \item
+
+    \textbf{Expanded Statement:} $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $(\exists c,n_0 \in \mathbb{R}^{+},\:\forall n \in \mathbb{N},\:n \geq n_0
+    \Rightarrow g(n) \leq cf(n)) \Rightarrow (\exists d,m_0 \in \mathbb{R}^{+},\:
+    \forall m \in \mathbb{N},\: m \geq m_0 \Rightarrow dg(n) \leq f(n))$.
+
+    \bigskip
+
+    Let $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $n_0 = 1$, $c = \frac{1}{d}$,
+    $n \in \mathbb{N}, m_0 = 1$. Assume $n \geq n_0$, $g(n) \leq cf(n)$ and
+    $m \geq m_0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) &\leq cf(n)\\
+        g(n) &\leq \frac{1}{d}f(n)\\
+        dg(n) &\leq f(n)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        dg(m) &\leq f(m)
+    \end{align}
+
+    by changing variable from n to m.
+
+    \bigskip
+
+    Then, it follows from the definition of Omega that the statement
+    $,f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $g \in \mathcal{O}(f) \Rightarrow
+    \Omega (g)$ is true.
+
+\end{itemize}
+
+\section*{Question 3}
+\begin{itemize}
+    \item
+
+    Let $g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $a \in \mathbb{R}^{\geq 0}$,
+    $m \in \mathbb{N}$, $c_2 \gg a$, $c_1 = \frac{1}{c_2}$. Assume $g \in \Omega (1)$,
+    $m \geq m_0$.
+
+    \bigskip
+
+    Then
+    \setcounter{equation}{0}
+    \begin{align}
+        a + g &\leq a + c_2 g\\
+        &< c_2 g
+    \end{align}
+
+    and,
+
+    \begin{align}
+        a + g &\geq g\\
+        &> c_1 g
+    \end{align}
+
+    \bigskip
+
+    Then, by the definition of theta, the statement $\forall g: \mathbb{N} \to
+    \mathbb{R}^{\geq 0}$, and $a \in \mathbb{R}^{\geq 0}$, $g \in \Omega(1)
+    \Rightarrow a + g \in \Theta(g)$ is true.
+
+\end{itemize}
+
+\section*{Question 4}
+\begin{enumerate}
+    \item
+
+    $g \notin \mathcal{O}(f): \forall c,n_0 \in \mathbb{R}^{+},\:\exists n \in \mathbb{N},\:(
+    n \geq n_0) \land (g(n) > cf(n))$
+
+    \item
+
+    Let $c,n_0 \in \mathbb{R}^{+}$, and $n = n_0 + c^{\frac{1}{a-b}}$. Assume $a > b$.
+
+    \bigskip
+
+    \textbf{Note:} Need to ask how $n = n_0 + c^{\frac{1}{a-b}} \in \mathbb{N}$.
+
+    \bigskip
+
+    Then, $n \geq n_0$.
+
+    \bigskip
+
+    And
+    \setcounter{equation}{0}
+    \begin{align}
+        cn^b &< (n_0 + c^{\frac{1}{a-b}})^{a-b}n^b\\
+        &< (n_0 + c^{\frac{1}{a-b}})^{a-b}(n_0 + c^{\frac{1}{a-b}})^b\\
+        &< (n_0 + c^{\frac{1}{a-b}})^{a-b+b}\\
+        &< (n_0 + c^{\frac{1}{a-b}})^a\\
+        &< n^a
+    \end{align}
+
+    Then, it follows that the statement $\forall a,b \in
+    \mathbb{R}^{+}, a > b \Rightarrow n^a \notin \mathcal{O}(n^b)$ is true.
+
+\end{enumerate}
+
+\end{document}

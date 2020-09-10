@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Worksheet 11 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    $\forall a,b \in \mathbb{R}^{+},\: a \leq b \Rightarrow \exists c,n_0 \in \mathbb{R}^{+},
+    \:\forall n \in \mathbb{N},\: n \geq n_0 \Rightarrow n^a \leq cn^b$
+
+    \item
+
+
+    Let $a,b \in \mathbb{R}^{+}$, $n \in \mathbb{N}$, $c = 1$, $n_0 = 1$.
+    Assume $a \leq b$, and $n \geq n_0$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n^a &\leq \left[ n^a \right]^k\\
+        &\leq n^{ak}\\
+        &\leq n^b
+    \end{align}
+
+    by the fact that $k = \frac{b}{a}$, and $k \in \mathbb{R}^{+}$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        n^a &\leq n^b\\
+        &\leq cn^b
+    \end{align}
+
+    \bigskip
+
+    Then, it follows from above that the statement $\forall a,b \in \mathbb{R}^{+},
+    \:a \leq b \Rightarrow n^a \in \mathcal{O}(n^b)$ is true.
+
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    Let $c = \frac{1}{log_b a}$, $n_0 = 1$, $a \in \mathbb{R}^{+}$, $b \in \mathbb{R}^{+}$.
+    Assume $a > 1$ and $b > 1$. We want to show that $\log_a n \leq c \log_b n$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        c \log_b n &= \frac{1}{\log_b a} log_b n\\
+        &= log_a n
+    \end{align}
+
+    by change of base rule for logarithms.
+
+    \bigskip
+
+    Then it follows from the definition of Big-Oh that $\log_a n \in \mathcal{O}(\log_b n)$
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Statement in Expanded Form:} $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $(\exists c,n_0 \in \mathbb{R}^{+}, \forall n \in \mathbb{N}, n \geq n_0 \Rightarrow
+    g(n) \leq cf(n)) \Rightarrow (\exists d,m_0 \in \mathbb{R}^{+}, \forall m \in \mathbb{N},\:
+    m \geq m_0 \Rightarrow (f+g)(m) \leq df(m))$
+
+    \bigskip
+
+    Let $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$, $n \in \mathbb{N}$, $c = 1$,
+    $n_0 = 1$, $d = 2$, $m_0 = 1$. Assume $n \geq n_0$, $g(n) \leq c f(n)$ and
+    $m \geq m_0$.
+
+    \bigskip
+
+    Then,
+    \setcounter{equation}{0}
+    \begin{align}
+        g(n) &\leq c f(n)\\
+        f(n) + g(n) &\leq c f(n) + f(n)\\
+        f(n) + g(n) &\leq f(n) + f(n)\\
+        f(n) + g(n) &\leq 2 f(n)\\
+        f(n) + g(n) &\leq d f(n)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        f(m) + g(m) &\leq d f(m)
+    \end{align}
+
+    by changing variable from n to m.
+
+    \bigskip
+
+    Then, by the definition of Big-Oh, $f +g \in \mathcal{O}(f)$
+
+    \bigskip
+
+    Then, it follows that the statement $f,g: \mathbb{N} \to \mathbb{R}^{\geq 0}$,
+    $g \in \mathcal{O}(f) \Rightarrow f + g \in \mathcal{O}(f)$ is true.
+\end{enumerate}
+
+\end{document}

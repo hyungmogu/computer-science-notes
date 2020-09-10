@@ -1,0 +1,478 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mdframed}
+
+\begin{document}
+\title{Worksheet 15 Solution}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    \textbf{Inner Loop Iterations (upper bound):} $n$
+
+    \textbf{Inner Loop Step Size:} 1
+
+    \textbf{Inner Loop Steps Total:} $n$
+
+    \bigskip
+
+    \textbf{Outer Loop Iterations (upper bound):} $n$
+
+    \textbf{Outer Loop Step Size:} 1
+
+    \textbf{Outer Loop Steps Total:} $n$
+
+    \bigskip
+
+    \textbf{Steps Total:} $n \cdot n = n^2$
+
+    \begin{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Correct Solution:}}
+
+    Since the inner loop starts at $i+1$ and ends at $n-1$, where $i$ represents
+    the variable in outer loop, the inner loop has $(n-1 - (i+1) + 1) = n - i - 1$
+    iterations.
+
+    \bigskip
+
+    Since each iteration takes 1 step, the total steps taken by inner loop is:
+
+    \begin{align}
+        (n - i - 1) \cdot 1 &= (n - i - 1)
+    \end{align}
+
+    \bigskip
+
+    Now, we will evaluate total steps taken by outer loop.
+
+    \bigskip
+
+    Since the outer loop starts at $i = 0$, and ends at $n-1$, the loop runs
+    at most $n$ iterations.
+
+    \bigskip
+
+    Since each iteration takes $(n -i - 1)$ steps, the total steps of outer
+    loop is:
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-1} (n - i + 1) &= \sum\limits_{i=0}^{n-1} \left[ (n-1) - i \right]\\
+        &= \sum\limits_{i=0}^{n-1} (n-1) - \sum\limits_{i=0}^{n-1} i\\
+        &= n(n-1) - \frac{n(n-1)}{2}\\
+        &= \frac{n^2-n}{2}
+    \end{align}
+
+    \bigskip
+
+    Then, since the last \textbf{return} statement takes 1 step, it follows
+    that the total number of steps of this algorithm is at most
+    $\frac{n^2-n}{2} + 2$, or $\mathcal{O}(n^2)$.
+
+    \end{mdframed}
+
+    \item
+
+    Consider the input family where none of the values in a list are the same
+    (i.e. $[1,2,3,4,5,6,7,8,9]$).
+
+    \bigskip
+
+    Since all values in the input list are not matching, both the inner and
+    the outer loop will run, giving the loops the total number of steps
+    of $\frac{n^2-n}{2}$.
+
+    \bigskip
+
+    Since the last \textbf{return} statement takes 1 step, the total number of
+    steps of this algorithm is $\frac{n^2-n}{2} + 1$, or $\Omega(n^2)$.
+
+    \begin{mdframed}
+
+    \bigskip
+
+    \underline{\textbf{Correct Solution:}}
+
+    \bigskip
+
+    Let $n \in \mathbb{N}$ and $lst = [1,2,3,\dots,n-1,n-1]$.
+
+    \bigskip
+
+    Since the inner loop will run without interruptions until the end, the
+    inner loop has
+
+    \setcounter{equation}{0}
+    \begin{align}
+        n-1-(i+1) + 1 &= n-i-1
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Then, since the inner loop takes 1 step per iteration, the total steps
+    taken by the inner loop is
+
+    \begin{align}
+        (n-i-1) \cdot 1 &= (n-i-1)
+    \end{align}
+
+    \bigskip
+
+    Since the \textbf{if condition} $lst[i] == lst[j]$ and the \textbf{return}
+    statement are activated when $i=n-2$, the outer loop will run until $i=n-2$,
+    where $j$ is the variable of the inner loop and $i$ is the variable of
+    the outer loop.
+
+    \bigskip
+
+    Since the outer loop starts at 0 and ends at $n-2$, it has
+
+    \begin{align}
+        n-2+1 &= n-1
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration in the outer loop takes $(n-i-1)$ steps, the outer
+    loop has total cost of
+
+    \begin{align}
+        \sum\limits_{i=0}^{n-2} (n-i-1) &= \sum\limits_{i=0}^{n-2} (n-1) + \sum\limits_{i=0}^{n-2} i\\
+        &= (n-1)(n-1) - \frac{(n-2)(n-1)}{2}\\
+        &= \frac{(n-1)n}{2}
+    \end{align}
+
+    Since each of the \textbf{if condition} and \textbf{return} statement has cost of 1,
+    the total cost of algorithm is $\frac{n(n-1)}{2} + 2$, or $\Omega(n^2)$
+
+    \end{mdframed}
+
+    \item
+
+    Let $n \in \mathbb{N}$, and $lst = [1,2,3,\dots,n-1,1]$
+
+    \bigskip
+
+    Since the inner loop will run from $j = i + 1$ until the end without interruptions,
+    the loop has
+
+    \setcounter{equation}{0}
+    \begin{align}
+        (n-1)-(i+1)+1 = n-i-1
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the inner loop takes 1 step per iteration, the loop takes total of
+
+    \begin{align}
+        (n-i-1) \cdot 1 = (n-i-1)
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Now, because we know that the \textbf{if condition} and \textbf{return}
+    statement will occur at $i = 0$, the outer loop has at most 1 iteration.
+
+    \bigskip
+
+    Because we know that the outer loop terminates at $i=0$, the total cost of
+    inner loop can be simplified to
+
+    \begin{align}
+        (n-i-1) &= n-1
+    \end{align}
+
+    \bigskip
+
+    Since the outer loop has 1 iteration and takes $n-1$ steps, the loop has
+    total cost of $n-1$.
+
+    \bigskip
+
+    Lastly, since each of the \textbf{if condition} and \textbf{return} statement
+    has cost of 1, the total cost of the algorithm is
+
+    \begin{align}
+        n-1+2 &= n+1
+    \end{align}
+
+    steps, or $\Theta(n)$.
+
+    \bigskip
+
+    \textbf{Note}
+
+    \begin{itemize}
+        \item
+        What's the lower/upper bound of this input family? How can I find them?
+
+        \item $[1,2,3,...,1,n-1]$ returns total cost of algorithm of $n$. Does it
+        imply $[1,2,3,...,1,n-1]$ is in different input family than $[1,2,3,...,n-1,1]$?
+        \item
+
+        $g \in \mathcal{O}(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \leq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Omega(f):\:\exists c,n_o \in \mathbb{R}^{+},\:\forall n \in
+        \mathbb{N},\:n \geq n_0 \Rightarrow g(n) \geq cf(n)$, where $f,g:\mathbb{N} \to \mathbb{R}^{\geq 0}$
+
+        \item
+
+        $g \in \Theta(f):\: g \in \mathcal{O}(f) \land g \in \Omega(f)$
+    \end{itemize}
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    Since $j=len(lst)=n$ and $i=0$ initially, the initial value of $r$ is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        r &= j - i\\
+        &= n - 0\\
+        &= n
+    \end{align}
+
+    \item
+
+    The loop terminates when $r \leq 0$.
+
+    \item
+
+    Let $k \in \mathbb{N}$, and $j,i \in \mathbb{Z}$. Assume $j > i$.
+
+    \bigskip
+
+    We will prove the statement by separating into two cases, and combining them
+    at the end.
+
+    \bigskip
+
+    \textbf{Case1} ($lst[mid] < x$):
+
+    \bigskip
+
+    Assume $lst[mid] < x$.
+
+    \bigskip
+
+    Then, it follows from the fact $i = \lfloor \frac{i+j}{2} \rfloor + 1$ and
+    $j = j$ that the value of $r$ at $k+1^{th}$ step is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        r_{k+1} &= j - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + 1 \right)
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        r_{k+1} &\leq j - \left( \left\lfloor \frac{i + j}{2} \right\rfloor \right)\\
+        &\leq \frac{2j}{2} - \left( \left\lfloor \frac{i + j}{2} \right\rfloor \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + \frac{(-2j)}{2} \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} \right\rfloor + \frac{(-2j)}{2} \right)\\
+        &\leq - \left( \left\lfloor \frac{i + j}{2} + \frac{(-2j)}{2} \right\rfloor \right)
+    \end{align}
+
+    by using the fact $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:
+    \lfloor x+y \rfloor = x + \lfloor y \rfloor$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        - \left( \left\lfloor \frac{i + j}{2} + \frac{(-2j)}{2} \right\rfloor \right) &\leq - \left( \left\lfloor \frac{i - j}{2} \right\rfloor \right)\\
+        &\leq - \left( \frac{i - j}{2} \right)\\
+        &\leq \left( \frac{j - i}{2} \right)\\
+        &\leq \frac{1}{2} r_k
+    \end{align}
+
+    \bigskip
+
+    \textbf{Case2} ($lst[mid]> x$):
+
+    \bigskip
+
+    Assume $lst[mid] \geq x$.
+
+    \bigskip
+
+    Then, it follows from the fact $i = 1$ and $j = \left\lfloor \frac{i+j}{2} \right\rfloor$
+    that the value of $r$ at $k+1^{th}$ step is
+
+    \begin{align}
+        r_{k+1} &= \left\lfloor \frac{i+j}{2} \right\rfloor - i\\
+    \end{align}
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \left\lfloor \frac{i+j}{2} \right\rfloor - i &\leq \left( \frac{i+j}{2} \right) - i
+    \end{align}
+
+    by the fact $\forall x \in \mathbb{R}, \lfloor x \rfloor \leq x < 1 + \lfloor x \rfloor$.
+
+    \bigskip
+
+    Then,
+
+    \begin{align}
+        \left( \frac{i+j}{2} \right) &\leq \frac{i + j}{2} - \frac{2i}{2}\\
+        &\leq \frac{j - i}{2}\\
+        &\leq \frac{1}{2} r_k
+    \end{align}
+
+
+    Then, it follows from proof by cases that the statement $r_{k+1} \leq \frac{1}{2} r_k$
+    is true.
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item External properties of ceiling and floor
+
+        \begin{enumerate}[1.]
+            \item $\forall x \in \mathbb{R},\: 0 \leq x - \lfloor x \rfloor < 1$
+            \item $\forall x \in \mathbb{R}^{\geq 0},\:x \geq 4 \Rightarrow (\lfloor x \rfloor)^2 \geq \frac{1}{2}x^2$
+            \item $\forall x \in \mathbb{R}^{\geq 0},\:x \geq 4 \Rightarrow \frac{1}{2}x^2 \geq 2x$
+            \item $\forall x \in \mathbb{Z},\:\forall y \in \mathbb{R},\:\lfloor x+y \rfloor = x + \lfloor y \rfloor$
+        \end{enumerate}
+    \end{itemize}
+
+    \item
+
+    Let $n \in \mathbb{N}$, $k \in \mathbb{Z}^{\geq 0}$ and $r = j - i$.
+    Assume $j > i$.
+
+    Because we know $r_{k+1} \geq \frac{1}{2}r_k$, we can conclude that the
+    size of $r$ at $k+1^{th}$ step is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lfloor \frac{n}{2^{k+1}} \right\rfloor
+    \end{align}
+
+    \bigskip
+
+    Then, because we know the loop terminates when $0 < \frac{n}{2^k} < 1$, we can
+    also conclude that loop terminates when
+
+    \begin{align}
+        2^{k+1} &> n\\
+        k + 1 &> \log n\\
+        k + 1 &> \lfloor \log n \rfloor
+    \end{align}
+
+    \bigskip
+
+    Since $\lfloor \log n \rfloor$ is the lower bound of loop termination,
+    $\lfloor \log n \rfloor + 1$ is the value of iteration that results in termination.
+
+    \bigskip
+
+    Since each iteration in loop takes 1 step, the loop has total cost of
+
+    \begin{align}
+        (\lfloor \log n \rfloor + 1) \cdot 1 &= \lfloor \log n \rfloor + 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since the \textbf{return} statement occurs at the end and since it has cost of 1,
+    the total cost of algorithm is at most $\lfloor \log n \rfloor + 2$, or $\mathcal{O}(\log n)$.
+
+    \textbf{Note}
+
+    \begin{itemize}
+        \item A through understanding of algorithm is required. Maybe try few examples before proof?
+        \item iteration is in terms of k, but we want in terms of n.
+    \end{itemize}
+
+
+    \item
+
+    Let $n \in \mathbb{N}, k \in \mathbb{Z}^{\geq 0}$, $lst=[1,2,3,4,5,...,n-1]$,
+    and $x = 0$.
+
+    \bigskip
+
+    Because we know $r_{k+1} \geq \frac{1}{2}r_k$, we can conclude that the value
+    of $r$ at $k^{th}$ step is
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lfloor \frac{n}{2^k} \right\rfloor
+    \end{align}
+
+    \bigskip
+
+    Because we know the loop terminates when $j \leq i$, or when $r \leq 0$, we
+    can also conclude that, in terms of equation 1, the termination occurs when
+
+    \begin{align}
+        2^k &> n\\
+        k &> \log n\\
+        k &> \lfloor \log n \rfloor
+    \end{align}
+
+    \bigskip
+
+    Since $\lfloor \log n \rfloor$ represents the lower bound of loop termination, the loop
+    terminates when $k = \lfloor \log n \rfloor + 1$.
+
+    \bigskip
+
+    Since each loop iteration takes 1 step, the loop has total cost of
+
+    \begin{align}
+        (\lfloor \log n \rfloor + 1) \cdot 1 = \lfloor \log n \rfloor + 1
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Since the \textbf{return} statement occurs at the end with cost of 1,
+    the total cost of algorithm is $\lfloor \log n \rfloor + 2$, or $\Omega(\log n)$.
+
+    \bigskip
+
+    Since $\lfloor \log n \rfloor + 2$ is the same for both the upper bound and the lower bound,
+    $\Theta(\log n)$ is true.
+
+
+\end{enumerate}
+
+\end{document}

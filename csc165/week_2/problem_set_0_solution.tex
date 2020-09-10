@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+
+\begin{document}
+\title{Problem Set 0 Solution}
+\author{Hyungmo Gu}
+\date{\today}
+\maketitle
+
+\section*{Question 1}
+    \begin{itemize}
+        \item Solution complete. Please see above
+    \end{itemize}
+
+\section*{Question 2}
+    \begin{itemize}
+        \item CSC 165
+        \item Mathematical Expression and Reasoning for Computer Science
+        \item David Liu
+    \end{itemize}
+
+\section*{Question 3}
+    \begin{itemize}
+        \item
+            $S_1 = \{\,x \mid x \in \mathbb{Z},\:x < 30\,\}$
+
+            $S_2 = \{\,0, 1, 9, 10, 11, 19, 20, 21, 29, 30, 31 \dotsc\}$
+
+            So,
+
+            $S_1 \cap S_2 = \{\,0, 1, 9, 10, 19, 20, 21, 29\,\}$
+
+
+    \end{itemize}
+
+
+\section*{Question 4}
+    \begin{tabular}{c | c | c | c | c | c | c}
+        p & q & r & $\neg q$ & $p \lor \neg q $ & $p \iff r$ & $(p \lor \neg q) \Rightarrow (p \iff r)$ \\
+        \hline
+        T & T & T & F & T & T & T \\
+        T & T & F & F & T & F & F \\
+        T & F & T & T & T & T & T \\
+        F & T & T & F & F & F & T \\
+        T & F & F & T & T & F & F \\
+        F & T & F & F & F & T & T \\
+        F & F & T & T & T & F & F \\
+        F & F & F & T & T & T & T \\
+        \hline
+    \end{tabular}
+
+
+\section*{Question 5}
+    \begin{enumerate}[i)]
+        \item
+            \begin{align*}
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= 5n + \frac{2n \cdot (n - 1)}{2} \\
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= 5n + \frac{2n^2 - 2n}{2} \\
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= n^2 + 5n - n \\
+                \sum\limits_{i=0}^{n-1} (2i + 5) &= n^2 + 4n  \\
+            \end{align*}
+
+        \item
+
+        Since we know $\sum\limits_{i=0}^{n-1} (2i + 5) = n^2 + 4n$ and
+        want to find smallest positive integer $n$ satisfying
+        $\sum\limits_{i=0}^{n-1} (2i + 5) \geq 165165$,
+
+        \begin{align*}
+            n^2 + 4n &\geq 165165 \\
+            n^2 + 4n + 4 &\geq 165169 \\
+            (n + 2)^2 &\geq 165169 \\
+            n &\geq \sqrt{165169} - 2 \\
+            n &\geq 404.409891612 \\
+            n &\geq 405
+        \end{align*}
+    \end{enumerate}
+
+\end{document}

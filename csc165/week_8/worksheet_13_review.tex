@@ -1,0 +1,410 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+
+\begin{document}
+\title{Worksheet 13 Review}
+\maketitle
+
+\section*{Question 1}
+\begin{enumerate}[a.]
+    \item
+
+    Since the loop starts from $i = 0$ and ends at $i = n - 1$. The loop has
+
+    \begin{align}
+        n - 1 - 0 + 1 &= n
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration runs 5 steps, the loop has total cost of
+
+    \begin{align}
+        5 \cdot n &= 5n
+    \end{align}
+
+    steps.
+
+    \bigskip
+
+    Because we know $i = 0$ at line 2 has cost of 1, we can conclude that the
+    algorithm has total cost of $5n + 1$ steps.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        \color{red}
+        Because we know the loop starts from $i = 0$ and ends at
+        $i = n - 1$ with $i$ increasing by 5 per iteration, we can conclude the
+        loop has
+
+        \begin{align}
+            \left\lceil \frac{n}{5} \right\rceil
+        \end{align}
+
+        \color{black}
+
+        iterations.
+
+        \bigskip
+
+        \color{red}
+        Since each iteration takes constant time, the loop has
+        runtime of $\Theta(n)$
+        \color{black}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item How does professor begin a proof after 'We will prove that...' or
+        at the beginning of each case/parts?
+
+        \item Noticed professor doesn't provide a detailed explanation for the
+        number of iterations.
+
+        \item Realized the goal of this problem is to determine the exact cost and runtime
+        of each loop.
+
+        \bigskip
+
+        \begin{mdframed}
+            There are $\left\lceil \frac{n}{5} \right\rceil$ iterations. $\cdots$
+        \end{mdframed}
+
+    \end{itemize}
+
+
+    \item
+
+    Because we know the loop starts at $i = 4$ and ends at $i = n - 1$ with $i$
+    increasing by 1 per iteration, we can conclude that the loop has
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \lceil n - 1 4 + 1 \rceil &= n - 4
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration takes a constant time, we can conclude that the loop has
+    runtime of $\mathcal{O}(n)$.
+
+    \bigskip
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        Because we know the loop starts at $i = 4$ and ends at $i = n - 1$ with $i$
+        increasing by 1 per iteration, we can conclude that the loop has
+        \color{red}\textbf{at most}\color{black}
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \lceil n - 1 4 + 1 \rceil &= n - 4
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since each iteration takes a constant time, we can conclude that the loop has
+        runtime of \color{red}$\Theta(n)$\color{black}.
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor doesn't count $i = 4$ or $i = 0$ in question 1.a
+        to the total cost of algorithm. But in later parts of the question, the two
+        are considered. I wonder if the line with constant runtime
+        should always be accounted for, or if it can be ignored in certain circumstances.
+        If latter, when can the constants be ignored?
+
+    \end{itemize}
+
+    \item
+
+    Since the loop starts at $i = 0$ and ends at $i = n-1$ with $i$ increasing
+    by $\frac{n}{10}$ per iteration, we can conclude that the loop has at most
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{(n-1-0+1)}{\frac{n}{10}} \right\rceil &= \left\lceil \frac{n \cdot 10}{n} \right\rceil\\
+        &= 10
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since each iteration takes constant time, we can conclude that the loop has
+    runtime of $\Theta(1)$.
+
+    \item
+
+    For the case where $n^2 \leq 20$, it's omitted because we are assuming the
+    value of $n$ is asymptotically large.
+
+    \bigskip
+
+    For the case where $n^2 > 20$, because we know the loop runs from $i = 20$ to
+    $i = n^2 - 1$ with $i$ increasing by 3 per iteration, we can conclude that the
+    loop has at most
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{n^2 - 1 - 20 + 1}{3} \right\rceil &= \left\lceil \frac{n^2 - 20}{3} \right\rceil
+    \end{align}
+
+    iterations.
+
+    \bigskip
+
+    Since the loop takes constant time per iteration, the loop has total runtime
+    of $\Theta(n^2)$.
+
+    \item
+
+    Since we are considering asymptotic runtime or the case where $n$ is very large,
+    the case where $n^2 \leq 20$ will be omitted.
+
+    \bigskip
+
+    For the case where $n^2 > 20$, because we know the first loop runs from $i = 20$
+    and ends at $i = n^2 - 1$ with $i$ increasing by 3 per iteration, we can conclude
+    that the first loop runs
+
+    \setcounter{equation}{0}
+    \begin{align}
+        \left\lceil \frac{n^2 -1 - 20 + 1}{3} \right\rceil &= \left\lceil \frac{n^2 - 20}{3} \right\rceil
+    \end{align}
+
+    iterations
+
+    \bigskip
+
+    For the second loop, because we know the loop runs from $j = 0$ to $j = n-1$
+    with $j$ increasing by 0.01 per iteration, we can conclude that the second loop
+    runs at most
+
+    \begin{align}
+        \left\lceil \frac{n - 1 - 0 + 1}{\frac{1}{100}} \right\rceil &= \left\lceil 100 \cdot n \right\rceil\\
+        &= 100 \cdot n
+    \end{align}
+
+    iterations
+
+    \bigskip
+
+    Since each iteration takes a constant time in both of the loops, the total
+    runtime of the loops in this algorithm is
+
+    \begin{align}
+        \Theta \left( \left\lceil \frac{n^2 - 20}{3} \right\rceil + 100 \cdot n \right) &= \Theta(n^2)
+    \end{align}
+
+    \begin{mdframed}
+        \underline{\textbf{Correct Solution:}}
+
+        \bigskip
+
+        For the case where $n^2 \leq 20$, it's omitted because we are assuming the
+        value of $n$ is asymptotically large.
+
+        \bigskip
+
+        For the case where $n^2 > 20$, because we know the loop runs from $i = 20$ to
+        $i = n^2 - 1$ with $i$ increasing by 3 per iteration, we can conclude that the
+        loop has at most
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \left\lceil \frac{n^2 - 1 - 20 + 1}{3} \right\rceil &= \left\lceil \frac{n^2 - 20}{3} \right\rceil
+        \end{align}
+
+        iterations.
+
+        \bigskip
+
+        Since the loop takes constant time per iteration, the loop has total runtime
+        of $\Theta(n^2)$.
+
+        \item
+
+        Since we are considering asymptotic runtime or the case where $n$ is very large,
+        the case where $n^2 \leq 20$ will be omitted.
+
+        \bigskip
+
+        For the case where $n^2 > 20$, because we know the first loop runs from $i = 20$
+        and ends at $i = n^2 - 1$ with $i$ increasing by 3 per iteration, we can conclude
+        that the first loop runs
+
+        \setcounter{equation}{0}
+        \begin{align}
+            \left\lceil \frac{n^2 -1 - 20 + 1}{3} \right\rceil &= \left\lceil \frac{n^2 - 20}{3} \right\rceil
+        \end{align}
+
+        iterations
+
+        \bigskip
+
+        \color{red}
+        Since the first loop takes a constant time per iteration, we can conclude
+        the first loop has runtime of $\Theta(n^2)$.
+        \color{black}
+
+        \bigskip
+
+        For the second loop, because we know the loop runs from $j = 0$ to $j = n-1$
+        with $j$ increasing by 0.01 per iteration, we can conclude that the second loop
+        runs at most
+
+        \begin{align}
+            \left\lceil \frac{n - 1 - 0 + 1}{\frac{1}{100}} \right\rceil &= \left\lceil 100 \cdot n \right\rceil\\
+            &= 100 \cdot n
+        \end{align}
+
+        iterations
+
+        \bigskip
+
+        \color{red}
+        Since the first loop takes a constant time per iteration, we can conclude
+        the second loop has runtime of $\Theta(n)$.
+        \color{black}
+
+        \bigskip
+
+        \color{red}
+        Since $n \in \Theta(n^2)$, the total runtime of algorithm is $\Theta(n^2)$.
+        \color{black}
+
+    \end{mdframed}
+
+    \bigskip
+
+    \textbf{Notes:}
+
+    \begin{itemize}
+        \item Noticed professor computes the theta of each loop, and then compare
+        to choose the biggest theta. Professor calls it \textbf{one version of
+        the “sum” Big-Oh/Omega/Theta theorem.}
+
+        \begin{itemize}
+            \item Ah. this is also how $\in$ in $n \in \Theta(n)$ is used.
+        \end{itemize}
+
+    \end{itemize}
+
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[a.]
+    \item
+
+    It follows from the fact $i_k = i \cdot 2$ that we can conclude
+
+    \begin{align*}
+    i_3 &= 8\\
+    i_4 &= 16\\
+    i_k &= 2^k
+    \end{align*}
+
+    \item
+
+    Using the fact that loop termination occurs when $i_k \geq n$, we can
+    calculate
+
+    \setcounter{equation}{0}
+    \begin{align}
+        2^k &\geq n\\
+        \log 2^k &\geq \log n\\
+        k &\geq \log n
+    \end{align}
+
+    \bigskip
+
+    Since the loop terminates when $k$ is greater than or equal to $\log n$, we
+    can conclude that the loop has $\lceil \log n \rceil$ iterations.
+
+    \item
+
+    Since the loop runs $\lceil \log n \rceil$ iterations, and constant time is
+    taken per iteration, we can conclude that the algorithm has runtime of
+    $\Theta(\log n)$.
+
+    \item
+
+    We did not initialize $i = 0$ to prevent the loop from running indefinitely.
+
+\end{enumerate}
+
+\section*{Question 3}
+\begin{itemize}
+    \item
+
+    \begin{proof}
+        Let $k \in \mathbb{Z}^{+}$.
+
+        \bigskip
+
+        Using the fact $i = i \cdot i$, we can calculate
+
+        \setcounter{equation}{0}
+        \begin{align}
+            i_1 &= 4 = 2^2\\
+            i_2 &= 16 = 2^4\\
+            i_3 &= 256 = 2^8\\
+            i_k &= 2^{2^k}
+        \end{align}
+
+        \bigskip
+
+        Since the loop terminates when $i_k \geq n$, we can conclude
+
+        \begin{align}
+            2^{2^k} &\geq n\\
+            \log 2^{2^k} &\geq \log n\\
+            2^k &\geq \log n\\
+            \log 2^k &\geq \log \log n\\
+            k &\geq \log \log n
+        \end{align}
+
+        \bigskip
+
+        Since we are looking for the smallest $k$ when the loop terminates, the smallest
+        $k$ possible is $\lceil \log \log n \rceil$.
+
+        \bigskip
+
+        Since the loop takes constant time per iteration, we can conclude the
+        runtime of the algorithm is $\Theta(\log \log n)$
+    \end{proof}
+
+\end{itemize}
+
+\end{document}
