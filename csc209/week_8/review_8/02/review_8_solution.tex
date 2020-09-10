@@ -234,33 +234,21 @@
 
     \item
 
-\begin{lstlisting}[language=c]
-    struct node *temp;
-    p = first;
-    while (p != NULL) {
-        temp = p;
-        p = p -> next
-        remove(temp);
-    }
-\end{lstlisting}
-
-    \item
-
-\begin{lstlisting}[language=c]
-    struct node *temp;
-    p = first;
-    while (p != NULL) {
-        temp = p;
-        p = p -> next
-        remove(temp);
-    }
-\end{lstlisting}
-
-    \item
-
     Please see file \texttt{question\_8/stack.h}, \texttt{question\_8/stack.c},
     \texttt{question\_8/calc.c} for details.
 
+    \item
+
+    True.
+
+    \bigskip
+
+    By definition, \texttt{(\&x)$->$a} is the same as \texttt{(*(\&x)).a}.
+
+    \bigskip
+
+    Since \texttt{(*(\&x)) = x}, we can write \texttt{(\&x)$->$a} is the same
+    as x.a.
 
 \end{enumerate}
 
