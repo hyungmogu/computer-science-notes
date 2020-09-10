@@ -183,6 +183,36 @@
         \end{itemize}
     \end{itemize}
 
+    \item
+
+\begin{lstlisting}[language=c]
+    struct node *delete_from_list(struct node *list, int n)
+    {
+        struct node *cur = list;
+
+        if (cur == NULL) {
+            return list;
+        }
+
+        for (; cur->next != NULL && cur->next->value != n;
+              cur = cur -> next)
+             ;
+
+        if (cur == NULL) {
+            return list;
+        }
+
+        if (prev == NULL) {
+            list = list->next;
+        } else {
+            prev->next = cur->next;
+        }
+
+        free(cur);
+        return list;
+    }
+\end{lstlisting}
+
 
 \end{enumerate}
 
