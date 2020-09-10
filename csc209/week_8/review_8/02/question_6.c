@@ -11,7 +11,7 @@ struct node *delete_from_list(struct node *list, int n);
 
 int main(void)
 {
-    struct node *l, *l1, *l2, *l3, *l4, *res, *p;
+    struct node *l, *l1, *l2, *l3, *l4, *res, *p, *temp;
 
     l = malloc(sizeof(struct node));
     l1 = malloc(sizeof(struct node));
@@ -33,6 +33,12 @@ int main(void)
 
     for (p = res; p != NULL; p=p->next) {
         printf("%d\n", p->value);
+    }
+
+    while (p != NULL) {
+        temp = p;
+        p = p->next;
+        free(temp);
     }
     return 0;
 }

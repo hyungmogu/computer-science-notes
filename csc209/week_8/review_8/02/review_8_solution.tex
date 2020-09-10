@@ -214,6 +214,24 @@
     }
 \end{lstlisting}
 
+    \item
+
+    It's incorrect because it's deleting the node before moving to next.
+
+    \bigskip
+
+    To fix this bug, p must move to the next node before removing the current.
+
+\begin{lstlisting}[language=c]
+    struct node *temp;
+    p = first;
+    while (p != NULL) {
+        temp = p;
+        p = p -> next
+        remove(temp);
+    }
+\end{lstlisting}
+
 
 \end{enumerate}
 
