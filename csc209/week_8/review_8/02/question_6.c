@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 struct node {
@@ -19,19 +20,20 @@ int main(void)
     l4 = malloc(sizeof(struct node));
 
     l->value = 1;
-    l->next = &l1;
+    l->next = l1;
     l1->value = 2;
-    l1->next = &l2;
+    l1->next = l2;
     l2->value = 3;
-    l2->next = &l3;
+    l2->next = l3;
     l3->value = 4;
-    l3->next = &l4;
+    l3->next = l4;
     l4->value = 5;
 
-    delete_from_list(&l, 3);
+    l = delete_from_list(l, 3);
 
-    for()
-
+    for (p = l; p != NULL; p++) {
+        printf("%d\n", p->value);
+    }
     return 0;
 }
 
@@ -44,13 +46,11 @@ struct node *delete_from_list(struct node *list, int n)
         return list;
     }
 
-    for (cur = list;
-            cur != NULL;
-            cur = cur -> next) {
+    for (cur = list; cur != NULL; cur = cur -> next) {
 
-            if (cur->next != NULL && cur->next->value == n) {
-            break;
-            }
+        if (cur->next != NULL && cur->next->value == n) {
+        break;
+        }
     }
 
     if (cur == NULL) {
