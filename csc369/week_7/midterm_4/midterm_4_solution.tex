@@ -960,9 +960,9 @@
             \item all of the above
             \item
 
-            To minimize damage, it should be updated in order of
+            To minimize damage, it should be updated in the order of
 
-            \texttt{Data Region}-\texttt{Inode Table}-
+            \bigskip
 
             \begin{enumerate}[1.]
                 \item Data Region
@@ -970,6 +970,8 @@
                 \item Data Bitmap
                 \item Inode Bitmap
             \end{enumerate}
+
+            \bigskip
 
             The reason is that when data block and/or inode block are set and
             crash happens, the file system treats as if nothing had happened.
@@ -990,6 +992,40 @@
         \begin{enumerate}[i)]
             \item inode bitmap, data bitmap
             \item
+
+            To minimize damage, it should be updated in the order of
+
+            \bigskip
+
+            \begin{enumerate}[1.]
+                \item Data Bitmap
+                \item Inode Bitmap
+            \end{enumerate}
+
+            \bigskip
+
+            The reason is that when data bitmap is removed and crash happens,
+            The data are still in place, and those can be used to continue the operation
+            (assuming that nothing is disturbed).
+
+            \bigskip
+
+            More specifically, deletion of file is complete when reference count in the inode of
+            file B hits 0, and as long as data is in place we can work so that the inode's
+            reference count hits 0, and the file is removed.
+
+            \bigskip
+
+            However, if done the opposite and crash occurs, we can't remove its data bitmaps,
+            and data leak would result.
+
+            \bigskip
+
+            \underline{\textbf{Notes}}
+
+            \begin{itemize}
+                \item I really need to know what happens
+            \end{itemize}
         \end{enumerate}
     \end{enumerate}
 
