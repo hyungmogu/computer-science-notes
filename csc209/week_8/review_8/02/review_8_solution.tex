@@ -188,30 +188,28 @@
 \begin{lstlisting}[language=c]
     struct node *delete_from_list(struct node *list, int n)
     {
-        struct node *cur;
+        struct node *cur = list, *temp;
 
         if (cur->value == n) {
             list = cur->next;
             return list;
         }
 
-        for (cur = list;
-             cur != NULL;
-             cur = cur -> next) {
+        for (cur = list; cur != NULL; cur = cur -> next) {
 
-             if (cur->next != NULL && cur->next->value == n) {
-                break;
-             }
+            if (cur->next != NULL && cur->next->value == n) {
+            break;
+            }
         }
 
         if (cur == NULL) {
             return list;
         }
 
+        temp = cur->next;
         cur->next = cur->next->next;
-        }
 
-        free(cur->next);
+        free(temp);
         return list;
     }
 \end{lstlisting}
