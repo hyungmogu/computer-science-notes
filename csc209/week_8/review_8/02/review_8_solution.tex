@@ -286,10 +286,10 @@
 \begin{lstlisting}[language=c]
     struct node {
         int value;
+        struct node *next;
+    };
 
-    }
-
-    void *find_last(struct node *list, int n)
+    struct node *find_last(struct node *list, int n)
     {
         struct node *res = NULL, *p;
 
@@ -298,10 +298,36 @@
                 res = p;
             }
         }
+
+        return res;
     }
 \end{lstlisting}
 
+    \bigskip
+
     Please see file \texttt{question\_12.c} for details.
+
+    \item
+
+\begin{lstlisting}[language=c]
+    struct node {
+        int value;
+        struct node *next;
+    };
+
+    struct node *insert_into_ordered_list(struct node *list, struct node *new_node)
+    {
+        struct node *cur = list, *prev = NULL;
+        while (cur->value <= new_node ->value) {
+            prev = cur;
+            cur = cur->next;
+        }
+
+        prev->next = new_node;
+        new_node->next = cur;
+        return list;
+    }
+\end{lstlisting}
 
 
 
