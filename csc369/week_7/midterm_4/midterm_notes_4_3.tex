@@ -500,6 +500,7 @@
 \end{center}
 
 \begin{itemize}
+    \item Are excellent way to \underline{manage free space}
     \item Tracks whether inode or data blocks are free or allocated
     \item Accessed only when allocation/deallocation is needed
     \begin{itemize}
@@ -591,6 +592,7 @@
     \end{align}
 \end{itemize}
 
+
 \section{Data Region}
 
 \begin{center}
@@ -630,6 +632,40 @@
     \item is an array of bytes which can be created, read, written and deleted
     \item low-level name is called \textbf{inode number} or \textbf{i-number}
 \end{itemize}
+
+\section{Indirect Pointers}
+
+\begin{itemize}
+    \item Is allocated to data-block if file grows large enough
+    \item Has total size of 4 KB or 4096 bytes
+    \item Has $4096/4 = 1024$ pointers
+    \item Each pointer points to 4KB data-block
+    \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
+\end{itemize}
+
+\section{Double Indirect Pointers}
+
+\begin{itemize}
+    \item is allocated when single indirect pointer is not large enough
+    \item each pointer in first pointer block points to another pointer block
+    \item has $1024^2$ pointers
+    \item each of $1024^2$ pointers point to 4KB data block
+    \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{../images/midterm_2_solution_25.png}
+    \end{center}
+\end{itemize}
+
+\section{Triple Indirect Pointers}
+
+\begin{itemize}
+    \item is allocated when double indirect pointer is not large enough
+    \item has $1024^3$ pointers
+    \item each of $1024^3$ pointers point to 4KB data block
+    \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
+\end{itemize}
+
 \section{Reading a File From Disk}
 
 \bigskip
@@ -763,39 +799,6 @@ Given a call
     \end{itemize}
 \end{itemize}
 
-\section{Indirect Pointers}
-
-\begin{itemize}
-    \item Is allocated to data-block if file grows large enough
-    \item Has total size of 4 KB or 4096 bytes
-    \item Has $4096/4 = 1024$ pointers
-    \item Each pointer points to 4KB data-block
-    \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
-\end{itemize}
-
-\section{Double Indirect Pointers}
-
-\begin{itemize}
-    \item is allocated when single indirect pointer is not large enough
-    \item each pointer in first pointer block points to another pointer block
-    \item has $1024^2$ pointers
-    \item each of $1024^2$ pointers point to 4KB data block
-    \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{../images/midterm_2_solution_25.png}
-    \end{center}
-\end{itemize}
-
-\section{Triple Indirect Pointers}
-
-\begin{itemize}
-    \item is allocated when double indirect pointer is not large enough
-    \item has $1024^3$ pointers
-    \item each of $1024^3$ pointers point to 4KB data block
-    \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
-\end{itemize}
-
 \section{Old UNIX File system}
 \begin{itemize}
     \item was simple, and looked like the following on disk
@@ -823,13 +826,6 @@ Given a call
     \begin{center}
     \includegraphics[width=0.8\linewidth]{../images/midterm_2_solution_29.png}
     \end{center}
-\end{itemize}
-
-\section{Bitmap}
-
-\begin{itemize}
-    \item Are excellent way to \underline{manage free space}
-    \item tracks whether inodes/data block of the group are allocated
 \end{itemize}
 
 \section{FFS Policies: Allocating Files and Directories}
