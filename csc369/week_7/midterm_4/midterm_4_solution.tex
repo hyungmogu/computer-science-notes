@@ -692,7 +692,13 @@
         \item
 
        \begin{enumerate}[a)]
-            \item
+            \item Indexed-based file system uses inode number and pointers to find data blocks, and
+            data blocks can be set and anywhere, so external fragmentation isn't a problem
+
+            \item Extent based file system only requires a pointer to first data block of file,
+            and the rest is read by traveling contiguously, and this requires less disk block access
+            than index-based file system of which has to go to inode block, indirect pointers and
+            data blocks to go to a particular byte in file.
        \end{enumerate}
 
        \bigskip
@@ -888,12 +894,21 @@
             \item \textbf{Static Partitioning}
 
             \begin{itemize}
-                \item Divides resources into fixed proportion
+                \item Divides resources into fixed proportion \underline{once}
+                \begin{itemize}
+                    \item e.g. two possible users of memory $\to$ give fraction of memory to one user and
+                    rest to the other
+                \end{itemize}
                 \item Advantages
                 \begin{itemize}
                     \item Ensures each user receives some share of the resource
                     \item Delivers more predictable performance (usually)
                     \item Easier to implement
+                \end{itemize}
+                \item Disadvantages
+                \begin{itemize}
+                    \item Is wasteful
+                    \item
                 \end{itemize}
             \end{itemize}
 
