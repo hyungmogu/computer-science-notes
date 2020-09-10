@@ -95,6 +95,26 @@
 
     Please see \texttt{question\_2.c} for details.
 
+    \item
+
+\begin{lstlisting}[language=c]
+    int *create_array(int n, int initial_value) {
+        int *p, *res;
+
+        res = malloc(n * sizeof(int));
+
+        if (res == NULL) {
+            return res;
+        }
+
+        for (p = res; p < res + n; p++) {
+            *p = initial_value;
+        }
+
+        return res;
+    }
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
