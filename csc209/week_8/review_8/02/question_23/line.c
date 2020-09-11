@@ -2,12 +2,18 @@
 /* line.c (Chapter 15, page 364) */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "line.h"
 
 #define MAX_LINE_LEN 60
 
-char line[MAX_LINE_LEN+1];
+struct node {
+    char value;
+};
+
+struct node *line;
+
 int line_len = 0;
 int num_words = 0;
 
