@@ -13,7 +13,7 @@ struct node {
     struct node *next;
 };
 
-struct node *line;
+struct node *line = NULL;
 
 int line_len = 0;
 int num_words = 0;
@@ -40,8 +40,17 @@ void add_word(const char *word)
       for (int i = 0; i < num_words; i++) {
           struct node *word;
           word = malloc(sizeof(struct node) + word_length);
-
           word->word[word_length] = '\0';
+
+          if (p = NULL) {
+              line = word;
+          }
+
+          while(p->next != NULL) {
+              p = p->next;
+          }
+
+          p->next = word;
       }
   }
   strcat(line, word);
