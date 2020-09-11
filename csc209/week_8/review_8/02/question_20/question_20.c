@@ -14,8 +14,8 @@ struct part {
 
 int num_parts = 0;   /* number of parts currently stored */
 
-int find_part(int number);
-void insert(void);
+int find_part(struct part inventory[], int number);
+void insert(struct part *inventory, int *max_parts);
 void search(void);
 void update(void);
 void print(void);
@@ -32,7 +32,9 @@ int main(void)
   char code;
   int max_parts = 10;
 
-  struct part inventory[max_parts];
+  struct part *inventory;
+
+  inventory = malloc(sizeof(struct part) * 10);
 
   for (;;) {
     printf("Enter operation code: ");
@@ -40,7 +42,7 @@ int main(void)
     while (getchar() != '\n')   /* skips to end of line */
       ;
     switch (code) {
-      case 'i': insert();
+      case 'i': insert(inventory, &max_parts);
                 break;
       case 's': search();
                 break;
@@ -60,7 +62,7 @@ int main(void)
  *            array. Returns the array index if the part  *
  *            number is found; otherwise, returns -1.     *
  **********************************************************/
-int find_part(int number)
+int find_part(struct part inventory[], int number)
 {
   int i;
 
@@ -77,12 +79,13 @@ int find_part(int number)
  *         prematurely if the part already exists or the  *
  *         database is full.                              *
  **********************************************************/
-void insert(void)
+void insert(struct part inventory[], int *max_parts)
 {
   int part_number;
 
-  if (num_parts == MAX_PARTS) {
-    printf("Database is full; can't add more parts.\n");
+  if (num_parts == max_parts) {
+    *max_parts = *max_parts * 2;
+    realloc(inventory, max_parts);
     return;
   }
 
