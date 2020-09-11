@@ -9,7 +9,7 @@
 #define MAX_LINE_LEN 60
 
 struct node {
-    char word;
+    char word[1];
     struct node *next;
 };
 
@@ -33,10 +33,16 @@ void clear_line(void)
 
 void add_word(const char *word)
 {
+  int word_length = strlen(word);
+  struct node *p = line;
+
   if (num_words > 0) {
-    line[line_len] = ' ';
-    line[line_len+1] = '\0';
-    line_len++;
+      for (int i = 0; i < num_words; i++) {
+          struct node *word;
+          word = malloc(sizeof(struct node) + word_length);
+
+          word->word[word_length] = '\0';
+      }
   }
   strcat(line, word);
   line_len += strlen(word);
