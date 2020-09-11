@@ -338,34 +338,65 @@
     \item
 
 \begin{lstlisting}[language=c]
-    struct node *delete_from_list(struct node *list, int n)
+    struct node *delete_from_list(struct node **list, int n)
     {
         struct node *cur, *prev;
 
-        for (cur = list, prev = NULL;
-             cur != NULL && cur->value != n;
-             prev = cur, cur = cur->next)
+        for (cur = *list, prev = NULL;
+                cur != NULL && cur->value != n;
+                prev = cur, cur = cur->next)
 
-             ;
+                ;
 
-        if (curr == NULL) {
-            return list;
+        if (cur == NULL) {
+            return (*list);
         }
 
         if (prev == NULL) {
-            list = list->next;
+            *list = (*list)->next;
         } else {
             prev->next = cur->next;
         }
 
         free(cur);
-        return list;
+        return (*list);
     }
 \end{lstlisting}
 
     \bigskip
 
     Please see \texttt{question\_14.c} for details.
+
+    \item
+
+    It returns the value of \texttt{n} that is equal to \texttt{i * i + i - 12}.
+
+    \bigskip
+
+    Here, the value of \texttt{n} is 3.
+
+    \bigskip
+
+    Please see \texttt{question\_15.c} for details.
+
+    \item
+
+
+\begin{lstlisting}[language=c]
+    int sum(int (*f)(int), int start, int end)
+    {
+        int res = 0;
+        for (int i = start; i <= end; i++) {
+            res += (*f)(i);
+        }
+
+        return res;
+    }
+\end{lstlisting}
+
+    \bigskip
+
+    Please see \texttt{question\_16.c} for details.
 
 
 \end{enumerate}
