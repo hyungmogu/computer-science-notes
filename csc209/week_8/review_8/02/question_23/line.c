@@ -9,7 +9,8 @@
 #define MAX_LINE_LEN 60
 
 struct node {
-    char value;
+    char word;
+    struct node *next;
 };
 
 struct node *line;
@@ -19,7 +20,13 @@ int num_words = 0;
 
 void clear_line(void)
 {
-  line[0] = '\0';
+  struct node *p = line, *temp;
+
+  while (p != NULL) {
+      temp = p;
+      p = p->next;
+      free(temp);
+  }
   line_len = 0;
   num_words = 0;
 }
