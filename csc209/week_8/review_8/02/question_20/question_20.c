@@ -43,13 +43,13 @@ int main(void)
     while (getchar() != '\n')   /* skips to end of line */
       ;
     switch (code) {
-      case 'i': insert(inventory, &num_parts, &max_parts);
+      case 'i': insert(inventory, &max_parts);
                 break;
-      case 's': search(inventory, &num_parts);
+      case 's': search(inventory);
                 break;
-      case 'u': update(inventory, &num_parts);
+      case 'u': update(inventory);
                 break;
-      case 'p': print(inventory, &num_parts);
+      case 'p': print(inventory);
                 break;
       case 'q': return 0;
       default:  printf("Illegal code\n");
