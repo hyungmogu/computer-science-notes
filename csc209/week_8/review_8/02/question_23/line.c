@@ -34,14 +34,13 @@ void clear_line(void)
 void add_word(const char *word)
 {
   int word_length = strlen(word);
-  struct node *p = line;
+  struct node *p = line, *n;
 
-  struct node *n;
   n = malloc(sizeof(struct node) + word_length);
   strcpy(n->word, word);
   n->word[word_length] = '\0';
 
-  if (p = NULL) {
+  if (p == NULL) {
       line = n;
   }
 
@@ -51,7 +50,7 @@ void add_word(const char *word)
 
   p->next = n;
 
-  line_len += strlen(n);
+  line_len += strlen(n->word);
 
   if (num_words > 0) {
       line_len += 1 ;
@@ -89,7 +88,7 @@ void flush_line(void)
 
   if (line_len > 0)
     for (p = line; p != NULL; p = p->next) {
-        print("%s", p->word);
+        printf("%s", p->word);
         if (p->next != NULL) {
             putchar(' ');
         }
