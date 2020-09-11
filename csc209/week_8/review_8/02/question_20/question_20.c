@@ -2,6 +2,7 @@
 /* Maintains a parts database (array version) */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "readline.h"
 
 #define NAME_LEN 25
@@ -15,10 +16,10 @@ struct part {
 int num_parts = 0;   /* number of parts currently stored */
 
 int find_part(struct part inventory[], int number);
-void insert(struct part *inventory, int *max_parts);
-void search(void);
-void update(void);
-void print(void);
+void insert(struct part inventory[], int *max_parts);
+void search(struct part inventory[]);
+void update(struct part inventory[]);
+void print(struct part inventory[]);
 
 /**********************************************************
  * main: Prompts the user to enter an operation code,     *
@@ -44,11 +45,11 @@ int main(void)
     switch (code) {
       case 'i': insert(inventory, &max_parts);
                 break;
-      case 's': search();
+      case 's': search(inventory);
                 break;
-      case 'u': update();
+      case 'u': update(inventory);
                 break;
-      case 'p': print();
+      case 'p': print(inventory);
                 break;
       case 'q': return 0;
       default:  printf("Illegal code\n");
@@ -83,15 +84,14 @@ void insert(struct part inventory[], int *max_parts)
 {
   int part_number;
 
-  if (num_parts == max_parts) {
+  if (num_parts == *max_parts) {
     *max_parts = *max_parts * 2;
-    realloc(inventory, max_parts);
-    return;
+    inventory = realloc(inventory, *max_parts);
   }
 
   printf("Enter part number: ");
   scanf("%d", &part_number);
-  if (find_part(part_number) >= 0) {
+  if (find_part(inventory, part_number) >= 0) {
     printf("Part already exists.\n");
     return;
   }
@@ -110,13 +110,13 @@ void insert(struct part inventory[], int *max_parts)
  *         exists, prints the name and quantity on hand;  *
  *         if not, prints an error message.               *
  **********************************************************/
-void search(void)
+void search(struct part inventory[])
 {
   int i, number;
 
   printf("Enter part number: ");
   scanf("%d", &number);
-  i = find_part(number);
+  i = find_part(inventory, number);
   if (i >= 0) {
     printf("Part name: %s\n", inventory[i].name);
     printf("Quantity on hand: %d\n", inventory[i].on_hand);
@@ -131,13 +131,13 @@ void search(void)
  *         change in quantity on hand and updates the     *
  *         database.                                      *
  **********************************************************/
-void update(void)
+void update(struct part inventory[])
 {
   int i, number, change;
 
   printf("Enter part number: ");
   scanf("%d", &number);
-  i = find_part(number);
+  i = find_part(inventory, number);
   if (i >= 0) {
     printf("Enter change in quantity on hand: ");
     scanf("%d", &change);
@@ -153,7 +153,7 @@ void update(void)
  *        order in which they were entered into the       *
  *        database.                                       *
  **********************************************************/
-void print(void)
+void print(struct part inventory[])
 {
   int i;
 
