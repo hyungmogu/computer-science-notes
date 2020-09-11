@@ -37,8 +37,7 @@ void add_word(const char *word)
   struct node *p = line, *n;
 
   n = malloc(sizeof(struct node) + word_length);
-  printf("%s\n", word);
-  strncpy(n->word, word, word_length);
+  strcpy(n->word, word);
 
   if (p == NULL) {
       line = n;
@@ -72,7 +71,7 @@ void write_line(void)
 
   extra_spaces = MAX_LINE_LEN - line_len;
   for (p = line; p != NULL && num_words > 0; p = p->next) {
-    puts(p->word);
+    printf("%s", p->word);
 
     if (num_words > 1) {
         spaces_to_insert = extra_spaces / (num_words - 1);
