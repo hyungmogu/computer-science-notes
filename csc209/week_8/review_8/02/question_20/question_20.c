@@ -31,7 +31,7 @@ void print(struct part inventory[]);
 int main(void)
 {
   char code;
-  int max_parts = 10;
+  int max_parts = 2;
 
   struct part *inventory;
 
@@ -43,13 +43,13 @@ int main(void)
     while (getchar() != '\n')   /* skips to end of line */
       ;
     switch (code) {
-      case 'i': insert(inventory, &max_parts);
+      case 'i': insert(inventory, &num_parts, &max_parts);
                 break;
-      case 's': search(inventory);
+      case 's': search(inventory, &num_parts);
                 break;
-      case 'u': update(inventory);
+      case 'u': update(inventory, &num_parts);
                 break;
-      case 'p': print(inventory);
+      case 'p': print(inventory, &num_parts);
                 break;
       case 'q': return 0;
       default:  printf("Illegal code\n");
@@ -100,7 +100,7 @@ void insert(struct part inventory[], int *max_parts)
   printf("Enter part name: ");
   read_line(inventory[num_parts].name, NAME_LEN);
   printf("Enter quantity on hand: ");
-  scanf("%d", &inventory[num_parts].on_hand);
+  scanf("%d", &(inventory[num_parts].on_hand));
   num_parts++;
 }
 
