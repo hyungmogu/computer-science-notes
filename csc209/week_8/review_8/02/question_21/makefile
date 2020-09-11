@@ -1,8 +1,8 @@
-question_20: question_20.o readline.o
-	gcc -o question_20 question_20.o readline.o
+question_21: question_21.o readline.o
+	gcc -o question_21 question_21.o readline.o
 
-question_20.o: question_20.c readline.h readline.c
-	gcc -c question_20.c
+question_21.o: question_21.c readline.h readline.c
+	gcc -c question_21.c
 
 readline.o: readline.c readline.h
 	gcc -c readline.c readline.h
