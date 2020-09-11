@@ -65,18 +65,17 @@ int space_remaining(void)
 void write_line(void)
 {
   int extra_spaces, spaces_to_insert, i, j;
+  struct node *p;
 
   extra_spaces = MAX_LINE_LEN - line_len;
-  for (i = 0; i < line_len; i++) {
-    if (line[i] != ' ')
-      putchar(line[i]);
-    else {
-      spaces_to_insert = extra_spaces / (num_words - 1);
-      for (j = 1; j <= spaces_to_insert + 1; j++)
-        putchar(' ');
-      extra_spaces -= spaces_to_insert;
-      num_words--;
-    }
+  for (p = line; p != NULL; p = p->next) {
+    puts(p->word);
+
+    spaces_to_insert = extra_spaces / (num_words - 1);
+    for (j = 1; j <= spaces_to_insert + 1; j++)
+    putchar(' ');
+    extra_spaces -= spaces_to_insert;
+    num_words--;
   }
   putchar('\n');
 }
