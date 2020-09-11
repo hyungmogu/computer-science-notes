@@ -49,6 +49,7 @@ int main(void)
       case 'p': print();
                 break;
       case 'e': erase();
+                break;
       case 'q': return 0;
       default:  printf("Illegal code\n");
     }
@@ -181,16 +182,26 @@ void print(void)
 
 void erase(void)
 {
-    int number;
-    struct part *p = inventory;
+    int target;
+    struct part *p = inventory, *temp;
 
     printf("Enter part number: ");
-    scanf(" %c", &number);
+    scanf(" %d", &target);
 
     while(p != NULL)
     {
-        if (p->next != NULL && p->next->number = number) {
+        if (p->number == target) {
+            temp = p;
+            inventory = p->next;
+            free(temp);
+            return;
+        }
 
+        if (p->next != NULL && p->next->number == target) {
+            temp = p;
+            p->next = p->next->next;
+            free(temp);
+            return;
         }
     }
 }
