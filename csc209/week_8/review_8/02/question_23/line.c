@@ -53,7 +53,6 @@ void add_word(const char *word)
           p->next = word;
       }
   }
-  strcat(line, word);
   line_len += strlen(word);
   num_words++;
 }
