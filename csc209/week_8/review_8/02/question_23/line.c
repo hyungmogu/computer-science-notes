@@ -29,6 +29,7 @@ void clear_line(void)
   }
   line_len = 0;
   num_words = 0;
+  line = NULL;
 }
 
 void add_word(const char *word)
@@ -37,18 +38,20 @@ void add_word(const char *word)
   struct node *p = line, *n;
 
   n = malloc(sizeof(struct node) + word_length);
+  n->next = NULL;
+
   strcpy(n->word, word);
 
   if (p == NULL) {
       line = n;
-      return;
-  }
+  } else {
+    while(p->next != NULL) {
+        p = p->next;
+    }
 
-  while(p->next != NULL) {
-      p = p->next;
-  }
+    p->next = n;
 
-  p->next = n;
+  }
 
   line_len += strlen(n->word);
 

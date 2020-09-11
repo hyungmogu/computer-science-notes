@@ -2,6 +2,7 @@
 /* Formats a file of text */
 
 #include <string.h>
+#include <stdio.h>
 #include "line.h"
 #include "word.h"
 
