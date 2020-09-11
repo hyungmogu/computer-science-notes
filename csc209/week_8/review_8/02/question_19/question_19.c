@@ -13,7 +13,7 @@ void print_cmd(void);
 void exit_cmd(void);
 
 struct {
-    char *cd_name;
+    char *cmd_name;
     void (*cmd_pointer)(void);
 } file_cmd[] = {
     {"new", new_cmd},
@@ -25,5 +25,28 @@ struct {
     {"save all", save_all_cmd},
     {"print", print_cmd},
     {"exit", exit_cmd}
-} ;
+};
+
+int main(void)
+{
+    return 0;
+}
+
+
+void run_cmd(const char *cmd)
+{
+    int cmd_cnt = sizeof(file_cmd)/sizeof(file_cmd[0]);
+    char cmd_cpy[21];
+
+    strcpy(cmd_cpy, cmd);
+    if (strlen(cmd) == 21) {
+        cmd_cpy[21] = '\0';
+    }
+
+    for (int i = 0; i < cmd_cnt; i++) {
+        if (strcmp((file_cmd[i]).cmd_name, cmd) == 0) {
+            return (file_cmd[i]).cmd_pointer();
+        }
+    }
+}
 
