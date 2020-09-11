@@ -388,6 +388,14 @@
     qsort(&a[50], 50, sizeof(a[0]), compare_parts);
 \end{lstlisting}
 
+    \item
+
+\begin{lstlisting}[language=c]
+    int compare_parts(const void *p, const void *q)
+    {
+        return ((struct part *) q)->number - ((struct part *) p)->number;
+    }
+\end{lstlisting}
 
 
 
