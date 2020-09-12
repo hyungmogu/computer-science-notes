@@ -7,17 +7,19 @@
 void read_word(char word[]);
 
 int main(void) {
-
+    int max_words = 10;
     char *words, ch, word[MAX_SIZE];
+
+    words = malloc(sizeof(word[MAX_SIZE]) * max_words);
 
     while(true) {
         printf("Enter word:");
         // read word
         read_word(word);
-        printf("%s", word);
 
-        if (word == "") {
-            printf("I am here");
+        // exit word if the registered char is newline
+        if (word[0] == '\0') {
+            break;
         }
 
         // store word
