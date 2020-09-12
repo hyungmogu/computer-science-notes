@@ -1,5 +1,7 @@
 #include "readline.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 
 #define MAX_SIZE 21
@@ -7,10 +9,10 @@
 void read_word(char word[]);
 
 int main(void) {
-    int max_words = 10;
-    char *words, ch, word[MAX_SIZE];
+    int max_words = 10, i = 0;
+    char **words, ch, word[MAX_SIZE];
 
-    words = malloc(sizeof(word[MAX_SIZE]) * max_words);
+    words = malloc(max_words * (sizeof(char *) * MAX_SIZE));
 
     while(true) {
         printf("Enter word:");
@@ -23,6 +25,7 @@ int main(void) {
         }
 
         // store word
+        strcpy(words[i++], word);
     }
 
     return 0;
