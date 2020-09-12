@@ -171,6 +171,14 @@
     #define MK_COLOR(red,green,blue) (long) ((blue << 16) | (blue | (green << 8)) | red)
 \end{lstlisting}
 
+    \item
+
+\begin{lstlisting}[language=c]
+    #define GET_RED(color) (int)(color & 255)
+
+    #define GET_BLUE(color) (int)((color >> 8) & 255)
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
