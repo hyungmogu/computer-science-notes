@@ -259,6 +259,17 @@
 
     \item
 
+\begin{lstlisting}[language=c]
+    union ieee_float {
+        float value;
+        struct {
+            unsigned int fraction: 23;
+            unsigned int exponent: 8;
+            unsigned int sign: 1;
+        } parts;
+    };
+\end{lstlisting}
+
     Please see \texttt{question\_14.c} for details.
 
 \end{enumerate}
