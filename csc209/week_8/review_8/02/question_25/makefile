@@ -1,5 +1,5 @@
-question_24: question_24.o
-	gcc -o question_24 question_24.o
+question_25: question_25.o
+	gcc -o question_25 question_25.o
 
-question_24.o: question_24.c
-	gcc -c question_24.c
+question_25.o: question_25.c
+	gcc -c question_25.c

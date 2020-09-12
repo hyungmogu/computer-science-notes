@@ -1,4 +1,3 @@
-#include "readline.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +6,7 @@
 #define MAX_SIZE 21
 
 void read_word(char word[]);
+int compare_parts(const void *p, const void *q);
 
 int main(void) {
     int max_words = 10, num_words, i, j, k, l;
@@ -33,18 +33,10 @@ int main(void) {
             break;
         } else {
             // sort words
-            for (i = 0; i < num_words; i++) {
-                if (strcmp(word, words[i]) < 0) {
-                    break;
-                }
-            }
-
-            for (j = num_words; j > i; j--) {
-                words[j] = words[j-1];
-            }
+            qsort(words, num_words, sizeof(word[MAX_SIZE]), compare_parts);
 
             // store word
-            words[i] = malloc(strlen(word) + 1);
+            words[i] = malloc(MAX_SIZE);
             if (words[i] == NULL) {
                 printf("No space left");
                 exit(1);
@@ -71,6 +63,10 @@ int main(void) {
     free(words);
 
     return 0;
+}
+
+int compare_parts(const void *p,const void *q) {
+    return strcmp((char *)p, (char *)q);
 }
 
 void read_word(char word[]) {
