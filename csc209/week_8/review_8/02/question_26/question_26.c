@@ -8,6 +8,11 @@
 #define MAX_REMIND 50   /* maximum number of reminders */
 #define MSG_LEN 60      /* max length of reminder message */
 
+struct vstring {
+    int len;
+    char chars[1];
+};
+
 int read_line(char str[], int n);
 
 int main(void)
