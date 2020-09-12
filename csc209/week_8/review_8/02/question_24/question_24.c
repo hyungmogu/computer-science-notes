@@ -9,24 +9,40 @@
 void read_word(char word[]);
 
 int main(void) {
-    int max_words = 10, i = 0;
+    int max_words = 10, num_words, i, j;
     char **words, ch, word[MAX_SIZE];
 
     words = malloc(max_words * (sizeof(char *) * MAX_SIZE));
 
-    while(true) {
+    for(i = 0, num_words = 0; ; num_words = i + 1, i++) {
+        if (num_words == max_words) {
+            words = realloc(words, max_words * 2);
+            max_words *= 2;
+        }
+
         printf("Enter word:");
-        // read word
         read_word(word);
 
         // exit word if the registered char is newline
-        if (word[0] == '\0') {
+        if (word[0] == '\n') {
             break;
+        } else {
+            // store word
+            words[i] = malloc(strlen(word) + 1);
+            strcpy(words[i], word);
         }
-
-        // store word
-        strcpy(words[i++], word);
     }
+
+    // sort words
+    for (j = 0; j < num_words; j++) {
+
+    }
+
+
+    // display words
+
+
+    // free memory
 
     return 0;
 }
