@@ -244,6 +244,17 @@
 
     To fix this problem, add parenthesis to \texttt{key\_code \& (SHIFT\_BIT $\vert$ CTRL\_BIT $\vert$ ALT\_BIT)}.
 
+    \item
+
+    The precedence of + is higher than $<<$. So, \texttt{8 + low\_byte} in
+    \texttt{high\_byte $<<$ 8 + low\_byte} will be evaluated before \texttt{high\_byte $<<$}.
+
+    \bigskip
+
+    To fix this problem, add parenthesis to \texttt{high\_byte $<<$ 8}.
+
+
+
 \end{enumerate}
 
 \end{document}
