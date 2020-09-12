@@ -231,6 +231,19 @@
 
     Please see file \texttt{question\_10.c} for details.
 
+    \item
+
+    The precedence of \&, \^{}, and $\vert$ is lower than the equality operators.
+
+    \bigskip
+
+    So, given \texttt{if (key\_code \& (SHIFT\_BIT $\vert$ CTRL\_BIT $\vert$ ALT\_BIT) == 0)},
+    (SHIFT\_BIT $\vert$ CTRL\_BIT $\vert$ ALT\_BIT) == 0) will be evaluated first, which is incorrect.
+
+    \bigskip
+
+    To fix this problem, add parenthesis to \texttt{key\_code \& (SHIFT\_BIT $\vert$ CTRL\_BIT $\vert$ ALT\_BIT)}.
+
 \end{enumerate}
 
 \end{document}
