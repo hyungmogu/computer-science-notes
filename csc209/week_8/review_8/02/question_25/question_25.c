@@ -19,7 +19,7 @@ int main(void) {
         exit(1);
     }
 
-    for(num_words = 0; ; num_words++) {
+    for(i = 0, num_words = 0; ; i++, num_words++) {
         if (num_words == max_words) {
             words = realloc(words, max_words * 2);
             max_words *= 2;
@@ -32,17 +32,19 @@ int main(void) {
         if (word[0] == '\0') {
             break;
         } else {
-            // sort words
-            qsort(words, num_words, sizeof(word[MAX_SIZE]), compare_parts);
-
             // store word
-            words[i] = malloc(MAX_SIZE);
+            words[i] = malloc(sizeof(char) * MAX_SIZE);
             if (words[i] == NULL) {
                 printf("No space left");
                 exit(1);
             }
             strcpy(words[i], word);
         }
+    }
+
+    // sort words
+    if (num_words > 0) {
+        qsort(words, num_words, sizeof(words[0]), compare_parts);
     }
 
     // display words
@@ -66,7 +68,8 @@ int main(void) {
 }
 
 int compare_parts(const void *p,const void *q) {
-    return strcmp((char *)p, (char *)q);
+
+    return strcmp(*(char **)p, *(char **)q);
 }
 
 void read_word(char word[]) {
