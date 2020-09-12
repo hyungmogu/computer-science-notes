@@ -19,9 +19,14 @@ int main(void)
 {
   char day_str[3], msg_str[MSG_LEN+1];
   int day, i, j, num_remind = 0;
-  struct vstring *reminders;
+  struct vstring **reminders;
 
-  reminders = malloc((sizeof(struct vstring) + MSG_LEN + 1)* MAX_REMIND);
+  reminders = malloc(sizeof(struct vstring) * MAX_REMIND);
+
+  if (reminders == NULL) {
+      printf("-- No space left --\n");
+      exit(1);
+  }
 
   for (;;) {
     if (num_remind == MAX_REMIND) {
@@ -39,7 +44,7 @@ int main(void)
 
 
     for (i = 0; i < num_remind; i++) {
-      if (strcmp(day_str, (reminders[i]).chars) < 0) {
+      if (strcmp(day_str, (*reminders[i]).chars) < 0) {
         break;
       }
     }
@@ -47,17 +52,23 @@ int main(void)
       reminders[j] = reminders[j-1];
     }
 
-    strcpy(reminders[i].chars, day_str);
-    (reminders[i]).len = strlen(day_str);
-    strcat((reminders[i]).chars, msg_str);
-    (reminders[i]).len += strlen(msg_str);
+    reminders[i] = malloc(sizeof(struct vstring) + MSG_LEN + 1);
+    if (reminders[i] == NULL) {
+      printf("-- No space left --\n");
+      break;
+    }
+
+    strcpy((*reminders[i]).chars, day_str);
+    (*reminders[i]).len = strlen(day_str);
+    strcat((*reminders[i]).chars, msg_str);
+    (*reminders[i]).len += strlen(msg_str);
 
     num_remind++;
   }
 
   printf("\nDay Reminder\n");
   for (i = 0; i < num_remind; i++)
-    printf(" %s\n", (reminders[i]).chars);
+    printf(" %s\n", (*reminders[i]).chars);
 
   return 0;
 }
