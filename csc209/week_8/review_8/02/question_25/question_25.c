@@ -9,7 +9,7 @@ void read_word(char word[]);
 int compare_parts(const void *p, const void *q);
 
 int main(void) {
-    int max_words = 10, num_words, i, j, k, l;
+    int max_words = 10, num_words, i, k, l;
     char **words, ch, word[MAX_SIZE];
 
     words = malloc(max_words * (sizeof(char *) * MAX_SIZE));
