@@ -176,7 +176,9 @@
 \begin{lstlisting}[language=c]
     #define GET_RED(color) (int)(color & 255)
 
-    #define GET_BLUE(color) (int)((color >> 8) & 255)
+    #define GET_GREEN(color) (int)((color >> 8) & 255)
+
+    #define GET_BLUE(color) (int)((color >> 16) & 255)
 \end{lstlisting}
 
 \end{enumerate}
