@@ -165,6 +165,12 @@
 
     Thus, we can see the value of $x$ and $y$ are switched.
 
+    \item
+
+\begin{lstlisting}[language=c]
+    #define MK_COLOR(red,green,blue) (long) ((blue << 16) | (blue | (green << 8)) | red)
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
