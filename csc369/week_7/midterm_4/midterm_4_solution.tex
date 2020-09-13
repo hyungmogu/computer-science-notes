@@ -1167,8 +1167,22 @@
                 \item Inode
                 \begin{itemize}
                     \item Stores metadata of file
-                    \item Inodes are scattered throughout the disk
-                    \item Latest version of inode keeps moving
+                    \item Is found through a data structure called \textbf{inode map}
+                    \item Are scattered throughout the disk \& keeps moving after update
+                \end{itemize}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_33.png}
+                \end{center}
+
+                \item Inode Map
+
+                \begin{itemize}
+                    \item Is a data structure
+                    \item Takes inode number as input
+                    \item Produces the disk address of the most recent version of the inode
                 \end{itemize}
             \end{itemize}
         \end{itemize}
