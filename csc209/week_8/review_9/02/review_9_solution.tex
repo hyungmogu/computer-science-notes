@@ -300,6 +300,21 @@
         To avoid this problem, use \texttt{unsinged int} instead.
     \end{enumerate}
 
+    \item
+
+\begin{lstlisting}[language=c]
+    typedef unsigned long DWORD;
+
+    union {
+        struct {
+            DWORD eax, ebx, ecx, edx;
+        } dword;
+        struct {
+            WORD ax, bx, cx, dx;
+        }
+    };
+\end{lstlisting}
+
 \end{enumerate}
 
 \end{document}
