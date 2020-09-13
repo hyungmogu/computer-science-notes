@@ -1038,18 +1038,29 @@
             \item \textbf{Log Structured File System}
 
             \begin{itemize}
-                \item Is file system designed to address exponentially improving
-                CPU speed and slowly improving HDD speed. $^{[1]}$
+                \item Buffers all updates (including metadata) in an in-memory \textbf{segment},
+                and when segment is full, it is written to disk in one long, sequential
+                transfer to unused part of the disk
                 \item Instead of overwriting files, always writes unused
                 portion of the disk, and reclaim the old space through cleaning
 
+                \item Motivations
+                \begin{enumerate}[1.]
+                    \item \textbf{System memories are growing}
+                    \item \textbf{There is a large gap between random I/O performance and
+                    sequential I/O performance}
+                    \item \textbf{Existing file systems perform poorly on many common workloads}
+                    \item \textbf{File systems are not raid aware}
+                \end{enumerate}
+
+                \item Advatages
+
+                \begin{enumerate}[1.]
+                    \item Very high performance of file system
+                \end{enumerate}
             \end{itemize}
 
             \item \textbf{Fast File System}
-
-            \begin{itemize}
-                \item
-            \end{itemize}
         \end{itemize}
 
         \bigskip
