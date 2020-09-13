@@ -1274,10 +1274,20 @@
                     \item \textbf{Inode State}
                     \begin{itemize}
                         \item Corruption in file is checked (e.g. does it have valid file type such as directory file, or links)
-                        \item If Inode cannot be fixed easily, it is removed, and its bitmap is updated
+                        \item If Inode cannot be fixed easily, it is removed, and bitmap is updated
                     \end{itemize}
                     \item \textbf{Inode links}
+                    \begin{itemize}
+                        \item Number of references in each inode is checked
+                        \item Check is done by reading the entire directory tree and building its own link count
+                        \item Count is fixed if there is mismatch
+                        \item Inode is moded to \texttt{lost+found} directory if no directory refers to it
+                    \end{itemize}
                     \item \textbf{Duplicates}
+                    \begin{itemize}
+                        \item Duplicate pointers (i.e. two different inodes pointing to same block) is checked
+                        \item Solved by either removing one inode, or creating a copy for each
+                    \end{itemize}
                     \item \textbf{Bad Blocks}
                     \item \textbf{Directory Checks}
                 \end{itemize}
