@@ -1272,6 +1272,10 @@
 
                 \begin{itemize}
                     \item \textbf{Inode State}
+                    \begin{itemize}
+                        \item Corruption in file is checked (e.g. does it have valid file type such as directory file, or links)
+                        \item If Inode cannot be fixed easily, it is removed, and its bitmap is updated
+                    \end{itemize}
                     \item \textbf{Inode links}
                     \item \textbf{Duplicates}
                     \item \textbf{Bad Blocks}
@@ -1281,7 +1285,7 @@
                 \item Disadvantage
                 \begin{itemize}
                     \item Way too slow. May take Hours.
-                    \item Doesn't solve all problems
+                    \item Doesn't solve all problems (e.g. inode with incorrect data blocks)
                 \end{itemize}
             \end{itemize}
         \end{itemize}
