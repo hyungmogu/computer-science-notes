@@ -1246,24 +1246,43 @@
 
     \begin{enumerate}[a)]
         \item
-    \end{enumerate}
 
-    \bigskip
+        \bigskip
 
-    \underline{\textbf{Notes}}
-
-    \begin{itemize}
-        \item \textbf{Crash Consistency Problem}
+        \underline{\textbf{Notes}}
 
         \begin{itemize}
-            \item Desired: \textbf{atomic} updates. That is, on crash,
-            the writing file is either in (state 1 - before the file got updated)
-            or (state 2 - after the file got updated)
-            \item Reality: This is not possible
+            \item \textbf{Crash Consistency Problem}
+
+            \begin{itemize}
+                \item Desired: \textbf{atomic} updates. That is, on crash,
+                the file on write is either in (state 1 - before the file got updated)
+                or (state 2 - after the file got updated)
+                \item Reality: This is not possible
+                \item Is the reason why computers have 'Don't turn off computer' message
+            \end{itemize}
+
+            \item \textbf{File System Checker}
+
+            \begin{itemize}
+                \item Is implemented in early file system
+                \item Is used by UNIX tool \textbf{fsck} ('file system checker')
+                \item Basic Idea: Let inconsistencies happen and fix them later (when rebooting)
+                \item Summary of how it works
+
+                \begin{itemize}
+                    \item
+                \end{itemize}
+
+                \item Disadvantage
+                \begin{itemize}
+                    \item Way too slow
+                    \item Doesn't solve all problems
+                \end{itemize}
+            \end{itemize}
         \end{itemize}
 
-        \item \textbf{File System Checker}
-    \end{itemize}
+    \end{enumerate}
 
 \end{enumerate}
 
