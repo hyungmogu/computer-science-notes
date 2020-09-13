@@ -1068,16 +1068,19 @@
                     \item \textbf{File systems are not raid aware}
                 \end{enumerate}
 
-                \item Writing to Disk
+                \item How it works (Writing to Disk)
 
-                \begin{itemize}
-                    \item Basic idea: Write all updates (e.g. data blocks inodes) to the
-                    disk sequentially
-                    \item Uses a technique known as \textbf{write buffering}
-                    \begin{itemize}
-                        \item Issues a large number of contiguous writes to achieve peak performance
-                    \end{itemize}
-                \end{itemize}
+                \bigskip
+
+                Basic idea: Write all updates (e.g. data blocks inodes) to the
+                disk sequentially (\textbf{write buffering})
+
+                \bigskip
+
+                \begin{enumerate}[1.]
+                    \item Buffer updates in an in-memory \textbf{segment}
+                    \item Write the \textbf{segment} all at once sequentially when received sufficient number of updates
+                \end{enumerate}
 
                 \item Advatages
 
