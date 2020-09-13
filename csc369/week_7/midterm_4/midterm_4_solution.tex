@@ -1168,6 +1168,12 @@
                 \item Inode
                 \begin{itemize}
                     \item Stores metadata of file
+                    \item Is the same as UNIX file system inode
+                    \begin{itemize}
+                        \item Has indirect pointers
+                        \item Has direct pointers
+                        \item Has double indirect pointers
+                    \end{itemize}
                     \item Is found through a data structure called \textbf{inode map}
                     \item Are scattered throughout the disk \& keeps moving after update
                 \end{itemize}
@@ -1194,14 +1200,21 @@
                 \item Checkpoint Region
 
                 \begin{itemize}
-                    \item Locates imap
-                    \item Contains
                     \item Is fixed
+                    \item Locates imap
+                    \item Contains pointers to (i.e. address of) the latest pieces of inode map
                     \item Is updated periodically (e.g every 30 seconds)
                     \begin{itemize}
                         \item Done to ill-affect performance
                     \end{itemize}
                 \end{itemize}
+
+                \item How it works (Reading the Disk)
+
+                \begin{enumerate}[1.]
+                    \item Read the checkpoint region
+                    \item Read the entire inode map and cache it in memory
+                \end{enumerate}
             \end{itemize}
         \end{itemize}
 
