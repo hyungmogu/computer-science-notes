@@ -1030,6 +1030,30 @@
 
         \item
 
+        The primary motiviations behind log-structured file system are as follows
+
+        \begin{enumerate}[1.]
+            \item Decrease a large number of intermediary processes during a write in FFS (e.g creation of data block, inode)
+            \item Utilize the ever increasing capacity of memory, and write a large block of information at once (to boost performance)
+            \item To compensate for the slow development of cheap and fast motor for ever increasing capacity and the need for higher data transfer rate
+        \end{enumerate}
+
+        \bigskip
+
+        The update process for log-structured file system works by storing write information
+        to in-memory space called \textbf{segment}, and write all once once its at capacity.
+
+        \bigskip
+
+        On the other hand, the writing process of FFS works by traveling to target directory,
+        create a inode bitmap, create file inode, update the currect directory inode, create
+        a data block in directory inode that points to the file inode, allocate data inode,
+        and write data block for file, and update the current file meta data.
+
+        \bigskip
+
+        And this data block writing process continues until all are filled.
+
         \bigskip
 
         \underline{\textbf{Notes}}
@@ -1100,9 +1124,12 @@
             \begin{itemize}
                 \item Advantages
                 \begin{itemize}
-                    \item
+                    \item No external fragmentation
                 \end{itemize}
                 \item Disadvantages
+                \begin{itemize}
+                    \item Creates and updates many intermediary files (inode, data block) during a write
+                \end{itemize}
             \end{itemize}
         \end{itemize}
 
