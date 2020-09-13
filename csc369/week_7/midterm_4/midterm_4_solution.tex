@@ -1038,7 +1038,7 @@
             \item \textbf{Log Structured File System}
 
             \begin{itemize}
-                \item Wait. This sounds very similar to extent-based file system
+                \item Wait. This sounds very similar to \textbf{extent-based file system}
                 \item Buffers all updates (including metadata) in an in-memory \textbf{segment},
                 and when segment is full, it is written to disk in one long, sequential
                 transfer to unused part of the disk
@@ -1061,13 +1061,17 @@
                         \item Harder to create cheap, small motors that spin platters faster, and move arm more quickly
                     \end{itemize}
                     \item \textbf{Existing file systems perform poorly on many common workloads}
+                    \begin{itemize}
+                        \item Many intermediary writes performed per data block (e.g. Bitmap, inode, data block)
+                        \item Many short seeks + rotation delays = performance less than the peak
+                    \end{itemize}
                     \item \textbf{File systems are not raid aware}
                 \end{enumerate}
 
                 \item Advatages
 
                 \begin{enumerate}[1.]
-                    \item Very high performance of file system
+                    \item Has very high performance
                 \end{enumerate}
             \end{itemize}
 
