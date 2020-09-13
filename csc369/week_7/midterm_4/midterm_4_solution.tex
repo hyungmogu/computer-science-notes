@@ -1073,6 +1073,10 @@
                 \begin{itemize}
                     \item Basic idea: Write all updates (e.g. data blocks inodes) to the
                     disk sequentially
+                    \item Uses a technique known as \textbf{write buffering}
+                    \begin{itemize}
+                        \item Issues a large number of contiguous writes to achieve peak performance
+                    \end{itemize}
                 \end{itemize}
 
                 \item Advatages
