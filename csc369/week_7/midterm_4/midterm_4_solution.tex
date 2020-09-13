@@ -1047,6 +1047,12 @@
                 \item Motivations
                 \begin{enumerate}[1.]
                     \item \textbf{System memories are growing}
+                    \begin{itemize}
+                        \item Data is cached in memory
+                        \item Reads are serviced by cache
+                        \item Disk traffic is increasingly consists of writes
+                        \item File performance = write performance
+                    \end{itemize}
                     \item \textbf{There is a large gap between random I/O performance and
                     sequential I/O performance}
                     \item \textbf{Existing file systems perform poorly on many common workloads}
