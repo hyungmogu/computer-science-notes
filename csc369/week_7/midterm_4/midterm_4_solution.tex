@@ -1150,6 +1150,27 @@
 
         \bigskip
 
+        The challenge of locating data and metadata on LFS is that both data block and inodes are
+        not at the fixed position.
+
+        \bigskip
+
+        To compensate for this, LFS has imap that contains the pointers to (i.e. address of)
+        the inode with the latest information, but imap is also placed along side inode
+        and data block.
+
+        \bigskip
+
+        To compensate for this, LFS has checkpoint region at fixed location that contains the pointers to (i.e. address of)
+        the imap with the latest information.
+
+        \bigskip
+
+        So when LFS loads, it first reads the checkpoint regions, upload all imap to in-memory, and when file system gives target inode number, it
+        finds inode and its data blocks from there much like UNIX file system.
+
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -1214,6 +1235,8 @@
                 \begin{enumerate}[1.]
                     \item Read the checkpoint region
                     \item Read the entire inode map and cache it in memory
+                    \item Locate inode given inode number of file
+                    \item Proceed the same as typical UNIX file system
                 \end{enumerate}
             \end{itemize}
         \end{itemize}
