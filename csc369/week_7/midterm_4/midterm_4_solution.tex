@@ -1115,6 +1115,7 @@
                 \item Disadvantages
 
                 \begin{enumerate}[1.]
+                    \item Is complex
                     \item Generates lots of garbages
                     \item Scattered old data. Needs to run \textbf{compaction} periodically $^{[2]}$
                 \end{enumerate}
@@ -1181,8 +1182,25 @@
 
                 \begin{itemize}
                     \item Is a data structure
+                    \item Is also moving
+                    \begin{itemize}
+                        \item new data block, inode and imap are placed contiguously
+                    \end{itemize}
+                    \item Locates inode
                     \item Takes inode number as input
                     \item Produces the disk address of the most recent version of the inode
+                \end{itemize}
+
+                \item Checkpoint Region
+
+                \begin{itemize}
+                    \item Locates imap
+                    \item Contains
+                    \item Is fixed
+                    \item Is updated periodically (e.g every 30 seconds)
+                    \begin{itemize}
+                        \item Done to ill-affect performance
+                    \end{itemize}
                 \end{itemize}
             \end{itemize}
         \end{itemize}
