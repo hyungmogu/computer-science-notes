@@ -1038,6 +1038,7 @@
             \item \textbf{Log Structured File System}
 
             \begin{itemize}
+                \item Wait. This sounds very similar to extent-based file system
                 \item Buffers all updates (including metadata) in an in-memory \textbf{segment},
                 and when segment is full, it is written to disk in one long, sequential
                 transfer to unused part of the disk
@@ -1051,10 +1052,14 @@
                         \item Data is cached in memory
                         \item Reads are serviced by cache
                         \item Disk traffic is increasingly consists of writes
-                        \item File performance = write performance
+                        \item File performance $\approx$ write performance
                     \end{itemize}
                     \item \textbf{There is a large gap between random I/O performance and
                     sequential I/O performance}
+                    \begin{itemize}
+                        \item More bits stored on hard drive $\Rightarrow$ bandwith of acessing bits $\uparrow$
+                        \item Harder to create cheap, small motors that spin platters faster, and move arm more quickly
+                    \end{itemize}
                     \item \textbf{Existing file systems perform poorly on many common workloads}
                     \item \textbf{File systems are not raid aware}
                 \end{enumerate}
