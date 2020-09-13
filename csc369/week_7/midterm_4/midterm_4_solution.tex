@@ -1154,8 +1154,19 @@
         \begin{itemize}
             \item \textbf{Log Structured File System (cont')}
             \begin{itemize}
-                \item Finding inodes
+                \item Data Block
                 \begin{itemize}
+                    \item Is found by looking for \textbf{inode} that point to it
+                \end{itemize}
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_32.png}
+                \end{center}
+                \item Inode
+                \begin{itemize}
+                    \item Stores metadata of file
                     \item Inodes are scattered throughout the disk
                     \item Latest version of inode keeps moving
                 \end{itemize}
