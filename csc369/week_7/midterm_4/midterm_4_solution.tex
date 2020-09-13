@@ -1122,13 +1122,14 @@
 
             \item \textbf{Fast File System}
             \begin{itemize}
+                \item Divides inode tables into chunks and stores in different cylinder groups
                 \item Advantages
                 \begin{itemize}
                     \item No external fragmentation
                 \end{itemize}
                 \item Disadvantages
                 \begin{itemize}
-                    \item Creates and updates many intermediary files (inode, data block) during a write
+                    \item Extra overhead: creates and updates many intermediary files (inode, data block) during a write
                 \end{itemize}
             \end{itemize}
         \end{itemize}
@@ -1143,6 +1144,25 @@
             \item Ousterhout J. (1991). \textit{The Design and Implementation of a Log-Structured File System}. \href{https://people.eecs.berkeley.edu/~brewer/cs262/LFS.pdf}{link}
             \item Cornell University, Log-Structured File Systems, \href{http://www.cs.cornell.edu/courses/cs4410/2015su/lectures/lec20-lfs.html#:~:text=The%20downside%20of%20storing%20the,or%20inode)%20in%20the%20segment.}{link}
         \end{enumerate}
+
+        \item
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item \textbf{Log Structured File System (cont')}
+            \begin{itemize}
+                \item Finding inodes
+                \begin{itemize}
+                    \item Inodes are scattered throughout the disk
+                    \item Latest version of inode keeps moving
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+
+
     \end{enumerate}
 
 \end{enumerate}
