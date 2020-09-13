@@ -304,15 +304,20 @@
 
 \begin{lstlisting}[language=c]
     typedef unsigned long DWORD;
+    typedef unsigned short WORD;
+    typedef unsigned char BYTE;
 
     union {
         struct {
             DWORD eax, ebx, ecx, edx;
         } dword;
         struct {
-            WORD ax, bx, cx, dx;
-        }
-    };
+            WORD axl, axh, bxl, bxh, cxl, cxh, dxl, dxh;
+        } word;
+        struct {
+            BYTE al, ah, ale, ahe, bl, bh, ble, bhe, cl, ch, cle, che, dl, dh, dle, dhe;
+        } byte;
+    } regs;
 \end{lstlisting}
 
 \end{enumerate}
