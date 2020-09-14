@@ -1410,6 +1410,11 @@
                 \begin{enumerate}[1.]
                     \item \textbf{Journal Write}: Write the contents of the transaction (including TxB, metadata and data)
                     to log
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_36.png}
+                    \end{center}
+
                     \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to log; wait wait for write to complete
                     \item \textbf{Checkpoint:} Write the contents of the update (metadata and data) to their final on-disk location
                     \item \textbf{Free:} Some time later, mark the transaction free in the journal by updating the
