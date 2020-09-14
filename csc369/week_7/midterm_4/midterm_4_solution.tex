@@ -1394,12 +1394,14 @@
         \bigskip
 
         From the two, we can see that unlike data journaling that writes bitmap, inode and data block
-        all to journal before writing to the file system, metadata journaling writes data block to file system
+        to journal before writing to the file system, metadata journaling writes data block to file system
         first before bitmap and inode are written to journal of which later written to the file system.
 
         \bigskip
 
-        Based on this fact, we can conclude metadata journaling doesn't provide full consistency.
+        It is this step, where data block isn't loaded to filesystem along with bitmap and inode,
+        that metadata journaling doesn't provide full consistency.
+
         \bigskip
 
         \underline{\textbf{Notes}}
@@ -1466,7 +1468,7 @@
 
             \begin{itemize}
                 \item [\color{red}Important\color{black}] Is written to journal before putting onto file system!!!
-                \item Steps [Images need correction]
+                \item Steps
 
                 \begin{center}
                 \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_41.png}
