@@ -1459,7 +1459,12 @@
 
             \item \textbf{Metadata Journaling}
             \begin{itemize}
-                \item
+                \item Writes directly to file system without writing to log
+                \item Advantage
+                \begin{itemize}
+                    \item Solves double write problem in \textbf{data journaling}
+                \end{itemize}
+                \item Disadvantage
             \end{itemize}
         \end{itemize}
 
