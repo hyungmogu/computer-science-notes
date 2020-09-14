@@ -1028,4 +1028,248 @@ Linux's ext4 file system
     \end{center}
 \end{itemize}
 
+\section{Crash Consistency Problem: File System Checker}
+
+\begin{itemize}
+    \item Desired: \textbf{atomic} updates. That is, on crash,
+    the file on write is either in (state 1 - before the file got updated)
+    or (state 2 - after the file got updated)
+    \item Reality: This is not possible
+    \item Is the reason why computers have 'Don't turn off computer' message
+\end{itemize}
+
+\subsection{File System Checker}
+
+\begin{itemize}
+    \item Is implemented in early file system
+    \begin{itemize}
+        \item Basic Idea: Let inconsistencies happen and fix them later (when rebooting)
+    \end{itemize}
+    \item Is used by UNIX tool \textbf{fsck} ('file system checker')
+    \item Summary of how it works
+
+    \begin{itemize}
+        \item \textbf{Inode State}
+        \begin{itemize}
+            \item Corruption in file is checked (e.g. does it have valid file type such as directory file, or links)
+            \item Solved by removing it, and updating the bitmap if inode cannot be fixed easily
+        \end{itemize}
+        \item \textbf{Inode links}
+        \begin{itemize}
+            \item Number of references in each inode is checked
+            \item Check is done by reading the entire directory tree and building its own link count
+            \item Solved by fixing the count if there is mismatch, or by moving to \texttt{lost+found}
+            directory if there is no directory refers to it
+        \end{itemize}
+        \item \textbf{Duplicates}
+        \begin{itemize}
+            \item Duplicate pointers (i.e. two different inodes pointing to same block) is checked
+            \item Solved by either removing one of two inodes, or creating a copy for each
+        \end{itemize}
+        \item \textbf{Bad Blocks}
+
+        \begin{itemize}
+            \item A pointer that points to something outside is partition is checked
+            \item Solved by removing the block
+        \end{itemize}
+
+        \item \textbf{Directory Checks}
+
+        \begin{itemize}
+            \item Making sure that \texttt{.} and \texttt{..} are first entry is checked
+            \item Allocation of inodes referred to in a directory entry is checked
+            \item Making sure that no directory is linked more than once is checked
+        \end{itemize}
+    \end{itemize}
+
+    \item Disadvantage
+    \begin{itemize}
+        \item Way too slow. May take Hours.
+        \item Wasteful (Make mistake once, and check everything)
+        \item Doesn't solve all problems (e.g. inode with incorrect data blocks)
+    \end{itemize}
+\end{itemize}
+
+\section{Journaling}
+\begin{itemize}
+    \item Is a popular solution to \textbf{crash-consistency problem}
+    \item Many file systems use this idea (e.g. ext3, ext4, windows NTFS)
+    \item Basic idea
+
+    \begin{itemize}
+        \item before overwriting the structures in place, write down
+        (in a well-known location) a little note of what you are about to do
+        \item If crash occurs, read note and try again
+    \end{itemize}
+
+    \bigskip
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_34.png}
+    \end{center}
+
+    \item Advantage
+
+    \begin{itemize}
+        \item Greatly reduces amount of work required during recovery
+    \end{itemize}
+\end{itemize}
+
+\subsection{Transaction Beginning (TxB)}
+\begin{itemize}
+    \item Where does computer read update instruction (journal ? journal superblock ?)?
+    \item In data Journaling, where is comitted data generated and stored prior to putting it in file system?
+    \item Includes information about current update
+    \item Contains \textbf{Transaction Identifier} or TID
+\end{itemize}
+
+\subsection{Transaction End (TxE)}
+\begin{itemize}
+    \item Is marker of the end of transaction
+    \item Also contains \textbf{Transaction Identifier} or TID
+\end{itemize}
+
+\subsection{Checkpointing}
+\begin{itemize}
+    \item Act of overwriting of old structure in the file system between
+    \textbf{transaction beginning} and \textbf{transaction end}
+\end{itemize}
+
+\subsection{Journaling Superblock}
+
+\begin{itemize}
+    \item Records information on which transactions have not yet been checkpointed
+    \item Oldest and newest non-checkpointed transactions exist here
+    \item Is different from file system superblock
+\end{itemize}
+
+\subsection{Data Journaling}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_35.png}
+\end{center}
+
+\begin{itemize}
+    \item [\color{red}Important\color{black}] Is written to journal before putting onto file system!!!
+    \item Steps
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_41.png}
+    \end{center}
+
+    \begin{enumerate}[1.]
+        \item \textbf{Journal Write}: Write the contents of the transaction (including TxB, metadata and data)
+        to log
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_36.png}
+        \end{center}
+
+        \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to log; wait wait for write to complete
+        \begin{itemize}
+            \item After this, transaction is \textbf{committed}
+        \end{itemize}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_37.png}
+        \end{center}
+
+        \item \textbf{Checkpoint:} Write the contents of the update (metadata and data) to their final on-disk location
+
+        \begin{center}
+        \includegraphics[width=0.9\linewidth]{../images/midterm_4_solution_38.png}
+        \end{center}
+
+        \item \textbf{Free:} Mark the transaction free in the journal by updating the
+        journal superblock
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_39.png}
+        \end{center}
+
+        \item Repeat until done
+    \end{enumerate}
+
+    \item Disadvantage
+
+    \begin{itemize}
+        \item Each data block is written twice
+    \end{itemize}
+
+    \item Recovery Steps
+
+    \begin{itemize}
+        \item Crash at step 1 $\to$ skip pending update
+        \item Crash during step 2 and 3 $\to$ replay the update
+
+        \begin{itemize}
+            \item Happens during boot
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Metadata Journaling}
+
+\begin{itemize}
+    \item Goal: Reduce number of writes
+    \item Data block is written to file system first
+    \item Metadata (inode and bitmap information) are written to journal before checkpoint
+    \item Is order dependent
+    \begin{itemize}
+        \item e.g. I[v2] and B[v2] make to disk and data block does not
+        \item If data block is a garbage data, file-system will assume all is okay
+        \item Writing data block first guarentees that a pointer will never point to garbage
+    \end{itemize}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_40.png}
+    \end{center}
+
+    \item Steps
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_42.png}
+    \end{center}
+
+    \begin{enumerate}[1.]
+        \item \textbf{Data Write:} Write data to final location; wait for completion
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_43.png}
+        \end{center}
+
+        \item \textbf{Journal Metadata Write:} Write the begin block and metadata to the \underline{log};
+        wait for writes to complete
+
+        \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to
+        the log; wait for the write to complete
+
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_44.png}
+        \end{center}
+
+        \item \textbf{Checkpoint Metadata:} Write the contents of the metadata update
+        to their final locations within the file system
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_45.png}
+        \end{center}
+        \item \textbf{Free:} Mark the transaction free in journal superblock
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_46.png}
+        \end{center}
+    \end{enumerate}
+    \item Block Reuse
+
+    \begin{itemize}
+        \item Never reuse blocks until checkpointed out of the journal
+    \end{itemize}
+    \item Advantage
+    \begin{itemize}
+        \item Solves double write problem in \textbf{data journaling}
+    \end{itemize}
+\end{itemize}
+
 \end{document}
