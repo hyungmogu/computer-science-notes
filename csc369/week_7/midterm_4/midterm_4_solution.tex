@@ -1463,6 +1463,8 @@
             \item \textbf{Metadata Journaling}
 
             \begin{itemize}
+                \item [\color{blue}Question\color{black}] The only difference in metadata journaling seems to be
+                that the data block is written first. How does it eliminate double write in data journaling?
                 \item Writes directly to file system without writing to log
                 \item Is order dependent
                 \begin{itemize}
@@ -1473,6 +1475,19 @@
                 \begin{center}
                 \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_40.png}
                 \end{center}
+
+                \item Steps
+
+                \begin{enumerate}[1.]
+                    \item \textbf{Data Write:} Write data to final location; wait for completion
+                    \item \textbf{Journal Metadata Write:} Write the begin block and metadata to the \underline{log};
+                    wait for writes to complete
+                    \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to
+                    the log; wait for the write to complete
+                    \item \textbf{Checkpoint Metadata:} Write the contents of the metadata update
+                    to their final locations within the file system
+                    \item \textbf{Free:} Mark the transaction free in journal superblock
+                \end{enumerate}
 
                 \item Advantage
                 \begin{itemize}
