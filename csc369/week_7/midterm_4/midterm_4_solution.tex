@@ -1300,15 +1300,16 @@
                     \item \textbf{Directory Checks}
 
                     \begin{itemize}
-                        \item Location \texttt{.} and \texttt{..} in each directory checked
-                        \item
+                        \item Making sure that \texttt{.} and \texttt{..} are first entry is checked
+                        \item Allocation of inodes referred to in a directory entry is checked
+                        \item Making sure that no directory is linked more than once is checked
                     \end{itemize}
                 \end{itemize}
 
                 \item Disadvantage
                 \begin{itemize}
                     \item Way too slow. May take Hours.
-                    \item Wasteful
+                    \item Wasteful (Make mistake once, and check everything)
                     \item Doesn't solve all problems (e.g. inode with incorrect data blocks)
                 \end{itemize}
             \end{itemize}
