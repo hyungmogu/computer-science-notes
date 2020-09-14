@@ -1362,7 +1362,23 @@
 
         \bigskip
 
-        The only difference is that
+        The full data journaling is performed in following steps
+
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item \textbf{Journal Write:} Write contents of the transaction (containing TxB and
+            contents of the update) to the log; wait for the writes to complete
+            \item \textbf{Journal Commit} Write transaction commit block (containing TxE) to the log;
+            wait for the write to complete
+            \item \textbf{Checkpoint:} Write contents of the update to their final location in the
+            file system
+            \item Mark the transaction free in the journal by updating \textbf{journal superblock}
+        \end{enumerate}
+
+        \bigskip
+
+        The metadata journaling is performed in followings steps:
 
         \underline{\textbf{Notes}}
 
@@ -1487,7 +1503,9 @@
             \begin{itemize}
                 \item [\color{blue}Question\color{black}] The only difference in metadata journaling seems to be
                 that the data block is written first. How does it eliminate double write in data journaling?
-                \item Writes directly to file system without writing to log
+                \item Goal: Reduce number of writes
+                \item Data block is written to file system first
+                \item Metadata (inode and bitmap information) are written to journal before checkpoint
                 \item Is order dependent
                 \begin{itemize}
                     \item e.g. I[v2] and B[v2] make to disk and data block does not
