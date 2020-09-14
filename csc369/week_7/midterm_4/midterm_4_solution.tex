@@ -1353,14 +1353,31 @@
             \begin{itemize}
                 \item Is a popular solution to \textbf{crash-consistency problem}
                 \item Many file systems use this idea (e.g. ext3, ext4, windows NTFS)
-                \item Basic idea: before overwriting the structures in place, first write
-                down (in a well-known location) a little note of what you are about to do
+                \item Basic idea
+
+                \begin{itemize}
+                    \item before overwriting the structures in place, write down
+                    (in a well-known location) a little note of what you are about to do
+                    \item If crash occurs, read note and try again
+                \end{itemize}
 
                 \bigskip
 
                 \begin{center}
                 \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_34.png}
                 \end{center}
+
+                \item Advantage
+
+                \begin{itemize}
+                    \item Greatly reduces amount of work required during recovery
+                \end{itemize}
+            \end{itemize}
+
+            \item \textbf{Data Journaling}
+
+            \begin{itemize}
+                \item
             \end{itemize}
         \end{itemize}
 
