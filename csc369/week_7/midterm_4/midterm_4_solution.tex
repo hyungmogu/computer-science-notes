@@ -1351,7 +1351,16 @@
         \begin{itemize}
             \item \textbf{Journaling}
             \begin{itemize}
-                \item
+                \item Is a popular solution to \textbf{crash-consistency problem}
+                \item Many file systems use this idea (e.g. ext3, ext4, windows NTFS)
+                \item Basic idea: before overwriting the structures in place, first write
+                down (in a well-known location) a little note of what you are about to do
+
+                \bigskip
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_34.png}
+                \end{center}
             \end{itemize}
         \end{itemize}
 
