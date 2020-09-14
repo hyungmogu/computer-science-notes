@@ -1409,7 +1409,8 @@
             \end{center}
 
             \begin{itemize}
-                \item Steps
+                \item [\color{red}Important\color{black}] Is written to journal before putting onto file system!!!
+                \item Steps [Images need correction]
 
                 \begin{enumerate}[1.]
                     \item \textbf{Journal Write}: Write the contents of the transaction (including TxB, metadata and data)
@@ -1460,9 +1461,19 @@
             \end{itemize}
 
             \item \textbf{Metadata Journaling}
+
             \begin{itemize}
                 \item Writes directly to file system without writing to log
                 \item Is order dependent
+                \begin{itemize}
+                    \item e.g. I[v2] and B[v2] make to disk and data block does not
+                    \item If data block is a garbage data, file-system will assume all is okay
+                \end{itemize}
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_40.png}
+                \end{center}
+
                 \item Advantage
                 \begin{itemize}
                     \item Solves double write problem in \textbf{data journaling}
