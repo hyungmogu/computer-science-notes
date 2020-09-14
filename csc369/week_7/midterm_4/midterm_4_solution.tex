@@ -1483,6 +1483,9 @@
                     \end{center}
 
                     \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to log; wait wait for write to complete
+                    \begin{itemize}
+                        \item After this, transaction is \textbf{committed}
+                    \end{itemize}
 
                     \begin{center}
                     \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_37.png}
@@ -1491,7 +1494,7 @@
                     \item \textbf{Checkpoint:} Write the contents of the update (metadata and data) to their final on-disk location
 
                     \begin{center}
-                    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_38.png}
+                    \includegraphics[width=0.9\linewidth]{../images/midterm_4_solution_38.png}
                     \end{center}
 
                     \item \textbf{Free:} Mark the transaction free in the journal by updating the
