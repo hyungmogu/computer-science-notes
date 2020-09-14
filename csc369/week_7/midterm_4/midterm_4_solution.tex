@@ -1380,6 +1380,28 @@
 
         The metadata journaling is performed in followings steps:
 
+        \bigskip
+
+        \begin{enumerate}[1.]
+            \item \textbf{Data Write:} Write data to final location; wait for completion
+            \item \textbf{Journal Metadata Write:} Write the begin block and metadata to the log; wait for writes to complete
+            \item \textbf{Journal Commit:} Write the transaction commit block to the log; wait for the transaction to complete
+            \item \textbf{Checkpoint metadata:} Write the contents of the medata update to their
+            final locations within the file system
+            \item \textbf{Free:} Mark the transaction free in journal superblock
+        \end{enumerate}
+
+        \bigskip
+
+        From the two, we can see that unlike data journaling that writes bitmap, inode and data block
+        all to journal before writing to the file system, metadata journaling writes data block to file system
+        first before bitmap and inode are written to journal of which later written to the file system.
+
+        \bigskip
+
+        Based on this fact, we can conclude metadata journaling doesn't provide full consistency.
+        \bigskip
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
