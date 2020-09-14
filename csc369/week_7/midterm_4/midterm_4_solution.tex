@@ -1405,6 +1405,8 @@
                     to log
                     \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to log; wait wait for write to complete
                     \item \textbf{Checkpoint:} Write the contents of the update (metadata and data) to their final on-disk location
+                    \item \textbf{Free:} Some time later, mark the transaction free in the journal by updating the
+                    journal superblock
                 \end{enumerate}
 
                 \item Recovery Steps
