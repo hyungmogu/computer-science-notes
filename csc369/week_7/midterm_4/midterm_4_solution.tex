@@ -1407,6 +1407,7 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item [\color{blue}Question\color{black}] What does full consistency mean in journaling?
             \item After step 4 of data journaling, where are the next transaction begin and end placed?
             \item \textbf{Journaling}
             \begin{itemize}
@@ -1528,8 +1529,6 @@
             \item \textbf{Metadata Journaling}
 
             \begin{itemize}
-                \item [\color{blue}Question\color{black}] The only difference in metadata journaling seems to be
-                that the data block is written first. How does it eliminate double write in data journaling?
                 \item Goal: Reduce number of writes
                 \item Data block is written to file system first
                 \item Metadata (inode and bitmap information) are written to journal before checkpoint
@@ -1575,6 +1574,10 @@
                     \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_45.png}
                     \end{center}
                     \item \textbf{Free:} Mark the transaction free in journal superblock
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_46.png}
+                    \end{center}
                 \end{enumerate}
                 \item Block Reuse
 
@@ -1589,6 +1592,19 @@
         \end{itemize}
 
     \end{enumerate}
+
+    \item
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item \textbf{Flash-Based SSDs}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \end{itemize}
 
 \end{enumerate}
 
