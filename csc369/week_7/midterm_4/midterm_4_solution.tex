@@ -743,7 +743,7 @@
         \begin{itemize}
             \item Requires only a disk pointer + length (in blocks)
             \item Is also called \textbf{contiguous allocation}
-            \item Is simple
+            \item Stores starting block and total length
             \item Is less flexible but more compact
             \item Works well when there is enough free space on the disk and files can be laid out contiguously
 
@@ -754,6 +754,22 @@
             \bigskip
 
             Linux's ext 4
+
+            \item Advantage
+
+            \begin{itemize}
+                \item Is simple
+
+                \begin{itemize}
+                    \item Finding data block = beginning of data block + length
+                \end{itemize}
+            \end{itemize}
+
+            \item Disadvantage
+            \begin{itemize}
+                \item Growing file size could cause problems
+                \item Fragmentation
+            \end{itemize}
         \end{itemize}
         \item \textbf{inode}
         \begin{itemize}
@@ -1346,6 +1362,8 @@
 
         \bigskip
 
+        The only difference is that
+
         \underline{\textbf{Notes}}
 
         \begin{itemize}
@@ -1411,6 +1429,10 @@
             \begin{itemize}
                 \item [\color{red}Important\color{black}] Is written to journal before putting onto file system!!!
                 \item Steps [Images need correction]
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_41.png}
+                \end{center}
 
                 \begin{enumerate}[1.]
                     \item \textbf{Journal Write}: Write the contents of the transaction (including TxB, metadata and data)
@@ -1478,6 +1500,10 @@
                 \end{center}
 
                 \item Steps
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_42.png}
+                \end{center}
 
                 \begin{enumerate}[1.]
                     \item \textbf{Data Write:} Write data to final location; wait for completion
