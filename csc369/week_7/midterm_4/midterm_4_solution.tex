@@ -1349,6 +1349,7 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item After step 4 of data journaling, where are the next transaction begin and end placed?
             \item \textbf{Journaling}
             \begin{itemize}
                 \item Is a popular solution to \textbf{crash-consistency problem}
@@ -1397,6 +1398,7 @@
             \begin{itemize}
                 \item Records information on which transactions have not yet been checkpointed
                 \item Oldest and newest non-checkpointed transactions exist here
+                \item Is different from file system superblock
             \end{itemize}
             \item \textbf{Data Journaling}
 
@@ -1433,14 +1435,21 @@
                     \begin{center}
                     \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_39.png}
                     \end{center}
+
+                    \item Repeat until done
                 \end{enumerate}
+
+                \item Disadvantage
+
+                \begin{itemize}
+                    \item Each data block is written twice
+                \end{itemize}
 
                 \item Recovery Steps
 
                 \begin{itemize}
-                    \item Crash happens while at step 1 $\to$ skip pending update
-                    \item Crash happens in between step 2 and 3 $\to$ replay the update and attempt to write blocks
-                    to final desination
+                    \item Crash at step 1 $\to$ skip pending update
+                    \item Crash during step 2 and 3 $\to$ replay the update
 
                     \begin{itemize}
                         \item Happens during boot
