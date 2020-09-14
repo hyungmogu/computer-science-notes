@@ -1261,7 +1261,7 @@
 
         \bigskip
 
-        Unless intervened, the file block may never be available due to file system inconsistency.
+        Unless intervened, the block may never be available.
 
         \bigskip
 
@@ -1330,6 +1330,17 @@
                 \end{itemize}
             \end{itemize}
         \end{itemize}
+
+        \item
+
+        When online, user would go around, and work on tasks such as downloading music,
+        coding, or writing documents using Microsoft Word, it's possible that one of
+        the blocks from crash are already in use by others.
+
+        \bigskip
+
+        Because \texttt{fsck} corrects bad blocks, duplicates, inconsistencies in inode metadata, and
+        directories, it's possible that on correction, the normal files and directories may become corrupted. (not good)
 
     \end{enumerate}
 
