@@ -1559,32 +1559,31 @@
 
                     \item \textbf{Journal Metadata Write:} Write the begin block and metadata to the \underline{log};
                     wait for writes to complete
+
                     \item \textbf{Journal Commit:} Write the transaction commit block (containing TxE) to
                     the log; wait for the write to complete
+
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_44.png}
+                    \end{center}
+
                     \item \textbf{Checkpoint Metadata:} Write the contents of the metadata update
                     to their final locations within the file system
+
+                    \begin{center}
+                    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_45.png}
+                    \end{center}
                     \item \textbf{Free:} Mark the transaction free in journal superblock
                 \end{enumerate}
                 \item Block Reuse
 
                 \begin{itemize}
                     \item Never reuse blocks until checkpointed out of the journal
-
-                    \bigskip
-
-                    \underline{\textbf{Example}}
-
-                    \bigskip
-
-
                 \end{itemize}
                 \item Advantage
                 \begin{itemize}
                     \item Solves double write problem in \textbf{data journaling}
-                \end{itemize}
-                \item Disadvantage
-                \begin{itemize}
-                    \item
                 \end{itemize}
             \end{itemize}
         \end{itemize}
