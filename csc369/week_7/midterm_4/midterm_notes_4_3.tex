@@ -1543,13 +1543,33 @@ Linux's ext4 file system
 
         \bigskip
 
-        Time information (Time modified), because each data blocks are being accessed, and its
-        bits are being moved around.
+        Time information (Time modified), because each data blocks are being accessed and its
+        inode and data blocks are being moved around.
+
+        \item
+
+        The changes reflected in directory metadata are
+
+        \begin{itemize}
+            \item Location of
+            \item Time information
+        \end{itemize}
     \end{enumerate}
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item [color{blue}Question\color{black}] Is time information when defragmentation occurs?
+        \item \textbf{Directory}
+
+        \begin{itemize}
+            \item Directory structure looks as follows
+
+            \begin{center}
+            \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_52.png}
+            \end{center}
+        \end{itemize}
+
         \item \textbf{Hard Disk Drive}
 
         \begin{itemize}
