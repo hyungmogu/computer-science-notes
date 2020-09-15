@@ -476,151 +476,6 @@
     \item Uses a large amount of metadata per file (especially for large files)
 \end{itemize}
 
-\section{Superblock}
-
-\begin{center}
-\includegraphics[width=\linewidth]{../images/midterm_2_solution_21.png}
-\end{center}
-
-\begin{itemize}
-    \item Contains information about the following
-    \begin{itemize}
-        \item The number of inodes and data blocks in a particular file system
-        \item The magic number of some knd to identify the file system type
-        \item Where the inode table begins
-    \end{itemize}
-
-    \item Is read first on mount before attaching to file system
-\end{itemize}
-
-\section{Bitmap}
-
-\begin{center}
-\includegraphics[width=\linewidth]{../images/midterm_2_solution_22.png}
-\end{center}
-
-\begin{itemize}
-    \item Are excellent way to \underline{manage free space}
-    \item Tracks whether inode or data blocks are free or allocated
-    \item Accessed only when allocation/deallocation is needed
-    \begin{itemize}
-        \item \texttt{Read()} $\to$ no bitmap required
-    \end{itemize}
-    \item Is a simple and popuar structure
-    \item Uses bit to indicate whether the corres object/block is free
-    \begin{itemize}
-        \item \texttt{0} means free
-        \item \texttt{1} means in use
-    \end{itemize}
-
-    \item \textbf{Data Bitmap} is bitmap for data region
-    \item \textbf{Inode Bitmap} is bitmap for inode region
-\end{itemize}
-
-\section{Inode}
-
-\begin{center}
-\includegraphics[width=\linewidth]{../images/midterm_2_solution_23.png}
-\end{center}
-
-\begin{itemize}
-    \item Is a short form for \textbf{index node}
-    \item Contains disk block location of the object's data $^{[7]}$
-    \item Contains all the information you need about a file (i.e. metadata)
-
-    \begin{itemize}
-        \item File Type
-        \begin{itemize}
-            \item e.g. regular file, directory, etc
-        \end{itemize}
-        \item Size
-        \item Number of blocks allocated to it
-        \item Protection information
-        \begin{itemize}
-            \item such as who owns the file, as well as who can access it
-        \end{itemize}
-        \item Time information
-        \begin{itemize}
-            \item e.g. When file was created, modified, or last accessed
-        \end{itemize}
-        \item Location of data blocks reside on disk
-    \end{itemize}
-
-    \item total size may vary
-    \item inode pointer has size of 4 byte
-    \item Has 12 \textbf{direct pointers} to 4KB data blocks
-    \item Has 1 \textbf{indirect pointer} [when file grows large enough]
-    \item Has 1 \textbf{double indirect Pointer} [when file grows large enough]
-    \item Has 1 \textbf{triple indirect Pointer} [when file grows large enough]
-
-    \item Inode before update
-
-    \begin{center}
-    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_26.png}
-    \end{center}
-
-    \item Inode after update
-
-    \begin{center}
-    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_27.png}
-    \end{center}
-
-    \item Inode block computation
-
-    \begin{align}
-    \texttt{block number} = (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}
-    \end{align}
-
-    \bigskip
-
-    \underline{\textbf{Example}}
-
-    \bigskip
-
-    Target: inode \#32
-
-    Inode Size: 256 bytes
-
-    Block Size: 4096 bytes
-
-    \bigskip
-
-    \begin{align}
-    \texttt{block number} &= (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}\\
-    &= \frac{32 * 256}{4096}\\
-    &= 2
-    \end{align}
-\end{itemize}
-
-
-\section{Data Region}
-
-\begin{center}
-\includegraphics[width=\linewidth]{../images/midterm_2_solution_24.png}
-\end{center}
-
-\begin{itemize}
-    \item Is the region of disk we use for user data
-\end{itemize}
-
-
-\section{Block}
-
-\begin{itemize}
-    \item Size of each block is 4KB
-\end{itemize}
-
-\section{lseek}
-
-\begin{itemize}
-    \item \textbf{Syntax:} \texttt{off\_t lseek(int fildes, off\_t offset, int whence)}
-
-    \begin{itemize}
-        \item \texttt{fildes} - file descriptor
-        \item \texttt{offset} - file offset to a particular position in file
-    \end{itemize}
-\end{itemize}
-
 \section{Kilobyte}
 
 \begin{itemize}
@@ -664,97 +519,6 @@
     \item has $1024^3$ pointers
     \item each of $1024^3$ pointers point to 4KB data block
     \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
-\end{itemize}
-
-\section{Reading a File From Disk}
-
-\bigskip
-
-\underline{\textbf{Example}}
-
-\bigskip
-
-When
-
-\bigskip
-
-\texttt{open("/foo/bar", O\_READONLY)}
-
-\bigskip
-
-is called
-
-\bigskip
-
-\begin{itemize}
-    \item the goal is to find the inode of the file \texttt{bar} to read its basic information
-    (i.e. includes permission, information, file size etc)
-    \item done by traversing the pathname and locate the desired inode
-    \item Steps
-
-    \begin{enumerate}[1.]
-        \item Find \textbf{inode} of the root directory by looking for \textbf{i-number} (or
-        \textbf{inode number})
-        \begin{itemize}
-            \item Root directory has no parent directory
-            \item Root directory's \textbf{inode number} is 2 (for UNIX file systems)
-        \end{itemize}
-
-        \item Read the \textbf{inode} of root directory
-        \item Once its \textbf{inode} is read, read through its directory data (pointers to \textbf{data blocks})
-        until the inode number of \texttt{foo} is found (e.g 42)
-        \item Recursively traverse the pathname until the desired inode is found (more specifically, the \textbf{inode number} of bar)
-        \item Issue a \texttt{open()} to read \texttt{bar}'s inode to memory
-        \item Issue a \texttt{read()} system call to read from file \texttt{bar}
-
-        \begin{itemize}
-            \item without \texttt{lseek()}, reads file from the first file data block (e.g. \texttt{bar data[0]})
-            \item \texttt{lseek(..., offset\_amt * size\_of\_file\_block)} is used to offset/move to desired block in \texttt{bar}
-        \end{itemize}
-
-        \item Trasnfer data to \texttt{buf} data block
-
-        \item Read until \texttt{read()} returns 0, or desired data block has been read
-        \item Close \texttt{fd}. No I/O is read.
-    \end{enumerate}
-\end{itemize}
-
-\section{Writing to Disk}
-
-\begin{center}
-\includegraphics[width=\linewidth]{../images/midterm_4_solution_30.png}
-\includegraphics[width=\linewidth]{../images/midterm_4_solution_31.png}
-\end{center}
-
-\bigskip
-
-Given a call
-
-\bigskip
-
-\texttt{create(...)} (Note: \texttt{open} to be exact)
-
-\bigskip
-
-\begin{itemize}
-    \item 5 I/Os are generated per write
-
-    \begin{itemize}
-        \item Read inode (to traverse to the location of new data block)
-        \item Reading data bitmap
-        \item Writing data bitmap
-        \item Write data block
-        \item Write inode (to update data block's location in inode)
-    \end{itemize}
-    \item 10 I/Os are generated per file creation:
-
-    \begin{itemize}
-        \item Read inode bitmap (to find free inode)
-        \item Write inode bitmap (to mark it allocated)
-        \item Create one new inode (to initialize it)
-        \item Write the location of new inode block in \texttt{foo} (by linking high-level name of file \texttt{bar} to its inode number and storing in data block)
-        \item Perform one read and write to the directory inode and update it
-    \end{itemize}
 \end{itemize}
 
 \section{Static Partitioning}
@@ -994,36 +758,12 @@ Given a call
 \section{File System Implementation}
 
 
-\subsection{inode}
-\begin{itemize}
-    \item Inode block computation
+\section{Superblock}
 
-    \begin{align}
-    \texttt{block number} = (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}
-    \end{align}
+\begin{center}
+\includegraphics[width=\linewidth]{../images/midterm_2_solution_21.png}
+\end{center}
 
-    \bigskip
-
-    \underline{\textbf{Example}}
-
-    \bigskip
-
-    Target: inode \#32
-
-    Inode Size: 256 bytes
-
-    Block Size: 4096 bytes
-
-    \bigskip
-
-    \begin{align}
-    \texttt{block number} &= (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}\\
-    &= \frac{32 * 256}{4096}\\
-    &= 2
-    \end{align}
-\end{itemize}
-
-\subsection{superblock}
 \begin{itemize}
     \item Contains information about the following
     \begin{itemize}
@@ -1031,10 +771,17 @@ Given a call
         \item The magic number of some knd to identify the file system type
         \item Where the inode table begins
     \end{itemize}
+
     \item Is read first on mount before attaching to file system
 \end{itemize}
 
-\subsection{inode/data bitmap}
+
+\subsection{Inode/Data bitmap}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../images/midterm_2_solution_22.png}
+\end{center}
+
 \begin{itemize}
     \item Accessed only when allocation/deallocation is needed
     \begin{itemize}
@@ -1045,6 +792,86 @@ Given a call
         \item 0 means free
         \item 1 means in use
     \end{itemize}
+\end{itemize}
+
+\subsection{Inode}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../images/midterm_2_solution_23.png}
+\end{center}
+
+\begin{itemize}
+    \item Is a short form for \textbf{index node}
+    \item Contains all the information you need about a file (i.e. metadata)
+
+    \begin{itemize}
+        \item File Type
+        \begin{itemize}
+            \item e.g. regular file, directory, etc
+        \end{itemize}
+        \item Size
+        \item Number of blocks allocated to it
+        \item Protection information
+        \begin{itemize}
+            \item such as who owns the file, as well as who can access it
+        \end{itemize}
+        \item Time information
+        \begin{itemize}
+            \item e.g. When file was created, modified, or last accessed
+        \end{itemize}
+        \item Location of data blocks reside on disk
+    \end{itemize}
+
+    \item total size may vary
+    \item inode pointer has size of 4 byte
+    \item Has 12 \textbf{direct pointers} to 4KB data blocks
+    \item Has 1 \textbf{indirect pointer} [when file grows large enough]
+    \item Has 1 \textbf{double indirect Pointer} [when file grows large enough]
+    \item Has 1 \textbf{triple indirect Pointer} [when file grows large enough]
+
+    \item Inode before update
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_26.png}
+    \end{center}
+
+    \item Inode after update
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_27.png}
+    \end{center}
+
+    % \item Inode block computation
+
+    % \begin{align}
+    % \texttt{block number} = (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}
+    % \end{align}
+
+    % \bigskip
+
+    % \underline{\textbf{Example}}
+
+    % \bigskip
+
+    % Target: inode \#32
+
+    % Inode Size: 256 bytes
+
+    % Block Size: 4096 bytes
+
+    % \bigskip
+
+    % \begin{align}
+    % \texttt{block number} &= (\texttt{inode \#} * \texttt{sizeof(inode)}) / \texttt{block size}\\
+    % &= \frac{32 * 256}{4096}\\
+    % &= 2
+    % \end{align}
+\end{itemize}
+
+\section{Data Block}
+
+\begin{itemize}
+    \item Size of each block is 4KB
 \end{itemize}
 
 \subsection{Index Based File System}
