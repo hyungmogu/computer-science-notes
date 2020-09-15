@@ -1533,33 +1533,38 @@ Linux's ext4 file system
         The changes made to inode are:
 
         \begin{itemize}
-            \item Location of data blocks
+            \item Location of data blocks, inode, inode bitmap, data bitmap
             \item time information
         \end{itemize}
         \bigskip
 
-        Location of data blocks because data blocks are being switched from a place to another
-        in both algorithms
+        Location of data blocks, inode, inode bitmap, data bitmap because inode and data block's location
+        in hard drive are being changed.
 
         \bigskip
 
-        Time information (Time modified), because each data blocks are being accessed and its
-        inode and data blocks are being moved around.
+        Time information (Time modified), because inode is being accessed and its pointers to
+        data block are being modified.
 
         \item
 
         The changes reflected in directory metadata are
 
         \begin{itemize}
-            \item Location of
+            \item Location of i-number in directory entry
             \item Time information
         \end{itemize}
+
+        \bigskip
+
+        Time information (Time modified) is changed because directory entries are
+        begin accessed and entry's i-numbers are being switched.
     \end{enumerate}
 
     \underline{\textbf{Notes}}
 
     \begin{itemize}
-        \item [color{blue}Question\color{black}] Is time information when defragmentation occurs?
+        \item [\color{blue}Question\color{black}] Is time information changed when defragmentation occurs?
         \item \textbf{Directory}
 
         \begin{itemize}
