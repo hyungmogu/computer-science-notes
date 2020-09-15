@@ -558,13 +558,35 @@
     \item Occurs when more computer memory is allocated than is needed
 \end{itemize}
 
-\section{Extent Based File System}
+\section{Disk Layout Strategies}
+
+\subsection{Index-Based Allocation}
+\begin{center}
+\includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_29.png}
+\end{center}
+
+\begin{itemize}
+    \item Has 15 blocks of pointers that points to either inode, indirect pointers, or data block
+    \item No external fragmentation
+    \item Files can be easily grown
+\end{itemize}
+
+\bigskip
+
+\underline{\textbf{Example}}
+
+\bigskip
+
+Linux's ext2, ext3
+
+\subsection{Contiguous-Based Allocation}
 
 \begin{center}
 \includegraphics[width=\linewidth]{../images/midterm_2_solution_32.png}
 \end{center}
 
 \begin{itemize}
+    \item \textbf{Inode} stores starting block and total length
     \item Is simply a disk pointer plus a length (in blocks)
     \begin{itemize}
         \item Together, is called \textbf{extent}
@@ -573,13 +595,37 @@
     \begin{itemize}
         \item resolve problem of finding continuous free blocks
     \end{itemize}
+    \item Inode stores starting block and total length
     \item Is less flexible but more compact
-    \item Works well when there is enough free space on the disk and
-    files can be laid out contiguously
+    \item Works well when there is enough free space on the disk and files can be laid out contiguously
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    Linux's ext 4
+
+    \item Advantage
+
+    \begin{itemize}
+        \item Is simple
+        \begin{itemize}
+            \item Finding data block = beginning of data block + length
+        \end{itemize}
+        \item Fast, simplifies directory access and allows indexing
+    \end{itemize}
+
+    \item Disadvantage
+    \begin{itemize}
+        \item Growing file size could cause problems
+        \item Inflexible, causes \textbf{external fragmentation}
+        \item Requires compaction
+    \end{itemize}
 \end{itemize}
 
 \section{File System Implementation}
-
 
 \section{Superblock}
 
@@ -728,63 +774,6 @@
     \item has $1024^3$ pointers
     \item each of $1024^3$ pointers point to 4KB data block
     \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
-\end{itemize}
-
-\subsection{Index Based File System}
-\begin{center}
-\includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_29.png}
-\end{center}
-
-\begin{itemize}
-    \item Has 15 blocks of pointers that points to either inode, indirect pointers, or data block
-    \item No external fragmentation
-    \item Files can be easily grown
-\end{itemize}
-
-\bigskip
-
-\underline{\textbf{Example}}
-
-\bigskip
-
-Linux's ext2, ext3
-
-\subsection{Extent Based File System}
-
-\begin{center}
-\includegraphics[width=0.7\linewidth]{../images/midterm_4_solution_28.png}
-\end{center}
-
-\begin{itemize}
-    \item Requires only a disk pointer + length (in blocks)
-    \item Is also called \textbf{contiguous allocation}
-    \item Stores starting block and total length
-    \item Is less flexible but more compact
-    \item Works well when there is enough free space on the disk and files can be laid out contiguously
-
-    \bigskip
-
-    \underline{\textbf{Example}}
-
-    \bigskip
-
-    Linux's ext 4
-
-    \item Advantage
-
-    \begin{itemize}
-        \item Is simple
-
-        \begin{itemize}
-            \item Finding data block = beginning of data block + length
-        \end{itemize}
-    \end{itemize}
-
-    \item Disadvantage
-    \begin{itemize}
-        \item Growing file size could cause problems
-        \item Fragmentation
-    \end{itemize}
 \end{itemize}
 
 \subsection{Reading a File from Disk}
