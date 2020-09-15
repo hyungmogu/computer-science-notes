@@ -509,6 +509,7 @@
     \end{itemize}
 \end{itemize}
 
+
 \section{Dynamic Partitioning}
 
 \begin{itemize}
@@ -530,18 +531,6 @@
     \end{itemize}
 \end{itemize}
 
-\section{Old UNIX File system}
-\begin{itemize}
-    \item was simple, and looked like the following on disk
-
-    \begin{center}
-    \includegraphics[width=0.6\linewidth]{../images/midterm_2_solution_26.png}
-    \end{center}
-    \item has terrible performance
-    \item suffers from \textbf{external fragmentation}
-    \item had small data block (512 bytes) and transfer of data took too long
-\end{itemize}
-
 \section{External Fragmentation}
 
 \begin{itemize}
@@ -557,6 +546,19 @@
     \item Is wasted space within each allocated block $^{[8]}$
     \item Occurs when more computer memory is allocated than is needed
 \end{itemize}
+
+% \section{Old UNIX File system}
+% \begin{itemize}
+%     \item was simple, and looked like the following on disk
+
+%     \begin{center}
+%     \includegraphics[width=0.6\linewidth]{../images/midterm_2_solution_26.png}
+%     \end{center}
+%     \item has terrible performance
+%     \item suffers from \textbf{external fragmentation}
+%     \item had small data block (512 bytes) and transfer of data took too long
+% \end{itemize}
+
 
 \section{Disk Layout Strategies}
 
@@ -623,6 +625,12 @@ Linux's ext2, ext3
         \item Inflexible, causes \textbf{external fragmentation}
         \item Requires compaction
     \end{itemize}
+\end{itemize}
+
+\subsection{Linked Allocation}
+
+\begin{itemize}
+    \item
 \end{itemize}
 
 \section{File System Implementation}
