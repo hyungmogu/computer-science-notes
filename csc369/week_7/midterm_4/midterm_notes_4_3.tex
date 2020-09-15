@@ -1549,7 +1549,7 @@ Linux's ext4 file system
 
         \item
 
-        The changes reflected in directory metadata are
+        The changes that would need to be made to directory metadata are
 
         \begin{itemize}
             \item i-number in directory entry
@@ -1562,6 +1562,19 @@ Linux's ext4 file system
         \bigskip
 
         Time information (Time modified) because i-number in directory entires are being modified.
+
+        \item
+
+        The changes made are
+
+        \begin{itemize}
+            \item location of each data blocks in linked list
+            \item metadata of inode - time information, i-number, starting block i-number, final block i-number
+        \end{itemize}
+
+        Location of each data blocks in linked list because during the defragmentation process,
+        the blocks are being moved around
+
     \end{enumerate}
 
     \underline{\textbf{Notes}}
