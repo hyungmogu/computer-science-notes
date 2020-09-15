@@ -99,6 +99,22 @@
     Directory has entry (`foo', 10) in list (in a data block) that points to the file.
 \end{itemize}
 
+\subsection{Directory Implementation}
+\begin{itemize}
+    \item Option 1: List
+    \begin{itemize}
+        \item Is simple list of file names and pointers to file metadata
+        \item Requires a linear search to find entries
+        \item Easy to implement and slow to execute (Not a good option)
+    \end{itemize}
+    \item Option 2: Hash Table
+    \begin{itemize}
+        \item Creates a list of file info structures
+        \item Has file name to get a pointer to the file name info structure in the list
+        \item Takes space
+    \end{itemize}
+\end{itemize}
+
 \section{File API}
 \begin{itemize}
     \item \texttt{open} (create/access file)
