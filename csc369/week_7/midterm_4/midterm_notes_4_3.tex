@@ -630,7 +630,23 @@ Linux's ext2, ext3
 \subsection{Linked Allocation}
 
 \begin{itemize}
-    \item
+    \item \textbf{Inode} stores the starting block and last block in the directory
+    \item Each block in file contains a pointer to the next block
+    \item Disadvantage
+    \begin{itemize}
+        \item If one of the data becomes corrupted, we lost pointers to rest of file
+        \item O(n) to find/read nth block (Takes really long time)
+    \end{itemize}
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    Windows' FAT file system
+
+    \bigskip
 \end{itemize}
 
 \section{File System Implementation}
