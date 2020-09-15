@@ -1842,11 +1842,23 @@
 
         All of the above
 
-        \texttt{inode bitmap}\\
-        \texttt{data bitmap}\\
-        \texttt{file inode}\\
-        \texttt{directory inode}\\
-        \texttt{directory data block}
+        \texttt{a - inode bitmap}\\
+        \texttt{b - data bitmap}\\
+        \texttt{c - file inode}\\
+        \texttt{d - directory inode}\\
+        \texttt{e - directory data block}
+
+        \item
+        \texttt{f - Multiple of the problems above}
+
+        \bigskip
+
+        because of
+
+        \bigskip
+
+        \texttt{b - Data leak (data block is lost for any future use)}\\
+        \texttt{c - Inode leak (inode block is lost for any future use)}\\
 
     \end{enumerate}
 \end{enumerate}
