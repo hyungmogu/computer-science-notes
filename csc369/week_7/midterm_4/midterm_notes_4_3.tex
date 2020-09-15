@@ -1533,18 +1533,19 @@ Linux's ext4 file system
         The changes made to inode are:
 
         \begin{itemize}
-            \item Location of data blocks, inode, inode bitmap, data bitmap
+            \item Location of data blocks, i-number
             \item time information
         \end{itemize}
         \bigskip
 
-        Location of data blocks, inode, inode bitmap, data bitmap because inode and its' data block's
+        Location of data blocks, i-number because inode and its' data block's
         location in hard drive are being changed.
 
         \bigskip
 
-        Time information (Time modified), because inode is being accessed and its pointers to
-        data block are being modified.
+        Time information (Time modified), because its pointers pointing to data block are being modified.
+
+        \bigskip
 
         \item
 
@@ -1555,7 +1556,7 @@ Linux's ext4 file system
             \item Time information
         \end{itemize}
 
-        i-number in directory entry because the inode of files and child directories inside
+        i-number in directory entry because files and child directories inside
         the current directory are being movied around.
 
         \bigskip
@@ -1566,6 +1567,7 @@ Linux's ext4 file system
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item [\color{blue}Question\color{black}] In question 4.c, does the inode in phrase 'what changes are made to inode' referring to inode's metadata?
         \item [\color{blue}Question\color{black}] Is time information changed when defragmentation occurs?
         \item \textbf{Directory}
 
