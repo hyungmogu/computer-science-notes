@@ -72,7 +72,31 @@
     \item Low-level name called \textbf{i-number}
     \begin{itemize}
         \item inode also has a low-level name \textbf{i-number}
+        \item File is an inode
     \end{itemize}
+\end{itemize}
+
+\subsection{Directory}
+\begin{itemize}
+    \item Is like a file
+    \item Also has a low-level name \textbf{i-number}
+    \begin{itemize}
+        \item Directory is also an inode
+    \end{itemize}
+    \item Provides logical structure to file systems
+    \item Contains a list of (user-readable name, low-level name)
+
+    \bigskip
+
+    \underline{\textbf{Example}}
+
+    \bigskip
+
+    File with low-level name `10', and user-readible name `foo'.
+
+    \bigskip
+
+    Directory has entry (`foo', 10) in list (in a data block) that points to the file.
 \end{itemize}
 
 \section{File API}
