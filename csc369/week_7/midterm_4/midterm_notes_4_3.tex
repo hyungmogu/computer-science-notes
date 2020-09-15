@@ -65,6 +65,16 @@
     \end{itemize}
 \end{itemize}
 
+\section{Files and Directories}
+\subsection{File}
+\begin{itemize}
+    \item Is a linear array of bytes, which you can read or write
+    \item Low-level name called \textbf{i-number}
+    \begin{itemize}
+        \item inode also has a low-level name \textbf{i-number}
+    \end{itemize}
+\end{itemize}
+
 \section{File API}
 \begin{itemize}
     \item \texttt{open} (create/access file)
@@ -745,6 +755,11 @@ Linux's ext2, ext3
 
 \begin{itemize}
     \item Is a short form for \textbf{index node}
+    \item Has a low-level name called \textbf{i-number}
+    \begin{itemize}
+        \item File also has a low-level named of \textbf{i-number}
+        \item File is an inode
+    \end{itemize}
     \item Contains all the information you need about a file (i.e. metadata)
 
     \begin{itemize}
