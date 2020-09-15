@@ -431,35 +431,54 @@
 \end{itemize}
 
 \section{Symbolic Link:}
-\begin{itemize}
-    \item Is a pointer to a file
-    \item Is directory entry containing "true" path to the file
-    \item Is a shortcut that reference to a file instead of inode value $^{[2]}$
-\end{itemize}
+
 
 \begin{center}
-    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_19.png}
-    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_20.png}
-    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_21.png}
+\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_48.png}
 \end{center}
+
+\begin{itemize}
+    \item Is a pointer to a file
+    \item \textbf{Syntax:} \texttt{ln -s \{source\} \{link\}}
+    \item Is a shortcut (a special file) that reference to a file instead of inode value $^{[2]}$
+    \item Can create symbolic links to directories
+    \item Can create symbolic links across partitions
+    \item Deleting the source file $\to$ Problem
+    \begin{itemize}
+        \item Inode of file is deleted when reference count is 0
+        \item Creates a \textbf{dangling pointer}
+    \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_19.png}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_20.png}
+        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_21.png}
+    \end{center}
+\end{itemize}
 
 \section{Hard Link:}
 \begin{itemize}
-    \item Is a direct reference to a file via its inode $^{[2]}$
-    \item Is second directory entry identical to first
-\end{itemize}
+    \item \textbf{Syntax:} \texttt{ln \{source\} \{link\}}
+    \item Creates a direct reference to inode of a file
+    \item Cannot be created to directories (might create cyles)
+    \item Cannot create hard links across partitions
+    \item Deleting the source file $\to$ No problem
+    \begin{itemize}
+        \item Inode of file is deleted when reference count is 0
+        \item Removing a hard link only removes the file
+    \end{itemize}
 
-\begin{center}
-\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_22.png}
-\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_23.png}
-\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_24.png}
-\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_25.png}
-\end{center}
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_22.png}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_23.png}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_24.png}
+    \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_25.png}
+    \end{center}
+\end{itemize}
 
 \section{Index-based File System}
 
 \begin{center}
-
 \includegraphics[width=\linewidth]{../images/midterm_2_solution_20.png}
 \end{center}
 
