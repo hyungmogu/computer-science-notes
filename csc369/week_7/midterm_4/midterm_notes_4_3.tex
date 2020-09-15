@@ -1568,8 +1568,22 @@ Linux's ext4 file system
         The changes made are
 
         \begin{itemize}
-            \item location of each data blocks in linked list
+            \item Location of each data blocks in linked list
+
+            \bigskip
+
+            Because they are relcated during the defragmentation process.
+
+            \item The value of next member variable in each data block
+
+            \bigskip
+
+            Because the block location have change during the defragmentation process.
+
             \item metadata of inode - time information, i-number, starting block i-number, final block i-number
+
+            \bigskip
+
         \end{itemize}
 
         Location of each data blocks in linked list because during the defragmentation process,
