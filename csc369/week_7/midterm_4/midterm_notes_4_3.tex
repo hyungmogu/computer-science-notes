@@ -1527,6 +1527,24 @@ Linux's ext4 file system
         \item Algorithm A completes faster on Average. Reason is that
         algorithm A (moving the data blocks in A and freeing the existing) has
         fewer number of updates than algorithm B (swapping the data blocks, and dealing with remaining data blocks).
+        \item
+        \item
+
+        The changes made to inode are:
+
+        \begin{itemize}
+            \item Location of data blocks
+            \item time information
+        \end{itemize}
+        \bigskip
+
+        Location of data blocks because data blocks are being switched from a place to another
+        in both algorithms
+
+        \bigskip
+
+        Time information (Time modified), because each data blocks are being accessed, and its
+        bits are being moved around.
     \end{enumerate}
 
     \underline{\textbf{Notes}}
