@@ -482,43 +482,10 @@
     \item 1 kilobyte is \underline{1024 bytes}
 \end{itemize}
 
-\section{file}
+\section{File*}
 \begin{itemize}
     \item is an array of bytes which can be created, read, written and deleted
     \item low-level name is called \textbf{inode number} or \textbf{i-number}
-\end{itemize}
-
-\section{Indirect Pointers}
-
-\begin{itemize}
-    \item Is allocated to data-block if file grows large enough
-    \item Has total size of 4 KB or 4096 bytes
-    \item Has $4096/4 = 1024$ pointers
-    \item Each pointer points to 4KB data-block
-    \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
-\end{itemize}
-
-\section{Double Indirect Pointers}
-
-\begin{itemize}
-    \item is allocated when single indirect pointer is not large enough
-    \item each pointer in first pointer block points to another pointer block
-    \item has $1024^2$ pointers
-    \item each of $1024^2$ pointers point to 4KB data block
-    \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
-
-    \begin{center}
-    \includegraphics[width=\linewidth]{../images/midterm_2_solution_25.png}
-    \end{center}
-\end{itemize}
-
-\section{Triple Indirect Pointers}
-
-\begin{itemize}
-    \item is allocated when double indirect pointer is not large enough
-    \item has $1024^3$ pointers
-    \item each of $1024^3$ pointers point to 4KB data block
-    \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
 \end{itemize}
 
 \section{Static Partitioning}
@@ -574,150 +541,6 @@
     \item suffers from \textbf{external fragmentation}
     \item had small data block (512 bytes) and transfer of data took too long
 \end{itemize}
-
-\section{FFS Policies: Allocating Files and Directories}
-
-\begin{itemize}
-    \item Basic Idea: keep related stuff together, and keep related stuff
-    far apart
-    \item Directories Step
-
-    \begin{enumerate}[1)]
-        \item Find the \textbf{cylinder group} with a low number of allocated directories
-        and a high number of free inodes
-
-        \begin{itemize}
-            \item low number of allocated directories $\to$ to balance directories
-            across groups
-            \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
-        \end{itemize}
-        \item Put directory data and inode to the \textbf{cylinder group}
-    \end{enumerate}
-
-    \item Files Step
-
-    \begin{enumerate}[1)]
-        \item Allocate the data blocks of a file in the same \textbf{cylinder group} as its inode
-        \item Place all files in the same directory in the cylinder group of the directory they are in
-
-        \bigskip
-
-        \underline{\textbf{Example}}
-
-        \bigskip
-
-        On putting \texttt{/a/c}, \texttt{/a/d}, \texttt{/b/f}, FFS would place
-
-        \begin{itemize}
-            \item \texttt{/a/c}, \texttt{/a/d} as close as possible in the same \textbf{cylinder group},
-            \item \texttt{/b/f} located far away (in some other \textbf{cylinder group})
-        \end{itemize}
-    \end{enumerate}
-\end{itemize}
-
-\section{Crash Consistency}
-
-\begin{itemize}
-    \item Goal: How to update persistent data structures despite the presence of
-    a \textbf{power loss} or \textbf{system crash}?
-\end{itemize}
-
-\section{Crash Scenarios}
-
-\begin{center}
-\includegraphics[width=\linewidth]{../images/midterm_2_solution_31.png}
-\end{center}
-
-
-\begin{enumerate}[1)]
-    \item Just the data block (Db) is written to disk
-
-    \bigskip
-
-    \begin{itemize}
-        \item No inode that points to it
-        \item No bitmap that says the block is allocated
-        \item It is as if the write never occured
-        \item There is no problem here. All is well. (In file system's point of view)
-    \end{itemize}
-
-    \bigskip
-
-    \item Just the updated inode (I[v2]) is written to disk
-
-    \bigskip
-
-    \begin{itemize}
-        \item Inode points to the disk where \texttt{Db} is about to be written
-        \item No bitmap that says the block is allocated
-        \item No \texttt{Db} is written
-        \item Garbage data will be read
-        \item Also creates \textbf{File-system Inconsistency}
-
-        \begin{itemize}
-            \item Caused by on-disk bitmap telling us Db 5 is not allocated,
-            but inode saying it does
-        \end{itemize}
-    \end{itemize}
-
-    \bigskip
-
-    \item Just the updated bitmap (B[v2]) is written to disk
-
-    \bigskip
-
-    \begin{itemize}
-        \item Bitmap indicates tht block 5 is allocated
-        \item No inode exists at block 5
-        \item Creates \textbf{file-system inconsistency}
-        \item Creates \textbf{space-leak} if left as is
-
-        \begin{itemize}
-            \item block 5 can never be used by the file system
-        \end{itemize}
-    \end{itemize}
-
-    \bigskip
-
-    \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
-
-    \bigskip
-
-    \begin{itemize}
-        \item File system metadata is completely consistent (in perspective of file system)
-        \item Garbage data will be read
-    \end{itemize}
-
-    \bigskip
-
-    \item Inode (I[v2]) and data block (Db) are written, but not the bit map
-
-    \bigskip
-
-    \begin{itemize}
-        \item Creates \textbf{file-system inconsistency}
-        \item Needs to be resolved before using file system again
-    \end{itemize}
-
-    \bigskip
-
-    \item Bitmap (B[v2]) and data block (Db) are written, but not the inode (I[v2])
-
-    \bigskip
-
-    \begin{itemize}
-        \item Creates \textbf{file-system inconsistency} between inode and data bitmap
-        \item Creates \textbf{space-leak} if left as is
-        \begin{itemize}
-            \item Inode block is lost for future use
-        \end{itemize}
-        \item Creates \textbf{data-leak} if left as is
-
-        \begin{itemize}
-            \item Data block is lost for future use
-        \end{itemize}
-    \end{itemize}
-\end{enumerate}
 
 \section{External Fragmentation}
 
@@ -872,6 +695,39 @@
 
 \begin{itemize}
     \item Size of each block is 4KB
+\end{itemize}
+
+\subsection{Indirect Pointers}
+
+\begin{itemize}
+    \item Is allocated to data-block if file grows large enough
+    \item Has total size of 4 KB or 4096 bytes
+    \item Has $4096/4 = 1024$ pointers
+    \item Each pointer points to 4KB data-block
+    \item File can grow to be $(12 + 1024) \times 4\text{K} = 4144\text{KB}$
+\end{itemize}
+
+\subsection{Double Indirect Pointers}
+
+\begin{itemize}
+    \item is allocated when single indirect pointer is not large enough
+    \item each pointer in first pointer block points to another pointer block
+    \item has $1024^2$ pointers
+    \item each of $1024^2$ pointers point to 4KB data block
+    \item File can grow to be $(12 + 1024 + 1024^2) \times 4\text{K} = 4198448\text{KB}$ or $\approx 4.20 \text{GB}$
+
+    \begin{center}
+    \includegraphics[width=\linewidth]{../images/midterm_2_solution_25.png}
+    \end{center}
+\end{itemize}
+
+\subsection{Triple Indirect Pointers}
+
+\begin{itemize}
+    \item is allocated when double indirect pointer is not large enough
+    \item has $1024^3$ pointers
+    \item each of $1024^3$ pointers point to 4KB data block
+    \item File can grow to be $(12 + 1024 + 1024^2 + 1024^3) \times 4\text{K} = 4299165744\text{KB}$ or $\approx 4.00 \text{TB}$
 \end{itemize}
 
 \subsection{Index Based File System}
@@ -1107,6 +963,46 @@ Linux's ext4 file system
     \end{itemize}
 \end{itemize}
 
+\subsection{FFS Policies: Allocating Files and Directories}
+
+\begin{itemize}
+    \item Basic Idea: keep related stuff together, and keep related stuff
+    far apart
+    \item Directories Step
+
+    \begin{enumerate}[1)]
+        \item Find the \textbf{cylinder group} with a low number of allocated directories
+        and a high number of free inodes
+
+        \begin{itemize}
+            \item low number of allocated directories $\to$ to balance directories
+            across groups
+            \item high number of free nodes $\to$ to subsequently be able to allocate a bunch offiles
+        \end{itemize}
+        \item Put directory data and inode to the \textbf{cylinder group}
+    \end{enumerate}
+
+    \item Files Step
+
+    \begin{enumerate}[1)]
+        \item Allocate the data blocks of a file in the same \textbf{cylinder group} as its inode
+        \item Place all files in the same directory in the cylinder group of the directory they are in
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+        On putting \texttt{/a/c}, \texttt{/a/d}, \texttt{/b/f}, FFS would place
+
+        \begin{itemize}
+            \item \texttt{/a/c}, \texttt{/a/d} as close as possible in the same \textbf{cylinder group},
+            \item \texttt{/b/f} located far away (in some other \textbf{cylinder group})
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+
 \section{Log Structured File System}
 \begin{itemize}
     \item Wait. This sounds very similar to \textbf{extent-based file system}
@@ -1177,6 +1073,103 @@ Linux's ext4 file system
     \item Reality: This is not possible
     \item Is the reason why computers have 'Don't turn off computer' message
 \end{itemize}
+
+\subsection{Crash Scenarios}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../images/midterm_2_solution_31.png}
+\end{center}
+
+
+\begin{enumerate}[1)]
+    \item Just the data block (Db) is written to disk
+
+    \bigskip
+
+    \begin{itemize}
+        \item No inode that points to it
+        \item No bitmap that says the block is allocated
+        \item It is as if the write never occured
+        \item There is no problem here. All is well. (In file system's point of view)
+    \end{itemize}
+
+    \bigskip
+
+    \item Just the updated inode (I[v2]) is written to disk
+
+    \bigskip
+
+    \begin{itemize}
+        \item Inode points to the disk where \texttt{Db} is about to be written
+        \item No bitmap that says the block is allocated
+        \item No \texttt{Db} is written
+        \item Garbage data will be read
+        \item Also creates \textbf{File-system Inconsistency}
+
+        \begin{itemize}
+            \item Caused by on-disk bitmap telling us Db 5 is not allocated,
+            but inode saying it does
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \item Just the updated bitmap (B[v2]) is written to disk
+
+    \bigskip
+
+    \begin{itemize}
+        \item Bitmap indicates tht block 5 is allocated
+        \item No inode exists at block 5
+        \item Creates \textbf{file-system inconsistency}
+        \item Creates \textbf{space-leak} if left as is
+
+        \begin{itemize}
+            \item block 5 can never be used by the file system
+        \end{itemize}
+    \end{itemize}
+
+    \bigskip
+
+    \item Inode (I[v2]) and bitmap (B[v2]) are written to disk, and not data
+
+    \bigskip
+
+    \begin{itemize}
+        \item File system metadata is completely consistent (in perspective of file system)
+        \item Garbage data will be read
+    \end{itemize}
+
+    \bigskip
+
+    \item Inode (I[v2]) and data block (Db) are written, but not the bit map
+
+    \bigskip
+
+    \begin{itemize}
+        \item Creates \textbf{file-system inconsistency}
+        \item Needs to be resolved before using file system again
+    \end{itemize}
+
+    \bigskip
+
+    \item Bitmap (B[v2]) and data block (Db) are written, but not the inode (I[v2])
+
+    \bigskip
+
+    \begin{itemize}
+        \item Creates \textbf{file-system inconsistency} between inode and data bitmap
+        \item Creates \textbf{space-leak} if left as is
+        \begin{itemize}
+            \item Inode block is lost for future use
+        \end{itemize}
+        \item Creates \textbf{data-leak} if left as is
+
+        \begin{itemize}
+            \item Data block is lost for future use
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
 
 \subsection{File System Checker}
 
