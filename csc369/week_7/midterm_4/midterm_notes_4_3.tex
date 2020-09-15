@@ -55,6 +55,7 @@
 \section{Exam Related Questions and Tips}
 
 \begin{itemize}
+    \item What is hard link? What is soft link? What are the differences between the two?
     \item I wonder how system call for reading file/directory works in UNIX. Does it check for bitmap?
     \item I wonder how system call for deleting file/directory works in UNIX
     \item I wonder how system call for creatubg file/directory works in UNIX
@@ -568,9 +569,34 @@
 \end{center}
 
 \begin{itemize}
-    \item Has 15 blocks of pointers that points to either inode, indirect pointers, or data block
-    \item No external fragmentation
-    \item Files can be easily grown
+    \item File metadata stored in inode
+    \item Has 15 blocks of pointers
+    \begin{itemize}
+        \item First 12 are direct block pointers
+        \item 13th is a single indirect block pointer
+        \begin{itemize}
+            \item Address of block containing address of data blocks
+        \end{itemize}
+        \item 14th is a double indirect block pointer
+        \begin{itemize}
+            \item Address of block containing address of single indirect blocks
+        \end{itemize}
+        \item 15th is a triple indirect block pointer
+        \begin{itemize}
+            \item Address of block containing address of double indirect blocks
+        \end{itemize}
+    \end{itemize}
+    \item Index block contains pointers to many other blocks
+    \item Advantages
+    \begin{itemize}
+        \item No external fragmentation
+        \item Handles random access better
+        \item Files can be easily grown
+    \end{itemize}
+    \item Disadvantage
+    \begin{itemize}
+        \item May reuiqre multiple, linked index blocks
+    \end{itemize}
 \end{itemize}
 
 \bigskip
@@ -628,6 +654,10 @@ Linux's ext2, ext3
 \end{itemize}
 
 \subsection{Linked Allocation}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../images/midterm_4_solution_47.png}
+\end{center}
 
 \begin{itemize}
     \item \textbf{Inode} stores the starting block and last block in the directory
