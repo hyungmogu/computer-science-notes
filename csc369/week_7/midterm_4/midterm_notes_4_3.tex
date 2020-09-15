@@ -1538,8 +1538,8 @@ Linux's ext4 file system
         \end{itemize}
         \bigskip
 
-        Location of data blocks, inode, inode bitmap, data bitmap because inode and data block's location
-        in hard drive are being changed.
+        Location of data blocks, inode, inode bitmap, data bitmap because inode and its' data block's
+        location in hard drive are being changed.
 
         \bigskip
 
@@ -1551,14 +1551,16 @@ Linux's ext4 file system
         The changes reflected in directory metadata are
 
         \begin{itemize}
-            \item Location of i-number in directory entry
+            \item i-number in directory entry
             \item Time information
         \end{itemize}
 
+        i-number in directory entry because the inode of files and child directories inside
+        the current directory are being movied around.
+
         \bigskip
 
-        Time information (Time modified) is changed because directory entries are
-        begin accessed and entry's i-numbers are being switched.
+        Time information (Time modified) because i-number in directory entires are being modified.
     \end{enumerate}
 
     \underline{\textbf{Notes}}
