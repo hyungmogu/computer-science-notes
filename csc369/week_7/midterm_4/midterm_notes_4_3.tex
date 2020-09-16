@@ -1612,6 +1612,23 @@ Linux's ext4 file system
 
     \item \textbf{Elevator (C-SCAN)}
 
+    \begin{itemize}
+        \item Feels like Round-Rrobin
+        \item Moves back and forth across disk
+        \begin{enumerate}[1.]
+            \item outer-most-track $\to$ inner-most-track of disk $\to$ outer-most-track ...
+            \item inner-most-track  $\to$ outer-most-track of disk $\to$ inner-most-track ...
+        \end{enumerate}
+
+        \bigskip
+
+
+        \begin{itemize}
+            \item \textbf{sweep} - single pass across the disk
+        \end{itemize}
+        \item Incoming requests are queued until next sweep
+    \end{itemize}
+
     \item \textbf{SPTF: Shortest Positioning Time First}
 \end{itemize}r
 
