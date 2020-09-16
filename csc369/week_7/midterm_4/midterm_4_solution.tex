@@ -1928,33 +1928,63 @@
 
     \item
 
-    \begin{enumerate}[a)]
+    \begin{enumerate}[1)]
         \item
 
-        \textbf{s1}
+        \begin{enumerate}[a)]
+            \textbf{s1}
 
-        \bigskip
+            \bigskip
 
-        Since \texttt{mygrade-copy2.txt} is a soft link to \texttt{mygrade-copy.txt},
-        the removal of \texttt{mygrade-copy.txt} would result in \texttt{mygrade-copy2.txt} becoming a dangling reference.
+            Since \texttt{mygrade-copy2.txt} is a soft link to \texttt{mygrade-copy.txt},
+            the removal of \texttt{mygrade-copy.txt} would result in \texttt{mygrade-copy2.txt} becoming a dangling reference.
 
-        \bigskip
+            \bigskip
 
-        \textbf{s2}
+            \textbf{s2}
 
-        \bigskip
+            \bigskip
 
-        There is no problem in this case. \texttt{mygrade-copy2.txt} is a hardlink
-        pointing to the inode of file \texttt{mygrade.txt}.
+            There is no problem in this case. The symbolic link to file \texttt{mygrades.txt}
+            is removed, but the hardlinks to the inode of file \texttt{mygrades.txt} remains.
 
-        \bigskip
+            \bigskip
 
-        So, wehn removed, \texttt{mygrade-copy2.txt} still points to the inode of \texttt{mygrade.txt}.
+            The total number of references to inode of file \texttt{mygrades.txt} is 2.
 
-        \bigskip
+            \item
 
-        However, in inode of file \texttt{mygrade.txt} the total number of reference
-        count would reduce from 2 to 1.
+            \textbf{s1}
+
+            \bigskip
+
+            There is no problem at all. The \texttt{mygrade-copy2.txt} is a soft link to file
+            \texttt{mygrade-copy.txt} of which points to the inode of file \texttt{mygrade.txt}
+
+            \bigskip
+
+            However, because the file \texttt{mygrade.txt} is removed, the number of references in the inode of \texttt{mygrade.txt}
+            would reduce form 2 to 1.
+
+            \bigskip
+
+            \textbf{s2}
+
+            \bigskip
+
+            There is no problem in this case. \texttt{mygrade-copy2.txt} is a hardlink
+            pointing to the inode of file \texttt{mygrade.txt}.
+
+            \bigskip
+
+            So, when removed, \texttt{mygrade-copy2.txt} still points to the inode of \texttt{mygrade.txt}.
+
+            \bigskip
+
+            However, in inode of file \texttt{mygrade.txt}, the total number of reference
+            count would reduce from 2 to 1.
+
+        \end{enumerate}
 
         \item
 
@@ -1968,6 +1998,9 @@
 
         FS updates its parent directory, freeing the directory entry in second data block
         for it to be used by others.
+
+        \item
+
 
 
     \end{enumerate}
