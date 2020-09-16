@@ -2088,9 +2088,19 @@
             \item \textbf{Symbolic link}
 
             \begin{itemize}
-                \item
+                \item Can create link across partitions
+                \item Can create link to a directory
+                \item File system needs to follw the link
+                \item Removing the linked file would result in dangling link/reference
             \end{itemize}
             \item \textbf{Hard link}
+            \begin{itemize}
+                \item Cannot create a link to a directory
+                \item Cannot create a link across partitions
+                \item No extra work is involved in following the link
+                \item Removing hardlink removes file only when its hardlink
+                count reaches 0.
+            \end{itemize}
 
         \end{itemize}
 
