@@ -1610,23 +1610,27 @@ Linux's ext4 file system
         \end{itemize}
     \end{itemize}
 
+    \item \textbf{Sweep}
+    \begin{itemize}
+        \item Is a single pass across the disk from outer-most-track to inner-most-trak or vice versa
+        \item Feels like a windshield wiper in a car
+    \end{itemize}
+
     \item \textbf{Elevator (C-SCAN)}
 
     \begin{itemize}
-        \item Feels like Round-Rrobin
+        \item Feels like Round-Robin
         \item Moves back and forth across disk
         \begin{enumerate}[1.]
             \item outer-most-track $\to$ inner-most-track of disk $\to$ outer-most-track ...
             \item inner-most-track  $\to$ outer-most-track of disk $\to$ inner-most-track ...
         \end{enumerate}
-
-        \bigskip
-
-
+        \item Incoming requests are queued until next \textbf{sweep}
+        \item Advantages
         \begin{itemize}
-            \item \textbf{sweep} - single pass across the disk
+            \item Prevents Starvation
         \end{itemize}
-        \item Incoming requests are queued until next sweep
+        \item Disadvantages
     \end{itemize}
 
     \item \textbf{SPTF: Shortest Positioning Time First}
