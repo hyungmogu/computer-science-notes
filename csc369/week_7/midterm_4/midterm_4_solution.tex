@@ -2033,6 +2033,32 @@
 
         $12 + (2 \times 1024) + (3 \times 1024^2) \approx 3.15$ million accesses
         are required to read the file of maximum size in sequential order.
+
+        \bigskip
+
+        \item
+
+        The two ways of implementing directories are
+
+
+        \begin{itemize}
+            \item Using lists
+            \begin{itemize}
+                \item Each directory entry is of format
+
+                \bigskip
+
+                \texttt{("User-readible-file-name", i-number)}
+                \item Is easy to implement
+                \item Suffers in performance. (we have to check each individual entry to find the correct file)
+            \end{itemize}
+            \item Using hasmap
+            \begin{itemize}
+                \item key of hasmap is user-readible file name, and value is i-number of file
+                \item Takes space
+                \item Excellent in performance.
+            \end{itemize}
+        \end{itemize}
     \end{enumerate}
 
 
