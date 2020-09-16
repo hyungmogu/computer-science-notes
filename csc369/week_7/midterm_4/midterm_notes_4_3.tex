@@ -55,13 +55,12 @@
 \section{Exam Related Questions and Tips}
 
 \begin{itemize}
-    \item What is hard link? What is soft link? What are the differences between the two?
-    \item I wonder how system call for reading file/directory works in UNIX. Does it check for bitmap?
-    \item I wonder how system call for deleting file/directory works in UNIX
-    \item I wonder how system call for creatubg file/directory works in UNIX
-    \item Learned that
+    \item [\color{blue}Question\color{black}] I wonder how system call for deleting file/directory works in UNIX
+    \item [\color{blue}Question\color{black}] Does linked list have inode? If not how does linked-list based file system
+    have information about file?
+    \item [\color{green}Tips\color{black}] Learned that
     \begin{itemize}
-        \item Missing Inode Bitmap - multiple file paths may point to same inode
+        \item Missing Inode Bitmap + Updated Directory data - multiple file paths may point to same inode
     \end{itemize}
 \end{itemize}
 
@@ -723,7 +722,7 @@ Linux's ext2, ext3
     \end{itemize}
 \end{itemize}
 
-\subsection{Linked Allocation}
+\subsection{Linked-List Allocation}
 
 \begin{center}
 \includegraphics[width=\linewidth]{../images/midterm_4_solution_47.png}
@@ -731,6 +730,7 @@ Linux's ext2, ext3
 
 \begin{itemize}
     \item \textbf{Inode} stores the starting block and last block in the directory
+    \item Does not have inode
     \item Each block in file contains a pointer to the next block
     \item Disadvantage
     \begin{itemize}
@@ -1596,6 +1596,14 @@ Linux's ext4 file system
     \begin{itemize}
         \item Moves across surface to position head over the desired track
     \end{itemize}
+
+    \item \textbf{Calculating I/O Time}
+
+    \item \textbf{SSTF: Shortest Seek Time First}
+
+    \item \textbf{Elevator (C-SCAN)}
+
+    \item \textbf{SPTF: Shortest Positioning Time First}
 \end{itemize}r
 
 
