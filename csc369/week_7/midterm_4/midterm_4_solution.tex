@@ -1935,9 +1935,23 @@
 
         \bigskip
 
-        Since \texttt{mygrade-copy2.txt} is a soft link that's linked to
-        \texttt{mygrade-copy.txt}, the removal of file \texttt{mygrade-copy.txt}
-        would result in texttt{mygrade-copy2.txt} becoming a dangling reference.
+        Since \texttt{mygrade-copy2.txt} is a soft link to \texttt{mygrade-copy.txt},
+        the removal of \texttt{mygrade-copy.txt} would result in \texttt{mygrade-copy2.txt} becoming a dangling reference.
+
+        \bigskip
+
+        \textbf{s2}
+
+        \bigskip
+
+        There is no problem in this case. \texttt{mygrade-copy2.txt} is a hardlink
+        pointing to the inode of file \texttt{mygrade.txt}.
+
+        \bigskip
+
+        The inode of file \texttt{mygrade.txt} has two number of references in total.
+
+
     \end{enumerate}
 
 
