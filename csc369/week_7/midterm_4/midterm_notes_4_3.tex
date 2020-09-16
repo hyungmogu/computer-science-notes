@@ -56,6 +56,7 @@
 
 \begin{itemize}
     \item [\color{blue}Question\color{black}] I wonder how system call for deleting file/directory works in UNIX
+    \item [\color{blue}Question\color{black}] Is time information changed when defragmentation occurs?
     \item [\color{blue}Question\color{black}] Does linked list have inode? If not how does linked-list based file system
     have information about file?
     \item [\color{green}Tips\color{black}] Learned that
@@ -1525,8 +1526,6 @@ Linux's ext4 file system
 \underline{\textbf{Notes}}
 
 \begin{itemize}
-    \item [\color{blue}Question\color{black}] In question 4.c, does the inode in phrase 'what changes are made to inode' referring to inode's metadata?
-    \item [\color{blue}Question\color{black}] Is time information changed when defragmentation occurs?
     \item \textbf{Directory}
 
     \begin{itemize}
@@ -1600,6 +1599,16 @@ Linux's ext4 file system
     \item \textbf{Calculating I/O Time}
 
     \item \textbf{SSTF: Shortest Seek Time First}
+
+    \begin{itemize}
+        \item Is an early disk scheduling approach
+        \item Orders the queue of I/O requests by track
+        \item Picks requests on the nearest track first
+        \item Disadvantage
+        \begin{itemize}
+            \item Starvation
+        \end{itemize}
+    \end{itemize}
 
     \item \textbf{Elevator (C-SCAN)}
 
