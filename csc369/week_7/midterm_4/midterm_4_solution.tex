@@ -1962,7 +1962,12 @@
 
         \bigskip
 
-        FS frees the file's inode, and its data blocks by setting them free in bitmap.
+        FS frees the file's inode, and its data blocks by deallocating them in bitmap.
+
+        \bigskip
+
+        FS updates its parent directory, freeing the directory entry in second data block
+        for it to be used by others.
 
 
     \end{enumerate}
