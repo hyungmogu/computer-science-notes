@@ -1949,7 +1949,20 @@
 
         \bigskip
 
-        The inode of file \texttt{mygrade.txt} has two number of references in total.
+        So, wehn removed, \texttt{mygrade-copy2.txt} still points to the inode of \texttt{mygrade.txt}.
+
+        \bigskip
+
+        However, in inode of file \texttt{mygrade.txt} the total number of reference
+        count would reduce from 2 to 1.
+
+        \item
+
+        The number of rerence count to inode of the file is reduced to 0.
+
+        \bigskip
+
+        FS frees the file's inode, and its data blocks by setting them free in bitmap.
 
 
     \end{enumerate}
