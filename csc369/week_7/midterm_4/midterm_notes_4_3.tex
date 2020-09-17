@@ -54,13 +54,16 @@
 \begin{document}
 \title{CSC 369 Midterm 4 Notes}
 
-\section{Exam Related Questions and Tips}
+\section{Questions and Tips}
 
 \begin{itemize}
-    \item [\color{blue}Question\color{black}] I wonder how system call for deleting file/directory works in UNIX
     \item [\color{blue}Question\color{black}] Is time information changed when defragmentation occurs?
     \item [\color{blue}Question\color{black}] Does linked list have inode? If not how does linked-list based file system
     have information about file?
+    \item [\color{blue}Question\color{black}] The textbook says $T_{transfer}$ is 30 microsec,
+    but when doing the calculation with supplied equation, it returns 32 microseconds. Did the
+    author estimated the value of $T_{transfer}$?
+    \item [\color{blue}Question\color{black}] What is the process when deleting file/directory works in UNIX
     \item [\color{green}Tips\color{black}] Learned that
     \begin{itemize}
         \item Missing Inode Bitmap + Updated Directory data - multiple file paths may point to same inode
@@ -1530,254 +1533,242 @@ Linux's ext4 file system
 
 \section{Hard Drives}
 
-\underline{\textbf{Notes}}
+\subsection{Hard Disk Drive}
 
 \begin{itemize}
-    \item \textbf{Linked List Allocation}
+    \item Is a non-volatile data storage device
+\end{itemize}
 
-    \begin{itemize}
-        \item Does not have inode (i need a strong verification on this)
-    \end{itemize}
+\subsection{Platter}
 
-    \item \textbf{Hard Disk Drive}
+\begin{itemize}
+    \item Is a circular hard surface on which data is stored
+    \item One or more aluminum, glass, or ceramic disk that
+is coated in a magnetic media $^{[1]}$
+    \item All modern drives use glass or glass-ceramic platters $^{[2]}$
+\end{itemize}
 
-    \begin{itemize}
-        \item Is a non-volatile data storage device
-    \end{itemize}
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{../images/midterm_4_solution_49.png}
+\end{center}
 
-    \item \textbf{Platter}
+\subsection{Spindle}
 
-    \begin{itemize}
-        \item Is a circular hard surface on which data is stored
-        \item One or more aluminum, glass, or ceramic disk that
-    is coated in a magnetic media $^{[1]}$
-        \item All modern drives use glass or glass-ceramic platters $^{[2]}$
-    \end{itemize}
+\begin{itemize}
+    \item Is a motor that spins the platter around
+\end{itemize}
 
-    \begin{center}
-        \includegraphics[width=0.5\linewidth]{../images/midterm_4_solution_49.png}
-    \end{center}
+\subsection{Track:}
 
-    \item \textbf{Spindle}
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_50.png}
+\end{center}
 
-    \begin{itemize}
-        \item Is a motor that spins the platter around
-    \end{itemize}
+\begin{itemize}
+    \item is a data storage ring on a computer hard drive
+that is capable of storing information.
+\end{itemize}
 
-    \item \textbf{Track:}
+\subsection{Sector:}
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_59.png}
+\end{center}
+\begin{itemize}
+    \item A division of storage medium on a hard drive
+    that is a wedge shaped section of one of the circular tracks.
+    \item Each arc is sector that \underline{usually holds 512 byte of data}.
+\end{itemize}
 
-    \begin{center}
-        \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_50.png}
-    \end{center}
+\subsection{Disk Head}
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_51.png}
+\end{center}
 
-    \begin{itemize}
-        \item is a data storage ring on a computer hard drive
-    that is capable of storing information.
-    \end{itemize}
+\begin{itemize}
+    \item Is where process of reading and writing is accomplished
+\end{itemize}
 
-    \item \textbf{Sector:}
-    \begin{center}
-        \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_59.png}
-    \end{center}
-    \begin{itemize}
-        \item A division of storage medium on a hard drive
-        that is a wedge shaped section of one of the circular tracks.
-        \item Each arc is sector that \underline{usually holds 512 byte of data}.
-    \end{itemize}
+\subsection{Disk Arm}
 
-    \item \textbf{Disk Head}
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_51.png}
-    \end{center}
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_52.png}
+\end{center}
 
-    \begin{itemize}
-        \item Is where process of reading and writing is accomplished
-    \end{itemize}
+\begin{itemize}
+    \item Moves across surface to position head over the desired track
+\end{itemize}
 
-    \item \textbf{Disk Arm}
-
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_52.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Moves across surface to position head over the desired track
-    \end{itemize}
-
-    \item \textbf{Rotation Delay}
-    \begin{itemize}
-        \item Is component of I/O service time
-        \item Is time of disk head waiting for a block on the same track
-        \item Has full rotational delay \texttt{R}
-
-        \bigskip
-
-        \underline{\textbf{Example}}
-
-        \bigskip
-
-        \begin{center}
-            \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_57.png}
-        \end{center}
-    \end{itemize}
-
-
-    \item \textbf{Seek}
-
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_55.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Feels like playing an automatic vinyl player
-
-        \begin{center}
-            \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_56.png}
-        \end{center}
-
-        \item Is the process of moving of disk arm to the correct track
-        \item Is one of the most costly operations
-        \item Has 4 phases
-        \begin{enumerate}[1.]
-            \item \textbf{Acceleration}
-            \begin{itemize}
-                \item Is where disk arm gets moving
-            \end{itemize}
-            \item \textbf{Coasting}
-            \begin{itemize}
-                \item Is where disk arm is moving at full speed to target track
-            \end{itemize}
-            \item \textbf{Deceleration}
-            \begin{itemize}
-                \item Is where disk arm is slowing down
-            \end{itemize}
-            \item \textbf{Settling}
-            \begin{itemize}
-                \item Is where disk arm positions head carefully over the correct track
-            \end{itemize}
-        \end{enumerate}
-    \end{itemize}
-
-    \item \textbf{Calculating I/O Time}
-
-    \begin{align}
-        T_{I/O} = T_{seek} + T_{rotation} + T_{transfer}
-    \end{align}
+\subsection{Rotation Delay}
+\begin{itemize}
+    \item Is component of I/O service time
+    \item Is time of disk head waiting for a block on the same track
+    \item Has full rotational delay \texttt{R}
 
     \bigskip
 
     \underline{\textbf{Example}}
 
+    \bigskip
+
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_58.png}
+        \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_57.png}
+    \end{center}
+\end{itemize}
+
+
+\subsection{Seek}
+
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_55.png}
+\end{center}
+
+\begin{itemize}
+    \item Feels like playing an automatic vinyl player
+
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_56.png}
     \end{center}
 
-    \begin{itemize}
-        \item [\color{blue}Question\color{black}] The textbook says $T_{transfer}$ is 30 microsec,
-        but when doing the calculation with supplied equation, it returns 32 microseconds. Did the
-        author estimated the value of $T_{transfer}$?
-        \item \textbf{I/O Time for Random Workload}
-
+    \item Is the process of moving of disk arm to the correct track
+    \item Is one of the most costly operations
+    \item Has 4 phases
+    \begin{enumerate}[1.]
+        \item \textbf{Acceleration}
         \begin{itemize}
-            \item $T_{seek} = 9ms$ (From the manufacturer specification)
-            \item $T_{rotation} \approx 4.15ms$
-
-            \bigskip
-
-            because
-
-            \begin{align}
-                \frac{\text{Time (ms)}}{\text{Rotation}} &= \frac{1 \cancel{minute}}{7200 Rot.} \cdot \frac{60 \cancel{seconds}}{1 \cancel{minute}} \cdot \frac{1000 ms}{1 \cancel{seconds}}\\
-                &= \frac{60,000 ms}{7200 Rot}\\
-                &\approx \frac{8.3 ms}{Rotation}
-            \end{align}
-
-            \bigskip
-
-            But because disk encounters half rotation on average, we have
-
-            \bigskip
-
-            \begin{align}
-                T_{rotation} \approx 4.15ms
-            \end{align}
-
-            \item $T_{transfer} \approx 38 microsecs$
-
-            \bigskip
-
-            because
-
-            \begin{align}
-                T_{transfer} &= \frac{\text{Time (ms)}}{\text{1 Request}}\\
-                &= \frac{4 \cancel{\text{ KB}}}{\text{request}} \cdot \frac{1 \cancel{\text{ MB}}}{1000 \cancel{\text{ KB}}} \cdot \frac{1 \cancel{\text{ second}}}{105 \text{ MB}} \cdot \frac{1000 \text{ ms}}{1 \cancel{\text{ second}}}\\
-                &\approx 38 \text{ microseconds}
-            \end{align}
+            \item Is where disk arm gets moving
         \end{itemize}
+        \item \textbf{Coasting}
+        \begin{itemize}
+            \item Is where disk arm is moving at full speed to target track
+        \end{itemize}
+        \item \textbf{Deceleration}
+        \begin{itemize}
+            \item Is where disk arm is slowing down
+        \end{itemize}
+        \item \textbf{Settling}
+        \begin{itemize}
+            \item Is where disk arm positions head carefully over the correct track
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Calculating I/O Time}
+
+\begin{align}
+    T_{I/O} = T_{seek} + T_{rotation} + T_{transfer}
+\end{align}
+
+\bigskip
+
+\underline{\textbf{Example}}
+
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_58.png}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{I/O Time for Random Workload}
+
+    \begin{itemize}
+        \item $T_{seek} = 9ms$ (From the manufacturer specification)
+        \item $T_{rotation} \approx 4.15ms$
 
         \bigskip
 
-        So, (in approximation)
+        because
 
         \begin{align}
-            T_{I/O} &= T_{seek} + T_{rotation} + T_{transfer}\\
-            &= 9ms + 4.15ms + 0.038ms\\
-            &= 13.15ms
+            \frac{\text{Time (ms)}}{\text{Rotation}} &= \frac{1 \cancel{minute}}{7200 Rot.} \cdot \frac{60 \cancel{seconds}}{1 \cancel{minute}} \cdot \frac{1000 ms}{1 \cancel{seconds}}\\
+            &= \frac{60,000 ms}{7200 Rot}\\
+            &\approx \frac{8.3 ms}{Rotation}
         \end{align}
 
-        \item \textbf{I/O Time for Sequential Workload}
-        \begin{itemize}
-            \item
-        \end{itemize}
+        \bigskip
+
+        But because disk encounters half rotation on average, we have
+
+        \bigskip
+
+        \begin{align}
+            T_{rotation} \approx 4.15ms
+        \end{align}
+
+        \item $T_{transfer} \approx 38 microsecs$
+
+        \bigskip
+
+        because
+
+        \begin{align}
+            T_{transfer} &= \frac{\text{Time (ms)}}{\text{1 Request}}\\
+            &= \frac{4 \cancel{\text{ KB}}}{\text{request}} \cdot \frac{1 \cancel{\text{ MB}}}{1000 \cancel{\text{ KB}}} \cdot \frac{1 \cancel{\text{ second}}}{105 \text{ MB}} \cdot \frac{1000 \text{ ms}}{1 \cancel{\text{ second}}}\\
+            &\approx 38 \text{ microseconds}
+        \end{align}
     \end{itemize}
 
+    \bigskip
 
-    \item \textbf{SSTF: Shortest Seek Time First}
+    So, (in approximation)
 
+    \begin{align}
+        T_{I/O} &= T_{seek} + T_{rotation} + T_{transfer}\\
+        &= 9ms + 4.15ms + 0.038ms\\
+        &= 13.15ms
+    \end{align}
+
+    \item \textbf{I/O Time for Sequential Workload}
     \begin{itemize}
-        \item Is an early disk scheduling approach
-        \item Orders the queue of I/O requests by track
-        \item Picks requests on the nearest track first
-        \item Disadvantage
-        \begin{itemize}
-            \item Starvation
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Sweep}
-    \begin{itemize}
-        \item Is a single pass across the disk from outer-most-track to inner-most-trak or vice versa
-        \item Feels like a windshield wiper in a car
-    \end{itemize}
-
-    \item \textbf{Elevator (C-SCAN)}
-
-    \begin{itemize}
-        \item Feels like Round-Robin
-        \item Moves back and forth across disk
-        \begin{enumerate}[1.]
-            \item outer-most-track $\to$ inner-most-track of disk $\to$ outer-most-track ...
-            \item inner-most-track  $\to$ outer-most-track of disk $\to$ inner-most-track ...
-        \end{enumerate}
-        \item Incoming requests are queued until next \textbf{sweep}
-        \item Advantages
-        \begin{itemize}
-            \item Prevents Starvation
-        \end{itemize}
-        \item Disadvantages
-    \end{itemize}
-
-    \item \textbf{SPTF: Shortest Positioning Time First}
-
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_54.png}
-    \end{center}
-
-    \begin{itemize}
-        \item Feels like Round-Robin + Shortest Job First
-        \item Is solution that closely approxiates SJF by taking both seek and rotation
+        \item Is the max-transfer rate
+        \item For Barracuda it's $105 \text{ MB/s}$
+        \item For Cheetah its $125 \text{ MB/s}$
     \end{itemize}
 \end{itemize}
 
+
+\subsection{SSTF: Shortest Seek Time First}
+
+\begin{itemize}
+    \item Is an early disk scheduling approach
+    \item Orders the queue of I/O requests by track
+    \item Picks requests on the nearest track first
+    \item Disadvantage
+    \begin{itemize}
+        \item Starvation
+    \end{itemize}
+\end{itemize}
+
+\subsection{Sweep}
+\begin{itemize}
+    \item Is a single pass across the disk from outer-most-track to inner-most-trak or vice versa
+    \item Feels like a windshield wiper in a car
+\end{itemize}
+
+\subsection{Elevator (C-SCAN)}
+
+\begin{itemize}
+    \item Feels like Round-Robin
+    \item Moves back and forth across disk
+    \begin{enumerate}[1.]
+        \item outer-most-track $\to$ inner-most-track of disk $\to$ outer-most-track ...
+        \item inner-most-track  $\to$ outer-most-track of disk $\to$ inner-most-track ...
+    \end{enumerate}
+    \item Incoming requests are queued until next \textbf{sweep}
+    \item Advantages
+    \begin{itemize}
+        \item Prevents Starvation
+    \end{itemize}
+    \item Disadvantages
+\end{itemize}
+
+\subsection{SPTF: Shortest Positioning Time First}
+
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_54.png}
+\end{center}
+
+\begin{itemize}
+    \item Feels like Round-Robin + Shortest Job First
+    \item Is solution that closely approxiates SJF by taking both seek and rotation
+\end{itemize}
 
 \end{document}
