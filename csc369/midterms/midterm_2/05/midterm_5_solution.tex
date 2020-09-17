@@ -92,17 +92,33 @@
 
         \item
 
-        There is nothing to free inside the
+        Conditional variable is a queue that allows threads to be put themselves on to
+        sleep (in blocked state) when thread it is not desired using \texttt{pthread\_cond\_wait}
+        function.
 
         \bigskip
 
-        \underline{\textbf{Notes}}
+        Since there are no threads inside \texttt{cv1}, there is nothing to awake using
+        \texttt{pthread\_cond\_signal}.
 
         \bigskip
 
-        \begin{itemize}
-            \item
-        \end{itemize}
+        So, nothing will occur.
+
+        \bigskip
+
+        \item
+
+        System call is a subset of interrupt caused by user application to switch
+        from user mode to kernel mode to perform previleged operations for the application.
+
+        \bigskip
+
+        Interrupt is a signal sent by hardware (e.g keyboard, mouse, hard drive) or software.
+
+        \bigskip
+
+        It tells the cpu to stop its activities and execute appropriate part of the operating system.
 
     \end{enumerate}
 \end{enumerate}
