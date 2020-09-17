@@ -77,6 +77,11 @@
 \end{itemize}
 
 \subsection{Directory}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_53.png}
+\end{center}
+
 \begin{itemize}
     \item Is like a file
     \item Also has a low-level name \textbf{i-number}
@@ -1526,16 +1531,6 @@ Linux's ext4 file system
 \underline{\textbf{Notes}}
 
 \begin{itemize}
-    \item \textbf{Directory}
-
-    \begin{itemize}
-        \item Directory structure looks as follows
-
-        \begin{center}
-        \includegraphics[width=0.8\linewidth]{../images/midterm_4_solution_53.png}
-        \end{center}
-    \end{itemize}
-
     \item \textbf{Linked List Allocation}
 
     \begin{itemize}
@@ -1596,6 +1591,12 @@ Linux's ext4 file system
         \item Moves across surface to position head over the desired track
     \end{itemize}
 
+    \item \textbf{Rotation Delay}
+    \begin{itemize}
+        \item Is component of I/O service time
+        \item Is time of disk head waiting for a block on the same track
+    \end{itemize}
+
     \item \textbf{Seek}
 
     \begin{center}
@@ -1603,6 +1604,12 @@ Linux's ext4 file system
     \end{center}
 
     \begin{itemize}
+        \item Feels like playing an automatic vinyl player
+
+        \begin{center}
+            \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_56.png}
+        \end{center}
+
         \item Is the process of moving of disk arm to the correct track
         \item Is one of the most costly operations
         \item Has 4 phases
