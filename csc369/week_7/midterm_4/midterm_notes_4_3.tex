@@ -1685,8 +1685,9 @@ Linux's ext4 file system
             because
 
             \begin{align}
-                \frac{\text{size of block}}{\text{Max Transfer}} &= \frac{4069 \text{ bytes}}{125 \text{ MB/s}}\\
-                &= \frac{4069 \text{ bytes} \cdot \text{second}}{1.25 \times 10^8 \text{ MB}} \cdot \frac{1000 \text{ miliseconds}}{\text{second}}
+                \frac{\text{size of block}}{\text{Max Transfer}} &= \frac{4069 \text{ bytes}}{105 \text{ MB/s}}\\
+                &= \frac{4069 \cancel{\text{ bytes}} \cdot \cancel{\text{second}}}{1.05 \times 10^8 \cancel{\text{ bytes}}} \cdot \frac{1000 \cancel{\text{ miliseconds}}}{\cancel{\text{second}}} \cdot \frac{1000 \text{ microseconds}}{1 \cancel{\text{milisecond}}}\\
+                &\approx 38.75 \text{ microseconds}
             \end{align}
         \end{itemize}
 
