@@ -17,6 +17,8 @@
 \usepackage[utf]{kotex}
 \usepackage{hyperref}
 \usepackage{soul}
+\usepackage{cancel}
+
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -1663,7 +1665,17 @@ Linux's ext4 file system
 
         \begin{itemize}
             \item $T_{seek} = 9ms$ (From the manufacturer specification)
-            \item $T_{rotation} = 2ms$
+            \item $T_{rotation} = 8.3ms$
+
+            \bigskip
+
+            because
+
+            \begin{align}
+                \frac{Time (ms)}{1 Rot.} &= \frac{1 \cancel{minute}}{7200 Rot.} \cdot \frac{60 \cancel{seconds}}{1 \cancel{minute}} \cdot \frac{1000 ms}{1 \cancel{seconds}}\\
+                &= \frac{60,000 ms}{7200 Rot}\\
+                &\approx \frac{8.3 ms}{Rotation}
+            \end{align}
 
             \item $T_{transfer} = 30 microsecs$
         \end{itemize}
