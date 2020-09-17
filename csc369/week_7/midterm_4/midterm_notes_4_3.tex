@@ -1565,14 +1565,25 @@ Linux's ext4 file system
     \end{itemize}
 
     \item \textbf{Track:}
+
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_50.png}
+    \end{center}
+
     \begin{itemize}
         \item is a data storage ring on a computer hard drive
     that is capable of storing information.
     \end{itemize}
 
+    \item \textbf{Sector:}
     \begin{center}
-        \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_50.png}
+        \includegraphics[width=0.4\linewidth]{../images/midterm_4_solution_59.png}
     \end{center}
+    \begin{itemize}
+        \item A division of storage medium on a hard drive
+        that is a wedge shaped section of one of the circular tracks.
+        \item Each arc is sector that \underline{usually holds 512 byte of data}.
+    \end{itemize}
 
     \item \textbf{Disk Head}
     \begin{center}
@@ -1609,6 +1620,7 @@ Linux's ext4 file system
             \includegraphics[width=0.6\linewidth]{../images/midterm_4_solution_57.png}
         \end{center}
     \end{itemize}
+
 
     \item \textbf{Seek}
 
@@ -1661,12 +1673,14 @@ Linux's ext4 file system
     \end{center}
 
     \begin{itemize}
-        \item [\color{blue}Question\color{black}] Why does I/O time on textbook say \texttt{13.2ms}?
+        \item [\color{blue}Question\color{black}] The textbook says $T_{transfer}$ is 30 microsec,
+        but when doing the calculation with supplied equation, it returns 32 microseconds. Did the
+        author estimated the value of $T_{transfer}$?
         \item \textbf{I/O Time for Random Workload}
 
         \begin{itemize}
             \item $T_{seek} = 9ms$ (From the manufacturer specification)
-            \item $T_{rotation} \approx 4ms$
+            \item $T_{rotation} \approx 4.15ms$
 
             \bigskip
 
@@ -1685,7 +1699,7 @@ Linux's ext4 file system
             \bigskip
 
             \begin{align}
-                T_{rotation} \approx 4ms
+                T_{rotation} \approx 4.15ms
             \end{align}
 
             \item $T_{transfer} \approx 38 microsecs$
@@ -1703,10 +1717,12 @@ Linux's ext4 file system
 
         \bigskip
 
-        So,
+        So, (in approximation)
 
         \begin{align}
-            T_{I/O} &= T_{seek} +
+            T_{I/O} &= T_{seek} + T_{rotation} + T_{transfer}\\
+            &= 9ms + 4.15ms + 0.038ms\\
+            &= 13.15ms
         \end{align}
 
         \item \textbf{I/O Time for Sequential Workload}
