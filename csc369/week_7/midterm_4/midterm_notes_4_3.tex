@@ -1661,7 +1661,7 @@ Linux's ext4 file system
     \end{center}
 
     \begin{itemize}
-        \item [\color{blue}Question\color{black}] Why does manufacturer time on textbook say \texttt{13.2ms}?
+        \item [\color{blue}Question\color{black}] Why does I/O time on textbook say \texttt{13.2ms}?
         \item \textbf{I/O Time for Random Workload}
 
         \begin{itemize}
@@ -1678,10 +1678,30 @@ Linux's ext4 file system
                 &\approx \frac{8.3 ms}{Rotation}
             \end{align}
 
-            \item $T_{transfer} = 30 microsecs$ (I need to know where this is coming from)
+            \item $T_{transfer} = 30 microsecs$
+
+            \bigskip
+
+            because
+
+            \begin{align}
+                \frac{\text{size of block}}{\text{Max Transfer}} &= \frac{4069 \text{ bytes}}{125 \text{ MB/s}}\\
+                &= \frac{4069 \text{ bytes} \cdot \text{second}}{1.25 \times 10^8 \text{ MB}} \cdot \frac{1000 \text{ miliseconds}}{\text{second}}
+            \end{align}
         \end{itemize}
 
+        \bigskip
+
+        So,
+
+        \begin{align}
+            T_{I/O} &= T_{seek} +
+        \end{align}
+
         \item \textbf{I/O Time for Sequential Workload}
+        \begin{itemize}
+            \item
+        \end{itemize}
     \end{itemize}
 
 
