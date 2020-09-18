@@ -320,7 +320,26 @@
         \item [\color{blue}Question\color{black}] How can we construct safe barriers around critical section?
         \item \textbf{Locks}
         \begin{itemize}
-            \item
+            \item Ensures that any critical section executes is a signle atomic operation
+            \item Guarentees that no more than single code can be active within the code
+        \end{itemize}
+
+        \item \texttt{pthread\_mutex\_lock}
+        \begin{itemize}
+            \item \textbf{Syntax:} \texttt{pthread\_mutex\_t VAR}
+            \item Is used to provide mutual exclusion between threads
+            \item If mutex is already locked, thread blocks until mutex is available
+            \item Must be proerly initialized before use
+
+            \bigskip
+
+            \underline{\textbf{Static Way}}
+
+
+            \bigskip
+
+            \underline{\textbf{Dynamic Way}}
+
         \end{itemize}
     \end{itemize}
 \end{enumerate}
