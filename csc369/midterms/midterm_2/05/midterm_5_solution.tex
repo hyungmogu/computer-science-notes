@@ -335,13 +335,57 @@
 
             \underline{\textbf{Static Way}}
 
+            \bigskip
+
+            \texttt{pthread\_mutex\_t lock = PTHREAD\_MUTEX\_INITIALIZER}
 
             \bigskip
 
             \underline{\textbf{Dynamic Way}}
 
+            \bigskip
+
+            \texttt{int rc = pthread\_mutex\_init(\&lock NULL);}\\
+            \texttt{assert(rc == 0);}
+
+            \bigskip
+
         \end{itemize}
     \end{itemize}
+
+    \item
+
+    \begin{enumerate}[a)]
+        \item It would favour I/O bound process. I/O bound process are mostly about waiting for the completion
+        of input or output.
+
+        \bigskip
+
+        And example of this is continuous typing on microsoft word.
+
+        \bigskip
+
+        Usually the I/O-bound process lasts a short period of time.
+
+        \bigskip
+
+        On the other hand, CPU-bound process involves the execution of algorithm that requires a
+        huge computation time.
+
+        \bigskip
+
+        An example of this is running a simulation.
+
+        \bigskip
+
+        Because of this, CPU-bound process usually lasts a long period of time.
+
+        \bigskip
+
+        Because of this, the processing algorithm would favour I/O bound process
+        over CPU bound process.
+
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
