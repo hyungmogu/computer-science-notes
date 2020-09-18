@@ -426,12 +426,25 @@
         \item
 
         \begin{enumerate}[a)]
+            \item Is one of simplest lock to build. It allows only one thread to enter at a time. The variable lock
+            has two values 0 (free/available), 1 (in use/locked). Spinlock uses two operations. One is \texttt{acquire()}
+            and another is \texttt{release()}. \texttt{acquire()} uses while loop and \texttt{test-and-lock} function to
+            ensure atomic operation in critical section. A thread is in locked state until lock is freed.
             \item
-            \item
+
+
             \item Is a software interrupt sent by user application, so it
             traps into kernel mode, perform previliged operation, return to user mode from trap,
             and continue application with the returned result.
         \end{enumerate}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item [\color{blue}Question\color{black}] What is scheduling quantum?
+        \end{itemize}
     \end{enumerate}
 
 
