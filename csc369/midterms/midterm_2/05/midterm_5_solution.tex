@@ -249,14 +249,21 @@
     typedef struct acct {
         float balance;
         pthread_mutex_t lock;
+        pthread_cond_t cond;
     } account;
 
     void transfer_amount(account *a1, account *a2, float amount) {
 
         // lock critical section during the transfer process
+
+
+
         // transfer amount
 
         // lock the transferring user if the balance is negative
+        if (a1->balance < 0) {
+            pthread_cond_wait(&a1->cond, &a1->lock);
+        }
 
     }
 
@@ -269,6 +276,7 @@
     \begin{itemize}
         \item [\color{blue}Question\color{black}] When do we use the while loop like lock?
         \item [\color{blue}Question\color{black}] Does the use of if statement to put thread into sleep acceptable?
+        \item [\color{blue}Question\color{black}] How can we construct safe barriers around critical section?
     \end{itemize}
 \end{enumerate}
 
