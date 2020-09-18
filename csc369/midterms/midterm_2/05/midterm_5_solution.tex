@@ -552,6 +552,34 @@
 
     \begin{enumerate}[a)]
         \item \texttt{c)} is the only scheduling algorithm that minimizes average wait time.
+        \item
+
+        \bigskip
+
+        A conditional variable is a queue where an undesired thread can be added and put to sleep
+        (by switching to blocked state) by calling the function \texttt{pthread\_cond\_wait}.
+
+        \bigskip
+
+        When state is changed, one or more threads in conditional variable can be awakend.
+
+        \bigskip
+
+        A thread in conditional variable is put to sleep using the function \texttt{pthread\_cond\_wait}
+
+        \bigskip
+
+        And a thread in conditional variable is awakend using the function \texttt{pthread\_cond\_signal}
+
+        \bigskip
+
+        \underline{\textbf{Notes}}
+
+        \begin{itemize}
+            \item I feel weak about conditional variable and semaphores
+            \item [\color{blue}Question\color{black}] What is conditional variable?
+            \item [\color{blue}Question\color{black}] What is semaphore?
+        \end{itemize}
     \end{enumerate}
 
 
