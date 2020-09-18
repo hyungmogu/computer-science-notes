@@ -430,8 +430,10 @@
             has two values 0 (free/available), 1 (in use/locked). Spinlock uses two operations. One is \texttt{acquire()}
             and another is \texttt{release()}. \texttt{acquire()} uses while loop and \texttt{test-and-lock} function to
             ensure atomic operation in critical section. A thread is in locked state until lock is freed.
-            \item
 
+            \item Is the amount of time where processes in the same queue runs until
+            it repeats. The time slice or scheduling quantum must be a multiple of
+            the time of timer-interrupt.
 
             \item Is a software interrupt sent by user application, so it
             traps into kernel mode, perform previliged operation, return to user mode from trap,
@@ -443,6 +445,7 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item I feel weak about scheduling quantum
             \item [\color{blue}Question\color{black}] What is scheduling quantum?
         \end{itemize}
     \end{enumerate}
