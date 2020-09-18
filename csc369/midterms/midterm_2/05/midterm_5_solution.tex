@@ -613,6 +613,11 @@
                 \item updates the internal counter using \texttt{wait()} and \texttt{signal()} primitives
                 \item remembers signal by the internal counter
             \end{itemize}
+            \item \textbf{Conditional Variable}
+            \begin{itemize}
+                \item Is preferred in situation when the reason is more complex than hitting the negatives
+                \item Doesnt remember signals. It gets lost if empty.
+            \end{itemize}
         \end{itemize}
 
         \item
@@ -691,6 +696,7 @@
         \underline{\textbf{Notes}}
 
         \begin{itemize}
+            \item I do not think this is covered in course
             \item [\color{blue}Question\color{black}] What is user pointer?
         \end{itemize}
 
