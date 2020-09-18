@@ -255,10 +255,13 @@
     void transfer_amount(account *a1, account *a2, float amount) {
 
         // lock critical section during the transfer process
-
-
-
+        pthread_mutex_lock(&a1->lock);
+        pthread_mutex_lock(&a2->lock);
         // transfer amount
+        a1->balance -= amount;
+        a2->balance += amount;
+        pthread_mutex_lock(&a1->lock);
+        pthread_mutex_lock(&a2->lock);
 
         // lock the transferring user if the balance is negative
         if (a1->balance < 0) {
@@ -274,6 +277,7 @@
     \underline{\textbf{Notes}}
 
     \begin{itemize}
+        \item Realized that I do not know how to create barriers to critical section.
         \item [\color{blue}Question\color{black}] When do we use the while loop like lock?
         \item [\color{blue}Question\color{black}] Does the use of if statement to put thread into sleep acceptable?
         \item [\color{blue}Question\color{black}] How can we construct safe barriers around critical section?
