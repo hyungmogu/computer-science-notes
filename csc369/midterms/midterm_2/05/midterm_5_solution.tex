@@ -657,6 +657,25 @@
 
         \bigskip
 
+        User pointer is a pointer which points to an address in RAM dedicated for
+        programs in user-mode.
+
+        \bigskip
+
+        When system call goes into kernel mode, it saves PC counter, CPU register, kernel state,
+        and other resource information.
+
+        \bigskip
+
+        When a program returns from trap, it has to resume its program.
+
+        \bigskip
+
+        Before resuming program, we have to make sure all is well.
+
+        \bigskip
+
+        It is here where the validation of user pointer occurs.
 
         \bigskip
 
@@ -666,6 +685,11 @@
             \item I feel weak about mutual exclusion
             \item [\color{blue}Question\color{black}] What is user pointer?
         \end{itemize}
+
+        \item
+
+
+
     \end{enumerate}
 
 
