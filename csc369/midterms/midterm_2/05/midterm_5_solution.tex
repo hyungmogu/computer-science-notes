@@ -609,20 +609,15 @@
 
         \item
 
-        Interrupt is a signal that is sent to operating system by either hardware or software.
+        Mutual exclusion guarentees only one thread to enter critical section at a time.
 
         \bigskip
 
-        It tells the CPU to hold on to its current activity, and execute appropriate part of the
-        operating system.
+        To achieve mutual exclusion, critical section must be atomic.
 
         \bigskip
 
-        Mutual exclusion enforces only one thread to enter critical section at a time.
-
-        \bigskip
-
-
+        \texttt{pthread\_mutex\_lock()} is one of the locks that enforces mutual exclusion.
 
         \bigskip
 
