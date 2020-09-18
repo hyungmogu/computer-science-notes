@@ -500,15 +500,50 @@
             \end{itemize}
             \item \textbf{Stack Pointer}
             \begin{itemize}
-                \item points to location last item placed in memory block
+                \item Points to location last item placed in memory block
+                \item Decreases when an item is put on the stack [Not required. But interesting fact]
+                \item Increases when you pull the item from the stack [Not required. But interesting fact]
 
                 \begin{center}
                 \includegraphics[width=0.8\linewidth]{../../images/midterm_5_solution_2.png}
                 \end{center}
             \end{itemize}
             \item \textbf{User Register}
+            \begin{itemize}
+                \item [\color{blue}Question\color{black}] What is User register? I looked up online
+                and the answers give little information.
+            \end{itemize}
             \item \textbf{Kernel State}
+            \begin{itemize}
+                \item Is also called \textbf{process state}
+                \item Has 3 states
+                \begin{enumerate}[1.]
+                    \item \textbf{Running:}
+                    \begin{itemize}
+                        \item means a processs is running on a processor
+                        \item means instructions are being executed
+                    \end{itemize}
+                    \item \textbf{Ready:}
+                    \begin{itemize}
+                        \item means a process is ready to run
+                        \item means OS has chosen not to run the program at the given moment
+                    \end{itemize}
+                    \item \textbf{Blocked:}
+                    \begin{itemize}
+                        \item means a process has performed some kind of operation that makes it not ready to run
+                        until some event takes place
+                    \end{itemize}
+                \end{enumerate}
+            \end{itemize}
         \end{itemize}
+
+        \bigskip
+
+        \underline{\textbf{References}}
+
+        \begin{enumerate}[1)]
+            \item New Mexico Tech, The stack and stack pointer, \href{http://www.ee.nmt.edu/~erives/308L_05/The_stack.pdf}{link}
+        \end{enumerate}
 
         \item
 
