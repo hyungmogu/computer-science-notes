@@ -251,9 +251,25 @@
         pthread_mutex_t lock;
     } account;
 
+    void transfer_amount(account *a1, account *a2, float amount) {
 
+        // lock critical section during the transfer process
+        // transfer amount
+
+        // lock the transferring user if the balance is negative
+
+    }
 
 \end{lstlisting}
+
+    \bigskip
+
+    \underline{\textbf{Notes}}
+
+    \begin{itemize}
+        \item [\color{blue}Question\color{black}] When do we use the while loop like lock?
+        \item [\color{blue}Question\color{black}] Does the use of if statement to put thread into sleep acceptable?
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
