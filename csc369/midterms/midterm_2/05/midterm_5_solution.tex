@@ -784,6 +784,24 @@
             \item I feel week about user-level threads and kernel-level threads
             \item [\color{blue}Question\color{black}] What is user level thread?
             \item [\color{blue}Question\color{black}] What is kernel level thread?
+            \item \textbf{User-level Thread}
+            \begin{itemize}
+                \item Is implemented by users
+                \item Is represented by a program counter (PC), stack registers, and a small
+                process control block
+
+                \begin{center}
+                \includegraphics[width=0.8\linewidth]{../../images/midterm_5_solution_3.png}
+                \end{center}
+
+                \item kernel is not aware of the existence of these threads
+            \end{itemize}
+            \item \textbf{Kernel-level Thread}
+            \begin{itemize}
+                \item Is managed by OS
+                \item Is slower than user-level thread
+                \item Are slower to create as well as manage
+            \end{itemize}
         \end{itemize}
 
     \end{enumerate}
