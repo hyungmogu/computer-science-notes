@@ -86,16 +86,29 @@
     \end{itemize}
     \item \textbf{Disk Performance}
     \begin{itemize}
+        \item [\color{red}IMPORTANT\color{black}] We should know the bulk part time of how this works
         \item \textbf{Seek:}
         \begin{itemize}
             \item Is the time it takes to move the disk arm to correct cylinder
+            \item Depends on how fast disk arm can move
+            \item Typical time: 1-15ms, depending on distance (avg 5-6 ms)
         \end{itemize}
         \item \textbf{Rotation:}
+        \begin{itemize}
+            \item Is the time it takes to rotate under the head to get to correct sector
+            \item Average latency of $\frac{1}{2}$ rotation
+            \item Depends on rotation rate of disk
+        \end{itemize}
         \item \textbf{Transfer:}
+        \begin{itemize}
+            \item Is the time it takes to transfer data from surface to disk controller, electronics
+            and sending it back to host
+            \item Depends on density
+            \item Is improving rapidly
+        \end{itemize}
     \end{itemize}
     \item \textbf{Track Skew}
     \begin{itemize}
-        \item compensates the time of disk arm moving from one track to next
         \item Is to reduce rotational latency
     \end{itemize}
 \end{enumerate}
