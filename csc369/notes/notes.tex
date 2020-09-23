@@ -272,8 +272,19 @@
 
     \begin{itemize}
         \item Is replacement of old FAT file system
-        \item Introduced in 2000 and is still going strong
-        \item Each volume is a linear sequence of blocks
+        \item Uses extent-based allocation
+        \begin{itemize}
+            \item \underline{Tries} to allocate files in consecutive blocks
+        \end{itemize}
+        \item Each volume is a linear sequence of blocks (usually 4KB in size)
+        \item Each has a \textbf{master file table}
+        \begin{itemize}
+            \item Is 1KB (or Kib) long
+            \item One or more records per file or directory
+            \begin{itemize}
+                \item Is analogous to \textbf{inode}
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
