@@ -56,9 +56,8 @@
 
 \begin{enumerate}[1.]
     \item \textbf{Secondary Storage Devices}
-
     \begin{itemize}
-        \item
+        \item Focus will be on hard-drives
     \end{itemize}
     \item \textbf{Disk Components}
 
@@ -82,7 +81,15 @@
                 \item Size of disk block is multiple of sectors
             \end{itemize}
         \end{itemize}
-        \item Disk arm touching surface $\to$ disk suface crash
+        \item Disk suface crash
+        \begin{center}
+        \includegraphics[width=0.4\linewidth]{images/notes_5.png}
+        \end{center}
+
+        \begin{itemize}
+            \item Occurs when disk arm touching surface
+            \item Results in permanent loss of information on the track
+        \end{itemize}
     \end{itemize}
     \item \textbf{Disk Performance}
     \begin{itemize}
@@ -154,7 +161,12 @@
     \end{itemize}
     \item \textbf{Disk and the OS}
     \begin{itemize}
-        \item
+        \item The OS provides different levels of disk access to different clients
+        \begin{itemize}
+            \item Physical disk (e.g surface, cylinder, sector)
+            \item [\color{red}IMPORTANT\color{black}] Logical disk (disk block \#) \color{red}$\leftarrow$ what we will do for the first assignment\color{black}
+            \item Logical file (e.g file block, record, or byte \#)
+        \end{itemize}
     \end{itemize}
 \end{enumerate}
 
