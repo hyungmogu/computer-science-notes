@@ -236,9 +236,28 @@
     \end{itemize}
 
     \item \textbf{Fast File System}
+
     \begin{itemize}
         \item Is a disk aware file system
-        \item Addresses placement problems using \textbf{cylinder groups}
+        \item Addressed placement problems using \textbf{cylinder groups}
+
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/notes_8.png}
+        \end{center}
+
+        \begin{itemize}
+            \item Steps
+            \begin{itemize}
+                \item Data blocks in the same file allocated in same cylinder group
+                \item Files in the same directory allocated in same cylinder group
+                \item Inodes for files allocated in same cylinder group as file data blocks
+            \end{itemize}
+            \item Allocation in cylinder groups provide closeness $\to$ less long seeks
+            \item Has Free space requirements
+            \begin{itemize}
+                \item
+            \end{itemize}
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
