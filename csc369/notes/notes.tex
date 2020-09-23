@@ -253,9 +253,13 @@
                 \item Inodes for files allocated in same cylinder group as file data blocks
             \end{itemize}
             \item Allocation in cylinder groups provide closeness $\to$ less long seeks
-            \item Has Free space requirements
+            \item Has \textbf{Free space requirements}
             \begin{itemize}
-                \item
+                \item requires free space to be scattered across disk to allocate properly using \textbf{cylinder groups}
+                \item 10\% of total disk space in each \textbf{cylinder group} is reserverd for this
+                \item Doesn't like filling up one cylinder group
+                \item Large file is allocated by breaking into cunkhs and storing each in different cylinder groups
+                \item Allocates near by cylinder group if preferred cylinder group is full
             \end{itemize}
         \end{itemize}
     \end{itemize}
