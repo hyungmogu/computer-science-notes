@@ -175,16 +175,30 @@
 \begin{itemize}
     \item \textbf{Enhancing Disk Performance}
     \begin{itemize}
-        \item \textbf{Amortization}
+        \item File system needs to be aware of disk charactersistics for performance
         \begin{itemize}
-            \item Compensates positioning delay
-            \item Grabs lots of useful data while at it
-            \item Performance improvement upto factor of 10
+            \item \textbf{Allocation Algorithm} $\to$ enhances performance
+            \begin{itemize}
+                \item e.g Extent-based allocation, indexed based allocation, linked-based allocation
+            \end{itemize}
+            \item \textbf{Request Scheduling} $\to$ reduce seek time
+            \begin{itemize}
+                \item e.g. FCFS, SSTF, SCAN, C-SCAN
+            \end{itemize}
         \end{itemize}
-        \item \textbf{Closeness}
+        \item Disk characteristics yields to goals:
         \begin{itemize}
-            \item Done by putting things close to each other
-            \item Performance benefit in factors of 2
+            \item \textbf{Amortization}
+            \begin{itemize}
+                \item Compensates positioning delay
+                \item Grabs lots of useful data while at it
+                \item Performance improvement upto factor of 10
+            \end{itemize}
+            \item \textbf{Closeness}
+            \begin{itemize}
+                \item Done by putting things close to each other
+                \item Performance benefit in factors of 2
+            \end{itemize}
         \end{itemize}
     \end{itemize}
     \item \textbf{Allocation Strategies}
