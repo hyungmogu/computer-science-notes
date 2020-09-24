@@ -63,7 +63,7 @@
     \texttt{readdir(/dir2, 0x7f2cec0016b0)}\\
     \texttt{getattr(/dir2/newfile, 0x7f2cf0c48c30)}
 
-    \item \texttt{utimens} is called using the following list of commands
+    \item \texttt{passthrough\_utimens} is called using the following list of commands
 
     \begin{itemize}
         \item \texttt{touch /tmp/hyungmo/dir1} (when directory \texttt{dir1} already exists)
@@ -81,7 +81,17 @@
 
     \bigskip
 
-    NOTE: None detected when a file is created through \texttt{rootdir}
+    \color{red}NOTE\color{black}: None detected when a file is created through \texttt{rootdir}
+
+    \bigskip
+
+    \item Creating a file in \texttt{/tmp/hyungmo/dir1} can be seen through \texttt{rootdir}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{images/notes_15.png}
+    \end{center}
+
+    \item \texttt{passthrough\_rename} is called using \texttt{mv} command
 
 \end{enumerate}
 
