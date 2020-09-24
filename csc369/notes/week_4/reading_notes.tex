@@ -255,21 +255,47 @@
 
 \subsection{Process API}
 \begin{itemize}
-    \item has the following in any operating systems
+    \item has the following methods in any operating systems
     \begin{itemize}
         \item \textbf{Create}
         \begin{itemize}
             \item Is a method for creating a new process
-            \item Invoked when
+            \item Invoked to OS when
             \begin{itemize}
-                \item a command is typed into shell
-                \item Double-click on an application icon
+                \item A command is typed into shell
+                \item An application icon is double-clicked
             \end{itemize}
         \end{itemize}
         \item \textbf{Destroy}
+        \begin{itemize}
+            \item Is a method for forcefully destroying a process
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            \texttt{kill}
+        \end{itemize}
         \item \textbf{Wait}
+        \begin{itemize}
+            \item Is a method that causes a process stop running until a
+            signal is given
+        \end{itemize}
         \item \textbf{Miscellaneous Control}
         \item \textbf{Status}
+        \begin{itemize}
+            \item Is a method for getting information about a process
+
+            \bigskip
+
+            \underline{\textbf{Example}}
+
+            \bigskip
+
+            How long it has run for, what state it is in
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 \subsection{Process Creation: A little more detail}
