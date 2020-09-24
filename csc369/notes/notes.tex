@@ -291,14 +291,21 @@
     \item \textbf{MFT Record}
 
     \begin{center}
-    \includegraphics[width=0.6\linewidth]{images/notes_10.png}
-    % \caption{An MTF Record for 3-run 9-blocks file}
+        \includegraphics[width=0.6\linewidth]{images/notes_10.png}
     \end{center}
 
     \begin{itemize}
         \item Is analogous to inode
+        \item Is a 9-run 3-block file
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{images/notes_11.png}
+        \end{center}
         \item Each data attribute indicates the starting block and the number of blocks in a run (or extent)
         \item If all records are large and one MTF recrod is not enough, extension record is used to hold more
+
+        \begin{center}
+        \includegraphics[width=\linewidth]{images/notes_12.png}
+        \end{center}
     \end{itemize}
 \end{itemize}
 
