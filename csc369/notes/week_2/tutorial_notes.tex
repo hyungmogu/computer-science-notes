@@ -49,9 +49,19 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.4pt}
 \lhead{CSC 369}
-\rhead{TUtorial Notes}
+\rhead{Tutorial Notes}
 
 \begin{document}
 \title{CSC 369 Tutorial Notes}
+
+\begin{enumerate}[1.]
+    \item \texttt{ls /tmp/mount/dir2} calls the following:
+
+    \bigskip
+
+    \texttt{getattr(/dir2, 0x7f2cebffec30)}\\
+    \texttt{readdir(/dir2, 0x7f2cec0016b0)}\\
+    \texttt{readdir(/dir2/newfile, 0x7f2cf0c48c30)}
+\end{enumerate}
 
 \end{document}
