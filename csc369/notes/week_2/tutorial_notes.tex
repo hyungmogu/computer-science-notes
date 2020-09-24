@@ -100,10 +100,21 @@
     \end{itemize}
 
 
-    \item Creating file \texttt{bfile} via \texttt{nano} invokes the following system calls
+    \item Just running \texttt{nano /tmp/hyungmo/bfile} invokes the following system calls
 
     \begin{itemize}
-        \item
+        \item \texttt{create}
+        \item \texttt{getattr}
+        \item \texttt{write}
+    \end{itemize}
+
+    \item Writing words, saving and exiting in \texttt{nano /tmp/hyungmo/bfile} invokes the following system calls:
+
+    \begin{itemize}
+        \item \texttt{getattr}
+        \item \texttt{create}
+        \item \texttt{unlink}
+        \item \texttt{write}
     \end{itemize}
 
 \end{enumerate}
