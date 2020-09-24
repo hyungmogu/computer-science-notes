@@ -117,6 +117,15 @@
         \item \texttt{write}
     \end{itemize}
 
+    \item Accessing \texttt{nano /tmp/hyungmo/bfile} invokes the following system calls
+
+    \begin{itemize}
+        \item \texttt{getattr} (from \texttt{bfile} and \texttt{.bfile.swp})
+        \item \texttt{create} (from \texttt{.bfile.swp})
+        \item \texttt{read} (from \texttt{bfile})
+        \item \texttt{write} (from \texttt{.bfile.swp})
+    \end{itemize}
+
 \end{enumerate}
 
 \end{document}
