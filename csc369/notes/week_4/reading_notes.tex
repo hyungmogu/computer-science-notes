@@ -209,12 +209,13 @@
     \end{itemize}
     \item \textbf{Context Switch}
     \begin{itemize}
-        \item
+        \item is the process of storing the state of a process or thread, so
+        that it can be restored and resume execution at a later point
     \end{itemize}
     \item \textbf{Register Context}
     \begin{itemize}
         \item Is the data structure where contents of registers are saved before
-        a process context switches into blocked state
+        a process switches into blocked state
 
         \bigskip
 
@@ -229,8 +230,36 @@
         \item Is a data structure used by computer operating systems to store all the information about a process
     \end{itemize}
     \item \textbf{Zombie State}
+    \begin{itemize}
+        \item Is a process that has completed execution but still has an entry in the process table
+    \end{itemize}
 \end{enumerate}
 
 \end{mdframed}
+
+\bigskip
+
+\begin{itemize}
+    \item Process
+    \begin{itemize}
+        \item Is named by process ID or PID
+        \item Is comprised of
+        \begin{itemize}
+            \item \textbf{Address Space}
+            \item \textbf{CPU Registers}
+            \item \textbf{Program Counter}
+            \item \textbf{Stack Pointer}
+            \item \textbf{Frame Pointer}
+            \item \textbf{I/O Information}
+        \end{itemize}
+    \end{itemize}
+    \item Process API
+    \begin{itemize}
+        \item has the following in any operating systems
+    \end{itemize}
+    \item Process Creation: A little more detail
+    \item Process States
+    \item Data Structures
+\end{itemize}
 
 \end{document}
