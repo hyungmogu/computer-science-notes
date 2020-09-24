@@ -284,7 +284,21 @@
             \begin{itemize}
                 \item Is analogous to \textbf{inode}
             \end{itemize}
+            \item Long attributes can be stored externally, and a pointer kept in MFT record
         \end{itemize}
+    \end{itemize}
+
+    \item \textbf{MFT Record}
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{images/notes_10.png}
+    % \caption{An MTF Record for 3-run 9-blocks file}
+    \end{center}
+
+    \begin{itemize}
+        \item Is analogous to inode
+        \item Each data attribute indicates the starting block and the number of blocks in a run (or extent)
+        \item If all records are large and one MTF recrod is not enough, extension record is used to hold more
     \end{itemize}
 \end{itemize}
 
