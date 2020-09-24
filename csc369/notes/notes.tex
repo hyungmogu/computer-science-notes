@@ -286,6 +286,11 @@
             \end{itemize}
             \item Long attributes can be stored externally, and a pointer kept in MFT record
         \end{itemize}
+        \item Metadata
+        \begin{itemize}
+            \item Key-value pairs
+            \item Significant flexibility
+        \end{itemize}
     \end{itemize}
 
     \item \textbf{MFT Record}
@@ -295,6 +300,8 @@
     \end{center}
 
     \begin{itemize}
+        \item [\color{blue}Question\color{black}] How does Master File Record look like when a file grows from
+        a small to a larger file where 1 MTFR is not enough?
         \item Is analogous to inode
         \item Is a 9-run 3-block file
         \begin{center}
@@ -306,6 +313,27 @@
         \begin{center}
         \includegraphics[width=\linewidth]{images/notes_12.png}
         \end{center}
+    \end{itemize}
+
+    \item \textbf{MTF Record for a Small Directory}
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{images/notes_13.png}
+    \end{center}
+
+    \begin{itemize}
+        \item Directories are stored as a simple list
+        \item Large directories use \textbf{B+ trees}
+    \end{itemize}
+
+    \item \textbf{MTF Small File}
+
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{images/notes_14.png}
+    \end{center}
+
+    \begin{itemize}
+        \item Small files can be stored directly inside MTF record
     \end{itemize}
 \end{itemize}
 
