@@ -70,6 +70,19 @@
         \item \texttt{touch /tmp/hyungmo/newfile} (when file \texttt{newfile} doesn't exist)
         \item \texttt{touch /tmp/mount/afile} (when file \texttt{afile} already exists)
     \end{itemize}
+
+    \item \texttt{cd /tmp/hyungmo/dir1} is called, the following functions are run
+
+    \begin{itemize}
+        \item \texttt{getattr}
+    \end{itemize}
+
+    \item FUSE doesn't detect passthrough code created in \texttt{rootdir/dir1}
+
+    \bigskip
+
+    NOTE: None detected when a file is created through \texttt{rootdir}
+
 \end{enumerate}
 
 \end{document}
