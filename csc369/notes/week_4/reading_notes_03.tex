@@ -111,15 +111,15 @@
     \end{itemize}
     \item \textbf{Trap}
     \begin{itemize}
-        \item Is a type of synchronous interrupt caused by an exceptional condition
-        \item Usually results in a switch to kernel mode
-        \item Exceptional condition such as:
+        \item Is a type of synchronous interrupt caused by an exceptional condition that
+        \item Exceptional condition include:
         \begin{itemize}
             \item Breakpoint
             \item Division by zero
             \item Invalid memory access
             \item System Call
         \end{itemize}
+        \item Usually results in a processor switching to kernel mode
     \end{itemize}
     \item \textbf{Return-from-Trap}
     \begin{itemize}
@@ -130,6 +130,13 @@
         \end{itemize}
     \end{itemize}
     \item \textbf{Trap Table}
+    \begin{itemize}
+        \item Is an instruction that
+        \begin{itemize}
+            \item Restores saved registers from kernel stack
+            \item Swithces the processor back to \textbf{user mode}
+        \end{itemize}
+    \end{itemize}
     \item \textbf{Trap Handlers}
     \item \textbf{System-call Numebr}
     \item \textbf{Timer Interrupt}
