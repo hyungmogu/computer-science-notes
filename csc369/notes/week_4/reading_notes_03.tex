@@ -209,7 +209,8 @@
         \item Wait for \textbf{System call}
         \begin{itemize}
             \item Used in early days
-            \item OS regains control from CPU by waiting process to invoke a system call
+            \item OS regains control from CPU when \texttt{yield()} system call is invoked at the end
+            \item Control also regained when other types of traps are raised
             \item Infinite loop $\to$ System call never invoked $\to$ Not good
         \end{itemize}
     \end{itemize}
