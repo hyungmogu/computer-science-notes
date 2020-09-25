@@ -95,12 +95,24 @@
 
 \subsection{wait() System Call}
 \begin{itemize}
-    \item
+    \item Forces parent to wait for a child process to finish its process
 \end{itemize}
 
 \subsection{exec() System Call}
 \begin{itemize}
-    \item
+    \item \underline{Does not} create a new process
+    \begin{itemize}
+        \item Current running program is overwritten
+        \item Code segment, heap, and stack are re-initialized
+
+        \bigskip
+
+        \underline{\textbf{Example}}
+
+        \bigskip
+
+        \texttt{}
+    \end{itemize}
 \end{itemize}
 
 \end{document}
