@@ -186,11 +186,16 @@
     \item Solution
     \begin{itemize}
         \item \textbf{system call}
-    \end{itemize}
+        \begin{itemize}
+            \item Exact \textbf{system call number} is placed in a register or specificied location on the stack
+            \item OS, when handling the system call, examines the number, ensure its valid, and execute
+            corresponding code
+        \end{itemize}
 
-    \begin{center}
-    \includegraphics[width=0.6\linewidth]{images/notes_4_9.png}
-    \end{center}
+        \begin{center}
+        \includegraphics[width=0.6\linewidth]{images/notes_4_9.png}
+        \end{center}
+    \end{itemize}
 \end{itemize}
 
 \subsection{Problem \#2: Switching Between Processes}
