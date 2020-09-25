@@ -67,6 +67,9 @@
         \item Is an unique identifier for an active process
     \end{itemize}
     \item \textbf{CPU Scheduler}
+    \begin{itemize}
+        \item Is a policy which determines which process to run at a given point in time
+    \end{itemize}
     \item \textbf{Concurrency}
     \item \textbf{Deterministic}
     \item \textbf{Non-deterministic}
@@ -101,18 +104,18 @@
 \subsection{exec() System Call}
 \begin{itemize}
     \item \underline{Does not} create a new process
-    \begin{itemize}
-        \item Current running program is overwritten
-        \item Code segment, heap, and stack are re-initialized
+    \item Transforms currently running program into a different running program
+    \item Current running program is overwritten
+    \item Code segment, heap, and stack are re-initialized
 
-        \bigskip
+    \bigskip
 
-        \underline{\textbf{Example}}
+    \underline{\textbf{Example}}
 
-        \bigskip
+    \bigskip
 
-        \texttt{}
-    \end{itemize}
+    \texttt{(pid: 123) p3.c} --- \texttt{exec()} ---$>$ \texttt{(pid: 123) ls -al}
+
 \end{itemize}
 
 \end{document}
