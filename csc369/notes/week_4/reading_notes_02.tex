@@ -62,6 +62,15 @@
 \bigskip
 
 \begin{enumerate}[1.]
+    \item \textbf{Process Identifier (PID)}
+    \begin{itemize}
+        \item Is an unique identifier for an active process
+    \end{itemize}
+    \item \textbf{CPU Scheduler}
+    \item \textbf{Concurrency}
+    \item \textbf{Deterministic}
+    \item \textbf{Non-deterministic}
+    \item \textbf{Multi-threaded Programs}
     \item \textbf{Signal}
     \begin{itemize}
         \item
@@ -75,7 +84,13 @@
     \item Creates a new process
     \item Is an almost exact copy of the calling process
     \item \textbf{Parent} is the creator
+    \begin{itemize}
+        \item Runs from \texttt{main()} (beginning of program)
+    \end{itemize}
     \item \textbf{Child} is the newly created process
+    \begin{itemize}
+        \item Runs from \texttt{fork()} (where \texttt{fork()} occurs)
+    \end{itemize}
 \end{itemize}
 
 \subsection{wait() System Call}
