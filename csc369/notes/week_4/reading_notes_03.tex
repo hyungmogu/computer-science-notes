@@ -131,13 +131,15 @@
     \end{itemize}
     \item \textbf{Trap Table}
     \begin{itemize}
-        \item Is an instruction that
-        \begin{itemize}
-            \item Restores saved registers from kernel stack
-            \item Swithces the processor back to \textbf{user mode}
-        \end{itemize}
+        \item [\color{blue}Question\color{black}] What is the exact definition of a trap table? OSTEP
+        glosses over it :(
+        \item Is synonymous to 대응 메뉴얼
+        \item Is a list of trap handlers where each is for specific trap
     \end{itemize}
     \item \textbf{Trap Handlers}
+    \begin{itemize}
+        \item Is the code that will run when the trap is triggered.
+    \end{itemize}
     \item \textbf{System-call Numebr}
     \item \textbf{Timer Interrupt}
 \end{enumerate}
