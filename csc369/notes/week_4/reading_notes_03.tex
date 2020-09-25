@@ -200,9 +200,18 @@
 
 \subsection{Problem \#2: Switching Between Processes}
 \begin{itemize}
-    \item \textbf{Question:} When we are running a process, how does the oeprating system stop it
+    \item \textbf{Question:} When we are running a process, how does the operating system stop it
     from running and switch to another process, thus implementing \textbf{time sharing} mechanism
     to virtualize CPU?
+    \item OS doesn't have control when process is running on CPU. So how can this be done?
+    \item \textbf{Solution \#1}
+    \begin{itemize}
+        \item Wait for \textbf{System call}
+    \end{itemize}
+    \item \textbf{Solution \#2}
+    \begin{itemize}
+        \item The OS takes control
+    \end{itemize}
 \end{itemize}
 
 \subsection{Concurrency}
