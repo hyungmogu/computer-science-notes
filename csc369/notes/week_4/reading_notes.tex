@@ -307,6 +307,14 @@
         \item Type a command into commandline / Double click an application
         \item Load program code and static data (e.g. initialized variables) into
         memory, into the address space of the process
+        \item Allocate stack memory
+        \item Allocate heap memory (if applicable)
+        \item Setup I/O
+        \begin{itemize}
+            \item Each process has 3 open \textbf{file descriptors} by default:
+            input, output and error
+            \item Allows easy reading of input from the terminal and output to screen
+        \end{itemize}
     \end{enumerate}
 
     \begin{center}
